@@ -1,0 +1,158 @@
+﻿@charset "UTF-8";
+@mixin clearfix()
+{*zoom:1;
+  &:after{content:"\200B";display:block;height:0;clear:both}
+}
+html,body{
+  overflow:hidden;
+  background-color:#f0f0f0;
+}
+
+li,ul{
+  list-style:none;
+  padding:0;
+}
+
+.shop-app-download{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  background:url(/images/soft/appshop/icons-appshop-download.jpg) center no-repeat;
+  height:60px;
+  z-index: 999;
+  a{
+    display:block;
+    width:100%;
+    height:60px;
+    color:#fff;
+    text-decoration:none;
+    font-size:16px;
+    div{
+      padding:10px 0 0 0;
+      margin-right:50px;
+      text-align: center;
+    }
+
+  }
+}
+
+.shop-app-message{
+  margin-top:60px;
+}
+.shop-app-message-send{
+  //height:30px;
+  border-top:1px solid #ccc;
+  padding:3px 0;
+  background:#fff;
+  .container{
+    padding:0 5px;
+  }
+}
+
+.messagebox{
+  padding-top:30px;
+  li{
+    margin-bottom: 20px;
+    @include clearfix();
+  }
+  li.from{
+
+    dt{
+      float:left;
+      display:inline;
+      margin-left: -50px;
+      position:relative;
+      span{
+        position:absolute;
+        right: -10px;
+        top:12px;
+        width:10px;
+        height:10px;
+        background:url(/images/soft/appshop/icons-appshop-message.png) -30px 0px no-repeat;
+        zoom:1;
+      }
+    }
+    dd{
+      text-align: left;
+      background-color:#95df5d;
+      span{
+        float:right;
+        width:25px;
+        height:25px;
+        margin-right:0px;
+        margin-top:0px;
+        background:url(/images/soft/appshop/icons-appshop-message.png) 8px -71px no-repeat;
+      }
+    }
+  }
+
+  li.my{
+
+    dt{
+      float:right;
+      display:inline;
+      margin-right: -50px;
+
+      span{
+        float:left;
+        width:10px;
+        height:10px;
+        margin-left:-10px;
+        margin-top:12px;
+        background:url(/images/soft/appshop/icons-appshop-message.png) -10px 0px no-repeat;
+
+      }
+
+    }
+    dd{
+      text-align: left;
+      background-color:#d9d9d9;
+
+      span{
+        float:left;
+        width:25px;
+        height:25px;
+        margin-left:0;
+        margin-top:0;
+        background:url(/images/soft/appshop/icons-appshop-message.png) 1px -111px no-repeat;
+      }
+    }
+  }
+
+  dl{
+    margin-right:50px;
+    margin-left:50px;
+
+    dt{
+      width:40px;
+      height:40px;
+      background:#fff;
+      border-radius:6px;
+      text-align: center;
+      vertical-align:middle;
+
+      img{
+        display:inline-block;
+      }
+    }
+
+    dd{
+      font-size:14px;
+      line-height:20px;
+      padding: 10px 10px;
+      border-radius:6px;
+      word-break:break-all;
+    }
+  }
+}
+
+
+.red{
+  color: #e00;
+}
+.tac{
+  text-align:center;
+}
+hr{margin:0;line-height:0;}
+

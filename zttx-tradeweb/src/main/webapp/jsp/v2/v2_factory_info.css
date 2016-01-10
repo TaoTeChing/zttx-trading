@@ -1,0 +1,530 @@
+@charset "UTF-8";
+
+
+@keyframes m-l {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes m-l {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes m-r {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes m-r {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes fadeZoomIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeZoomIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.fadeZoomIn{
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: fadeZoomIn;
+    animation-name: fadeZoomIn;
+}
+.m-l{
+    -webkit-animation-name: m-l;
+    animation-name: m-l;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.m-r{
+    -webkit-animation-name: m-r;
+    animation-name: m-r;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+a{
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+
+.f-nav{
+    height: 40px;
+    background-color: #e00;
+}
+.m-nav{
+    width: 1190px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+}
+.m-nav li{
+    margin-right: 65px;
+}
+.m-nav li a{
+    display: block;
+    padding: 0 10px;
+    font-size: 16px;
+    color: #fff;
+}
+.m-nav li a.current,
+.m-nav li a:hover{
+    background-color: #a60101;
+}
+.slogan{
+    width: 302px;
+    height: 40px;
+    background: url("images/factory_info/f_r0.png") no-repeat;
+}
+.f-banner{
+    min-width: 1190px;
+    height: 400px;
+    background: #dc192a url("images/factory_info/f_b.jpg") center ;
+}
+.m-banner{
+    width: 1190px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.m-banner .s-b1,
+.m-banner .s-b2,
+.m-banner .s-b3,
+.m-banner .s-b4{
+    position: absolute;
+}
+.m-banner .s-b1{
+    width: 562px;
+    height: 197px;
+    background: url("images/factory_info/f_b1.png") no-repeat;
+    top: 94px;
+    left: 40px;
+    z-index: 3;
+}
+.m-banner .s-b2{
+    width: 320px;
+    height: 270px;
+    background: url("images/factory_info/f_b2.png") no-repeat;
+    top: 76px;
+    left: 526px;
+    z-index: 2;
+}
+.m-banner .s-b3,
+.m-banner .s-b4{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 5;
+}
+.m-banner .s-b3{
+    width: 220px;
+    height: 240px;
+    padding: 40px;
+}
+.m-banner .s-b4{
+    width:300px;
+    height: 320px;
+    background: #fff;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    z-index: 4;
+}
+.m-banner .s-b3 h3{
+    font-size: 18px;
+}
+.m-banner .s-b3 h3 span{
+    padding: 0 5px;
+    font-size: 22px;
+    color: #e00;
+}
+.m-banner .s-b3 p{
+    margin-top: 20px;
+    font-size: 14px;
+}
+.m-banner .s-b3 a{
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: #e00;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+.m-banner .s-b3 a:hover{
+    background-color: #a60101;
+}
+
+.f-main{
+    width: 1190px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.m-main{
+    padding: 40px;
+}
+
+/*1.加盟8637工厂店*/
+.m-info .fl,
+.m-info .fr{
+    width: 505px;
+    line-height: 30px;
+    font-size: 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.m-info .fr{
+    width: 520px;
+}
+.m-info p{
+    margin-top: 20px;
+}
+.m-info em{
+    color: #e00;
+}
+.m-info li{
+    margin-top: 19px;
+    margin-left: 24px;
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+
+.m-paper{
+    margin-top: 40px;
+    background: url("images/factory_info/f_db.jpg") repeat-y;
+    font-size: 14px;
+    color: #fff;
+}
+.m-paper-cen{
+    padding: 40px;
+    background: url("images/factory_info/f_d1.jpg") no-repeat left top;
+}
+.m-paper a{
+    color: #fff;
+}
+.m-paper a:hover{
+    color: #f80;
+}
+.m-paper .fl,
+.m-paper .fr{
+    width: 465px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.m-paper .title{
+    text-align: center;
+}
+.m-paper .title h4{
+    font-size: 36px;
+}
+.m-paper .content{
+    height: 350px;
+    margin-top: 60px;
+}
+.m-paper .content p{
+    line-height: 30px;
+    word-wrap: break-word;
+    letter-spacing: 1px;
+}
+.m-paper .btns{
+    width: 380px;
+    margin: 60px auto 0 auto;
+    text-align: right;
+}
+.m-paper .btns .btn1{
+    display: block;
+    height: 56px;
+    line-height: 56px;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    text-align: center;
+    font-size: 24px;
+}
+.m-paper .btns .btn1:hover{
+    border-color: #f80;
+    background-color: #f80;
+    color: #fff;
+}
+/*2.8637工厂店项目介绍*/
+.f-num-1,
+.f-num-2,
+.f-num-3,
+.f-num-4,
+.f-num-5,
+.f-num-6,
+.f-num-7,
+.f-num-8{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 16px;
+    height: 18px;
+    margin-right: 8px;
+    background: url("images/factory_info/f_num1.png") no-repeat -999em;
+    vertical-align: 0px;
+    *vertical-align: middle;
+}
+.f-num-1{
+    background-position: 0 0;
+}
+.f-num-2{
+    background-position: 0 -28px;
+}
+.f-num-3{
+    background-position: 0 -56px;
+}
+.f-num-4{
+    background-position: 0 -84px;
+}
+.f-num-5{
+    background-position: 0 -112px;
+}
+.f-num-6{
+    background-position: 0 -140px;
+}
+.f-num-7{
+    background-position: 0 -168px;
+}
+.f-num-8{
+    background-position: 0 -196px;
+}
+
+.m-intro .fl{
+    width: 440px;
+}
+.m-intro .fr{
+    width: 630px;
+}
+.m-intro p{
+    margin-bottom: 10px;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.m-incom{
+    margin-top: 20px;
+}
+.m-incom .title{
+    height: 60px;
+    position: relative;
+}
+.m-incom .title .line{
+    height: 1px;
+    background-color: #ccc;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.m-incom .title .tit1,
+.m-incom .title .tit2,
+.m-incom .title .tit3,
+.m-incom .title .tit4{
+    width: 180px;
+    height: 60px;
+    margin: 0 auto;
+    background: #fff url("images/factory_info/f_t.png") no-repeat -999em;
+    position: relative;
+    z-index: 2;
+}
+.m-incom .title .tit1{
+    background-position: 18px 0;
+}
+.m-incom .title .tit2{
+    background-position: 18px -79px;
+}
+.m-incom .title .tit3{
+    background-position: 18px -159px;
+}
+.m-incom .title .tit4{
+    background-position: 18px -238px;
+}
+.m-incom .fore1{
+
+}
+.m-incom .fore1 .fore1_inner{
+    margin-right: -90px;
+}
+.m-incom .fore1 dl{
+    float: left;
+    display: inline;
+    width: 510px;
+    height: 190px;
+    margin-right: 90px;
+    padding-bottom: 40px;
+}
+.m-incom .fore1 .pic{
+    float: left;
+    display: inline;
+    width: 120px;
+    height: 120px;
+    margin-top: 40px;
+    margin-right: 30px;
+    border-radius: 120px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.m-incom .fore1 .pic img{
+    border-radius: 120px;
+}
+.m-incom .fore1 .pic img:hover{
+    box-shadow: 0 0 20px #bcbcbc;
+}
+.m-incom .fore1 .tit{
+    font-size: 24px;
+    color: #e00;
+}
+.m-incom .fore1 .des{
+    line-height: 30px;
+    font-size: 16px;
+    color: #666;
+}
+.m-incom .fore2{
+
+}
+.m-incom .fore2 .fore2_inner{
+    margin-top: 40px;
+    margin-right: -40px;
+}
+.m-incom .fore2 li{
+    width: 246px;
+    height: 260px;
+    margin-right: 40px;
+    background-color: #f2f2f2;
+    position: relative;
+    font-size: 16px;
+    line-height: 30px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.m-incom .fore2 li:hover{
+    box-shadow: 0 0 5px #999;
+    text-shadow: 1px 1px #ddd;
+}
+.m-incom .fore2 li p{
+    padding: 40px 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.m-incom .fore2 li i{
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("images/factory_info/j_num2.png") no-repeat -999em;
+}
+.m-incom .fore2 i.num_1{
+    background-position: 0 0;
+}
+.m-incom .fore2 i.num_2{
+    background-position: 0 -38px;
+}
+.m-incom .fore2 i.num_3{
+    background-position: 0 -76px;
+}
+.m-incom .fore2 i.num_4{
+    background-position: 0 -114px;
+}
+.m-incom .fore4{
+
+}
+.m-incom .fore4 .fore4_inner{
+    margin-top: 40px;
+    margin-right: -30px;
+}
+.m-incom .fore4 li{
+    width: 350px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.m-incom .fore4 li:hover{
+    /*box-shadow: 0 0 5px #999;
+    text-shadow: 1px 1px #ddd;*/
+}
+.m-incom .fore4 .pic{
+
+}
+.m-incom .fore4 .tit{
+    margin-top: 15px;
+    font-size: 16px;
+}
+.m-incom .fore4 .tit em{
+    color: #e00;
+}
+.m-incom .fore4 .des{
+
+}
+.m-incom .fore4 dt,.m-incom .fore4 dd{
+    float: left;
+    display: inline;
+    line-height: 30px;
+    font-size: 14px;
+}
+.m-incom .fore4 dt{
+    width: 70px;
+    color: #999;
+}
+.m-incom .fore4 dd{
+    width: 280px;
+    color: #666;
+}
+/*3.供货8637工厂店*/

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.HelpInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="helpInfoColumns">
+        a.refrenceId as refrenceId,
+        a.helpNo as helpNo ,
+        a.helpCateId as helpCateId,
+        a.title as title,
+        a.subMark as subMark,
+        a.htmlText as htmlText,
+        a.isRecommand as isRecommand ,
+        a.isHot as isHot,
+        a.isFaq as isFaq,
+        a.createIp as createIp,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+    <sql id="extHelpInfoColumns">
+        a.refrenceId as refrenceId,
+        a.helpNo as helpNo ,
+        a.helpCateId as helpCateId,
+        a.title as title,
+        a.subMark as subMark,
+        a.htmlText as htmlText,
+        a.isRecommand as isRecommand ,
+        a.isHot as isHot,
+        a.isFaq as isFaq,
+        a.createIp as createIp,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag,
+        c.helpName as cateName
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.HelpInfo">
+        INSERT INTO HelpInfo (
+            refrenceId,
+            helpNo,
+            helpCateId,
+            title,
+            subMark,
+            htmlText,
+            isRecommand,
+            isHot,
+            isFaq,
+            createIp,
+            createTime,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{helpNo},
+            #{helpCateId},
+            #{title},
+            #{subMark},
+            #{htmlText},
+            #{isRecommand},
+            #{isHot},
+            #{isFaq},
+            #{createIp},
+            #{createTime},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM HelpInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE HelpInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.HelpInfo">
+        insert into HelpInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="helpNo != null">
+                helpNo ,
+            </if>
+            <if test="helpCateId != null">
+                helpCateId ,
+            </if>
+            <if test="title != null">
+                title ,
+            </if>
+            <if test="subMark != null">
+                subMark ,
+            </if>
+            <if test="htmlText != null">
+                htmlText ,
+            </if>
+            <if test="isRecommand != null">
+                isRecommand ,
+            </if>
+            <if test="isHot != null">
+                isHot ,
+            </if>
+            <if test="isFaq != null">
+                isFaq ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="helpNo != null">
+                #{helpNo} ,
+            </if>
+            <if test="helpCateId != null">
+                #{helpCateId} ,
+            </if>
+            <if test="title != null">
+                #{title} ,
+            </if>
+            <if test="subMark != null">
+                #{subMark} ,
+            </if>
+            <if test="htmlText != null">
+                #{htmlText} ,
+            </if>
+            <if test="isRecommand != null">
+                #{isRecommand} ,
+            </if>
+            <if test="isHot != null">
+                #{isHot} ,
+            </if>
+            <if test="isFaq != null">
+                #{isFaq} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.HelpInfo">
+        update HelpInfo
+        <set>
+            <if test="helpNo != null">
+                helpNo = #{helpNo} ,
+            </if>
+            <if test="helpCateId != null">
+                helpCateId = #{helpCateId} ,
+            </if>
+            <if test="title != null">
+                title = #{title} ,
+            </if>
+            <if test="subMark != null">
+                subMark = #{subMark} ,
+            </if>
+            <if test="htmlText != null">
+                htmlText = #{htmlText} ,
+            </if>
+            <if test="isRecommand != null">
+                isRecommand = #{isRecommand} ,
+            </if>
+            <if test="isHot != null">
+                isHot = #{isHot} ,
+            </if>
+            <if test="isFaq != null">
+                isFaq = #{isFaq} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.HelpInfo">
+        UPDATE HelpInfo
+        SET
+            helpNo      = #{helpNo},
+            helpCateId  = #{helpCateId},
+            title       = #{title},
+            subMark     = #{subMark},
+            htmlText    = #{htmlText},
+            isRecommand = #{isRecommand},
+            isHot       = #{isHot},
+            isFaq       = #{isFaq},
+            createIp    = #{createIp},
+            createTime  = #{createTime},
+            updateTime  = #{updateTime},
+            delFlag     = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        select
+        <include refid="helpInfoColumns"/>
+        from HelpInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        SELECT
+        <include refid="helpInfoColumns"/>
+        FROM HelpInfo a WHERE a.delFlag = 0
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId = #{refrenceId}
+        </if>
+        <if test="helpNo != null and helpNo != ''">
+            and a.helpNo = #{helpNo}
+        </if>
+        <if test="helpCateId != null and helpCateId != ''">
+            and a.helpCateId like CONCAT('%',#{helpCateId}, '%')
+        </if>
+        <if test="title != null and title != ''">
+            and a.title like CONCAT('%',#{title}, '%')
+        </if>
+        <if test="subMark != null and subMark != ''">
+            and a.subMark like CONCAT('%',#{subMark}, '%')
+        </if>
+        <if test="htmlText != null and htmlText != ''">
+            and a.htmlText like CONCAT('%',#{htmlText}, '%')
+        </if>
+        <if test="isRecommand != null and isRecommand != ''">
+            and a.isRecommand = #{isRecommand}
+        </if>
+        <if test="isHot != null and isHot != ''">
+            and a.isHot = #{isHot}
+        </if>
+        <if test="isFaq != null and isFaq != ''">
+            and a.isFaq = #{isFaq}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        SELECT
+        <include refid="helpInfoColumns"/>
+        FROM HelpInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findHelpToSolrCount" parameterType="com.zttx.web.module.fronts.entity.HelpInfo"
+            resultType="java.lang.Long">
+        SELECT count(a.refrenceId)
+        FROM HelpInfo a
+        WHERE a.delFlag = 0
+    </select>
+
+    <select id="findHelpToSolr" parameterType="map" resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        SELECT
+        <include refid="helpInfoColumns"/>
+        FROM HelpInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getInfosByHelpCateId" parameterType="map" resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        SELECT
+        <include refid="helpInfoColumns"/>
+        FROM HelpInfo a
+        WHERE
+        (a.helpCateId = #{cateId} or a.helpCateId IN (SELECT b.refrenceId FROM HelpCate b WHERE b.parentId = #{cateId}))
+        AND a.delFlag = 0
+    </select>
+    <select id="selectByClient" resultType="com.zttx.web.module.fronts.entity.HelpInfo">
+        SELECT
+        <include refid="helpInfoColumns"/>
+        , b.cateName AS cateName
+        FROM
+        HelpInfo a
+        LEFT JOIN HelpCate b ON a.helpCateId = b.refrenceId
+        WHERE a.delFlag = 0
+        <if test="helpNo != null and helpNo != ''">
+            and a.helpNo = #{helpNo}
+        </if>
+        <if test="helpCateId != null and helpCateId != ''">
+            and a.helpCateId like CONCAT('%',#{helpCateId}, '%')
+        </if>
+        <if test="title != null and title != ''">
+            and a.title like CONCAT('%',#{title}, '%')
+        </if>
+        <if test="isRecommand != null ">
+            and a.isRecommand = #{isRecommand}
+        </if>
+        <if test="isHot != null ">
+            and a.isHot = #{isHot}
+        </if>
+        <if test="isFaq != null ">
+            and a.isFaq = #{isFaq}
+        </if>
+        order by a.createTime desc
+    </select>
+
+</mapper>
+

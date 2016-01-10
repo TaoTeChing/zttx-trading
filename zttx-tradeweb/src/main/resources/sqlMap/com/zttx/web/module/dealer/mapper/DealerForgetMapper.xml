@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerForgetMapper">
+    <!-- 基础列 -->
+    <sql id="dealerForgetColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.oldPwd as oldPwd ,
+        a.newPwd as newPwd ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerForget">
+        insert into DealerForget(
+         refrenceId ,
+         dealerId ,
+         oldPwd ,
+         newPwd ,
+         createTime ,
+         updateTime ,
+         createIp ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{oldPwd}  ,
+        #{newPwd}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{createIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerForget where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerForget set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerForget">
+        insert into DealerForget
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="oldPwd != null">
+            oldPwd ,
+        </if>
+        <if test="newPwd != null">
+            newPwd ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="createIp != null">
+            createIp ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="oldPwd != null">
+            #{oldPwd} ,
+        </if>
+        <if test="newPwd != null">
+            #{newPwd} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="createIp != null">
+            #{createIp} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerForget">
+        update DealerForget
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="oldPwd != null">
+                oldPwd = #{oldPwd} ,
+            </if>
+            <if test="newPwd != null">
+                newPwd = #{newPwd} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerForget">
+        update DealerForget set
+            dealerId = #{dealerId} ,
+            oldPwd = #{oldPwd} ,
+            newPwd = #{newPwd} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            createIp = #{createIp} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerForget">
+        select <include refid="dealerForgetColumns"/> from DealerForget a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerForget">
+        SELECT
+        <include refid="dealerForgetColumns"/>
+        FROM DealerForget a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="oldPwd != null and oldPwd != ''">
+            and a.oldPwd like CONCAT('%',#{oldPwd}, '%')
+        </if>
+        <if test="newPwd != null and newPwd != ''">
+            and a.newPwd like CONCAT('%',#{newPwd}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerForget">
+        SELECT
+        <include refid="dealerForgetColumns"/>
+        FROM DealerForget a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

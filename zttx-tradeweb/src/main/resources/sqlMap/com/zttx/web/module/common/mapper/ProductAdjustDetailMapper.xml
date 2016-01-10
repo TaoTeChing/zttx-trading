@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductAdjustDetailMapper">
+    <!-- 基础列 -->
+    <sql id="productAdjustDetailColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.proSkuId as proSkuId ,
+        a.beforePrice as beforePrice ,
+        a.beforePercent as beforePercent ,
+        a.afterPrice as afterPrice ,
+        a.afterPercent as afterPercent ,
+        a.createTime as createTime ,
+        a.delFlag as delFlag,
+        a.effTime as effTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        insert into ProductAdjustDetail(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         productId ,
+         proSkuId ,
+         beforePrice ,
+         beforePercent ,
+         afterPrice ,
+         afterPercent ,
+         createTime ,
+         delFlag,
+         effTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{productId}  ,
+        #{proSkuId}  ,
+        #{beforePrice}  ,
+        #{beforePercent}  ,
+        #{afterPrice}  ,
+        #{afterPercent}  ,
+        #{createTime}  ,
+        #{delFlag},
+        #{effTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductAdjustDetail where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductAdjustDetail set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        insert into ProductAdjustDetail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="proSkuId != null">
+            proSkuId ,
+        </if>
+        <if test="beforePrice != null">
+            beforePrice ,
+        </if>
+        <if test="beforePercent != null">
+            beforePercent ,
+        </if>
+        <if test="afterPrice != null">
+            afterPrice ,
+        </if>
+        <if test="afterPercent != null">
+            afterPercent ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag, 
+        </if>
+        <if test="effTime!=null">
+        	effTime
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="proSkuId != null">
+            #{proSkuId} ,
+        </if>
+        <if test="beforePrice != null">
+            #{beforePrice} ,
+        </if>
+        <if test="beforePercent != null">
+            #{beforePercent} ,
+        </if>
+        <if test="afterPrice != null">
+            #{afterPrice} ,
+        </if>
+        <if test="afterPercent != null">
+            #{afterPercent} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} ,
+        </if>
+        <if test="effTime!=null">
+        	#{effTime}
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into ProductAdjustDetail(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         productId ,
+         proSkuId ,
+         beforePrice ,
+         beforePercent ,
+         afterPrice ,
+         afterPercent ,
+         createTime ,
+         delFlag,
+         effTime 
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.brandId}  ,
+            #{item.brandsId}  ,
+            #{item.productId}  ,
+            #{item.proSkuId}  ,
+            #{item.beforePrice}  ,
+            #{item.beforePercent}  ,
+            #{item.afterPrice}  ,
+            #{item.afterPercent}  ,
+            #{item.createTime}  ,
+            #{item.delFlag} ,
+            #{item.effTime} 
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        update ProductAdjustDetail
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="proSkuId != null">
+                proSkuId = #{proSkuId} ,
+            </if>
+            <if test="beforePrice != null">
+                beforePrice = #{beforePrice} ,
+            </if>
+            <if test="beforePercent != null">
+                beforePercent = #{beforePercent} ,
+            </if>
+            <if test="afterPrice != null">
+                afterPrice = #{afterPrice} ,
+            </if>
+            <if test="afterPercent != null">
+                afterPercent = #{afterPercent} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} ,
+            </if>
+            <if test="effTime!=null">
+            	effTime=#{effTime}
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update ProductAdjustDetail set
+            brandId = #{item.brandId} ,
+            brandsId = #{item.brandsId} ,
+            productId = #{item.productId} ,
+            proSkuId = #{item.proSkuId} ,
+            beforePrice = #{item.beforePrice} ,
+            beforePercent = #{item.beforePercent} ,
+            afterPrice = #{item.afterPrice} ,
+            afterPercent = #{item.afterPercent} ,
+            createTime = #{item.createTime} ,
+            delFlag = #{item.delFlag} ,
+            effTime=#{item.effTime}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        update ProductAdjustDetail set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            productId = #{productId} ,
+            proSkuId = #{proSkuId} ,
+            beforePrice = #{beforePrice} ,
+            beforePercent = #{beforePercent} ,
+            afterPrice = #{afterPrice} ,
+            afterPercent = #{afterPercent} ,
+            createTime = #{createTime} ,
+            delFlag = #{delFlag} ,
+            effTime=#{effTime}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        select <include refid="productAdjustDetailColumns"/> from ProductAdjustDetail a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        SELECT
+        <include refid="productAdjustDetailColumns"/>
+        FROM ProductAdjustDetail a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="proSkuId != null and proSkuId != ''">
+            and a.proSkuId like CONCAT('%',#{proSkuId}, '%')
+        </if>
+        <if test="beforePrice != null and beforePrice != ''">
+            and a.beforePrice = #{beforePrice}
+        </if>
+        <if test="beforePercent != null and beforePercent != ''">
+            and a.beforePercent = #{beforePercent}
+        </if>
+        <if test="afterPrice != null and afterPrice != ''">
+            and a.afterPrice = #{afterPrice}
+        </if>
+        <if test="afterPercent != null and afterPercent != ''">
+            and a.afterPercent = #{afterPercent}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="effTime!=null and effTime!=''">
+        	and a.effTime=#{effTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+        SELECT
+        <include refid="productAdjustDetailColumns"/>
+        FROM ProductAdjustDetail a WHERE a.delFlag = 0
+    </select>
+
+	<select id="countByProductId" parameterType="map" resultType="Integer">
+		select 
+			count(*)
+		from ProductAdjustDetail a 
+		WHERE 
+			a.delFlag = 0
+			and a.brandId=#{brandId}
+			and a.productId=#{productId}
+	</select>
+	
+	<select id="findBySkuIdLastDetail" parameterType="String" resultType="com.zttx.web.module.common.entity.ProductAdjustDetail">
+		SELECT
+        	<include refid="productAdjustDetailColumns"/>
+        FROM ProductAdjustDetail a 
+        WHERE 
+        	a.delFlag = 0
+        	and a.proSkuId=#{skuId}
+        order by 
+        	a.createTime desc
+        limit 0,1
+	</select>
+	
+	<select id="search" parameterType="com.zttx.web.module.common.entity.ProductAdjustDetail" resultType="java.util.TreeMap">
+		select 
+			b.productNo,
+			b.productTitle,
+			bi.brandsName,
+		    pad.beforePrice as beforePrice ,
+	        pad.beforePercent as beforePercent ,
+	        pad.afterPrice as afterPrice ,
+	        pad.afterPercent as afterPercent ,
+	        pad.createTime,
+	        pad.effTime,
+	        s.refrenceId skuId
+		from 
+			ProductAdjustDetail pad,
+			ProductBaseInfo b,
+			ProductSku s,
+			ProductExtInfo e,
+			BrandesInfo bi
+		<where>
+			pad.productId=b.refrenceId
+			and pad.proSkuId=s.refrenceId
+			and b.refrenceId=e.refrenceId
+			and pad.brandsId=bi.refrenceId
+			<if test="brandsId!=null and brandsId!=''">
+				and pad.brandsId=#{brandsId}
+			</if>
+			<if test="productNo!=null and productNo!=''">
+				and b.productNo like '%${productNo}%'
+			</if>
+			<if test="productName!=null and productName!=''">
+				and b.productTitle like '%${productName}%'
+			</if>
+			<if test="color!=null and color!=''">
+				
+				and (case 
+					when (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=3372
+						and s.refrenceId=pav.productSkuId
+					) is null
+					then  #{color}=
+						(select attributeItem from 
+						CateAttributeItem cai,
+						ProductAttrValue pav 
+						where 
+						cai.refrenceId=pav.attributeItemId
+						and pav.isSkuAttr=true
+						and pav.attributeId=3372 
+						and pav.productSkuId=s.refrenceId)
+					when (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=3372
+						and s.refrenceId=pav.productSkuId
+					)
+						is not  null 
+					then  (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=3372
+						and s.refrenceId=pav.productSkuId
+					)=#{color}
+			    end)
+			</if>
+			<if test="size!=null and size!=''">
+				and (case 
+					when (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=101
+						and s.refrenceId=pav.productSkuId
+					) is null
+					then #{size}=
+						(select attributeItem from 
+						CateAttributeItem cai,
+						ProductAttrValue pav 
+						where 
+						cai.refrenceId=pav.attributeItemId
+						and pav.isSkuAttr=true
+						and pav.attributeId=101 
+						and pav.productSkuId=s.refrenceId)
+					when (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=101
+						and s.refrenceId=pav.productSkuId
+					)
+						is not  null 
+					then (select pav.extAttributeValue from ProductAttrValue pav 
+					where 
+						pav.isSkuAttr=true
+						and pav.attributeId=101
+						and s.refrenceId=pav.productSkuId
+					)=#{size}
+			    end)
+			</if>
+			<if test="createTimeStartLong!=null">
+				and pad.createTime&gt;=#{createTimeStartLong}
+			</if>
+			<if test="createTimeEndLong!=null">
+				and pad.createTime&lt;=#{createTimeEndLong}
+			</if>
+			<if test="effectiveTimeStartLong!=null">
+				and pad.effTime&gt;=#{effectiveTimeStartLong}
+			</if>
+			<if test="effectiveTimeEndLong!=null">
+				and pad.effTime&lt;=#{effectiveTimeEndLong}
+			</if>
+		</where>
+		order by pad.createTime desc
+	</select>
+</mapper>
+

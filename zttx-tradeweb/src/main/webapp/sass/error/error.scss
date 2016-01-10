@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@import "../mixin";
+@import "../common/header";
+@import "../common/footer";
+@import "../common/index/icons";
+@import "global";
+body{
+  background: #FFF;
+}
+.grid1{
+  margin-top:10px;
+  margin-bottom:20px;
+  background: #ffffe3;
+  border:1px solid #e7d3b8;
+  position: relative;
+  .error-type{
+    padding:15px 15px 15px 90px;
+    background: url("../../images/common/error_icon.png") 25px 15px no-repeat;
+    h3{
+      font-size:18px;
+      font-family: "微软雅黑";
+      color:#333;
+    }
+    p{
+      font-size:14px;
+      font-family: "微软雅黑";
+      color:#333;
+      height: 30px;
+      line-height: 30px;
+    }
+    .jump{
+      height: 30px;
+      line-height: 30px;
+      i,a{
+        color:#b20000;
+      }
+      i{
+        margin-right:5px;
+      }
+    }
+    dl{
+      line-height: 30px;
+      dt{
+        color:#555;
+        font-weight: bold;
+      }
+      dd a{
+        color:#b20000;
+      }
+    }
+  }
+  .ewm{
+    position: absolute;
+    right:15px;
+    bottom:15px;
+    span{
+      display: inline-block;
+      vertical-align: top;
+      *margin:0 5px;
+      img{
+        vertical-align: top;
+      }
+    }
+    p{
+      width:180px;
+      line-height: 20px;
+    }
+  }
+}
+.grid2{
+  border:1px solid #DDD;
+  background: #FFF;
+  margin-bottom:15px;
+  .title{
+    position: relative;
+    padding:10px;
+    h3{
+      font-size: 18px;
+      font-family: "微软雅黑";
+      color:#333;
+      height: 30px;
+      line-height: 30px;
+    }
+    .sort{
+      position:absolute;
+      right:10px;
+      top:19px;
+      a{
+        margin-right:5px;
+      }
+    }
+  }
+  .brand-list{
+    ul{
+      margin:0 8px 10px 8px;
+      li{
+        float:left;
+        margin-right:8px;
+        width:190px;
+        overflow: hidden;
+        position: relative;
+        div{
+          padding-left:12px;
+          background: #b10000;
+          height: 27px;
+          line-height: 27px;
+          color:#FFF;
+          font-family: "微软雅黑";
+        }
+        img{
+          height: 120px;
+          width: 190px;
+        }
+        a{
+          position: absolute;
+          top:0;
+          left:0;
+          display: block;
+          height: 147px;
+          width: 190px;
+          background: #333;
+          opacity: 0;
+          transition-duration:0.5s;
+          &:hover{
+            opacity: 0.4;
+          }
+        }
+      }
+      .last-item{
+        margin-right: 0;
+      }
+    }
+  }
+}

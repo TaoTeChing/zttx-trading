@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandFreightDetailMapper">
+    <!-- 基础列 -->
+    <sql id="brandFreightDetailColumns">
+        a.refrenceId as refrenceId ,
+        a.templateId as templateId ,
+        a.settingsId as settingsId ,
+        a.carryType as carryType ,
+        a.firstWeight as firstWeight ,
+        a.firstPrice as firstPrice ,
+        a.extendWeight as extendWeight ,
+        a.extendPrice as extendPrice ,
+        a.isDefault as isDefault ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        insert into BrandFreightDetail(
+         refrenceId ,
+         templateId ,
+         settingsId ,
+         carryType ,
+         firstWeight ,
+         firstPrice ,
+         extendWeight ,
+         extendPrice ,
+         isDefault ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{templateId}  ,
+        #{settingsId}  ,
+        #{carryType}  ,
+        #{firstWeight}  ,
+        #{firstPrice}  ,
+        #{extendWeight}  ,
+        #{extendPrice}  ,
+        #{isDefault}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandFreightDetail where refrenceId = #{refrenceId}
+    </delete>
+    <!-- 根据模板id物理删除 -->
+    <delete id="removeByTemplateId" parameterType="java.lang.String">
+        delete from BrandFreightDetail where templateId = #{templateId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandFreightDetail set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        insert into BrandFreightDetail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="templateId != null">
+            templateId ,
+        </if>
+        <if test="settingsId != null">
+            settingsId ,
+        </if>
+        <if test="carryType != null">
+            carryType ,
+        </if>
+        <if test="firstWeight != null">
+            firstWeight ,
+        </if>
+        <if test="firstPrice != null">
+            firstPrice ,
+        </if>
+        <if test="extendWeight != null">
+            extendWeight ,
+        </if>
+        <if test="extendPrice != null">
+            extendPrice ,
+        </if>
+        <if test="isDefault != null">
+            isDefault ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="templateId != null">
+            #{templateId} ,
+        </if>
+        <if test="settingsId != null">
+            #{settingsId} ,
+        </if>
+        <if test="carryType != null">
+            #{carryType} ,
+        </if>
+        <if test="firstWeight != null">
+            #{firstWeight} ,
+        </if>
+        <if test="firstPrice != null">
+            #{firstPrice} ,
+        </if>
+        <if test="extendWeight != null">
+            #{extendWeight} ,
+        </if>
+        <if test="extendPrice != null">
+            #{extendPrice} ,
+        </if>
+        <if test="isDefault != null">
+            #{isDefault} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        update BrandFreightDetail
+           <set>
+            <if test="templateId != null">
+                templateId = #{templateId} ,
+            </if>
+            <if test="settingsId != null">
+                settingsId = #{settingsId} ,
+            </if>
+            <if test="carryType != null">
+                carryType = #{carryType} ,
+            </if>
+            <if test="firstWeight != null">
+                firstWeight = #{firstWeight} ,
+            </if>
+            <if test="firstPrice != null">
+                firstPrice = #{firstPrice} ,
+            </if>
+            <if test="extendWeight != null">
+                extendWeight = #{extendWeight} ,
+            </if>
+            <if test="extendPrice != null">
+                extendPrice = #{extendPrice} ,
+            </if>
+            <if test="isDefault != null">
+                isDefault = #{isDefault} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        update BrandFreightDetail set
+            templateId = #{templateId} ,
+            settingsId = #{settingsId} ,
+            carryType = #{carryType} ,
+            firstWeight = #{firstWeight} ,
+            firstPrice = #{firstPrice} ,
+            extendWeight = #{extendWeight} ,
+            extendPrice = #{extendPrice} ,
+            isDefault = #{isDefault} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        select <include refid="brandFreightDetailColumns"/> from BrandFreightDetail a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        SELECT
+        <include refid="brandFreightDetailColumns"/>
+        FROM BrandFreightDetail a WHERE a.delFlag = 0
+        <if test="templateId != null and templateId != ''">
+            and a.templateId like CONCAT('%',#{templateId}, '%')
+        </if>
+        <if test="settingsId != null and settingsId != ''">
+            and a.settingsId like CONCAT('%',#{settingsId}, '%')
+        </if>
+        <if test="carryType != null and carryType != ''">
+            and a.carryType = #{carryType}
+        </if>
+        <if test="firstWeight != null and firstWeight != ''">
+            and a.firstWeight = #{firstWeight}
+        </if>
+        <if test="firstPrice != null and firstPrice != ''">
+            and a.firstPrice = #{firstPrice}
+        </if>
+        <if test="extendWeight != null and extendWeight != ''">
+            and a.extendWeight = #{extendWeight}
+        </if>
+        <if test="extendPrice != null and extendPrice != ''">
+            and a.extendPrice = #{extendPrice}
+        </if>
+        <if test="isDefault != null and isDefault != ''">
+            and a.isDefault = #{isDefault}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        SELECT
+        <include refid="brandFreightDetailColumns"/>
+        FROM BrandFreightDetail a WHERE a.delFlag = 0
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="listBySettingsId" resultType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        SELECT
+        <include refid="brandFreightDetailColumns"/>
+        FROM BrandFreightDetail a WHERE a.delFlag = 0 and a.settingsId = #{0} order by a.carryType asc, a.isDefault desc
+    </select>
+    <select id="getDetail" resultType="com.zttx.web.module.brand.entity.BrandFreightDetail">
+        select
+        <include refid="brandFreightDetailColumns"></include>
+        from
+        BrandFreightDetail a, BrandFreightRegion c
+        where
+        a.refrenceId = c.detailId and a.templateId = #{0} and a.carryType =  #{1}
+        and (c.areaNo = #{2} or c.areaNo = #{3} or c.areaNo = #{4} or c.areaNo is null)
+        order by c.areaNo desc limit 1
+    </select>
+
+</mapper>
+

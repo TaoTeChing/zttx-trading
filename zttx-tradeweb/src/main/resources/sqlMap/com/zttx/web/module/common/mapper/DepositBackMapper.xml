@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.DepositBackMapper">
+    <!-- 基础列 -->
+    <sql id="depositBackColumns">
+        a.refrenceId as refrenceId ,
+        a.exId as exId ,
+        a.billId as billId ,
+        a.brandId as brandId ,
+        a.brandName as brandName ,
+        a.brandsId as brandsId ,
+        a.brandsName as brandsName ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.paidAmount as paidAmount ,
+        a.backAmount as backAmount ,
+        a.depositBackTime as depositBackTime ,
+        a.status as status ,
+        a.dealerjoinId as dealerjoinId ,
+        a.type as type ,
+        a.operateUserId as operateUserId ,
+        a.operateUserName as operateUserName ,
+        a.operateTime as operateTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.DepositBack">
+        insert into DepositBack(
+         refrenceId ,
+         exId ,
+         billId ,
+         brandId ,
+         brandName ,
+         brandsId ,
+         brandsName ,
+         dealerId ,
+         dealerName ,
+         paidAmount ,
+         backAmount ,
+         depositBackTime ,
+         status ,
+         dealerjoinId ,
+         type ,
+         operateUserId ,
+         operateUserName ,
+         operateTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{exId}  ,
+        #{billId}  ,
+        #{brandId}  ,
+        #{brandName}  ,
+        #{brandsId}  ,
+        #{brandsName}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{paidAmount}  ,
+        #{backAmount}  ,
+        #{depositBackTime}  ,
+        #{status}  ,
+        #{dealerjoinId}  ,
+        #{type}  ,
+        #{operateUserId}  ,
+        #{operateUserName}  ,
+        #{operateTime}  
+        )
+    </insert>
+    
+    <!-- 批量添加 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into DepositBack(
+         refrenceId ,
+         exId ,
+         billId ,
+         brandId ,
+         brandName ,
+         brandsId ,
+         brandsName ,
+         dealerId ,
+         dealerName ,
+         paidAmount ,
+         backAmount ,
+         depositBackTime ,
+         status ,
+         dealerjoinId ,
+         type ,
+         operateUserId ,
+         operateUserName ,
+         operateTime 
+        ) VALUES 
+        <foreach collection="list" item="item" index="index" separator="," >  
+        (       #{item.refrenceId} ,
+       #{item.exId} ,
+       #{item.billId} ,
+       #{item.brandId} ,
+       #{item.brandName} ,
+       #{item.brandsId} ,
+       #{item.brandsName} ,
+       #{item.dealerId} ,
+       #{item.dealerName} ,
+       #{item.paidAmount} ,
+       #{item.backAmount} ,
+       #{item.depositBackTime} ,
+       #{item.status} ,
+       #{item.dealerjoinId} ,
+       #{item.type} ,
+       #{item.operateUserId} ,
+       #{item.operateUserName} ,
+       #{item.operateTime} 
+)  
+    	</foreach>
+    </insert>
+    
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DepositBack where refrenceId = #{refrenceId}
+    </delete>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.DepositBack">
+        insert into DepositBack
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="exId != null">
+            exId ,
+        </if>
+        <if test="billId != null">
+            billId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandName != null">
+            brandName ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="brandsName != null">
+            brandsName ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="dealerName != null">
+            dealerName ,
+        </if>
+        <if test="paidAmount != null">
+            paidAmount ,
+        </if>
+        <if test="backAmount != null">
+            backAmount ,
+        </if>
+        <if test="depositBackTime != null">
+            depositBackTime ,
+        </if>
+        <if test="status != null">
+            status ,
+        </if>
+        <if test="dealerjoinId != null">
+            dealerjoinId ,
+        </if>
+        <if test="type != null">
+            type ,
+        </if>
+        <if test="operateUserId != null">
+            operateUserId ,
+        </if>
+        <if test="operateUserName != null">
+            operateUserName ,
+        </if>
+        <if test="operateTime != null">
+            operateTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="exId != null">
+            #{exId} ,
+        </if>
+        <if test="billId != null">
+            #{billId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandName != null">
+            #{brandName} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="brandsName != null">
+            #{brandsName} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="dealerName != null">
+            #{dealerName} ,
+        </if>
+        <if test="paidAmount != null">
+            #{paidAmount} ,
+        </if>
+        <if test="backAmount != null">
+            #{backAmount} ,
+        </if>
+        <if test="depositBackTime != null">
+            #{depositBackTime} ,
+        </if>
+        <if test="status != null">
+            #{status} ,
+        </if>
+        <if test="dealerjoinId != null">
+            #{dealerjoinId} ,
+        </if>
+        <if test="type != null">
+            #{type} ,
+        </if>
+        <if test="operateUserId != null">
+            #{operateUserId} ,
+        </if>
+        <if test="operateUserName != null">
+            #{operateUserName} ,
+        </if>
+        <if test="operateTime != null">
+            #{operateTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.DepositBack">
+        update DepositBack
+           <set>
+            <if test="exId != null">
+                exId = #{exId} ,
+            </if>
+            <if test="billId != null">
+                billId = #{billId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandName != null">
+                brandName = #{brandName} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="brandsName != null">
+                brandsName = #{brandsName} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="paidAmount != null">
+                paidAmount = #{paidAmount} ,
+            </if>
+            <if test="backAmount != null">
+                backAmount = #{backAmount} ,
+            </if>
+            <if test="depositBackTime != null">
+                depositBackTime = #{depositBackTime} ,
+            </if>
+            <if test="status != null">
+                status = #{status} ,
+            </if>
+            <if test="dealerjoinId != null">
+                dealerjoinId = #{dealerjoinId} ,
+            </if>
+            <if test="type != null">
+                type = #{type} ,
+            </if>
+            <if test="operateUserId != null">
+                operateUserId = #{operateUserId} ,
+            </if>
+            <if test="operateUserName != null">
+                operateUserName = #{operateUserName} ,
+            </if>
+            <if test="operateTime != null">
+                operateTime = #{operateTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.DepositBack">
+        update DepositBack set
+            exId = #{exId} ,
+            billId = #{billId} ,
+            brandId = #{brandId} ,
+            brandName = #{brandName} ,
+            brandsId = #{brandsId} ,
+            brandsName = #{brandsName} ,
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            paidAmount = #{paidAmount} ,
+            backAmount = #{backAmount} ,
+            depositBackTime = #{depositBackTime} ,
+            status = #{status} ,
+            dealerjoinId = #{dealerjoinId} ,
+            type = #{type} ,
+            operateUserId = #{operateUserId} ,
+            operateUserName = #{operateUserName} ,
+            operateTime = #{operateTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+	<!-- 批量更新  -->
+    <update id="updateBatch" parameterType="java.util.List">
+       <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update DepositBack set
+            exId = #{item.exId} ,
+            billId = #{item.billId} ,
+            brandId = #{item.brandId} ,
+            brandName = #{item.brandName} ,
+            brandsId = #{item.brandsId} ,
+            brandsName = #{item.brandsName} ,
+            dealerId = #{item.dealerId} ,
+            dealerName = #{item.dealerName} ,
+            paidAmount = #{item.paidAmount} ,
+            backAmount = #{item.backAmount} ,
+            depositBackTime = #{item.depositBackTime} ,
+            status = #{item.status} ,
+            dealerjoinId = #{item.dealerjoinId} ,
+            type = #{item.type} ,
+            operateUserId = #{item.operateUserId} ,
+            operateUserName = #{item.operateUserName} ,
+            operateTime = #{item.operateTime} 
+	        where refrenceId = #{item.refrenceId}
+       </foreach>
+    </update>
+    
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.DepositBack">
+        select <include refid="depositBackColumns"/> from DepositBack a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.DepositBack">
+        SELECT
+        <include refid="depositBackColumns"/>
+        FROM DepositBack a WHERE 1=1
+        <if test="exId != null and exId != ''">
+            and a.exId like CONCAT('%',#{exId}, '%')
+        </if>
+        <if test="billId != null and billId != ''">
+            and a.billId = #{billId}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandName != null and brandName != ''">
+            and a.brandName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="paidAmount != null and paidAmount != ''">
+            and a.paidAmount = #{paidAmount}
+        </if>
+        <if test="backAmount != null and backAmount != ''">
+            and a.backAmount = #{backAmount}
+        </if>
+        <if test="depositBackTime != null and depositBackTime != ''">
+            and a.depositBackTime = #{depositBackTime}
+        </if>
+        <if test="status != null">
+            and a.status = #{status}
+        </if>
+        <if test="dealerjoinId != null and dealerjoinId != ''">
+            and a.dealerjoinId like CONCAT('%',#{dealerjoinId}, '%')
+        </if>
+        <if test="type != null">
+            and a.type = #{type}
+        </if>
+        <if test="operateUserId != null and operateUserId != ''">
+            and a.operateUserId like CONCAT('%',#{operateUserId}, '%')
+        </if>
+        <if test="operateUserName != null and operateUserName != ''">
+            and a.operateUserName like CONCAT('%',#{operateUserName}, '%')
+        </if>
+        <if test="operateTime != null and operateTime != ''">
+            and a.operateTime = #{operateTime}
+        </if>
+         order by a.depositBackTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.DepositBack">
+        SELECT
+        <include refid="depositBackColumns"/>
+        FROM DepositBack a 
+    </select>
+</mapper>
+

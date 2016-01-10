@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradeapi" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradebean" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradecore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradedubbo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-hander" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradesolr" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradetask" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradeutils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-tradeweb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zttx-transfer" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

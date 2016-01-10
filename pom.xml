@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>zttx-platform</artifactId>
+        <groupId>com.8637</groupId>
+        <version>3.0.0-RELEASE</version>
+    </parent>
+    <artifactId>zttx-trading</artifactId>
+    <name>zttx-trading</name>
+    <packaging>pom</packaging>
+    <version>3.2.0-SNAPSHOT</version>
+    <description>新版交易平台管理系统</description>
+
+    <modules>
+        <module>zttx-tradeweb</module>
+        <module>zttx-tradeapi</module>
+        <module>zttx-tradebean</module>
+        <module>zttx-tradesolr</module>
+        <module>zttx-tradecore</module>
+        <!--<module>zttx-tradefile</module>-->
+        <module>zttx-tradetask</module>
+        <module>zttx-tradeutils</module>
+        <module>zttx-tradedubbo</module>
+        <module>zttx-transfer</module>
+    </modules>
+    <properties>
+        <zttx-trading.version>${project.version}</zttx-trading.version>
+        <zttx-goods.version>3.2.0-SNAPSHOT</zttx-goods.version>
+        <zttx-erp.version>3.0.2-SNAPSHOT</zttx-erp.version>
+        <zttx-sdk.version>3.0.3-RELEASE</zttx-sdk.version>
+        <pay-remoting.version>2.0.1-SNAPSHOT</pay-remoting.version>
+        <trade-remoting.version>0.1.2-RELEASE</trade-remoting.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-sdk</artifactId>
+                <version>${zttx-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-erpapi</artifactId>
+                <version>${zttx-erp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-erpbean</artifactId>
+                <version>${zttx-erp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-goodsbean</artifactId>
+                <version>${zttx-goods.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-goodsapi</artifactId>
+                <version>${zttx-goods.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradeapi</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradebean</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradecore</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradesolr</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradetask</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradeutils</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradedubbo-provider</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradedubbo-hander</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.8637</groupId>
+                <artifactId>zttx-tradedubbo-consumer</artifactId>
+                <version>${zttx-trading.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.5.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.5.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zttx</groupId>
+                <artifactId>trade-remoting</artifactId>
+                <version>${trade-remoting.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zttx</groupId>
+                <artifactId>pay-core</artifactId>
+                <version>${pay-remoting.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-slf4j-impl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.18.1-GA</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>zttx-web-dev</id>
+            <properties>
+                <p.cookie.domain>dev8.com</p.cookie.domain>
+                <!-- jedis -->
+                <p.redis.master.host>172.16.1.7</p.redis.master.host>
+                <p.redis.slave1.host>172.16.1.7</p.redis.slave1.host>
+                <p.redis.master.port>6379</p.redis.master.port>
+                <p.redis.slave1.port>6379</p.redis.slave1.port>
+                <p.redis.master.pass>8637.com-19</p.redis.master.pass>
+                <p.redis.slave1.pass>8637.com-19</p.redis.slave1.pass>
+                <!-- cas server -->
+                <p.cas.server.url>http://www.cas.com</p.cas.server.url>
+                <p.cas.server.login>http://www.cas.com/login</p.cas.server.login>
+                <p.client.login.success>http://www.dev8.com/shiro-cas</p.client.login.success>
+                <!-- email -->
+                <p.mailserver.host>smtp.163.com</p.mailserver.host>
+                <p.mailserver.username>cn8637@163.com</p.mailserver.username>
+                <p.mailserver.password>qq123123</p.mailserver.password>
+                <p.mailserver.smtp.host>smtp.163.com</p.mailserver.smtp.host>
+                <p.mailserver.smtp.auth>true</p.mailserver.smtp.auth>
+                <!-- solr -->
+                <p.solr.server.invoke.url>http://172.16.16.200:81/</p.solr.server.invoke.url>
+                <!-- sms -->
+                <p.user.name>交易平台</p.user.name>
+                <p.user.id>E658B057EE1811E39189C81F66446D84</p.user.id>
+                <p.user.key>416427635588428CA394DA1FFCC4063B</p.user.key>
+                <p.sms.url>http://172.16.1.7:81/client/message/execute</p.sms.url>
+                <!-- logistic -->
+                <p.logistic_server>http://api.kuaidi100.com/api</p.logistic_server>
+                <p.logistic_key>cc43b01834479f20</p.logistic_key>
+                <!-- weshop -->
+                <p.weshop.weburl>http://172.16.1.7</p.weshop.weburl>
+                <p.zttx.weishop.openshop>http://172.16.1.7/trade/shop/register</p.zttx.weishop.openshop>
+                <p.zttx.weishop.showlist>http://172.16.1.7/trade/wshop/detail</p.zttx.weishop.showlist>
+                <p.zttx.weishop.sndvcode>http://172.16.1.7/common/code/validate</p.zttx.weishop.sndvcode>
+                <p.zttx.weishop.gettoken>http://172.16.1.7/trade/getToken</p.zttx.weishop.gettoken>
+                <p.zttx.weishop.mgweshop>http://172.16.1.7/trade/weshop_store</p.zttx.weishop.mgweshop>
+                <!-- api -->
+                <p.zttx.weburl>http://172.16.16.186:80</p.zttx.weburl>
+                <p.zttx.biapi.weburl>http://172.16.1.7:83</p.zttx.biapi.weburl>
+                <p.zttx.crmapi.weburl>http://172.16.1.9:82</p.zttx.crmapi.weburl>
+                <p.zttx.userapi.weburl>http://172.16.16.200:80</p.zttx.userapi.weburl>
+                <p.zttx.erpapi.weburl>http://172.16.3.123:8080</p.zttx.erpapi.weburl>
+                <p.zttx.fileapi.weburl>http://172.16.16.207:82/</p.zttx.fileapi.weburl>
+                <p.zttx.payapi.webip>http://172.16.16.207:81</p.zttx.payapi.webip>
+                <p.zttx.payapi.weburl>http://172.16.16.207:81</p.zttx.payapi.weburl>
+                <p.zttx.crmapi.userkey>250A11CF7E85422AAE7EA40D00668945</p.zttx.crmapi.userkey>
+                <p.zttx.userapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.userapi.userkey>
+                <p.zttx.erpapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.erpapi.userkey>
+                <p.zttx.fileapi.userkey>0DC1763AD47A447AB25C9A8D680B2CFF</p.zttx.fileapi.userkey>
+                <!-- zttx -->
+                <p.zttx.image.domain>http://172.16.1.8:81</p.zttx.image.domain>
+                <p.zttx.idapi.uuid.weburl>http://172.16.16.200:9380/client/gainUuid</p.zttx.idapi.uuid.weburl>
+                <p.zttx.idapi.idworker.weburl>http://172.16.16.200:9380/client/gainIdWork</p.zttx.idapi.idworker.weburl>
+                <p.zttx.idapi.sequenceid.weburl>http://172.16.16.200:9380/client/gainSequenceId</p.zttx.idapi.sequenceid.weburl>
+                <p.zttx.idapi.userkey>FE3141781F1441B2B912BF47934BF334</p.zttx.idapi.userkey>
+                <p.zttx.idapi.platformcode>1001</p.zttx.idapi.platformcode>
+                <!-- jdbc -->
+                <p.jdbc.driver>com.mysql.jdbc.Driver</p.jdbc.driver>
+                <p.master.jdbc.username>root</p.master.jdbc.username>
+                <p.slave1.jdbc.username>root</p.slave1.jdbc.username>
+                <p.slave2.jdbc.username>root</p.slave2.jdbc.username>
+                <p.master.jdbc.password>123456</p.master.jdbc.password>
+                <p.slave1.jdbc.password>123456</p.slave1.jdbc.password>
+                <p.slave2.jdbc.password>123456</p.slave2.jdbc.password>
+                <p.master.jdbc.url>jdbc:mysql://172.16.16.200:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.url>
+                <p.master.jdbc.quartz.url>jdbc:mysql://172.16.16.200:3306/Zttx-Quartz-Test?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.quartz.url>
+                <p.slave1.jdbc.url>jdbc:mysql://172.16.16.200:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave1.jdbc.url>
+                <p.slave2.jdbc.url>jdbc:mysql://172.16.16.200:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave2.jdbc.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>zttx-web-test</id>
+            <properties>
+                <p.cookie.domain>8888.com</p.cookie.domain>
+                <!-- jedis -->
+                <p.redis.master.host>172.16.1.9</p.redis.master.host>
+                <p.redis.slave1.host>172.16.1.9</p.redis.slave1.host>
+                <p.redis.master.port>6379</p.redis.master.port>
+                <p.redis.slave1.port>6379</p.redis.slave1.port>
+                <p.redis.master.pass>8637.com-19</p.redis.master.pass>
+                <p.redis.slave1.pass>8637.com-19</p.redis.slave1.pass>
+                <!-- cas server -->
+                <p.cas.server.url>http://www.cas.com</p.cas.server.url>
+                <p.cas.server.login>http://www.cas.com/login</p.cas.server.login>
+                <p.client.login.success>http://www.8888.com/shiro-cas</p.client.login.success>
+                <!-- email -->
+                <p.mailserver.host>smtp.163.com</p.mailserver.host>
+                <p.mailserver.username>cn8637@163.com</p.mailserver.username>
+                <p.mailserver.password>qq123123</p.mailserver.password>
+                <p.mailserver.smtp.host>smtp.163.com</p.mailserver.smtp.host>
+                <p.mailserver.smtp.auth>true</p.mailserver.smtp.auth>
+                <!-- solr -->
+                <p.solr.server.invoke.url>http://172.16.1.8/</p.solr.server.invoke.url>
+                <!-- sms -->
+                <p.user.name>交易平台</p.user.name>
+                <p.user.id>E658B057EE1811E39189C81F66446D84</p.user.id>
+                <p.user.key>416427635588428CA394DA1FFCC4063B</p.user.key>
+                <p.sms.url>http://172.16.1.7:81/client/message/execute</p.sms.url>
+                <!-- logistic -->
+                <p.logistic_server>http://api.kuaidi100.com/api</p.logistic_server>
+                <p.logistic_key>cc43b01834479f20</p.logistic_key>
+                <!-- weshop -->
+                <p.weshop.weburl>http://172.16.1.7</p.weshop.weburl>
+                <p.zttx.weishop.openshop>http://172.16.1.7/trade/shop/register</p.zttx.weishop.openshop>
+                <p.zttx.weishop.showlist>http://172.16.1.7/trade/wshop/detail</p.zttx.weishop.showlist>
+                <p.zttx.weishop.sndvcode>http://172.16.1.7/common/code/validate</p.zttx.weishop.sndvcode>
+                <p.zttx.weishop.gettoken>http://172.16.1.7/trade/getToken</p.zttx.weishop.gettoken>
+                <p.zttx.weishop.mgweshop>http://172.16.1.7/trade/weshop_store</p.zttx.weishop.mgweshop>
+                <!-- api -->
+                <p.zttx.weburl>http://www.8888.com</p.zttx.weburl>
+                <p.zttx.biapi.weburl>http://172.16.1.7:83</p.zttx.biapi.weburl>
+                <p.zttx.crmapi.weburl>http://172.16.1.9:82</p.zttx.crmapi.weburl>
+                <p.zttx.userapi.weburl>http://172.16.1.8:83</p.zttx.userapi.weburl>
+                <p.zttx.erpapi.weburl>http://172.16.3.123:8080</p.zttx.erpapi.weburl>
+                <p.zttx.fileapi.weburl>http://172.16.1.8:81</p.zttx.fileapi.weburl>
+                <p.zttx.payapi.webip>http://172.16.1.9:9080</p.zttx.payapi.webip>
+                <p.zttx.payapi.weburl>http://pay.8888.com</p.zttx.payapi.weburl>
+                <p.zttx.crmapi.userkey>250A11CF7E85422AAE7EA40D00668945</p.zttx.crmapi.userkey>
+                <p.zttx.userapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.userapi.userkey>
+                <p.zttx.erpapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.erpapi.userkey>
+                <p.zttx.fileapi.userkey>0DC1763AD47A447AB25C9A8D680B2CFF</p.zttx.fileapi.userkey>
+                <!-- zttx -->
+                <p.zttx.image.domain>http://172.16.1.8:81</p.zttx.image.domain>
+                <p.zttx.idapi.uuid.weburl>http://172.16.16.200:9380/client/gainUuid</p.zttx.idapi.uuid.weburl>
+                <p.zttx.idapi.idworker.weburl>http://172.16.16.200:9380/client/gainIdWork</p.zttx.idapi.idworker.weburl>
+                <p.zttx.idapi.sequenceid.weburl>http://172.16.16.200:9380/client/gainSequenceId</p.zttx.idapi.sequenceid.weburl>
+                <p.zttx.idapi.userkey>FE3141781F1441B2B912BF47934BF334</p.zttx.idapi.userkey>
+                <p.zttx.idapi.platformcode>1001</p.zttx.idapi.platformcode>
+                <!-- jdbc -->
+                <p.jdbc.driver>com.mysql.jdbc.Driver</p.jdbc.driver>
+                <p.master.jdbc.username>zttxUsr</p.master.jdbc.username>
+                <p.slave1.jdbc.username>zttxUsr</p.slave1.jdbc.username>
+                <p.slave2.jdbc.username>zttxUsr</p.slave2.jdbc.username>
+                <p.master.jdbc.password>lzjliu307</p.master.jdbc.password>
+                <p.slave1.jdbc.password>lzjliu307</p.slave1.jdbc.password>
+                <p.slave2.jdbc.password>lzjliu307</p.slave2.jdbc.password>
+                <p.master.jdbc.url>jdbc:mysql://172.16.1.8:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.url>
+                <p.master.jdbc.quartz.url>jdbc:mysql://172.16.1.8:3306/Zttx-Web-Quartz?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.quartz.url>
+                <p.slave1.jdbc.url>jdbc:mysql://172.16.1.8:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave1.jdbc.url>
+                <p.slave2.jdbc.url>jdbc:mysql://172.16.1.8:3306/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave2.jdbc.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>zttx-web-uat</id>
+            <properties>
+                <p.cookie.domain>6666.com</p.cookie.domain>
+                <!-- jedis -->
+                <p.redis.master.host>172.16.1.16</p.redis.master.host>
+                <p.redis.slave1.host>172.16.1.17</p.redis.slave1.host>
+                <p.redis.master.port>6379</p.redis.master.port>
+                <p.redis.slave1.port>6379</p.redis.slave1.port>
+                <p.redis.master.pass>passwd</p.redis.master.pass>
+                <p.redis.slave1.pass>passwd</p.redis.slave1.pass>
+                <!-- cas server -->
+                <p.cas.server.url>http://www.cas.com</p.cas.server.url>
+                <p.cas.server.login>http://www.cas.com/login</p.cas.server.login>
+                <p.client.login.success>http://www.8888.com/shiro-cas</p.client.login.success>
+                <!-- email -->
+                <p.mailserver.host>smtp.163.com</p.mailserver.host>
+                <p.mailserver.username>txsb8637@163.com</p.mailserver.username>
+                <p.mailserver.password>www.8637.com</p.mailserver.password>
+                <p.mailserver.smtp.host>smtp.163.com</p.mailserver.smtp.host>
+                <p.mailserver.smtp.auth>true</p.mailserver.smtp.auth>
+                <!-- solr -->
+                <p.solr.server.invoke.url>http://172.16.1.18/</p.solr.server.invoke.url>
+                <!-- sms -->
+                <p.user.name>交易平台</p.user.name>
+                <p.user.id>E658B057EE1811E39189C81F66446D84</p.user.id>
+                <p.user.key>416427635588428CA394DA1FFCC4063B</p.user.key>
+                <p.sms.url>http://172.16.1.17:81/client/message/execute</p.sms.url>
+                <!-- logistic -->
+                <p.logistic_server>http://api.kuaidi100.com/api</p.logistic_server>
+                <p.logistic_key>cc43b01834479f20</p.logistic_key>
+                <!-- weshop -->
+                <p.weshop.weburl>http://172.16.1.17</p.weshop.weburl>
+                <p.zttx.weishop.openshop>http://172.16.1.17/trade/shop/register</p.zttx.weishop.openshop>
+                <p.zttx.weishop.showlist>http://172.16.1.17/trade/wshop/detail</p.zttx.weishop.showlist>
+                <p.zttx.weishop.sndvcode>http://172.16.1.17/common/code/validate</p.zttx.weishop.sndvcode>
+                <p.zttx.weishop.gettoken>http://172.16.1.17/trade/getToken</p.zttx.weishop.gettoken>
+                <p.zttx.weishop.mgweshop>http://172.16.1.17/trade/weshop_store</p.zttx.weishop.mgweshop>
+                <!-- api -->
+                <p.zttx.weburl>http://www.6666.com</p.zttx.weburl>
+                <p.zttx.biapi.weburl>http://172.16.1.22:8082</p.zttx.biapi.weburl>
+                <p.zttx.crmapi.weburl>http://172.16.1.20:81</p.zttx.crmapi.weburl>
+                <p.zttx.userapi.weburl>http://172.16.1.20:8086</p.zttx.userapi.weburl>
+                <p.zttx.erpapi.weburl>http://172.16.1.18:82</p.zttx.erpapi.weburl>
+                <p.zttx.fileapi.weburl>http://172.16.1.18:81</p.zttx.fileapi.weburl>
+                <p.zttx.payapi.webip>http://172.16.1.21:8080</p.zttx.payapi.webip>
+                <p.zttx.payapi.weburl>https://pay.6666.com</p.zttx.payapi.weburl>
+                <p.zttx.crmapi.userkey>250A11CF7E85422AAE7EA40D00668945</p.zttx.crmapi.userkey>
+                <p.zttx.userapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.userapi.userkey>
+                <p.zttx.erpapi.userkey>D7B7BA3F24A84D738D8B7A15CC30201A</p.zttx.erpapi.userkey>
+                <p.zttx.fileapi.userkey>0DC1763AD47A447AB25C9A8D680B2CFF</p.zttx.fileapi.userkey>
+                <!-- zttx -->
+                <p.zttx.image.domain>http://172.16.1.18:8086</p.zttx.image.domain>
+                <p.zttx.idapi.uuid.weburl>http://172.16.1.18:8086/client/gainUuid</p.zttx.idapi.uuid.weburl>
+                <p.zttx.idapi.idworker.weburl>http://172.16.1.18:8086/client/gainIdWork</p.zttx.idapi.idworker.weburl>
+                <p.zttx.idapi.sequenceid.weburl>http://172.16.1.18:8086/client/gainSequenceId</p.zttx.idapi.sequenceid.weburl>
+                <p.zttx.idapi.userkey>FE3141781F1441B2B912BF47934BF334</p.zttx.idapi.userkey>
+                <p.zttx.idapi.platformcode>1001</p.zttx.idapi.platformcode>
+                <!-- jdbc -->
+                <p.jdbc.driver>com.mysql.jdbc.Driver</p.jdbc.driver>
+                <p.master.jdbc.username>zttxUser</p.master.jdbc.username>
+                <p.slave1.jdbc.username>zttxUser</p.slave1.jdbc.username>
+                <p.slave2.jdbc.username>zttxUser</p.slave2.jdbc.username>
+                <p.master.jdbc.password>123456</p.master.jdbc.password>
+                <p.slave1.jdbc.password>123456</p.slave1.jdbc.password>
+                <p.slave2.jdbc.password>123456</p.slave2.jdbc.password>
+                <p.master.jdbc.url>jdbc:mysql://172.16.1.18:3308/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.url>
+                <p.master.jdbc.quartz.url>jdbc:mysql://172.16.1.18:3308/Zttx-Web-Quartz?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.quartz.url>
+                <p.slave1.jdbc.url>jdbc:mysql://172.16.1.18:3308/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave1.jdbc.url>
+                <p.slave2.jdbc.url>jdbc:mysql://172.16.1.18:3308/Zttx-Web-New?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.slave2.jdbc.url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

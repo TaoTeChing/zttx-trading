@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependencies>
+    <statements>
+        <!-- 角色授权后刷新角色缓存 -->
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.insert">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.insertSelective">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.deleteByRoleId">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.setRole">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.setMenu">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.RoleMenuMapper.deleteByMenuId">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findMenuByRoleId"/>
+        </statement>
+
+        <!-- 用户信息缓存管理 -->
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.insert">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.delete">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.deleteByPrimaryKey">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.insertSelective">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+        <statement id="com.zttx.web.module.common.mapper.UserInfoMapper.updateVerifyMobile">
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getMainMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.getSideMenuList"/>
+            <observer id="com.zttx.web.module.common.mapper.MenuInfoMapper.findChildren"/>
+        </statement>
+
+        <!-- 广告位置缓存管理 -->
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.insert">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.delete">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.deleteByPrimaryKey">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.insertSelective">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.AdvertPositMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.fronts.mapper.AdvertsMapper.search"/>
+        </statement>
+
+        <!-- 帮助分类缓存管理 -->
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.insert">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.delete">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.deleteByPrimaryKey">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.insertSelective">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+        <statement id="com.zttx.web.module.fronts.mapper.HelpCateMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.fronts.mapper.HelpInfoMapper.extFindList"/>
+        </statement>
+
+        <!-- 品牌商信息缓存管理 -->
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.insert">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.delete">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.deleteByPrimaryKey">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.insertSelective">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandInfoMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandAndBrandesInfo"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolr"/>
+            <observer id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.findBrandesInfoToSolrCount"/>
+        </statement>
+
+        <!-- 品牌信息缓存管理 -->
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.insert">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.delete">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.deleteByPrimaryKey">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.insertSelective">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.updateByPrimaryKey">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+        <statement id="com.zttx.web.module.brand.mapper.BrandesInfoMapper.updateByPrimaryKeySelective">
+            <observer id="com.zttx.web.module.brand.mapper.BrandsDomainMapper.getBrandsDomainsByBrandId"/>
+            <observer id="com.zttx.web.module.common.mapper.DealDicMapper.findIndexNav"/>
+        </statement>
+
+    </statements>
+</dependencies>

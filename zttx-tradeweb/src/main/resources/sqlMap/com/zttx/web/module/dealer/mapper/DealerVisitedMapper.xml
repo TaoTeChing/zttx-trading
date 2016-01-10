@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerVisitedMapper">
+    <!-- 基础列 -->
+    <sql id="dealerVisitedColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.domainName as domainName ,
+        a.logoName as logoName ,
+        a.areaNo as areaNo ,
+        a.provinceName as provinceName ,
+        a.cityName as cityName ,
+        a.areaName as areaName ,
+        a.viewNum as viewNum ,
+        a.viewTime as viewTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerVisited">
+        insert into DealerVisited(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         domainName ,
+         logoName ,
+         areaNo ,
+         provinceName ,
+         cityName ,
+         areaName ,
+         viewNum ,
+         viewTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{domainName}  ,
+        #{logoName}  ,
+        #{areaNo}  ,
+        #{provinceName}  ,
+        #{cityName}  ,
+        #{areaName}  ,
+        #{viewNum}  ,
+        #{viewTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerVisited where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerVisited set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerVisited">
+        insert into DealerVisited
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="logoName != null">
+                logoName ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="provinceName != null">
+                provinceName ,
+            </if>
+            <if test="cityName != null">
+                cityName ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="viewNum != null">
+                viewNum ,
+            </if>
+            <if test="viewTime != null">
+                viewTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="logoName != null">
+                #{logoName} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum} ,
+            </if>
+            <if test="viewTime != null">
+                #{viewTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerVisited">
+        update DealerVisited
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="logoName != null">
+                logoName = #{logoName} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="viewTime != null">
+                viewTime = #{viewTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerVisited">
+        update DealerVisited set
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            domainName = #{domainName} ,
+            logoName = #{logoName} ,
+            areaNo = #{areaNo} ,
+            provinceName = #{provinceName} ,
+            cityName = #{cityName} ,
+            areaName = #{areaName} ,
+            viewNum = #{viewNum} ,
+            viewTime = #{viewTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerVisited">
+        select
+        <include refid="dealerVisitedColumns"/>
+        from DealerVisited a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerVisited">
+        SELECT
+        <include refid="dealerVisitedColumns"/>
+        FROM DealerVisited a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="logoName != null and logoName != ''">
+            and a.logoName like CONCAT('%',#{logoName}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        <if test="viewTime != null and viewTime != ''">
+            and a.viewTime = #{viewTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerVisited">
+        SELECT
+        <include refid="dealerVisitedColumns"/>
+        FROM DealerVisited a WHERE a.delFlag = 0
+    </select>
+    <!--分页查询 经销商 加盟管理 我浏览过的品牌商-->
+    <select id="getDealerVisitedsPage" resultType="java.util.HashMap">
+        SELECT
+        a.refrenceId AS refrenceId,
+        a.dealerId AS dealerId,
+        c.dealerName AS dealerName,
+        a.brandId AS brandId,
+        a.brandsId AS brandsId,
+        b.comName AS brandName,
+        d.brandsName AS brandsName,
+        a.domainName AS domainName,
+        a.logoName AS logoName,
+        a.viewNum AS viewNum,
+        a.viewTime AS viewTime,
+        b.emploeeNum AS emploeeNum,
+        b.moneyNum AS moneyNum
+        FROM
+        DealerVisited a,
+        BrandInfo b,
+        DealerInfo c,
+        BrandesInfo d
+        WHERE
+        a.brandId = b.refrenceId
+        and a.brandsId = d.refrenceId
+        and a.dealerId = c.refrenceId
+        <if test="null!=emploeeNum and ''!=emploeeNum">
+            and b.emploeeNum= #{emploeeNum}
+        </if>
+        <if test="null!=moneyNum and '' !=moneyNum">
+            and b.moneyNum=#{moneyNum}
+        </if>
+        <if test="null!= startTimeStr and ''!= startTimeStr">
+            and a.viewTime &gt;= #{startTimeStr}
+        </if>
+        <if test="null!= endTimeStr and ''!= endTimeStr">
+            and a.viewTime &lt;= #{endTimeStr}
+        </if>
+        and a.dealerId=#{dealerId}
+        order by a.viewTime desc
+    </select>
+
+
+    <select id="search" resultType="java.util.HashMap">
+        select o.refrenceId as id,
+        o.dealerName as dealerName,p.domainName as domain,p.logoName as logoName,p.areaNo as areaNo,o.provinceName as
+        province,o.cityName as city,o.areaName as area,o.shopNum as shopNum,o.empNum as
+        empNum,o.monNum as monNum,
+        o.brandName as brandName,o.foundTime as foundTime,o.gpsX as gpsX,o.gpsY as gpsY,o.dealerLevel as
+        dealerLevel,o.dealerLogo as dealerLogo
+        FROM DealerVisited p,DealerInfo o
+
+        <if test="info.dictValue != null">
+            ,DealerClass dc
+        </if>
+
+        where
+        p.dealerId=o.refrenceId and p.brandId=#{info.brandId} and o.checkState=1
+
+        <if test="info.dictValue != null">
+            and dc.dealerId = o.refrenceId and dc.delState = 0
+        </if>
+
+        <if test="info.dictValue != null">
+            and dc.dealNo = #{info.dictValue}
+        </if>
+
+        <if test="info.areaNo != null and info.areaNo!=0">
+            <choose>
+                <when test="info.level==1">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,2),'%' )
+                </when>
+                <when test="info.level==2">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,4),'%' )
+                </when>
+                <when test="info.level==3">
+                    and o.areaNo = #{info.areaNo}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        <!-- 实体店经验 -->
+        <if test="info.shopExperiLeft != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &gt;=#{info.shopExperiLeft})
+        </if>
+        <if test="info.shopExperiRight != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &lt;=#{info.shopExperiRight})
+        </if>
+
+        <!-- 分店数量 -->
+        <if test="info.shopNumLeft != null">
+            and (o.shopNum &gt;=#{info.shopNumLeft})
+        </if>
+        <if test="info.shopNumRight != null">
+            and (o.shopNum &lt;=#{info.shopNumRight})
+        </if>
+        <!-- 月销售额 -->
+        <if test="info.saleTotalLeft != null">
+            and (o.monNum &gt;=#{info.saleTotalLeft})
+        </if>
+        <if test="info.saleTotalRight != null">
+            and (o.monNum &lt;=#{info.saleTotalRight})
+        </if>
+        <!--  员工数量 -->
+        <if test="info.employeeNumLeft != null">
+            and (o.empNum &gt;=#{info.employeeNumLeft})
+        </if>
+        <if test="info.employeeNumRight != null">
+            and (o.empNum &lt;=#{info.employeeNumRight})
+        </if>
+        <!--  手机号码 -->
+        <if test="info.userMobile != null">
+            and u.userMobile like CONCAT('%','${info.userMobile}','%' )
+        </if>
+        <!-- 终端商名称 -->
+        <if test="info.dealerName != null and info.dealerName != ''">
+            and o.dealerName like CONCAT('%','${info.dealerName}','%' )
+        </if>
+
+        <!-- 设置排序规则 -->
+        <if test="info.attrType != null and info.descType != null">
+            <choose>
+                <when test="info.attrType==1">
+                    order by o.shopNum
+                </when>
+                <when test="info.attrType==2">
+                    order by o.empNum
+                </when>
+                <when test="info.attrType==3">
+                    order by o.foundTime
+                </when>
+                <when test="info.descType==1">
+                    order by o.desc
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        <if test="info.attrType != null or info.descType != null">
+            order by o.createTime desc,o.dealerLevel desc
+        </if>
+    </select>
+
+</mapper>
+

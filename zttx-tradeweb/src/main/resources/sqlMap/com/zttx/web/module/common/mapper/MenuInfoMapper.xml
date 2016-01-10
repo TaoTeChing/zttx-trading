@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.MenuInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="menuInfoColumns">
+        a.refrenceId as refrenceId,
+        a.upMenuId as upMenuId ,
+        a.menuName as menuName,
+        a.menuAddr as menuAddr,
+        a.menuType as menuType,
+        a.authority as authority,
+        a.menuLevel as menuLevel,
+        a.menuOrder as menuOrder ,
+        a.menuStyle as menuStyle,
+        a.isSelect as isSelect,
+        a.menuOpen as menuOpen,
+        a.showflag as showflag,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag,
+        a.canTop as canTop
+    </sql>
+
+    <sql id="parentMenuInfoColumns">
+        p.refrenceId as 'parent.refrenceId',
+        p.upMenuId as 'parent.upMenuId' ,
+        p.menuName as 'parent.menuName',
+        p.menuAddr as 'parent.menuAddr',
+        p.menuType as 'parent.menuType',
+        p.authority as 'parent.authority',
+        p.menuLevel as 'parent.menuLevel',
+        p.menuOrder as 'parent.menuOrder' ,
+        p.menuStyle as 'parent.menuStyle',
+        p.isSelect as 'parent.isSelect',
+        p.menuOpen as 'parent.menuOpen',
+        p.showflag as 'parent.showflag',
+        p.createTime 'parent.createTime',
+        p.updateTime 'parent.updateTime',
+        p.delFlag as 'parent.delFlag',
+        p.canTop as 'parent.canTop'
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.MenuInfo">
+        INSERT INTO MenuInfo (
+        refrenceId,
+        upMenuId,
+        menuName,
+        menuAddr,
+        authority,
+        menuLevel,
+        menuOrder,
+        menuStyle,
+        isSelect,
+        menuOpen,
+        showflag,
+        createTime,
+        updateTime,
+        delFlag,
+        menuType,
+        canTop
+        ) VALUES (
+        #{refrenceId},
+        #{upMenuId},
+        #{menuName},
+        #{menuAddr},
+        #{authority},
+        #{menuLevel},
+        #{menuOrder},
+        #{menuStyle},
+        #{isSelect},
+        #{menuOpen},
+        #{showflag},
+        #{createTime},
+        #{updateTime},
+        #{delFlag},
+        #{menuType},
+        #{canTop}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM MenuInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE MenuInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.MenuInfo">
+        insert into MenuInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="upMenuId != null">
+                upMenuId ,
+            </if>
+            <if test="menuName != null">
+                menuName ,
+            </if>
+            <if test="menuAddr != null">
+                menuAddr ,
+            </if>
+            <if test="authority != null">
+                authority ,
+            </if>
+            <if test="menuLevel != null">
+                menuLevel ,
+            </if>
+            <if test="menuOrder != null">
+                menuOrder ,
+            </if>
+            <if test="menuStyle != null">
+                menuStyle ,
+            </if>
+            <if test="isSelect != null">
+                isSelect ,
+            </if>
+            <if test="menuOpen != null">
+                menuOpen ,
+            </if>
+            <if test="showflag != null">
+                showflag ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag,
+            </if>
+            <if test="menuType!=null">
+                menuType,
+            </if>
+            <if test="canTop!=null">
+                canTop
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="upMenuId != null">
+                #{upMenuId} ,
+            </if>
+            <if test="menuName != null">
+                #{menuName} ,
+            </if>
+            <if test="menuAddr != null">
+                #{menuAddr} ,
+            </if>
+            <if test="authority != null">
+                #{authority} ,
+            </if>
+            <if test="menuLevel != null">
+                #{menuLevel} ,
+            </if>
+            <if test="menuOrder != null">
+                #{menuOrder} ,
+            </if>
+            <if test="menuStyle != null">
+                #{menuStyle} ,
+            </if>
+            <if test="isSelect != null">
+                #{isSelect} ,
+            </if>
+            <if test="menuOpen != null">
+                #{menuOpen} ,
+            </if>
+            <if test="showflag != null">
+                #{showflag} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag},
+            </if>
+            <if test="menuType!=null">
+                #{menuType},
+            </if>
+            <if test="canTop!=null">
+                #{canTop}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.MenuInfo">
+        update MenuInfo
+        <set>
+            <if test="upMenuId != null">
+                upMenuId = #{upMenuId} ,
+            </if>
+            <if test="menuName != null">
+                menuName = #{menuName} ,
+            </if>
+            <if test="menuAddr != null">
+                menuAddr = #{menuAddr} ,
+            </if>
+            <if test="authority != null">
+                authority = #{authority} ,
+            </if>
+            <if test="menuLevel != null">
+                menuLevel = #{menuLevel} ,
+            </if>
+            <if test="menuOrder != null">
+                menuOrder = #{menuOrder} ,
+            </if>
+            <if test="menuStyle != null">
+                menuStyle = #{menuStyle} ,
+            </if>
+            <if test="menuType != null">
+                menuType = #{menuType} ,
+            </if>
+            <if test="isSelect != null">
+                isSelect = #{isSelect} ,
+            </if>
+            <if test="menuOpen != null">
+                menuOpen = #{menuOpen} ,
+            </if>
+            <if test="showflag != null">
+                showflag = #{showflag} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} ,
+            </if>
+            <if test="canTop!=null">
+                canTop=#{canTop}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.MenuInfo">
+        UPDATE MenuInfo
+        SET
+        upMenuId = #{upMenuId},
+        menuName = #{menuName},
+        menuAddr = #{menuAddr},
+        authority = #{authority},
+        menuLevel = #{menuLevel},
+        menuOrder = #{menuOrder},
+        menuStyle = #{menuStyle},
+        menuType = #{menuType} ,
+        isSelect = #{isSelect},
+        menuOpen = #{menuOpen},
+        showflag = #{showflag},
+        createTime = #{createTime},
+        updateTime = #{updateTime},
+        delFlag = #{delFlag},
+        canTop = #{canTop}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.MenuInfo">
+        select
+        <include refid="menuInfoColumns"/>
+        from MenuInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        SELECT
+        <include refid="menuInfoColumns"/>
+        FROM MenuInfo a WHERE a.delFlag = 0
+        <if test="upMenuId != null and upMenuId != ''">
+            and a.upMenuId =#{upMenuId}
+        </if>
+        <if test="menuName != null and menuName != ''">
+            and a.menuName like CONCAT('%',#{menuName}, '%')
+        </if>
+        <if test="menuAddr != null and menuAddr != ''">
+            and a.menuAddr like CONCAT('%',#{menuAddr}, '%')
+        </if>
+        <if test="authority != null and authority != ''">
+            and a.authority like CONCAT('%',#{authority}, '%')
+        </if>
+        <if test="menuLevel != null">
+            and a.menuLevel = #{menuLevel}
+        </if>
+        <if test="menuStyle != null and menuStyle != ''">
+            and a.menuStyle like CONCAT('%',#{menuStyle}, '%')
+        </if>
+        <if test="isSelect != null">
+            and a.isSelect = #{isSelect}
+        </if>
+        <if test="menuOpen != null">
+            and a.menuOpen = #{menuOpen}
+        </if>
+        <if test="showflag != null">
+            and a.showflag = #{showflag}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        SELECT
+        <include refid="menuInfoColumns"/>
+        FROM MenuInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getMainMenuList" parameterType="String" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        SELECT
+        <include refid="menuInfoColumns"/>
+        FROM MenuInfo a,
+        UserInfo b,
+        RoleMenu c
+        <where>
+            a.refrenceId = c.menuId
+            and b.roleId=c.roleId
+            and b.refrenceId=#{userId}
+            and a.canTop=1
+            and a.menuLevel=2
+            and a.menuType=0
+        </where>
+        order by menuOrder
+
+    </select>
+
+    <select id="getSideMenuList" parameterType="java.util.Map" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        SELECT
+        <include refid="menuInfoColumns"/>
+        FROM MenuInfo a join RoleMenu c on a.refrenceId = c.menuId
+        join UserInfo b on b.roleId=c.roleId
+        <where>
+            b.refrenceId=#{userId}
+            and a.canTop=0
+            and a.menuLevel=3
+            and a.menuType=0
+            and a.upMenuId=#{parentMenuId}
+
+        </where>
+        order by a.menuOrder
+    </select>
+
+    <select id="findChildren" parameterType="java.util.Map" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        SELECT
+        <include refid="menuInfoColumns"/>
+        FROM MenuInfo a join RoleMenu c on a.refrenceId = c.menuId
+        join UserInfo b on b.roleId=c.roleId
+        <where>
+            b.refrenceId=#{userId}
+            and a.canTop=0
+            and a.menuLevel=4
+            and a.menuType=0
+            and a.upMenuId=#{parentMenuId}
+
+        </where>
+        order by a.menuOrder
+    </select>
+
+    <select id="findMenuByRoleId" parameterType="String" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        select
+        <include refid="menuInfoColumns"/>
+        from MenuInfo a,RoleMenu rm
+        where a.delFlag=0
+        and rm.menuId =a.refrenceId
+        and rm.roleId=#{roleId}
+    </select>
+
+    <select id="findByMenuInfo" parameterType="com.zttx.web.module.common.entity.MenuInfo"
+            resultType="com.zttx.web.module.common.entity.MenuInfo">
+        select
+        <include refid="menuInfoColumns"/>,
+        <include refid="parentMenuInfoColumns"/>
+        from MenuInfo a left join MenuInfo p on a.upMenuId=p.refrenceId
+        <where>
+            a.delFlag = 0
+            <if test="parent!=null and parent.menuName!=null and parent.menuName!=''">
+                and p.menuName like CONCAT('%',#{parent.menuName}, '%')
+            </if>
+            <if test="menuName!=null and menuName!=''">
+                and a.menuName like CONCAT('%',#{menuName}, '%')
+            </if>
+            <if test="menuType!=null">
+                and a.menuType=#{menuType}
+            </if>
+            <if test="delFlag!=null">
+                and a.delFlag=#{delFlag}
+            </if>
+            <if test="menuLevel!=null and menuLevel!=0">
+                and a.menuLevel=#{menuLevel}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByPrimaryKeyWithParent" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.MenuInfo">
+        select
+        <include refid="menuInfoColumns"/>,
+        <include refid="parentMenuInfoColumns"/>
+        from MenuInfo a left join MenuInfo p on a.upMenuId=p.refrenceId
+        where a.refrenceId = #{refrenceId}
+    </select>
+    <select id="countByUpMuneId" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM MenuInfo a WHERE a.delFlag=0 AND a.upMenuId=#{upMenuId}
+    </select>
+    <select id="findByIds" resultType="com.zttx.web.module.common.entity.MenuInfo">
+        select
+        <include refid="menuInfoColumns"/>
+        from MenuInfo a
+        where a.delFlag = 0
+        <if test="array != null">
+            and a.refrenceId in
+            <foreach collection="array" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+    <update id="enable" parameterType="String">
+        update MenuInfo
+        <set>
+            delFlag=false
+        </set>
+        <where>
+            refrenceId=#{refrenceId}
+        </where>
+    </update>
+</mapper>
+

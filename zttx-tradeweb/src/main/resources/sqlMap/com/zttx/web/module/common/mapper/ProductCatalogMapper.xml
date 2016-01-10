@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductCatalogMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="productCatalogColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.cateName as cateName ,
+        a.cateOrder as cateOrder ,
+        a.parentId as parentId ,
+        a.cateLevel as cateLevel ,
+        a.domainName as domainName ,
+        a.cateIcon as cateIcon ,
+        a.productNum as productNum ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductCatalog">
+        insert into ProductCatalog(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         cateName ,
+         cateOrder ,
+         parentId ,
+         cateLevel ,
+         domainName ,
+         cateIcon ,
+         productNum ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{cateName}  ,
+        #{cateOrder}  ,
+        #{parentId}  ,
+        #{cateLevel}  ,
+        #{domainName}  ,
+        #{cateIcon}  ,
+        #{productNum}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductCatalog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductCatalog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductCatalog">
+        insert into ProductCatalog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="cateName != null">
+                cateName ,
+            </if>
+            <if test="cateOrder != null">
+                cateOrder ,
+            </if>
+            <if test="parentId != null">
+                parentId ,
+            </if>
+            <if test="cateLevel != null">
+                cateLevel ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="cateIcon != null">
+                cateIcon ,
+            </if>
+            <if test="productNum != null">
+                productNum ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="cateName != null">
+                #{cateName} ,
+            </if>
+            <if test="cateOrder != null">
+                #{cateOrder} ,
+            </if>
+            <if test="parentId != null">
+                #{parentId} ,
+            </if>
+            <if test="cateLevel != null">
+                #{cateLevel} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="cateIcon != null">
+                #{cateIcon} ,
+            </if>
+            <if test="productNum != null">
+                #{productNum} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductCatalog">
+        update ProductCatalog
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="cateName != null">
+                cateName = #{cateName} ,
+            </if>
+            <if test="cateOrder != null">
+                cateOrder = #{cateOrder} ,
+            </if>
+            <if test="parentId != null">
+                parentId = #{parentId} ,
+            </if>
+            <if test="cateLevel != null">
+                cateLevel = #{cateLevel} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="cateIcon != null">
+                cateIcon = #{cateIcon} ,
+            </if>
+            <if test="productNum != null">
+                productNum = #{productNum} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductCatalog">
+        update ProductCatalog set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            cateName = #{cateName} ,
+            cateOrder = #{cateOrder} ,
+            parentId = #{parentId} ,
+            cateLevel = #{cateLevel} ,
+            domainName = #{domainName} ,
+            cateIcon = #{cateIcon} ,
+            productNum = #{productNum} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.ProductCatalog">
+        select
+        <include refid="productCatalogColumns"/>
+        from ProductCatalog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductCatalog">
+        SELECT
+        <include refid="productCatalogColumns"/>
+        FROM ProductCatalog a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="cateName != null and cateName != ''">
+            and a.cateName like CONCAT('%',#{cateName}, '%')
+        </if>
+        <if test="cateOrder != null and cateOrder != ''">
+            and a.cateOrder = #{cateOrder}
+        </if>
+        <if test="parentId != null and parentId != ''">
+            and a.parentId like CONCAT('%',#{parentId}, '%')
+        </if>
+        <if test="cateLevel != null and cateLevel != ''">
+            and a.cateLevel = #{cateLevel}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="cateIcon != null and cateIcon != ''">
+            and a.cateIcon like CONCAT('%',#{cateIcon}, '%')
+        </if>
+        <if test="productNum != null and productNum != ''">
+            and a.productNum = #{productNum}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductCatalog">
+        SELECT
+        <include refid="productCatalogColumns"/>
+        FROM ProductCatalog a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getCatalogList" parameterType="java.util.Map"
+            resultType="com.zttx.web.module.common.entity.ProductCatalog">
+        select
+        <include refid="productCatalogColumns"/>
+        from ProductCatalog a
+        <where>
+            delFlag=0
+            and a.brandId=#{brandId}
+            and a.brandsId=#{brandsId}
+            <if test="cateLevel != null ">
+                and a.cateLevel = #{cateLevel}
+            </if>
+        </where>
+        order by a.cateLevel asc,a.cateOrder asc
+    </select>
+
+    <select id="findSubCates" parameterType="string"
+            resultType="com.zttx.web.module.common.entity.ProductCatalog">
+        select
+        <include refid="productCatalogColumns"/>
+        from ProductCatalog a
+        where a.parentId=#{cataId}
+        and delFlag=0
+    </select>
+
+
+    <update id="updateCatalogDelState" parameterType="java.util.Map">
+        update ProductCatalog
+        <set>
+            delFlag=#{delFlag}
+        </set>
+        <where>
+            refrenceId in (
+            <foreach collection="idArray" separator="," item="refrenceId">
+                #{refrenceId}
+            </foreach>
+        </where>
+        )
+    </update>
+    <insert id="insertBatch" parameterType="list">
+        insert into ProductCatalog(
+        refrenceId ,
+        brandId ,
+        brandsId ,
+        cateName ,
+        cateOrder ,
+        parentId ,
+        cateLevel ,
+        domainName ,
+        cateIcon ,
+        productNum ,
+        createTime ,
+        updateTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="catalog" separator=",">
+            (
+            #{catalog.refrenceId} ,
+            #{catalog.brandId} ,
+            #{catalog.brandsId} ,
+            #{catalog.cateName} ,
+            #{catalog.cateOrder} ,
+            #{catalog.parentId} ,
+            #{catalog.cateLevel} ,
+            #{catalog.domainName} ,
+            #{catalog.cateIcon} ,
+            #{catalog.productNum} ,
+            #{catalog.createTime} ,
+            #{catalog.updateTime} ,
+            #{catalog.delFlag}
+            )
+        </foreach>
+
+    </insert>
+
+
+</mapper>
+

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <bean id="dubboCreditToPointService" class="com.zttx.web.dubbo.service.CreditToPointDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.CreditToPointDubboService" ref="dubboCreditToPointService"
+                   version="1.0" timeout="18000000"/>
+
+    <!--交易平台提供给erp的返点退货-->
+    <bean id="dubboPointRefundService" class="com.zttx.web.dubbo.service.PointRefundDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.PointRefundDubboService" ref="dubboPointRefundService"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 交易平台产品信息DUBBO服务声明 -->
+    <bean id="dubboProductInfoService" class="com.zttx.web.dubbo.service.ProductSolrDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.ProductSolrDubboService" ref="dubboProductInfoService"
+                   version="1.0" timeout="18000000"/>
+    <!--产品价格-->
+    <bean id="dubboProductPriceService" class="com.zttx.web.dubbo.service.BrandesAuthUserDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandesAuthUserDubboService" ref="dubboProductPriceService"
+                   version="1.0" timeout="18000000"/>
+    <bean id="dubboProductCateService" class="com.zttx.web.dubbo.service.ProductCateDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.ProductCateDubboService" ref="dubboProductCateService"
+                   version="1.0" timeout="18000000"/>
+
+    <bean id="dubboProductCountDubboService" class="com.zttx.web.dubbo.service.ProductCountDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.ProductCountDubboService" ref="dubboProductCountDubboService"
+                   version="1.0" timeout="18000000"/>
+
+    <bean id="dubboBrandsCountDubboService" class="com.zttx.web.dubbo.service.BrandsCountDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandsCountDubboService" ref="dubboBrandsCountDubboService"
+                   version="1.0" timeout="18000000"/>
+
+    <bean id="dubboBrandCountDubboService" class="com.zttx.web.dubbo.service.BrandCountDubboServiceImpl"/>
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandCountDubboService" ref="dubboBrandCountDubboService"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 加盟关系服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandInviteDubboService" ref="brandInviteDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 品牌服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandsDubboService" ref="brandsDubboServiceImpl" version="1.0"
+                   timeout="18000000"/>
+
+    <!-- 终端商服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerInfoDubboService" ref="dealerInfoDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 推荐的终端商服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerGroomDubboService" ref="dealerGroomDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 品牌商计数器服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandsCountDubboService" ref="brandsCountDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 终端商分类服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerClassDubboService" ref="dealerClassDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 数据字典服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealDicDubboService" ref="dealDicDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 终端商图片服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerImageDubboService" ref="dealerImageDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 品牌商查看终端商服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandViewContactDubboService"
+                   ref="brandViewContactDubboServiceImpl" version="1.0" timeout="18000000"/>
+
+    <!-- 订单服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerOrderDubboService" ref="dealerOrderDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <!-- 订单项服务 -->
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerOrderItemsService" ref="dealerOrderItemsServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <dubbo:service interface="com.zttx.web.dubbo.service.TradeProductDubboService" ref="tradeProductDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerJoinDubboService" ref="dealerJoinDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandContractDubboService" ref="brandContractDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+    <dubbo:service interface="com.zttx.web.dubbo.service.BrandAdjustmentDubboService"
+                   ref="brandAdjustmentDubboServiceImpl" version="1.0" timeout="18000000"/>
+
+    <dubbo:service interface="com.zttx.web.dubbo.service.DealerShoperDubboService" ref="dealerShoperDubboServiceImpl"
+                   version="1.0" timeout="18000000"/>
+
+</beans>

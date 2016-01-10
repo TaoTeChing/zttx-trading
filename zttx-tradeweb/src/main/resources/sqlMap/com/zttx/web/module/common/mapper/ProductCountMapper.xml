@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductCountMapper">
+    <!-- 基础列 -->
+    <sql id="productCountColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.viewNum as viewNum ,
+        a.collectNum as collectNum ,
+        a.saleNum as saleNum ,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.monthSaleNum as monthSaleNum 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductCount">
+        insert into ProductCount(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         viewNum ,
+         collectNum ,
+         saleNum ,
+         createTime,
+         updateTime,
+         monthSaleNum 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{viewNum}  ,
+        #{collectNum}  ,
+        #{saleNum}  ,
+        #{createTime},
+        #{updateTime},
+        #{monthSaleNum}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductCount where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductCount set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductCount">
+        insert into ProductCount
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="viewNum != null">
+                viewNum ,
+            </if>
+            <if test="collectNum != null">
+                collectNum ,
+            </if>
+            <if test="saleNum != null">
+                saleNum ,
+            </if>
+            <if test="createTime != null">
+                createTime,
+            </if>
+            <if test="updateTime != null">
+                updateTime,
+            </if>
+            <if test="monthSaleNum!=null">
+                monthSaleNum
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum} ,
+            </if>
+            <if test="collectNum != null">
+                #{collectNum} ,
+            </if>
+            <if test="saleNum != null">
+                #{saleNum} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="monthSaleNum!=null">
+                #{monthSaleNum}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductCount">
+        update ProductCount
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="collectNum != null">
+                collectNum = #{collectNum} ,
+            </if>
+            <if test="saleNum != null">
+                saleNum = #{saleNum} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime},
+            </if>
+            <if test="monthSaleNum!=null">
+                monthSaleNum=#{monthSaleNum}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductCount">
+        update ProductCount set
+        brandId = #{brandId} ,
+        brandsId = #{brandsId} ,
+        viewNum = #{viewNum} ,
+        collectNum = #{collectNum} ,
+        saleNum = #{saleNum} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        monthSaleNum=#{monthSaleNum}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.ProductCount">
+        select
+        <include refid="productCountColumns"/>
+        from ProductCount a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductCount">
+        SELECT
+        <include refid="productCountColumns"/>
+        FROM ProductCount a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        <if test="collectNum != null and collectNum != ''">
+            and a.collectNum = #{collectNum}
+        </if>
+        <if test="saleNum != null and saleNum != ''">
+            and a.saleNum = #{saleNum}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductCount">
+        SELECT
+        <include refid="productCountColumns"/>
+        FROM ProductCount a
+    </select>
+
+    <select id="getProductCountMaps" resultType="java.lang.String">
+        select
+        a.refrenceId
+        FROM ProductCount a
+        WHERE a.updateTime
+        BETWEEN #{past} AND #{now}
+    </select>
+</mapper>
+

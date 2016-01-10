@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.WebServiceComMapper">
+    <!-- 基础列 -->
+    <sql id="webServiceComColumns">
+        a.refrenceId as refrenceId ,
+        a.comName as comName ,
+        a.comPhoto as comPhoto ,
+        a.comCert as comCert ,
+        a.comTel as comTel ,
+        a.comEmail as comEmail ,
+        a.comMobile as comMobile ,
+        a.subMark as subMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        insert into WebServiceCom(
+         refrenceId ,
+         comName ,
+         comPhoto ,
+         comCert ,
+         comTel ,
+         comEmail ,
+         comMobile ,
+         subMark ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{comName}  ,
+        #{comPhoto}  ,
+        #{comCert}  ,
+        #{comTel}  ,
+        #{comEmail}  ,
+        #{comMobile}  ,
+        #{subMark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from WebServiceCom where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update WebServiceCom set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        insert into WebServiceCom
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="comName != null">
+            comName ,
+        </if>
+        <if test="comPhoto != null">
+            comPhoto ,
+        </if>
+        <if test="comCert != null">
+            comCert ,
+        </if>
+        <if test="comTel != null">
+            comTel ,
+        </if>
+        <if test="comEmail != null">
+            comEmail ,
+        </if>
+        <if test="comMobile != null">
+            comMobile ,
+        </if>
+        <if test="subMark != null">
+            subMark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="comName != null">
+            #{comName} ,
+        </if>
+        <if test="comPhoto != null">
+            #{comPhoto} ,
+        </if>
+        <if test="comCert != null">
+            #{comCert} ,
+        </if>
+        <if test="comTel != null">
+            #{comTel} ,
+        </if>
+        <if test="comEmail != null">
+            #{comEmail} ,
+        </if>
+        <if test="comMobile != null">
+            #{comMobile} ,
+        </if>
+        <if test="subMark != null">
+            #{subMark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        update WebServiceCom
+           <set>
+            <if test="comName != null">
+                comName = #{comName} ,
+            </if>
+            <if test="comPhoto != null">
+                comPhoto = #{comPhoto} ,
+            </if>
+            <if test="comCert != null">
+                comCert = #{comCert} ,
+            </if>
+            <if test="comTel != null">
+                comTel = #{comTel} ,
+            </if>
+            <if test="comEmail != null">
+                comEmail = #{comEmail} ,
+            </if>
+            <if test="comMobile != null">
+                comMobile = #{comMobile} ,
+            </if>
+            <if test="subMark != null">
+                subMark = #{subMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        update WebServiceCom set
+            comName = #{comName} ,
+            comPhoto = #{comPhoto} ,
+            comCert = #{comCert} ,
+            comTel = #{comTel} ,
+            comEmail = #{comEmail} ,
+            comMobile = #{comMobile} ,
+            subMark = #{subMark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        select <include refid="webServiceComColumns"/> from WebServiceCom a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        SELECT
+        <include refid="webServiceComColumns"/>
+        FROM WebServiceCom a WHERE a.delFlag = 0
+        <if test="comName != null and comName != ''">
+            and a.comName like CONCAT('%',#{comName}, '%')
+        </if>
+        <if test="comPhoto != null and comPhoto != ''">
+            and a.comPhoto like CONCAT('%',#{comPhoto}, '%')
+        </if>
+        <if test="comCert != null and comCert != ''">
+            and a.comCert like CONCAT('%',#{comCert}, '%')
+        </if>
+        <if test="comTel != null and comTel != ''">
+            and a.comTel like CONCAT('%',#{comTel}, '%')
+        </if>
+        <if test="comEmail != null and comEmail != ''">
+            and a.comEmail like CONCAT('%',#{comEmail}, '%')
+        </if>
+        <if test="comMobile != null and comMobile != ''">
+            and a.comMobile like CONCAT('%',#{comMobile}, '%')
+        </if>
+        <if test="subMark != null and subMark != ''">
+            and a.subMark like CONCAT('%',#{subMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.WebServiceCom">
+        SELECT
+        <include refid="webServiceComColumns"/>
+        FROM WebServiceCom a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandNetimgMapper">
+    <!-- 基础列 -->
+    <sql id="brandNetimgColumns">
+        a.refrenceId as refrenceId ,
+        a.networkId as networkId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.domainName as domainName ,
+        a.photoName as photoName ,
+        a.imageName as imageName ,
+        a.mainFlag as mainFlag ,
+        a.uploadTime as uploadTime ,
+        a.uploadIp as uploadIp ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandNetimg">
+        insert into BrandNetimg(
+         refrenceId ,
+         networkId ,
+         brandId ,
+         brandsId ,
+         domainName ,
+         photoName ,
+         imageName ,
+         mainFlag ,
+         uploadTime ,
+         uploadIp ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{networkId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{domainName}  ,
+        #{photoName}  ,
+        #{imageName}  ,
+        #{mainFlag}  ,
+        #{uploadTime}  ,
+        #{uploadIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandNetimg where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandNetimg set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandNetimg">
+        insert into BrandNetimg
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="networkId != null">
+            networkId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="photoName != null">
+            photoName ,
+        </if>
+        <if test="imageName != null">
+            imageName ,
+        </if>
+        <if test="mainFlag != null">
+            mainFlag ,
+        </if>
+        <if test="uploadTime != null">
+            uploadTime ,
+        </if>
+        <if test="uploadIp != null">
+            uploadIp ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="networkId != null">
+            #{networkId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="photoName != null">
+            #{photoName} ,
+        </if>
+        <if test="imageName != null">
+            #{imageName} ,
+        </if>
+        <if test="mainFlag != null">
+            #{mainFlag} ,
+        </if>
+        <if test="uploadTime != null">
+            #{uploadTime} ,
+        </if>
+        <if test="uploadIp != null">
+            #{uploadIp} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandNetimg">
+        update BrandNetimg
+           <set>
+            <if test="networkId != null">
+                networkId = #{networkId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="photoName != null">
+                photoName = #{photoName} ,
+            </if>
+            <if test="imageName != null">
+                imageName = #{imageName} ,
+            </if>
+            <if test="mainFlag != null">
+                mainFlag = #{mainFlag} ,
+            </if>
+            <if test="uploadTime != null">
+                uploadTime = #{uploadTime} ,
+            </if>
+            <if test="uploadIp != null">
+                uploadIp = #{uploadIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandNetimg">
+        update BrandNetimg set
+            networkId = #{networkId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            domainName = #{domainName} ,
+            photoName = #{photoName} ,
+            imageName = #{imageName} ,
+            mainFlag = #{mainFlag} ,
+            uploadTime = #{uploadTime} ,
+            uploadIp = #{uploadIp} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandNetimg">
+        select <include refid="brandNetimgColumns"/> from BrandNetimg a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandNetimg">
+        SELECT
+        <include refid="brandNetimgColumns"/>
+        FROM BrandNetimg a WHERE a.delFlag = 0
+        <if test="networkId != null and networkId != ''">
+            and a.networkId like CONCAT('%',#{networkId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="photoName != null and photoName != ''">
+            and a.photoName like CONCAT('%',#{photoName}, '%')
+        </if>
+        <if test="imageName != null and imageName != ''">
+            and a.imageName like CONCAT('%',#{imageName}, '%')
+        </if>
+        <if test="mainFlag != null and mainFlag != ''">
+            and a.mainFlag = #{mainFlag}
+        </if>
+        <if test="uploadTime != null and uploadTime != ''">
+            and a.uploadTime = #{uploadTime}
+        </if>
+        <if test="uploadIp != null and uploadIp != ''">
+            and a.uploadIp = #{uploadIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandNetimg">
+        SELECT
+        <include refid="brandNetimgColumns"/>
+        FROM BrandNetimg a WHERE a.delFlag = 0
+    </select>
+    
+    
+    <select id="getBrandNetimgList" resultType="java.util.HashMap" parameterType="String">
+        SELECT
+        <include refid="brandNetimgColumns"/>
+        FROM BrandNetimg a WHERE a.delFlag = 0 and a.networkId = #{networkId}
+    </select>
+
+    <select id="findBrandNetimgList" resultType="com.zttx.web.module.brand.entity.BrandNetimg" parameterType="String">
+        SELECT
+        <include refid="brandNetimgColumns"/>
+        FROM BrandNetimg a WHERE a.delFlag = 0 and a.networkId = #{networkId}
+    </select>
+    
+</mapper>
+

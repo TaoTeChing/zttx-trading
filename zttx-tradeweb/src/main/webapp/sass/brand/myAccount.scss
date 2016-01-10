@@ -1,0 +1,885 @@
+@charset "UTF-8";
+
+$labelWidth:       150px;
+$labelFontSize:    12px;
+
+@import "form";
+@import "button";
+
+.main{
+    .inner{
+        background: #fff;
+        padding-bottom: 0 !important;
+    }
+}
+
+.add_companyInfo_title{
+    margin: 10px 0 0 20px;
+    font: 14px "微软雅黑";
+}
+.ui-form{
+    .ui-label{
+        color: #666;
+        line-height: 35px;
+        font-size: 14px;
+    }
+    .ui-input{
+        width: 212px;
+        height: 25px;
+        font-size: 14px;
+    }
+    .ui-select{
+        width: 222px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .radio_box{
+        vertical-align: -5px;
+        font-size: 14px;
+        line-height: 35px;
+        input{
+            margin-right: 3px;
+        }
+    }
+    .ui-form-explain{
+        line-height: 35px;
+        background-position: 0 -241px;
+    }
+    .ui-form-item{
+        .inline-block{
+            vertical-align: top;
+        }
+    }
+    .ui_button{
+        padding:0 20px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 14px;
+    }
+}
+.contact_info{
+    margin: 0 20px;
+    .top{
+        padding-top: 15px;
+    }
+    .photo{
+        width: 120px;
+        height: 120px;
+        padding: 1px;
+        border: #E4E4E4 solid 1px;
+        position: relative;
+        margin-right: 20px;
+        .file_wrap{
+            position: absolute;
+            width: 120px;
+            bottom: 1px;
+            left: 1px;
+            height: 16px;
+            background: rgba(0,0,0,0.5);
+            filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+            .replace_text{
+                color: #fff;
+                text-align: center;
+            }
+            .input_file{
+                width: 120px;
+                height: 16px;
+            }
+        }
+    }
+    .basic_info{
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        left: -95px;
+        .ui-label{
+            margin-left: -150px;
+        }
+        .no_certified{
+            color: #cc0000;
+        }
+    }
+    .title_bar{
+        margin: 15px 0;
+        height: 35px;
+        line-height: 35px;
+        background: #8bc2fb;
+        padding-left: 8px;
+        color: #fff;
+        font-size: 14px;
+        .iconfont{
+            margin-right: 5px;
+            color: #fff;
+            vertical-align: top;
+            font-size: 18px;
+        }
+        span{
+            font: 14px/27px "微软雅黑";
+        }
+    }
+    .detail_info{
+        margin-left: 49px;
+    }
+}
+
+.addCompanyInfo-form{
+    margin: 20px 0 0 20px;
+    .ui-select{
+        width: 224px;
+        height: 35px;
+    }
+    .detail_address{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .explain{
+        color: #999;
+    }
+    .ui_button{
+        width: 100px;
+    }
+    //证书列表
+    .certificate_box{
+        li{
+            width: 110px;
+            height: 110px;
+            padding: 1px;
+            border: #d9d9d9 solid 1px;
+            margin-right: 10px;
+            .img_contain{
+                width: 110px;
+                height: 110px;
+                text-align: center;
+                position: relative;
+            }
+            .close{
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #b4b4b4;
+                font-size: 18px;
+                line-height: 1;
+                display: none;
+            }
+            img{
+                vertical-align: middle;
+            }
+            span{
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+        }
+        margin-right: 10px;
+        .add_certificate{
+            width: 112px;
+            height: 112px;
+            padding: 0;
+            border: #ccc dashed 1px;
+            background: #f9f9f9;
+            .file_wrap{
+                width: 112px;
+                height: 112px;
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                text-align: center;
+            }
+            .iconfont{
+                color: #ddd;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 21px;
+            }
+            .input_file{
+                width: 112px;
+                height: 112px;
+            }
+        }
+    }
+}
+//主营产品
+.product_area{
+    border: #d9d9d9 solid 1px;
+    height: 297px;
+    width: 442px;
+    background: #f2f2f2 url("../../images/brand/brandManage_categoryArrow.png") 215px 126px no-repeat;
+    .select_category,.select_class,.select_product{
+        width: 200px;
+        border-right: #d9d9d9 solid 1px;
+        height: 297px;
+        overflow: auto;
+        background: #fff;
+    }
+    .select_inner{
+        margin-right: 15px;
+        .item{
+            float: none;
+            display: block;
+            height: 27px;
+            line-height: 27px;
+            padding-left: 10px;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                background: #fff1e4;
+            }
+            .iconfont{
+                position: absolute;
+                right: 6px;
+                top: 0;
+            }
+            .close_icon{
+                font-size: 20px;
+                line-height: 1;
+                color: #666666;
+                top: 3px;
+                display: none;
+            }
+        }
+        .current{
+            background: #fff1e4;
+        }
+    }
+    .select_product{
+        border-right: none;
+        margin-left: 40px;
+        background: url("../../images/brand/brandManage_selectBg.png") repeat;
+    }
+}
+
+%common_table{
+    td,th{
+        padding: 8px 0;
+    }
+    td{
+        border-right: #eee solid 1px;
+        border-bottom: #eee solid 1px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    th{
+        background: #e4ecf8;
+        border-right: #fff solid 1px;
+        font-weight: normal;
+        color: #666;
+    }
+    .odd{
+        td{
+            background: #f9f9f9;
+        }
+    }
+    .last{
+        border-right: none;
+    }
+    .link{
+        color: #0082cc;
+        &:hover{
+            color: #ff8800;
+        }
+    }
+}
+
+//证书管理
+.certificate_manage{
+    .title{
+        font: 14px "微软雅黑";
+    }
+    .addCertificate_form{
+        margin-top: 20px;
+        position: relative;
+        left: -30px;
+        .ui-textarea{
+            height: 70px;
+            width: 588px;
+        }
+        .ui_button{
+            width: 100px;
+        }
+    }
+    .brand_logo{
+        width: 112px;
+        height: 112px;
+        background: #f9f9f9;
+        border: #ccc dashed 1px;
+        .replace_text{
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 112px;
+        }
+        .input_file{
+            width: 112px;
+            height: 112px;
+        }
+    }
+    .certificate_list{
+        margin-top: 5px;
+        table{
+            width: 100%;
+        }
+    }
+    .list_table{
+        @extend %common_table;
+        .operate{
+            text-align: center;
+            .iconfont{
+                margin-right: 5px;
+                color: #666;
+                cursor: pointer;
+            }
+            .del_icon{
+                vertical-align: -1px;
+            }
+        }
+    }
+}
+
+//密码管理
+.password_manage{
+    .password_form{
+        margin-top: 25px;
+        .ui_button{
+            width: 100px;
+        }
+    }
+    .code_btn{
+        height: 35px;
+    }
+    .explain{
+        display: inline-block;
+        vertical-align: top;
+        line-height: 35px;
+    }
+}
+
+//安全验证
+.safe_verification{
+    .method_list{
+        overflow: hidden;
+        .item{
+            *zoom: 1;
+            &:after{
+                content: "";
+                clear: both;
+                display: table;
+            }
+            padding-top: 30px;
+            min-height: 156px;
+            _height: 156px;
+            margin-bottom: -1px;
+            border-bottom: #ccc dashed 1px;
+        }
+        .current_status{
+            float: left;
+            display: inline;
+            margin: 20px 0 0 43px;
+            width: 40px;
+            text-align: center;
+            .iconfont{
+                font-size: 28px;
+            }
+            .success{
+                color: #097b23;
+                .iconfont{
+                    color: #87c749;
+                }
+            }
+            .fail{
+                color: #cc0000;
+                .iconfont{
+                    color: #dc5959;
+                }
+            }
+        }
+        .intro{
+            float: left;
+            margin: 15px 0 0 65px;
+            .icon{
+                float: left;
+                width: 50px;
+                text-align: center;
+                background: url("../../images/brand/verification_icon.png") 9999em no-repeat;
+            }
+            .mobile_icon{
+                 background-position: 12px 0;
+                 height: 54px;
+            }
+            .email_icon{
+                background-position: 0 -58px;
+                height: 32px;
+                margin-top: 10px;
+            }
+            .text{
+                float: left;
+                display: inline;
+                margin-left: 15px;
+                width: 150px;
+                h3{
+                    font: 14px "微软雅黑";
+                    margin-bottom: 6px;
+                }
+                p{
+                    color: #666;
+                }
+            }
+        }
+        .certification{
+            float: right;
+            *display: inline;
+            margin-right: 78px;
+            .ui_button{
+                width: 76px;
+            }
+            .code_btn{
+                *margin-left: 5px;
+            }
+            .has_certification{
+                margin-top: 20px;
+                height: 26px;
+                line-height: 26px;
+                color: #666;
+                _text-align: right;
+                _margin-right: 110px;
+                .explain{
+                    margin-left: 5px;
+                    color: #097b23;
+                }
+                .change_btn{
+                    margin-left: 18px;
+                    display: inline-block;
+                    width: 100px;
+                    height: 35px;
+                    line-height: 35px;
+                    background: #67acf2;
+                    border-radius: 3px;
+                    color: #fff;
+                    text-align: center;
+                    &:hover{
+                        background: #70b2f5;
+                    }
+                }
+            }
+        }
+    }
+    .artificial{
+        padding: 15px 0 0 20px;
+        font-size: 14px;
+        .item{
+            label{
+                display: block;
+                margin-bottom: 10px;
+            }
+            .file_wrap{
+                width: 112px;
+                height: 112px;
+                background: #f9f9f9;
+                border: #ccc dashed 1px;
+                .replace_text{
+                    text-align: center;
+                    color: #ccc;
+                    font-size: 14px;
+                    line-height: 112px;
+                }
+                .input_file{
+                    width: 112px;
+                    height: 112px;
+                }
+            }
+            .explain{
+                margin-top: 10px;
+                color: #999;
+                .link{
+                    color: #0082cc;
+                }
+                .iconfont{
+                    cursor: pointer;
+                    margin: 0 2px;
+                    vertical-align: -1px;
+                }
+            }
+        }
+        //证书列表
+        .certificate_box{
+            li{
+                width: 110px;
+                height: 110px;
+                padding: 1px;
+                border: #d9d9d9 solid 1px;
+                margin-right: 10px;
+                .img_contain{
+                    width: 110px;
+                    height: 110px;
+                    text-align: center;
+                    position: relative;
+                }
+                .close{
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    color: #b4b4b4;
+                    font-size: 18px;
+                    line-height: 1;
+                    display: none;
+                }
+                img{
+                    vertical-align: middle;
+                }
+                span{
+                    display: inline-block;
+                    height: 100%;
+                    vertical-align: middle;
+                }
+            }
+            .add_certificate{
+                width: 112px;
+                height: 112px;
+                padding: 0;
+                border: #ccc dashed 1px;
+                background: #f9f9f9;
+                .file_wrap{
+                    width: 112px;
+                    height: 112px;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                    text-align: center;
+                }
+                .iconfont{
+                    color: #ddd;
+                    font-size: 46px;
+                    display: inline-block;
+                    margin-top: 21px;
+                }
+                .input_file{
+                    width: 112px;
+                    height: 112px;
+                }
+            }
+        }
+        .ui_button{
+            width: 82px;
+        }
+    }
+}
+.change_pop{
+    .tip{
+        color: #666;
+        padding:15px 0 15px 50px;
+        border-bottom: 1px dashed #ddd;
+        font-size: 14px;
+    }
+    .ui-form{
+        margin-top: 15px;
+    }
+    .forget_link{
+        color: #0082cc;
+        &:hover{
+            color: #ff8800;
+        }
+    }
+    .code_btn{
+        *margin-left: 5px;
+        height: 35px;
+        line-height: 33px;
+    }
+    .ui_button{
+        width: 95px;
+    }
+}
+
+//权限管理
+.competence_manage{
+    overflow: hidden;
+    .left{
+        float: left;
+        display: inline;
+        _margin-right: -3px;
+        width: 210px;
+        min-height: 800px;
+        _height: 800px;
+        border-right: #D9D9D9 solid 1px;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        .dep_inner{
+            padding: 0 10px;
+        }
+    }
+    .dep_list{
+        .hd{
+            height: 48px;
+            border-bottom: #ccc dashed 1px;
+            position: relative;
+            h3{
+                line-height: 48px;
+                font-size: 12px;
+            }
+            .addDep{
+                position: absolute;
+                right: 10px;
+                top: 13px;
+                color: #0082cc;
+                .iconfont{
+                    margin-right: 3px;
+                    vertical-align: -1px;
+                }
+            }
+        }
+        .bd{
+            margin-top: 10px;
+            .dep_data_list{
+                li{
+                    height: 26px;
+                    vertical-align: top;
+                    color: #666;
+                    *zoom: 1;
+                    cursor: pointer;
+                    &:after{
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+                    .fl{
+                        line-height: 26px;
+                        margin-left: 10px;
+                    }
+                    .operate{
+                        display: none;
+                    }
+                    .iconfont{
+                        vertical-align: middle;
+                        cursor: pointer;
+                    }
+                    .del_icon{
+                        font-size: 16px;
+                    }
+                }
+                .current,.selected{
+                    background: #fff1e4;
+                }
+                .edit{
+                    background: none !important;
+                }
+            }
+            .createInput{
+                height: 22px;
+                line-height: 22px\9;
+                *line-height: 22px;
+                background: #fefef4;
+                padding-left: 4px;
+                border: #bcbcbc solid 1px;
+                float: left;
+                width: 134px;
+                border-right: none;
+            }
+            .createSave{
+                float: left;
+                width: 50px;
+                height: 26px;
+                line-height: 26px;
+                color: #fff;
+                text-align: center;
+                background: #ff8800;
+                &:hover{
+                    background: #f57403;
+                }
+            }
+        }
+    }
+    .right{
+        overflow: hidden;
+        *zoom: 1;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+    }
+    .tool_bar{
+        margin: 10px 0 0 10px;
+        .fl{
+            line-height: 24px;
+        }
+        .link{
+            color: #0082cc;
+            font-family: "Arial";
+        }
+        .search_form{
+            float: right;
+            display: inline;
+            margin-right: 10px;
+            height: 22px;
+            background: #fff;
+            position: relative;
+            border: #e0e0e0 solid 1px;
+            .search_box{
+                height: 22px;
+            }
+            .iconfont{
+                position: absolute;
+                top: 0px;
+                left: 4px;
+                font-size: 16px;
+                color: #d9d9d9;
+            }
+            .search_input{
+                margin-left: 22px;
+                height: 22px;
+                input{
+                    border: 0 none;
+                    padding: 4px 0 3px;
+                    width: 142px;
+                    vertical-align: top;
+                }
+            }
+            button{
+                border: 0 none;
+                vertical-align: top;
+                background: #ff8900;
+                font: 12px "微软雅黑";
+                height: 24px;
+                width: 58px;
+                color: #fff;
+                margin: -1px -1px 0 0;
+                &:hover{
+                    background: #f57503;
+                }
+            }
+        }
+    }
+    .addAccount{
+        margin-top: 10px;
+        display: block;
+        width: 98px;
+        text-align: center;
+        color: #fff;
+        height: 26px;
+        line-height: 26px;
+        background: #1d7ad9;
+        .iconfont{
+            margin-right: 3px;
+            vertical-align: -1px;
+        }
+        &:hover{
+            color: #fff;
+        }
+    }
+    .account_list{
+        border-top: #1d7ad9 solid 1px;
+        .list_table{
+            @extend %common_table;
+            td{
+                padding-left: 0;
+                text-align: center;
+            }
+            select{
+                width: 140px;
+            }
+            .status{
+                color: #0082cc;
+                i,span{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                i{
+                    margin-right: 3px;
+                    font-size: 14px;
+                }
+                span{
+                    width: 40px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .limits_text{
+        textarea {
+            margin: 7px 0 0 10px;
+            width: 750px;
+            border: 1px solid #fff;
+            height: 50px;
+            resize: none;
+            padding: 10px;
+            color: #666;
+        }
+        .edit {
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px #ddd;
+            background: #fefef4;
+        }
+    }
+    .limits_list{
+        margin-top: 8px;
+        border-top: #1d7ad9 solid 1px;
+        .hd{
+            height: 30px;
+            background: #e4ecf8;
+            position: relative;
+            padding-left: 10px;
+            h3{
+                line-height: 30px;
+                font-size: 12px;
+            }
+            .save_btn{
+                height: 20px;
+                line-height: 20px;
+                padding: 0 5px;
+                background: #f5f5f5;
+                border: #bebcbb solid 1px;
+                border-radius: 3px;
+                right: 10px;
+                top: 4px;
+                position: absolute;
+                color: #0082cc;
+                .iconfont{
+                    color: #666;
+                    font-size: 14px;
+                    margin-right: 1px;
+                    vertical-align: -2px;
+                }
+            }
+        }
+    }
+    .limits_tree{
+        margin: 15px 0 0 30px;
+    }
+}
+.add_account_form{
+    .ui-form{
+        margin-top: 15px;
+    }
+    .ui-form-explain{
+        display: block;
+    }
+    .ui-form-item-error{
+        .ui-form-explain{
+            display: block;
+        }
+    }
+     .ui-form-item{
+        padding-left: 70px;
+        float: left;
+        display: inline;
+        margin-left: 16px;
+        padding-bottom: 0;
+        height: 60px;
+     }
+     .ui-label{
+        width: 70px;
+        margin-left: -80px;
+     }
+     .ui-input{
+        width: 160px;
+     }
+     .ui-select{
+        width: 170px;
+        height: 30px;
+     }
+     .submit_button{
+        clear: both;
+        margin-top: 25px;
+        text-align: center;
+        .ui_button{
+            width: 86px;
+        }
+     }
+}

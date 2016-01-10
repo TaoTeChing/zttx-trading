@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:consumer check="false"/>
+
+    <!-- 门店系统dubbo接口 -->
+    <dubbo:reference id="dealerProductDubboService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.erp.module.dubbo.service.provider.DealerProductDubboService"/>
+
+    <!-- 门店批次成本价接口 -->
+    <dubbo:reference id="productCostPriceDubboService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.erp.module.dubbo.service.provider.ProductCostPriceDubboService"/>
+
+    <!-- 门店销售接口 -->
+    <dubbo:reference id="sellOrderDubboService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.erp.module.dubbo.service.provider.SellOrderDubboService"/>
+
+    <!-- 商品中心 -->
+    <dubbo:reference id="dubboCateAttributeService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.CateAttributeService"/>
+
+    <dubbo:reference id="dubboProductService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.ProductService"/>
+
+    <dubbo:reference id="dubboProductSkuService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.ProductSkuService"/>
+
+    <dubbo:reference id="dubboProductCatalogService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.ProductCatalogService"/>
+
+    <dubbo:reference id="dubboProductSkuRfidService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.ProductSkuRfidService"/>
+
+    <dubbo:reference id="dubboDealDicService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.DealDicService"/>
+
+    <dubbo:reference id="dubboProductImageService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.ProductImageService"/>
+
+    <dubbo:reference id="dubboWebUnitService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.WebUnitService"/>
+
+    <dubbo:reference id="cateAttributeItemService" timeout="1200000" version="1.0" mock="return null" retries="0"
+                     interface="com.zttx.goods.module.service.CateAttributeItemService"/>
+
+    <dubbo:reference id="dealerRefundDubboService" timeout="120000" version="1.0" mock="return null"
+                     interface="com.zttx.erp.module.dubbo.service.provider.DealerRefundDubboService"/>
+</beans>

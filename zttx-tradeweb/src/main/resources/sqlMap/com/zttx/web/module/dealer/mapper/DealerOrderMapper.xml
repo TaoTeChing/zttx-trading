@@ -1,0 +1,2346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerOrderMapper">
+
+    <!-- 基础列 -->
+    <sql id="dealerOrderColumns">
+        a.refrenceId as refrenceId,
+        a.orderId as orderId ,
+        a.dealerId as dealerId,
+        a.brandId as brandId,
+        a.brandsId as brandsId,
+        a.productBulk as productBulk,
+        a.productWeight as productWeight ,
+        a.productPrice as productPrice,
+        a.productPriceWhenPay as productPriceWhenPay,
+        a.productCount as productCount,
+        a.isAdvancePayment as isAdvancePayment,
+        a.orderMoney as orderMoney,
+        a.shipCount as shipCount,
+        a.receiveCount as receiveCount,
+        a.adjustPrice as adjustPrice,
+        a.freight as freight,
+        a.adjustFreight as adjustFreight,
+        a.frePayState as frePayState,
+        a.payment as payment,
+        a.payState as payState,
+        a.shipName as shipName,
+        a.areaNo as areaNo,
+        a.dealerAddrProvince as dealerAddrProvince,
+        a.dealerAddrCity as dealerAddrCity,
+        a.dealerAddrArea as dealerAddrArea,
+        a.dealerAddress as dealerAddress,
+        a.postCode as postCode,
+        a.dealerMobile as dealerMobile,
+        a.dealerTel as dealerTel,
+        a.remark as remark,
+        a.levelMark as levelMark,
+        a.brandRemark as brandRemark,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.outActTime as outActTime,
+        a.orderStatus as orderStatus,
+        a.refundStatus as refundStatus,
+        a.serProStatus as serProStatus,
+        a.complaintState as complaintState,
+        a.orderItem as orderItem,
+        a.sourceState as sourceState,
+        a.sourceId as sourceId,
+        a.activitiesNo as activitiesNo,
+        a.minPoint as minPoint,
+        a.dealerOrderType as dealerOrderType,
+        a.pointBalanceAmount as pointBalanceAmount,
+        a.frePayType as frePayType,
+        a.clearingStatus as clearingStatus,
+        a.clearingAmount as clearingAmount,
+        a.offSetAmount as offSetAmount,
+        a.isSampleOrder as isSampleOrder,
+        a.noSendGoodsAmount AS noSendGoodsAmount,
+        a.delFlag as delFlag
+    </sql>
+
+    <sql id="dealerOrderExtColumns">
+        a.refrenceId AS refrenceId,
+        a.orderId AS orderId,
+        a.dealerId AS dealerId,
+        b.dealerName AS dealerName,
+        a.brandId AS brandId,
+        a.brandsId AS brandsId,
+        a.productBulk AS productBulk,
+        a.productWeight AS productWeight,
+        a.productPrice AS productPrice,
+        a.productPriceWhenPay AS productPriceWhenPay,
+        a.productCount AS productCount,
+        a.isAdvancePayment AS isAdvancePayment,
+        a.orderMoney AS orderMoney,
+        a.shipCount AS shipCount,
+        a.receiveCount AS receiveCount,
+        a.adjustPrice AS adjustPrice,
+        a.freight AS freight,
+        a.adjustFreight AS adjustFreight,
+        a.frePayState AS frePayState,
+        a.payment AS payment,
+        a.payState AS payState,
+        a.shipName AS shipName,
+        a.areaNo AS areaNo,
+        a.dealerAddrProvince AS dealerAddrProvince,
+        a.dealerAddrCity AS dealerAddrCity,
+        a.dealerAddrArea AS dealerAddrArea,
+        a.dealerAddress AS dealerAddress,
+        a.postCode AS postCode,
+        a.dealerMobile AS dealerMobile,
+        a.dealerTel AS dealerTel,
+        a.remark AS remark,
+        a.levelMark AS levelMark,
+        a.brandRemark AS brandRemark,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        a.outActTime AS outActTime,
+        a.orderStatus AS orderStatus,
+        a.refundStatus AS refundStatus,
+        a.serProStatus AS serProStatus,
+        a.complaintState AS complaintState,
+        a.orderItem AS orderItem,
+        a.sourceState AS sourceState,
+        a.sourceId AS sourceId,
+        a.activitiesNo AS activitiesNo,
+        a.minPoint AS minPoint,
+        a.dealerOrderType AS dealerOrderType,
+        a.pointBalanceAmount AS pointBalanceAmount,
+        a.frePayType AS frePayType,
+        a.clearingStatus AS clearingStatus,
+        a.clearingAmount AS clearingAmount,
+        a.offSetAmount AS offSetAmount,
+        a.isSampleOrder AS isSampleOrder,
+        a.noSendGoodsAmount AS noSendGoodsAmount,
+        a.delFlag AS delFlag
+    </sql>
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerOrder">
+        insert into DealerOrder (
+            refrenceId,
+            orderId,
+            dealerId,
+            brandId,
+            brandsId,
+            productBulk,
+            productWeight,
+            productPrice,
+            productPriceWhenPay,
+            productCount,
+            isAdvancePayment,
+            orderMoney,
+            shipCount,
+            receiveCount,
+            adjustPrice,
+            freight,
+            adjustFreight,
+            frePayState,
+            payment,
+            payState,
+            shipName,
+            areaNo,
+            dealerAddrProvince,
+            dealerAddrCity,
+            dealerAddrArea,
+            dealerAddress,
+            postCode,
+            dealerMobile,
+            dealerTel,
+            remark,
+            levelMark,
+            brandRemark,
+            createTime,
+            updateTime,
+            outActTime,
+            orderStatus,
+            refundStatus,
+            serProStatus,
+            complaintState,
+            orderItem,
+            sourceState,
+            sourceId,
+            activitiesNo,
+            minPoint,
+            dealerOrderType,
+            pointBalanceAmount,
+            frePayType,
+            clearingStatus,
+            clearingAmount,
+            offSetAmount,
+            isSampleOrder,
+            noSendGoodsAmount,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{orderId},
+            #{dealerId},
+            #{brandId},
+            #{brandsId},
+            #{productBulk},
+            #{productWeight},
+            #{productPrice},
+            #{productPriceWhenPay},
+            #{productCount},
+            #{isAdvancePayment},
+            #{orderMoney},
+            #{shipCount},
+            #{receiveCount},
+            #{adjustPrice},
+            #{freight},
+            #{adjustFreight},
+            #{frePayState},
+            #{payment},
+            #{payState},
+            #{shipName},
+            #{areaNo},
+            #{dealerAddrProvince},
+            #{dealerAddrCity},
+            #{dealerAddrArea},
+            #{dealerAddress},
+            #{postCode},
+            #{dealerMobile},
+            #{dealerTel},
+            #{remark},
+            #{levelMark},
+            #{brandRemark},
+            #{createTime},
+            #{updateTime},
+            #{outActTime},
+            #{orderStatus},
+            #{refundStatus},
+            #{serProStatus},
+            #{complaintState},
+            #{orderItem},
+            #{sourceState},
+            #{sourceId},
+            #{activitiesNo},
+            #{minPoint},
+            #{dealerOrderType},
+            #{pointBalanceAmount},
+            #{frePayType},
+            #{clearingStatus},
+            #{clearingAmount},
+            #{offSetAmount},
+            #{isSampleOrder},
+            #{noSendGoodsAmount},
+            #{delFlag}
+        )
+    </insert>
+    <insert id="insertBatch" parameterType="com.zttx.web.module.dealer.entity.DealerOrder">
+        insert into DealerOrder(
+        refrenceId ,
+        orderId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productBulk ,
+        productWeight ,
+        productPrice ,
+        productPriceWhenPay,
+        productCount ,
+        isAdvancePayment ,
+        orderMoney ,
+        shipCount ,
+        receiveCount ,
+        adjustPrice ,
+        freight ,
+        adjustFreight ,
+        frePayState ,
+        payment ,
+        payState ,
+        shipName ,
+        areaNo ,
+        dealerAddrProvince ,
+        dealerAddrCity ,
+        dealerAddrArea ,
+        dealerAddress ,
+        postCode ,
+        dealerMobile ,
+        dealerTel ,
+        remark ,
+        levelMark ,
+        brandRemark ,
+        createTime ,
+        updateTime ,
+        outActTime ,
+        orderStatus ,
+        refundStatus ,
+        serProStatus ,
+        complaintState ,
+        orderItem ,
+        sourceState ,
+        sourceId ,
+        activitiesNo ,
+        minPoint ,
+        dealerOrderType ,
+        pointBalanceAmount ,
+        frePayType ,
+        clearingStatus ,
+        clearingAmount ,
+        offSetAmount ,
+        isSampleOrder,
+        noSendGoodsAmount,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.orderId} ,
+            #{item.dealerId} ,
+            #{item.brandId} ,
+            #{item.brandsId} ,
+            #{item.productBulk} ,
+            #{item.productWeight} ,
+            #{item.productPrice} ,
+            #{item.productPriceWhenPay} ,
+            #{item.productCount} ,
+            #{item.isAdvancePayment} ,
+            #{item.orderMoney} ,
+            #{item.shipCount} ,
+            #{item.receiveCount} ,
+            #{item.adjustPrice} ,
+            #{item.freight} ,
+            #{item.adjustFreight} ,
+            #{item.frePayState} ,
+            #{item.payment} ,
+            #{item.payState} ,
+            #{item.shipName} ,
+            #{item.areaNo} ,
+            #{item.dealerAddrProvince} ,
+            #{item.dealerAddrCity} ,
+            #{item.dealerAddrArea} ,
+            #{item.dealerAddress} ,
+            #{item.postCode} ,
+            #{item.dealerMobile} ,
+            #{item.dealerTel} ,
+            #{item.remark} ,
+            #{item.levelMark} ,
+            #{item.brandRemark} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.outActTime} ,
+            #{item.orderStatus} ,
+            #{item.refundStatus} ,
+            #{item.serProStatus} ,
+            #{item.complaintState} ,
+            #{item.orderItem} ,
+            #{item.sourceState} ,
+            #{item.sourceId} ,
+            #{item.activitiesNo} ,
+            #{item.minPoint} ,
+            #{item.dealerOrderType} ,
+            #{item.pointBalanceAmount} ,
+            #{item.frePayType} ,
+            #{item.clearingStatus} ,
+            #{item.clearingAmount} ,
+            #{item.offSetAmount} ,
+            #{item.isSampleOrder},
+            #{item.noSendGoodsAmount},
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerOrder where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerOrder set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrder">
+        insert into DealerOrder
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="orderId != null">
+                orderId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productBulk != null">
+                productBulk ,
+            </if>
+            <if test="productWeight != null">
+                productWeight ,
+            </if>
+            <if test="productPrice != null">
+                productPrice ,
+            </if>
+            <if test="productPriceWhenPay != null">
+                productPriceWhenPay ,
+            </if>
+            <if test="productCount != null">
+                productCount ,
+            </if>
+            <if test="isAdvancePayment != null">
+                isAdvancePayment ,
+            </if>
+            <if test="orderMoney != null">
+                orderMoney ,
+            </if>
+            <if test="shipCount != null">
+                shipCount ,
+            </if>
+            <if test="receiveCount != null">
+                receiveCount ,
+            </if>
+            <if test="adjustPrice != null">
+                adjustPrice ,
+            </if>
+            <if test="freight != null">
+                freight ,
+            </if>
+            <if test="adjustFreight != null">
+                adjustFreight ,
+            </if>
+            <if test="frePayState != null">
+                frePayState ,
+            </if>
+            <if test="payment != null">
+                payment ,
+            </if>
+            <if test="payState != null">
+                payState ,
+            </if>
+            <if test="shipName != null">
+                shipName ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="dealerAddrProvince != null">
+                dealerAddrProvince ,
+            </if>
+            <if test="dealerAddrCity != null">
+                dealerAddrCity ,
+            </if>
+            <if test="dealerAddrArea != null">
+                dealerAddrArea ,
+            </if>
+            <if test="dealerAddress != null">
+                dealerAddress ,
+            </if>
+            <if test="postCode != null">
+                postCode ,
+            </if>
+            <if test="dealerMobile != null">
+                dealerMobile ,
+            </if>
+            <if test="dealerTel != null">
+                dealerTel ,
+            </if>
+            <if test="remark != null">
+                remark ,
+            </if>
+            <if test="levelMark != null">
+                levelMark ,
+            </if>
+            <if test="brandRemark != null">
+                brandRemark ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="outActTime != null">
+                outActTime ,
+            </if>
+            <if test="orderStatus != null">
+                orderStatus ,
+            </if>
+            <if test="refundStatus != null">
+                refundStatus ,
+            </if>
+            <if test="serProStatus != null">
+                serProStatus ,
+            </if>
+            <if test="complaintState != null">
+                complaintState ,
+            </if>
+            <if test="orderItem != null">
+                orderItem ,
+            </if>
+            <if test="sourceState != null">
+                sourceState ,
+            </if>
+            <if test="sourceId != null">
+                sourceId ,
+            </if>
+            <if test="activitiesNo != null">
+                activitiesNo ,
+            </if>
+            <if test="minPoint != null">
+                minPoint ,
+            </if>
+            <if test="dealerOrderType != null">
+                dealerOrderType ,
+            </if>
+            <if test="pointBalanceAmount != null">
+                pointBalanceAmount ,
+            </if>
+            <if test="frePayType != null">
+                frePayType ,
+            </if>
+            <if test="clearingStatus != null">
+                clearingStatus ,
+            </if>
+            <if test="clearingAmount != null">
+                clearingAmount ,
+            </if>
+            <if test="offSetAmount != null">
+                offSetAmount ,
+            </if>
+            <if test="null!=isSampleOrder and ''!=isSampleOrder">
+                isSampleOrder,
+            </if>
+            <if test="noSendGoodsAmount != null">
+                noSendGoodsAmount ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="orderId != null">
+                #{orderId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productBulk != null">
+                #{productBulk} ,
+            </if>
+            <if test="productWeight != null">
+                #{productWeight} ,
+            </if>
+            <if test="productPrice != null">
+                #{productPrice} ,
+            </if>
+            <if test="productPriceWhenPay != null">
+                #{productPriceWhenPay} ,
+            </if>
+            <if test="productCount != null">
+                #{productCount} ,
+            </if>
+            <if test="isAdvancePayment != null">
+                #{isAdvancePayment} ,
+            </if>
+            <if test="orderMoney != null">
+                #{orderMoney} ,
+            </if>
+            <if test="shipCount != null">
+                #{shipCount} ,
+            </if>
+            <if test="receiveCount != null">
+                #{receiveCount} ,
+            </if>
+            <if test="adjustPrice != null">
+                #{adjustPrice} ,
+            </if>
+            <if test="freight != null">
+                #{freight} ,
+            </if>
+            <if test="adjustFreight != null">
+                #{adjustFreight} ,
+            </if>
+            <if test="frePayState != null">
+                #{frePayState} ,
+            </if>
+            <if test="payment != null">
+                #{payment} ,
+            </if>
+            <if test="payState != null">
+                #{payState} ,
+            </if>
+            <if test="shipName != null">
+                #{shipName} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="dealerAddrProvince != null">
+                #{dealerAddrProvince} ,
+            </if>
+            <if test="dealerAddrCity != null">
+                #{dealerAddrCity} ,
+            </if>
+            <if test="dealerAddrArea != null">
+                #{dealerAddrArea} ,
+            </if>
+            <if test="dealerAddress != null">
+                #{dealerAddress} ,
+            </if>
+            <if test="postCode != null">
+                #{postCode} ,
+            </if>
+            <if test="dealerMobile != null">
+                #{dealerMobile} ,
+            </if>
+            <if test="dealerTel != null">
+                #{dealerTel} ,
+            </if>
+            <if test="remark != null">
+                #{remark} ,
+            </if>
+            <if test="levelMark != null">
+                #{levelMark} ,
+            </if>
+            <if test="brandRemark != null">
+                #{brandRemark} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="outActTime != null">
+                #{outActTime} ,
+            </if>
+            <if test="orderStatus != null">
+                #{orderStatus} ,
+            </if>
+            <if test="refundStatus != null">
+                #{refundStatus} ,
+            </if>
+            <if test="serProStatus != null">
+                #{serProStatus} ,
+            </if>
+            <if test="complaintState != null">
+                #{complaintState} ,
+            </if>
+            <if test="orderItem != null">
+                #{orderItem} ,
+            </if>
+            <if test="sourceState != null">
+                #{sourceState} ,
+            </if>
+            <if test="sourceId != null">
+                #{sourceId} ,
+            </if>
+            <if test="activitiesNo != null">
+                #{activitiesNo} ,
+            </if>
+            <if test="minPoint != null">
+                #{minPoint} ,
+            </if>
+            <if test="dealerOrderType != null">
+                #{dealerOrderType} ,
+            </if>
+            <if test="pointBalanceAmount != null">
+                #{pointBalanceAmount} ,
+            </if>
+            <if test="frePayType != null">
+                #{frePayType} ,
+            </if>
+            <if test="clearingStatus != null">
+                #{clearingStatus} ,
+            </if>
+            <if test="clearingAmount != null">
+                #{clearingAmount} ,
+            </if>
+            <if test="offSetAmount != null">
+                #{offSetAmount} ,
+            </if>
+            <if test="null!=isSampleOrder and ''!=isSampleOrder">
+                #{isSampleOrder},
+            </if>
+            <if test="null!=noSendGoodsAmount">
+                #{noSendGoodsAmount},
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrder">
+        update DealerOrder
+        <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productBulk != null">
+                productBulk = #{productBulk} ,
+            </if>
+            <if test="productWeight != null">
+                productWeight = #{productWeight} ,
+            </if>
+            <if test="productPrice != null">
+                productPrice = #{productPrice} ,
+            </if>
+            <if test="productPriceWhenPay != null">
+                productPriceWhenPay = #{productPriceWhenPay} ,
+            </if>
+            <if test="productCount != null">
+                productCount = #{productCount} ,
+            </if>
+            <if test="isAdvancePayment != null">
+                isAdvancePayment = #{isAdvancePayment} ,
+            </if>
+            <if test="orderMoney != null">
+                orderMoney = #{orderMoney} ,
+            </if>
+            <if test="shipCount != null">
+                shipCount = #{shipCount} ,
+            </if>
+            <if test="receiveCount != null">
+                receiveCount = #{receiveCount} ,
+            </if>
+            <if test="adjustPrice != null">
+                adjustPrice = #{adjustPrice} ,
+            </if>
+            <if test="freight != null">
+                freight = #{freight} ,
+            </if>
+            <if test="adjustFreight != null">
+                adjustFreight = #{adjustFreight} ,
+            </if>
+            <if test="frePayState != null">
+                frePayState = #{frePayState} ,
+            </if>
+            <if test="payment != null">
+                payment = #{payment} ,
+            </if>
+            <if test="payState != null">
+                payState = #{payState} ,
+            </if>
+            <if test="shipName != null">
+                shipName = #{shipName} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="dealerAddrProvince != null">
+                dealerAddrProvince = #{dealerAddrProvince} ,
+            </if>
+            <if test="dealerAddrCity != null">
+                dealerAddrCity = #{dealerAddrCity} ,
+            </if>
+            <if test="dealerAddrArea != null">
+                dealerAddrArea = #{dealerAddrArea} ,
+            </if>
+            <if test="dealerAddress != null">
+                dealerAddress = #{dealerAddress} ,
+            </if>
+            <if test="postCode != null">
+                postCode = #{postCode} ,
+            </if>
+            <if test="dealerMobile != null">
+                dealerMobile = #{dealerMobile} ,
+            </if>
+            <if test="dealerTel != null">
+                dealerTel = #{dealerTel} ,
+            </if>
+            <if test="remark != null">
+                remark = #{remark} ,
+            </if>
+            <if test="levelMark != null">
+                levelMark = #{levelMark} ,
+            </if>
+            <if test="brandRemark != null">
+                brandRemark = #{brandRemark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="outActTime != null">
+                outActTime = #{outActTime} ,
+            </if>
+            <if test="orderStatus != null">
+                orderStatus = #{orderStatus} ,
+            </if>
+            <if test="refundStatus != null">
+                refundStatus = #{refundStatus} ,
+            </if>
+            <if test="serProStatus != null">
+                serProStatus = #{serProStatus} ,
+            </if>
+            <if test="complaintState != null">
+                complaintState = #{complaintState} ,
+            </if>
+            <if test="orderItem != null">
+                orderItem = #{orderItem} ,
+            </if>
+            <if test="sourceState != null">
+                sourceState = #{sourceState} ,
+            </if>
+            <if test="sourceId != null">
+                sourceId = #{sourceId} ,
+            </if>
+            <if test="activitiesNo != null">
+                activitiesNo = #{activitiesNo} ,
+            </if>
+            <if test="minPoint != null">
+                minPoint = #{minPoint} ,
+            </if>
+            <if test="dealerOrderType != null">
+                dealerOrderType = #{dealerOrderType} ,
+            </if>
+            <if test="pointBalanceAmount != null">
+                pointBalanceAmount = #{pointBalanceAmount} ,
+            </if>
+            <if test="frePayType != null">
+                frePayType = #{frePayType} ,
+            </if>
+            <if test="clearingStatus != null">
+                clearingStatus = #{clearingStatus} ,
+            </if>
+            <if test="clearingAmount != null">
+                clearingAmount = #{clearingAmount} ,
+            </if>
+            <if test="offSetAmount != null">
+                offSetAmount = #{offSetAmount} ,
+            </if>
+            <if test="null!=isSampleOrder and ''!=isSampleOrder">
+                isSampleOrder = #{isSampleOrder},
+            </if>
+            <if test="noSendGoodsAmount != null">
+                noSendGoodsAmount = #{noSendGoodsAmount} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerOrder">
+        update DealerOrder
+        set
+            orderId            = #{orderId},
+            dealerId           = #{dealerId},
+            brandId            = #{brandId},
+            brandsId           = #{brandsId},
+            productBulk        = #{productBulk},
+            productWeight      = #{productWeight},
+            productPrice       = #{productPrice},
+            productPriceWhenPay = #{productPriceWhenPay},
+            productCount       = #{productCount},
+            isAdvancePayment   = #{isAdvancePayment},
+            orderMoney         = #{orderMoney},
+            shipCount          = #{shipCount},
+            receiveCount       = #{receiveCount},
+            adjustPrice        = #{adjustPrice},
+            freight            = #{freight},
+            adjustFreight      = #{adjustFreight},
+            frePayState        = #{frePayState},
+            payment            = #{payment},
+            payState           = #{payState},
+            shipName           = #{shipName},
+            areaNo             = #{areaNo},
+            dealerAddrProvince = #{dealerAddrProvince},
+            dealerAddrCity     = #{dealerAddrCity},
+            dealerAddrArea     = #{dealerAddrArea},
+            dealerAddress      = #{dealerAddress},
+            postCode           = #{postCode},
+            dealerMobile       = #{dealerMobile},
+            dealerTel          = #{dealerTel},
+            remark             = #{remark},
+            levelMark          = #{levelMark},
+            brandRemark        = #{brandRemark},
+            createTime         = #{createTime},
+            updateTime         = #{updateTime},
+            outActTime         = #{outActTime},
+            orderStatus        = #{orderStatus},
+            refundStatus       = #{refundStatus},
+            serProStatus       = #{serProStatus},
+            complaintState     = #{complaintState},
+            orderItem          = #{orderItem},
+            sourceState        = #{sourceState},
+            sourceId           = #{sourceId},
+            activitiesNo       = #{activitiesNo},
+            minPoint           = #{minPoint},
+            dealerOrderType    = #{dealerOrderType},
+            pointBalanceAmount = #{pointBalanceAmount},
+            frePayType         = #{frePayType},
+            clearingStatus     = #{clearingStatus},
+            clearingAmount     = #{clearingAmount},
+            offSetAmount       = #{offSetAmount},
+            isSampleOrder      = #{isSampleOrder},
+            noSendGoodsAmount  = #{noSendGoodsAmount},
+            delFlag            = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderExtColumns"/>
+        from DealerOrder a , DealerInfo b
+        where b.refrenceId = a.dealerId
+        and a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        SELECT
+        <include refid="dealerOrderColumns"/>
+        FROM DealerOrder a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId = #{orderId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="productBulk != null and productBulk != ''">
+            and a.productBulk = #{productBulk}
+        </if>
+        <if test="productWeight != null and productWeight != ''">
+            and a.productWeight = #{productWeight}
+        </if>
+        <if test="productPrice != null and productPrice != ''">
+            and a.productPrice = #{productPrice}
+        </if>
+        <if test="productPriceWhenPay != null and productPriceWhenPay != ''">
+            and a.productPriceWhenPay = #{productPriceWhenPay}
+        </if>
+        <if test="productCount != null and productCount != ''">
+            and a.productCount = #{productCount}
+        </if>
+        <if test="isAdvancePayment != null and isAdvancePayment != ''">
+            and a.isAdvancePayment = #{isAdvancePayment}
+        </if>
+        <if test="orderMoney != null and orderMoney != ''">
+            and a.orderMoney = #{orderMoney}
+        </if>
+        <if test="shipCount != null and shipCount != ''">
+            and a.shipCount = #{shipCount}
+        </if>
+        <if test="receiveCount != null and receiveCount != ''">
+            and a.receiveCount = #{receiveCount}
+        </if>
+        <if test="adjustPrice != null and adjustPrice != ''">
+            and a.adjustPrice = #{adjustPrice}
+        </if>
+        <if test="freight != null and freight != ''">
+            and a.freight = #{freight}
+        </if>
+        <if test="adjustFreight != null and adjustFreight != ''">
+            and a.adjustFreight = #{adjustFreight}
+        </if>
+        <if test="frePayState != null and frePayState != ''">
+            and a.frePayState = #{frePayState}
+        </if>
+        <if test="payment != null and payment != ''">
+            and a.payment = #{payment}
+        </if>
+        <if test="payState != null and payState != ''">
+            and a.payState = #{payState}
+        </if>
+        <if test="shipName != null and shipName != ''">
+            and a.shipName like CONCAT('%',#{shipName}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="dealerAddrProvince != null and dealerAddrProvince != ''">
+            and a.dealerAddrProvince like CONCAT('%',#{dealerAddrProvince}, '%')
+        </if>
+        <if test="dealerAddrCity != null and dealerAddrCity != ''">
+            and a.dealerAddrCity like CONCAT('%',#{dealerAddrCity}, '%')
+        </if>
+        <if test="dealerAddrArea != null and dealerAddrArea != ''">
+            and a.dealerAddrArea like CONCAT('%',#{dealerAddrArea}, '%')
+        </if>
+        <if test="dealerAddress != null and dealerAddress != ''">
+            and a.dealerAddress like CONCAT('%',#{dealerAddress}, '%')
+        </if>
+        <if test="postCode != null and postCode != ''">
+            and a.postCode like CONCAT('%',#{postCode}, '%')
+        </if>
+        <if test="dealerMobile != null and dealerMobile != ''">
+            and a.dealerMobile like CONCAT('%',#{dealerMobile}, '%')
+        </if>
+
+        <if test="dealerTel != null and dealerTel != ''">
+            and a.dealerTel like CONCAT('%',#{dealerTel}, '%')
+        </if>
+        <if test="remark != null and remark != ''">
+            and a.remark like CONCAT('%',#{remark}, '%')
+        </if>
+        <if test="levelMark != null and levelMark != ''">
+            and a.levelMark = #{levelMark}
+        </if>
+        <if test="brandRemark != null and brandRemark != ''">
+            and a.brandRemark like CONCAT('%',#{brandRemark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="outActTime != null and outActTime != ''">
+            and a.outActTime = #{outActTime}
+        </if>
+        <if test="orderStatus != null and orderStatus != ''">
+            and a.orderStatus = #{orderStatus}
+        </if>
+        <if test="refundStatus != null and refundStatus != ''">
+            and a.refundStatus = #{refundStatus}
+        </if>
+        <if test="serProStatus != null and serProStatus != ''">
+            and a.serProStatus = #{serProStatus}
+        </if>
+        <if test="complaintState != null and complaintState != ''">
+            and a.complaintState = #{complaintState}
+        </if>
+        <if test="orderItem != null and orderItem != ''">
+            and a.orderItem like CONCAT('%',#{orderItem}, '%')
+        </if>
+        <if test="sourceState != null and sourceState != ''">
+            and a.sourceState = #{sourceState}
+        </if>
+        <if test="sourceId != null and sourceId != ''">
+            and a.sourceId like CONCAT('%',#{sourceId}, '%')
+        </if>
+        <if test="activitiesNo != null and activitiesNo != ''">
+            and a.activitiesNo like CONCAT('%',#{activitiesNo}, '%')
+        </if>
+        <if test="minPoint != null and minPoint != ''">
+            and a.minPoint = #{minPoint}
+        </if>
+        <if test="dealerOrderType != null and dealerOrderType != ''">
+            and a.dealerOrderType = #{dealerOrderType}
+        </if>
+        <if test="pointBalanceAmount != null and pointBalanceAmount != ''">
+            and a.pointBalanceAmount = #{pointBalanceAmount}
+        </if>
+        <if test="frePayType != null and frePayType != ''">
+            and a.frePayType = #{frePayType}
+        </if>
+        <if test="clearingStatus != null and clearingStatus != ''">
+            and a.clearingStatus = #{clearingStatus}
+        </if>
+        <if test="clearingAmount != null and clearingAmount != ''">
+            and a.clearingAmount = #{clearingAmount}
+        </if>
+        <if test="offSetAmount != null and offSetAmount != ''">
+            and a.offSetAmount = #{offSetAmount}
+        </if>
+        <if test="null!=isSampleOrder and ''!=isSampleOrder">
+            and a.isSampleOrder = #{isSampleOrder},
+        </if>
+        <if test="null!=noSendGoodsAmount">
+            and a.noSendGoodsAmount = #{noSendGoodsAmount},
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        SELECT
+        <include refid="dealerOrderColumns"/>
+        FROM DealerOrder a WHERE a.delFlag = 0
+    </select>
+
+    <!-- 统计数量 -->
+    <select id="getDealerOrderCount" parameterType="com.zttx.web.module.dealer.model.DealerOrderModel"
+            resultType="java.lang.Long">
+        select count(*)
+        from DealerOrder
+        where 1=1 AND delFlag = 0
+        <if test="brandId != null and brandId !=''">
+            AND brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId !=''">
+            AND dealerId = #{dealerId}
+        </if>
+        
+        <if test="orderStatusStr != null and orderStatusStr !='' ">
+            <choose>
+                <when test="orderStatusStr == 1 ">
+                    <![CDATA[  and (payState<2 or frePayState<1) and orderStatus!=9 and orderStatus!=10 ]]>
+                </when>
+                <when test="orderStatusStr == 2 ">
+                    and (orderStatus=2 or orderStatus=3)
+                </when>
+                <when test="orderStatusStr == 3 ">
+                    <![CDATA[  and orderStatus=4 and (refundStatus is null or refundStatus<=7) ]]>
+                </when>
+                <when test="orderStatusStr == 4 ">
+                    and orderStatus=9
+                </when>
+                <when test="orderStatusStr == 5 ">
+                    and orderStatus=10
+                </when>
+                <when test="orderStatusStr == 6 ">
+                    and isAdvancePayment=1
+                </when>
+                <when test="orderStatusStr == 7 ">
+                    <![CDATA[  and refundStatus is not null and refundStatus<6 ]]>
+                </when>
+                <when test="orderStatusStr == 8 ">
+                    and orderStatus = 2 and refundStatus is null
+                </when>
+                <when test="orderStatusStr == 9 ">
+                    and (orderStatus != 1 or (orderStatus = 1 and dealerOrderType = 2))
+                </when>
+            </choose>
+        </if>
+        <if test="orderStatus != null">
+            <choose>
+                <when test="orderStatus == 1">
+                    and (payState &gt; 2 or frePayState &lt; 1) and orderStatus!=9 and orderStatus!=10
+                </when>
+                <when test="orderStatus == 2">
+                    and (orderStatus=2 or orderStatus=3)
+                </when>
+                <when test="orderStatus == 4">
+                    and orderStatus=4 and (refundStatus is null or refundStatus &lt; 6 or refundStatus=7)
+                </when>
+                <otherwise>
+                    and orderStatus=#{orderStatus}
+                </otherwise>
+            </choose>
+        </if> 
+        <if test="orderStatusStr != null and orderStatusStr == 2">
+            and orderStatus=2
+        </if>
+        <if test="orderStatusStr != null and orderStatusStr == 3">
+            and (orderStatus != 1 and orderStatus != 10)
+        </if>
+        <if test="isAdvancePayment != null">
+            and isAdvancePayment= #{isAdvancePayment}
+        </if>
+        <if test="brandsId != null">
+            and brandsId= #{brandsId}
+        </if>
+        <if test="updateTime != null">
+            and updateTime= #{updateTime}
+        </if>
+        <if test="outActTime != null">
+            and outActTime  &lt;= #{outActTime}
+        </if>
+        <if test="payState != null">
+            and payState != #{payState}
+        </if>
+		<if test="dealerOrderType != null and dealerOrderType != 0">
+            and dealerOrderType = #{dealerOrderType}
+        </if>
+    </select>
+
+    <!-- 品牌商获取订单信息 -->
+    <select id="getDealerOrderList" resultType="map">
+        SELECT
+        a.refrenceId AS refrenceId,
+        a.orderId AS orderId,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        d.comName AS brandName,
+        a.areaNo AS areaNo,
+        a.productWeight AS productWeight,
+        a.shipCount AS shipCount,
+        a.brandsId AS brandsId,
+        a.shipName AS shipName,
+        a.payment AS payment,
+        c.brandsName AS brandsName,
+        a.productCount AS productCount,
+        a.productPrice AS productPrice,
+        a.productPriceWhenPay AS productPriceWhenPay,
+        a.adjustFreight AS adjustFreight,
+        a.freight AS freight,
+        a.adjustPrice AS adjustPrice,
+        a.remark AS remark,
+        a.orderStatus AS orderStatus,
+        b.dealerName AS dealerName,
+        a.dealerId AS dealerId,
+        a.brandId AS brandId,
+        a.refundStatus AS refundStatus,
+        a.serProStatus AS serProStatus,
+        a.complaintState AS complaintState,
+        a.outActTime AS outActTime,
+        a.brandRemark AS brandRemark,
+        a.levelMark AS levelMark,
+        a.payState AS payState,
+        a.dealerAddrProvince AS dealerAddrProvince,
+        a.dealerAddrCity AS dealerAddrCity,
+        a.dealerAddrArea AS dealerAddrArea,
+        a.dealerAddress AS dealerAddress,
+        a.frePayState AS frePayState,
+        a.isAdvancePayment AS isAdvancePayment,
+        a.sourceState AS sourceState,
+        a.activitiesNo AS activitiesNo,
+        a.frePayType AS frePayType,
+        a.dealerOrderType AS dealerOrderType,
+        a.postCode AS postCode,
+        a.dealerMobile AS dealerMobile,
+        a.noSendGoodsAmount AS noSendGoodsAmount,
+        a.dealerTel AS dealerTel
+        FROM
+        DealerOrder a,DealerInfo b,BrandesInfo c,BrandInfo d
+        WHERE
+        1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandsId = c.refrenceId AND a.brandId = d.refrenceId
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId !='' ">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="orderId != null ">
+            and a.orderId = #{orderId}
+        </if>
+        <if test="orderId == null and orderIdStr != null and orderIdStr != '' ">
+            and a.orderId = #{orderIdStr}
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and b.dealerName like CONCAT('%','${dealerName}','%' )
+        </if>
+        <if test="startTimeStr != null and startTimeStr !='' ">
+            <![CDATA[ and a.createTime >= #{startTimeStr} ]]>
+        </if>
+        <if test="endTimeStr != null and endTimeStr !='' ">
+            <![CDATA[ and a.createTime <= #{endTimeStr} ]]>
+        </if>
+        <if test="orderStatusStr != null and orderStatusStr !='' ">
+            <choose>
+                <when test="orderStatusStr == 1 ">
+                    <![CDATA[  and (a.payState<2 or a.frePayState<1) and a.orderStatus!=9 and a.orderStatus!=10 ]]>
+                </when>
+                <when test="orderStatusStr == 2 ">
+                    and (a.orderStatus=2 or a.orderStatus=3)
+                </when>
+                <when test="orderStatusStr == 3 ">
+                    <![CDATA[  and a.orderStatus=4 and (a.refundStatus is null or a.refundStatus<=7) ]]>
+                </when>
+                <when test="orderStatusStr == 4 ">
+                    and a.orderStatus=9
+                </when>
+                <when test="orderStatusStr == 5 ">
+                    and a.orderStatus=10
+                </when>
+                <when test="orderStatusStr == 6 ">
+                    and a.isAdvancePayment=1
+                </when>
+                <when test="orderStatusStr == 7 ">
+                    <![CDATA[  and a.refundStatus is not null and a.refundStatus<6 ]]>
+                </when>
+                <when test="orderStatusStr == 8 ">
+                    and a.orderStatus = 2 and a.refundStatus is null
+                </when>
+                <when test="orderStatusStr == 9 ">
+                    and ( a.orderStatus != 1 or (a.orderStatus = 1 and a.dealerOrderType = 2))
+                </when>
+            </choose>
+        </if>
+        <if test="isShowClose != null and isShowClose !='' ">
+            and a.orderStatus != 10
+        </if>
+        <if test="updateTime != null">
+            <![CDATA[ and a.updateTime <= #{updateTime} ]]>
+        </if>
+        <if test="outActTime != null">
+            <![CDATA[ and a.outActTime <= #{outActTime} ]]>
+        </if>
+        <if test="payState != null">
+            and a.payState != #{payState}
+        </if>
+        <if test="dealerOrderType != null and dealerOrderType != 0">
+            and a.dealerOrderType = #{dealerOrderType}
+        </if>
+        <if test="isSampleOrder != null and isSampleOrder">
+            and a.isSampleOrder = #{isSampleOrder}
+        </if>
+        <if test="orderType != null and orderType !=''">
+            <choose>
+                <when test="orderType == 1 ">
+                    <![CDATA[  and (a.payState<2 or a.frePayState<1) and orderStatus!=9 and orderStatus!=10 ]]>
+                </when>
+                <when test="orderType == 2 ">
+                    and (a.orderStatus=2 or a.orderStatus=3)
+                </when>
+                <when test="orderType == 3 ">
+                    <![CDATA[ and orderStatus=4 and (refundStatus is null or refundStatus<6 or refundStatus=7) ]]>
+                </when>
+                <when test="orderType == 4 ">
+                    and a.orderStatus=9
+                </when>
+                <when test="orderType == 5 ">
+                    and a.orderStatus=10
+                </when>
+                <when test="orderType == 6 ">
+                    and a.isAdvancePayment = 1
+                </when>
+                <when test="orderType == 7 ">
+                    <![CDATA[  and a.refundStatus is not null and a.refundStatus<6 ]]>
+                </when>
+                <when test="orderType == 8 ">
+                    and a.orderStatus = 2 and a.refundStatus is null
+                </when>
+                <when test="orderType == 9 ">
+                    and ( a.orderStatus != 1 or (a.orderStatus = 1 and a.dealerOrderType = 2))
+                </when>
+            </choose>
+        </if>
+        <choose>
+            <when test="orderType != null and orderType !='' and orderType == 2">
+                order by a.updateTime desc
+            </when>
+            <otherwise>
+                order by a.createTime desc
+            </otherwise>
+        </choose>
+    </select>
+
+
+    <select id="getDealerOrderEntityList" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.delFlag = 0
+        AND a.refrenceId = #{refrenceId} and a.brandId = #{brandId}
+        <if test="dealerId != null and dealerId != '' ">
+            and a.dealerId= #{dealerId}
+        </if>
+    </select>
+
+    <select id="listFactoryStoreUnpay" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>,
+        b.dealerName as dealerName,
+        d.comName AS brandName
+        from DealerOrder a,DealerInfo b,BrandInfo d
+        where a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandId = d.refrenceId
+        and a.dealerOrderType = 2 and a.orderStatus not in (1, 10) and
+        (a.clearingStatus is null or a.clearingStatus = 0) and a.brandId = #{brandId} and a.dealerId = #{dealerId}
+        order by a.createTime
+    </select>
+
+    <select id="findEntityBy" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>,
+        b.dealerName as dealerName,
+        d.comName AS brandName
+        from DealerOrder a,DealerInfo b,BrandInfo d
+        where 1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandId = d.refrenceId
+        AND a.refrenceId = #{refrenceId} and a.brandId = #{brandId}
+        order by a.createTime desc
+        limit 1
+    </select>
+
+    <select id="getByOrderIdAndBrandId" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>,
+        d.comName AS brandName,
+        c.brandsName AS brandsName,
+        b.dealerName AS dealerName
+        FROM
+        DealerOrder a,DealerInfo b,BrandesInfo c,BrandInfo d
+        WHERE 1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandsId = c.refrenceId AND a.brandId =
+        d.refrenceId
+        and a.orderId = #{orderId} and a.brandId = #{brandId}
+    </select>
+    <select id="hasValidOrderByProId" parameterType="String" resultType="Integer">
+        select count(*)
+        from
+        DealerOrder o,
+        DealerOrders s
+        where
+        o.refrenceId = s.orderId
+        and s.productId =#{productId}
+        and o.orderStatus != 10
+    </select>
+
+    <select id="selectDealerOrderCount" resultType="long">
+        select count(*)
+        from DealerOrder
+        where 1 = 1 and delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and brandId= #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and dealerId= #{dealerId}
+        </if>
+        <if test="orderStatus != null">
+            <choose>
+                <when test="orderStatus == 1">
+                    and refundStatus is null
+                    and (payState!=2 or frePayState!=1)
+                    and orderStatus != 10
+                    and orderStatus != 9
+                </when>
+                <when test="orderStatus == 2">
+                    and (orderStatus=2 or orderStatus=3)
+                </when>
+                <when test="orderStatus == 4">
+                    and (refundStatus is null or refundStatus=9 or refundStatus=7 or refundStatus=6 or refundStatus=5 or
+                    refundStatus=7)
+                    and payState = 2 and frePayState=1
+                    and orderStatus = 4
+                </when>
+                <otherwise>
+                    and orderStatus = #{orderStatus}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="isAdvancePayment != null">
+            and isAdvancePayment= #{isAdvancePayment}
+        </if>
+        <if test="brandsId != null and brandsId !='' ">
+            and brandsId= #{brandsId}
+        </if>
+    </select>
+    <select id="countDealerOrder" resultType="java.lang.Integer">
+        select
+        count(a.refrenceId)
+        from DealerOrder a ,DealerOrders b
+        where a.refrenceId = b.orderId and b.dealerId = #{0} and b.productId = #{1} and a.orderStatus !=10
+    </select>
+    <select id="selectDealerOrderList" resultType="java.util.HashMap">
+        select
+        <include refid="dealerOrderColumns"/>,
+        b.brandsName as brandsName,
+        c.comName as brandName
+        from DealerOrder a,BrandesInfo b,BrandInfo c
+        where a.brandsId = b.refrenceId and a.brandId = c.refrenceId and a.dealerId = #{dealerId}
+        <choose>
+            <when test="orderMuiltStatus==1">   <!--待付款订单-->
+                and a.refundStatus is null and (a.payState!=2 or a.frePayState!=1) and a.orderStatus != 9 and
+                a.orderStatus != 10
+            </when>
+            <when test="orderMuiltStatus==2">  <!--待发货-->
+                and(a.refundStatus is null or a.refundStatus=4 or a.refundStatus=6 or a.refundStatus=7) and a.payState =
+                2 and a.frePayState=1
+                and (a.orderStatus = 3 or a.orderStatus = 2)
+            </when>
+            <when test="orderMuiltStatus==3">  <!--待收货-->
+                and (a.refundStatus is null or a.refundStatus=9 or a.refundStatus=7 or a.refundStatus=6 or
+                a.refundStatus=5 or a.refundStatus=7)
+                and a.payState = 2 and a.frePayState=1
+                and a.orderStatus = 4
+            </when>
+            <when test="orderMuiltStatus==4">  <!--完成-->
+                and a.orderStatus = 9
+            </when>
+            <when test="orderMuiltStatus==5">  <!--关闭-->
+                and a.orderStatus =10
+            </when>
+            <when test="orderMuiltStatus==6">  <!--退款-->
+                and a.refundStatus is not null and a.refundStatus!=7
+            </when>
+            <when test="orderMuiltStatus==7">  <!--预定-->
+                and a.isAdvancePayment = 1
+            </when>
+            <when test="orderMuiltStatus==8">  <!--尾款-->
+                and a.refundStatus is null
+                and (a.payState = 1 or (a.payState=2 and a.frePayState=0))
+                and a.orderStatus !=10
+                and a.orderStatus !=9
+            </when>
+            <when test="orderMuiltStatus==9">  <!--发货-->
+                and a.orderStatus &gt;=3
+                <if test="dealerOrderType == 1">
+                    and a.payState &gt;= 1
+                </if>
+                and (select count(*) from OrderShipRecord o where o.orderId=a.refrenceId)>0
+            </when>
+        </choose>
+        <if test="null!=dealerOrderType and ''!=dealerOrderType">  <!--订单类型-->
+            and a.dealerOrderType = #{dealerOrderType}
+        </if>
+        <if test="null != isSampleOrder and isSampleOrder">  <!--是否拿样-->
+            and a.isSampleOrder = #{isSampleOrder}
+        </if>
+        <if test="null!=productTitle and ''!=productTitle">  <!--产品货号或名称-->
+            and EXISTS (select tt.refrenceId from DealerOrders tt where tt.orderId = a.refrenceId and
+            (tt.productTitle like '%${productTitle}%' or tt.productNo like '%${productTitle}%'))
+        </if>
+        <if test="null!=orderId and ''!=orderId">
+            and a.orderId = #{orderId}
+        </if>
+        <if test="null!=brandsId and ''!=brandsId">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="null!=startTimeLong and ''!=startTimeLong">
+            and a.updateTime &gt;= #{startTimeLong}
+        </if>
+        <if test="null!=endTimeLong and ''!=endTimeLong">
+            and a.updateTime &lt; #{endTimeLong}
+        </if>
+        order by createTime desc
+    </select>
+    <select id="selectDealerorderType" resultType="java.util.HashMap">
+        select
+        a.dealerOrderType as dealerOrderType,
+        a.isSampleOrder as isSampleOrder
+        from DealerOrder a
+        where a.dealerId = #{dealerId} and a.delFlag = 0
+    </select>
+
+    <update id="updatePrice">
+        Update DealerOrder a Set a.adjustFreight = #{adjustFreight}
+        <if test="adjustPrice != null">
+            , a.adjustPrice = #{adjustPrice}
+        </if>
+        where a.refrenceId = #{refrenceId}
+    </update>
+    <update id="updateOrderTime">
+        UPDATE DealerOrder o SET o.updateTime = #{now}
+        WHERE o.refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateBrandRemark">
+        update DealerOrder o
+        set o.brandRemark = #{brandRemark} , o.levelMark = #{levelMark}
+        where o.refrenceId = #{refrenceId} and o.brandId = #{brandId}
+    </update>
+
+    <update id="updateOutActTime">
+        update DealerOrder o
+        set o.outActTime = #{outActTime}
+        where o.refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateRefundStatus">
+        UPDATE DealerOrder o
+        SET o.refundStatus = #{refundStatus}
+        WHERE o.refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateOrderStatus">
+        update DealerOrder o
+        set o.orderStatus = #{orderStatus}
+        Where o.refrenceId = #{refrenceId}
+    </update>
+
+    <select id="getDealerOrderList4Boss" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.delFlag = 0
+        <!-- and ((a.dealerOrderType = 1 and a.payState &gt;= 1) or (a.dealerOrderType = 2)) -->
+        <if test="brandId != null and brandId !=''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="updateTime != null">
+            and a.updateTime &gt; #{updateTime}
+        </if>
+        order by a.updateTime desc
+    </select>
+
+    <select id="getCountAndAmountByDealerId" parameterType="String" resultType="java.util.HashMap">
+        select
+        sum(productCount) count,
+        sum(productPrice) amount
+        from DealerOrder
+        where delFlag = 0
+        and dealerId=#{dealerId}
+    </select>
+
+
+    <select id="getDealerOrderReportDetailList" resultType="java.util.HashMap">
+        select * from
+        (
+        SELECT
+        NULL AS _refrenceId,
+        a.refrenceId AS refrenceId,
+        a.brandId AS brandId,
+        a.dealerId AS dealerId,
+        a.createTime AS createTime,
+        a.orderId AS orderId,
+        null AS orderNumber,
+        a.productPrice AS productPrice,
+        a.offSetAmount as offSetAmount,
+        a.productPriceWhenPay AS productPriceWhenPay,
+        a.payment AS payment,
+        a.adjustPrice AS adjustPrice,
+        a.adjustFreight AS adjustFreight,
+        a.frePayState AS frePayState,
+        a.orderStatus as orderStatus,
+        a.noSendGoodsAmount AS noSendGoodsAmount,
+        a.payState as payState,
+        NULL AS refundAmount,
+        NULL AS refundState,
+        NULL AS reachAmount,
+        NULL AS reachStatus,
+        NULL AS paidAmount,
+        NULL AS adjustAllPrice,
+        null as clearingAmount,
+        NULL as costPrice,
+        'DealerOrder' AS type
+        FROM
+        DealerOrder a
+        WHERE
+        a.orderStatus != 10 and (a.payState >0 or a.orderStatus=2 or a.orderStatus = 3 or a.orderStatus = 4 or
+        a.orderStatus = 9 or (a.orderStatus = 10 and (a.refundStatus = 9 or a.refundStatus = 10)) )
+        UNION ALL
+        (SELECT
+        b.refrenceId AS _refrenceId,
+        b.orderId AS refrenceId,
+        b.brandId AS brandId,
+        b.dealerId AS dealerId,
+        b.applyTime AS createTime,
+        b.refundId AS orderId,
+        b.orderNumber AS orderNumber,
+        NULL AS productPrice,
+        NULL as offSetAmount,
+        NULL AS productPriceWhenPay,
+        NULL AS payment,
+        NULL AS adjustPrice,
+        NULL AS adjustFreight,
+        NULL AS frePayState,
+        null as orderStatus,
+        NULL AS noSendGoodsAmount,
+        null as payState,
+        b.refundAmount AS refundAmount,
+        b.refundState AS refundState,
+        b.reachAmount AS reachAmount,
+        b.reachStatus AS reachStatus,
+        NULL AS paidAmount,
+        NULL AS adjustAllPrice,
+        null as clearingAmount,
+        NULL as costPrice,
+        'DealerRefund' AS type
+        FROM
+        DealerRefund b)
+        UNION ALL
+        (
+        SELECT
+        NULL AS _refrenceId,
+        d.refrenceId AS refrenceId,
+        d.brandId AS brandId,
+        d.dealerId AS dealerId,
+        d.createTime AS createTime,
+        NULL AS orderId,
+        NULL AS orderNumber,
+        NULL AS productPrice,
+        NULL as offSetAmount,
+        NULL AS productPriceWhenPay,
+        NULL AS payment,
+        NULL AS adjustPrice,
+        NULL AS adjustFreight,
+        NULL AS frePayState,
+        null as orderStatus,
+        NULL AS noSendGoodsAmount,
+        null as payState,
+        NULL AS refundAmount,
+        NULL AS refundState,
+        NULL AS reachAmount,
+        NULL AS reachStatus,
+        NULL AS paidAmount,
+        d.adjustAllPrice AS adjustAllPrice,
+        null as clearingAmount,
+        NULL as costPrice,
+        'Adjustment' AS type
+        FROM
+        Adjustment d
+        )
+        UNION ALL
+        (SELECT
+        NULL AS _refrenceId,
+        null AS refrenceId,
+        f.brandId AS brandId,
+        f.dealerId AS dealerId,
+        f.createTime AS createTime,
+        null AS orderId,
+        null AS orderNumber,
+        null AS productPrice,
+        NULL as offSetAmount,
+        null AS productPriceWhenPay,
+        null AS payment,
+        null AS adjustPrice,
+        null AS adjustFreight,
+        null AS frePayState,
+        null as orderStatus,
+        NULL AS noSendGoodsAmount,
+        null as payState,
+        NULL AS refundAmount,
+        NULL AS refundState,
+        NULL AS reachAmount,
+        NULL AS reachStatus,
+        NULL AS paidAmount,
+        NULL AS adjustAllPrice,
+        f.payClearingAmount as clearingAmount,
+        NULL as costPrice,
+        'DealerClearing' AS type
+        FROM DealerClearingPay f )
+        UNION ALL
+        (SELECT
+        NULL AS _refrenceId,
+        null AS refrenceId,
+        g.brandId AS brandId,
+        g.dealerId AS dealerId,
+        g.erpTime AS createTime,
+        null AS orderId,
+        null AS orderNumber,
+        null AS productPrice,
+        NULL as offSetAmount,
+        null AS productPriceWhenPay,
+        null AS payment,
+        null AS adjustPrice,
+        null AS adjustFreight,
+        null AS frePayState,
+        null as orderStatus,
+        NULL AS noSendGoodsAmount,
+        null as payState,
+        NULL AS refundAmount,
+        NULL AS refundState,
+        NULL AS reachAmount,
+        NULL AS reachStatus,
+        NULL AS paidAmount,
+        NULL AS adjustAllPrice,
+        NULL as clearingAmount,
+        sum(g.sumCost) as costPrice,
+        'CreditToPoint' AS type
+        FROM CreditToPoint g GROUP BY g.erpTime)
+        )t
+        where t.brandId = #{brandId} and t.dealerId = #{dealerId}
+        <if test="null!=startTimeLong and ''!=startTimeLong">
+            and t.createTime &gt;=#{startTimeLong}
+        </if>
+        <if test="null!= endTimeLong and ''!=endTimeLong">
+            and t.createTime &lt;#{endTimeLong}
+        </if>
+       <if test="null!=type and ''!=type">
+           and t.type = #{type}
+       </if>
+        order by t.createTime desc
+    </select>
+
+
+    <select id="findByDealerOrder" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="java.util.HashMap">
+        select
+        a.refrenceId as refrenceId,
+        a.orderId as orderId,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        c.dealerName as brandName,
+        a.areaNo as areaNo,
+        a.productWeight as productWeight,
+        a.shipCount as shipCount,
+        a.brandsId as brandsId,
+        a.shipName as shipName,
+        a.payment as payment,
+        b.brandsName as brandsName,
+        a.productCount as productCount,
+        a.productPrice as productPrice,
+        a.productPriceWhenPay as productPriceWhenPay,
+        a.adjustFreight as adjustFreight,
+        a.freight as freight,
+        a.adjustPrice as adjustPrice,
+        a.remark as remark,
+        a.orderStatus as orderStatus,
+        c.dealerName as dealerName,
+        a.dealerId as dealerId,
+        a.brandId as brandId,
+        a.refundStatus as refundStatus,
+        a.serProStatus as serProStatus,
+        a.complaintState as complaintState,
+        a.outActTime as outActTime,
+        a.brandRemark as brandRemark,
+        a.levelMark as levelMark,
+        a.payState as payState,
+        a.dealerAddrProvince as dealerAddrProvince,
+        a.dealerAddrCity as dealerAddrCity,
+        a.dealerAddrArea as dealerAddrArea,
+        a.dealerAddress as dealerAddress,
+        a.frePayState as frePayState,
+        a.isAdvancePayment as isAdvancePayment,
+        a.sourceState as sourceState,
+        a.activitiesNo as activitiesNo,
+        a.frePayType as frePayType,
+        a.dealerOrderType as dealerOrderType,
+        a.postCode as postCode,
+        a.dealerMobile as dealerMobile,
+        a.dealerTel as dealerTel
+        from DealerOrder a left join BrandesInfo b on a.brandsId=b.refrenceId
+        left join DealerInfo c on a.dealerId=c.refrenceId
+        <where>
+            a.dealerId = #{dealerId}
+            and a.delFlag=false
+            and
+            (
+            a.orderStatus = 3 or a.orderStatus = 4 or a.orderStatus = 9
+            )
+            <if test="dealerOrderType!=null">
+                and a.dealerOrderType =#{dealerOrderType}
+            </if>
+            <if test="productName!=null and productName!=''">
+                and EXISTS (select tt.refrenceId from DealerOrders tt where tt.orderId = a.refrenceId and
+                tt.productTitle like '%${productName}%')
+            </if>
+            <if test="productNo!=null and productNo!=''">
+                and EXISTS (select tt.refrenceId from DealerOrders tt where tt.orderId = a.refrenceId and tt.productNo
+                like '%${productNo}%')
+            </if>
+            <if test="orderId!=null and orderId!=''">
+                and a.orderId = #{orderId}
+            </if>
+            <if test="brandsId!=null and brandsId!=''">
+                and a.brandsId = #{brandsId}
+            </if>
+            <if test="startTimeLong!=null">
+                and a.updateTime &gt;=#{startTimeLong}
+            </if>
+            <if test="endTimeLong!=null">
+                and a.updateTime &lt;#{endTimeLong}
+            </if>
+            <if test="sourceId!=null and sourceId!=''">
+                and a.sourceId like concat('%',#{sourceId},'%')
+            </if>
+        </where>
+        order by a.createTime desc
+    </select>
+    <select id="selectOrderUser" resultType="java.util.HashMap">
+        select
+        a.brandId as brandId,
+        a.dealerId as dealerId,
+        <choose>
+            <when test="null!=dealerId and ''!=dealerId">
+                b.comName as brandName
+            </when>
+            <when test="null!=brandId and ''!=brandId">
+                b.dealerName as dealerName
+            </when>
+        </choose>
+        from DealerOrder a
+        <choose>
+            <when test="null!=dealerId and ''!=dealerId">
+                ,BrandInfo b
+            </when>
+            <when test="null!=brandId and ''!=brandId">
+                ,DealerInfo b
+            </when>
+        </choose>
+        <where>
+            a.delFlag= 0
+            <choose>
+                <when test="null!=dealerId and ''!=dealerId">
+                    and a.brandId = b.refrenceId and a.dealerId = #{dealerId}
+                    <if test="null!=brandName and ''!=brandName">
+                        and b.comName like concat('%',#{brandName},'%')
+                    </if>
+                    group by a.brandId
+                </when>
+                <when test="null!=brandId and ''!=brandId">
+                    and a.dealerId = b.refrenceId and a.brandId = #{brandId}
+                    <if test="null!=dealerName and ''!=dealerName">
+                        and b.dealerName like concat('%',#{dealerName},'%')
+                    </if>
+                    group by a.dealerId
+                </when>
+            </choose>
+        </where>
+    </select>
+    <select id="findbyDealerIdAndTimeRange" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="java.util.HashMap">
+        select
+        a.orderId as serialNumber,
+        a.dealerId as dealerId,
+        a.brandId as supplierId,
+        b.comName as supplierName,
+        a.payment as amount,
+        a.createTime as businessDate,
+        a.updateTime as updateDate,
+        a.orderStatus as status
+        from DealerOrder a left join BrandInfo b on a.brandId=b.refrenceId
+        <where>
+            a.dealerId = #{dealerId}
+            and orderStatus != 1 and orderStatus != 3 and orderStatus != 10
+            <if test="startTimeLong!=null">
+                and a.updateTime &gt;=#{startTimeLong}
+            </if>
+            <if test="endTimeLong!=null">
+                and a.updateTime &lt;#{endTimeLong}
+            </if>
+        </where>
+    </select>
+
+    <select id="countByOrderStatus" resultType="long">
+        SELECT count(*)
+        FROM DealerOrder
+        WHERE delFlag = 0 and orderStatus = #{orderStatus}
+        <![CDATA[ AND outActTime < #{outActTime} ]]>
+    </select>
+
+    <select id="getTaskDealerOrderCount" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="java.lang.Long">
+        select count(*)
+        from DealerOrder
+        where 1=1 AND delFlag = 0
+        <if test="brandId != null and brandId !=''">
+            AND brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId !=''">
+            AND dealerId = #{dealerId}
+        </if>
+        <if test="orderStatus != null">
+            <choose>
+                <when test="orderStatus == 1">
+                    and (payState &gt; 2 or frePayState &lt; 1) and orderStatus!=9 and orderStatus!=10
+                </when>
+                <when test="orderStatus == 2">
+                    and (orderStatus=2 or orderStatus=3)
+                </when>
+                <when test="orderStatus == 4">
+                    and orderStatus=4 and (refundStatus is null or refundStatus &lt; 6 or refundStatus=7)
+                </when>
+                <otherwise>
+                    and orderStatus=#{orderStatus}
+                </otherwise>
+            </choose>
+        </if>
+        <if test="orderStatusStr != null and orderStatusStr == 2">
+            and orderStatus=2
+        </if>
+        <if test="isAdvancePayment != null">
+            and isAdvancePayment= #{isAdvancePayment}
+        </if>
+        <if test="brandsId != null">
+            and brandsId= #{brandsId}
+        </if>
+        <if test="updateTime != null">
+            and updateTime= #{updateTime}
+        </if>
+        <if test="outActTime != null">
+            and outActTime= #{outActTime}
+        </if>
+        <if test="payState != null">
+            and payState = #{payState}
+        </if>
+    </select>
+
+
+    <select id="getSumOrderMoney" parameterType="com.zttx.web.module.dealer.entity.DealerOrder"
+            resultType="java.lang.Long">
+        select
+        sum(productPrice) orderMoney
+        from DealerOrder
+        where delFlag = 0
+        and dealerId=#{dealerId}
+        and brandsId= #{brandsId}
+        and (orderStatus!=1 and orderStatus!=10)
+    </select>
+
+    <select id="getTaskDealerOrderList" parameterType="com.zttx.web.module.dealer.entity.DealerOrder" resultType="map">
+        SELECT
+        a.refrenceId AS refrenceId,
+        a.orderId AS orderId,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        d.comName AS brandName,
+        a.areaNo AS areaNo,
+        a.productWeight AS productWeight,
+        a.shipCount AS shipCount,
+        a.brandsId AS brandsId,
+        a.shipName AS shipName,
+        a.payment AS payment,
+        c.brandsName AS brandsName,
+        a.productCount AS productCount,
+        a.productPrice AS productPrice,
+        a.productPriceWhenPay AS productPriceWhenPay,
+        a.adjustFreight AS adjustFreight,
+        a.freight AS freight,
+        a.adjustPrice AS adjustPrice,
+        a.remark AS remark,
+        a.orderStatus AS orderStatus,
+        b.dealerName AS dealerName,
+        a.dealerId AS dealerId,
+        a.brandId AS brandId,
+        a.refundStatus AS refundStatus,
+        a.serProStatus AS serProStatus,
+        a.complaintState AS complaintState,
+        a.outActTime AS outActTime,
+        a.brandRemark AS brandRemark,
+        a.levelMark AS levelMark,
+        a.payState AS payState,
+        a.dealerAddrProvince AS dealerAddrProvince,
+        a.dealerAddrCity AS dealerAddrCity,
+        a.dealerAddrArea AS dealerAddrArea,
+        a.dealerAddress AS dealerAddress,
+        a.frePayState AS frePayState,
+        a.isAdvancePayment AS isAdvancePayment,
+        a.sourceState AS sourceState,
+        a.activitiesNo AS activitiesNo,
+        a.frePayType AS frePayType,
+        a.dealerOrderType AS dealerOrderType,
+        a.postCode AS postCode,
+        a.dealerMobile AS dealerMobile,
+        a.dealerTel AS dealerTel
+        FROM
+        DealerOrder a,DealerInfo b,BrandesInfo c,BrandInfo d
+        WHERE
+        1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandsId = c.refrenceId AND a.brandId = d.refrenceId
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId !='' ">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="orderId != null ">
+            and a.orderId = #{orderId}
+        </if>
+        <if test="orderId == null and orderIdStr != null and orderIdStr != '' ">
+            and a.orderId = #{orderIdStr}
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and b.dealerName like CONCAT('%','${dealerName}','%' )
+        </if>
+        <if test="startTimeStr != null and startTimeStr !='' ">
+            <![CDATA[ and a.createTime >= #{startTimeStr} ]]>
+        </if>
+        <if test="endTimeStr != null and endTimeStr !='' ">
+            <![CDATA[ and a.createTime <= #{endTimeStr} ]]>
+        </if>
+        <if test="orderStatusStr != null and orderStatusStr !='' ">
+            <choose>
+                <when test="orderStatusStr == 1 ">
+                    <![CDATA[  and (a.payState<2 or a.frePayState<1) and orderStatus!=9 and orderStatus!=10 ]]>
+                </when>
+                <when test="orderStatusStr == 2 ">
+                    and (a.orderStatus=2 or a.orderStatus=3)
+                </when>
+                <when test="orderStatusStr == 3 ">
+                    <![CDATA[  and orderStatus=4 and (refundStatus is null or refundStatus<6 or refundStatus=7) ]]>
+                </when>
+                <when test="orderStatusStr == 4 ">
+                    and a.orderStatus=9
+                </when>
+                <when test="orderStatusStr == 5 ">
+                    and a.orderStatus=10
+                </when>
+                <when test="orderStatusStr == 6 ">
+                    and a.isAdvancePayment=1
+                </when>
+                <when test="orderStatusStr == 7 ">
+                    <![CDATA[  and a.refundStatus is not null and a.refundStatus<6 ]]>
+                </when>
+                <when test="orderStatusStr == 8 ">
+                    and a.orderStatus = 2 and a.refundStatus is null
+                </when>
+                <when test="orderStatusStr == 9 ">
+                    and ( a.orderStatus != 1 or (a.orderStatus = 1 and a.dealerOrderType = 2))
+                </when>
+            </choose>
+        </if>
+        <if test="isShowClose != null and isShowClose !='' ">
+            and a.orderStatus != 10
+        </if>
+        <if test="updateTime != null">
+            <![CDATA[ and a.updateTime <= #{updateTime} ]]>
+        </if>
+        <if test="outActTime != null">
+            <![CDATA[ and a.outActTime <= #{outActTime} ]]>
+        </if>
+        <if test="payState != null">
+            and a.payState = #{payState}
+        </if>
+        <if test="dealerOrderType != null">
+            and a.dealerOrderType = #{dealerOrderType}
+        </if>
+        <if test="isSampleOrder != null and isSampleOrder">
+            and a.isSampleOrder = #{isSampleOrder}
+        </if>
+        <if test="orderType != null and orderType !=''">
+            <choose>
+                <when test="orderType == 1 ">
+                    <![CDATA[  and (a.payState<2 or a.frePayState<1) and orderStatus!=9 and orderStatus!=10 ]]>
+                </when>
+                <when test="orderType == 2 ">
+                    and (a.orderStatus=2 or a.orderStatus=3)
+                </when>
+                <when test="orderType == 3 ">
+                    <![CDATA[ and orderStatus=4 and (refundStatus is null or refundStatus<6 or refundStatus=7) ]]>
+                </when>
+                <when test="orderType == 4 ">
+                    and a.orderStatus=9
+                </when>
+                <when test="orderType == 5 ">
+                    and a.orderStatus=10
+                </when>
+                <when test="orderType == 6 ">
+                    and a.isAdvancePayment = 1
+                </when>
+                <when test="orderType == 7 ">
+                    <![CDATA[  and a.refundStatus is not null and a.refundStatus<6 ]]>
+                </when>
+                <when test="orderType == 8 ">
+                    and a.orderStatus = 2 and a.refundStatus is null
+                </when>
+                <when test="orderType == 9 ">
+                    and ( a.orderStatus != 1 or (a.orderStatus = 1 and a.dealerOrderType = 2))
+                </when>
+            </choose>
+        </if>
+        <if test="orderType != null and orderType !='' ">
+            <choose>
+                <when test="orderType == 2">
+                    order by a.updateTime desc
+                </when>
+                <otherwise>
+                    order by a.createTime desc
+                </otherwise>
+            </choose>
+        </if>
+    </select>
+
+    <select id="getDealerOrder" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where delFlag = 0 and a.refrenceId = #{refrenceId} and a.dealerId = #{dealerId}
+        Limit 1
+    </select>
+
+    <select id="getListByOrderStatus" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where delFlag = 0 and a.orderStatus = #{orderStatus}
+        <![CDATA[ and outActTime < #{outActTime} ]]>
+    </select>
+
+    <select id="selectNoneCostSettlementOrderBy" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.delFlag = 0 and a.dealerId = #{dealerId} and a.brandId = #{brandId}
+        and (a.clearingStatus is null or a.clearingStatus = false)
+        and a.dealerOrderType = 2
+        and (a.payState &gt; 0 or a.orderStatus = 3 or a.orderStatus = 4 or a.orderStatus = 9)
+        and a.orderStatus != 10
+        order by a.createTime asc
+    </select>
+
+    <sql id="SQL_getDealerOrders">
+        <if test="dealerOrder.startTimeStr != null and dealerOrder.startTimeStr != ''">
+            and a.createTime &gt; #{dealerOrder.startTimeStr}
+        </if>
+        <if test="dealerOrder.endTimeStr != null and dealerOrder.endTimeStr != ''">
+            and a.createTime &lt; #{dealerOrder.endTimeStr}
+        </if>
+        <if test="dealerOrder.refrenceId != null">
+            and a.refrenceId = #{dealerOrder.refrenceId}
+        </if>
+        <if test="dealerOrder.orderStatus != null">
+            and a.orderStatus = #{dealerOrder.orderStatus}
+        </if>
+        <if test="dealerOrder.orderId != null">
+            and a.orderId = #{dealerOrder.orderId}
+        </if>
+        <if test="dealerOrder.refundStatus != null">
+            and a.refundStatus = #{dealerOrder.refundStatus}
+        </if>
+        <if test="dealerOrder.serProStatus != null">
+            and a.serProStatus = #{dealerOrder.serProStatus}
+        </if>
+        <if test="dealerOrder.complaintState != null">
+            and a.complaintState = #{dealerOrder.complaintState}
+        </if>
+        <if test="dealerOrder.payState != null">
+            and a.payState = #{dealerOrder.payState}
+        </if>
+        order by a.createTime desc
+    </sql>
+    <select id="getDealerOrders" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.delFlag = 0
+        <choose>
+            <when test="type == 1"><!--ERP-->
+                and brandId = #{dealerOrder.brandId}
+                and ( (a.dealerOrderType = 1 and a.payState &gt;= 1) or (a.dealerOrderType = 2) )
+                <if test="updateTime != null">
+                    and a.updateTime &gt; #{dealerOrder.updateTime}
+                </if>
+                order by a.updateTime desc
+            </when>
+            <when test="type == 2"><!--CRM-->
+                <include refid="SQL_getDealerOrders"/>
+            </when>
+            <otherwise>
+                <if test="updateTime != null"><!--ALL-->
+                    and updateTime &gt; #{dealerOrder.updateTime}
+                </if>
+            </otherwise>
+        </choose>
+    </select>
+    <select id="listDealerOrders" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.delFlag = 0
+        <include refid="SQL_getDealerOrders"/>
+    </select>
+
+    <select id="isRefundStatus" resultType="java.lang.Boolean">
+        SELECT count(1)
+        FROM DealerOrder a
+        WHERE a.delFlag = 0 AND a.orderId = #{orderId} AND a.dealerId = #{dealerId} AND a.refundStatus IS NOT NULL
+    </select>
+
+    <select id="getByOrderIdAndDealerId" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>,
+        d.comName AS brandName,
+        c.brandsName AS brandsName,
+        b.dealerName AS dealerName
+        FROM
+        DealerOrder a,DealerInfo b,BrandesInfo c,BrandInfo d
+        WHERE 1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandsId = c.refrenceId AND a.brandId =
+        d.refrenceId
+        and a.orderId = #{orderId} and a.dealerId = #{dealerId}
+        limit 0,1
+    </select>
+
+    <select id="getOrdList" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a where a.dealerId = #{dealerId} and brandId = #{brandId} and brandsId = #{brandsId} order by
+        createTime desc
+    </select>
+    <select id="findByDealerIdAndBrandId" resultType="java.util.Map">
+        select
+        b.brandsName as brandesName
+        from DealerOrder a ,BrandesInfo b
+        where a.dealerId = #{dealerId} and a.brandId=#{brandId} and a.brandsId = b.refrenceId  and a.delFlag = 0 group by a.brandsId order by a.createTime desc
+    </select>
+
+    <select id="findModelById" resultType="com.zttx.web.module.dealer.model.DealerOrderModel">
+        select
+        <include refid="dealerOrderColumns"/>,
+        b.dealerName AS dealerName,
+        c.brandsName AS brandsName,
+        d.comName AS brandName
+        FROM
+        DealerOrder a,DealerInfo b,BrandesInfo c,BrandInfo d
+        WHERE 1 = 1 AND a.delFlag = 0 AND a.dealerId = b.refrenceId AND a.brandsId = c.refrenceId AND a.brandId =
+        d.refrenceId
+        and a.refrenceId = #{orderId}
+    </select>
+
+    <update id="updateDealerCount">
+        update DealerCount
+        <choose>
+            <when test="columnType == 0">
+                set joinCount = joinCount + #{count}
+            </when>
+            <when test="columnType == 1">
+                set applyCount = applyCount + #{count}
+            </when>
+            <when test="columnType == 2">
+                set inviteCount = inviteCount + #{count}
+            </when>
+            <when test="columnType == 3">
+                set balanceCount = balanceCount + #{count}
+            </when>
+            <when test="columnType == 4">
+                set waitConfirmCount = waitConfirmCount + #{count}
+            </when>
+            <when test="columnType == 5">
+                set refundCount = refundCount + #{count}
+            </when>
+            <when test="columnType == 6">
+                set sysMessageCount = sysMessageCount + #{count}
+            </when>
+            <when test="columnType == 7">
+                set warningCount = warningCount + #{count}
+            </when>
+            <when test="columnType == 8">
+                set factoryJoinCount = factoryJoinCount + #{count}
+            </when>
+            <when test="columnType == 9">
+                set factoryHasPaid = factoryHasPaid + #{count}
+            </when>
+            <when test="columnType == 10">
+                set factoryNonPaid = factoryNonPaid + #{count}
+            </when>
+        </choose>
+        where delFlag = 0 and dealerId = #{dealerId}
+        <if test="count &lt; 0">
+            <choose>
+                <when test="columnType == 0">
+                    and joinCount &gt; 0
+                </when>
+                <when test="columnType == 1">
+                    and applyCount &gt; 0
+                </when>
+                <when test="columnType == 2">
+                    and inviteCount &gt; 0
+                </when>
+                <when test="columnType == 3">
+                    and balanceCount &gt; 0
+                </when>
+                <when test="columnType == 4">
+                    and waitConfirmCount &gt; 0
+                </when>
+                <when test="columnType == 5">
+                    and refundCount &gt; 0
+                </when>
+                <when test="columnType == 6">
+                    and sysMessageCount &gt; 0
+                </when>
+                <when test="columnType == 7">
+                    and warningCount &gt; 0
+                </when>
+                <when test="columnType == 8">
+                    and factoryJoinCount &gt; 0
+                </when>
+                <when test="columnType == 9">
+                    and factoryHasPaid &gt; 0
+                </when>
+                <when test="columnType == 10">
+                    and factoryNonPaid &gt; 0
+                </when>
+            </choose>
+        </if>
+    </update>
+
+    <update id="updateComplaintState">
+        Update DealerOrder a
+        Set a.complaintState = #{status}
+        where a.refrenceId = #{refrenceId}
+    </update>
+</mapper>
+

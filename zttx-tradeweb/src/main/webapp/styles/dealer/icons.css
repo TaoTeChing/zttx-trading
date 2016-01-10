@@ -1,0 +1,58 @@
+﻿
+.icon { background: url(/images/dealer/icons-home.png) no-repeat; display: inline-block;*display: inline; background-repeat: no-repeat; font-size: 0; overflow: hidden; *zoom: 1; margin-right: 3px; }
+.i-add-blue { width: 12px; height: 12px; background-position: -28px -104px; vertical-align: -2px; margin-right: 3px; }
+.i-add-r { width: 12px; height: 12px; background-position: -28px -42px; vertical-align: -2px; margin-right: 3px; }
+.i-pencil { width: 12px; height: 12px; background-position: -28px -20px; vertical-align: -3px; margin-right: 3px; }
+.i-close { width: 18px; height: 18px; background-position: -23px -1px; }
+.i-close2 { width: 12px; height: 12px; background-position: -188px -111px; vertical-align: -3px; margin-right: 3px; }
+.i-warning { width: 16px; height: 16px; background-position: 0 -84px; vertical-align: -4px; }
+.i-note { width: 18px; height: 18px; background-position: -82px 1px; vertical-align: -2px; }
+.i-drawer { width: 18px; height: 18px; background-position: -82px -20px; vertical-align: -2px; }
+.i-favorite { width: 18px; height: 18px; background-position: -82px -39px; vertical-align: -1px; }
+.i-wrench { width: 18px; height: 18px; background-position: -82px -58px; vertical-align: -2px; }
+.i-finance { width: 18px; height: 18px; background-position: -82px -78px; }
+.i-message { width: 18px; height: 18px; background-position: -62px -81px; vertical-align: -2px; }
+.i-account { width: 18px; height: 18px; background-position: -62px 1px; vertical-align: -2px; }
+.i-service { width: 18px; height: 18px; background-position: -62px -18px; vertical-align: -1px; }
+.i-feedback { width: 18px; height: 18px; background-position: -62px -37px; }
+.i-suggest { width: 18px; height: 18px; background-position: -62px -59px; vertical-align: -2px; }
+.i-help { width: 18px; height: 18px; background-position: -160px -23px; vertical-align: -3px; margin-right: 3px; }
+.i-sandown { width: 12px; height: 12px; background-position: -45px 5px; margin-left: 5px; }
+.i-sanup { width: 12px; height: 12px; background-position: -45px -8px; margin-left: 5px; }
+.i-delete { width: 12px; height: 12px; background-position: -190px -65px; vertical-align: -3px; margin-right: 3px; }
+.i-sandown-r { width: 12px; height: 12px; background-position: -45px -21px; margin-left: 5px; }
+.i-sanup-r { width: 12px; height: 12px; background-position: -45px -34px; margin-left: 5px; }
+.i-save { width: 12px; height: 12px; background-position: -160px -112px; vertical-align: -3px; margin-right: 3px; }
+.i-save-w { width: 12px; height: 12px; background-position: -160px -84px; vertical-align: -3px; margin-right: 3px; }
+.i-sandown-999 { width: 12px; height: 12px; background-position: -45px -47px; margin-left: 5px; }
+.i-sanup-999 { width: 12px; height: 12px; background-position: -45px -60px; margin-left: 5px; }
+.i-play { width: 12px; height: 12px; background-position: -27px -62px; vertical-align: -2px; }
+.i-pause { width: 12px; height: 12px; background-position: -27px -83px; vertical-align: -2px; }
+.i-sanright { width: 6px; height: 12px; background-position: -48px -74px; margin-left: 5px; }
+
+.i-heart { width: 18px; height: 18px; background-position: 0 2px; }
+.i-user { width: 18px; height: 18px; background-position: 0 -18px;vertical-align: -2px; }
+.i-user-blue { width: 12px; height: 12px; background-position: -27px -125px; vertical-align: -2px; }
+.i-msg { width: 20px; height: 25px; background-position: 0 -42px; }
+
+
+.i-heart2 { width: 16px; height: 16px; background-position: -1px -122px;vertical-align: -2px; }
+.i-page { width: 16px; height: 16px; background-position: -1px -163px; }
+.i-globe { width: 16px; height: 16px; background-position: -1px -183px; }
+.i-email { width: 16px; height: 16px; background-position: -1px -141px; }
+.i-cart { width: 18px; height: 16px; background-position: -160px -49px; }
+.i-setting { background-position: -160px 1px; width: 18px; height: 16px; vertical-align: -3px; margin-right: 3px; }
+
+
+.i-grid { width: 16px; height: 16px; background-position: -52px -100px; }
+.i-list { width: 16px; height: 16px; background-position: -63px -131px; }
+.i-grid-on { width: 16px; height: 16px; background-position: -98px -100px; }
+.i-list-on { width: 16px; height: 16px; background-position: -109px -131px; }
+
+.i-right-32 { width: 32px; height: 32px;background-position: 0 -216px; }
+.i-wrong-32 { width: 32px; height: 32px;background-position: 0 -258px; }
+
+.i-sqz { background: url(/images/dealer/sqz.png) no-repeat; display: inline-block; width: 16px; height: 16px;vertical-align: -2px; }
+.i-cxd { background: url(/images/dealer/cxd.png) no-repeat; display: inline-block; width: 16px; height: 16px;vertical-align: -2px; }
+.i-wsh { background: url(/images/dealer/wsh.png) no-repeat; display: inline-block; width: 13px; height: 13px;vertical-align: -2px; }
+.i-scd { background: url(/images/dealer/scd.png) no-repeat; display: inline-block; width: 17px; height: 16px;vertical-align: -2px; }

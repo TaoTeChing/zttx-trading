@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/*
+    后台样式-公用弹窗
+*/
+.hide{
+    display: none;
+}
+.edit-common-style{display: none;}
+
+.ui-tanchuang{background: #fff; z-index: 12;}
+.ui-tanchuang .edit-common-content{/*border: 1px solid #8e8e8e;*/ border-top: 0}
+.ui-tanchuang .edit-common-content .ui-bottom{ height: 50px;  margin-top: 8px; border-top: 1px solid #bcbcbc; text-align:center; background: #f5f5f5}
+.ui-bottom a:hover{ text-decoration: none}
+a.edit-common-conserve,a.edit-common-cancel{ display: inline-block; *display: inline; *zoom:1; width: 75px; height: 25px; margin-top: 12px; color: #fff;border-radius: 3px;-webkit-border-radius: 3px;-moz-border-radius: 3px;font: 14px/25px "宋体"; }
+a.edit-common-conserve{ background: #cc0000}
+a.edit-common-conserve:hover{ opacity: 0.5; filter: Alpha(Opacity=50); }
+a.edit-common-cancel{ background: #ccc; margin-left: 5px}
+a.edit-common-cancel:hover{ opacity: 0.5; filter: Alpha(Opacity=50); }
+
+.ui-tanchuang .ui-head{height: 45px; background: #b10000; cursor: move;}/*弹窗方式改变*/
+.ui-tanchuang .ui-head h3{ font: 16px/45px "宋体"; font-weight: bold; color:#fff; margin-left: 25px;}
+.ui-tanchuang .ui-head .icon-question-sign{ position: absolute;top: 15px;top:6px \9; right: 35px;}
+//.ui-tanchuang .ui-head .ui-close{ width: 15px; height: 15px; position: absolute;top: 15px;right: 15px; background: url("/images/market/i-close.png") no-repeat;}
+
+/*2014-03-24 弹窗内tabs切换样式*/
+.jsedit-tabs-menus{ background: #f5f5f5; height: 45px; border: 1px solid #bcbcbc; padding-left: 25px}
+.jsedit-tabs-menus li {float: left; font-family: "宋体"; font-size: 14px; font-weight: bold; padding: 0 15px; line-height: 35px; height: 35px; margin-top: 10px; cursor: pointer;color: #414141}
+.jsedit-tabs-menus li.current{ background: #fff; border: 1px solid #bcbcbc; border-bottom:1px solid #fff;padding:0 14px; margin-top: 9px; }
+.jsedit-contact .tips{ padding: 7px}/**/
+/*头部导航编辑弹出层样式开始*/
+.edit-common-form{ margin-top: 13px;}
+.edit-common-form .ui-form-item{ padding-left: 0; padding-bottom: 10px;font-family: "宋体"; color: #666;}
+.edit-common-form .ui-label{ width: 120px; font-family: "宋体"; line-height: 22px; margin-left: 60px; color: #333; font-size: 12px;}
+.edit-common-form .ui-input{ padding: 0 5px; font-family: "宋体";}
+.edit-common-form .ui-select{ font-family: "宋体";}
+.edit-common-form .edit-form-uploads{ width: 40px; height: 40px; background: #f9f9f9; border: 1px dashed #e6e6e6; color: #ccc; line-height: 40px; text-align: center}
+.edit-common-form .edit-form-imgboxs{ width: 40px; height: 40px; border: 1px dashed #e6e6e6; overflow: hidden;}
+.edit-common-form .file_wrap .input_file{ width: 40px; height: 40px}
+.edit-common-form .edit-form-imgboxs img{ margin: 5px;border:0 none;}
+.edit-common-form .edit-form-toshow{ margin-left: 10px; margin-top: 10px}
+/*结束*/
+/*导航编辑弹出层样式*/
+.nav-edit-area ul{ background: #f2f2f2;height: 35px; border: 1px solid #dddddd; border-left: 0; border-right:0; margin: 3px 0;}
+.nav-edit-area li{ float: left; width: 160px; padding-left: 20px; line-height: 35px}
+.nav-edit-ul{ border:1px solid #ddd; width: 556px; height:333px; overflow:auto;}
+.nav-edit-ul li{ border-bottom:1px solid #ddd; line-height:36px; padding:0 20px; position: relative;}
+.nav-edit-ul li .menu-link{ color: #333;}
+.nav-edit-ul li .menu-link.selected{ background: none;}
+.nav-edit-ul li:hover{ background:#f2f2f2}
+.nav-edit-ul li .btn-group{ display:none}
+.nav-edit-ul li:hover .btn-group{display:block}
+.nav-edit-ul li .btn-group{ position: absolute; right: 20px; top: 0}
+.nav-edit-ul li .nav-edit-listate{ position: absolute; right: 330px; top: 0; cursor: pointer}
+.nav-edit-ul li .btn-group .btn-small{margin: 7px 0 0 0}
+.nav-edit-ul span.address{ display:none}
+.nav-edit-addbtn{ position: absolute; right: 11px; bottom:63px;}
+/*结束*/
+/*风格模版*/
+.touch-style .ui-label{ color: #666;}
+.touch-style .touch-style-ul { margin:25px 0 10px 46px; overflow: hidden;}
+.touch-style .touch-style-ul .items{ width: 130px; margin-right: 40px; float: left;}
+.touch-style .touch-style-ul .items .imgbox{ width: 130px; height: 160px; overflow: hidden;}
+.touch-style .touch-style-ul .items .tit{ text-align: center; padding-top: 6px; color: #333;}
+/*结束*/
+.edui-container{ margin-left:8px}/*百度编辑器位置*/
+
+/*添加新模块*/
+.addmodle-layout{ width: 160px; text-align: center; margin-top: 10px}
+.addmodle-layout .addmodle-tips{ line-height: 25px}
+.edit-model-bbm{background: #fff; border: 1px solid #c0c0c0; margin:3px 4px;}
+.edit-model-bbm-hover{ background: #fff2d2; border: 1px solid #ff9933; color: #ffa346}
+.edit-model-body{ width: 115px; background: #fff; border: 1px solid #c0c0c0; margin:0 auto; text-align: center; color: #999}
+.edit-model-body .edit-model-header{  height: 20px; line-height: 20px;}
+.edit-model-body .edit-model-lsidebar{width: 68px; float: left; margin-left: 4px}
+.edit-model-body .edit-model-lsidebar .edit-model-left{ width: 77px; height: 20px; line-height: 20px; margin-left: 0; margin-top: 0}
+.edit-model-body .edit-model-rsidebar{width: 22px; height: 70px; margin-left: 87px}
+.edit-model-body .edit-model-footer{ height: 20px; line-height: 20px;}
+
+.addmodle-dlitem{ margin-top: 15px; padding-bottom: 15px; width: 390px; overflow: hidden; *zoom:1; }
+.addmodle-dlitem .addmodle-dt{ float: left; width: 67px; height: 70px; margin-right: 12px; background: url(../../images/market/addmodle-dtbg.png) no-repeat -999em -999em; cursor: pointer;}
+.addmodle-dlitem .addmodle-dt-in{ background-position: 0 0;}
+.addmodle-dlitem .addmodle-dt-show{ background-position: -69px 0;}
+.addmodle-dlitem .addmodle-dt-apply{ background-position: -138px 0;}
+.addmodle-dlitem .addmodle-dt-diy{ background-position: -207px 0;}
+.addmodle-dlitem .addmodle-ddtit{ font-weight: 600}
+.addmodle-dlitem .addmodle-dddes{ color: #666; margin-top: 7px}
+/*添加新模块结束*/
+
+
+//通用弹窗样式
+.edit-dialog{
+    border: #bababa solid 1px;
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0,0,0,.4);
+    min-height: 100px;
+    _height: 100px;
+    .edit-dialog-close{
+        width: 15px; height: 15px; position: absolute;top: 15px;right: 15px; background: url("/images/market/i-close.png") no-repeat;z-index: 2;color: #cacaca;text-align: center;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    .edit-dialog-content{
+        position: relative;
+    }
+}
+

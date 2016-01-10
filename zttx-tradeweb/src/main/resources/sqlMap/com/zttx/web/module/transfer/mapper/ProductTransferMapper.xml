@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.transfer.mapper.ProductTransferMapper">
+    <select id="findSampleProductInfoCount" resultType="java.lang.Long">
+        SELECT count(*)
+        FROM
+            ProductBaseInfo a,
+            ProductExtInfo b
+        WHERE
+            a.refrenceId = b.refrenceId
+            AND a.source = 0
+            AND b.isSample = 1
+    </select>
+
+    <select id="findSampleProductInfo" resultType="java.util.HashMap" parameterType="java.util.Map">
+        SELECT
+            a.refrenceId,
+            a.productTitle
+        FROM
+            ProductBaseInfo a,
+            ProductExtInfo b
+        WHERE
+            a.refrenceId = b.refrenceId
+            AND a.source = 0
+            AND b.isSample = 1
+    </select>
+
+    <select id="getMaxSkuDriectPrice" resultType="java.math.BigDecimal">
+        SELECT MAX(directPrice)
+        FROM ProductSkuPrice
+        WHERE
+            productId = #{productId}
+    </select>
+
+    <select id="findFactoryActivityProductCount" resultType="java.lang.Long">
+        SELECT
+            count(*)
+        FROM
+            ProductBaseInfo a
+        WHERE a.source = 0
+              AND a.delFlag = 0
+              AND EXISTS(
+                      SELECT
+                          1
+                      FROM
+                          BrandActivityProduct b,
+                          BrandActivityProductPrice c
+                      WHERE
+                          b.productId = a.refrenceId
+                          AND c.activityProductId = b.refrenceId
+                          AND b.factoryProductType = 1
+                          AND b.factoryState = 2
+                          AND b.delState = 0
+              )
+    </select>
+
+    <select id="findFactoryActivityProduct" resultType="java.util.HashMap" parameterType="java.util.Map">
+        SELECT
+            a.refrenceId ,
+            a.productTitle
+        FROM
+            ProductBaseInfo a
+        WHERE a.source = 0
+              AND a.delFlag = 0
+              AND EXISTS(
+                      SELECT
+                          1
+                      FROM
+                          BrandActivityProduct b,
+                          BrandActivityProductPrice c
+                      WHERE
+                          b.productId = a.refrenceId
+                          AND c.activityProductId = b.refrenceId
+                          AND b.factoryProductType = 1
+                          AND b.factoryState = 2
+                          AND b.delState = 0
+              )
+    </select>
+
+    <update id="modifySkuSamplePrice" parameterType="java.util.Map">
+        UPDATE ProductSkuPrice
+        SET samplePrice = #{price}
+        WHERE productId = #{productId}
+    </update>
+
+    <update id="modifyBatchProductCreditState" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update ProductExtInfo SET isCredit = 1 where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <update id="modifyProductCreditState" parameterType="java.lang.String">
+        UPDATE ProductExtInfo
+        SET isCredit = 1
+        WHERE refrenceId = #{productId}
+    </update>
+
+    <update id="modifySkuCreditPrice" parameterType="java.lang.String">
+        UPDATE ProductSkuPrice a,
+            BrandActivityProductPrice b
+        SET a.creditPrice = b.directPrice
+        WHERE
+            a.productSkuId = b.productSkuId
+            AND a.productId = #{productId}
+    </update>
+
+</mapper>

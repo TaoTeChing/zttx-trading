@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandNewscateMapper">
+    <!-- 基础列 -->
+    <sql id="brandNewscateColumns">
+        a.refrenceId as refrenceId ,
+        a.cateName as cateName ,
+        a.cateMark as cateMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandNewscate">
+        insert into BrandNewscate(
+         refrenceId ,
+         cateName ,
+         cateMark ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{cateName}  ,
+        #{cateMark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandNewscate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandNewscate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandNewscate">
+        insert into BrandNewscate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="cateName != null">
+            cateName ,
+        </if>
+        <if test="cateMark != null">
+            cateMark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="cateName != null">
+            #{cateName} ,
+        </if>
+        <if test="cateMark != null">
+            #{cateMark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandNewscate">
+        update BrandNewscate
+           <set>
+            <if test="cateName != null">
+                cateName = #{cateName} ,
+            </if>
+            <if test="cateMark != null">
+                cateMark = #{cateMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandNewscate">
+        update BrandNewscate set
+            cateName = #{cateName} ,
+            cateMark = #{cateMark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandNewscate">
+        select <include refid="brandNewscateColumns"/> from BrandNewscate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandNewscate">
+        SELECT
+        <include refid="brandNewscateColumns"/>
+        FROM BrandNewscate a WHERE a.delFlag = 0
+        <if test="cateName != null and cateName != ''">
+            and a.cateName like CONCAT('%',#{cateName}, '%')
+        </if>
+        <if test="cateMark != null and cateMark != ''">
+            and a.cateMark like CONCAT('%',#{cateMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandNewscate">
+        SELECT
+        <include refid="brandNewscateColumns"/>
+        FROM BrandNewscate a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

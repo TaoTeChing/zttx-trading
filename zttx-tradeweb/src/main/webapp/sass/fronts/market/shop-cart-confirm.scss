@@ -1,0 +1,387 @@
+﻿@charset "UTF-8";
+
+@import "../../mixin";
+@import "../../dealer/model/_iconfont.scss";
+@import "../../dealer/model/icons.scss";
+@import "../../common/_top.scss";
+@import "../../dealer/model/_form.scss";
+@import "../../dealer/model/_button.scss";
+@import "../../dealer/model/dialog.scss";
+@import "../../common/animate/animate";
+@import "../../common/animate/sliding";
+@import "../../common/animate/bouncing";
+
+.header {
+    @include clearfix();
+    margin-bottom: 10px;
+    .logo{
+      @include float();
+      margin-top:10px;
+      font-size:18px;
+      font-family: 'Microsoft Yahei', '黑体';
+
+      img{
+        padding:0 20px 0 0;
+        border-right:1px dashed #ddd;
+        margin-right:20px;
+      }
+    }
+
+  .step{
+    @include float(right);
+      background:url("../../../images/fronts/market/myorder-step.gif") no-repeat;
+      width:568px;
+      height:50px;
+      margin-top:20px;
+      &.step2{
+        background-position: 0 -52px;
+      }
+      &.step3{
+        background-position: 0 -104px;
+      }
+  }
+
+}
+
+.tbar {
+    height: 36px;
+    border-bottom: 2px solid #e6e6e6;
+
+    .page-title {
+        vertical-align: top;
+        color: #777;
+        font-family: 'Microsoft Yahei', '黑体';
+      a{
+        margin-left:20px
+      }
+    }
+
+}
+
+.operation {
+    height: 50px;
+    line-height: 50px;
+
+    a {
+        margin: 0 20px;
+    }
+
+    .ui-checkbox {
+        vertical-align: -3px;
+    }
+}
+
+.order-all {
+    .order-item-head {
+        @include clearfix();
+        height: 36px;
+        line-height: 36px;
+
+        .order-checkbox {
+            @include float();
+            width: 30px;
+
+            .ui-checkbox {
+                vertical-align: -3px;
+            }
+        }
+
+        .brand-info {
+            @include float();
+        }
+    }
+}
+
+
+.order-product {
+    border: 1px solid #e1e1e1;
+
+    .product-head {
+        background-color: #f9f9f9;
+
+        th {
+            padding: 0;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #e1e1e1;
+            color:#999;
+            font-weight:500;
+        }
+    }
+
+    .product-item {
+        td {
+            padding: 0;
+            border: 1px solid #e1e1e1;
+            line-height:30px;
+            //vertical-align: top;
+        }
+    }
+
+    .product-disable{
+      background-color:#f6f6f6;
+    }
+
+    .item-info,
+    .item-type,
+    .item-attr,
+    .item-number,
+    .item-price,
+    .item-operation {
+        text-align: center;
+    }
+
+    .item-info {
+        width: 190px;
+        .pic-box{
+          padding-top:10px;
+          padding-left:50px;
+          text-align: left;
+
+          input{
+            margin-left:-30px;
+          }
+
+          p{
+            width:100%;
+          }
+
+          img{
+            display:block;
+            width:90px;
+            height:90px;
+          }
+            .factory-shop-box{
+                width: 90px;
+                height:26px;
+                line-height: 26px;
+                display: block;
+                background:#c33;
+                color: #fff;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+    }
+
+    .item-type{
+        width: 110px;
+    }
+
+    .item-attr {
+        width: 650px;
+        position: relative;
+        vertical-align: top;
+    }
+
+    .item-number {
+        width: 138px;
+    }
+
+    .item-price {
+        width: 192px;
+    }
+
+    .attr-item {
+        @include clearfix();
+        //overflow: hidden;
+        margin: -1px;
+        //padding-left:171px;
+        position:relative;
+        border: 1px solid #e1e1e1;
+
+      .simple-color{
+        position:absolute;
+        width:170px;
+        left:0;
+      }
+
+      table{
+        margin:-1px;
+
+      }
+    }
+
+    .detail-color, .detail-size, .detail-price, .detail-stock, .detail-number {
+        text-align: center;
+    }
+
+    .detail-color {
+        width: 205px;
+    }
+
+    .detail-size {
+        width: 170px;
+    }
+
+    .detail-price {
+        width: 210px;
+    }
+
+    .detail-number {
+        width: 190px;
+    }
+}
+
+.bbar {
+    @include clearfix();
+    font-family: 'Microsoft YaHei',SimHei;
+    font-size: 14px;
+    .bbar-right {
+        @include float(right);
+        text-align: right;
+
+        .ui-button {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        p{
+          padding:10px 0;
+        }
+        span {
+            font-size: 24px;
+            color: #e00;
+            font-weight: 700;
+        }
+    }
+}
+
+.order-summary{
+  @include clearfix();
+  padding:10px 15px;
+  background-color: #f7f7f7;
+  border:1px solid #e1e1e1;
+  margin-top: -1px;
+
+  .summary-words{
+    @include float();
+    width:550px;
+  }
+  .summary-confirm{
+    //@include float();
+    margin-left:550px;
+    text-align: right;
+  }
+}
+
+.address-list{
+  margin-left:-20px;
+  li{width:280px;margin-left:20px;margin-bottom: 10px;}
+  .address-item{
+    display:none;
+    border:2px dashed #e1e1e1;
+    padding:10px;
+    height:90px;
+    position: relative;
+
+    &:hover,&.hover{
+      border-color:#fbbc72;
+    }
+    &.active{
+      border-style: solid;
+      border-color:#B20101;
+      background:#fff url("../../../images/fronts/market/gou-lg.gif") right bottom no-repeat;
+      a{display: inline;}
+    }
+  }
+  .address-title{
+    border-bottom: 1px solid #e1e1e1;
+    height:26px;line-height: 26px;
+    margin-bottom: 5px;
+  }
+  p{
+    line-height:22px;
+  }
+  a{display: none}
+  .tip{
+    position:absolute;
+    top: 15px;
+    right: 10px;
+  }
+}
+
+/*补丁*/
+.ui-select{
+  padding:5px;
+}
+
+.badge {
+    font-size: 100%;
+    padding: 2px 5px;
+    border-radius: 3px;
+
+    &.badge-red {
+        background: #e00;
+        color: #fff;
+    }
+}
+
+.css-arrow{
+    position: relative;
+    top: 9px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #999 transparent transparent transparent;
+    _border-color: #999 tomato tomato tomato;
+    _filter: chroma(color=tomato);
+    border-width: 5px 4px;
+    overflow: hidden;
+}
+
+.ui-dialog{
+ .ui-form-item{
+   height: 34px;
+   padding: 0 5px 24px 170px;
+ }
+  .ui-form-explain{
+    padding:0;
+  }
+}
+
+
+//动画
+@keyframes slideFadeInDown{
+  from{
+    opacity: 0;
+    transform: translate(0,-5px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+@-webkit-keyframes slideFadeInDown{
+  from{
+    opacity: 0;
+    -webkit-transform: translate(0,-5px);
+  }
+  to{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+  }
+}
+
+@keyframes slideFadeInUp{
+  from{
+    opacity: 0;
+    transform: translate(0,5px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+@-webkit-keyframes slideFadeInUp{
+  from{
+    opacity: 0;
+    -webkit-transform: translate(0,5px);
+  }
+  to{
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+  }
+}

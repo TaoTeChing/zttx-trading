@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.exhibition.mapper.DecorateHeaderMapper">
+    <!-- 基础列 -->
+    <sql id="decorateHeaderColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.showCate as showCate ,
+        a.comName as comName ,
+        a.showName as showName ,
+        a.domainName as domainName ,
+        a.logoName as logoName ,
+        a.showLogo as showLogo ,
+        a.mainDeal as mainDeal ,
+        a.nameFont as nameFont ,
+        a.nameSize as nameSize ,
+        a.nameColor as nameColor ,
+        a.dealFont as dealFont ,
+        a.dealSize as dealSize ,
+        a.dealColor as dealColor ,
+        a.outBackUrl as outBackUrl ,
+        a.inBackUrl as inBackUrl ,
+        a.navDefaultColor as navDefaultColor ,
+        a.navDefaultUrl as navDefaultUrl ,
+        a.navChangeColor as navChangeColor ,
+        a.navChangeUrl as navChangeUrl ,
+        a.navSelectColor as navSelectColor ,
+        a.navDefaultFont as navDefaultFont ,
+        a.navChangeFont as navChangeFont ,
+        a.headerText as headerText ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        insert into DecorateHeader(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         showCate ,
+         comName ,
+         showName ,
+         domainName ,
+         logoName ,
+         showLogo ,
+         mainDeal ,
+         nameFont ,
+         nameSize ,
+         nameColor ,
+         dealFont ,
+         dealSize ,
+         dealColor ,
+         outBackUrl ,
+         inBackUrl ,
+         navDefaultColor ,
+         navDefaultUrl ,
+         navChangeColor ,
+         navChangeUrl ,
+         navSelectColor ,
+         navDefaultFont ,
+         navChangeFont ,
+         headerText ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{showCate}  ,
+        #{comName}  ,
+        #{showName}  ,
+        #{domainName}  ,
+        #{logoName}  ,
+        #{showLogo}  ,
+        #{mainDeal}  ,
+        #{nameFont}  ,
+        #{nameSize}  ,
+        #{nameColor}  ,
+        #{dealFont}  ,
+        #{dealSize}  ,
+        #{dealColor}  ,
+        #{outBackUrl}  ,
+        #{inBackUrl}  ,
+        #{navDefaultColor}  ,
+        #{navDefaultUrl}  ,
+        #{navChangeColor}  ,
+        #{navChangeUrl}  ,
+        #{navSelectColor}  ,
+        #{navDefaultFont}  ,
+        #{navChangeFont}  ,
+        #{headerText}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DecorateHeader where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DecorateHeader set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        insert into DecorateHeader
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="showCate != null">
+            showCate ,
+        </if>
+        <if test="comName != null">
+            comName ,
+        </if>
+        <if test="showName != null">
+            showName ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="logoName != null">
+            logoName ,
+        </if>
+        <if test="showLogo != null">
+            showLogo ,
+        </if>
+        <if test="mainDeal != null">
+            mainDeal ,
+        </if>
+        <if test="nameFont != null">
+            nameFont ,
+        </if>
+        <if test="nameSize != null">
+            nameSize ,
+        </if>
+        <if test="nameColor != null">
+            nameColor ,
+        </if>
+        <if test="dealFont != null">
+            dealFont ,
+        </if>
+        <if test="dealSize != null">
+            dealSize ,
+        </if>
+        <if test="dealColor != null">
+            dealColor ,
+        </if>
+        <if test="outBackUrl != null">
+            outBackUrl ,
+        </if>
+        <if test="inBackUrl != null">
+            inBackUrl ,
+        </if>
+        <if test="navDefaultColor != null">
+            navDefaultColor ,
+        </if>
+        <if test="navDefaultUrl != null">
+            navDefaultUrl ,
+        </if>
+        <if test="navChangeColor != null">
+            navChangeColor ,
+        </if>
+        <if test="navChangeUrl != null">
+            navChangeUrl ,
+        </if>
+        <if test="navSelectColor != null">
+            navSelectColor ,
+        </if>
+        <if test="navDefaultFont != null">
+            navDefaultFont ,
+        </if>
+        <if test="navChangeFont != null">
+            navChangeFont ,
+        </if>
+        <if test="headerText != null">
+            headerText ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="showCate != null">
+            #{showCate} ,
+        </if>
+        <if test="comName != null">
+            #{comName} ,
+        </if>
+        <if test="showName != null">
+            #{showName} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="logoName != null">
+            #{logoName} ,
+        </if>
+        <if test="showLogo != null">
+            #{showLogo} ,
+        </if>
+        <if test="mainDeal != null">
+            #{mainDeal} ,
+        </if>
+        <if test="nameFont != null">
+            #{nameFont} ,
+        </if>
+        <if test="nameSize != null">
+            #{nameSize} ,
+        </if>
+        <if test="nameColor != null">
+            #{nameColor} ,
+        </if>
+        <if test="dealFont != null">
+            #{dealFont} ,
+        </if>
+        <if test="dealSize != null">
+            #{dealSize} ,
+        </if>
+        <if test="dealColor != null">
+            #{dealColor} ,
+        </if>
+        <if test="outBackUrl != null">
+            #{outBackUrl} ,
+        </if>
+        <if test="inBackUrl != null">
+            #{inBackUrl} ,
+        </if>
+        <if test="navDefaultColor != null">
+            #{navDefaultColor} ,
+        </if>
+        <if test="navDefaultUrl != null">
+            #{navDefaultUrl} ,
+        </if>
+        <if test="navChangeColor != null">
+            #{navChangeColor} ,
+        </if>
+        <if test="navChangeUrl != null">
+            #{navChangeUrl} ,
+        </if>
+        <if test="navSelectColor != null">
+            #{navSelectColor} ,
+        </if>
+        <if test="navDefaultFont != null">
+            #{navDefaultFont} ,
+        </if>
+        <if test="navChangeFont != null">
+            #{navChangeFont} ,
+        </if>
+        <if test="headerText != null">
+            #{headerText} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        update DecorateHeader
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="showCate != null">
+                showCate = #{showCate} ,
+            </if>
+            <if test="comName != null">
+                comName = #{comName} ,
+            </if>
+            <if test="showName != null">
+                showName = #{showName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="logoName != null">
+                logoName = #{logoName} ,
+            </if>
+            <if test="showLogo != null">
+                showLogo = #{showLogo} ,
+            </if>
+            <if test="mainDeal != null">
+                mainDeal = #{mainDeal} ,
+            </if>
+            <if test="nameFont != null">
+                nameFont = #{nameFont} ,
+            </if>
+            <if test="nameSize != null">
+                nameSize = #{nameSize} ,
+            </if>
+            <if test="nameColor != null">
+                nameColor = #{nameColor} ,
+            </if>
+            <if test="dealFont != null">
+                dealFont = #{dealFont} ,
+            </if>
+            <if test="dealSize != null">
+                dealSize = #{dealSize} ,
+            </if>
+            <if test="dealColor != null">
+                dealColor = #{dealColor} ,
+            </if>
+            <if test="outBackUrl != null">
+                outBackUrl = #{outBackUrl} ,
+            </if>
+            <if test="inBackUrl != null">
+                inBackUrl = #{inBackUrl} ,
+            </if>
+            <if test="navDefaultColor != null">
+                navDefaultColor = #{navDefaultColor} ,
+            </if>
+            <if test="navDefaultUrl != null">
+                navDefaultUrl = #{navDefaultUrl} ,
+            </if>
+            <if test="navChangeColor != null">
+                navChangeColor = #{navChangeColor} ,
+            </if>
+            <if test="navChangeUrl != null">
+                navChangeUrl = #{navChangeUrl} ,
+            </if>
+            <if test="navSelectColor != null">
+                navSelectColor = #{navSelectColor} ,
+            </if>
+            <if test="navDefaultFont != null">
+                navDefaultFont = #{navDefaultFont} ,
+            </if>
+            <if test="navChangeFont != null">
+                navChangeFont = #{navChangeFont} ,
+            </if>
+            <if test="headerText != null">
+                headerText = #{headerText} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        update DecorateHeader set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            showCate = #{showCate} ,
+            comName = #{comName} ,
+            showName = #{showName} ,
+            domainName = #{domainName} ,
+            logoName = #{logoName} ,
+            showLogo = #{showLogo} ,
+            mainDeal = #{mainDeal} ,
+            nameFont = #{nameFont} ,
+            nameSize = #{nameSize} ,
+            nameColor = #{nameColor} ,
+            dealFont = #{dealFont} ,
+            dealSize = #{dealSize} ,
+            dealColor = #{dealColor} ,
+            outBackUrl = #{outBackUrl} ,
+            inBackUrl = #{inBackUrl} ,
+            navDefaultColor = #{navDefaultColor} ,
+            navDefaultUrl = #{navDefaultUrl} ,
+            navChangeColor = #{navChangeColor} ,
+            navChangeUrl = #{navChangeUrl} ,
+            navSelectColor = #{navSelectColor} ,
+            navDefaultFont = #{navDefaultFont} ,
+            navChangeFont = #{navChangeFont} ,
+            headerText = #{headerText} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        select <include refid="decorateHeaderColumns"/> from DecorateHeader a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        SELECT
+        <include refid="decorateHeaderColumns"/>
+        FROM DecorateHeader a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="showCate != null and showCate != ''">
+            and a.showCate = #{showCate}
+        </if>
+        <if test="comName != null and comName != ''">
+            and a.comName like CONCAT('%',#{comName}, '%')
+        </if>
+        <if test="showName != null and showName != ''">
+            and a.showName = #{showName}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="logoName != null and logoName != ''">
+            and a.logoName like CONCAT('%',#{logoName}, '%')
+        </if>
+        <if test="showLogo != null and showLogo != ''">
+            and a.showLogo = #{showLogo}
+        </if>
+        <if test="mainDeal != null and mainDeal != ''">
+            and a.mainDeal like CONCAT('%',#{mainDeal}, '%')
+        </if>
+        <if test="nameFont != null and nameFont != ''">
+            and a.nameFont like CONCAT('%',#{nameFont}, '%')
+        </if>
+        <if test="nameSize != null and nameSize != ''">
+            and a.nameSize like CONCAT('%',#{nameSize}, '%')
+        </if>
+        <if test="nameColor != null and nameColor != ''">
+            and a.nameColor like CONCAT('%',#{nameColor}, '%')
+        </if>
+        <if test="dealFont != null and dealFont != ''">
+            and a.dealFont like CONCAT('%',#{dealFont}, '%')
+        </if>
+        <if test="dealSize != null and dealSize != ''">
+            and a.dealSize like CONCAT('%',#{dealSize}, '%')
+        </if>
+        <if test="dealColor != null and dealColor != ''">
+            and a.dealColor like CONCAT('%',#{dealColor}, '%')
+        </if>
+        <if test="outBackUrl != null and outBackUrl != ''">
+            and a.outBackUrl like CONCAT('%',#{outBackUrl}, '%')
+        </if>
+        <if test="inBackUrl != null and inBackUrl != ''">
+            and a.inBackUrl like CONCAT('%',#{inBackUrl}, '%')
+        </if>
+        <if test="navDefaultColor != null and navDefaultColor != ''">
+            and a.navDefaultColor like CONCAT('%',#{navDefaultColor}, '%')
+        </if>
+        <if test="navDefaultUrl != null and navDefaultUrl != ''">
+            and a.navDefaultUrl like CONCAT('%',#{navDefaultUrl}, '%')
+        </if>
+        <if test="navChangeColor != null and navChangeColor != ''">
+            and a.navChangeColor like CONCAT('%',#{navChangeColor}, '%')
+        </if>
+        <if test="navChangeUrl != null and navChangeUrl != ''">
+            and a.navChangeUrl like CONCAT('%',#{navChangeUrl}, '%')
+        </if>
+        <if test="navSelectColor != null and navSelectColor != ''">
+            and a.navSelectColor like CONCAT('%',#{navSelectColor}, '%')
+        </if>
+        <if test="navDefaultFont != null and navDefaultFont != ''">
+            and a.navDefaultFont like CONCAT('%',#{navDefaultFont}, '%')
+        </if>
+        <if test="navChangeFont != null and navChangeFont != ''">
+            and a.navChangeFont like CONCAT('%',#{navChangeFont}, '%')
+        </if>
+        <if test="headerText != null and headerText != ''">
+            and a.headerText like CONCAT('%',#{headerText}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+        SELECT
+        <include refid="decorateHeaderColumns"/>
+        FROM DecorateHeader a WHERE a.delFlag = 0
+    </select>
+    <select id="findByBrandIdAndBrandsId" parameterType="map" resultType="com.zttx.web.module.exhibition.entity.DecorateHeader">
+    	select 
+    		<include refid="decorateHeaderColumns"/>
+    	from DecorateHeader a
+    	where
+    		brandsId=#{brandsId}
+    		and brandId=#{brandId}
+    	
+    </select>
+</mapper>
+

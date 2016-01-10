@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent> 
+        <artifactId>zttx-trading</artifactId>
+        <groupId>com.8637</groupId>
+        <version>3.2.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>zttx-tradeapi</name>
+    <artifactId>zttx-tradeapi</artifactId>
+    <packaging>jar</packaging>
+    <description>新版交易平台服务接口</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.8637</groupId>
+			<artifactId>zttx-tradebean</artifactId>
+		</dependency>
+		<!-- servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zttx</groupId>
+            <artifactId>pay-core</artifactId>
+        </dependency>
+	</dependencies>
+	
+</project>

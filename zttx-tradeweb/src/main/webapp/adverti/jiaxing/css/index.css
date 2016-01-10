@@ -1,0 +1,167 @@
+@charset "utf-8";
+body{
+    background-color: #f5bf16;
+}
+
+.wallpaper_01{
+    min-width:1190px;
+    height: 770px;
+    background: url("/adverti/jiaxing/img/jiaxing_01.jpg") no-repeat center;
+}
+
+.wallpaper_02{
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.img_2{
+    margin-top: -10px;
+}
+
+.m-f-list{
+
+}
+
+.m-f-list dl{
+
+}
+
+.m-f-list dt,
+.m-f-list dd{
+    float: left;
+    *display: inline;
+    margin-top: 10px;
+}
+
+.m-f-list dt{
+    width: 268px;
+    height: 130px;
+    margin-right: 15px;
+    background-color:#f1470f;
+}
+
+.m-f-list dd{
+    width: 907px;
+    height: 130px;
+    margin-bottom: 10px;
+    background-color: #f7dd03;
+}
+
+.m-f-list dd li{
+    margin-top: 10px;
+    margin-left: 38px;
+}
+
+.m-f-logins{
+    margin-top: 50px;
+    color: #fff;
+}
+
+.m-f-logins h2{
+    margin-top: 20px;
+    margin-left: 197px;
+    font-size: 28px;
+}
+
+.m-f-logins h2 img{
+    margin-left: 28px;
+}
+
+.m-f-logins .log-coll,
+.m-f-logins .log-colr{
+    width: 595px;
+}
+
+.m-f-logins .log-coll{
+    background-color: #1789d8;
+}
+
+.m-f-logins .log-colr{
+    background-color: #f1470f;
+}
+
+.m-f-bottom{
+    height: 141px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #e92f35 url("/adverti/jiaxing/img/j_b_l.png") repeat-x left top;
+}
+
+.m-f-bottom .center{
+    width: 1410px;
+    height: 156px;
+    margin: 0 auto;
+    background: url("/adverti/jiaxing/img/j_b.png") no-repeat left 20px;
+}
+
+.m-f-bottom p{
+    font-size: 21px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.m-f-bottom .p1{
+    padding-top: 24px;
+    margin-left: 584px;
+}
+
+.m-f-bottom .p2{
+    margin-left: 318px;
+}
+
+.m-f-bottom .p3{
+    margin-top: 5px;
+    margin-left: 349px;
+}
+
+.m-f-bottom .span1{
+    /*margin-left: 116px;*/
+}
+
+.ui-form{
+    padding: 50px;
+}
+
+.ui-form-item{
+    margin-bottom: 40px;
+}
+
+.ui-form-item .ui-label{
+    width: 150px;
+    font-size: 28px;
+    float: left;
+    *display: inline;
+    text-align: right;
+}
+
+.ui-form-item .ui-input{
+    width: 330px;
+    height: 20px;
+    padding: 15px 5px;
+    border: 0;
+    /*border: 2px solid #fff;*/
+}
+
+.ui-form-item .ui-input:focus{
+    /*border-color: #ECA29B;*/
+    //box-shadow: 0 0 3px 2px #eca29b;
+}
+
+.ui-form-item .btn1{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 340px;
+    height: 60px;
+    line-height: 58px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #ffd200;
+    text-align: center;
+    font-size: 28px;
+    color: #e00;
+}
+
+.ui-form-item .btn1:hover{
+    background-color: #f7dd03;
+}

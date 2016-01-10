@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+.EndBottom{
+  padding-top:15px;
+  padding-bottom:12px;
+  border-right:1px #ddd solid;
+  border-left:1px #ddd solid;
+  border-bottom:1px #ddd solid;
+  margin:0px auto;
+  text-align:center;
+  .pagination{
+    text-align: center;
+  }
+}
+.wd100b{width: 100%;}
+.wd90{width: 90px;}
+.wd80{width: 80px; border-left: 1px #ddd solid;}
+.bdn{border:none;}
+.pl10{padding-left: 10px; margin-top: -20px;}
+.pb10pt15{padding-bottom: 10px; padding-top: 15px;}
+.PendingRightSelect{padding-top:9px; padding-bottom:7px; padding-right:5px;}
+.tac{text-align: center;}
+
+.MyUpload{
+  ul{margin-top: -10px; line-height: 10px;}
+  li{
+    float: left;
+    border-left: 1px #ddd solid;
+    height: 20px;
+    width: 80px;
+    vertical-align:top;
+  }
+}
+
+.selects{
+  width:130px; padding:3px;
+  option{
+    color: #6b6b6b;
+  }
+  option:hover{
+    color: #0082cc;
+  }
+}
+
+.buttonbg{
+  background-color: #f08c43;
+  border: 1px #f08c43 solid;
+}
+
+.icon-alter{
+  background:url(/images/dealer/icon-alter.png)  no-repeat;
+  display: inline-block;
+  *display: inline;
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+  vertical-align: -2px;
+}
+
+.pagination{
+  text-align: center;
+}
+
+input.ui-checkbox{
+  vertical-align: -2px;
+}
+
+.ui-form-item{
+  .ui-input {
+      width: 220px;
+      height: 25px;
+      overflow: hidden;
+  }
+  textarea{
+    width: 91%;
+    height: 100px;
+    padding: 10px;
+  }
+  select{
+    width: 240px;
+    height: 30px;
+    overflow: hidden;
+  }
+}
+.ui-form-item {
+  padding: 0 5px 10px 100px;
+}
+
+.img-upload{
+  margin-left: -15px;
+  .input_file{
+  width: 80px;
+  height: 80px;
+  }
+  .file_wrap a{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 14px;
+  }
+}
+
+.myinput{
+  .txt{ height:30px; border:1px solid #cdcdcd; width:380px;}
+  .btn{ background-color:#f5f5f5; border:1px solid #bcbcbc;height:30px; width:70px; color: #333;}
+  .file-box{ position:relative;width:340px}
+  .file{ position:absolute; top:0; right:80px; height:30px;opacity: 0;width:260px }
+}
+
+
+
+  //生成的select通用框
+  .common_select_box{
+    border: #C1C1C1 solid 1px;
+    background: #fff; //特殊情况处理
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    span{
+      margin-left: 8px;
+    }
+    .arrow{
+      position: absolute;
+      right: 5px;
+      top: 12px;
+      width:0;
+      height:0;
+      border-style: solid;
+      border-color: #000000 transparent transparent transparent;
+      border-width: 5px 4px;
+      overflow: hidden;
+    }
+  }

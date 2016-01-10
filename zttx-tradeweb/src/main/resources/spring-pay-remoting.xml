@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:zttx.properties"/>
+
+    <bean id="payOrderApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${zttx.payapi.webip}/remoting/payOrderApi"/>
+        <property name="serviceInterface" value="com.zttx.pay.remoting.api.PayOrderApi"/>
+        <property name="readTimeout" value="3000"/>
+        <!--<property name="serializerFactory" ref="serializerFactory"/>-->
+    </bean>
+
+    <bean id="payUserApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${zttx.payapi.webip}/remoting/payUserApi"/>
+        <property name="serviceInterface" value="com.zttx.pay.remoting.api.PayUserApi"/>
+        <property name="readTimeout" value="3000"/>
+        <!--<property name="serializerFactory" ref="serializerFactory"/>-->
+    </bean>
+
+    <bean id="transferApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${zttx.payapi.weburl}/remoting/transferApi"/>
+        <property name="serviceInterface" value="com.zttx.pay.remoting.crm.TransferApi"/>
+    </bean>
+
+    <bean id="payAccountApi" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="${zttx.payapi.weburl}/remoting/payAccountApi"/>
+        <property name="serviceInterface" value="com.zttx.pay.remoting.crm.PayAccountApi"/>
+    </bean>
+
+    <bean id="signatureValidator" class="com.zttx.pay.remoting.api.SignatureValidator">
+        <property name="pubKey" value="classpath:test_pub.key"/>
+    </bean>
+</beans>

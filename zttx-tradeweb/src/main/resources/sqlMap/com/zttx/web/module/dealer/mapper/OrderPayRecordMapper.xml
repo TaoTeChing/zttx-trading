@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.OrderPayRecordMapper">
+    <!-- 基础列 -->
+    <sql id="orderPayRecordColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.recharegeId as recharegeId ,
+        a.payAmount as payAmount ,
+        a.createTime as createTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        insert into OrderPayRecord(
+         refrenceId ,
+         orderId ,
+         dealerId ,
+         dealerName ,
+         recharegeId ,
+         payAmount ,
+         createTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{recharegeId}  ,
+        #{payAmount}  ,
+        #{createTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from OrderPayRecord where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update OrderPayRecord set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        insert into OrderPayRecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="dealerName != null">
+            dealerName ,
+        </if>
+        <if test="recharegeId != null">
+            recharegeId ,
+        </if>
+        <if test="payAmount != null">
+            payAmount ,
+        </if>
+        <if test="createTime != null">
+            createTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="dealerName != null">
+            #{dealerName} ,
+        </if>
+        <if test="recharegeId != null">
+            #{recharegeId} ,
+        </if>
+        <if test="payAmount != null">
+            #{payAmount} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        update OrderPayRecord
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="recharegeId != null">
+                recharegeId = #{recharegeId} ,
+            </if>
+            <if test="payAmount != null">
+                payAmount = #{payAmount} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        update OrderPayRecord set
+            orderId = #{orderId} ,
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            recharegeId = #{recharegeId} ,
+            payAmount = #{payAmount} ,
+            createTime = #{createTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        select <include refid="orderPayRecordColumns"/> from OrderPayRecord a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        SELECT
+        <include refid="orderPayRecordColumns"/>
+        FROM OrderPayRecord a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="recharegeId != null and recharegeId != ''">
+            and a.recharegeId like CONCAT('%',#{recharegeId}, '%')
+        </if>
+        <if test="payAmount != null and payAmount != ''">
+            and a.payAmount = #{payAmount}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+        SELECT
+        <include refid="orderPayRecordColumns"/>
+        FROM OrderPayRecord a WHERE a.delFlag = 0
+    </select>
+
+    <select id="listPayRecordBy" resultType="com.zttx.web.module.dealer.entity.OrderPayRecord">
+      select <include refid="orderPayRecordColumns"/>
+      from OrderPayRecord a
+      where a.orderId=#{orderId} and a.dealerId=#{dealerId}
+      order by a.createTime asc
+    </select>
+</mapper>
+

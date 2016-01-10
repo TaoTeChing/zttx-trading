@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductInfoMapper">
+
+    <sql id="solrColumns">
+        c.refrenceId AS refrenceId,
+        a.refrenceId AS brandId,
+        a.comName AS comName,
+        a.legalName AS legalName,
+        b.refrenceId AS brandsId,
+        b.brandsName AS brandsName,
+        a.provinceName AS provinceName,
+        a.cityName AS cityName,
+        a.areaName AS areaName,
+        c.dealNo AS dealNo,
+        e.viewNum AS viewNum,
+        e.saleNum AS saleNum,
+        e.collectNum AS collectNum,
+        e.monthSaleNum AS monthSaleNum,
+        f.dealName AS dealname,
+        c.productCarry AS productCarry,
+        c.productCate AS productCate,
+        d.productGroom AS productGroom,
+        d.isCredit AS productCredit,
+        d.isSample AS productSample,
+        c.productImage AS productImage,
+        c.productKeyword AS productKeyword,
+        c.productNo AS productNo,
+        c.directPrice AS directPrice,
+        c.productPrice AS productPrice,
+        d.similarPrice AS similarPrice,
+        d.productStore AS productStore,
+        c.productTitle AS productTitle,
+        c.createTime AS createTime,
+        c.updateTime AS updateTime,
+        d.topTime AS topTime,
+        g.weight AS productWeight,
+        g.season AS season,
+        h.weight AS brandsWeight
+    </sql>
+
+    <select id="findProductToSolrCount" parameterType="com.zttx.web.module.common.entity.ProductInfo"
+            resultType="java.lang.Long">
+        SELECT count(*)
+        FROM
+        BrandInfo a,
+        BrandesInfo b,
+        ProductBaseInfo c,
+        ProductExtInfo d,
+        ProductCount e,
+        DealDic f
+        WHERE
+        a.refrenceId = b.brandId
+        AND b.refrenceId = c.brandsId
+        AND c.brandId = a.refrenceId
+        AND d.refrenceId = c.refrenceId
+        AND e.refrenceId = c.refrenceId
+        AND f.dealNo = c.dealNo
+        <include refid="filter"/>
+        AND a.checkState = 1
+        AND b.brandState = 2
+        AND b.showed = 1
+        AND b.delFlag = 0
+        AND c.stateSet = 1
+        AND c.delFlag = 0
+        AND d.isShow = 1
+    </select>
+    <select id="findProductToSolr" parameterType="map" resultType="com.zttx.web.module.common.entity.ProductInfo">
+        SELECT
+        <include refid="solrColumns"/>
+        FROM
+        BrandInfo a,
+        BrandesInfo b,
+        ProductBaseInfo c,
+        ProductExtInfo d,
+        ProductCount e,
+        DealDic f,
+        ProductWeightInfo g,
+        BrandesWeightInfo h
+        WHERE
+        a.refrenceId = b.brandId
+        AND b.refrenceId = c.brandsId
+        AND c.brandId = a.refrenceId
+        AND d.refrenceId = c.refrenceId
+        AND e.refrenceId = c.refrenceId
+        AND f.dealNo = c.dealNo
+        AND g.refrenceId = c.refrenceId
+        AND h.brandesId = b.refrenceId
+        <include refid="filter"/>
+        AND a.checkState = 1
+        AND b.brandState = 2
+        AND b.showed = 1
+        AND b.delFlag = 0
+        AND c.stateSet = 1
+        AND c.delFlag = 0
+        AND d.isShow = 1
+        AND g.delFlag = 0
+        AND h.delFlag = 0
+    </select>
+
+    <sql id="filter">
+        <if test="productInfo != null and productInfo != ''">
+            <if test="productInfo.refrenceId != null and productInfo.refrenceId != ''">
+                and c.refrenceId=#{productInfo.refrenceId}
+            </if>
+            <if test="productInfo.brandsId != null and productInfo.brandsId != ''">
+                and c.brandsId=#{productInfo.brandsId}
+            </if>
+        </if>
+    </sql>
+    <select id="findAllProductBaseInfo" resultType="java.util.Map">
+        SELECT
+            a.refrenceId AS refrenceId,
+            a.brandId    AS brandId,
+            a.brandsId   AS brandsId
+        FROM ProductBaseInfo a
+        WHERE a.delFlag = 0
+    </select>
+
+    <select id="findProductToSolrByIds" parameterType="list"
+            resultType="com.zttx.web.module.common.entity.ProductInfo">
+        SELECT
+        <include refid="solrColumns"/>
+        FROM
+        BrandInfo a,
+        BrandesInfo b,
+        ProductBaseInfo c,
+        ProductExtInfo d,
+        ProductCount e,
+        DealDic f,
+        ProductWeightInfo g,
+        BrandesWeightInfo h
+        WHERE
+        a.refrenceId = b.brandId
+        AND b.refrenceId = c.brandsId
+        AND c.brandId = a.refrenceId
+        AND d.refrenceId = c.refrenceId
+        AND e.refrenceId = c.refrenceId
+        AND f.dealNo = c.dealNo
+        AND g.refrenceId = c.refrenceId
+        AND h.brandesId = b.refrenceId
+        AND a.checkState = 1
+        AND b.brandState = 2
+        AND b.showed = 1
+        AND b.delFlag = 0
+        AND c.stateSet = 1
+        AND c.delFlag = 0
+        AND d.isShow = 1
+        AND g.delFlag = 0
+        AND h.delFlag = 0
+        AND c.refrenceId IN (<foreach collection="list" item="item" separator=",">#{item}</foreach>)
+    </select>
+</mapper>
+

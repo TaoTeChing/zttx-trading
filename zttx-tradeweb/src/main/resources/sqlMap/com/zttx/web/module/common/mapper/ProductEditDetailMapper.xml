@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductEditDetailMapper">
+    <!-- 基础列 -->
+    <sql id="productEditDetailColumns">
+        a.refrenceId as refrenceId ,
+        a.productId as productId ,
+        a.changeType as changeType ,
+        a.oldValue as oldValue ,
+        a.newValue as newValue ,
+        a.state as state ,
+        a.checkResult as checkResult ,
+        a.applyTime as applyTime ,
+        a.vid as vid ,
+        a.attributeIcon as attributeIcon ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductEditDetail">
+        insert into ProductEditDetail(
+         refrenceId ,
+         productId ,
+         changeType ,
+         oldValue ,
+         newValue ,
+         state ,
+         checkResult ,
+         applyTime ,
+         vid ,
+         attributeIcon ,
+         createTime ,
+         updateTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{productId}  ,
+        #{changeType}  ,
+        #{oldValue}  ,
+        #{newValue}  ,
+        #{state}  ,
+        #{checkResult}  ,
+        #{applyTime}  ,
+        #{vid}  ,
+        #{attributeIcon}  ,
+        #{createTime}  ,
+        #{updateTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductEditDetail where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductEditDetail set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductEditDetail">
+        insert into ProductEditDetail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="changeType != null">
+            changeType ,
+        </if>
+        <if test="oldValue != null">
+            oldValue ,
+        </if>
+        <if test="newValue != null">
+            newValue ,
+        </if>
+        <if test="state != null">
+            state ,
+        </if>
+        <if test="checkResult != null">
+            checkResult ,
+        </if>
+        <if test="applyTime != null">
+            applyTime ,
+        </if>
+        <if test="vid != null">
+            vid ,
+        </if>
+        <if test="attributeIcon != null">
+            attributeIcon ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="changeType != null">
+            #{changeType} ,
+        </if>
+        <if test="oldValue != null">
+            #{oldValue} ,
+        </if>
+        <if test="newValue != null">
+            #{newValue} ,
+        </if>
+        <if test="state != null">
+            #{state} ,
+        </if>
+        <if test="checkResult != null">
+            #{checkResult} ,
+        </if>
+        <if test="applyTime != null">
+            #{applyTime} ,
+        </if>
+        <if test="vid != null">
+            #{vid} ,
+        </if>
+        <if test="attributeIcon != null">
+            #{attributeIcon} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductEditDetail">
+        update ProductEditDetail
+           <set>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="changeType != null">
+                changeType = #{changeType} ,
+            </if>
+            <if test="oldValue != null">
+                oldValue = #{oldValue} ,
+            </if>
+            <if test="newValue != null">
+                newValue = #{newValue} ,
+            </if>
+            <if test="state != null">
+                state = #{state} ,
+            </if>
+            <if test="checkResult != null">
+                checkResult = #{checkResult} ,
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime} ,
+            </if>
+            <if test="vid != null">
+                vid = #{vid} ,
+            </if>
+            <if test="attributeIcon != null">
+                attributeIcon = #{attributeIcon} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductEditDetail">
+        update ProductEditDetail set
+            productId = #{productId} ,
+            changeType = #{changeType} ,
+            oldValue = #{oldValue} ,
+            newValue = #{newValue} ,
+            state = #{state} ,
+            checkResult = #{checkResult} ,
+            applyTime = #{applyTime} ,
+            vid = #{vid} ,
+            attributeIcon = #{attributeIcon} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.ProductEditDetail">
+        select <include refid="productEditDetailColumns"/> from ProductEditDetail a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductEditDetail">
+        SELECT
+        <include refid="productEditDetailColumns"/>
+        FROM ProductEditDetail a WHERE a.delFlag = 0
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="changeType != null and changeType != ''">
+            and a.changeType = #{changeType}
+        </if>
+        <if test="oldValue != null and oldValue != ''">
+            and a.oldValue like CONCAT('%',#{oldValue}, '%')
+        </if>
+        <if test="newValue != null and newValue != ''">
+            and a.newValue like CONCAT('%',#{newValue}, '%')
+        </if>
+        <if test="state != null and state != ''">
+            and a.state = #{state}
+        </if>
+        <if test="checkResult != null and checkResult != ''">
+            and a.checkResult like CONCAT('%',#{checkResult}, '%')
+        </if>
+        <if test="applyTime != null and applyTime != ''">
+            and a.applyTime = #{applyTime}
+        </if>
+        <if test="vid != null and vid != ''">
+            and a.vid like CONCAT('%',#{vid}, '%')
+        </if>
+        <if test="attributeIcon != null and attributeIcon != ''">
+            and a.attributeIcon like CONCAT('%',#{attributeIcon}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductEditDetail">
+        SELECT
+        <include refid="productEditDetailColumns"/>
+        FROM ProductEditDetail a WHERE a.delFlag = 0
+    </select>
+    <select id="find" parameterType="map" resultType="com.zttx.web.module.common.entity.ProductEditDetail">
+    	select 
+			<include refid="productEditDetailColumns"/> 
+    	from ProductEditDetail a
+    	where 
+	    	a.state = 0 
+	    	and a.productId = #{productId} 
+	    	and a.changeType = #{changeType}
+	    	<if test="vid==null">
+	    		and a.vid is null
+	    	</if>
+	    	<if test="vid!=null">
+	    		and a.vid = #{vid}
+	    	</if>
+    </select>
+    
+    <select id="searchEditList" parameterType="com.zttx.web.module.common.entity.ProductEditDetail" resultType="java.util.HashMap">
+    	select 
+	    	o.refrenceId as editId, 
+	    	o.changeType as changeType, 
+	    	o.oldValue as oldValue, 
+	    	o.newValue as newValue, 
+	    	o.attributeIcon as attributeIcon, 
+	    	o.state as state                                           
+        from ProductEditDetail o
+         where 
+         	o.productId = #{productId} 
+         	<if test="state!=null">
+         		and o.state = #{state}
+         	</if>
+         order by o.updateTime desc
+    </select>
+    
+    <select id="countUnFinish" parameterType="String" resultType="Integer">
+    	select count(*) from ProductEditDetail o where o.productId = #{producId} and o.state = 0
+    </select>
+</mapper>
+

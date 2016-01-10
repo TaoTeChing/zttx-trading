@@ -1,0 +1,1447 @@
+﻿@charset "UTF-8";
+@import '../_mixin';
+@import "model/_box";
+@import 'model/_step';
+@import 'model/_pagination';
+@import "model/_form";
+@import "model/_button";
+@import "model/_table";
+@import "model/_patch";
+
+//03-31
+
+.ui-table {
+    th, td {
+        text-align: center;
+    }
+}
+
+#favorite {
+    padding: 15px 0;
+    line-height: 35px;
+    font-size: 14px;
+    color: #333;
+    .ui-select {
+        height:35px;
+        width: 115px;
+    }
+
+    .ui-input {
+        padding: 4px 9px;
+        height: 25px;
+        width: 106px;
+    }
+    .search{
+        background-position: 97% -159px;
+    }
+    label{
+        margin-left:20px;
+    }
+    .ui-button {
+        height: 34px;
+        line-height: 34px;
+        width: 90px;
+    }
+}
+
+.table-favorite{
+    padding:0 18px;
+    .ui-table{
+        th,td{
+            border:1px solid #d9d9d9;
+        }
+        th{
+            background: #F5F5F5;
+            font-size: 14px;
+            font-weight: normal;
+            color:#333;
+        }
+    }
+    .ui-button{
+        padding: 0 10px;
+        width: 60px;
+    }
+}
+
+//04-01
+.order-list {
+    .ui-box {
+        margin-top: 10px;
+
+        .ui-box-head {
+            _filter: none;
+            position: static;
+            border-bottom: 0;
+            &.bgc-fs {
+                @include gradient(#ffe5e4);
+                _filter: none;
+            }
+
+            &.bgc-dy {
+                @include gradient(#fff3e4);
+                _filter: none;
+            }
+            .ui-box-head-title{
+                font-weight: normal;
+                margin-left:10px;
+            }
+            .ui-box-head-text{
+                font-size: 14px;
+            }
+        }
+
+        ul {
+            min-height: 90px;
+            overflow: hidden;
+            li{
+                word-break: break-all;
+            }
+            &.amount {
+                width: 260px;
+                float: left;
+                border-right: 1px dashed #ccc;
+
+                li {
+                    padding: 0 15px;
+                    line-height: 30px;
+                }
+            }
+
+            &.state {
+                margin: 0 0 0 20px;
+                width: 260px;
+                border-right: 1px dashed #ccc;
+                float: left;
+
+                li {
+                    line-height: 30px;
+                }
+
+                label.waybill {
+                    margin-left: 20px;
+                }
+            }
+
+            &.handle {
+                margin-left: 800px;
+
+                li {
+                    text-align: right;
+                    margin-bottom: 5px;
+                    _margin-bottom: 8px;
+                }
+            }
+
+            &.product {
+                @include inline-block;
+                width: 100%;
+                margin-top: 10px;
+                border-top: 1px solid #eee;
+
+                @include inline-float;
+
+                li {
+                    padding: 10px 0;
+                    width: 100px;
+                    margin-right: 15px;
+                    height: 70px;
+                    line-height: 1.5;
+                    text-align: center;
+                    position: relative;
+
+                    a {
+                        @include inline-block;
+
+                        &:hover {
+                            color: #cc0000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.panel-step h3 {
+    width: 80px;
+    _width: 76px;
+    height: 35px;
+    line-height: 35px;
+    @include inline-block;
+}
+
+.panel-step .step {
+    @include inline-block;
+    background: url(/images/dealer/icons-already.gif) no-repeat 0 0;
+    height: 35px;
+    width: 920px;
+}
+
+.panel-step .step1 {
+}
+
+.panel-step .step2 {
+    background-position: 0 -35px;
+}
+
+.panel-step .step3 {
+    background-position: 0 -70px;
+}
+
+.panel-step .step4 {
+    background-position: 0 -105px;
+}
+
+.panel-purchases {
+    border: 1px solid #ddd;
+}
+
+.panel-purchases .panel-title {
+    height: 35px;
+    line-height: 35px;
+    background-color: #f3f3f3;
+    padding: 0 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-purchases .panel-content {
+    width: 998px;
+    overflow: hidden;
+    _position: relative;
+    background-color: #fbfbfb;
+}
+
+.panel-purchases .panel-content .panel-left {
+    width: 817px;
+    border-right: 1px solid #ccc;
+    min-height: 150px;
+    background-color: #fff;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics {
+    margin: 10px 20px;
+    border: 0;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li {
+    height: 38px;
+    line-height: 38px;
+    color: #666;
+    background: url(/images/dealer/icons-already.gif) no-repeat 125px -235px;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li.start {
+    background-position: 125px -197px;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li.end {
+    color: #0082cc;
+    background-position: 125px -273px;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li.first {
+    color: #0082cc;
+    background-position: 125px -153px;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li span.logistics-date {
+    margin-right: 15px;
+}
+
+.panel-purchases .panel-content .panel-left .panel-logistics ul li span.logistics-log {
+    margin-left: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 620px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.panel-purchases .panel-content .panel-right {
+    margin-left: 818px;
+    width: 180px;
+    padding-top: 30px;
+}
+
+.panel-purchases .panel-content .panel-right .panel-right-btns {
+}
+
+.panel-purchases .panel-content .panel-right .panel-right-btns a.btn {
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    margin: 5px 40px;
+    padding: 0;
+}
+
+
+
+.panel-table .panel-table-title .panel-table-top {
+    height: 35px;
+    background-color: #f3f3f3;
+    line-height: 33px;
+    border-bottom: 1px solid #ddd;
+    //预付
+    &.advance {
+        background-color: #FFF1E4;
+    }
+    //欠款
+    &.debt {
+        background-color: #FFE3E5;
+    }
+
+    .tools {
+        margin-left: 781px;
+        _margin-left: 778px;
+    }
+
+    .print {
+        height: 35px;
+        @include inline-block;
+        padding: 0 15px;
+        text-align: center;
+        background-color: #EDEDED;
+        border-left: 1px solid #ccc;
+    }
+}
+
+.panel-table .panel-table-title .panel-table-bottom {
+    height: 28px;
+    line-height: 28px;
+    background-color: #fff;
+    padding: 0 10px;
+    color: #666;
+
+    ul {
+        li {
+            margin: 0 50px 0 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+}
+
+/*.panel-table .panel-table-content {
+  width: 1000px;
+}
+
+.panel-table .panel-table-content table thead tr th,
+.panel-table .panel-table-content table tbody tr td,
+.panel-table .panel-table-content table tfoot tr td {
+  padding: 0;
+  border: 1px solid #ddd;
+}
+
+.panel-table .panel-table-content table thead tr th {
+  text-align: center;
+}
+
+.panel-table .panel-table-content table tfoot tr td {
+  padding: 0 10px;
+  vertical-align: middle;
+  background-color: #f3f3f3;
+  color: #666;
+}
+
+.panel-table .panel-table-content table tfoot tr td.ta-l {
+  text-align: left;
+  border-right: 0;
+}
+
+.panel-table .panel-table-content table tfoot tr td p {
+  line-height: 2;
+}
+
+.panel-table .panel-table-content table tfoot tr td.total {
+  line-height: 50px;
+  border-left: 0;
+}*/
+
+.panel-logistics {
+    border: 1px solid #ddd;
+}
+
+.panel-logistics .panel-title {
+    height: 35px;
+    line-height: 35px;
+    background-color: #f3f3f3;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-logistics .panel-title em {
+    margin-left: 40px;
+}
+
+.panel-logistics .panel-content {
+    padding: 10px 20px;
+}
+
+.panel-logistics .panel-content ul li {
+    height: 38px;
+    line-height: 38px;
+    color: #666;
+    background: url(/images/dealer/icons-already.gif) no-repeat 125px -235px;
+}
+
+.panel-logistics .panel-content ul li.start {
+    background-position: 125px -197px;
+}
+
+.panel-logistics .panel-content ul li.end {
+    color: #0082cc;
+    background-position: 125px -273px;
+}
+
+.panel-logistics .panel-content ul li span.logistics-date {
+    margin-right: 15px;
+}
+
+.panel-logistics .panel-content ul li span.logistics-log {
+    margin-left: 20px;
+}
+
+.panel-tabs {
+}
+
+.panel-tabs .panel-head ul {
+    background-color: #fbfbfb;
+    border: 1px solid #ddd;
+    height: 45px;
+}
+
+.panel-tabs .panel-head ul li {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    float: left;
+    margin-left:-1px;
+    width: 109px;
+}
+.panel-tabs .panel-head ul li a {
+  color: #666;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  &:hover{
+      text-decoration: none;
+  }
+}
+.panel-tabs .panel-head ul .on {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  border-top: 3px solid #fe0100;
+  height: 43px;
+
+}
+
+.panel-tabs .panel-head ul .on a {
+  color: #333;
+}
+.panel-tabs .panel-head ul li span {
+    color: #999;
+}
+
+.panel-tabs .panel-head ul li.on span {
+    color: #666;
+    font-weight: 700;
+}
+
+.panel-tabs .panel-content {
+    padding: 5px 18px;
+}
+
+.panel-tabs .panel-content .tab-item {
+}
+
+.panel-tabs .panel-content .tab-item .toolbar {
+    height: 30px;
+    line-height: 30px;
+    background-color: #eaeaea;
+    border: 1px solid #ddd;
+    border-top: 0;
+    padding: 0 10px;
+}
+
+.panel-tabs .panel-content .tab-item .toolbar ul li.all {
+    width: 400px;
+    *line-height: 1;
+    *padding-top: 5px;
+}
+
+.panel-tabs .panel-content .tab-item .toolbar ul li.visible {
+    width: 400px;
+}
+
+.panel-tabs .panel-content .tab-item .toolbar ul li.pager {
+    margin-left: 800px;
+    text-align: right;
+    *line-height: 1;
+    *padding-top: 5px;
+}
+
+.panel-tabs .panel-content .tab-item .toolbar ul li .ui-button {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.panel-tabs .panel-content .tab-item p label {
+    float: left;
+    width: 80px;
+    display: inline-block;
+    height: 32px;
+}
+
+.panel-tabs .panel-content .tab-item p i {
+    float: left;
+}
+
+.panel-tabs .panel-content .tab-item p input.text {
+    float: left;
+    border: 1px solid #ddd;
+    height: 30px;
+    width: 157px;
+    padding: 0 10px;
+}
+
+.panel-tabs .panel-content .tab-item p input.text.short {
+    width: 70px;
+}
+
+.panel-tabs .panel-content .tab-item p input.btn {
+    float: left;
+    border: 1px solid #ddd;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/*
+.panel-order {
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.panel-order .panel-title {
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #eee;
+    padding: 0 10px;
+    position: relative;
+
+    * {
+        _vertical-align: 5px;
+    }
+}
+
+.panel-order .panel-title .progress {
+    height: 28px;
+    position: absolute;
+    right: 10px;
+    line-height: 28px;
+    top: 2px;
+}
+
+.panel-order .panel-content label {
+    color: #999;
+}
+
+.panel-order .panel-content span {
+}
+
+.panel-order .panel-content a {
+}
+
+.panel-order .panel-content ul {
+    margin: 10px;
+    overflow: hidden;
+}
+
+.panel-order .panel-content ul li {
+    line-height: 30px;
+}
+
+.panel-order .panel-content ul.amount {
+    width: 260px;
+    float: left;
+    border-right: 1px dashed #ccc;
+}
+
+.panel-order .panel-content ul.amount li {
+    padding: 0 15px;
+}
+
+.panel-order .panel-content ul.state {
+    width: 500px;
+    float: left;
+    border-right: 1px dashed #ccc;
+}
+
+.panel-order .panel-content ul.state label.waybill {
+    margin-left: 20px;
+}
+
+.panel-order .panel-content ul.handle {
+    margin-left: 822px;
+}
+
+.panel-order .panel-content ul.handle li {
+    text-align: right;
+    line-height: 30px;
+}
+
+.panel-order .panel-content ul.handle a.btn {
+    padding: 5px 10px;
+    color: #fff;
+    line-height: 1;
+}
+
+.panel-order .panel-content ul.handle span.c-r {
+    color: #cc0000;
+}
+
+.panel-order .panel-content ul.product {
+    width: 948px;
+    border-top: 1px solid #eee;
+    padding: 10px 25px;
+    margin: 0;
+}
+
+.panel-order .panel-content ul.product li {
+    float: left;
+    width: 70px;
+    margin-right: 15px;
+    height: 94px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.panel-order .panel-content ul.product li a {
+    display: block;
+}
+
+.panel-order .panel-content ul.product li a:hover {
+    color: #cc0000;
+}*/
+
+/*已进货订单筛选*/
+.panel-filtrate {
+    padding:15px 10px 0;
+    font-size: 14px;
+    .ui-form-row {
+        margin-bottom: 10px;
+    }
+
+    label {
+        margin-left: 10px;
+        display: inline-block;
+        font-size: 14px;
+        text-align: right;
+        width: 80px;
+    }
+
+    .ui-input {
+        width: 160px;
+        padding: 4px 9px;
+        height: 25px;
+        line-height: 25px;
+        &.long {
+            width: 220px;
+        }
+
+        &.date {
+            width: 78px;
+            padding-left: 25px;
+            background-position: 3px -123px;
+        }
+    }
+
+    .ui-select {
+        width: 180px;
+        margin: 0;
+        height: 35px;
+        &.short {
+            width: 112px;
+        }
+    }
+    .inline-block{
+        vertical-align: top;
+        height: 20px;
+        line-height: 20px;
+    }
+    .ui-button{
+        width: 80px;
+        height: 35px;
+    }
+}
+
+/*收藏夹*/
+.panel-favorite .panel-form form dl {
+    height: 35px;
+    float: left;
+}
+
+.panel-favorite .panel-form form dl dt {
+    height: 30px;
+    line-height: 30px;
+    width: 70px;
+    margin-right: 0;
+}
+
+.panel-favorite .panel-form form dl dd {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.panel-favorite .panel-form form dl dd input.text {
+    padding: 7px 10px;
+    width: 60px;
+    margin-right: 0;
+    vertical-align: top;
+}
+
+.panel-favorite .panel-form form dl dd input.text.long {
+    width: 175px;
+}
+
+.panel-favorite .panel-form form dl dd input.date {
+    width: 75px;
+    padding-left: 25px;
+}
+
+.panel-favorite .panel-form form dl dd select.sel {
+    width: 110px;
+    margin-right: 0;
+    padding: 4px;
+}
+
+.panel-favorite .panel-form form dl dd select.sel.short {
+    width: 112px;
+}
+
+.panel-favorite .panel-form form dl dd a.ui-button {
+    vertical-align: top;
+}
+
+
+input.chk {
+    margin-right: 3px;
+    margin-top: 9px; /*float: left;*/
+    *margin-top: 4px;
+}
+
+.toolbar a.btn {
+    display: inline;
+    padding: 3px 10px;
+    margin-left: 10px;
+}
+
+
+//04-15
+
+.detailPanel {
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left:100px;
+    background-color: #fff;
+    z-index: 99;
+    width: 450px;
+    *border: 3px solid #aaa;
+    border: 3px solid #aaa\9;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.detailPanel .panel-table {
+}
+
+.detailPanel .panel-table-title {
+    height: 25px;
+    line-height: 25px;
+    color: #999;
+}
+
+.detailPanel .panel-table .panel-table-content {
+    width: 100%;
+}
+
+.detailPanel .panel-table .panel-table-content table thead tr th,
+.detailPanel .panel-table .panel-table-content table tbody tr td,
+.detailPanel .panel-table .panel-table-content table tfoot tr td {
+    padding: 0;
+    border: 1px solid #ddd;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+}
+
+.detailPanel .panel-table .panel-table-content table tfoot tr td {
+    padding: 0 10px;
+    vertical-align: middle;
+    background-color: #f3f3f3;
+    color: #666;
+}
+
+.btndaochu {
+    padding: 0 5px;
+}
+
+.select {
+    width: 130px;
+    line-height: 33px;
+}
+
+.selectweizhi {
+    position: absolute;
+    top: 13px;
+}
+
+.selecthas {
+    width: 130px;
+}
+
+.goods-main-attribute {
+    vertical-align: middle;
+}
+
+.goods-main-attribute .goods-color {
+    vertical-align: middle;
+}
+
+.widthtit {
+    width: 110px;
+}
+
+.panel-table-content table tbody tr td, .panel-table-content table tfoot tr td {
+    text-align: center;
+}
+
+.backf9:nth-child(odd) {
+    background: #f9f9f9;
+}
+
+.tablechkwz {
+    vertical-align: 40px;
+}
+
+#complaintPanel .ui-form .ui-form-item {
+    padding: 0 5px 20px 80px;
+
+    .ui-label {
+        width: 70px;
+        margin-left: -80px;
+        font-size: 12px;
+    }
+
+    .ui-textarea {
+        width: 400px;
+        height: 100px;
+    }
+}
+
+#refundPanel .ui-form .ui-form-item {
+    padding: 0 5px 20px 300px;
+
+    .ui-label {
+        width: 260px;
+        margin-left: -300px;
+        font-size: 12px;
+    }
+
+    .ui-textarea {
+        width: 400px;
+        height: 180px;
+    }
+
+    .ui-input {
+        padding: 5px;
+    }
+
+    .ui-select {
+        padding: 5px;
+    }
+}
+
+#closePanel .ui-form .ui-form-item {
+    padding: 10px 5px 10px 130px;
+
+    .ui-label {
+        width: 120px;
+        margin-left: -130px;
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    .ui-input {
+        padding: 5px;
+    }
+
+    .ui-select {
+        padding: 5px;
+    }
+}
+
+.refund_detail {
+    margin-top: 10px;
+    background: #fff;
+    border: #ddd solid 1px;
+
+    .top {
+        overflow: hidden;
+    }
+
+    .left {
+        min-height: 200px;
+        _height: 200px;
+        border-right: #ddd solid 1px;
+        width: 240px;
+        float: left;
+        display: inline;
+        _margin-right: -3px;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        background: #fbfbfb;
+
+        .refund_info {
+            border-bottom: #ddd solid 1px;
+        }
+
+        .refund_info, .refund_detail .left .order_info,.refund_dealer {
+            padding-bottom: 15px;
+        }
+
+        h3 {
+            height: 26px;
+            line-height: 26px;
+            padding-left: 20px;
+            border-bottom: #ddd solid 1px;
+            color: #666;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .refund_info p, .order_info p,.refund_dealer p {
+            margin: 15px 0 0 20px;
+        }
+
+        .refund_info label, .order_info label,.refund_dealer label{
+            display: inline-block;
+            width: 60px;
+            text-align: right;
+            color: #666;
+        }
+
+        .refund_info .num, .order_info .num,.refund_dealer .num {
+            color: #0082cc;
+        }
+        .refund_dealer{
+            label{
+                width: 75px;
+            }
+        }
+    }
+
+    .detail_box {
+        /*margin-left: 241px;*/
+        width:757px;
+        float:left;
+        .handle_refund {
+            margin: 28px 0 0 150px;
+            padding-bottom: 20px;
+            _height: 300px;
+            min-height: 300px;
+
+            .icon {
+                margin-left: -50px;
+                float: left;
+            }
+
+            .icon.yes {
+                background-position: 0 -216px;
+            }
+
+            .icon.no {
+                background-position: 0 -258px;
+            }
+
+            h3 {
+                font: 24px "微软雅黑";
+                margin-bottom: 10px;
+            }
+
+            .explain {
+                font: 18px "微软雅黑";
+                line-height: 30px;
+            }
+
+            .price, .refund_detail .detail_box .handle_refund .time {
+                color: #cc0000;
+            }
+
+            .detail {
+                margin-top: 15px;
+            }
+
+            .detail .item {
+                margin-bottom: 8px;
+            }
+
+            .detail label {
+                display: inline-block;
+                width: 60px;
+                text-align: right;
+                color: #666;
+                vertical-align: top;
+            }
+
+            .detail .operation {
+                margin: 15px 0 0 60px;
+            }
+
+            .detail .ui-button, .refund_detail .detail_box .handle_refund .detail .simple_button {
+                width: 72px;
+            }
+        }
+    }
+
+    .bottom {
+        min-height: 70px;
+        _height: 70px;
+        padding: 10px 0;
+        color: #666;
+
+        .time {
+            float: left;
+            display: inline;
+            margin: 0 8px 0 20px;
+        }
+
+        .info {
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        .time span {
+            color: #ff0000;
+        }
+
+        .info .item {
+            margin-bottom: 8px;
+        }
+
+        label {
+            display: inline-block;
+            width: 60px;
+            text-align: right;
+            color: #666;
+            vertical-align: top;
+        }
+
+        .img_contain {
+            width: 110px;
+            height: 110px;
+            border: #d9d9d9 solid 1px;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+    }
+}
+
+.js_img_center img {
+    vertical-align: middle;
+}
+
+.js_img_center span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.js_img_center {
+    text-align: center;
+    font-size: 0;
+}
+
+.detail_box .ui-button-refund {
+    width: 230px;
+    height: 130px;
+    line-height: 130px;
+    margin: 50px 20px 300px 20px;
+    background-color: #fff;
+    *zoom: 1;
+}
+
+.detail_box .ui-button-refund:hover {
+    border: 1px solid #2c77ba;
+    box-shadow: 0 0 3px #2c77ba;
+}
+
+.flow-steps {
+    li {
+        width: 318px;
+
+        &.last {
+            width: 318px;
+        }
+    }
+}
+
+.flow-4 {
+    li {
+        width: 235px;
+
+        &.last {
+            width: 235px;
+        }
+    }
+}
+
+.file_wrap {
+    width: 112px;
+    height: 112px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    *display: inline;
+
+    a {
+        display: inline-block;
+        border: 1px dashed #ccc;
+        text-align: center;
+        background-color: #f9f9f9;
+        text-decoration: none;
+        zoom: 1;
+        width: 111px;
+        height: 111px;
+        line-height: 111px;
+        color: rgb(228, 228, 228);
+        -webkit-text-shadow: #fff 1px 1px 1px;
+        text-shadow: #fff 1px 1px 1px;
+        overflow: hidden;
+    }
+
+    .input_file {
+        width: 112px;
+        height: 112px;
+    }
+}
+
+#favorite_label {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 999;
+    width: 195px;
+    display: none;
+
+    h3 {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    ul {
+        overflow: auto;
+        height: 100px;
+
+        li {
+            a {
+                padding: 0 10px;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+                color: #666;
+
+                &:hover {
+                    text-decoration: none;
+                    background-color: #f1f1f1;
+                }
+
+                span {
+                    vertical-align: baseline;
+                }
+            }
+        }
+    }
+}
+
+//03-31
+#assign_to {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 999;
+    width: 96px;
+    //display: none;
+    ul {
+        overflow: auto;
+        height: 100px;
+
+        li {
+            a {
+                padding: 0 10px;
+                height: 24px;
+                line-height: 24px;
+                display: block;
+                color: #666;
+                text-align: center;
+
+                &:hover {
+                    text-decoration: none;
+                    background-color: #f1f1f1;
+                }
+
+                span {
+                    vertical-align: baseline;
+                }
+            }
+        }
+    }
+}
+
+#refundApplyForm {
+    .ui-label {
+        width: 120px;
+        margin-left: -130px;
+    }
+
+    .ui-form-item {
+        padding: 0 5px 20px 160px;
+    }
+
+    .Validform_wrong {
+        padding-left: 0;
+        display: block;
+    }
+
+    .Validform_checktip {
+        margin-left: 0;
+    }
+}
+
+
+//03-31
+.certificate_box {
+    margin-right: 10px;
+
+    li {
+        width: 110px;
+        height: 110px;
+        padding: 1px;
+        border: #d9d9d9 solid 1px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        .img_contain {
+            width: 110px;
+            height: 110px;
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        span {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #b4b4b4;
+            font-size: 18px;
+            line-height: 1;
+            display: none;
+        }
+    }
+
+    .add_certificate {
+        width: 112px;
+        height: 112px;
+        padding: 0;
+        border: #ccc dashed 1px;
+        background: #f9f9f9;
+
+        .file_wrap {
+            width: 112px;
+            height: 112px;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+
+        .icon-fileupload {
+            color: #ddd;
+            padding: 45px;
+            display: block;
+            margin-top: 11px;
+            background: url(/images/dealer/icon-fileupload.gif) no-repeat center;
+            *background: url(/images/dealer/icon-fileupload.gif) no-repeat center; /* For IE 6 and 7 */
+        }
+
+        .input_file {
+            width: 112px;
+            height: 112px;
+        }
+    }
+
+    .Validform_checktip {
+        height: 20px;
+        line-height: 20px;
+        margin-top: 10px;
+    }
+}
+
+
+.ui-table {
+    td.goods-main-info{
+        border-right: 1px solid #d9d9d9;
+    }
+    td.goods-attribute {
+        padding: 0;
+        border-bottom: 1px solid #d9d9d9;
+        vertical-align: top;
+
+        .goods-other-attribute {
+            padding: 0;
+            border-bottom: 0;
+        }
+    }
+    td.goods-main-count{
+        border-left: 1px solid #d9d9d9;
+        border-right: 1px solid #d9d9d9;
+    }
+}
+
+.ui-form-explain{
+    padding:0;
+}
+
+//确认付款
+.factory-con{
+    .number{
+        color: #c00;
+        font-size: 18px;
+        font-family: Arial;
+    }
+    .number-g{
+        font-size: 18px;
+        font-family: Arial;
+    }
+    .number-r{
+        color: #c00;
+        font-family: Arial;
+    }
+}
+.factory-confirm-order,.nomal-confirm-order{
+    .title{
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #ccc;
+        font-size: 16px;
+        font-family: "Microsoft yahei";
+        .ui-checkbox{
+            margin-right: 5px;
+            vertical-align: -1px;
+            *vertical-align: 3px;
+        }
+    }
+}
+.factory-confirm-order{
+    .factory-ul{
+        margin-left: 20px;
+        li{
+            margin-top: 10px;
+            border: 1px solid #e1e1e1;
+            -webkit-transition: 0.2s;
+            -moz-transition: 0.2s;
+            -o-transition: 0.2s;
+            transition: 0.2s;
+            &:hover{
+                border: 1px #07F solid;
+                box-shadow: 0 0 3px #8CDDFF;
+            }
+        }
+        .brand-name{
+            height: 35px;
+            line-height: 34px;
+            padding: 0 15px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .order-price{
+            padding: 0 15px;
+        }
+        .order{
+            height: 48px;
+            line-height: 48px;
+            .ui-radio{
+                *vertical-align: 1px;
+            }
+        }
+        .price{
+            height: 48px;
+        }
+    }
+}
+.nomal-confirm-order{
+    li{
+        //height: 30px;
+        line-height: 30px;
+    }
+}
+.factory-count-box{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    font-family: "Microsoft yahei";
+    text-align: right;
+}
+.factory-use-price{
+    text-align: right;
+}
+.factory-agree{
+    text-align: right;
+}
+
+//工厂单详情
+.factory-detail{
+    line-height: 30px;
+    padding: 10px 15px;
+    background: #f3f3f3;
+    border: 1px solid #ddd;
+    font-family: "Microsoft yahei";
+    .f-d-coll{
+        width: 865px;
+    }
+    .f-d-detail{
+        width: 760px;
+    }
+    .f-d-record{
+        font-size: 14px;
+    }
+    .f-d-six{
+        color: #666;
+    }
+    .f-d-pay{
+        color: #0082cc;
+    }
+    .f-d-overplus{
+        font-size: 14px;
+        color: #c00;
+    }
+}

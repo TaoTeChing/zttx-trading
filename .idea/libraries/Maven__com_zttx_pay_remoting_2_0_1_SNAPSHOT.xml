@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.zttx:pay-remoting:2.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/pay-remoting/2.0.1-SNAPSHOT/pay-remoting-2.0.1-20151208.064725-4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/pay-remoting/2.0.1-SNAPSHOT/pay-remoting-2.0.1-20151208.064725-4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/pay-remoting/2.0.1-SNAPSHOT/pay-remoting-2.0.1-20151208.064725-4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

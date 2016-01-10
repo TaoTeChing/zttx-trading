@@ -1,0 +1,190 @@
+﻿@charset "UTF-8";
+//支付状态的样式，一个成功，一个失败
+
+@import "../../mixin";
+@import "../../common/base";
+@import "../../common/index/icons";
+@import "../../common/header";
+@import "../../common/footer";
+
+.pay-state-con{
+    margin-bottom: 20px;
+    .link:hover{
+        color: #f80;
+    }
+    .con1,.con2{
+        border: 1px solid #ddd;
+    }
+    .con1{
+        width: 888px;
+    }
+    .con2{
+        width: 298px;
+        height: 461px;
+        margin-left: 900px;
+        .title{
+            margin: 0 15px;
+            padding: 10px 0 5px 0;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+        }
+        .phone-number{
+            padding: 10px 15px;
+        }
+        .phone{
+            width: 271px;
+            height: 39px;
+            background: url("../../images/market/pay-state-phone.gif") no-repeat;
+        }
+    }
+    .state-box{
+        height: 85px;
+        margin: 170px 40px 170px 290px;
+        padding-left: 75px;
+        position: relative;
+        .icon-success,.icon-error{
+            @include inline-block;
+            width: 63px;
+            height: 63px;
+            background: url("../../images/market/pay-state.gif") no-repeat 0 0;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .icon-success{
+            background-position: 0 0;
+        }
+        .icon-error{
+            background-position: 0 -87px;
+        }
+        .p-success,.p-error{
+            font-family: "Microsoft yahei";
+            font-size: 24px;
+        }
+        .p-success{
+            color: #87c749;
+        }
+        .p-error{
+            color: #dc5959;
+        }
+    }
+    .state-box-bottom{
+        height: 36px;
+        line-height: 36px;
+        padding: 0 10px;
+        background: #f2f2f2;
+        color: #0082cc;
+    }
+    .recomed{
+        height: 36px;
+        line-height: 36px;
+        padding: 0 10px;
+        background: #f2f2f2;
+        color: #666;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .product-item{
+        margin-right: -12px;
+        li{
+            width: 188px;
+            border: 1px solid #e1e1e1;
+            margin-right: 12px;
+            &:hover{
+                border-color: #ff8a01;
+            }
+        }
+        .js-img-center{
+            width: 188px;
+            height: 188px;
+            border-bottom: 1px solid #e1e1e1;
+            img{
+                max-width: 188px;
+                max-height: 188px;
+                _width:188px;
+                _height:188px;
+            }
+        }
+        .price{
+            margin: 0 10px;
+            font-family: Arial;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            .p-sing{
+                @include inline-block;
+                padding: 0 5px;
+                background: #f6b80b;
+                color: #fff;
+                vertical-align: middle;
+                border-radius: 2px;
+            }
+            .p-num{
+                font-size: 18px;
+                color: #f80;
+                vertical-align: middle;
+            }
+            .p-del{
+                text-decoration:line-through;
+                color: #999;
+            }
+        }
+        .title{
+            margin: 0 10px;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+        .operate{
+            margin: 5px 10px 0 10px;
+            padding: 5px 0;
+            border-top: 1px dashed #e1e1e1;
+        }
+    }
+}
+.ts-button{
+    @include inline-block();
+    padding:5px 15px;
+    text-align: center;
+    border-radius: 3px;
+}
+.btn-favorites{
+    width: 36px;
+    background: #f7f7f7;
+    border:1px solid #ccc;
+    color:#999;
+    &:hover{
+        background: #fff;
+        border:1px solid #f80;
+        color:#f80;
+    }
+}
+.btn-addcart{
+    background: #ff8800;
+    border:1px solid #ff8800;
+    color:#fff;
+    &:hover{
+        background: #ff6600;
+        border:1px solid #ff6600;
+        color:#fff;
+    }
+}
+
+//图片垂直居中
+.js_img_center,.js-img-center{
+    text-align: center;
+    font-size: 0;
+    img{
+        vertical-align: middle;
+    }
+    span{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}

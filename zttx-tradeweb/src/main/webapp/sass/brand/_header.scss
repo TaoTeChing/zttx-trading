@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.header{
+    height: 58px;
+    background: #1d7ad9;
+    min-width: 1200px;
+    .logo{
+        margin-top: 9px;
+    }
+    .nav{
+        float: left;
+        display: inline;
+        margin-left: 34px;
+        li{
+            width: 98px;
+            a{
+                display: block;
+                height: 58px;
+                text-align: center;
+                background: #1d7bd8;
+                font: 16px/58px "微软雅黑";
+                color: #fff;
+                &:hover{
+                    background: #126abf;
+                }
+            }
+            .current{
+              background: #126abf;
+            }
+        }
+    }
+    .search_form{
+        float: right;
+        margin: 14px 0 0 0;
+        height: 30px;
+        background: #fff;
+        position: relative;
+        border-radius: 4px;
+        .search_box{
+            height: 30px;
+        }
+        .select{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            height: 100%;
+            line-height: 30px;
+            font-family: "microsoft yahei";
+            border-right: 1px solid #1d7ad9;
+            ul{
+              background: #fff;
+              border:1px solid #ddd;
+              border-top:0;
+              margin-top:-1px;
+            }
+            .type{
+              cursor: pointer;
+            }
+            li{
+              cursor: pointer;
+            }
+            .up_arrow{
+              display: none;
+            }
+            a{
+              margin-left:-16px;
+            }
+        }
+        .hover{
+          .up_arrow{
+            display: inline;
+          }
+          .down_arrow{
+            display: none;
+          }
+        }
+        .search_input{
+            margin-left: 68px;
+            height: 30px;
+            input{
+                border: 0 none;
+                padding: 7px 0;
+                width: 205px;
+            }
+        }
+        button{
+            border: 0 none;
+            background: #fff;
+            height: 30px;
+            width: 40px;
+            color: #cdcdcd;
+            font-size: 27px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    }
+}

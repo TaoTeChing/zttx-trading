@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandBuySerLogMapper">
+    <!-- 基础列 -->
+    <sql id="brandBuySerLogColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandName as brandName ,
+        a.serialNumber as serialNumber ,
+        a.serviceId as serviceId ,
+        a.servicerCate as servicerCate ,
+        a.buyTime as buyTime ,
+        a.buyNum as buyNum ,
+        a.buyMoney as buyMoney ,
+        a.beginTime as beginTime ,
+        a.endTime as endTime ,
+        a.buyState as buyState ,
+        a.chargType as chargType ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        insert into BrandBuySerLog(
+         refrenceId ,
+         brandId ,
+         brandName ,
+         serialNumber ,
+         serviceId ,
+         servicerCate ,
+         buyTime ,
+         buyNum ,
+         buyMoney ,
+         beginTime ,
+         endTime ,
+         buyState ,
+         chargType ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandName}  ,
+        #{serialNumber}  ,
+        #{serviceId}  ,
+        #{servicerCate}  ,
+        #{buyTime}  ,
+        #{buyNum}  ,
+        #{buyMoney}  ,
+        #{beginTime}  ,
+        #{endTime}  ,
+        #{buyState}  ,
+        #{chargType}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    
+    <!-- 批量添加 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into BrandBuySerLog(
+         refrenceId ,
+         brandId ,
+         brandName ,
+         serialNumber ,
+         serviceId ,
+         servicerCate ,
+         buyTime ,
+         buyNum ,
+         buyMoney ,
+         beginTime ,
+         endTime ,
+         buyState ,
+         chargType ,
+         updateTime ,
+         delFlag 
+        ) VALUES 
+        <foreach collection="list" item="item" index="index" separator="," >  
+        (       #{item.refrenceId} ,
+       #{item.brandId} ,
+       #{item.brandName} ,
+       #{item.serialNumber} ,
+       #{item.serviceId} ,
+       #{item.servicerCate} ,
+       #{item.buyTime} ,
+       #{item.buyNum} ,
+       #{item.buyMoney} ,
+       #{item.beginTime} ,
+       #{item.endTime} ,
+       #{item.buyState} ,
+       #{item.chargType} ,
+       #{item.updateTime} ,
+       #{item.delFlag} 
+)  
+    	</foreach>
+    </insert>
+    
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandBuySerLog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandBuySerLog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        insert into BrandBuySerLog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandName != null">
+            brandName ,
+        </if>
+        <if test="serialNumber != null">
+            serialNumber ,
+        </if>
+        <if test="serviceId != null">
+            serviceId ,
+        </if>
+        <if test="servicerCate != null">
+            servicerCate ,
+        </if>
+        <if test="buyTime != null">
+            buyTime ,
+        </if>
+        <if test="buyNum != null">
+            buyNum ,
+        </if>
+        <if test="buyMoney != null">
+            buyMoney ,
+        </if>
+        <if test="beginTime != null">
+            beginTime ,
+        </if>
+        <if test="endTime != null">
+            endTime ,
+        </if>
+        <if test="buyState != null">
+            buyState ,
+        </if>
+        <if test="chargType != null">
+            chargType ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandName != null">
+            #{brandName} ,
+        </if>
+        <if test="serialNumber != null">
+            #{serialNumber} ,
+        </if>
+        <if test="serviceId != null">
+            #{serviceId} ,
+        </if>
+        <if test="servicerCate != null">
+            #{servicerCate} ,
+        </if>
+        <if test="buyTime != null">
+            #{buyTime} ,
+        </if>
+        <if test="buyNum != null">
+            #{buyNum} ,
+        </if>
+        <if test="buyMoney != null">
+            #{buyMoney} ,
+        </if>
+        <if test="beginTime != null">
+            #{beginTime} ,
+        </if>
+        <if test="endTime != null">
+            #{endTime} ,
+        </if>
+        <if test="buyState != null">
+            #{buyState} ,
+        </if>
+        <if test="chargType != null">
+            #{chargType} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        update BrandBuySerLog
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandName != null">
+                brandName = #{brandName} ,
+            </if>
+            <if test="serialNumber != null">
+                serialNumber = #{serialNumber} ,
+            </if>
+            <if test="serviceId != null">
+                serviceId = #{serviceId} ,
+            </if>
+            <if test="servicerCate != null">
+                servicerCate = #{servicerCate} ,
+            </if>
+            <if test="buyTime != null">
+                buyTime = #{buyTime} ,
+            </if>
+            <if test="buyNum != null">
+                buyNum = #{buyNum} ,
+            </if>
+            <if test="buyMoney != null">
+                buyMoney = #{buyMoney} ,
+            </if>
+            <if test="beginTime != null">
+                beginTime = #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="buyState != null">
+                buyState = #{buyState} ,
+            </if>
+            <if test="chargType != null">
+                chargType = #{chargType} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        update BrandBuySerLog set
+            brandId = #{brandId} ,
+            brandName = #{brandName} ,
+            serialNumber = #{serialNumber} ,
+            serviceId = #{serviceId} ,
+            servicerCate = #{servicerCate} ,
+            buyTime = #{buyTime} ,
+            buyNum = #{buyNum} ,
+            buyMoney = #{buyMoney} ,
+            beginTime = #{beginTime} ,
+            endTime = #{endTime} ,
+            buyState = #{buyState} ,
+            chargType = #{chargType} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+	<!-- 批量更新  -->
+    <update id="updateBatch" parameterType="java.util.List">
+       <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update BrandBuySerLog set
+            brandId = #{item.brandId} ,
+            brandName = #{item.brandName} ,
+            serialNumber = #{item.serialNumber} ,
+            serviceId = #{item.serviceId} ,
+            servicerCate = #{item.servicerCate} ,
+            buyTime = #{item.buyTime} ,
+            buyNum = #{item.buyNum} ,
+            buyMoney = #{item.buyMoney} ,
+            beginTime = #{item.beginTime} ,
+            endTime = #{item.endTime} ,
+            buyState = #{item.buyState} ,
+            chargType = #{item.chargType} ,
+            updateTime = #{item.updateTime} ,
+            delFlag = #{item.delFlag} 
+	        where refrenceId = #{item.refrenceId}
+       </foreach>
+    </update>
+    
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        select <include refid="brandBuySerLogColumns"/> from BrandBuySerLog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        SELECT
+        <include refid="brandBuySerLogColumns"/>
+        FROM BrandBuySerLog a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandName != null and brandName != ''">
+            and a.brandName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="serialNumber != null and serialNumber != ''">
+            and a.serialNumber = #{serialNumber}
+        </if>
+        <if test="serviceId != null and serviceId != ''">
+            and a.serviceId like CONCAT('%',#{serviceId}, '%')
+        </if>
+        <if test="servicerCate != null and servicerCate != ''">
+            and a.servicerCate = #{servicerCate}
+        </if>
+        <if test="buyTime != null and buyTime != ''">
+            and a.buyTime = #{buyTime}
+        </if>
+        <if test="buyNum != null and buyNum != ''">
+            and a.buyNum = #{buyNum}
+        </if>
+        <if test="buyMoney != null and buyMoney != ''">
+            and a.buyMoney = #{buyMoney}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and a.beginTime = #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="buyState != null and buyState != ''">
+            and a.buyState = #{buyState}
+        </if>
+        <if test="chargType != null and chargType != ''">
+            and a.chargType = #{chargType}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+        SELECT
+        <include refid="brandBuySerLogColumns"/>
+        FROM BrandBuySerLog a WHERE a.delFlag = 0
+    </select>
+    <select id="findById" resultType="com.zttx.web.module.brand.entity.BrandBuySerLog">
+         select
+         <include refid="brandBuySerLogColumns"/>
+         from BrandBuySerLog a where a.brandId = #{0} and a.refrenceId = #{1}
+    </select>
+</mapper>
+

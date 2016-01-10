@@ -1,0 +1,110 @@
+﻿@charset "UTF-8";
+body,html {
+    background-color: #f0f0f0;
+    //overflow:hidden;
+}
+
+.shop-search {
+    background-color: #eee;
+    padding: 10px 0;
+    z-index: 99;
+    //border-bottom:1px solid #ccc;
+    input {
+        //border-radius: 15px;
+        text-align: center;
+        //box-shadow:initial;
+        //-webkit-box-shadow:initial;
+    }
+
+    
+}
+
+.shop-content {
+    margin-bottom: 46px;
+    background-color: #f0f0f0;
+
+    .shop-list {
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+
+        dt, dd {
+            padding: 15px 0;
+            border-bottom: 1px solid #ccc;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            &.active{
+              background-color:#d9d9d9;
+            }
+        }
+    }
+
+    h5 {
+        margin-bottom: 0;
+    }
+
+    .goods-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .help-block {
+        margin-bottom: 0;
+    }
+}
+.shop-footer{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: #e6e6e6;
+  border-top: 1px solid #ccc;
+  padding:5px 10px;
+}
+
+
+.plr5 {
+    padding-left:5px;
+    padding-right:5px;
+}
+.pl5 {
+    padding-left:5px;
+}
+.pr5 {
+    padding-right:5px;
+}
+
+.block{display: block}
+
+.my-checkbox {
+    display:inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+
+    span {
+        opacity:0;
+        height: 20px;
+        width: 16px;
+        text-align:center;
+        color:#fff;
+        //transition:all 0.2s;
+    }
+
+    &.checked {
+        background-color:#08c;
+        border: 1px solid #08c;
+         span {
+             opacity:1;
+             
+        }
+    }
+}
+.check-all-box {
+    margin-top:6px;
+}

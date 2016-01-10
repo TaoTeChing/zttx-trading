@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.UserInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="userInfoColumns">
+        a.refrenceId as refrenceId,
+        a.userMobile as userMobile ,
+        a.mobileVerify as mobileVerify,
+        a.userMail as userMail,
+        a.mailVerify as mailVerify,
+        a.userPwd as userPwd,
+        a.userSalt as userSalt ,
+        a.roleId as roleId,
+        a.userState as userState,
+        a.parentId as parentId,
+        a.userName as userName,
+        a.areaNo as areaNo ,
+        a.registerTime as registerTime,
+        a.registerIp as registerIp,
+        a.userType as userType,
+        a.loginIpStr as loginIpStr,
+        a.registIpStr as registIpStr ,
+        a.userSort as userSort,
+        a.payUserId as payUserId,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+    <sql id="roleColumns">
+        roleCode as 'roleInfo.roleCode',
+        roleName as 'roleInfo.roleName'
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.UserInfo">
+        INSERT INTO UserInfo (
+            refrenceId,
+            userMobile,
+            mobileVerify,
+            userMail,
+            mailVerify,
+            userPwd,
+            userSalt,
+            roleId,
+            userState,
+            parentId,
+            userName,
+            areaNo,
+            registerTime,
+            registerIp,
+            userType,
+            loginIpStr,
+            registIpStr,
+            userSort,
+            payUserId,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{userMobile},
+            #{mobileVerify},
+            #{userMail},
+            #{mailVerify},
+            #{userPwd},
+            #{userSalt},
+            #{roleId},
+            #{userState},
+            #{parentId},
+            #{userName},
+            #{areaNo},
+            #{registerTime},
+            #{registerIp},
+            #{userType},
+            #{loginIpStr},
+            #{registIpStr},
+            #{userSort},
+            #{payUserId},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM UserInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE UserInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.UserInfo">
+        insert into UserInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="userMobile != null">
+                userMobile ,
+            </if>
+            <if test="mobileVerify != null">
+                mobileVerify ,
+            </if>
+            <if test="userMail != null">
+                userMail ,
+            </if>
+            <if test="mailVerify != null">
+                mailVerify ,
+            </if>
+            <if test="userPwd != null">
+                userPwd ,
+            </if>
+            <if test="userSalt != null">
+                userSalt ,
+            </if>
+            <if test="roleId != null">
+                roleId ,
+            </if>
+            <if test="userState != null">
+                userState ,
+            </if>
+            <if test="parentId != null">
+                parentId ,
+            </if>
+            <if test="userName != null">
+                userName ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="registerTime != null">
+                registerTime ,
+            </if>
+            <if test="registerIp != null">
+                registerIp ,
+            </if>
+            <if test="userType != null">
+                userType ,
+            </if>
+            <if test="loginIpStr != null">
+                loginIpStr ,
+            </if>
+            <if test="registIpStr != null">
+                registIpStr ,
+            </if>
+            <if test="userSort != null">
+                userSort ,
+            </if>
+            <if test="payUserId != null">
+                payUserId ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="userMobile != null">
+                #{userMobile} ,
+            </if>
+            <if test="mobileVerify != null">
+                #{mobileVerify} ,
+            </if>
+            <if test="userMail != null">
+                #{userMail} ,
+            </if>
+            <if test="mailVerify != null">
+                #{mailVerify} ,
+            </if>
+            <if test="userPwd != null">
+                #{userPwd} ,
+            </if>
+            <if test="userSalt != null">
+                #{userSalt} ,
+            </if>
+            <if test="roleId != null">
+                #{roleId} ,
+            </if>
+            <if test="userState != null">
+                #{userState} ,
+            </if>
+            <if test="parentId != null">
+                #{parentId} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="registerTime != null">
+                #{registerTime} ,
+            </if>
+            <if test="registerIp != null">
+                #{registerIp} ,
+            </if>
+            <if test="userType != null">
+                #{userType} ,
+            </if>
+            <if test="loginIpStr != null">
+                #{loginIpStr} ,
+            </if>
+            <if test="registIpStr != null">
+                #{registIpStr} ,
+            </if>
+            <if test="userSort != null">
+                #{userSort} ,
+            </if>
+            <if test="payUserId != null">
+                #{payUserId} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.UserInfo">
+        update UserInfo
+        <set>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="mobileVerify != null">
+                mobileVerify = #{mobileVerify} ,
+            </if>
+            <if test="userMail != null">
+                userMail = #{userMail} ,
+            </if>
+            <if test="mailVerify != null">
+                mailVerify = #{mailVerify} ,
+            </if>
+            <if test="userPwd != null">
+                userPwd = #{userPwd} ,
+            </if>
+            <if test="userSalt != null">
+                userSalt = #{userSalt} ,
+            </if>
+            <if test="roleId != null">
+                roleId = #{roleId} ,
+            </if>
+            <if test="userState != null">
+                userState = #{userState} ,
+            </if>
+            <if test="parentId != null">
+                parentId = #{parentId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="registerTime != null">
+                registerTime = #{registerTime} ,
+            </if>
+            <if test="registerIp != null">
+                registerIp = #{registerIp} ,
+            </if>
+            <if test="userType != null">
+                userType = #{userType} ,
+            </if>
+            <if test="loginIpStr != null">
+                loginIpStr = #{loginIpStr} ,
+            </if>
+            <if test="registIpStr != null">
+                registIpStr = #{registIpStr} ,
+            </if>
+            <if test="userSort != null">
+                userSort = #{userSort} ,
+            </if>
+            <if test="payUserId != null">
+                payUserId = #{payUserId} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.UserInfo">
+        UPDATE UserInfo
+        SET
+            userMobile   = #{userMobile},
+            mobileVerify = #{mobileVerify},
+            userMail     = #{userMail},
+            mailVerify   = #{mailVerify},
+            userPwd      = #{userPwd},
+            userSalt     = #{userSalt},
+            roleId       = #{roleId},
+            userState    = #{userState},
+            parentId     = #{parentId},
+            userName     = #{userName},
+            areaNo       = #{areaNo},
+            registerTime = #{registerTime},
+            registerIp   = #{registerIp},
+            userType     = #{userType},
+            loginIpStr   = #{loginIpStr},
+            registIpStr  = #{registIpStr},
+            userSort     = #{userSort},
+            payUserId    = #{payUserId},
+            updateTime   = #{updateTime},
+            delFlag      = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.UserInfo">
+        select
+        <include refid="userInfoColumns"/>
+        from UserInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.UserInfo">
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a WHERE a.delFlag = 0
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="mobileVerify != null and mobileVerify != ''">
+            and a.mobileVerify = #{mobileVerify}
+        </if>
+        <if test="userMail != null and userMail != ''">
+            and a.userMail like CONCAT('%',#{userMail}, '%')
+        </if>
+        <if test="mailVerify != null and mailVerify != ''">
+            and a.mailVerify = #{mailVerify}
+        </if>
+        <if test="userPwd != null and userPwd != ''">
+            and a.userPwd like CONCAT('%',#{userPwd}, '%')
+        </if>
+        <if test="userSalt != null and userSalt != ''">
+            and a.userSalt like CONCAT('%',#{userSalt}, '%')
+        </if>
+        <if test="roleId != null and roleId != ''">
+            and a.roleId like CONCAT('%',#{roleId}, '%')
+        </if>
+        <if test="userState != null and userState != ''">
+            and a.userState = #{userState}
+        </if>
+        <if test="parentId != null and parentId != ''">
+            and a.parentId like CONCAT('%',#{parentId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="registerTime != null and registerTime != ''">
+            and a.registerTime = #{registerTime}
+        </if>
+        <if test="registerIp != null and registerIp != ''">
+            and a.registerIp = #{registerIp}
+        </if>
+        <if test="userType != null and userType != ''">
+            and a.userType = #{userType}
+        </if>
+        <if test="loginIpStr != null and loginIpStr != ''">
+            and a.loginIpStr like CONCAT('%',#{loginIpStr}, '%')
+        </if>
+        <if test="registIpStr != null and registIpStr != ''">
+            and a.registIpStr like CONCAT('%',#{registIpStr}, '%')
+        </if>
+        <if test="userSort != null and userSort != ''">
+            and a.userSort = #{userSort}
+        </if>
+        <if test="payUserId != null and payUserId != ''">
+            and a.payUserId = #{payUserId}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.UserInfo">
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="loginVerifi" parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.UserInfo"
+            >
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a WHERE a.userMobile = #{userMobile} AND a.delFlag = 0
+    </select>
+
+    <select id="getByMobile" parameterType="String" resultType="com.zttx.web.module.common.entity.UserInfo">
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a WHERE a.userMobile = #{userMobile} AND a.delFlag = 0
+    </select>
+
+    <select id="getParentUserByChildId" parameterType="String" resultType="com.zttx.web.module.common.entity.UserInfo">
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a,UserInfo b
+        <where>
+            a.delFlag = false
+            and a.refrenceId=b.parentId
+            and b.refrenceId=#{childId}
+        </where>
+
+    </select>
+    <select id="selectUserInfoMore" resultType="com.zttx.web.module.common.entity.UserInfo">
+        select
+        a.refrenceId as refrenceId,
+        a.userMobile as userMobile,
+        b.areaNo as areaNo,
+        <choose>
+            <when test="userType == 0"> <!--品牌商信息-->
+                b.comName as brandName,
+                c.userName as connectUserName
+                from UserInfo a
+                left JOIN BrandInfo b ON a.refrenceId = b.refrenceId
+                LEFT JOIN BrandContact c ON a.refrenceId = c.brandId
+                WHERE a.refrenceId = #{refrenceId}
+            </when>
+            <when test="userType == 1">  <!--经销商信息-->
+                b.dealerName as dealerName,
+                b.dealerUser as connectUserName
+                from UserInfo a,DealerInfo b
+                where a.refrenceId = b.refrenceId
+                and a.refrenceId = #{refrenceId}
+            </when>
+        </choose>
+    </select>
+    <update id="updateVerifyMobile">
+        UPDATE UserInfo b
+        SET b.mobileVerify = #{state}, b.userMobile = #{userMobile}
+        WHERE b.refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateVerifyMail">
+        UPDATE BrandUserm a
+        SET a.mailVerify = #{state}, a.userMail = #{userMail}
+        WHERE a.refrenceId = #{refrenceId}
+    </update>
+
+    <select id="findUserInfo" resultType="com.zttx.web.module.common.entity.UserInfo">
+        SELECT
+        <include refid="userInfoColumns"/>
+        FROM UserInfo a WHERE a.delFlag = 0
+        <if test="registerTime != null and registerTime != ''">
+            and a.registerTime &gt; #{registerTime}
+        </if>
+    </select>
+</mapper>
+

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.UserOperationLogMapper">
+    <!-- 基础列 -->
+    <sql id="userOperationLogColumns">
+        a.refrenceId as refrenceId ,
+        a.objectId as objectId ,
+        a.userId as userId ,
+        a.userName as userName ,
+        a.type as type ,
+        a.event as event ,
+        a.eventTime as eventTime ,
+        a.loginType as loginType ,
+        a.loginIP as loginIP 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.UserOperationLog">
+        insert into UserOperationLog(
+         refrenceId ,
+         objectId ,
+         userId ,
+         userName ,
+         type ,
+         event ,
+         eventTime ,
+         loginType ,
+         loginIP 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{objectId}  ,
+        #{userId}  ,
+        #{userName}  ,
+        #{type}  ,
+        #{event}  ,
+        #{eventTime}  ,
+        #{loginType}  ,
+        #{loginIP}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from UserOperationLog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update UserOperationLog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.UserOperationLog">
+        insert into UserOperationLog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="objectId != null">
+            objectId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="type != null">
+            type ,
+        </if>
+        <if test="event != null">
+            event ,
+        </if>
+        <if test="eventTime != null">
+            eventTime ,
+        </if>
+        <if test="loginType != null">
+            loginType ,
+        </if>
+        <if test="loginIP != null">
+            loginIP 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="objectId != null">
+            #{objectId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="type != null">
+            #{type} ,
+        </if>
+        <if test="event != null">
+            #{event} ,
+        </if>
+        <if test="eventTime != null">
+            #{eventTime} ,
+        </if>
+        <if test="loginType != null">
+            #{loginType} ,
+        </if>
+        <if test="loginIP != null">
+            #{loginIP} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.UserOperationLog">
+        update UserOperationLog
+           <set>
+            <if test="objectId != null">
+                objectId = #{objectId} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="type != null">
+                type = #{type} ,
+            </if>
+            <if test="event != null">
+                event = #{event} ,
+            </if>
+            <if test="eventTime != null">
+                eventTime = #{eventTime} ,
+            </if>
+            <if test="loginType != null">
+                loginType = #{loginType} ,
+            </if>
+            <if test="loginIP != null">
+                loginIP = #{loginIP} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.UserOperationLog">
+        update UserOperationLog set
+            objectId = #{objectId} ,
+            userId = #{userId} ,
+            userName = #{userName} ,
+            type = #{type} ,
+            event = #{event} ,
+            eventTime = #{eventTime} ,
+            loginType = #{loginType} ,
+            loginIP = #{loginIP} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.UserOperationLog">
+        select <include refid="userOperationLogColumns"/> from UserOperationLog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.UserOperationLog">
+        SELECT
+        <include refid="userOperationLogColumns"/>
+        FROM UserOperationLog a WHERE a.delFlag = 0
+        <if test="objectId != null and objectId != ''">
+            and a.objectId like CONCAT('%',#{objectId}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="type != null and type != ''">
+            and a.type = #{type}
+        </if>
+        <if test="event != null and event != ''">
+            and a.event like CONCAT('%',#{event}, '%')
+        </if>
+        <if test="eventTime != null and eventTime != ''">
+            and a.eventTime = #{eventTime}
+        </if>
+        <if test="loginType != null and loginType != ''">
+            and a.loginType = #{loginType}
+        </if>
+        <if test="loginIP != null and loginIP != ''">
+            and a.loginIP = #{loginIP}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.UserOperationLog">
+        SELECT
+        <include refid="userOperationLogColumns"/>
+        FROM UserOperationLog a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+#main_three {
+    position: relative;
+
+    h2 {
+        font: 600 17px/2 "microsoft yahei";
+        color: #333;
+    }
+
+    .more-items {
+        position: absolute;
+        top: 16px;
+        right: 10px;
+        line-height: 1;
+        _line-height: 1.2;
+    }
+
+    .more-items a {
+        float: left;
+        margin-right: 10px;
+        padding-left: 10px;
+        border-left: 1px solid #666;
+    }
+
+    .more-items a.first {
+        border-left: 0;
+    }
+
+    .more-items a.more {
+        display: block;
+        text-indent: -9999px;
+        width: 25px;
+        height: 14px;
+        _text-indent: 0;
+        color: #fff;
+        margin-right: 0;
+        padding-left: 0;
+        border-left: 0;
+        background: url(/images/common/icon-linkMore.png) 0 -1px no-repeat;
+    }
+
+    .more-items a.more:hover {
+        background-position:0 -17px;
+    }
+}
+
+/*红线*/
+#main_three .line {
+    height: 2px;
+    background-color: #fff;
+    line-height: 0;
+    font: 0px Arial;
+
+    b {
+        height: 2px;
+        background-color: #B20000;
+        line-height: 0;
+        font: 0px Arial;
+        width: 190px;
+        display: block;
+        margin-left: 0;
+    }
+}
+/*品牌推荐列表*/
+#main_three .main-three-items {
+    overflow: hidden;
+    zoom: 1;
+
+    li {
+        float: left;
+        width: 198px; /*background-color:#000;margin-right:8px;*/
+    }
+
+    li.last {
+        width: 190px;
+        margin-right: 0;
+    }
+
+    li dl {
+        width: 190px;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    li dl dt {
+        background-color: #B20000;
+        height: 30px;
+        font: 14px/30px "microsoft yahei";
+        color: #fff;
+        text-align: center;
+    }
+
+    li dl dd {
+        background-color: #fff;
+        line-height: 0;
+        float: left;
+        width: 94px;
+        height: 56px;
+        border: dotted 1px #ddd;
+        border-left: none;
+        border-top: none;
+    }
+
+    li dl dd div {
+        height: 56px;
+        width: 94px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    li dl dd img {
+        display: block;
+        position: absolute;
+        width: 74px;
+        height: 36px;
+        left:10px;
+        top:10px;
+    }
+
+    li dl dd.first {
+        border: 0;
+        width: 190px;
+        height: 120px;
+        margin-bottom: 5px;
+        overflow: hidden;
+    }
+
+    li dl dd.first div {
+        height: 120px;
+        width: 190px;
+    }
+
+    li dl dd.first img {
+        width: 190px;
+        height: 120px;
+        left:0;
+        top:0;
+    }
+}

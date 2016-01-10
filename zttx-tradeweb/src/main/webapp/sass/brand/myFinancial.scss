@@ -1,0 +1,682 @@
+@charset "UTF-8";
+
+$labelWidth:               120px !default;
+$labelFontSize:            12px !default;
+
+@import "button";
+@import "form";
+
+.myFinancial{
+    .main_con{
+        .inner{
+            margin-left: 0;
+            background: #fff;
+        }
+    }
+    .ui_tab{
+        margin: 20px 20px 0 20px;
+        position: relative;
+    }
+    .download{
+        position: absolute;
+        right: 3px;
+        _right: 23px;
+        top: 12px;
+        color: #666;
+        .iconfont{
+            margin-right: 3px;
+        }
+        .link{
+            color: #0082cc;
+        }
+    }
+    .tab_con{
+        margin-left: 20px;
+        margin-right: 18px;
+    }
+    .bank_img{
+        width: 190px;
+        height: 36px;
+        border: #ddd solid 1px;
+        img{
+            margin-top: 2px;
+        }
+    }
+    .search_form{
+        margin-top: 15px;
+        label{
+            line-height: 34px;
+        }
+        select{
+            width: 132px;
+            height: 32px;
+        }
+        .item{
+            float: left;
+            display: inline;
+            margin-right: 8px;
+            _float: none;
+         }
+        .start_time,.end_time{
+            width: 106px;
+            border: 1px solid #C1C1C1;
+            color: #595959;
+            font-size: 12px;
+            height: 22px;
+            padding: 4px;
+            line-height: 22px\9;
+            *line-height: 22px;
+            vertical-align: top;
+        }
+        .inline-block{
+            vertical-align: top;
+        }
+        .simple_button{
+            *display: inline;
+            vertical-align: middle;
+            margin-top: 1px;
+        }
+    }
+    .detail_table{
+        margin-top: 15px;
+        th{
+            font-weight: normal;
+            background-color: #e4ecf7;
+            height: 30px;
+            padding: 0;
+        }
+        td{
+            height: 32px;
+            border-bottom: #eeeeee solid 1px;
+            text-align: center;
+            padding: 0;
+        }
+        .odd{
+            td{
+                background-color: #f9f9f9;
+            }
+        }
+        .c_text1{
+            color: #0082cc;
+        }
+        .name{
+            width: 222px;
+            float: left;
+        }
+        .show_detail{
+            float: left;
+            display: inine;
+            margin-left: 18px;
+            width: 69px;
+            padding-left: 7px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border: #b9b6b5 solid 1px;
+            border-radius: 3px;
+            color: #0082cc;
+            i{
+                width:0;height:0;
+                float: left;
+                border-style: solid;
+                border-width: 6px 4px;
+                overflow: hidden;
+                _filter:chroma(color=tomato);
+            }
+            &:hover{
+                color: #ff8800;
+            }
+        }
+        .open{
+            background: #eee;
+            i{
+                border-color: transparent transparent #666 transparent;
+                _border-color:tomato tomato #666 tomato;
+            }
+        }
+        .close{
+            background: #f5f5f5;
+            i{
+                border-color: #666 transparent transparent transparent;
+                _border-color:#666 tomato tomato tomato;
+                margin-top: 7px;
+            }
+        }
+        .c_text2{
+            color: #cc0000;
+            font-weight: bold;
+            font-family: "Arial";
+        }
+        .c_text3{
+            color: #007130;
+            font-weight: bold;
+            font-family: "Arial";
+        }
+        .name{
+            text-align: left;
+            padding-left: 8px;
+        }
+        .status_1{
+            color: #cc0000;
+        }
+        .status_2{
+            color: #0082cc;
+        }
+        .status_3{
+            color: #333;
+        }
+    }
+    .detailed-list{
+        border-top: #e0e0e0 solid 1px;
+        th{
+            border-right: #fff solid 1px;
+        }
+        .goods-td{
+            border-right: #eee solid 1px;
+            border-bottom: #eee solid 1px;
+            background: #f8f8f8;
+            td{
+                border-right: #eee solid 1px;
+                border-bottom: #eee solid 1px;
+            }
+            img{
+                margin-right: 5px;
+            }
+        }
+        .last-td{
+            border-right: none !important;
+        }
+        .last{
+            td{
+                border-bottom: none !important;
+            }
+        }
+    }
+    .price_box{
+        height: 48px;
+        line-height: 48px;
+        border: #64a5ff solid 1px;
+        background: #f1f7ff;
+        padding-right: 12px;
+        text-align: right;
+        strong{
+            font-size: 16px;
+            font-family: "Arial";
+            color: #e60012;
+        }
+        label{
+            font-weight: bold;
+        }
+        span{
+            color: #666;
+        }
+    }
+    .my_card_list{
+        overflow: hidden;
+        zoom: 1;
+        .item{
+            height: 42px;
+            line-height: 42px;
+            padding: 2px 2px 1px;
+            border-bottom: #ccc solid 1px;
+            vertical-align: top;
+            cursor: pointer;
+            .item_inner{
+                height: 42px;
+            }
+        }
+        .item_hover{
+            background-color: #ffbb76;
+            border-bottom-color: #ffbb76;
+            .item_inner{
+                background-color: #fff;
+            }
+            .set{
+                display: inline;
+            }
+        }
+        .bank_img{
+            float: left;
+            width: 180px;
+            height: 42px;
+            border: none;
+        }
+        .card_num{
+            float: left;
+            display: inline;
+            margin-left: 5px;
+            color: #666;
+        }
+        .default,.set{
+            float: left;
+            display: inline;
+            margin-left: 75px;
+            color: #666;
+        }
+        .set{
+            display: none;
+        }
+        .del{
+            float: right;
+            display: inline;
+            margin-right: 14px;
+            color: #0082cc;
+        }
+    }
+    .toggle,.add_card{
+        float: left;
+        height: 46px;
+        text-align: center;
+        color: #0082cc;
+        cursor: pointer;
+    }
+    .toggle{
+        width: 80px;
+        border: #ccc solid 1px;
+        margin-right: 10px;
+        &:hover{
+            border-color: #0082cc;
+            background: #0082cc;
+            color: #fff;
+            .show_more{
+                i{
+                    border-color: #fff #0082cc #0082cc #0082cc;
+                }
+            }
+            .hide_more{
+                i{
+                    border-color: #0082cc #0082cc #fff #0082cc;
+                }
+            }
+        }
+        i{
+            display: inline-block;
+            width:0;
+            height:0;
+            border-style: solid;
+            border-width: 6px 4px;
+            overflow: hidden;
+            margin-right: 6px;
+        }
+        .show_more,.hide_more{
+            margin-top: 15px;
+        }
+        .show_more{
+            i{
+                vertical-align: -5px;
+                border-color: #0082cc #fff #fff #fff;
+            }
+        }
+        .hide_more{
+            i{
+                vertical-align: 1px;
+                border-color: #fff #fff #0082cc #fff;
+            }
+        }
+    }
+    .add_card{
+        width: 134px;
+        line-height: 46px;
+        border: #ccc dashed 1px;
+        .add_icon{
+            margin-right: 5px;
+            font-size: 10px;
+        }
+        &:hover{
+            /*border-color: #0082cc;
+            background: #0082cc;
+            color: #fff;*/
+        }
+    }
+    .bank_card_set{
+        margin-top: 35px;
+        .charge_label{
+            float: left;
+            display: inline;
+            margin: 10px 0 0 25px;
+            font: 18px "微软雅黑";
+        }
+        .my_card_list{
+            margin-right: 25px;
+        }
+    }
+    .card_charge{
+        margin: 28px 46px 0 80px;
+        .charge_item{
+            margin-bottom: 10px;
+        }
+        .charge_label,.account{
+            height: 28px;
+            font: 14px/28px "微软雅黑";
+        }
+        .charge_label{
+            float: left;
+            display: inline;
+            margin-right: 8px;
+        }
+        .detail{
+            overflow: hidden;
+            zoom: 1;
+        }
+        .inner_tab{
+            margin-bottom: 15px;;
+            ul{
+                border-bottom: #1d7ad9 solid 2px;
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                width: 916px;
+            }
+            li{
+                height: 24px;
+                width: 108px;
+                line-height: 24px;
+                text-align: center;
+                background: #eee;
+                border-bottom: #fff solid 1px;
+                position: relative;
+                cursor: pointer;
+                margin-right: 3px;
+                .arrow{
+                    position: absolute;
+                    width:0;
+                    height:0;
+                    border-style: solid;
+                    border-color: #1d7ad9 #fff #fff #fff;
+                    border-width: 6px;
+                    overflow: hidden;
+                    left: 48px;
+                    top: 27px;
+                    display: none;
+                }
+            }
+            .current{
+                background-color: #1d7ad9;
+                border-color: #1d7ad9;
+                color: #fff;
+                .arrow{
+                    display: block;
+                }
+            }
+        }
+        .ui-form{
+            margin-top: 25px;
+            position: relative;
+            margin-left: -45px;
+            .ui-label{
+                color: #666;
+                font-size: 12px;
+            }
+            .ui_button{
+                width: 86px;
+            }
+            .explain{
+                color: #B2B2B2;
+            }
+            .code_btn{
+                *margin-left: 5px;
+            }
+        }
+    }
+    .bank_list{
+        ul{
+            margin-right: -20px;
+        }
+        li{
+            margin: 0 20px 0 0;
+            padding-bottom: 20px;
+            cursor: pointer;
+            width: 214px;
+            overflow: hidden;
+        }
+        label{
+            zoom: 1;
+            &:after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+        input{
+            float: left;
+            display: inline;
+            margin: 12px 8px 0 0;
+            _margin-right: 0px;
+        }
+        .bank_img{
+            float: left;
+            display: inline;
+        }
+        .on{
+            .bank_img{
+                border-color: #ffaa33;
+            }
+        }
+    }
+    .next_step{
+        display: block;
+        width: 76px;
+    }
+    .charge_box{
+        .link{
+            *margin-left: 5px;
+            color: #0082cc;
+            &:hover{
+                color: #ff8800;
+            }
+        }
+        .explain{
+            margin-top: 20px;
+            border-top: #cccccc dashed 1px;
+            padding-top: 16px;
+            width: 774px;
+            color: #4d4d4d;
+        }
+        .explain_table{
+            margin-top: 10px;
+            th,td{
+                border: #c8c8c8 solid 1px;
+                padding: 5px 8px;
+            }
+            th{
+                text-align: left;
+                background: #e7e7e7;
+                font-weight: normal;
+            }
+        }
+        .charge_form{
+            margin-top: 20px;
+            .ui-form-item{
+                position: relative;
+                margin-left: -46px;
+            }
+        }
+    }
+    .success_box{
+        margin-top: 28px;
+        border: #ffbb76 solid 1px;
+        padding: 70px 0;
+        text-align: center;
+        .iconfont{
+            *display: inline;
+            display: inline;
+            zoom: 1;
+            font-size: 32px;
+            margin-right: 5px;
+            _margin-right: 7px;
+            vertical-align: top;
+        }
+        .agree_icon{
+            color: #87c749;
+        }
+        .info{
+            display: inline-block;
+            *display: inline;
+            overflow: hidden;
+            zoom: 1;
+            strong{
+                color: #cc0000;
+                font-family: "Arial";
+                font-weight: normal;
+            }
+            h3{
+                font: 24px "微软雅黑";
+                margin-top: 6px;
+            }
+            .explain{
+                text-align: left;
+                strong{
+                    margin: 0 3px;
+                }
+            }
+        }
+    }
+
+}
+.account_area{
+    margin-top: 27px;
+    label{
+        float: left;
+        display: inline;
+        width: 128px;
+        margin-left: 46px;
+        font: 18px/28px "微软雅黑";
+        text-align: right;
+    }
+    .info{
+        overflow: hidden;
+        *zoom: 1;
+    }
+    .price{
+        font-size: 24px;
+        line-height: 28px;
+        color: #cc0000;
+    }
+    .recharge_btn{
+        margin-left: 56px;
+        background: #ff8800;
+        &:hover{
+           background: #f57403;
+        }
+    }
+    .withdrawal_btn{
+        background: #22ac38;
+        &:hover{
+            background: #009944;
+        }
+    }
+    .recharge_btn,.withdrawal_btn{
+        border-radius: 3px;
+        color: #FFFFFF;
+        display: inline-block;
+        font: 14px/28px "微软雅黑";
+        height: 28px;
+        margin-right: 10px;
+        text-align: center;
+        width: 92px;
+    }
+    //当前余额
+    .current_balance{
+        margin-top: 5px;
+        color: #666;
+        .freeze_cash{
+            color: #0082cc;
+            cursor: pointer;
+        }
+    }
+    .other{
+        font-size: 14px;
+        margin-top: 10px;
+        label{
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        strong{
+            color: #cc0000;
+            font-family: "Arial";
+        }
+    }
+}
+//弹出窗
+.ui-dialog{
+    .support_info{
+        .iconfont{
+            font-size: 18px;
+            color: #f19149;
+            vertical-align: -3px;
+            margin-right: 3px;
+        }
+        strong{
+            color: #0082cc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    }
+    .ui-form{
+        margin: 20px 0 0 22px;
+        .ui-label{
+            width: 132px;
+            margin-left: -142px;
+        }
+        .ui-form-item{
+            padding-left: 132px;
+        }
+        .ui-select{
+            width: 232px;
+            height: 30px;
+            color: #333;
+            font-size: 12px;
+        }
+        .ui-input{
+            width: 260px;
+            width: 260px;
+        }
+        .ui-form-explain{
+            strong{
+                color: #cc0000;
+                font-weight: normal;
+            }
+        }
+        .ui_button{
+            width: 76px;
+        }
+        .link{
+            color: #0082cc;
+        }
+    }
+    .bank_list{
+        ul{
+            margin-right: -20px;
+        }
+        li{
+            margin: 0 20px 0 0;
+            padding-bottom: 20px;
+            cursor: pointer;
+            width: 214px;
+            overflow: hidden;
+        }
+        label{
+            zoom: 1;
+            &:after{
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+        input{
+            float: left;
+            display: inline;
+            margin: 12px 8px 0 0;
+            _margin-right: 0px;
+        }
+        .bank_img{
+            float: left;
+            display: inline;
+        }
+        .on{
+            .bank_img{
+                border-color: #ffaa33;
+            }
+        }
+    }
+}

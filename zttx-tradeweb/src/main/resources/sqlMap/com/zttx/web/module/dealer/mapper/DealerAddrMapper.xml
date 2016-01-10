@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerAddrMapper">
+    <!-- 基础列 -->
+    <sql id="dealerAddrColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.dealerAddr as dealerAddr ,
+        a.dealerAddress as dealerAddress ,
+        a.provinceName as provinceName ,
+        a.cityName as cityName ,
+        a.areaName as areaName ,
+        a.postCode as postCode ,
+        a.dealerMobile as dealerMobile ,
+        a.dealerTel as dealerTel ,
+        a.dealerDefault as dealerDefault ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerAddr">
+        insert into DealerAddr(
+         refrenceId ,
+         dealerId ,
+         dealerName ,
+         dealerAddr ,
+         dealerAddress ,
+         provinceName ,
+         cityName ,
+         areaName ,
+         postCode ,
+         dealerMobile ,
+         dealerTel ,
+         dealerDefault ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{dealerAddr}  ,
+        #{dealerAddress}  ,
+        #{provinceName}  ,
+        #{cityName}  ,
+        #{areaName}  ,
+        #{postCode}  ,
+        #{dealerMobile}  ,
+        #{dealerTel}  ,
+        #{dealerDefault}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerAddr where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerAddr set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerAddr">
+        insert into DealerAddr
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="dealerName != null">
+            dealerName ,
+        </if>
+        <if test="dealerAddr != null">
+            dealerAddr ,
+        </if>
+        <if test="dealerAddress != null">
+            dealerAddress ,
+        </if>
+        <if test="provinceName != null">
+            provinceName ,
+        </if>
+        <if test="cityName != null">
+            cityName ,
+        </if>
+        <if test="areaName != null">
+            areaName ,
+        </if>
+        <if test="postCode != null">
+            postCode ,
+        </if>
+        <if test="dealerMobile != null">
+            dealerMobile ,
+        </if>
+        <if test="dealerTel != null">
+            dealerTel ,
+        </if>
+        <if test="dealerDefault != null">
+            dealerDefault ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="dealerName != null">
+            #{dealerName} ,
+        </if>
+        <if test="dealerAddr != null">
+            #{dealerAddr} ,
+        </if>
+        <if test="dealerAddress != null">
+            #{dealerAddress} ,
+        </if>
+        <if test="provinceName != null">
+            #{provinceName} ,
+        </if>
+        <if test="cityName != null">
+            #{cityName} ,
+        </if>
+        <if test="areaName != null">
+            #{areaName} ,
+        </if>
+        <if test="postCode != null">
+            #{postCode} ,
+        </if>
+        <if test="dealerMobile != null">
+            #{dealerMobile} ,
+        </if>
+        <if test="dealerTel != null">
+            #{dealerTel} ,
+        </if>
+        <if test="dealerDefault != null">
+            #{dealerDefault} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerAddr">
+        update DealerAddr
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="dealerAddr != null">
+                dealerAddr = #{dealerAddr} ,
+            </if>
+            <if test="dealerAddress != null">
+                dealerAddress = #{dealerAddress} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="postCode != null">
+                postCode = #{postCode} ,
+            </if>
+            <if test="dealerMobile != null">
+                dealerMobile = #{dealerMobile} ,
+            </if>
+            <if test="dealerTel != null">
+                dealerTel = #{dealerTel} ,
+            </if>
+            <if test="dealerDefault != null">
+                dealerDefault = #{dealerDefault} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerAddr">
+        update DealerAddr set
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            dealerAddr = #{dealerAddr} ,
+            dealerAddress = #{dealerAddress} ,
+            provinceName = #{provinceName} ,
+            cityName = #{cityName} ,
+            areaName = #{areaName} ,
+            postCode = #{postCode} ,
+            dealerMobile = #{dealerMobile} ,
+            dealerTel = #{dealerTel} ,
+            dealerDefault = #{dealerDefault} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+    <update id="updateDealerDefaultAddrs">
+        update DealerAddr set
+        dealerDefault = #{isDefault}
+        where
+        dealerId = #{dealerId}
+        <if test="refrenceId != null and refrenceId != ''">
+            and refrenceId = #{refrenceId}
+        </if>
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+        select <include refid="dealerAddrColumns"/> from DealerAddr a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+        SELECT
+        <include refid="dealerAddrColumns"/>
+        FROM DealerAddr a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="dealerAddr != null and dealerAddr != ''">
+            and a.dealerAddr = #{dealerAddr}
+        </if>
+        <if test="dealerAddress != null and dealerAddress != ''">
+            and a.dealerAddress like CONCAT('%',#{dealerAddress}, '%')
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="postCode != null and postCode != ''">
+            and a.postCode like CONCAT('%',#{postCode}, '%')
+        </if>
+        <if test="dealerMobile != null and dealerMobile != ''">
+            and a.dealerMobile like CONCAT('%',#{dealerMobile}, '%')
+        </if>
+        <if test="dealerTel != null and dealerTel != ''">
+            and a.dealerTel like CONCAT('%',#{dealerTel}, '%')
+        </if>
+        <if test="dealerDefault != null and dealerDefault != ''">
+            and a.dealerDefault = #{dealerDefault}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+        SELECT
+        <include refid="dealerAddrColumns"/>
+        FROM DealerAddr a WHERE a.delFlag = 0
+    </select>
+    <!--根据 dealerId 查出该经销商所有的收获地址-->
+    <select id="selectDealerAddrList" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+          select
+          <include refid="dealerAddrColumns"/>
+          from DealerAddr a
+          where a.dealerId =#{dealerId} and a.delFlag = 0;
+    </select>
+    <!--根据 dealerId 查出该经销商默认收获地址-->
+    <select id="getDefaultAddr" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+        select
+        <include refid="dealerAddrColumns"/>
+        from DealerAddr a
+        where a.dealerId =#{dealerId} and a.delFlag = 0 and a.dealerDefault = 1;
+    </select>
+    <select id="getTotalDealerAddrCount" resultType="java.lang.Integer">
+        SELECT
+        count(1) total
+        FROM
+        DealerAddr addr
+        WHERE
+        addr.delFlag = 0
+        AND addr.dealerId = #{dealerId}
+    </select>
+
+    <select id="list" resultType="com.zttx.web.module.dealer.entity.DealerAddr">
+        select
+        <include refid="dealerAddrColumns"/>
+        from DealerAddr a
+        where  1 = 1 and a.delFlag = 0
+        and a.dealerId = #{dealerId}
+        order by a.createTime desc
+    </select>
+</mapper>
+

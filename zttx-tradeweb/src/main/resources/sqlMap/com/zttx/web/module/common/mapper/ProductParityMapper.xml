@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductParityMapper">
+    <!-- 基础列 -->
+    <sql id="productParityColumns">
+        a.refrenceId as refrenceId ,
+        a.productId as productId ,
+        a.parityId as parityId ,
+        a.price as price ,
+        a.url as url ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.isShow as isShow ,
+        a.delFlag as delFlag ,
+        a.keyWord as keyWord 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductParity">
+        insert into ProductParity(
+         refrenceId ,
+         productId ,
+         parityId ,
+         price ,
+         url ,
+         createTime ,
+         updateTime ,
+         isShow ,
+         delFlag ,
+         keyWord 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{productId}  ,
+        #{parityId}  ,
+        #{price}  ,
+        #{url}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{isShow}  ,
+        #{delFlag}  ,
+        #{keyWord}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductParity where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductParity set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductParity">
+        insert into ProductParity
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="parityId != null">
+            parityId ,
+        </if>
+        <if test="price != null">
+            price ,
+        </if>
+        <if test="url != null">
+            url ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="isShow != null">
+            isShow ,
+        </if>
+        <if test="delFlag != null">
+            delFlag ,
+        </if>
+        <if test="keyWord != null">
+            keyWord 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="parityId != null">
+            #{parityId} ,
+        </if>
+        <if test="price != null">
+            #{price} ,
+        </if>
+        <if test="url != null">
+            #{url} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="isShow != null">
+            #{isShow} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} ,
+        </if>
+        <if test="keyWord != null">
+            #{keyWord} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into ProductParity(
+         refrenceId ,
+         productId ,
+         parityId ,
+         price ,
+         url ,
+         createTime ,
+         updateTime ,
+         isShow ,
+         delFlag ,
+         keyWord 
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.productId}  ,
+            #{item.parityId}  ,
+            #{item.price}  ,
+            #{item.url}  ,
+            #{item.createTime}  ,
+            #{item.updateTime}  ,
+            #{item.isShow}  ,
+            #{item.delFlag}  ,
+            #{item.keyWord}  
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductParity">
+        update ProductParity
+           <set>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="parityId != null">
+                parityId = #{parityId} ,
+            </if>
+            <if test="price != null">
+                price = #{price} ,
+            </if>
+            <if test="url != null">
+                url = #{url} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="isShow != null">
+                isShow = #{isShow} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} ,
+            </if>
+            <if test="keyWord != null">
+                keyWord = #{keyWord} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update ProductParity set
+            productId = #{item.productId} ,
+            parityId = #{item.parityId} ,
+            price = #{item.price} ,
+            url = #{item.url} ,
+            createTime = #{item.createTime} ,
+            updateTime = #{item.updateTime} ,
+            isShow = #{item.isShow} ,
+            delFlag = #{item.delFlag} ,
+            keyWord = #{item.keyWord} 
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductParity">
+        update ProductParity set
+            productId = #{productId} ,
+            parityId = #{parityId} ,
+            price = #{price} ,
+            url = #{url} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            isShow = #{isShow} ,
+            delFlag = #{delFlag} ,
+            keyWord = #{keyWord} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.ProductParity">
+        select <include refid="productParityColumns"/> from ProductParity a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductParity">
+        SELECT
+        <include refid="productParityColumns"/>
+        FROM ProductParity a WHERE a.delFlag = 0
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="parityId != null and parityId != ''">
+            and a.parityId like CONCAT('%',#{parityId}, '%')
+        </if>
+        <if test="price != null and price != ''">
+            and a.price = #{price}
+        </if>
+        <if test="url != null and url != ''">
+            and a.url like CONCAT('%',#{url}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="isShow != null and isShow != ''">
+            and a.isShow = #{isShow}
+        </if>
+        <if test="keyWord != null and keyWord != ''">
+            and a.keyWord like CONCAT('%',#{keyWord}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductParity">
+        SELECT
+        <include refid="productParityColumns"/>
+        FROM ProductParity a WHERE a.delFlag = 0
+    </select>
+
+	<select id="findByParityColumnIdAndProductId" parameterType="map" resultType="com.zttx.web.module.common.entity.ProductParity">
+		SELECT
+        <include refid="productParityColumns"/>
+        FROM ProductParity a 
+        WHERE a.delFlag = 0 and a.parityId=#{parityId} and a.productId=#{productId} 
+	</select>
+	<select id="findParityModel" parameterType="com.zttx.web.module.common.entity.ProductParity" resultType="java.util.HashMap">
+		select 
+			a.refrenceId,
+			a.name,
+			a.isRequired,
+			b.price,
+			b.url
+		from ParityColumn a left join ProductParity b on 
+		a.refrenceId=b.parityId 
+		and a.delFlag=false 
+		and b.delFlag=false
+		<if test="productId==null">
+			and b.productId is null 
+		</if>
+		<if test="productId!=null">
+			 and b.productId =#{productId}
+		</if>
+		order by a.sort desc 
+			
+	</select>
+</mapper>
+

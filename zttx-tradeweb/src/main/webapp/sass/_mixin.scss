@@ -1,0 +1,196 @@
+﻿@charset "UTF-8";
+//-----------------------------------------------------
+// mixin scss
+//-----------------------------------------------------
+
+
+// mixin
+// 通过@include调用，样式通过拷贝的方式使用，尤其适用于传递参数
+//----------------------------------------
+
+// inline-block
+// ie6-7 *display: inline;*zoom:1;
+@mixin inline-block {
+    display: inline-block;
+    *display: inline;*zoom:1;
+}
+
+// Center-align a block level element
+// block得有宽度margin左右为auto才能居中
+@mixin center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// float left & right
+@mixin float($float:left) {
+    float: $float;
+    display: inline;
+}
+
+// clearfix
+@mixin clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+      font: 0/0 a;
+    }
+    &:after {
+      clear: both;
+    }
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders
+@mixin visually-hidden {
+    position: absolute;
+    clip:rect(1px 1px 1px 1px);//ie6/7
+    clip:rect(1px, 1px, 1px, 1px);//standard
+}
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible {
+    visibility: hidden;
+}
+
+
+// CSS image replacement
+// 高度不能超过字体大小乘以99（line-height）
+@mixin ir {
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    _line-height:99;
+    _overflow:hidden;
+}
+
+// Text overflow
+// 元素可以设置宽度才可应用省略号
+// $substract单位为%
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+@mixin inline-float() {
+    *zoom: 1;
+    &:before, &:after {
+        content: "";
+        display: table;
+        font: 0/0 a;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    li {
+        float: left;
+        display: inline;
+    }
+}
+
+// inline-block
+%inline-block{
+    @include inline-block;
+}
+
+// Center-align a block level element
+%center-block{
+    @include center-block;
+}
+
+// float left & right
+%float-left{
+    @include float;
+}
+%float-right{
+    @include float(right);
+}
+
+// clearfix
+%clearfix {
+    @include clearfix;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+%hidden{
+    @include hidden;
+}
+
+// Hide only visually, but have it available for screenreaders
+%visually-hidden{
+    @include visually-hidden;
+}
+
+// Hide visually and from screenreaders, but maintain layout
+%invisible{
+    @include invisible;
+}
+
+// image replacement
+%ir{
+    @include ir;
+}
+
+// text overflow ellipsis
+%ellipsis{
+    @include ellipsis;
+}
+
+//一下为整合less增加的基础样式
+//
+//
+@mixin inline-float() {
+    *zoom: 1;
+
+    &:before, &:after {
+        content: "";
+        display: table;
+        font: 0/0 a;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    li {
+        float: left;
+        display: inline;
+    }
+}
+@mixin grayscale($num:1) {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: url(/fonts/about/desaturate.svg#greyscale);
+    filter: gray;
+}
+@mixin background-png($url){
+    background-image:url($url);
+    _background:none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=$url);
+}
+@mixin gradient($color: #888,$form: top,$to: bottom,$num: 3%) {
+    background: $color;
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=lighten(@color, @num), endColorstr=darken(@color, @num));
+    background: -webkit-gradient(linear, left $form, left $to, from(lighten($color, $num)), to(darken($color, $num)));
+    background: -moz-linear-gradient($form, lighten($color, $num), darken($color, $num));
+    background: -o-linear-gradient($form, lighten($color, $num), darken($color, $num));
+    background: linear-gradient($form, lighten($color, $num), darken($color, $num));
+}
+@mixin hover($color: #888,$num: 3%) {
+    background-color: darken($color, $num);
+}

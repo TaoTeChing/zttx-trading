@@ -1,0 +1,25 @@
+.hidden { filter: alpha(opacity=0); -moz-opacity: 0; opacity: 0; z-index: 0; margin: 0; padding: 0; width: 13px; }
+
+/* checkbox */
+span.checkbox, span.checkbox-hover, span.checkbox-checked, span.checkbox-checked-hover { background: url(images/checkbox.gif) 0 0 no-repeat; width: 13px; height: 20px; position: absolute; z-index: 1; cursor: pointer; }
+span.checkbox-hover { background: url(images/checkbox.gif) 0 -20px no-repeat; }
+span.checkbox-checked { background: url(images/checkbox.gif) 0 -40px no-repeat; }
+span.checkbox-checked-hover { background: url(images/checkbox.gif) 0 -60px no-repeat; }
+
+/* radio */
+span.radio, span.radio-hover, span.radio-checked, span.radio-checked-hover { background: url(images/radio.gif) 0 0 no-repeat; width: 13px; height: 20px; position: absolute; z-index: 1; cursor: pointer; }
+span.radio-hover { background: url(images/radio.gif) 0 -20px no-repeat; }
+span.radio-checked { background: url(images/radio.gif) 0 -40px no-repeat; }
+span.radio-checked-hover { background: url(images/radio.gif) 0 -60px no-repeat; }
+
+/* select */
+div.select { min-width: 50px; display: -moz-inline-stack; display: inline-block; zoom: 1; *display: inline; vertical-align: bottom; }
+div.select div, div.select div.open { background: url(images/select-l.gif) no-repeat 0 0; height: 23px; padding-left: 5px; font-size: 12px; color: #333333; cursor: pointer; }
+div.select div span, div.select div.open span { background: url(images/select-r.gif) no-repeat right 0; height: 23px; line-height: 23px; display: block; }
+div.select div:hover { background: url(images/select-l.gif) no-repeat 0 -23px; }
+div.select div:hover span { background: url(images/select-r.gif) no-repeat right -23px; }
+div.select div.open { background: url(images/select-l.gif) no-repeat 0 -46px; }
+div.select div.open span { background: url(images/select-r.gif) no-repeat right -46px; }
+div.select ul { min-width: 48px; list-style: none; background-color: #FFFFFF; border-color: #aaa #ccc #ccc; border-style: solid; border-width: 1px; margin: 0; padding: 0; position: absolute; z-index: 999; }
+div.select li { padding: 4px 20px 4px 5px; cursor: default; }
+div.select li.hover { background: #fff; border-color: #fff; border-style: solid; border-width: 1px 0; color: #6B6B6B; padding: 3px 20px 3px 5px; }

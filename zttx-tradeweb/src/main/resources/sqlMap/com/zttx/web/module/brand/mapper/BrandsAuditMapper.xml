@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandsAuditMapper">
+    <!-- 基础列 -->
+    <sql id="brandsAuditColumns">
+        a.refrenceId as refrenceId ,
+        a.userId as userId ,
+        a.brandsId as brandsId ,
+        a.brandsNames as brandsNames ,
+        a.logoName as logoName ,
+        a.domainName as domainName ,
+        a.checkTime as checkTime ,
+        a.checkState as checkState ,
+        a.checkMark as checkMark ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandsAudit">
+        insert into BrandsAudit(
+         refrenceId ,
+         userId ,
+         brandsId ,
+         brandsNames ,
+         logoName ,
+         domainName ,
+         checkTime ,
+         checkState ,
+         checkMark ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userId}  ,
+        #{brandsId}  ,
+        #{brandsNames}  ,
+        #{logoName}  ,
+        #{domainName}  ,
+        #{checkTime}  ,
+        #{checkState}  ,
+        #{checkMark}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandsAudit where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandsAudit set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandsAudit">
+        insert into BrandsAudit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="brandsNames != null">
+            brandsNames ,
+        </if>
+        <if test="logoName != null">
+            logoName ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="checkTime != null">
+            checkTime ,
+        </if>
+        <if test="checkState != null">
+            checkState ,
+        </if>
+        <if test="checkMark != null">
+            checkMark ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="brandsNames != null">
+            #{brandsNames} ,
+        </if>
+        <if test="logoName != null">
+            #{logoName} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="checkTime != null">
+            #{checkTime} ,
+        </if>
+        <if test="checkState != null">
+            #{checkState} ,
+        </if>
+        <if test="checkMark != null">
+            #{checkMark} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandsAudit">
+        update BrandsAudit
+           <set>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="brandsNames != null">
+                brandsNames = #{brandsNames} ,
+            </if>
+            <if test="logoName != null">
+                logoName = #{logoName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="checkTime != null">
+                checkTime = #{checkTime} ,
+            </if>
+            <if test="checkState != null">
+                checkState = #{checkState} ,
+            </if>
+            <if test="checkMark != null">
+                checkMark = #{checkMark} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandsAudit">
+        update BrandsAudit set
+            userId = #{userId} ,
+            brandsId = #{brandsId} ,
+            brandsNames = #{brandsNames} ,
+            logoName = #{logoName} ,
+            domainName = #{domainName} ,
+            checkTime = #{checkTime} ,
+            checkState = #{checkState} ,
+            checkMark = #{checkMark} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandsAudit">
+        select <include refid="brandsAuditColumns"/> from BrandsAudit a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandsAudit">
+        SELECT
+        <include refid="brandsAuditColumns"/>
+        FROM BrandsAudit a WHERE a.delFlag = 0
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="brandsNames != null and brandsNames != ''">
+            and a.brandsNames like CONCAT('%',#{brandsNames}, '%')
+        </if>
+        <if test="logoName != null and logoName != ''">
+            and a.logoName like CONCAT('%',#{logoName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="checkTime != null and checkTime != ''">
+            and a.checkTime = #{checkTime}
+        </if>
+        <if test="checkState != null and checkState != ''">
+            and a.checkState = #{checkState}
+        </if>
+        <if test="checkMark != null and checkMark != ''">
+            and a.checkMark like CONCAT('%',#{checkMark}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandsAudit">
+        SELECT
+        <include refid="brandsAuditColumns"/>
+        FROM BrandsAudit a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getBrandsAuditMarkList" resultType="map">
+        select refrenceId as refrenceId, checkMark as checkMark
+        from BrandsAudit
+        where delFlag=0 
+        <if test="checkState != null">
+            AND checkState = #{checkState}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            AND brandsId = #{brandsId}
+        </if>
+        order by checkTime desc
+    </select>
+</mapper>
+

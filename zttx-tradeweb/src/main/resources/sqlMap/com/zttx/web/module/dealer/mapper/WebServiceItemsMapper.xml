@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.WebServiceItemsMapper">
+    <!-- 基础列 -->
+    <sql id="webServiceItemsColumns">
+        a.refrenceId as refrenceId ,
+        a.serviceName as serviceName ,
+        a.servicePhoto as servicePhoto ,
+        a.commentNum as commentNum ,
+        a.servicerCate as servicerCate ,
+        a.buyNum as buyNum ,
+        a.viewNum as viewNum ,
+        a.chargType as chargType ,
+        a.price as price ,
+        a.minBuyNum as minBuyNum ,
+        a.servicePrice as servicePrice ,
+        a.comId as comId ,
+        a.subMark as subMark ,
+        a.serviceMark as serviceMark ,
+        a.serviceType as serviceType ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        insert into WebServiceItems(
+        refrenceId ,
+        serviceName ,
+        servicePhoto ,
+        commentNum ,
+        servicerCate ,
+        buyNum ,
+        viewNum ,
+        chargType ,
+        price ,
+        minBuyNum ,
+        servicePrice ,
+        comId ,
+        subMark ,
+        serviceMark ,
+        serviceType ,
+        createTime ,
+        updateTime ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{serviceName} ,
+        #{servicePhoto} ,
+        #{commentNum} ,
+        #{servicerCate} ,
+        #{buyNum} ,
+        #{viewNum} ,
+        #{chargType} ,
+        #{price} ,
+        #{minBuyNum} ,
+        #{servicePrice} ,
+        #{comId} ,
+        #{subMark} ,
+        #{serviceMark} ,
+        #{serviceType} ,
+        #{createTime} ,
+        #{updateTime} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from WebServiceItems where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update WebServiceItems set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        insert into WebServiceItems
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="serviceName != null">
+                serviceName ,
+            </if>
+            <if test="servicePhoto != null">
+                servicePhoto ,
+            </if>
+            <if test="commentNum != null">
+                commentNum ,
+            </if>
+            <if test="servicerCate != null">
+                servicerCate ,
+            </if>
+            <if test="buyNum != null">
+                buyNum ,
+            </if>
+            <if test="viewNum != null">
+                viewNum ,
+            </if>
+            <if test="chargType != null">
+                chargType ,
+            </if>
+            <if test="price != null">
+                price ,
+            </if>
+            <if test="minBuyNum != null">
+                minBuyNum ,
+            </if>
+            <if test="servicePrice != null">
+                servicePrice ,
+            </if>
+            <if test="comId != null">
+                comId ,
+            </if>
+            <if test="subMark != null">
+                subMark ,
+            </if>
+            <if test="serviceMark != null">
+                serviceMark ,
+            </if>
+            <if test="serviceType != null">
+                serviceType ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="serviceName != null">
+                #{serviceName} ,
+            </if>
+            <if test="servicePhoto != null">
+                #{servicePhoto} ,
+            </if>
+            <if test="commentNum != null">
+                #{commentNum} ,
+            </if>
+            <if test="servicerCate != null">
+                #{servicerCate} ,
+            </if>
+            <if test="buyNum != null">
+                #{buyNum} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum} ,
+            </if>
+            <if test="chargType != null">
+                #{chargType} ,
+            </if>
+            <if test="price != null">
+                #{price} ,
+            </if>
+            <if test="minBuyNum != null">
+                #{minBuyNum} ,
+            </if>
+            <if test="servicePrice != null">
+                #{servicePrice} ,
+            </if>
+            <if test="comId != null">
+                #{comId} ,
+            </if>
+            <if test="subMark != null">
+                #{subMark} ,
+            </if>
+            <if test="serviceMark != null">
+                #{serviceMark} ,
+            </if>
+            <if test="serviceType != null">
+                #{serviceType} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        update WebServiceItems
+        <set>
+            <if test="serviceName != null">
+                serviceName = #{serviceName} ,
+            </if>
+            <if test="servicePhoto != null">
+                servicePhoto = #{servicePhoto} ,
+            </if>
+            <if test="commentNum != null">
+                commentNum = #{commentNum} ,
+            </if>
+            <if test="servicerCate != null">
+                servicerCate = #{servicerCate} ,
+            </if>
+            <if test="buyNum != null">
+                buyNum = #{buyNum} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="chargType != null">
+                chargType = #{chargType} ,
+            </if>
+            <if test="price != null">
+                price = #{price} ,
+            </if>
+            <if test="minBuyNum != null">
+                minBuyNum = #{minBuyNum} ,
+            </if>
+            <if test="servicePrice != null">
+                servicePrice = #{servicePrice} ,
+            </if>
+            <if test="comId != null">
+                comId = #{comId} ,
+            </if>
+            <if test="subMark != null">
+                subMark = #{subMark} ,
+            </if>
+            <if test="serviceMark != null">
+                serviceMark = #{serviceMark} ,
+            </if>
+            <if test="serviceType != null">
+                serviceType = #{serviceType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        update WebServiceItems set
+        serviceName = #{serviceName} ,
+        servicePhoto = #{servicePhoto} ,
+        commentNum = #{commentNum} ,
+        servicerCate = #{servicerCate} ,
+        buyNum = #{buyNum} ,
+        viewNum = #{viewNum} ,
+        chargType = #{chargType} ,
+        price = #{price} ,
+        minBuyNum = #{minBuyNum} ,
+        servicePrice = #{servicePrice} ,
+        comId = #{comId} ,
+        subMark = #{subMark} ,
+        serviceMark = #{serviceMark} ,
+        serviceType = #{serviceType} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        select
+        <include refid="webServiceItemsColumns"/>
+        from WebServiceItems a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        SELECT
+        <include refid="webServiceItemsColumns"/>
+        FROM WebServiceItems a WHERE a.delFlag = 0
+        <if test="serviceName != null and serviceName != ''">
+            and a.serviceName like CONCAT('%',#{serviceName}, '%')
+        </if>
+        <if test="servicePhoto != null and servicePhoto != ''">
+            and a.servicePhoto like CONCAT('%',#{servicePhoto}, '%')
+        </if>
+        <if test="commentNum != null and commentNum != ''">
+            and a.commentNum = #{commentNum}
+        </if>
+        <if test="servicerCate != null and servicerCate != ''">
+            and a.servicerCate = #{servicerCate}
+        </if>
+        <if test="buyNum != null and buyNum != ''">
+            and a.buyNum = #{buyNum}
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        <if test="chargType != null and chargType != ''">
+            and a.chargType = #{chargType}
+        </if>
+        <if test="price != null and price != ''">
+            and a.price = #{price}
+        </if>
+        <if test="minBuyNum != null and minBuyNum != ''">
+            and a.minBuyNum = #{minBuyNum}
+        </if>
+        <if test="servicePrice != null and servicePrice != ''">
+            and a.servicePrice = #{servicePrice}
+        </if>
+        <if test="comId != null and comId != ''">
+            and a.comId like CONCAT('%',#{comId}, '%')
+        </if>
+        <if test="subMark != null and subMark != ''">
+            and a.subMark like CONCAT('%',#{subMark}, '%')
+        </if>
+        <if test="serviceMark != null and serviceMark != ''">
+            and a.serviceMark like CONCAT('%',#{serviceMark}, '%')
+        </if>
+        <if test="serviceType != null and serviceType != ''">
+            and a.serviceType = #{serviceType}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        SELECT
+        <include refid="webServiceItemsColumns"/>
+        FROM WebServiceItems a WHERE a.delFlag = 0
+    </select>
+    <select id="countBy" resultType="java.lang.Integer">
+        SELECT
+        count(1)
+        FROM
+        WebServiceItems a
+        WHERE
+        a.delFlag=0
+        AND
+        a.refrenceId = #{serviceId}
+        AND
+        a.servicerCate = #{servicerCate}
+        AND
+        a.chargType = #{chargType}
+    </select>
+    <select id="selectByClient" resultType="com.zttx.web.module.dealer.entity.WebServiceItems">
+        SELECT
+        <include refid="webServiceItemsColumns"/>
+        FROM WebServiceItems a WHERE a.delFlag = 0
+        <if test="serviceName != null and serviceName != ''">
+            and a.serviceName like CONCAT('%',#{serviceName}, '%')
+        </if>
+        <if test="servicerCate != null and servicerCate != ''">
+            and a.servicerCate = #{servicerCate}
+        </if>
+        <if test="serviceType != null and serviceType != ''">
+            and a.serviceType = #{serviceType}
+        </if>
+        <choose>
+            <when test="orderParams != null and orderParams != ''">
+                order by a.${orderParams} ${orderType}
+            </when>
+            <otherwise>
+                order by a.createTime desc
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
+

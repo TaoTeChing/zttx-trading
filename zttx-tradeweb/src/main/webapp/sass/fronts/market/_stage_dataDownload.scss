@@ -1,0 +1,71 @@
+@charset "UTF-8";
+/*
+    前台装修页面-资料下载
+*/
+.listbody{
+  .sidebar-l{
+      .datadownload{
+          padding:0 20px 20px 20px;
+          _padding:0 20px 40px 20px;
+          background:#fff;
+          border:1px #ddd solid;
+          margin:0 0 10px 0;
+          overflow:hidden;
+          a:hover{
+            text-decoration:none
+          }
+          .datadownloadul{
+              li{
+                  float:left;
+                  border:#fff 1px solid;
+                  margin:15px 10px 0 0;
+                  padding:2px 5px;
+              }
+              .selected{
+                  background:#e6e6e6;
+                  border:#ddd 1px solid;
+              }
+          }
+          .downbody{
+              border-bottom:1px #ddd solid;
+              overflow:hidden;
+              padding:10px 5px;
+              _padding:15px 5px;
+              h2.title{
+                  font-size:14px;
+                  padding:0 0 10px 0;
+                  font-family: "microsoft yahei";
+              }
+              h2{
+                  span{
+                      font-weight:400;
+                      font-size:12px;
+                      padding:0 0 0 15px;
+                  }
+                  .whole{
+                      color:#00cc33;
+                  }
+                  .auth{
+                      color:#999;
+                  }
+              }
+              .des{
+                  color:#666;
+                  padding:10px 0;
+                  line-height:23px;
+              }
+              .button{
+                  display:block;
+                  float:left;
+                  margin:0 8px 0 0;
+                  width:76px;
+                  height:23px;
+                  line-height:23px;
+                  background:#c2dbfc;
+                  text-align:center;
+                  color:#0066cc;
+              }
+          }
+        }
+  }
+}

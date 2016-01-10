@@ -1,0 +1,674 @@
+﻿@charset "UTF-8";
+
+@import "../../common/base";
+@import "../../common/index/icons";
+@import "../../common/header";
+@import "../../common/footer";
+/** 重置超链接元素 **/
+a { text-decoration: none; color:#666;}
+a:hover { text-decoration: none; }
+/*节省*/
+.em100{ width: 1200px;margin: auto;}
+.font{ font-family:'宋体',Verdana}
+.fontcolor3{ color:#333}
+.fontcolor6{ color:#666}
+.fontcolor9{ color:#999}
+.ml5{margin-left: 5px !important;}
+.ml10{margin-left: 10px !important;}
+.ml15{margin-left: 15px !important;}
+.mr5{margin-right: 5px !important;}
+.mr10{margin-right: 10px !important;}
+.mt5{margin-top: 5px !important;}
+.mt10{margin-top: 10px !important;}
+.mt15{margin-top: 15px !important;}
+.mt20{margin-top: 20px !important;}
+.fz14{font-size: 14px;}
+.fz18{font-size: 18px;}
+
+.ts-container {
+    width: 100em;
+    margin: auto;
+}
+.link{
+    color: #0082cc;
+}
+//通用模型 ts-common-box
+.ts-common-box{
+    .ts-common-head{
+        @include clearfix();
+        height: 26px;
+        border-bottom: 1px solid #b6b6b6;
+        .title{
+            height: 26px;
+            border-bottom: 1px solid #333;
+        }
+        h3{
+            height: 22px;
+            line-height: 20px;
+            _display: inline;
+            padding: 0 15px 0 10px;
+            border-left: 5px solid #e70012;
+            font-size: 20px;
+            font-family: "Microsoft yahei";
+            font-weight: 700;
+            span{
+                font-size: 16px;
+            }
+            a{
+                color: #333;
+            }
+        }
+        .more{
+            color: #333;
+            &:hover{
+                text-decoration: none;
+                color: #f80;
+            }
+        }
+    }
+    .ts-common-content{
+        @include clearfix();
+    }
+}
+
+.explosion-col{
+    .explosion-col-head{
+        height: 25px;
+        line-height: 24px;
+        padding-left: 8px;
+        border-left: 5px solid #666;
+        background: #f2f2f2;
+        h3{
+            font-size: 16px;
+            font-family: "Microsoft yahei";
+        }
+    }
+}
+
+//页面按钮
+.ts-button{
+    display: inline-block;
+    *display: inline;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 3px 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    _height: 0;
+    _line-height: 0;
+    _padding: 5px 10px;
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        text-decoration: none;
+        background: #ff6600;
+    }
+}
+.ts-button-white{
+    border: 1px solid #ccc;
+    color: #999;
+}
+.ts-button-orange{
+    border: 1px solid #ff8800;
+    background: #ff8800;
+    color: #fff;
+}
+
+
+//banner-area
+//图片轮播
+.explosion-slide{
+    width: 800px;
+    height: 250px;
+    background: #f2f2f2;
+    position: relative;
+    overflow: hidden;
+    .explosion-slide-main{
+        width: 9999px !important;
+        li{
+            position: relative;
+            width: 800px;
+            height: 250px;
+            overflow: hidden;
+        }
+    }
+    .ui-switchable-nav{
+        position: absolute;
+        bottom: 10px;
+        left: 370px;
+        li{
+            @include float();
+            width: 12px;
+            height: 12px;
+            line-height: 12px;
+            margin-right: 10px;
+            text-align: center;
+            background: url("../../../images/fronts/explosion/explosion-slide-nav.png") no-repeat right top;
+            cursor: pointer;
+            color: #fff;
+        }
+        .ui-switchable-active{
+            background-position: left top;
+            color: #e50015;
+        }
+    }
+}
+
+.banner-area{
+    color: #666;
+    .banner-area-z,.banner-area-e{
+        width: 190px;
+        border: 1px solid #e1e1e1;
+    }
+    .banner-area-b{
+        width: 1000px;
+    }
+    .banner-area-title{
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        border-bottom: 1px solid #e1e1e1;
+        font-weight: bold;
+        color: #666;
+        .fr{
+            font-weight: normal;
+        }
+    }
+    .banner-area-city{
+        margin: 10px 0 15px 10px;
+        strong{
+            font-size: 14px;
+            color: #ff0000;
+        }
+        a{
+            &:hover{
+                color: #f80;
+            }
+        }
+    }
+    .banner-area-common{
+        margin-left: 10px;
+        a{
+            color: #0082cc;
+            padding: 5px 3px;
+            line-height: 24px;
+            &:hover{
+                text-decoration: none;
+                color:#f80;
+            }
+        }
+        .active{
+            background: #f80;
+            color: #fff;
+            &:hover{
+                color:#fff;
+            }
+        }
+    }
+    .banner-area-ul{
+        margin: 10px 0;
+        li{
+            margin-right: 10px;
+            //margin-bottom: 3px;
+            white-space: nowrap;
+        }
+    }
+    .b-a-textarea{
+        width: 157px;
+        height: 32px;
+        border-top: 1px solid #e1e1e1;
+        overflow: hidden;
+    }
+    .banner-area-text{
+        width: 157px;
+        height: 18px;
+        padding: 8px 0 8px 10px;
+        border:0;
+        color: #666;
+    }
+    .b-a-btnarea{
+        width: 33px;
+        height: 32px;
+        border-top: 1px solid #e1e1e1;
+        overflow: hidden;
+    }
+    .banner-area-btn{
+        width: 33px;
+        height: 33px;
+        border: 0;
+        overflow: hidden;
+        background: #fff url("../../../images/fronts/market/clearance/isearch.png") no-repeat center;
+        color: #fff;
+        &:hover{
+            background: #f80 url("../../../images/fronts/market/clearance/isearch-on.png") no-repeat center;
+        }
+    }
+    /*.banner-area-select{
+        line-height: 34px;
+        padding-left: 10px;
+        background: #f7f7f7;
+        a{
+            margin-right: 5px;
+            padding: 2px;
+            border: 1px solid #f7b787;
+            color: #666;
+            &:hover{
+                text-decoration: none;
+                .close{
+                    background: #ff0000;
+                    color: #fff;
+                }
+            }
+        }
+        .close{
+            text-align: center;
+            margin-left: 10px;
+            line-height: 12px;
+        }
+    }*/
+    .banner-area-bn{
+        width: 800px;
+        height: 250px;
+    }
+    .banner-area-e{
+        height: 248px;
+    }
+    .banner-area-f{
+        height: 165px;
+        border: 1px solid #e1e1e1;
+        li{
+            width: 198px;
+            height: 125px;
+            margin: 20px 0;
+            border-right: 1px dashed #e1e1e1;
+            font-family: "Microsoft yahei";
+            text-align: center;
+            .title{
+                font-size: 14px;
+            }
+            .dateil{
+                color: #e60012;
+                font-size: 28px;
+                font-family: Arial;
+                span{
+                    font-size: 12px;
+                    font-family: "Microsoft yahei";
+                }
+            }
+            .pic{
+                margin: 20px 0 2px 0;
+            }
+        }
+    }
+    .imbrand{
+        padding:10px 15px;
+        .head{
+            height: 90px;
+            border-bottom: 1px dashed #e1e1e1;
+            font-family: "microsoft yahei";
+            text-align: center;
+            h3{
+                font-weight: 700;
+                font-size:14px;
+                margin-bottom:5px;
+            }
+            p{
+                color:#999;
+            }
+        }
+        .content{
+            color:#999;
+            padding:10px 0 20px 0;
+            span{
+                font-family: "Microsoft yahei";
+                font-size: 16px;
+                color: #FF8900;
+            }
+            p{
+                line-height: 30px;
+                color:#999;
+                a{
+                    color: #999;
+                    &:hover{
+                        color: #f80;
+                    }
+                }
+            }
+        }
+        .btn-apply{
+            display: block;
+            height:34px;
+            line-height:34px;
+            background-color:#ff8800;
+            border-radius: 3px;
+            color:#fff;
+            text-decoration: none;
+            text-align:center;
+            font-weight: 700;
+            font-size:14px;
+            &:hover{
+                background: #f60;
+            }
+        }
+    }
+}
+
+//优质终端商推荐
+.list-dealer{
+    width: 950px;
+    ul.order-grid {
+        @include inline-float();
+        margin-left: -18px;
+        li {
+            margin-left: 17px;
+            margin-bottom: 10px;
+
+            .list-item {
+                width: 223px;
+                height: 313px;
+                border: 1px solid #e1e1e1;
+                &:hover, &.hover {
+                    border: 1px solid #ff8a01;
+                    padding: 0;
+                }
+
+                .js-img-center{
+                    @include inline-block;
+                    width: 223px;
+                    height: 223px;
+                    text-align: center;
+                    img{
+                        max-width: 223px;
+                        max-height: 223px;
+                    }
+                }
+
+                .info {
+                    padding: 11px 10px 10px;
+                    position: relative;
+                    div {
+                        @include clearfix();
+                    }
+
+                    h5 {
+                        @include float();
+                        @include ellipsis;
+                        width: 202px;
+                        height: 22px;
+                        font-weight: bold;
+                        font-size: 14px;
+                        font-family: "Microsoft yahei";
+                        border-bottom: 1px dashed #e1e1e1;
+                        color: #666;
+                    }
+
+                    em {
+                        background-color: #fe8800;
+                        padding: 0 2px;
+                        color: #fff;
+
+                        width: 48px;
+                        top: 10px;
+                        right: 10px;
+                        position: absolute;
+                        &.free {
+                            background-color: #60b000;
+                        }
+                    }
+
+                    p {
+                        width: 200px;
+                        height:20px;
+                        overflow: hidden;
+                        word-break: break-all;
+                        padding-top: 5px;
+                        margin-bottom: 5px;
+                        color: #666;
+                    }
+
+                    .address {
+                        @include ellipsis;
+                        @include inline-block;
+                        width: 140px;
+                        position: relative;
+                        z-index: 2;
+                        background: #fff;
+                        color: #999;
+                    }
+
+                    .date {
+                        position: absolute;
+                        right: 10px;
+                        bottom: 14px;
+                        *bottom:10px;
+                        z-index: 1;
+                        font-family: "Microsoft yahei";
+                        color: #999;
+                        display: none;/*暂时隐藏*/
+                    }
+                }
+            }
+        }
+    }
+}
+.list-shop{
+    width: 230px;
+    .book-list{
+        margin-top: 9px;
+        li{
+            @include ellipsis;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed #e1e1e1;
+            position: relative;
+            color: #666;
+            a{
+                color: #666;
+                &:hover{
+                    color: #f80;
+                }
+            }
+            .city{
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+    .ts-list{
+        li{
+            height: 36px;
+            line-height: 36px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            border-bottom: 1px dashed #e1e1e1;
+            font-family: "Microsoft yahei";
+            a{
+                color: #666;
+                &:hover{
+                    color: #ff8800;
+                }
+            }
+            b{
+                color: #333;
+            }
+        }
+        .text-bold{
+            font-weight: bold;
+        }
+    }
+}
+
+//这些品牌在这里取得了巨大的收获（成功案例）
+.success-list-area{
+    width: 950px;
+}
+.success-list{
+    margin-right: -16px;
+    li{
+        width: 305px;
+        height: 150px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        border: 1px solid #e1e1e1;
+        &:hover{
+            border-color:#f80;
+        }
+        .pic{
+            @include float();
+        }
+        .detail{
+            @include float();
+            .js-img-center{
+                border-bottom: 1px dashed #e1e1e1;
+            }
+            p{
+                width: 155px;
+                height: 40px;
+                line-height: 38px;
+                text-align: center;
+                font-family: "Microsoft yahei";
+                //background: #f2f2f2;
+                color: #666;
+            }
+            b{
+                font-family: Arial;
+                font-size: 18px;
+                color: #de3535;
+            }
+        }
+    }
+}
+
+//追加修改的
+.service-list{
+    border: 1px solid #e1e1e1;
+    li{
+        width: 248px;
+        height: 285px;
+        border-right: 1px solid #e1e1e1;
+        font-family: "Microsoft yahei";
+        position: relative;
+        h3{
+            height: 40px;
+            line-height: 40px;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        .s-l-pic{
+            height: 78px;
+            margin: 0 3px;
+            position: relative;
+            overflow: hidden;
+            img{
+                position: absolute;
+                top:0;
+                left: -105px;
+            }
+        }
+        .s-l-title{
+            margin: 0 15px;
+            padding: 5px 0;
+            border-bottom: 1px dashed #e1e1e1;
+            font-size: 14px;
+            text-align: center;
+            color: #e70012;
+        }
+        .s-l-des{
+            line-height: 25px;
+            margin: 10px 15px;
+            color: #666;
+        }
+        .s-l-overstep{
+            display: none;
+        }
+    }
+    .active{
+        width: 451px;
+        h3{
+            color: #e70012;
+        }
+        .i-icons-add,.s-l-ellipsis{
+            display: none;
+        }
+        .s-l-overstep{
+            display: inline;
+        }
+        .s-l-pic{
+            img{
+                top:0;
+                left: 0;
+            }
+        }
+    }
+}
+
+//当前图标
+.isbrand-icons{
+    @include inline-block;
+    @include ir();
+    background: url("../../../images/fronts/market/isbrand.png") no-repeat;
+}
+.i-icons-dealer{
+    width: 59px;
+    height: 47px;
+    background-position: 0 0;
+}
+.i-icons-apply{
+    width: 59px;
+    height: 47px;
+    background-position: 0 -72px;
+}
+.i-icons-join{
+    width: 59px;
+    height: 47px;
+    background-position: 0 -146px;
+}
+.i-icons-area{
+    width: 59px;
+    height: 47px;
+    background-position: 0 -220px;
+}
+.i-icons-price{
+    width: 59px;
+    height: 47px;
+    background-position: 0 -295px;
+}
+.i-icons-add{
+    width: 19px;
+    height: 19px;
+    background-position: -80px -2px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+}
+
+//图片垂直居中
+.js_img_center,.js-img-center{
+    text-align: center;
+    font-size: 0;
+    img{
+        vertical-align: middle;
+    }
+    span{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}

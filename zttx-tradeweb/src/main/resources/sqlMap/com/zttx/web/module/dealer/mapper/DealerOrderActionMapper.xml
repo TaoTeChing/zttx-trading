@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerOrderActionMapper">
+    <!-- 基础列 -->
+    <sql id="dealerOrderActionColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.userId as userId ,
+        a.userName as userName ,
+        a.actCode as actCode ,
+        a.actName as actName ,
+        a.actContent as actContent ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        insert into DealerOrderAction(
+         refrenceId ,
+         orderId ,
+         userId ,
+         userName ,
+         actCode ,
+         actName ,
+         actContent ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{userId}  ,
+        #{userName}  ,
+        #{actCode}  ,
+        #{actName}  ,
+        #{actContent}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerOrderAction where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerOrderAction set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        insert into DealerOrderAction
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="actCode != null">
+            actCode ,
+        </if>
+        <if test="actName != null">
+            actName ,
+        </if>
+        <if test="actContent != null">
+            actContent ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="actCode != null">
+            #{actCode} ,
+        </if>
+        <if test="actName != null">
+            #{actName} ,
+        </if>
+        <if test="actContent != null">
+            #{actContent} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        update DealerOrderAction
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="actCode != null">
+                actCode = #{actCode} ,
+            </if>
+            <if test="actName != null">
+                actName = #{actName} ,
+            </if>
+            <if test="actContent != null">
+                actContent = #{actContent} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        update DealerOrderAction set
+            orderId = #{orderId} ,
+            userId = #{userId} ,
+            userName = #{userName} ,
+            actCode = #{actCode} ,
+            actName = #{actName} ,
+            actContent = #{actContent} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        select <include refid="dealerOrderActionColumns"/> from DealerOrderAction a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        SELECT
+        <include refid="dealerOrderActionColumns"/>
+        FROM DealerOrderAction a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="actCode != null and actCode != ''">
+            and a.actCode like CONCAT('%',#{actCode}, '%')
+        </if>
+        <if test="actName != null and actName != ''">
+            and a.actName like CONCAT('%',#{actName}, '%')
+        </if>
+        <if test="actContent != null and actContent != ''">
+            and a.actContent like CONCAT('%',#{actContent}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        SELECT
+        <include refid="dealerOrderActionColumns"/>
+        FROM DealerOrderAction a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findByOrderId" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        select <include refid="dealerOrderActionColumns"/>
+        from DealerOrderAction a
+        where a.delFlag = 0 and a.orderId = #{orderId}
+        order by a.createTime asc
+    </select>
+
+    <select id="isExist" resultType="java.lang.Boolean">
+        select count(1)
+        from DealerOrderAction a
+        where  a.userId = #{userId} and a.orderId = #{orderId} and a.actCode = #{actCode}
+    </select>
+    <select id="selectDealerOrderAction" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        select
+        <include refid="dealerOrderActionColumns"/>
+        from DealerOrderAction a
+        where a.delFlag = 0 and a.userId =#{0} and a.orderId = #{1}
+        order by a.createTime
+    </select>
+
+    <select id="getDealerOrderActionList4Boss" parameterType="com.zttx.web.module.dealer.entity.DealerOrderAction" resultType="com.zttx.web.module.dealer.entity.DealerOrderAction">
+        select <include refid="dealerOrderActionColumns"/>
+        from DealerOrderAction a where  1 = 1 and a.delFlag = 0
+        <if test="createTime != null">
+            <![CDATA[  and a.createTime > #{createTime}  ]]>
+        </if>
+    </select>
+</mapper>
+

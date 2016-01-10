@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.JoinInfoMapper">
+    <!-- 基础列 -->
+    <sql id="joinInfoColumns">
+        a.refrenceId as refrenceId ,
+        a.userName as userName ,
+        a.userGender as userGender ,
+        a.userMail as userMail ,
+        a.userMobile as userMobile ,
+        a.userTelphone as userTelphone ,
+        a.userFax as userFax ,
+        a.areaNo as areaNo ,
+        a.joinMark as joinMark ,
+        a.joinType as joinType ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.JoinInfo">
+        insert into JoinInfo(
+         refrenceId ,
+         userName ,
+         userGender ,
+         userMail ,
+         userMobile ,
+         userTelphone ,
+         userFax ,
+         areaNo ,
+         joinMark ,
+         joinType ,
+         createTime ,
+         updateTime ,
+         createIp ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userName}  ,
+        #{userGender}  ,
+        #{userMail}  ,
+        #{userMobile}  ,
+        #{userTelphone}  ,
+        #{userFax}  ,
+        #{areaNo}  ,
+        #{joinMark}  ,
+        #{joinType}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{createIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from JoinInfo where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update JoinInfo set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.JoinInfo">
+        insert into JoinInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="userName != null">
+                userName ,
+            </if>
+            <if test="userGender != null">
+                userGender ,
+            </if>
+            <if test="userMail != null">
+                userMail ,
+            </if>
+            <if test="userMobile != null">
+                userMobile ,
+            </if>
+            <if test="userTelphone != null">
+                userTelphone ,
+            </if>
+            <if test="userFax != null">
+                userFax ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="joinMark != null">
+                joinMark ,
+            </if>
+            <if test="joinType != null">
+                joinType ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="userGender != null">
+                #{userGender} ,
+            </if>
+            <if test="userMail != null">
+                #{userMail} ,
+            </if>
+            <if test="userMobile != null">
+                #{userMobile} ,
+            </if>
+            <if test="userTelphone != null">
+                #{userTelphone} ,
+            </if>
+            <if test="userFax != null">
+                #{userFax} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="joinMark != null">
+                #{joinMark} ,
+            </if>
+            <if test="joinType != null">
+                #{joinType} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into JoinInfo(
+        refrenceId ,
+        userName ,
+        userGender ,
+        userMail ,
+        userMobile ,
+        userTelphone ,
+        userFax ,
+        areaNo ,
+        joinMark ,
+        joinType ,
+        createTime ,
+        updateTime ,
+        createIp ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.userName} ,
+            #{item.userGender} ,
+            #{item.userMail} ,
+            #{item.userMobile} ,
+            #{item.userTelphone} ,
+            #{item.userFax} ,
+            #{item.areaNo} ,
+            #{item.joinMark} ,
+            #{item.joinType} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.createIp} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.JoinInfo">
+        update JoinInfo
+        <set>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="userGender != null">
+                userGender = #{userGender} ,
+            </if>
+            <if test="userMail != null">
+                userMail = #{userMail} ,
+            </if>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="userTelphone != null">
+                userTelphone = #{userTelphone} ,
+            </if>
+            <if test="userFax != null">
+                userFax = #{userFax} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="joinMark != null">
+                joinMark = #{joinMark} ,
+            </if>
+            <if test="joinType != null">
+                joinType = #{joinType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update JoinInfo set
+            userName = #{item.userName} ,
+            userGender = #{item.userGender} ,
+            userMail = #{item.userMail} ,
+            userMobile = #{item.userMobile} ,
+            userTelphone = #{item.userTelphone} ,
+            userFax = #{item.userFax} ,
+            areaNo = #{item.areaNo} ,
+            joinMark = #{item.joinMark} ,
+            joinType = #{item.joinType} ,
+            createTime = #{item.createTime} ,
+            updateTime = #{item.updateTime} ,
+            createIp = #{item.createIp} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.JoinInfo">
+        update JoinInfo set
+            userName = #{userName} ,
+            userGender = #{userGender} ,
+            userMail = #{userMail} ,
+            userMobile = #{userMobile} ,
+            userTelphone = #{userTelphone} ,
+            userFax = #{userFax} ,
+            areaNo = #{areaNo} ,
+            joinMark = #{joinMark} ,
+            joinType = #{joinType} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            createIp = #{createIp} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.JoinInfo">
+        select
+        <include refid="joinInfoColumns"/>
+        from JoinInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.JoinInfo">
+        SELECT
+        <include refid="joinInfoColumns"/>
+        FROM JoinInfo a WHERE a.delFlag = 0
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="userGender != null and userGender != ''">
+            and a.userGender like CONCAT('%',#{userGender}, '%')
+        </if>
+        <if test="userMail != null and userMail != ''">
+            and a.userMail like CONCAT('%',#{userMail}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="userTelphone != null and userTelphone != ''">
+            and a.userTelphone like CONCAT('%',#{userTelphone}, '%')
+        </if>
+        <if test="userFax != null and userFax != ''">
+            and a.userFax like CONCAT('%',#{userFax}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="joinMark != null and joinMark != ''">
+            and a.joinMark like CONCAT('%',#{joinMark}, '%')
+        </if>
+        <if test="joinType != null and joinType != ''">
+            and a.joinType = #{joinType}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.JoinInfo">
+        SELECT
+        <include refid="joinInfoColumns"/>
+        FROM JoinInfo a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

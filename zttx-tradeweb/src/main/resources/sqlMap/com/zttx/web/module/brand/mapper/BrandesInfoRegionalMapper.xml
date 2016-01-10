@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandesInfoRegionalMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache" />
+    <!-- 基础列 -->
+    <sql id="brandesInfoRegionalColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandesId as brandesId ,
+        a.areaNo as areaNo ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        insert into BrandesInfoRegional(
+         refrenceId ,
+         brandId ,
+         brandesId ,
+         areaNo ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandesId}  ,
+        #{areaNo}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    
+    <!-- 批量添加品牌授权区域 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into BrandesInfoRegional(
+         refrenceId ,
+         brandId ,
+         brandesId ,
+         areaNo ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES 
+        <foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.refrenceId},#{item.brandId},#{item.brandesId},#{item.areaNo},#{item.createTime},#{item.updateTime},#{item.delFlag})  
+    	</foreach>
+    </insert>
+    
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandesInfoRegional where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandesInfoRegional set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+	<!-- 物理删除品牌下的所有授权区域 -->
+    <delete id="deleteBrandesInfoRegional" parameterType="java.lang.String">
+        delete from BrandesInfoRegional where brandesId=#{brandesId}
+    </delete>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        insert into BrandesInfoRegional
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandesId != null">
+            brandesId ,
+        </if>
+        <if test="areaNo != null">
+            areaNo ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandesId != null">
+            #{brandesId} ,
+        </if>
+        <if test="areaNo != null">
+            #{areaNo} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        update BrandesInfoRegional
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandesId != null">
+                brandesId = #{brandesId} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        update BrandesInfoRegional set
+            brandId = #{brandId} ,
+            brandesId = #{brandesId} ,
+            areaNo = #{areaNo} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        select <include refid="brandesInfoRegionalColumns"/> from BrandesInfoRegional a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        SELECT
+        <include refid="brandesInfoRegionalColumns"/>
+        FROM BrandesInfoRegional a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandesId != null and brandesId != ''">
+            and a.brandesId like CONCAT('%',#{brandesId}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+        SELECT
+        <include refid="brandesInfoRegionalColumns"/>
+        FROM BrandesInfoRegional a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="findByBrandsIdAndAreaNo" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandesInfoRegional">
+    	select  
+    		<include refid="brandesInfoRegionalColumns"/>
+    	from BrandesInfoRegional a 
+    	where 
+    		a.brandesId = #{brandsId} 
+    		and areaNo = #{areaNo}
+    </select>
+    
+    <!-- 根据区域编码 获取 该区域所有授权的产品ID -->
+    <select id="listProductIdByAreaNo" resultType="java.lang.String" parameterType="com.zttx.web.module.brand.model.BrandesInfoRegionalModel">
+        select distinct pbi.refrenceId from ProductBaseInfo pbi,ProductExtInfo pei, BrandesInfo bi,BrandesInfoRegional bir 
+        where pbi.refrenceId = pei.refrenceId and pbi.source = 0 and pbi.delFlag = 0 and pbi.stateSet = '1' 
+        and pbi.brandsId = bi.refrenceId and bi.brandState = 2 and bi.delState=0 and bi.refrenceId = bir.brandesId 
+        <if test="areaNo != null">
+        and bir.areaNo = #{areaNo} 
+        </if>
+        <if test="brandesId != null and brandesId != ''">
+        and bi.refrenceId=#{brandesId} 
+        </if>
+    </select>
+    
+    <!-- 获取品牌授权区域 -->
+    <select id="getBrandesInfoRegionalList" resultType="com.zttx.web.module.brand.entity.BrandesInfoRegional" parameterType="com.zttx.web.module.brand.model.BrandesInfoRegionalModel">
+        SELECT
+        <include refid="brandesInfoRegionalColumns"/>
+        FROM BrandesInfoRegional a WHERE a.delFlag = 0 
+        <if test="areaNo != null">
+        and a.areaNo = #{areaNo} 
+        </if>
+        <if test="brandesId != null and brandesId != ''">
+        and a.brandesId=#{brandesId} 
+        </if>
+        <if test="brandId != null and brandId != ''">
+        and a.brandId=#{brandId} 
+        </if>
+        order by a.areaNo asc
+    </select>
+</mapper>
+

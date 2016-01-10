@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+@import "form";
+
+//通用图片容器
+.common-img-area{
+    width: 530px;
+    height: 205px;
+    overflow: auto;
+    ul{
+        li{
+            width: 90px;
+            height: 90px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+//添加模块
+.add-mould{
+    height: 22px;
+    display: block;
+    line-height: 20px;
+    border:1px dashed #48a4cc;
+    background: #dff6ff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    .common-cover-edit{
+        top:0;
+        right: 0;
+    }
+}
+//编辑模式下样式
+.common-cover{
+    position: relative;
+    .common-cover-content{
+        top: 0;
+        left: 0;
+    }
+}
+.common-cover-mould{
+    position: relative;
+    .common-cover-content{
+        top: -1px;
+        left: -1px;
+    }
+}
+.common-cover-content{
+    //width: 1198px;
+    position: absolute;
+    background: url(../../../images/fronts/market/barbg.png) repeat;
+    border: #0BACFF 1px solid;
+    display: none;
+    z-index: 200;
+}
+
+.btn-group{
+    border-left: 1px solid #303030;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+//btn
+.btn{
+    display: inline-block;
+    *display: inline;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: "宋体"; /* Correct font family not being inherited in all browsers for <button> <input> */
+    font-weight: normal;
+    border: 1px solid #303030;
+    border-left: 0;
+    padding: 0 4px 0 20px;
+    *zoom: 1;
+    *overflow: visible;
+    background: #464646 url("../../../images/fronts/market/cover-btn-icons.png") no-repeat;
+    color: #fff;
+    &:active{
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        background: #a2a2a2 url("../../../images/fronts/market/cover-btn-icons.png") no-repeat;
+        text-decoration: none;
+        color: #fff;
+    }
+}
+.cover-btn-edit{
+    background-position: 2px -3px;
+    &:hover{
+        background-position: 2px -145px;
+    }
+}
+.cover-btn-delete{
+    background-position: 2px -30px;
+    &:hover{
+        background-position: 2px -172px;
+    }
+}
+.cover-btn-up{
+    padding: 0 8px;
+    background-position: center -60px;
+    &:hover{
+        background-position: center -202px;
+    }
+}
+.cover-btn-down{
+    padding: 0 8px;
+    background-position: center -90px;
+    &:hover{
+        background-position: center -232px;
+    }
+}
+.cover-btn-plus{
+    background-position: 2px -119px;
+    &:hover{
+        background-position: 2px -261px;
+    }
+}

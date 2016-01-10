@@ -1,0 +1,4 @@
+-- 20151027 DecorateHeaderLog.inbackUrl改为 inBackUrl
+
+ALTER TABLE `Zttx-Web-New`.`DecorateHeaderLog`
+  CHANGE `inbackUrl` `inBackUrl` VARCHAR(128) CHARSET utf8 COLLATE utf8_general_ci NULL  COMMENT '导航条背景地址';

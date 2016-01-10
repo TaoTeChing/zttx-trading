@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.RulesInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="rulesInfoColumns">
+        a.refrenceId as refrenceId,
+        a.cateId as cateId ,
+        a.articleTitle as articleTitle,
+        a.articleText as articleText,
+        a.domainName as domainName,
+        a.articleImage as articleImage,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.viewNum as viewNum,
+        a.delFlag as delFlag
+    </sql>
+    <sql id="extRulesInfoColumns">
+        a.refrenceId as refrenceId,
+        c.cateName as cateName,
+        a.cateId as cateId,
+        a.articleTitle as articleTitle,
+        a.articleText as articleText,
+        a.domainName as domainName,
+        a.articleImage as articleImage,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.viewNum as viewNum,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.RulesInfo">
+        INSERT INTO RulesInfo (
+            refrenceId,
+            cateId,
+            articleTitle,
+            articleText,
+            domainName,
+            articleImage,
+            createTime,
+            updateTime,
+            viewNum,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{cateId},
+            #{articleTitle},
+            #{articleText},
+            #{domainName},
+            #{articleImage},
+            #{createTime},
+            #{updateTime},
+            #{viewNum},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM RulesInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE RulesInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.RulesInfo">
+        insert into RulesInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="cateId != null">
+                cateId ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle ,
+            </if>
+            <if test="articleText != null">
+                articleText ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="articleImage != null">
+                articleImage ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="viewNum != null">
+                viewNum ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="cateId != null">
+                #{cateId} ,
+            </if>
+            <if test="articleTitle != null">
+                #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                #{articleImage} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.RulesInfo">
+        update RulesInfo
+        <set>
+            <if test="cateId != null">
+                cateId = #{cateId} ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle = #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                articleText = #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                articleImage = #{articleImage} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.RulesInfo">
+        UPDATE RulesInfo
+        SET
+            cateId       = #{cateId},
+            articleTitle = #{articleTitle},
+            articleText  = #{articleText},
+            domainName   = #{domainName},
+            articleImage = #{articleImage},
+            createTime   = #{createTime},
+            updateTime   = #{updateTime},
+            viewNum      = #{viewNum},
+            delFlag      = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        select
+        <include refid="rulesInfoColumns"/>
+        from RulesInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        FROM RulesInfo a WHERE a.delFlag = 0
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId = #{refrenceId}
+        </if>
+        <if test="articleTitle != null and articleTitle != ''">
+            and a.articleTitle like CONCAT('%',#{articleTitle}, '%')
+        </if>
+        <if test="articleText != null and articleText != ''">
+            and a.articleText like CONCAT('%',#{articleText}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="articleImage != null and articleImage != ''">
+            and a.articleImage like CONCAT('%',#{articleImage}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        FROM RulesInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findRulesToSolrCount" parameterType="com.zttx.web.module.fronts.entity.RulesInfo"
+            resultType="java.lang.Long">
+        SELECT count(a.refrenceId)
+        FROM RulesInfo a
+        WHERE a.delFlag = 0
+    </select>
+
+    <select id="findRulesToSolr" parameterType="map" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        FROM RulesInfo a WHERE a.delFlag = 0
+    </select>
+    <select id="getRulesInfoByCateKey" parameterType="map" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        FROM RulesInfo a
+        WHERE
+        (a.cateId = #{cateId} or a.cateId IN (SELECT b.refrenceId FROM RulesCate b WHERE b.parentId = #{cateId}))
+        AND a.delFlag = 0
+        order by a.createTime desc
+    </select>
+    <select id="getNewRulesInfo" parameterType="map" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        FROM RulesInfo a
+        where a.delFlag = 0
+        order by a.createTime desc
+    </select>
+    <select id="countArticleByCateId" resultType="java.lang.Integer">
+        SELECT count(1) FROM RulesInfo a WHERE a.cateId = #{cateId} AND a.delFlag = 0
+    </select>
+    <select id="selectByClient" resultType="com.zttx.web.module.fronts.entity.RulesInfo">
+        SELECT
+        <include refid="rulesInfoColumns"/>
+        ,b.cateName AS cateName
+        FROM
+        RulesInfo a LEFT JOIN RulesCate b
+        ON a.cateId = b.refrenceId
+        WHERE
+        a.delFlag = 0
+        <if test="searchBean.cateId != null and searchBean.cateId != ''">
+            and a.cateId = #{searchBean.cateId}
+        </if>
+        <if test="searchBean.articleTitle != null and searchBean.articleTitle != ''">
+            and a.articleTitle like CONCAT('%',#{searchBean.articleTitle}, '%')
+        </if>
+        <if test="searchBean.domainName != null and searchBean.domainName != ''">
+            and a.domainName like CONCAT('%',#{searchBean.domainName}, '%')
+        </if>
+        <choose>
+            <when test="searchBean.orderByCreateTime != '' and searchBean.orderByViewNum != ''">
+                order by a.createTime ${searchBean.orderByCreateTime},a.viewNum ${searchBean.orderByViewNum}
+            </when>
+            <when test="searchBean.orderByCreateTime != '' ">
+                order by a.createTime ${searchBean.orderByCreateTime}
+            </when>
+            <when test="searchBean.orderByViewNum != '' ">
+                order by a.viewNum ${searchBean.orderByViewNum}
+            </when>
+            <otherwise>
+                order by a.createTime desc
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
+

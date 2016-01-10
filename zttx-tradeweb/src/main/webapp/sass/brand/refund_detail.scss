@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+@import "button";
+@import "form";
+
+.main{
+    .inner{
+        background: #fff;
+    }
+}
+.flow-steps{
+    background: #F0F0F0;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    li{
+        width: 320px;
+    }
+}
+%common_table{
+    td,th{
+        padding: 8px;
+    }
+    td{
+        border-bottom: #eee solid 1px;
+    }
+    th{
+        background: #d7e8f7;
+        font-weight: normal;
+        color: #666;
+        text-align: left;
+    }
+    .odd{
+        td{
+            background: #f9f9f9;
+        }
+    }
+
+    .last{
+        border-right: none;
+    }
+    .link{
+        color: #0082cc;
+        &:hover{
+            color: #ff8800;
+        }
+    }
+}
+.refund_search{
+    font-size: 14px;
+    .ui-form{
+        padding-left: 20px;
+    }
+    .ui-form-item{
+        float: left;
+        padding-left: 0;
+        padding-bottom: 0;
+        margin: 10px 20px 0 0;
+    }
+    .ui-label{
+        margin-left: -100px;
+    }
+    .ui-select{
+        width: 230px;
+        height: 35px;
+        *height: auto;
+    }
+    .simple_button{
+        width: 95px;
+        height: 35px;
+        border-color: #e8e8e8;
+        padding:0;
+        line-height: 35px;
+        font: 14px "微软雅黑";
+    }
+    .ui-input{
+        height: 25px;
+    }
+}
+.refund_list{
+    margin-top: 15px;
+    background: #fff;
+    .list_table{
+        font-size: 14px;
+        @extend %common_table;
+        .status_1{
+            color: #cc0000;
+        }
+        .status_2{
+            color: #097b23;
+        }
+        .status_3{
+            color: #999;
+        }
+    }
+    .pagination{
+        padding: 10px 8px 10px 0;
+    }
+}
+.refund_detail{
+    .top{
+        overflow: hidden;
+        border-bottom: #ddd solid 1px;
+        border-top: #ddd solid 1px;
+    }
+    .left{
+        min-height: 200px;
+        _height: 200px;
+        border-right: #ddd solid 1px;
+        width: 240px;
+        float: left;
+        display: inline;
+        _margin-right: -3px;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        h3{
+            height: 45px;
+            line-height: 45px;
+            padding-left: 20px;
+            border-bottom: #ddd solid 1px;
+            color: #666;
+            font-size: 14px;
+            background: #fbfbf8;
+        }
+        .refund_info, .order_info, .refund_dealer{
+            padding-bottom: 15px;
+            font-size: 14px;
+            p{
+              margin: 18px 20px 0 20px;
+            }
+            label{
+                display: inline-block;
+                color: #666;
+            }
+            .num{
+                color: #0082cc;
+            }
+            .price{
+                color: #cc0000;
+                font-weight: bold;
+                font-family: "Arial";
+            }
+        }
+        .refund_info{
+            border-bottom: #ddd solid 1px;
+        }
+    }
+    .detail_box{
+         margin-left: 240px;
+        .handle_refund{
+            margin: 28px 0 0 70px;
+            padding-bottom: 20px;
+            h3{
+                font: 24px "微软雅黑";
+                margin-bottom: 10px;
+            }
+            .price,.time{
+                color: #cc0000;
+                font-family: Arial;
+            }
+            .explain{
+                font: 18px "微软雅黑";
+            }
+            .detail{
+                margin-top: 15px;
+                .item{
+                    margin-bottom: 8px;
+                }
+                .item-remind{
+                    margin-left: 91px;
+                    line-height: 28px;
+                }
+                label{
+                    display: inline-block;
+                    width:85px;
+                    text-align: right;
+                    color: #666;
+                    vertical-align: top;
+                }
+                .img_contain{
+                    width: 110px;
+                    height: 110px;
+                    border: #d9d9d9 solid 1px;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                    margin-right: 10px;
+                    vertical-align: top;
+                }
+                .operation{
+                    margin: 15px 0 0 92px;
+                }
+                .ui-input{
+                    border: 1px solid #C1C1C1;
+                    color: #595959;
+                    font-size: 12px;
+                    height: 20px;
+                    padding: 4px;
+                    line-height:20px \9;
+                    *line-height:20px;
+                }
+                .ui-textarea{
+                    padding: 4px;
+                    height: 40px;
+                    width: 520px;
+                    border: #D9D9D9 solid 1px;
+                }
+                .ui_button{
+                    width: 72px;
+                }
+                .return_address{
+                    input[disabled],input{
+                        border-color: #fff;
+                        background: #fff;
+                    }
+                    .link{
+                        color: #0082cc;
+                        &:hover{
+                            color: #ff8800;
+                        }
+                    }
+                }
+            }
+        }
+        .tips{
+            height: 30px;
+            line-height: 30px;
+            padding-left: 10px;
+            background: #FF5A54;
+            color: #fff;
+        }
+        .status_contain{
+            margin: 78px 0 0 80px;
+            .iconfont{
+                float: left;
+                display: inline;
+                font-size: 32px;
+                margin-right: 10px;
+                _margin-right: 7px;
+            }
+            .agree_icon{
+                color: #87c749;
+            }
+            .refusal_icon{
+                color: #dc5959;
+            }
+            .clock_icon{
+                color: #ff8800;
+            }
+            .info{
+                width: 454px;
+                overflow: hidden;
+                zoom: 1;
+                h3{
+                    font: 24px "微软雅黑";
+                    margin-top: 5px;
+                }
+                .explain{
+                    font: 18px "微软雅黑";
+                    strong{
+                        color: #cc0000;
+                        font-family: "Arial";
+                    }
+                }
+                .ui-input {
+                    border: 1px solid #C1C1C1;
+                    color: #595959;
+                    font-size: 12px;
+                    height: 20px;
+                    padding: 4px;
+                }
+            }
+            .address{
+                label{
+                    color: #666;
+                }
+            }
+            .other{
+                strong{
+                    color: #cc0000;
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+    .bottom{
+        min-height: 70px;
+        _height: 70px;
+        line-height: 30px;
+        font-size: 14px;
+        padding: 10px;
+        color: #000;
+        .time{
+            float: left;
+            display: inline;
+            margin: 0 8px 0 20px;
+            span{
+                color: #ff0000;
+            }
+        }
+        .info{
+            overflow: hidden;
+            zoom: 1;
+            .item{
+                margin-bottom: 8px;
+            }
+        }
+        label{
+            display: inline-block;
+            width: 60px;
+            text-align: right;
+            color: #666;
+            vertical-align: top;
+        }
+        .img_contain{
+            width: 110px;
+            height: 110px;
+            border: #d9d9d9 solid 1px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+        .c-r{
+            color:#cc0000;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+﻿@charset "UTF-8";
+//alice补丁
+input {
+
+    &.ui-checkbox {
+        vertical-align: -2px;
+    }
+
+    &.ui-radio {
+        vertical-align: -2px;
+    }
+
+    &.ui-input {
+        border: 1px solid #ddd;
+        border-top: 1px solid #bbb;
+
+        &:focus {
+            background-color: #fefef4;
+        }
+    }
+
+    &.search {
+        background: url(/images/dealer/icons-input.gif) no-repeat 97% -163px;
+    }
+
+    &.search-l {
+        background: url(/images/dealer/icons-input.gif) no-repeat 0 -163px;
+    }
+
+    &.date {
+        background: url(/images/dealer/icons-input.gif) no-repeat 3px -127px;
+    }
+}
+
+select.ui-select {
+    border: 1px solid #ddd;
+    border-top-color: #ddd;
+}
+
+.search-form{
+  .ui-input{
+    height:14px;
+    padding:6px 9px;
+  }
+}
+
+button.ui-button-lred,
+button.ui-button-mred,
+button.ui-button-sred,
+button.ui-button-lblue,
+button.ui-button-mblue,
+button.ui-button-sblue,
+button.ui-button-lgreen,
+button.ui-button-mgreen,
+button.ui-button-sgreen,
+button.ui-button-lorange,
+button.ui-button-morange,
+button.ui-button-sorange,
+button.ui-button-lwhite,
+button.ui-button-mwhite,
+button.ui-button-swhite,
+input.ui-button-lred,
+input.ui-button-mred,
+input.ui-button-sred,
+input.ui-button-lblue,
+input.ui-button-mblue,
+input.ui-button-sblue,
+input.ui-button-lgreen,
+input.ui-button-mgreen,
+input.ui-button-sgreen,
+input.ui-button-lorange,
+input.ui-button-morange,
+input.ui-button-sorange,
+input.ui-button-lwhite,
+input.ui-button-mwhite,
+input.ui-button-swhite,
+{
+  line-height: inherit;
+}

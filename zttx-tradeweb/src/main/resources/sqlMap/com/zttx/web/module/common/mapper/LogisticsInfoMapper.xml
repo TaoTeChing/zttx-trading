@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.LogisticsInfoMapper">
+    <!-- 基础列 -->
+    <sql id="logisticsInfoColumns">
+        a.refrenceId as refrenceId ,
+        a.nu as nu ,
+        a.com as com ,
+        a.status as status ,
+        a.state as state ,
+        a.data as data ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.LogisticsInfo">
+        insert into LogisticsInfo(
+         refrenceId ,
+         nu ,
+         com ,
+         status ,
+         state ,
+         data ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{nu}  ,
+        #{com}  ,
+        #{status}  ,
+        #{state}  ,
+        #{data}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from LogisticsInfo where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update LogisticsInfo set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.LogisticsInfo">
+        insert into LogisticsInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="nu != null">
+            nu ,
+        </if>
+        <if test="com != null">
+            com ,
+        </if>
+        <if test="status != null">
+            status ,
+        </if>
+        <if test="state != null">
+            state ,
+        </if>
+        <if test="data != null">
+            data ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="nu != null">
+            #{nu} ,
+        </if>
+        <if test="com != null">
+            #{com} ,
+        </if>
+        <if test="status != null">
+            #{status} ,
+        </if>
+        <if test="state != null">
+            #{state} ,
+        </if>
+        <if test="data != null">
+            #{data} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.LogisticsInfo">
+        update LogisticsInfo
+           <set>
+            <if test="nu != null">
+                nu = #{nu} ,
+            </if>
+            <if test="com != null">
+                com = #{com} ,
+            </if>
+            <if test="status != null">
+                status = #{status} ,
+            </if>
+            <if test="state != null">
+                state = #{state} ,
+            </if>
+            <if test="data != null">
+                data = #{data} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.LogisticsInfo">
+        update LogisticsInfo set
+            nu = #{nu} ,
+            com = #{com} ,
+            status = #{status} ,
+            state = #{state} ,
+            data = #{data} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.LogisticsInfo">
+        select <include refid="logisticsInfoColumns"/> from LogisticsInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.LogisticsInfo">
+        SELECT
+        <include refid="logisticsInfoColumns"/>
+        FROM LogisticsInfo a WHERE a.delFlag = 0
+        <if test="nu != null and nu != ''">
+            and a.nu like CONCAT('%',#{nu}, '%')
+        </if>
+        <if test="com != null and com != ''">
+            and a.com like CONCAT('%',#{com}, '%')
+        </if>
+        <if test="status != null and status != ''">
+            and a.status = #{status}
+        </if>
+        <if test="state != null and state != ''">
+            and a.state = #{state}
+        </if>
+        <if test="data != null and data != ''">
+            and a.data like CONCAT('%',#{data}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.LogisticsInfo">
+        SELECT
+        <include refid="logisticsInfoColumns"/>
+        FROM LogisticsInfo a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

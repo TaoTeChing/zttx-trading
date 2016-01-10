@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+
+.thumbImage {max-width:180px;max-height:180px;}
+*html.thumbImage{
+	width:expression(this.width>180&&this.width>this.height?180:auto);
+	height:expression(this.height>180?180:auto);
+	}

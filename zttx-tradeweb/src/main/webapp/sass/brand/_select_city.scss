@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import "../mixin";
+//品牌商 城市多选样式
+.ts-select-city{
+    width: 768px;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    .title{
+        height: 30px;
+        background: #E4ECF7;
+        line-height: 30px;
+        text-indent: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    .ts-sc-content{
+        padding: 5px 5px 5px 90px;
+        border-bottom: 1px solid #ddd;
+    }
+    .province-box{
+        @include float();
+        width: 153px;
+        margin-top: 7px;
+        position: relative;
+        color: #666;
+    }
+    .province{
+        height: 20px;
+        padding: 2px 5px 5px 5px;
+        border: 1px solid #fff;
+        margin-right: 5px;
+    }
+    .city-box{
+        @include clearfix;
+        width: 370px;
+        position: absolute;
+        top:27px;
+        left: 0px;
+        background: #fefef4;
+        display: none;
+        border: 1px solid #f9b552;
+        z-index: 1;
+        label{
+            @include float();
+            padding: 5px;
+            white-space: nowrap;/*IE7换行的问题*/
+        }
+    }
+    .hover{
+        .province{
+            background: #fefef4;
+            border: 1px solid #f9b552;
+            border-bottom: 1px solid #fefef4;
+            position: relative;
+            z-index: 9;
+        }
+        .city-box{
+            display: block;
+        }
+    }
+    .num{
+        color: #b20000;
+    }
+}

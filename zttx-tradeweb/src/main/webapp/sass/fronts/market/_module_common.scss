@@ -1,0 +1,135 @@
+@charset "UTF-8";
+.common-content-padding{
+    padding:10px 20px;
+}
+/*.do-body{
+    width: 1200px;
+    margin:0 auto;
+    padding: 10px 0;
+}*/
+/*.common-area{//通用布局
+    border: 1px solid #ddd;
+    .common-head{
+        height: 40px;
+        border-bottom: 1px solid #ddd;
+        line-height: 40px;
+        h3{
+            font-weight: bold;
+            text-indent: 10px;
+        }
+    }
+    .common-content{
+        .common-content-padding{
+            padding:10px 20px;
+        }
+    }
+}*/
+//右侧固定导航
+/*.common-scroll{
+    display: block;
+    position: fixed;
+    width: 100px;
+    background: #666;
+    left:50%;
+    margin-left: 610px;
+    top:149px;
+    z-index: 999;
+    li{
+        padding-left: 10px;
+        line-height: 30px;
+    }
+    a{
+        display: block;
+        color: #fff;
+    }
+    .selected{
+        background: #ff8800;
+    }
+}*/
+//底部快捷导航
+/*.quick-bar{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    color: #fff;
+    .quick-bar-bg{
+        width: 100%;
+        height: 30px;
+        background: #000;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .quick-bar-bd{
+        width: 1200px;
+        margin: 0 auto;
+        z-index: 3;
+        position: relative;
+    }
+    a{
+        color: #fff;
+    }
+    .quick-bar-logo{
+        img{
+            margin-top: -75px;
+        }
+    }
+    .quick-bar-name{
+        position: relative;
+        margin-left: 10px;
+        h3{
+            margin-right: 5px;
+        }
+    }
+    .quick-bar-datil{
+        margin-left: 40px;
+        span{
+            margin-right: 5px;
+        }
+        em{
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    }
+    .quick-bar-message{
+        .submit-message{
+            margin-right: 10px;
+            position: relative;
+            top: -5px;
+            font-weight: bold;
+        }
+        .submit-apply{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            text-align: center;
+            font-size: 16px;
+            position: relative;
+            top: -10px;
+            background: #cc0000;
+        }
+    }
+    .quick-bar-info{
+        width: 1090px;
+        position: absolute;
+        top:0;
+        left: 110px;
+        background: #000;
+        opacity: 0.5;
+        display: none;
+        z-index: 0;
+        p{
+            padding: 0 10px;
+        }
+    }
+}*/

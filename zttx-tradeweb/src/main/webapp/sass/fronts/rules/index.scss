@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+@import "../common/base";
+@import "_header";
+@import "../common/_footer";
+
+body{
+  background: #FFF;
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+a:focus{
+  outline:none;-moz-outline:none;
+}
+img{
+  vertical-align: top;
+}
+.column3-1{
+  width:300px;
+  margin-right:10px;
+}
+.column3-2{
+  width:580px;
+}
+.column3-3{
+  width:300px;
+}
+.column2-1{
+  width:595px;
+}
+.column2-2{
+  width:595px;
+}
+
+.ui-box{
+  border:1px solid #DDD;
+  background: #FFF;
+}
+.lists{
+  padding:10px 20px;
+  _padding:9px 20px;
+  li{
+    padding-left: 10px;
+    background: url(/images/school/dot.gif) 2px center no-repeat;
+    height: 28px;
+    line-height: 28px;
+    a{
+      display: block;
+      width:248px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:hover{
+        color:#0082cc;
+      }
+    }
+  }
+}
+.column1-1 .lists li{
+  float: left;margin-right:16px;*display: inline;*zoom:1;
+  a{
+    width:360px;
+  }
+}
+.general-manage .ui-contanier{
+  padding:10px 7px;
+  border:0;
+  h3{
+    padding-left:5px;
+    padding-bottom:5px;
+    a{
+      color:#e70012;
+      font-weight: bold;
+    }
+  }
+  dl{
+    padding:0 27px 10px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    dt{
+      height: 28px;
+      line-height: 28px;
+      color:#FF9600;
+      a{
+        color:#ff9600;
+      }
+    }
+    dd{
+      word-break: break-all;
+      line-height: 30px;
+      span{
+        color:#666;
+        font-weight: bold;
+      }
+      a{
+        cursor: default;
+      }
+    }
+  }
+  .btns{
+    text-align: center;
+    padding:7px 0;
+    a{
+      display: inline-block;
+      height: 35px;
+      width:120px;
+      text-align: center;
+      line-height: 35px;
+      background: #cc0000;
+      font-size: 14px;
+      font-family: "微软雅黑";
+      color:#FFF;
+      border-radius: 4px;
+      &:hover{
+        background: #b10000;
+      }
+    }
+  }
+}
+.column3-2 .service{
+  position: relative;
+  height: 146px;
+  padding-top:10px;
+  width:100%;
+  overflow: hidden;
+  .img{
+    width:161px;
+    height: 126px;
+    overflow: hidden;
+    position: absolute;
+    top:10px;
+    left:10px;
+  }
+  .content{
+    margin-left:185px;
+    margin-right:30px;
+    p{
+      word-break: break-all;
+      line-height: 24px;
+      text-indent: 24px;
+      color:#666;
+    }
+  }
+}
+
+/*招商管理细则*/
+.process{
+  margin-top:10px;
+  .title{
+    float:left;
+    height: 90px;
+    width:171px;
+    background: #a79d90;
+    text-align: center;
+    margin-left:1px;
+    .z-ch{
+      color:#FFF;
+      font-size: 18px;
+      font-family: "微软雅黑";
+      margin-top:15px;
+    }
+    .ens{
+      color:#FFF;
+      font-size: 10px;
+      font-family: Arial;
+      padding:0 30px;
+    }
+  }
+  dl{
+    height: 78px;
+    float:left;
+    padding-top:12px;
+    padding-left:35px;
+    background: #eeeeee url(/images/rules/left-arrow-b.png) 0 top repeat-x;
+  }
+  dd{
+    float:left;
+    height: 78px;
+    text-align: center;
+    width:41px;
+    padding-right:36px;
+    background: url(/images/rules/left-arrow.png) 50px center no-repeat;
+    div{
+      color:#333;
+      font-size: 14px;
+      line-height: 22px;
+      font-family: "微软雅黑";
+    }
+    .step{
+      color:#999;
+      font-size:12px;
+    }
+  }
+  .last-step{
+    background: none;
+  }
+}
+.articles{
+  padding:10px 15px;
+  .list{
+    h3{
+      padding-left:15px;
+      width:545px;
+      height: 30px;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background: url(/images/school/dot.gif) 0 center no-repeat;
+      a{
+        font-weight: bold;
+        color:#666;
+        &:hover{
+          color:#0082cc;
+        }
+      }
+    }
+    p{
+      width:550px;
+      height: 30px;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      a{
+        color:#666;
+        &:hover{
+          color:#0082cc;
+        }
+      }
+    }
+  }
+}
+/*通用头部*/
+.common-tit {
+  font-family: "微软雅黑"; height: 48px;line-height: 48px;margin-bottom: 14px;position: relative;border-bottom:1px solid #E5E5E5;margin:0 10px;overflow: hidden;
+  .tit {
+    height: 46px; border-bottom:2px solid #B10000;color: #7A7A7A;display: inline-block;float: left;font-family: "微软雅黑";font-size: 16px;margin-left: 16px;padding-left: 10px; padding-right: 5px;
+  }
+  .detail {
+    display: inline-block;float: right;margin-right: 14px;
+    .more {
+      background: url("/images/school/icon-linkMore.png") no-repeat; display: inline-block;height: 16px;margin-top: 18px; width: 25px;
+      &:hover{
+        background-position: 0 -16px;
+      }
+    }
+  }
+}

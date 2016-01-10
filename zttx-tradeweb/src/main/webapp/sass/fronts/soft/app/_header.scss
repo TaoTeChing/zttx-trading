@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*头部*/
+.header{
+  height: 80px;
+  width: 100%;
+  background: #FFF;
+  font-family: "microsoft yahei";
+  box-shadow: 0 0 10px 0 #ccc;
+  .header-bd{
+    width:1000px;
+    margin:0 auto;
+    height: 80px;
+    .logo{
+      height: 80px;
+      line-height: 80px;
+      _height:65px;
+      _line-height:65px;
+      _margin-top:8px;
+    }
+  }
+  .product{
+    font-size: 25px;
+    font-weight: bold;
+    vertical-align: top;
+    *vertical-align: middle;
+    margin-left:5px;
+    margin-right: 10px;
+    color:#333;
+  }
+  .descript{
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-left:1px solid #a9a9a9;
+    padding-left:10px;
+    font-size: 14px;
+    color:#333;
+  }
+  .nav{
+    height: 80px;
+    line-height: 80px;
+    .download-btn{
+      width:155px;
+      height: 42px;
+      display: none;
+      _display:inline-block;
+      _margin-top:18px;
+      background: url("/images/soft/app/button-small.png");
+      vertical-align: middle;
+      margin-right: 5px;
+      text-decoration:none;
+
+      i{
+        display: inline-block;
+        width: 27px;
+        height: 42px;
+        vertical-align: top;
+        margin-left:16px;
+      }
+      .apple{
+        background: url("/images/soft/app/iphone-black.png") 0 center no-repeat;
+      }
+      .android{
+        background: url("/images/soft/app/android-black.png") 0 center no-repeat;
+      }
+    }
+    .hardware{
+      display: inline-block;
+      vertical-align: top;
+      margin-top: 6px;
+      span{
+        display: block;
+        line-height: 16px;
+        font-size: 13.66px;
+      }
+      .version{
+        font-size: 8.69px;
+      }
+    }
+    .link{
+      display: inline-block;
+      height: 31px;
+      line-height: 31px;
+      width: 116px;
+      text-align: center;
+      border:2px solid #e25353;
+      font-size: 14px;
+      color:#fff;
+      vertical-align: middle;
+      margin-top:3px;
+      _margin-top:20px;
+      background: #e25353;
+      text-decoration:none;
+      transition:0.3s;
+
+      &:hover{
+        background: #fff;
+        color:#e25353;
+      }
+
+    }
+    .green{
+      background: #fff;
+      border:2px solid #69ad49;
+      color:#69ad49;
+      &:hover{
+        background: #69ad49;
+        color:#FFF;
+      }
+    }
+  }
+}
+.fixed{
+  position: fixed;
+  box-shadow: 0 0 10px 0 #ccc;
+
+  top:0;
+  z-index: 20;
+  //background: rgba(255, 255, 255, 0.5);
+  .nav .download-btn{
+    display: inline-block;
+    color:#333;
+  }
+}

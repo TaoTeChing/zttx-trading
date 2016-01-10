@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.exhibition.mapper.DecorateGlobalMapper">
+    <!-- 基础列 -->
+    <sql id="decorateGlobalColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.fontCcolor as fontCcolor ,
+        a.urlFontColor as urlFontColor ,
+        a.urlChangeColor as urlChangeColor ,
+        a.backColor as backColor ,
+        a.showBackColor as showBackColor ,
+        a.backUrl as backUrl ,
+        a.showBackUrl as showBackUrl ,
+        a.backRepeat as backRepeat ,
+        a.backPosition as backPosition ,
+        a.skinName as skinName ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        insert into DecorateGlobal(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         fontCcolor ,
+         urlFontColor ,
+         urlChangeColor ,
+         backColor ,
+         showBackColor ,
+         backUrl ,
+         showBackUrl ,
+         backRepeat ,
+         backPosition ,
+         skinName ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{fontCcolor}  ,
+        #{urlFontColor}  ,
+        #{urlChangeColor}  ,
+        #{backColor}  ,
+        #{showBackColor}  ,
+        #{backUrl}  ,
+        #{showBackUrl}  ,
+        #{backRepeat}  ,
+        #{backPosition}  ,
+        #{skinName}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        update DecorateGlobal set delFlag = true where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DecorateGlobal set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        insert into DecorateGlobal
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="fontCcolor != null">
+            fontCcolor ,
+        </if>
+        <if test="urlFontColor != null">
+            urlFontColor ,
+        </if>
+        <if test="urlChangeColor != null">
+            urlChangeColor ,
+        </if>
+        <if test="backColor != null">
+            backColor ,
+        </if>
+        <if test="showBackColor != null">
+            showBackColor ,
+        </if>
+        <if test="backUrl != null">
+            backUrl ,
+        </if>
+        <if test="showBackUrl != null">
+            showBackUrl ,
+        </if>
+        <if test="backRepeat != null">
+            backRepeat ,
+        </if>
+        <if test="backPosition != null">
+            backPosition ,
+        </if>
+        <if test="skinName != null">
+            skinName ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="fontCcolor != null">
+            #{fontCcolor} ,
+        </if>
+        <if test="urlFontColor != null">
+            #{urlFontColor} ,
+        </if>
+        <if test="urlChangeColor != null">
+            #{urlChangeColor} ,
+        </if>
+        <if test="backColor != null">
+            #{backColor} ,
+        </if>
+        <if test="showBackColor != null">
+            #{showBackColor} ,
+        </if>
+        <if test="backUrl != null">
+            #{backUrl} ,
+        </if>
+        <if test="showBackUrl != null">
+            #{showBackUrl} ,
+        </if>
+        <if test="backRepeat != null">
+            #{backRepeat} ,
+        </if>
+        <if test="backPosition != null">
+            #{backPosition} ,
+        </if>
+        <if test="skinName != null">
+            #{skinName} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        update DecorateGlobal
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="fontCcolor != null">
+                fontCcolor = #{fontCcolor} ,
+            </if>
+            <if test="urlFontColor != null">
+                urlFontColor = #{urlFontColor} ,
+            </if>
+            <if test="urlChangeColor != null">
+                urlChangeColor = #{urlChangeColor} ,
+            </if>
+            <if test="backColor != null">
+                backColor = #{backColor} ,
+            </if>
+            <if test="showBackColor != null">
+                showBackColor = #{showBackColor} ,
+            </if>
+            <if test="backUrl != null">
+                backUrl = #{backUrl} ,
+            </if>
+            <if test="showBackUrl != null">
+                showBackUrl = #{showBackUrl} ,
+            </if>
+            <if test="backRepeat != null">
+                backRepeat = #{backRepeat} ,
+            </if>
+            <if test="backPosition != null">
+                backPosition = #{backPosition} ,
+            </if>
+            <if test="skinName != null">
+                skinName = #{skinName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        update DecorateGlobal set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            fontCcolor = #{fontCcolor} ,
+            urlFontColor = #{urlFontColor} ,
+            urlChangeColor = #{urlChangeColor} ,
+            backColor = #{backColor} ,
+            showBackColor = #{showBackColor} ,
+            backUrl = #{backUrl} ,
+            showBackUrl = #{showBackUrl} ,
+            backRepeat = #{backRepeat} ,
+            backPosition = #{backPosition} ,
+            skinName = #{skinName} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        select <include refid="decorateGlobalColumns"/> from DecorateGlobal a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        SELECT
+        <include refid="decorateGlobalColumns"/>
+        FROM DecorateGlobal a WHERE a.delFlag = FALSE
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="fontCcolor != null and fontCcolor != ''">
+            and a.fontCcolor like CONCAT('%',#{fontCcolor}, '%')
+        </if>
+        <if test="urlFontColor != null and urlFontColor != ''">
+            and a.urlFontColor like CONCAT('%',#{urlFontColor}, '%')
+        </if>
+        <if test="urlChangeColor != null and urlChangeColor != ''">
+            and a.urlChangeColor like CONCAT('%',#{urlChangeColor}, '%')
+        </if>
+        <if test="backColor != null and backColor != ''">
+            and a.backColor like CONCAT('%',#{backColor}, '%')
+        </if>
+        <if test="showBackColor != null and showBackColor != ''">
+            and a.showBackColor = #{showBackColor}
+        </if>
+        <if test="backUrl != null and backUrl != ''">
+            and a.backUrl like CONCAT('%',#{backUrl}, '%')
+        </if>
+        <if test="showBackUrl != null and showBackUrl != ''">
+            and a.showBackUrl = #{showBackUrl}
+        </if>
+        <if test="backRepeat != null and backRepeat != ''">
+            and a.backRepeat like CONCAT('%',#{backRepeat}, '%')
+        </if>
+        <if test="backPosition != null and backPosition != ''">
+            and a.backPosition like CONCAT('%',#{backPosition}, '%')
+        </if>
+        <if test="skinName != null and skinName != ''">
+            and a.skinName like CONCAT('%',#{skinName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+        SELECT
+        <include refid="decorateGlobalColumns"/>
+        FROM DecorateGlobal a WHERE a.delFlag = FALSE
+    </select>
+    
+    <select id="findByBrandIdAndBrandsId" parameterType="map" resultType="com.zttx.web.module.exhibition.entity.DecorateGlobal">
+    	SELECT
+        <include refid="decorateGlobalColumns"/>
+        FROM DecorateGlobal a 
+        WHERE 
+        	a.delFlag = FALSE
+        	and brandId=#{brandId}
+        	and brandsId=#{brandsId}
+    </select>
+</mapper>
+

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <description>天下商邦科技股份有限公司-8637品牌超级代理服务平台</description>
+    <display-name>
+        技术架构：SpringMVC3.2.6+Spring3.2.6+Mybatis3+Memcached1.4.17+JQuery+MySQL5.5.35+Tomcat7.0.50
+    </display-name>
+    <!-- context-param -->
+    <context-param>
+        <description>Spring配置文件位置定义</description>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:spring.xml,
+            classpath:spring-jedis.xml,
+            classpath:spring-mybatis.xml,
+            classpath:spring-shiro.xml,
+            classpath:spring-pay-remoting.xml,
+            classpath*:spring-solr.xml,
+            classpath*:spring-provider.xml,
+            classpath*:spring-quartz.xml,
+            classpath*:spring-consumer.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <description>定义log4j配置文件路径</description>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>production</param-value>
+    </context-param>
+
+    <!-- 字符编码强制转换 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <description>字符集编码</description>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Apache Shiro -->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <description>交易平台会话ID管理</description>
+        <filter-name>sessionFilter</filter-name>
+        <filter-class>com.zttx.web.filter.SessionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>sessionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- listener -->
+    <listener>
+        <description>log4j监听器</description>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <listener>
+        <description>Spring监听器</description>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <description>Spring防止内存溢出监听器</description>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/styles/*</url-pattern>
+        <url-pattern>/images/*</url-pattern>
+        <url-pattern>/scripts/*</url-pattern>
+        <url-pattern>/video/*</url-pattern>
+        <url-pattern>/temp/*</url-pattern>
+        <url-pattern>/upload/*</url-pattern>
+        <url-pattern>/uploads/*</url-pattern>
+        <url-pattern>/fonts/*</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <description>SpringMVC控制器</description>
+        <servlet-name>springMvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <description>spring mvc 配置文件</description>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>springMvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <description>Druid数据库连接池状态监控</description>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+    <!-- welcome-file -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <!--error-page-->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error/500</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500</location>
+    </error-page>
+
+    <jsp-config>
+        <jsp-property-group>
+            <!-- 所有jsp页面指令去除空行 by 夏铭 -->
+            <url-pattern>*.jsp</url-pattern>
+            <trim-directive-whitespaces>true</trim-directive-whitespaces>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

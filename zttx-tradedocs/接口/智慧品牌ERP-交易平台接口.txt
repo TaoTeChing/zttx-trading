@@ -1,0 +1,30 @@
+zttx.api.applyOrInvite.url = /client/brandInvite/applyOrInvite               --------------------BrandInviteDubboService.applyOrInvite
+zttx.api.brandesInfo.url = /client/brandesInfo/getBrandesInfos                 ---------------------BrandsDubboService.queryBrandesInfosList
+zttx.api.dealerInfos.url = /client/dealerInfo/dealerInfos                        --------------------DealerInfoDubboService.queryDealerInfosList
+zttx.api.dealerGrooms.url = /client/dealerGroom/dealerGrooms                      --------------------DealerGroomDubboService.queryDealerGrooms
+zttx.api.dealerInfonoRelation.url = /client/dealerInfo/dealerInfo_noRelation   -----------------------DealerInfoDubboService.queryDealerInfosNoRelationList
+zttx.api.brandCount.url = /client/brandCount/list_brand_erp                    ------------------------BrandsCountDubboService.queryBrandCountList
+zttx.api.dealerClass.url = /client/dealerClass/dealerClass_brand_erp           ------------------------DealerClassDubboService.queryDealerClassList
+zttx.api.dealDic.url = /client/dealDic/listDealDic_erp                          -------------------------DealDicDubboService.queryDealDicList
+zttx.api.dealerImagebanderp.url = /client/dealerImage/dealerImage_band_erp      -------------------------DealerImageDubboService.queryDealerImagesList
+zttx.api.agreeApply.url = /client/brandInvite/agreeApply                        -------------------------BrandInviteDubboService.agreeApply
+zttx.api.refuseDealer.url = /client/brandInvite/refuseDealer                   ---------------------------BrandInviteDubboService.refuseDealer
+zttx.api.inviteJoin.url = /client/brandInvite/inviteJoin_brand_erp             ---------------------------BrandInviteDubboService.inviteJoinBrandErp
+zttx.api.removeApply.url = /client/brandInvite/removeApply                      -------------------------BrandInviteDubboService.removeApply
+zttx.api.discontinueDealer.url = /client/brandInvite/discontinueDealer          -------------------------BrandInviteDubboService.discontinueDealer
+zttx.api.brandsViewContactList.url=/client/brandsViewContact/list_brand_erp    --------------------------BrandViewContactDubboService.queryBrandViewContactsList
+zttx.api.brandsViewContactAdd.url = /client/brandsViewContact/add_brand_erp   ---------------------------BrandViewContactDubboService.addBrandViewContact
+zttx.api.syn.sendproduct =/client/orders/ordersAsk_brand_erp                   --------------------DealerOrderDubboService.ordersAskBrandErp
+
+
+
+<!-- *********************** dubbo�ӿ� ************************** -->
+<!-- ����ƽ̨�����ӿ� -->
+com.zttx.web.module.dealer.service.DealerOrderService   ����  PaginateResult<Map<String, Object>> getDealerOrderList(Pagination pagination, DealerOrder dealerOrder)
+<!-- ����ƽ̨������ӿ� -->
+com.zttx.web.module.dealer.service.DealerOrdersService   ����  PaginateResult<Map<String, Object>> getDealerOrders(Pagination pagination, DealerOrders dealerOrders);
+<!-- ����ƽ̨Ʒ�ƽӿ� -->
+com.zttx.web.module.brand.service.BrandesInfoService     ����   BrandesInfo loadById(String uuid);
+    
+
+

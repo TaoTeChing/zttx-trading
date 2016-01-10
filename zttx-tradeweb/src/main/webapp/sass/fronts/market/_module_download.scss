@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+.downbody{
+    border-bottom:1px #ddd solid;
+    overflow:hidden;
+    padding:10px 5px;
+    h2.title{
+        font-size:14px;
+        padding:0 0 10px 0;
+        font-family: "Microsoft yahei";
+    }
+    h2{
+        span{
+            font-weight:400;
+            font-size:12px;
+            padding:0 0 0 15px;
+        }
+        .whole{
+            color:#00cc33;
+        }
+        .auth{
+            color:#999;
+        }
+    }
+    .des{
+        color:#666;
+        padding:10px 0;
+        line-height:23px;
+    }
+    .button{
+        display:block;
+        float:left;
+        margin:0 8px 0 0;
+        width:76px;
+        height:23px;
+        line-height:23px;
+        background:#c2dbfc;
+        text-align:center;
+        color:#0066cc;
+    }
+}
+

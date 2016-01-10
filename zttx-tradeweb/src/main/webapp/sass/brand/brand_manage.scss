@@ -1,0 +1,1375 @@
+@charset "UTF-8";
+
+$labelWidth:       150px;
+$labelFontSize:    12px;
+
+@import "form";
+@import "button";
+@import "select_city";
+
+.main{
+    .inner{
+        background: #fff;
+    }
+}
+.ui-form{
+    .ui-label{
+        font-size: 14px;
+        color: #666;
+        line-height: 35px;
+    }
+    .ui-input{
+        width: 212px;
+        height: 25px;
+    }
+    .ui-select{
+        width: 238px;
+        height: 35px;
+    }
+    .radio_box{
+        vertical-align: -5px;
+        input{
+            margin-right: 3px;
+        }
+    }
+    .ui-form-item-error .ui-form-explain{
+        line-height: 35px;
+        background-position: 0 -241px;
+    }
+}
+.v2-common-explain{
+    line-height: 30px;
+    padding: 0 10px;
+    border: 1px solid #e2eced;
+    background: #f1f6fa;
+    color: #666;
+    .v2-icon-explain{
+        vertical-align: -5px;
+        *vertical-align: middle;
+    }
+}
+.addBrand-form{
+    .tab_con{
+        margin: 20px 0 0 20px;
+    }
+    .submit_btn{
+        background: none repeat scroll 0 0 #67ACF2;
+        border: 0 none;
+        color: #FFFFFF;
+        font: 14px "微软雅黑";
+        padding: 9px 12px;
+        border-radius: 3px;
+        &:hover{
+            background: #70B2F5;
+        }
+    }
+    .brand_logo,.corporate_image{
+        width: 112px;
+        height: 112px;
+        background: #f9f9f9;
+        border: #ccc dashed 1px;
+        .replace_text{
+            text-align: center;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 112px;
+        }
+        .input_file{
+            width: 112px;
+            height: 112px;
+        }
+    }
+    .explain{
+        color: #999;
+    }
+    //证书列表
+    .certificate_box{
+        li{
+            width: 110px;
+            height: 110px;
+            padding: 1px;
+            border: #d9d9d9 solid 1px;
+            margin-right: 10px;
+            .img_contain{
+                width: 110px;
+                height: 110px;
+                text-align: center;
+                position: relative;
+            }
+            .close{
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #b4b4b4;
+                font-size: 18px;
+                line-height: 1;
+                display: none;
+            }
+            img{
+                vertical-align: middle;
+            }
+            span{
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+        }
+        .add_certificate{
+            width: 112px;
+            height: 112px;
+            padding: 0;
+            border: #ccc dashed 1px;
+            background: #f9f9f9;
+            .file_wrap{
+                width: 112px;
+                height: 112px;
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                text-align: center;
+            }
+            .iconfont{
+                color: #ddd;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 21px;
+            }
+            .input_file{
+                width: 112px;
+                height: 112px;
+            }
+        }
+    }
+}
+//主营产品
+.product_area{
+    border: #d9d9d9 solid 1px;
+    height: 297px;
+    width: 644px;
+    background: #f2f2f2 url("/images/brand/brandManage_categoryArrow.png") 416px 126px no-repeat;
+    .select_category,.select_class,.select_product{
+        width: 200px;
+        border-right: #d9d9d9 solid 1px;
+        height: 297px;
+        overflow: auto;
+        background: #fff;
+    }
+    .select_inner{
+        margin-right: 15px;
+        .item{
+            float: none;
+            display: block;
+            height: 27px;
+            line-height: 27px;
+            padding-left: 10px;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                background: #fff1e4;
+            }
+            .iconfont{
+                position: absolute;
+                right: 6px;
+                top: 0;
+            }
+            .close_icon{
+                font-size: 20px;
+                line-height: 1;
+                color: #666666;
+                top: 3px;
+                display: none;
+            }
+        }
+        .current{
+            background: #fff1e4;
+        }
+    }
+    .select_product{
+        border-right: none;
+        margin-left: 40px;
+        background: url("../../images/brand/brandManage_selectBg.png") repeat;
+    }
+}
+.main_ui_tab{
+    //width: 966px;
+    //margin: 20px 0 0 20px;
+}
+.warrant_tab_con{
+    .tab_con{
+        margin-left: 20px;
+    }
+    .wrap_ul{
+        margin-right:20px;
+    }
+    .item{
+        height: 240px;
+        border: #e8e8e8 solid 1px;
+        margin: 15px 0 0 0;
+        position: relative;
+        padding:10px 0 10px 10px;
+    }
+    .add_brand{
+        .add_brand_link{
+            display: block;
+            height: 256px;
+        }
+        border-style: dashed;
+        background: #f9f9f9;
+        text-align: center;
+        .iconfont{
+            color: #DDDDDD;
+            display: inline-block;
+            font-size: 54px;
+            margin-top: 82px;
+            cursor: pointer;
+        }
+        p{
+            color: #999;
+        }
+    }
+    .tag{
+        position: absolute;
+        right: -4px;
+        top: 10px;
+        background: url("/images/brand/status_code.png") 9999em 0 no-repeat;
+        width: 67px;
+        height: 31px;
+        text-indent: -9999em;
+    }
+    .status_1{
+        background-position: 0 0;
+    }
+    .status_2{
+        background-position: 0 -32px;
+    }
+    .status_3{
+        background-position: 0 -64px;
+    }
+    .status_4{
+        background-position: 0 -96px;
+    }
+    .status_5{
+        background-position: 0 -128px;
+    }
+    .pic_area{
+        float: left;
+        width: 240px;
+        height: 240px;
+        position: relative;
+        .factory-brand-icon{
+            width: 80px;
+            height: 24px;
+            line-height: 24px;
+            background: #CC0001;
+            color: #FFF;
+            position: absolute;
+            top: 8px;
+            right: 0px;
+            text-align: center;
+            font-size: 12px;
+        }
+    }
+    .info_area{
+        overflow: hidden;
+        .top{
+            margin-top: 7px;
+            .right{
+                float: left;
+                display: inline;
+                margin-left: 15px;
+                width: 430px;
+            }
+            h3{
+                font: bold 12px "Arial";
+            }
+        }
+        .small_pic{
+            float: left;
+            display: inline;
+            margin-left: 16px;
+            width: 160px;
+            height: 80px;
+            border: 1px solid #D9D9D9;
+        }
+        .link{
+            margin: 8px 0 0 0;
+            a{
+                color: #0082cc;
+                &:hover{
+                    color: #ff8800;
+                }
+            }
+        }
+        .rank{
+            margin-top: 10px;
+            color: #666;
+        }
+        .detail_info{
+            margin-top: 10px;
+            padding-left: 16px;
+            height: 55px;
+            line-height: 55px;
+            border-bottom: 1px solid #eee;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            strong{
+                color: #0082cc;
+                font-family: "Arial";
+                font-size: 14px;
+            }
+            span{
+                padding-right: 20px;
+                margin-right: 20px;
+                border-right: 1px solid #e4ebee;
+            }
+            .last{
+                border:0;
+                padding: 0;
+                margin: 0;
+            }
+        }
+        .other_info{
+            margin: 10px 0 0 16px;
+            p{
+                line-height: 1.8;
+            }
+            .price,strong{
+                color: #cc0000;
+                font-family: "Arial";
+            }
+            .buy_link{
+                color: #0082cc;
+            }
+            .error_info{
+                color: #cc0000;
+            }
+        }
+        .operate{
+            ul{
+                margin-right: -16px;
+                //margin-top:15px;
+            }
+            li{
+                margin-top:8px;
+                margin-left: 6px;
+                a{
+                    font-size: 14px;
+                }
+            }
+            .simple_button{
+                width: 80px;
+                height: 33px;
+                line-height: 33px;
+                text-align: center;
+                padding: 0;
+                background: #fff;
+                border-color:#e8e8e8;
+                &:hover{
+                    background: #f5f5f5;
+                }
+            }
+        }
+        .view_btn{
+            a{
+                display: block;
+                background: #66acf2;
+                border-radius: 3px;
+                width: 82px;
+                height: 35px;
+                line-height: 35px;
+                text-align: center;
+                overflow: hidden;
+                color: #fff;
+            }
+        }
+    }
+
+
+    .img_contain{
+        height: 155px;
+    }
+    /*
+    .detail_info{
+        height: 68px;
+        overflow: hidden;
+        background: #f0f0f0;
+        padding: 5px 0 0 10px;
+        p{
+            margin-bottom: 5px;
+        }
+        strong{
+            color: #cc0000;
+            font-family: "arial";
+        }
+        .link{
+            color: #0082cc;
+        }
+    }
+    */
+    .operate_area{
+        margin-top: 12px;
+        font-size: 0;
+        text-align: center;
+        .ui_button{
+            min-width: 30px;
+            padding: 0 7px;
+        }
+    }
+}
+.service_con{
+    margin-top: 15px;
+    h3{
+        font: 14px "微软雅黑";
+        margin-bottom: 10px;
+        height: 30px;
+        border-bottom: 1px solid #eee;
+        padding-left:20px;
+        span{
+            display: inline-block;
+            border-bottom: 2px solid #66acf2;
+            height: 28px;
+            line-height: 28px;
+        }
+    }
+    p{
+        color: #666;
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 30px;
+        padding-left: 20px;
+    }
+}
+//品牌资料完善 选择品牌
+.select_brand_area{
+    position: relative;
+    margin-left: -78px;
+    background: #f0f0f0;
+    padding-top: 15px;
+    select{
+        height: 32px;
+        width: 260px;
+    }
+}
+.simple_tab{
+    background: #f0f0f0;
+    height: 36px;
+    border-bottom: #1d7ad9 solid 1px;
+    .item{
+        width: 110px;
+        margin-right: 2px;
+        a{
+            display: block;
+            text-align: center;
+            font: 14px/36px "微软雅黑";
+            background: #e3e3e3;
+            color: #666;
+            outline: none;
+            &:hover{
+                background-color: #1d7ad9;
+                color: #fff;
+            }
+        }
+    }
+    .current{
+        a{
+            background-color: #1d7ad9;
+            color: #fff;
+        }
+    }
+}
+//经销网络
+.distribution_net{
+    .inner_tab{
+        margin: 15px 0 0 20px;
+        ul{
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+        }
+    }
+    .inner_tab_con{
+        display: none;
+    }
+    .toolbar{
+        margin: 16px 0 0 25px;
+        height: 30px;
+        label{
+            float: left;
+            display: inline;
+            margin: 7px 0 0 42px;
+            input{
+                vertical-align: -2px;
+            }
+        }
+        .tab_link{
+            color: #333;
+            &:hover{
+                color: #0082cc;
+            }
+        }
+        .batch_import_btn{
+            float: left;
+            width: 86px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            margin-left: 60px;
+            background: #f5f5f5;
+            border: #b1adac solid 1px;
+            border-radius: 3px;
+        }
+        .link{
+            float: left;
+            display: inline;
+            margin: 7px 0 0 7px;
+            color: #0082cc;
+        }
+    }
+    .new_add{
+        margin: 10px 0 0 20px;
+        textarea{
+            width: 568px;
+        }
+    }
+    .choose_from{
+        width: 966px;
+        margin: 15px 0 0 20px;
+        border-top: #1d7ad9 solid 1px;
+        .choose_condition{
+            margin: 10px 0;
+            height: 30px;
+            overflow: hidden;
+            select{
+                width: 110px;
+                height: 20px;
+            }
+            label{
+                _vertical-align: 1px;
+            }
+            .check_box{
+                margin: 6px 0 0 8px;
+            }
+            .level{
+                margin: 5px 0 0 25px;
+            }
+            .area{
+                margin: 5px 0 0 20px;
+            }
+            .prev,.next{
+                float: left;
+                display: inline;
+                margin: 5px 0 0 5px;
+                width: 58px;
+                height: 18px;
+                line-height: 18px;
+                text-align: center;
+                border: #dddddd solid 1px;
+            }
+        }
+        .choose_list{
+
+        }
+        table{
+            @extend .common_table;
+        }
+        .add_btn{
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+    .search_condition{
+        margin: 18px 0 0 20px;
+        .form_item{
+            float: left;
+            display: inline;
+            margin-right: 15px;
+        }
+        select{
+            height: 32px;
+        }
+        .submit_btn{
+            display: inline-block;
+            *position: relative;
+            *margin-top: -5px;
+            width: 88px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            background: #f5f5f5;
+            border: #bab7b6 solid 1px;
+            border-radius: 3px;
+        }
+    }
+    .search_result{
+        margin: 15px 0 0 20px;
+        .edit,.close{
+            background: url("/images/brand/edit_del.png") 999em 0 no-repeat;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 5px;
+        }
+        .edit{
+            right: 25px;
+            background-position: 0 0;
+        }
+        .close{
+            right: 5px;
+            background-position: -20px 0;
+        }
+        ul{
+            margin-right: -10px;
+        }
+        .item{
+            width: 232px;
+            height: 324px;
+            border: #d9d9d9 solid 1px;
+            margin: 10px 10px 0 0;
+            position: relative;
+        }
+        .img_contain{
+            height: 150px;
+            overflow: hidden;
+            padding: 1px;
+        }
+        .title{
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+            padding-left: 10px;
+            color: #fff;
+            font-weight: bold;
+            background: #797979;
+            .tag{
+                height: 14px;
+                line-height: 14px;
+                padding: 0 3px;
+                background: #1d7ad9;
+                position: absolute;
+                top: 8px;
+                right: 10px;
+                font-weight: normal;
+            }
+        }
+        .intro{
+            padding: 0 10px;
+            p{
+                margin-top: 5px;
+            }
+            label{
+                float: left;
+            }
+            .text{
+                display: block;
+                overflow: hidden;
+            }
+            .undo{
+                color: #cc0000;
+            }
+        }
+        .bottom{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 232px;
+            background: #f2f2f2;
+            height: 30px;
+            .fl{
+                margin: 7px 0 0 9px;
+            }
+            .fr{
+                margin: 9px 10px 0 0;
+            }
+            .status{
+                height: 14px;
+                line-height: 14px;
+                padding: 0 5px;
+                color: #fff;
+                display: block;
+                *display: inline-block;
+                *zoom: 1;
+            }
+            /* 满格100% */
+            .status_1{
+                background: #22ac38;
+            }
+            /* 大于60% */
+            .status_2{
+                background: #ff8800;
+            }
+            /* 小于60% */
+            .status_3{
+                background: #cc0000;
+            }
+        }
+    }
+}
+.uploadfile_contain{
+    width: 678px;
+}
+.common_table{
+    font-size: 14px;
+    td{
+        border-bottom: #eee solid 1px;
+        padding:8px;
+    }
+    th{
+        background: #d7e8f7;
+        font-weight: normal;
+        color: #666;
+        text-align: left;
+        padding:0 8px;
+        line-height: 35px;
+    }
+    .last{
+        border-right: none;
+    }
+    .link{
+        color: #0082cc;
+        &:hover{
+            color: #ff8800;
+        }
+    }
+}
+//品牌视觉
+.brand_vision_con{
+    .video_item{
+        width: 200px;
+        height: 110px;
+        position: relative;
+        margin-right: 10px;
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            line-height: 1;
+            font-size: 18px;
+            cursor: pointer;
+            color: #B4B4B4;
+            z-index: 999px;
+        }
+        .update{
+            display: none;
+            position: absolute;
+            bottom: 0;
+            height: 16px;
+            line-height: 16px;
+            width: 200px;
+            background: rgba(0,0,0,0.5);
+            filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7F000000,endcolorstr=#7F000000);
+            .replace_text{
+                color: #fff;
+                text-align: center;
+            }
+            .input_file{
+                width: 200px;
+                height: 16px;
+            }
+        }
+    }
+    .add_video{
+        width: 198px;
+        height: 108px;
+        border: #ccc dashed 1px;
+        .file_wrap{
+            width: 198px;
+            height: 108px;
+            background: #f9f9f9;
+            text-align: center;
+            .input_file{
+                width: 198px;
+                height: 108px;
+            }
+        }
+    }
+    .add_video_1{
+        .replace_text{
+            line-height: 108px;
+            color: #ccc;
+            font-size: 14px;
+        }
+    }
+    .add_video_2{
+        .iconfont{
+            color: #DDDDDD;
+            display: inline-block;
+            font-size: 54px;
+            margin-top: 16px;
+        }
+    }
+    .explain{
+        color: #999;
+    }
+}
+//资讯管理列表
+.info_list_con{
+    margin:  10px 20px 0 20px;
+    font-size: 14px;
+    font-family: "microsoft yahei";
+    .tool_bar{
+        width: 966px;
+        label{
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    }
+    .add_btn{
+        float: left;
+        padding: 0 10px;
+        height: 28px;
+        background: #86c748;
+        border-radius: 2px;
+        a{
+            display: block;
+            height: 28px;
+            line-height: 28px;
+            color: #fff;
+            text-align: center;
+        }
+        .iconfont{
+            margin-right: 5px;
+            font-size: 10px;
+        }
+    }
+    .status_select{
+        select{
+            width: 94px;
+            height: 20px;
+        }
+    }
+    .list_table{
+        @extend .common_table;
+        margin-top: 10px;
+        .link{
+            margin-right: 5px;
+        }
+        .status_on{
+            color: #0a7c24;
+        }
+        .status_audit{
+            color: #cc0000;
+        }
+        .status_finish{
+            color: #999;
+        }
+        .status_released{
+            color: #ff8800;
+        }
+        .status_publish{
+            color: #0a7c24;
+        }
+    }
+    .pagination{
+        padding: 5px 20px 0 5px;
+    }
+    .status_select{
+        height: 28px;
+        line-height: 28px;
+        margin-left: 10px;
+    }
+    form label{
+        margin-right:10px;
+        input{
+           vertical-align: -2px;
+            margin-right: 4px;
+        }
+    }
+}
+.info-form{
+    .guide_textarea{
+        width: 646px;
+        height: 70px;
+    }
+    .time_select{
+        width: 48px;
+        height: 30px;
+    }
+}
+
+#newsForm,#meetingForm{
+    .ui_button{
+        height: 33px;
+        line-height: 33px;
+        width: 95px;
+        padding:0;
+        font-size: 14px;
+        font-family: "microsoft yahei";
+    }
+    .cancel_btn{
+        border-color: #e8e8e8;
+        color:#999;
+        height: 33px;
+        line-height: 33px;
+    }
+}
+
+//资料上传
+.dataUpload-form{
+    margin-top: 20px;
+    .file_wrap{
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        width: 95px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background: #f5f5f5;
+        border: #c4c3c1 solid 1px;
+        border-radius: 3px;
+        .input_file{
+            width: 95px;
+            height: 35px;
+        }
+    }
+    span.ui-form-explain{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .ui-textarea{
+        width: 800px;
+        height: 110px;
+    }
+    .ui_button{
+        width: 76px;
+    }
+    .js_dealers_box{
+        line-height: 35px;
+    }
+    //上传容器框
+    .upload_contain{
+        width: 402px;
+        background: #f5f5f5;
+        .item{
+            background: #f5f5f5 url("/images/brand/upload_icon.png") 12px 8px no-repeat;
+            padding: 0 0 0 40px;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                background-color: #fff1e4;
+                .del{
+                    color: #ff8800;
+                }
+            }
+            .del{
+                position: absolute;
+                top: 0px;
+                right: 12px;
+                &:hover{
+                    color: #ff8800;
+                }
+            }
+            span{
+                float: left;
+                font-size: 14px;
+            }
+            i{
+                float: left;
+                display: inline;
+                width: 16px;
+                height: 27px;
+                text-align: center;
+                background: url("../../images/brand/upload_icon.png") 0 -27px no-repeat;
+                margin-left: 10px;
+            }
+            .icon_jpg{
+                background-position: 0 -27px;
+            }
+            .icon_rar{
+                background-position: 0 -54px;
+            }
+            .icon_pdf{
+                background-position: 0 -81px;
+            }
+            .icon_txt{
+                background-position: 0 -108px;
+            }
+            .icon_word{
+                background-position: 0 -135px;
+            }
+            .icon_excel{
+                background-position: 0 -162px;
+            }
+            .icon_video{
+                background-position: 0 -189px;
+            }
+            .icon_mp3{
+                background-position: 0 -216px;
+            }
+            .icon_ppt{
+                background-position: 0 -243px;
+            }
+        }
+    }
+    //网盘输出结果
+    .out_result{
+        background: #f5f5f5;
+        width: 402px;
+        padding-bottom: 2px;
+        .item{
+            margin: 2px 0 0 5px;
+            a{
+                display: inline-block;
+                padding: 0 5px;
+                height: 18px;
+                line-height: 18px;
+                color: #0082cc;
+                border: #f5f5f5 solid 1px;
+                &:hover{
+                    background: #fff;
+                    border-color: #d0d0d0;
+                    box-shadow: 0 0 3px #e3e3e3;
+                    .iconfont{
+                        visibility: visible;
+                    }
+                }
+            }
+            .iconfont{
+                margin-left: 3px;
+                color: #c0c0c0;
+                vertical-align: -1px;
+                visibility: hidden;
+                cursor: pointer;
+            }
+        }
+    }
+    //经销商层
+    .dealers_layer{
+        margin-top: 10px;
+        width: 770px;
+        border: #d9d9d9 solid 1px;
+    }
+    .search_condition{
+        height: 45px;
+        line-height: 45px;
+        overflow: hidden;
+        background: #e4ecf7;
+        select{
+            width: 130px;
+            height: 35px;
+        }
+        label{
+            _vertical-align: 1px;
+        }
+        .check_box{
+            margin-left: 8px;
+        }
+        .level{
+            margin-left: 25px;
+        }
+        .area{
+            margin-left: 20px;
+        }
+    }
+    .data_list{
+        height: 350px;
+        overflow: auto;
+        tr:nth-child(even){
+            background-color: #f9f9f9;
+        }
+        td{
+            height: 32px;
+            border-right: #d9d9d9 solid 1px;
+            border-bottom: #d9d9d9 solid 1px;
+            padding-left: 8px;
+        }
+        .last{
+            border-right: none;
+        }
+        tr:last-child{
+            border-bottom: none;
+        }
+    }
+    .upload{
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 10px;
+    }
+}
+//资料管理
+.down_list_info{
+    margin-left: 20px;
+    .list_table{
+        @extend .common_table;
+        margin-top: 15px;
+        strong{
+            color: #0082cc;
+        }
+        .operate{
+            text-align: center;
+            .iconfont{
+                margin-right: 5px;
+                color: #666;
+                cursor: pointer;
+            }
+            .del_icon{
+                vertical-align: -1px;
+            }
+        }
+    }
+}
+.down_detail_box{
+    li{
+        zoom: 1;
+        &:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+    .name{
+        float: left;
+        color: #333;
+    }
+    .time{
+        float: right;
+        color: #666;
+    }
+}
+//分类管理
+.classfication{
+    margin: 15px 0 0 20px;
+    .ui-form-item{
+        padding: 0;
+        line-height: 35px;
+    }
+    .ui-select{
+        width: 240px;
+        height: 35px;
+        *height: auto;
+    }
+    .ui-form-item-error .newclasstext{
+        border: 1px solid #FF0000;
+    }
+    .newclass{
+        width: 90px;
+        height: 28px;
+        line-height: 28px;
+        display: inline-block;
+        background:#84c848;
+        text-align: center;
+        color:#fff;
+        cursor: pointer;
+        margin: 0 0 5px 0;
+        float: left;
+        border-radius: 2px;
+        .iconfont{
+            width: 11px;
+            height: 11px;
+            display: inline-block;
+            vertical-align: 1px;
+            margin-right:5px;
+            font-size: 10px;
+        }
+        .newclasspan{
+            vertical-align: 1px;
+        }
+    }
+    .deletepic{
+        padding-left: 20px;
+        margin-left: 15px;
+        margin-top: 4px;
+        background: url("/images/brand/delete.png") 2px center no-repeat;
+        font-size: 14px;
+        font-family: "microsoft yahei";
+    }
+    .table{
+        clear: both;
+        width: 965px;
+        font-size: 14px;
+        tr{
+            &:hover{
+                background: #fff3e4;
+                .delete{
+                    color:#ff8900
+                }
+                .moveup{
+                    background-position: -13px -14px;
+                }
+                .movedown{
+                    background-position: -26px -14px;
+                }
+            }
+        }
+        th{
+            font-weight: normal;
+            color:#333;
+            background: #f2f2f2;
+            line-height: 35px;
+            text-align: left;
+            padding: 0 10px;
+        }
+        td{
+            text-indent: 10px;
+            padding:10px 0;
+            border-bottom: #eee 1px solid;
+        }
+    }
+    .newclasstext{
+        width: 155px;
+        height: 33px;
+        line-height: 25px \9;
+        padding: 0 5px;
+        border: 1px solid #dadada;
+        border-top-color: #bcbcbc;
+        &:hover{
+            border: 1px solid #666;
+        }
+        &:focus{
+            border:1px solid #f8b551;
+            background: #fefef4 ;
+        }
+    }
+    .movebox{
+        span{
+            display: inline-block;
+            font-size: 0;
+            width: 11px;
+            height: 12px;
+            line-height: 12px;
+            background: url("/images/brand/classification_move.gif") no-repeat 0 0;
+            cursor: pointer;
+        }
+        .moveup{
+            background-position: -13px 0;
+            &:hover{
+                background-position: -13px -28px !important;
+            }
+        }
+        .movedown{
+            background-position: -26px 0;
+            &:hover{
+                background-position: -26px -28px !important;
+            }
+        }
+    }
+    .delete{
+        color:#0082cc;
+        cursor: pointer;
+    }
+    .ui_button{
+        margin: 15px 0 0 0;
+        padding: 0px 20px;
+        font-weight: 400;
+        cursor: default;
+        height: 35px;
+        line-height: 35px;
+    }
+    .enable_button{
+        display: none;
+        cursor: pointer;
+    }
+    .link{
+        color: #0082CC;
+        padding-left: 20px;
+        background: url("/images/brand/delete.png") 2px center no-repeat;
+    }
+}
+//设置域名
+.set-domin{
+    select{
+        -webkit-appearance: menulist;
+    }
+    .table{
+        clear: both;
+        width: 98%;
+        margin: 0 1%;
+        font-family: "microsoft yahei";
+        font-size: 14px;
+        tr{
+            &:hover{
+                background: #fff3e4;
+                .delete{
+                    color:#ff8900
+                }
+                .moveup{
+                    background-position: -13px -14px;
+                }
+                .movedown{
+                    background-position: -26px -14px;
+                }
+            }
+        }
+        th{
+            font-weight: normal;
+            color:#333;
+            background: #d7e8f7;
+            line-height: 40px;
+            text-align: left;
+            padding: 0 10px;
+        }
+        td{
+            padding: 5px 10px;
+            border-bottom: #eee 1px solid;
+            height: 38px;
+        }
+    }
+    .title{
+        line-height: 40px;
+        height: 40px;
+        border-bottom: 1px solid #e8e8e8;
+        margin-bottom: 10px;
+        span{
+            display: inline-block;
+            border-bottom: 2px solid #66acf2;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+            margin-left: 20px;
+            height: 38px;
+        }
+    }
+    .ui-form-item{
+        display: inline-block;
+        *display: inline;
+        *zoom:1;
+        padding:0;
+        padding-bottom: 10px;
+    }
+    .ui-input{
+        vertical-align: middle;
+    }
+    .simple_button{
+        vertical-align: middle;
+        height: 34px;
+        width: 95px;
+        border-color: #e8e8e8;
+    }
+    .set-domin-tip{
+        width: 435px;
+        padding-left: 20px;
+        p{
+            padding: 5px 0;
+            line-height: 30px;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+        }
+        .icon_success{
+            padding-left: 20px;
+            background: url("/images/brand/state1.png") 0 center no-repeat;
+        }
+        .icon_error{
+          padding-left: 20px;
+          background: url("/images/brand/state2.png") 0 center no-repeat;
+        }
+        .danger{
+            color: #cc0000;
+        }
+        .success{
+            color: #87c948;
+        }
+    }
+    .set,.query{
+      background: #fff;
+    }
+    .set{
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    .selectDominName{
+        padding-left: 20px;
+    }
+}

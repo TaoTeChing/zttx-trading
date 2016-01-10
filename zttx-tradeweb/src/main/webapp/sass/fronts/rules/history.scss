@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import "../common/base";
+@import "_header";
+@import "../common/_footer";
+@import "_pagination";
+@import "_dialog";
+@import "_breadnav";
+
+/*
+*规则中心
+*规则历史版本
+*/
+a{
+  text-decoration: none;
+  &:hover{
+      text-decoration: none;
+  }
+}
+body{
+  background: #FFF;
+}
+.table-head,.table-body{
+  li{
+      float: left;
+  }
+  .time{
+      width: 245px;
+  }
+  .version{
+      width: 100px;
+  }
+}
+.table-head{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  li{
+      font-size: 14px;
+      font-weight: 600;
+  }
+}
+.table-body{
+  ul{
+      border-bottom: 1px dotted #ececec;
+  }
+  li{
+      line-height: 30px;
+      .link{
+          color: #0082cc;
+      }
+  }
+}

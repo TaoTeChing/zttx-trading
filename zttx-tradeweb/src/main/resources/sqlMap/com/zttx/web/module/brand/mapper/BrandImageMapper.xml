@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandImageMapper">
+    <!-- 基础列 -->
+    <sql id="brandImageColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.cateId as cateId ,
+        a.domainName as domainName ,
+        a.photoName as photoName ,
+        a.imageName as imageName ,
+        a.imageMark as imageMark ,
+        a.imageSize as imageSize ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandImage">
+        insert into BrandImage(
+        refrenceId ,
+        brandId ,
+        cateId ,
+        domainName ,
+        photoName ,
+        imageName ,
+        imageMark ,
+        imageSize ,
+        createTime ,
+        updateTime ,
+        createIp ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{brandId} ,
+        #{cateId} ,
+        #{domainName} ,
+        #{photoName} ,
+        #{imageName} ,
+        #{imageMark} ,
+        #{imageSize} ,
+        #{createTime} ,
+        #{updateTime} ,
+        #{createIp} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandImage where refrenceId = #{refrenceId}
+    </delete>
+    <delete id="deleteRecycles" parameterType="java.lang.String">
+        delete from BrandImage where brandId = #{brandId} and delFlag = 1
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandImage set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <update id="revert" parameterType="java.lang.String">
+        update BrandImage set delFlag = false where refrenceId = #{refrenceId}
+    </update>
+
+    <insert id="insertBatch" parameterType="list">
+        insert into BrandImage(
+        refrenceId ,
+        brandId ,
+        cateId ,
+        domainName ,
+        photoName ,
+        imageName ,
+        imageMark ,
+        imageSize ,
+        createTime ,
+        updateTime ,
+        createIp ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="brandImage" separator=",">
+            (
+            #{brandImage.refrenceId} ,
+            #{brandImage.brandId} ,
+            #{brandImage.cateId} ,
+            #{brandImage.domainName} ,
+            #{brandImage.photoName} ,
+            #{brandImage.imageName},
+            #{brandImage.imageMark },
+            #{brandImage.imageSize },
+            #{brandImage.createTime },
+            #{brandImage.updateTime },
+            #{brandImage.createIp },
+            #{brandImage.delFlag
+            )
+        </foreach>
+    </insert>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandImage">
+        insert into BrandImage
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="cateId != null">
+                cateId ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="photoName != null">
+                photoName ,
+            </if>
+            <if test="imageName != null">
+                imageName ,
+            </if>
+            <if test="imageMark != null">
+                imageMark ,
+            </if>
+            <if test="imageSize != null">
+                imageSize ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="cateId != null">
+                #{cateId} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="photoName != null">
+                #{photoName} ,
+            </if>
+            <if test="imageName != null">
+                #{imageName} ,
+            </if>
+            <if test="imageMark != null">
+                #{imageMark} ,
+            </if>
+            <if test="imageSize != null">
+                #{imageSize} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandImage">
+        update BrandImage
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="cateId != null">
+                cateId = #{cateId} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="photoName != null">
+                photoName = #{photoName} ,
+            </if>
+            <if test="imageName != null">
+                imageName = #{imageName} ,
+            </if>
+            <if test="imageMark != null">
+                imageMark = #{imageMark} ,
+            </if>
+            <if test="imageSize != null">
+                imageSize = #{imageSize} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandImage">
+        update BrandImage set
+        brandId = #{brandId} ,
+        cateId = #{cateId} ,
+        domainName = #{domainName} ,
+        photoName = #{photoName} ,
+        imageName = #{imageName} ,
+        imageMark = #{imageMark} ,
+        imageSize = #{imageSize} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        createIp = #{createIp} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+    <!--修改分类-->
+    <update id="updateImageCate">
+        update BrandImage set cateId = #{newCateId} where cateId = #{oldCateId} and brandId = #{brandId}
+    </update>
+
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandImage">
+        select
+        <include refid="brandImageColumns"/>
+        from BrandImage a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandImage">
+        SELECT
+        <include refid="brandImageColumns"/>
+        FROM BrandImage a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="photoName != null and photoName != ''">
+            and a.photoName like CONCAT('%',#{photoName}, '%')
+        </if>
+        <if test="imageName != null and imageName != ''">
+            and a.imageName like CONCAT('%',#{imageName}, '%')
+        </if>
+        <if test="imageMark != null and imageMark != ''">
+            and a.imageMark like CONCAT('%',#{imageMark}, '%')
+        </if>
+        <if test="imageSize != null and imageSize != ''">
+            and a.imageSize = #{imageSize}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandImage">
+        SELECT
+        <include refid="brandImageColumns"/>
+        FROM BrandImage a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findByBrandId" parameterType="java.util.Map" resultType="com.zttx.web.module.brand.entity.BrandImage">
+        select
+        <include refid="brandImageColumns"/>
+        from BrandImage a
+        where
+        a.delFlag=false
+        and a.brandId=#{brandId}
+    </select>
+
+    <select id="search" resultType="com.zttx.web.module.brand.entity.BrandImage">
+        SELECT
+        <include refid="brandImageColumns"/>
+        FROM BrandImage a WHERE
+        a.delFlag = #{delFlag}
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="cateId != null and cateId != ''">
+            and a.cateId = #{cateId}
+        </if>
+        <if test="photoName != null and photoName != ''">
+            and a.photoName like CONCAT('%',#{photoName}, '%')
+        </if>
+        <if test="startTime != null and startTime>0">
+            and a.createTime > #{startTime}
+        </if>
+        <if test="endTime != null and endTime>0">
+            and a.createTime &lt; #{endTime}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <select id="findByImage" parameterType="com.zttx.web.module.brand.entity.BrandImage"
+            resultType="com.zttx.web.module.brand.entity.BrandImage">
+        SELECT
+        <include refid="brandImageColumns"/>
+        FROM BrandImage a
+        <if test="cateId!=null and cateId!=''">
+            join BrandImgcate b on (
+              a.cateId=b.refrenceId 
+              OR a.cateId in (select c.refrenceId from BrandImgcate c where c.parentId=b.refrenceId)
+            )
+        </if>
+        <where>
+            a.delFlag=false
+            <if test="imageName!=null and imageName!=''">
+                and a.photoName like '%${imageName}%'
+            </if>
+            <if test="cateId!=null and cateId!=''">
+            	and b.refrenceId=#{cateId}
+            </if>
+            and a.brandId =#{brandId}
+        </where>
+    </select>
+    <!--获取图片总大小-->
+    <select id="getSumImageSize" resultType="java.lang.Long">
+        SELECT
+        IFNULL(sum(o.imageSize), 0) AS sumsize
+        FROM
+        BrandImage o
+        WHERE
+        o.delFlag = 0
+        AND o.brandId = #{brandId}
+        <if test="refrenceId != null and ''!=refrenceId">
+        AND o.refrenceId != #{refrenceId}
+        </if>
+    </select>
+</mapper>
+

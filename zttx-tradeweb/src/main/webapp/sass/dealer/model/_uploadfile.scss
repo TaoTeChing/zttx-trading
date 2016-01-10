@@ -1,0 +1,179 @@
+@charset "UTF-8";
+//相册图片上传容器（本地上传、图库选择）
+.uploadfile_contain{
+  .ui_tab{
+    .ui_tab_item{
+      a{
+        min-width: 92px;
+      }
+    }
+  }
+  .bd{
+    border: #d9d9d9 solid 1px;
+    min-height: 200px;
+    _height: 200px;
+    background: #fff;
+    position: relative;
+    margin-top: -1px;
+    z-index: 22;
+  }
+  .file_tab_con{
+    display: none;
+  }
+  .local_con{
+    padding: 20px;
+    height: 200px;
+    .file_wrap{
+      width: 76px;
+      height: 28px;
+      line-height: 28px;
+      border-radius: 3px;
+      background: #f5f5f5;
+      border: #b7b4b2 solid 1px;
+      .replace_text{
+        text-align: center;
+      }
+      .input_file{
+        width: 76px;
+        height: 28px;
+      }
+    }
+    .tips_images{
+      margin: 10px 0 0 103px;
+    }
+    .tip{
+      line-height: 23px;
+      strong{
+        color: #e60110;
+        font-weight: normal;
+        font-family: "Arial";
+      }
+    }
+    .tipint{
+      text-indent: 36px;
+    }
+    .uploadimages{
+      margin: 20px 0 10px 0;
+      li{
+        width: 90px;
+        height: 90px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+      }
+    }
+  }
+  .choose_con{
+    .tree_contain{
+      float: left;
+      display: inline;
+      width: 158px;
+      border-right: #d9d9d9 solid 1px;
+      height: 274px;
+      overflow: auto;
+    }
+    .choose_area{
+      _position: relative;
+      margin-left: 159px;
+      overflow: hidden;
+      padding-left: 10px;
+      _padding-left: 7px;
+      width: 500px;
+      .items{
+        margin-right: -10px;
+      }
+      .item{
+        width: 90px;
+        height: 90px;
+        border: #ccc solid 1px;
+        margin: 10px 10px 0 0;
+        position: relative;
+        i{
+          position: absolute;
+          left: -1px;
+          top: -1px;
+          background: url("/images/brand/common_icon.png") -40px -24px no-repeat;
+          width: 20px;
+          height: 20px;
+          display: none;
+        }
+      }
+      .current{
+        border-color: #64a5ff;
+        i{
+          display: block;
+        }
+      }
+      .img_contain{
+        padding: 1px;
+      }
+    }
+    .search_bar{
+      margin-top: 10px;
+      .operate{
+        float: left;
+        margin-top: 5px;
+      }
+      .choose_num{
+        //margin-left: 18px;
+      }
+    }
+    .search_form{
+      float: right;
+      height: 22px;
+      background: #fff;
+      position: relative;
+      border: #e0e0e0 solid 1px;
+      .search_box{
+        height: 22px;
+      }
+      .iconfont{
+        position: absolute;
+        top: 0px;
+        left: 4px;
+        font-size: 16px;
+        color: #d9d9d9;
+      }
+      .search_input{
+        margin-left: 22px;
+        height: 22px;
+        input{
+          border: 0 none;
+          //padding: 3px 0;
+          width: 142px;
+        }
+      }
+      a.search-button{
+        border: 0 none;
+        background: #ff8900;
+        font: 12px "微软雅黑";
+        height: 23px;
+        width: 40px;
+        line-height: 23px;
+        text-align: center;
+        color: #fff;
+        margin: -1px -1px 0 0;
+        &:hover{
+          background: #f57503;
+        }
+      }
+    }
+  }
+  .choose_result{
+    clear: both;
+    border-top: #d9d9d9 solid 1px;
+    background: #f8f8f8;
+    .items{
+      margin: 9px -20px 0 15px;
+    }
+    .item{
+      width: 90px;
+      height: 90px;
+      border: #ccc solid 1px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      .img_contain{
+        padding: 1px;
+      }
+    }
+  }
+}

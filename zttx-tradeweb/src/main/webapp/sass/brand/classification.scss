@@ -1,0 +1,632 @@
+@charset "UTF-8";
+
+@import "form";
+@import "button";
+
+
+.main_classification{
+  background: #fff;
+  overflow: hidden;
+  .ui_tabs{
+    position: relative;
+    .ui_tabsmenu{
+      position: relative;
+      overflow: hidden;
+      ul{
+        border: 1px solid #ddd;
+        border-right: 0;
+        background: #fbfbf8;
+        li{
+          width: 126px;
+          height: 45px;
+          float: left;
+          text-align: center;
+          line-height: 45px;
+          margin: 0;
+          background: #fbfbf8;
+          font-family: "microsoft yahei";
+          font-size: 14px;
+          color: #666;
+          cursor: pointer;
+          border: 1px solid #ddd;
+          border-bottom: 0;
+          border-top: 0;
+          margin-left: -2px;
+          a{
+            display: block;
+            color: #666;
+          }
+        }
+        .selected{
+          background: #fff;
+          color: #333;
+          border-top: 2px solid #1d7ad9;
+          border-bottom: 1px solid #fff;
+          border-right: 1px solid #ddd;
+          border-left: 1px solid #ddd;
+          position: relative;
+          height: 43px;
+          bottom: -2px;
+          margin-top: -2px;
+        }
+      }
+    }
+    .ui_tabsbox{
+      margin: 1px 0 0 0;
+      padding: 15px 0 0 0;
+      .bluefont{
+        color:#0082cc;
+      }
+      .hide{
+        display: none;
+      }
+      .picmanage{//图片管理
+        .picmanageTit{
+          color: #666;
+          margin-left: 15px;
+        }
+        .searchbtn{
+          margin: 0 0 0 6px;
+          font-family: "microsoft yahei";
+          font-weight: 400;
+          display: inline-block;
+          padding: 0;
+          height: 33px;
+          width: 95px;
+          line-height: 33px;
+          text-align: center;
+          min-width: 0px;
+        }
+        .ui-select{
+            height: 35px;
+            width: 115px;
+        }
+        .hasDatepicker{
+            background-position: 4px -122px;
+        }
+        .inline-block{
+          *margin-right: 5px;
+          .text{
+            height: 33px;
+            width: 95px;
+            line-height: 33px \9;
+            border: 1px solid #dadada;
+            //background: url(../../images/brand/icons-input.gif) no-repeat 5px -126px;
+            padding: 0 0 0 25px;
+          }
+          .textLar{
+            width: 225px;
+            height: 33px;
+            line-height: 33px \9;
+            border: 1px solid #dadada;
+            padding: 0 5px;
+            color: #999;
+          }
+          .updata{
+            margin: 0 0 0 15px;
+          }
+        }
+        .searchbtn{
+          *margin-left: 10px;
+          padding: 0 5px \9;
+        }
+      }
+      .checkallbox{
+        height: 35px;
+        background: #d7e8f7;
+        margin: 15px 0 10px 0;
+        padding: 0 10px;
+        line-height: 35px;
+        overflow: hidden;
+        .checkalltext{
+        }
+        .checkstyle{
+          display: inline-block;
+          width: 75px;
+          height: 25px;
+          background: #fff;
+          border: 1px solid #ddd;
+          text-align: center;
+          line-height: 25px;
+          cursor: pointer;
+          margin: 4px 0 0 5px;
+          color: #666;
+          &:hover{
+            box-shadow: 0px 0px 6px #E3E3E3;
+            border: 1px solid #D9D9D9;
+            color: #0082CC;
+          }
+        }
+      }
+      .pages{
+        li{
+          float: left;
+          color: #333;
+          margin: 0 0 0 5px;
+        }
+      }
+      .contant{
+        overflow: hidden;
+        margin-left: 20px;
+        margin-right: -20px;
+        zoom: 1;
+        .contantli{
+          border:1px solid #eee;
+          float: left;
+          margin: 0 19px 10px 0;
+          _margin: 0 16px 10px 0;
+          //position: relative;
+          .imgbox{
+            width: 177px;
+            height: 177px;
+            position: relative;
+            img{
+              padding: 1px;
+            }
+            .title{
+              text-align: center;
+              line-height: 25px;
+              position: absolute;
+              bottom:1px;
+              left: 1px;
+              width: 175px;
+              filter:progid:DXImageTransform.Microsoft.gradient(enabled="true", startColorstr="#4C333333", endColorstr="#4C333333");
+              background-color:rgba(51,51,51,0.3);
+              a{
+                  color:#fff;
+              }
+            }
+          }
+          .bluefont{
+            padding: 0 5px;
+            cursor: pointer;
+          }
+          .replace{
+            margin: 0 0 0 -10px;
+            *margin: 0 0 0 -5px;
+          }
+          .fn{
+            font-size: 14px;
+            line-height: 30px;
+            text-indent: 10px;
+            p{
+                border-bottom: 1px solid #eee;
+            }
+          }
+        }
+      }
+      .uploadimg{//图片上传
+        .uploadtips{
+          color: #666;
+          line-height: 28px;
+        }
+        .uploadclass{
+          color: #666;
+          margin: 0 0 10px 0;
+        }
+        .tablehead{
+          background:#e3edf7 ;
+          line-height: 30px;
+          font-weight: 400;
+          overflow: hidden;
+          border-top: 1px solid #1d7ad9;
+          .Tthead{
+            float: left;
+            text-indent: 15px;
+          }
+          .name{
+            width: 570px;
+
+          }
+          .file{
+            width: 130px;
+          }
+          .times{
+            width: 140px;
+          }
+          .do{
+            width: 120px;
+          }
+        }
+        .uploadtablearea{
+          .viewport{
+            height: 370px;
+            overflow: hidden;/*使用JS的时候这里要调为hidden*/
+            overflow-x: hidden;
+            position: relative;
+            margin: 0 0 10px 0;
+          }
+        }
+        .uploadtable{
+          width: 100%;
+          border-bottom: 1px solid #d9d9d9;
+          border-collapse:collapse;
+          tbody{
+            tr{
+              td{
+                padding:10px 0;
+                color: #333;
+                border-bottom: #eee 1px solid;
+                text-indent: 10px;
+                .bluefont{
+                  cursor: pointer;
+                }
+              }
+              &:hover{
+                background: #fff3e4;
+              }
+              .color666{
+                color: #666;
+              }
+              .color0a7{
+                color: #0a7a24;
+              }
+              .colorcc00{
+                color: #cc0000;
+              }
+            }
+            tr:nth-child(even){
+              background: #f9f9f9;
+              &:hover{
+                background: #fff3e4;
+              }
+            }
+          }
+        }
+        .uploadicondel{
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background: url(/images/brand/classification_sub_delete.gif) no-repeat;
+          vertical-align: -2px;
+          margin: 0 5px 0 0;
+        }
+        .adddelpic{
+          padding: 5px 10px;
+          .clearpic{
+            padding: 0 10px;
+            &:hover{
+                color:#fff;
+            }
+          }
+          .addwatermark{
+            .markfont{
+              margin: 0 0 0 -15px;
+              color: #666;
+            }
+            em{
+              color: #999;
+            }
+          }
+        }
+        .uploadpicbtn{
+            margin-left: 20px;
+            &:hover{
+                color:#fff;
+            }
+        }
+        .input_file{
+          width: 95px;
+          height: 28px;
+          left: 5px;
+        }
+        .js-select{
+            height: 28px;
+        }
+        .js-addpic-btn{
+           border:0;
+           border-radius: 2px;
+           height: 28px;
+           line-height: 28px;
+           color: #fff;
+           background: #84c848;
+           font-size: 14px;
+           font-family: "microsoft yahei";
+           .iconfont{
+              margin-right: 5px;
+           }
+        }
+      }
+      .classfication{//分类管理
+        .newclass{
+          padding: 0 10px;
+          border-radius: 2px;
+          height: 28px;
+          line-height: 28px;
+          display: inline-block;
+          background:#84c848;
+          color:#fff;
+          cursor: pointer;
+          margin: 0 0 10px 20px;
+          float: left;
+          .iconfont{
+            width: 11px;
+            height: 11px;
+            display: inline-block;
+            vertical-align: 1px;
+            font-size: 10px;
+            margin-right: 5px;
+          }
+          .newclasspan{
+            vertical-align: 1px;
+          }
+        }
+        .table{
+          width: 965px;
+          border-collapse:collapse;
+          thead{
+            th{
+              font-weight: normal;
+              color:#333;
+              background: #d7e8f7;
+              line-height: 30px;
+              text-align: left;
+              padding:0 10px;
+              font-size: 14px;
+            }
+          }
+          tbody{
+            tr{
+              td{
+                text-indent: 10px;
+                padding:8px 0;
+                border-bottom: #eee 1px solid;
+                font-size: 14px;
+              }
+              &:hover{
+                background: #fff3e4;
+                .delete{
+                  color:#ff8900
+                }
+              }
+            }
+            .subtree{
+              display: none;
+            }
+          }
+          td.td_0{ width: 35px}
+          td.td_1{ width: 15px;
+            /*.main_icons{
+              display: inline-block;
+              background: url(../../images/brand/classification_move.gif) no-repeat -999em;
+              cursor: pointer;
+            }*/
+            .main_iconskai{
+              width: 10px;
+              height: 10px;
+              display: inline-block;
+              background: url(../../images/brand/classification_move.gif) no-repeat 0 -42px;
+              cursor: pointer;
+            }
+            .main_iconsguan{
+              width: 10px;
+              height: 5px;
+              display: inline-block;
+              background: url(../../images/brand/classification_move.gif) no-repeat 0 -54px;
+              cursor: pointer;
+            }
+          }
+          td.td_2{}
+          td.td_3{}
+          td.td_4{}
+          td.td_5{}
+        }
+        .checkgroup{
+
+        }
+        .sub_zhe{
+          width: 13px;
+          height: 14px;
+          background: url(../../images/brand/classification_sub_zhe.gif) no-repeat;
+          margin-left:10px;
+          *margin-left: 0;
+        }
+        .newclasstext{
+          width: 235px;
+          height: 33px;
+          line-height: 33px \9;
+          padding: 0 5px;
+          border: 1px solid #dadada;
+          border-top:1px solid #bcbcbc;
+          &:hover{
+            border: 1px solid #666;
+          }
+          &:focus{
+            border:1px solid #f8b551;
+            background: #fefef4 ;
+          }
+        }
+        .addsubclass{
+          color:#0082cc;
+          cursor: pointer;
+        }
+        .movebox{
+          span{
+            display: inline-block;
+            font-size: 0;
+            width: 11px;
+            height: 12px;
+            line-height: 12px;
+            background: url(../../images/brand/classification_move.gif) no-repeat 0 0;
+            cursor: pointer;
+          }
+          .moveup{
+            background-position: -13px 0;
+            &:hover{
+              background:url(../../images/brand/classification_move.gif) no-repeat -13px -28px;
+            }
+          }
+          .movedown{
+            background-position: -26px 0;
+            &:hover{
+              background:url(../../images/brand/classification_move.gif) no-repeat -26px -28px;
+            }
+          }
+        }
+        .delete{
+          color:#0082cc;
+          cursor: pointer;
+        }
+        .ui_button_sorange{
+          margin: 15px 0 0 0;
+          padding: 0px 20px;
+          font-weight: 400;
+          background-color: #ccc;
+          cursor: default;
+        }
+        .saveclass{
+          font-size: 14px;
+          cursor:pointer;
+          margin: 10px 0 0 20px;
+        }
+        .deletepic{
+           color:#0082cc;
+           padding-left: 20px;
+           font-size: 14px;
+           line-height: 28px;
+           margin-left: 20px;
+           background: url("/images/brand/delete.png") 4px center no-repeat;
+        }
+      }
+    }
+  }
+  .js_select{
+    width: 170px;
+    height: 30px;
+  }
+  .recycle{
+    .recycle-tips{
+      line-height: 30px;
+      em{
+        color: #ff0000;
+      }
+    }
+  }
+}
+:root .main_classification .ui_tabs .ui_tabsbox .contant .contantli .imgbox .title{
+  filter:none;
+}
+//分类管理树菜单
+.ztreeP{
+    border: 1px solid #d9d9d9;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    background: #fff;
+    padding: 0 5px;
+    position: relative;
+    i.zarrow{
+        position: absolute;
+        right: 5px;
+        top: 12px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+        border-width: 5px 4px;
+        overflow: hidden;
+    }
+    ul.zatree{
+      position: relative;
+      z-index: 9999;
+      background: #fff;
+      margin-top: 1px;
+      margin-left: -6px;
+      width: 150px;
+      border: 1px solid #d9d9d9;
+      border-top: 0;
+      display: none;
+    }
+    //以下重置ztree样式
+    .ztree li span.button.roots_open {
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.roots_close {
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.center_close {
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.center_open{
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.bottom_close {
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.bottom_open {
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.ico_open {
+      margin-right: 2px;
+      background-position: -110px -16px;
+      vertical-align: top;
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.ico_close {
+      margin-right: 2px;
+      background-position: -110px -16px;
+      vertical-align: top;
+      width: 0;
+      height: 0;
+    }
+    .ztree li span.button.ico_docu {
+      width: 0;
+      height: 0;
+    }
+}
+
+//图片上传修改 2014-05-01
+.piclass-upload-head{//
+    background: #E3EDF7;
+    margin-top: 15px;
+    font-size: 14px;
+    div.upload-head-items{
+        width: 15%;
+        line-height: 35px;
+        float: left;
+        text-align: center;
+        color: #333;
+    }
+}
+.piclass-upload-con{
+    font-size: 14px;
+    max-height: 340px;
+    overflow: auto;
+    .piclass-upload-li{
+        border-bottom: 1px solid #eee;
+        .upload-li-items{
+            width: 15%;
+            float: left;
+            text-align: center;
+            padding: 7px 0;
+        }
+        &:nth-child(even){
+            background: #f9f9f9;
+        }
+        .success-font{
+            color:#0a7b24;
+        }
+        .fail-font{
+            color:#cd0100;
+        }
+        .noupload-font{
+            color: #666;
+        }
+    }
+}
+.js-setmover{
+    .ui-form-item{
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+.pagination{
+    margin-right: 10px;
+}

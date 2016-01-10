@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+/*中间搜索部分样式*/
+#search{
+  height: 80px;
+  width:1200px;
+  margin:0 auto;
+  .logo{
+    margin-top:13px;
+  }
+  .rules-center{
+    margin-top:30px;margin-left:20px;position:relative;
+    span{
+      font-size: 18px;font-family: "微软雅黑";color:#333;/*padding-right: 15px;cursor: pointer;background: url(/images/rules/arrow.png) right center no-repeat;*/
+    }
+    /*.items{
+      background: #F2F2F2;width:90px;border:1px solid #DDD;display: none;position: absolute;*left:0;*top:25px;
+      li{
+        height: 30px;line-height: 30px;
+        a{
+          display: block;padding:0 15px;
+          &:hover{
+            background: #ececec;
+          }
+        }
+      }
+    }*/
+  }
+}
+#search-box{
+  position: relative;
+  z-index:199;
+  .search-form{
+    margin-top: 20px;
+    div{
+      float:left;height: 30px;line-height: 30px;
+    }
+    input{
+      height: 25px;line-height: 25px;*height:29px;_height:30px;_line-height:30px;border:0;color:#b3b3b3;
+    }
+  }
+  .hot-search{
+    overflow: hidden;
+    height: 25px;
+    line-height: 25px;
+    position: absolute;
+    top:55px;
+    left:0;
+    a{
+      margin-right:5px;
+      *margin-right: 10px;
+    }
+  }
+  .rules-type{
+    display: none;
+    border:1px solid #DCDCDC;
+    background: #FFF;
+    position: absolute;
+    left: 0;
+    top:32px;
+    *top:32px;
+    _top:34px;
+    width: 160px;
+    li{
+      height: 22px;
+      line-height: 22px;
+      a{
+        display: block;padding:0 10px;_width: 120px;
+        &:hover{
+          background: #e70012;color:#FFF
+        }
+      }
+      .select{
+        background: #e70012;color:#FFF
+      }
+    }
+  }
+  .search-box {
+    padding-left:30px;background: url("/images/common/icon-search.gif") 4px center no-repeat;border:2px solid #e70012;border-right:0;
+    input{
+      width:320px;
+    }
+  }
+  .search-form .search-select{
+    border:2px solid #e70012;
+    border-left:1px solid #dcdcdc;
+    padding-left:10px;
+    padding-right:20px;
+    position: relative;
+    z-index:1000;
+    _height:32px ;
+    _line-height: 32px;
+    width:130px;
+    color:#999999;
+    font-family: "微软雅黑";
+    font-size: 13px;
+    background: url(/images/rules/arrow.png) 144px center no-repeat;
+    span{
+      cursor: pointer;overflow: hidden;display: inline-block;width: 60px;height: 30px;
+    }
+    label{
+      vertical-align: top;
+      display: inline-block;height: 30px;line-height: 30px;
+    }
+  }
+  .search-btn{
+    input{
+      border:0;background: #e70012;height: 34px;_height:36px;color:#FFF;font-size: 14px;font-family: "微软雅黑";padding:0 10px;cursor: pointer;
+    }
+  }
+}

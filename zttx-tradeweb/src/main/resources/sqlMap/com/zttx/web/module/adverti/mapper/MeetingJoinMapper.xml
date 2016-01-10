@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.adverti.mapper.MeetingJoinMapper">
+    <!-- 基础列 -->
+    <sql id="meetingJoinColumns">
+        a.refrenceId as refrenceId ,
+        a.stageCode as stageCode ,
+        a.realName as realName ,
+        a.mobile as mobile ,
+        a.userType as userType ,
+        a.businessCategory as businessCategory,
+        a.createTime as createTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        insert into MeetingJoin(
+         refrenceId ,
+         stageCode ,
+         realName ,
+         businessCategory,
+         mobile ,
+         userType ,
+         createTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{stageCode}  ,
+        #{realName}  ,
+        #{businessCategory},
+        #{mobile}  ,
+        #{userType}  ,
+        #{createTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from MeetingJoin where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update MeetingJoin set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        insert into MeetingJoin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="businessCategory != null">
+                businessCategory ,
+            </if>
+            <if test="stageCode != null">
+                stageCode ,
+            </if>
+            <if test="realName != null">
+                realName ,
+            </if>
+            <if test="mobile != null">
+                mobile ,
+            </if>
+            <if test="userType != null">
+                userType ,
+            </if>
+            <if test="createTime != null">
+                createTime
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="businessCategory != null">
+                #{businessCategory} ,
+            </if>
+            <if test="stageCode != null">
+                #{stageCode} ,
+            </if>
+            <if test="realName != null">
+                #{realName} ,
+            </if>
+            <if test="mobile != null">
+                #{mobile} ,
+            </if>
+            <if test="userType != null">
+                #{userType} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into MeetingJoin(
+        refrenceId ,
+        businessCategory,
+        stageCode ,
+        realName ,
+        mobile ,
+        userType ,
+        createTime
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.businessCategory} ,
+            #{item.stageCode} ,
+            #{item.realName} ,
+            #{item.mobile} ,
+            #{item.userType} ,
+            #{item.createTime}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        update MeetingJoin
+        <set>
+            <if test="stageCode != null">
+                stageCode = #{stageCode} ,
+            </if>
+            <if test="businessCategory != null">
+                businessCategory = #{businessCategory} ,
+            </if>
+            <if test="realName != null">
+                realName = #{realName} ,
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile} ,
+            </if>
+            <if test="userType != null">
+                userType = #{userType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update MeetingJoin set
+            stageCode = #{item.stageCode} ,
+            businessCategory = #{item.businessCategory} ,
+            realName = #{item.realName} ,
+            mobile = #{item.mobile} ,
+            userType = #{item.userType} ,
+            createTime = #{item.createTime}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        update MeetingJoin set
+            stageCode = #{stageCode} ,
+            businessCategory = #{businessCategory} ,
+            realName = #{realName} ,
+            mobile = #{mobile} ,
+            userType = #{userType} ,
+            createTime = #{createTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        select
+        <include refid="meetingJoinColumns"/>
+        from MeetingJoin a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        SELECT
+        <include refid="meetingJoinColumns"/>
+        FROM MeetingJoin a WHERE a.delFlag = 0
+        <if test="stageCode != null and stageCode != ''">
+            and a.stageCode like CONCAT('%',#{stageCode}, '%')
+        </if>
+        <if test="realName != null and realName != ''">
+            and a.realName like CONCAT('%',#{realName}, '%')
+        </if>
+        <if test="mobile != null and mobile != ''">
+            and a.mobile like CONCAT('%',#{mobile}, '%')
+        </if>
+        <if test="userType != null and userType != ''">
+            and a.userType = #{userType}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.adverti.entity.MeetingJoin">
+        SELECT
+        <include refid="meetingJoinColumns"/>
+        FROM MeetingJoin a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

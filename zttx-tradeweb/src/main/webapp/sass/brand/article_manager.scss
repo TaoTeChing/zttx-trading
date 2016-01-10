@@ -1,0 +1,93 @@
+@charset "UTF-8";
+//资讯、帮助、规则等发布修改的样式
+$labelWidth:    200px !default;
+
+@import "../mixin";
+@import "form";
+@import "button";
+
+%common_table{
+    width: 100%;
+    border-collapse: collapse;
+    border-left: 1px solid #fff;
+
+    td,th{
+        padding: 8px 0;
+    }
+
+    td{
+        border-right: #eee solid 1px;
+        border-bottom: #eee solid 1px;
+        padding-left: 8px;
+        padding-right: 8px;
+        &:last-child{
+            border-right: 0;
+        }
+    }
+
+    th{
+        background: #e4ecf8;
+        border-right: #fff solid 1px;
+        font-weight: normal;
+        color: #666;
+    }
+
+    tr:nth-child(even){
+        background: #f9f9f9;
+    }
+
+    .odd{
+
+        td{
+            background: #f9f9f9;
+        }
+    }
+
+    .last{
+        border-right: none;
+    }
+
+    .link{
+        color: #0082cc;
+
+        &:hover{
+            color: #ff8800;
+        }
+    }
+}
+
+.filter_term{
+    @include clearfix();
+    padding: 20px;
+    .filter_term_1{
+        label{
+            margin-right: 15px;
+        }
+    }
+}
+
+.filter_contant{
+    padding: 0 20px;
+}
+
+.article-table{
+    @extend %common_table;
+}
+
+.tree_menu_con{
+    position: absolute;
+    top: -11px;
+    left: 0px;
+    z-index: 100;
+    display: none;
+
+    .tree{
+        margin-top: 10px;
+        border: 1px solid #c1c1c1;
+        background: #fff;
+        width: 220px;
+        max-height: 360px;
+        overflow-y: scroll;
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,136 @@
+﻿@charset "UTF-8";
+/*message css*/
+@import '../_mixin';
+@import 'model/_pagination';
+@import "model/_form";
+@import "model/_button";
+@import "model/_table";
+
+.ui-table{
+    th,td{
+        text-align:center;
+    }
+}
+
+.panel-table .panel-table-title {
+    height: 35px;
+    line-height: 35px;
+    color: #666;
+    padding: 12px 10px;
+    label {
+        margin: 0 5px 0 10px;
+        height: 20px;
+        line-height: 20px;
+        margin-top: 2px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    input.ui-input {
+        padding: 3px 6px;
+        height: 27px;
+    }
+
+    input.ui-checkbox {
+        vertical-align: middle;
+    }
+
+    input.ui-button {
+        line-height: 35px;
+        height: 35px;
+        vertical-align: -1px;
+    }
+
+    select.ui-select {
+        width: 120px;
+        height: 35px;
+        color: #666;
+        margin:0;
+        *margin-right: 5px;
+    }
+
+    a.btn {
+        height: 20px;
+        line-height: 20px;
+        width: auto;
+        padding: 0 10px;
+        vertical-align: middle;
+
+    }
+    .inline-block{
+        vertical-align: top;
+    }
+}
+
+.panel-table-content{
+  padding: 0 10px;
+  table {
+    border:1px solid #ddd;
+    td,th{
+        border:1px solid #ddd;
+    }
+    .cell-1 {
+      width: 30px;
+
+    }
+
+    .cell-2 {
+      width: 120px;
+
+    }
+
+    .cell-3 {
+      width: 129px;
+
+    }
+
+    .cell-4 {
+      width: 409px;
+      text-align:left;
+    }
+    th{
+        text-align: center;
+        line-height: 21px;
+        color:#333;
+        background: #fbfbfb;
+        font-weight: normal;
+    }
+    .cell-5 {
+      width: 149px;
+
+    }
+
+    .cell-6 {
+      width: 149px;
+
+    }
+    .link{
+        margin:0 5px;
+        color:#1b7cd8;
+    }
+  }
+}
+
+.message-detail {
+    padding:20px 50px;
+    color:#666;
+    .message-title {
+        
+        padding:0 100px;
+        h3 {
+            font:700 20px/2 '微软雅黑','黑体';
+        }
+    }
+
+    .message-info {
+        margin-top:20px;
+        border-bottom:1px solid #ccc;
+        line-height:40px;
+        padding:0 100px;
+    }
+
+    .message-content {
+        padding:20px 100px;
+        line-height:22px;
+    }
+}

@@ -1,0 +1,87 @@
+﻿@charset "UTF-8";
+@import "../../mixin";
+@import "../../dealer/model/pagination";
+@import "../../dealer/model/table";
+@import "../../dealer/model/button";
+@import "../../dealer/model/dialog";
+
+
+
+.index-content{
+  .content-a{
+    padding-bottom: 50px;
+  }
+  .contactus{
+    border:1px solid #ddd;
+    padding:10px;
+
+    p{
+      line-height: 30px;
+    }
+  }
+}
+
+$red: #e01;
+
+.about-tab{
+  a{
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:#ddd;
+    color:#333;
+    text-align: center;
+    margin-right:5px;
+
+    &:hover{
+      background:$red;
+      color:#fff;
+      text-decoration: none;
+    }
+  }
+  .ui-switchable-active{
+    background:$red;
+    color:#fff;
+  }
+}
+
+.icon {
+    @include inline-block;
+    background: url("/images/about/icon-joinus.png");
+    width: 19px;
+    height: 21px;
+    vertical-align: -4px;
+
+    &.i-new {
+        background-position: right top;
+    }
+}
+
+.cont {
+    margin: 20px;
+}
+
+.btns {
+    margin: 0 20px;
+
+    #apply {
+        @include inline-block;
+        background-color: #f8970a;
+        height: 36px;
+        line-height: 36px;
+        font-size: 16px;
+        padding: 0 40px;
+        color: #fff;
+        margin-top: 20px;
+
+        &:hover {
+            text-decoration: none;
+            background-color: darken(#f8970a,3%);
+        }
+
+        &:active {
+            background-color: darken(#f8970a,5%);
+        }
+    }
+}

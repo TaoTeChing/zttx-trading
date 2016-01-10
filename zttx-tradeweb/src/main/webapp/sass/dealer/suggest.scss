@@ -1,0 +1,29 @@
+/*suggest css*/
+@import '../_mixin';
+@import "model/_button";
+@import "model/_form";
+.ml111 {
+    margin-left: 111px;
+}
+
+.panel-form {
+    padding: 0 20px;
+    _padding: 0;
+
+    .ui-form-item {
+        padding: 0 5px 20px 0;
+    }
+
+    .ui-form-item textarea.area {
+        height: 300px;
+        width: 100%;
+    }
+
+    .ui-form-item i.keycount {
+    }
+
+    .ui-form-item input.ui-button {
+        float: right;
+        margin-right: 10px;
+    }
+}

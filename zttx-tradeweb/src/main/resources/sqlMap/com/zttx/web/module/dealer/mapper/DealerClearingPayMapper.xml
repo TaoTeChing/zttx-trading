@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerClearingPayMapper">
+    <!-- 基础列 -->
+    <sql id="dealerClearingPayColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.payClearingAmount as payClearingAmount ,
+        a.createTime as createTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        insert into DealerClearingPay(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        payClearingAmount ,
+        createTime ,
+        delFlag
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{payClearingAmount}  ,
+        #{createTime}  ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerClearingPay where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerClearingPay set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        insert into DealerClearingPay
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="payClearingAmount != null">
+                payClearingAmount ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="payClearingAmount != null">
+                #{payClearingAmount} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerClearingPay(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        payClearingAmount ,
+        createTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.dealerId}  ,
+            #{item.brandId}  ,
+            #{item.payClearingAmount}  ,
+            #{item.createTime}  ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        update DealerClearingPay
+        <set>
+            <if test="refrenceId != null">
+                refrenceId = #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="payClearingAmount != null">
+                payClearingAmount = #{payClearingAmount} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update DealerClearingPay set
+            refrenceId = #{item.refrenceId} ,
+            dealerId = #{item.dealerId} ,
+            brandId = #{item.brandId} ,
+            payClearingAmount = #{item.payClearingAmount} ,
+            createTime = #{item.createTime} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        update DealerClearingPay set
+        refrenceId = #{refrenceId} ,
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        payClearingAmount = #{payClearingAmount} ,
+        createTime = #{createTime} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        select <include refid="dealerClearingPayColumns"/> from DealerClearingPay a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        SELECT
+        <include refid="dealerClearingPayColumns"/>
+        FROM DealerClearingPay a WHERE a.delFlag = 0
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId like CONCAT('%',#{refrenceId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="payClearingAmount != null and payClearingAmount != ''">
+            and a.payClearingAmount = #{payClearingAmount}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerClearingPay">
+        SELECT
+        <include refid="dealerClearingPayColumns"/>
+        FROM DealerClearingPay a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

@@ -1,0 +1,120 @@
+﻿@charset "utf-8";
+
+/*
+    栅格布局(30)
+    1200/30 = 30px+10px(margin)/列
+    暂不考虑响应式
+*/
+
+.ts-grid-row {
+    margin-right: -10px;
+    @include clearfix();
+}
+
+.ts-grid-1,
+.ts-grid-2,
+.ts-grid-3,
+.ts-grid-4,
+.ts-grid-5,
+.ts-grid-6,
+.ts-grid-7,
+.ts-grid-8,
+.ts-grid-9,
+.ts-grid-10,
+.ts-grid-11,
+.ts-grid-12,
+.ts-grid-13,
+.ts-grid-14,
+.ts-grid-15,
+.ts-grid-16,
+.ts-grid-17,
+.ts-grid-18,
+.ts-grid-19,
+.ts-grid-20,
+.ts-grid-21,
+.ts-grid-22,
+.ts-grid-23,
+.ts-grid-24,
+.ts-grid-25,
+.ts-grid-26,
+.ts-grid-27,
+.ts-grid-28,
+.ts-grid-29,
+.ts-grid-30{
+    margin-right:10px;
+    margin-bottom:10px;
+    @include float();
+}
+
+
+.ts-grid-1 {width:30px;}
+.ts-grid-2 {width:70px;}
+.ts-grid-3 {width:110px;}
+.ts-grid-4 {width:150px;} /* 右侧推广位的宽度 */
+.ts-grid-5 {width:190px;} /* 左侧边栏的宽度 */
+.ts-grid-6 {width:230px;}
+.ts-grid-7 {width:270px;}
+.ts-grid-8 {width:310px;}
+.ts-grid-9 {width:350px;}
+.ts-grid-10 {width:390px;}
+.ts-grid-11 {width:430px;}
+.ts-grid-12 {width:470px;}
+.ts-grid-13 {width:510px;}
+.ts-grid-14 {width:550px;}
+.ts-grid-15 {width:590px;} /* 中央区域宽度 */
+.ts-grid-16 {width:630px;}
+.ts-grid-17 {width:670px;}
+.ts-grid-18 {width:710px;}
+.ts-grid-19 {width:750px;}
+.ts-grid-20 {width:790px;}
+.ts-grid-21 {width:830px;} /* 交易明细表区域的宽度 */
+.ts-grid-22 {width:870px;}
+.ts-grid-23 {width:910px;}
+.ts-grid-24 {width:950px;}
+.ts-grid-25 {width:990px;} 
+.ts-grid-26 {width:1030px;} 
+.ts-grid-27 {width:1070px;} 
+.ts-grid-28 {width:1110px;} 
+.ts-grid-29 {width:1150px;} 
+.ts-grid-30 {width:1190px;} 
+
+
+/*.ts-grid-push-1 {width:30px;}
+.ts-grid-push-2 {width:70px;}
+.ts-grid-push-3 {width:110px;}
+.ts-grid-push-4 {width:150px;} 
+.ts-grid-push-5 {width:190px;} 
+.ts-grid-push-6 {width:230px;}
+.ts-grid-push-7 {width:270px;}
+.ts-grid-push-8 {width:310px;}
+.ts-grid-push-9 {width:350px;}
+.ts-grid-push-10 {width:390px;}
+.ts-grid-push-11 {width:430px;}
+.ts-grid-push-12 {width:470px;}
+.ts-grid-push-13 {width:510px;}
+.ts-grid-push-14 {width:550px;}
+.ts-grid-push-15 {width:590px;} 
+.ts-grid-push-16 {width:630px;}
+.ts-grid-push-17 {width:670px;}
+.ts-grid-push-18 {width:710px;}
+.ts-grid-push-19 {width:750px;}
+.ts-grid-push-20 {width:790px;}
+.ts-grid-push-21 {width:830px;} 
+.ts-grid-push-22 {width:870px;}
+.ts-grid-push-23 {width:910px;}
+.ts-grid-push-24 {width:950px;}
+.ts-grid-push-25 {width:990px;} 
+.ts-grid-push-26 {width:1030px;} 
+.ts-grid-push-27 {width:1070px;} 
+.ts-grid-push-28 {width:1110px;} 
+.ts-grid-push-29 {width:1150px;} 
+.ts-grid-push-30 {width:1190px;}*/ 
+
+.ts-alpha{margin-left:0px;}
+.ts-omega{margin-right:0px;}
+
+.ts-container{
+    width:1190px;
+    margin:0 auto;
+    @include clearfix();
+}

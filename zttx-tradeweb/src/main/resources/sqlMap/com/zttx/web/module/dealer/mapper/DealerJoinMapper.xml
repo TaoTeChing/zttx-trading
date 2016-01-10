@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerJoinMapper">
+    <!-- 基础列 -->
+    <sql id="dealerJoinColumns">
+        a.refrenceId AS refrenceId,
+        a.dealerId AS dealerId ,
+        a.brandId AS brandId,
+        a.brandsId AS brandsId,
+        a.logoName AS logoName,
+        a.domainName AS domainName,
+        a.levelId AS levelId ,
+        a.areaNo AS areaNo,
+        a.joinSource AS joinSource,
+        a.joinForm AS joinForm,
+        a.joinState AS joinState,
+        a.creditCurrent AS creditCurrent ,
+        a.clearingAmount AS clearingAmount,
+        a.discount AS discount,
+        a.creditAmount AS creditAmount,
+        a.applyTime AS applyTime,
+        a.joinTime AS joinTime,
+        a.updateTime AS updateTime ,
+        a.startTime AS startTime,
+        a.endTime AS endTime,
+        a.endMark AS endMark,
+        a.orderTime AS orderTime,
+        a.orderNum AS orderNum ,
+        a.orderMoney AS orderMoney,
+        a.lastOrder AS lastOrder,
+        a.joinNet AS joinNet,
+        a.isPaid AS isPaid,
+        a.creditPaidPercent AS creditPaidPercent ,
+        a.paidAmount AS paidAmount,
+        a.paidTime AS paidTime,
+        a.depositTotalAmount AS depositTotalAmount,
+        a.depositClearingAmount AS depositClearingAmount,
+        a.refundAmount AS refundAmount,
+        a.delFlag AS delFlag,
+        a.isPoint as point
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerJoin">
+        INSERT INTO DealerJoin (
+            refrenceId,
+            dealerId,
+            brandId,
+            brandsId,
+            logoName,
+            domainName,
+            levelId,
+            areaNo,
+            joinSource,
+            joinForm,
+            joinState,
+            creditCurrent,
+            clearingAmount,
+            discount,
+            creditAmount,
+            applyTime,
+            joinTime,
+            updateTime,
+            startTime,
+            endTime,
+            endMark,
+            orderTime,
+            orderNum,
+            orderMoney,
+            lastOrder,
+            joinNet,
+            isPaid,
+            creditPaidPercent,
+            paidAmount,
+            paidTime,
+            depositTotalAmount,
+            depositClearingAmount,
+            refundAmount,
+            delFlag,
+            isPoint
+        ) VALUES (
+            #{refrenceId},
+            #{dealerId},
+            #{brandId},
+            #{brandsId},
+            #{logoName},
+            #{domainName},
+            #{levelId},
+            #{areaNo},
+            #{joinSource},
+            #{joinForm},
+            #{joinState},
+            #{creditCurrent},
+            #{clearingAmount},
+            #{discount},
+            #{creditAmount},
+            #{applyTime},
+            #{joinTime},
+            #{updateTime},
+            #{startTime},
+            #{endTime},
+            #{endMark},
+            #{orderTime},
+            #{orderNum},
+            #{orderMoney},
+            #{lastOrder},
+            #{joinNet},
+            #{isPaid},
+            #{creditPaidPercent},
+            #{paidAmount},
+            #{paidTime},
+            #{depositTotalAmount},
+            #{depositClearingAmount},
+            #{refundAmount},
+            #{delFlag},
+            #{point}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM DealerJoin
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE DealerJoin
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerJoin">
+        insert into DealerJoin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="logoName != null">
+                logoName ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="levelId != null">
+                levelId ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="joinSource != null">
+                joinSource ,
+            </if>
+            <if test="joinForm != null">
+                joinForm ,
+            </if>
+            <if test="joinState != null">
+                joinState ,
+            </if>
+            <if test="creditCurrent != null">
+                creditCurrent ,
+            </if>
+            <if test="discount != null">
+                discount ,
+            </if>
+            <if test="creditAmount != null">
+                creditAmount ,
+            </if>
+            <if test="applyTime != null">
+                applyTime ,
+            </if>
+            <if test="joinTime != null">
+                joinTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="startTime != null">
+                startTime ,
+            </if>
+            <if test="endTime != null">
+                endTime ,
+            </if>
+            <if test="endMark != null">
+                endMark ,
+            </if>
+            <if test="orderTime != null">
+                orderTime ,
+            </if>
+            <if test="orderNum != null">
+                orderNum ,
+            </if>
+            <if test="orderMoney != null">
+                orderMoney ,
+            </if>
+            <if test="lastOrder != null">
+                lastOrder ,
+            </if>
+            <if test="joinNet != null">
+                joinNet ,
+            </if>
+            <if test="isPaid != null">
+                isPaid ,
+            </if>
+            <if test="creditPaidPercent != null">
+                creditPaidPercent ,
+            </if>
+            <if test="paidAmount != null">
+                paidAmount ,
+            </if>
+            <if test="paidTime != null">
+                paidTime ,
+            </if>
+            <if test="depositTotalAmount != null">
+                depositTotalAmount ,
+            </if>
+            <if test="depositClearingAmount != null">
+                depositClearingAmount ,
+            </if>
+            <if test="refundAmount != null">
+                refundAmount ,
+            </if>
+            <if test="delFlag != null">
+                delFlag,
+            </if>
+            <if test="point!=null">
+            	isPoint,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="logoName != null">
+                #{logoName} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="levelId != null">
+                #{levelId} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="joinSource != null">
+                #{joinSource} ,
+            </if>
+            <if test="joinForm != null">
+                #{joinForm} ,
+            </if>
+            <if test="joinState != null">
+                #{joinState} ,
+            </if>
+            <if test="creditCurrent != null">
+                #{creditCurrent} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="creditAmount != null">
+                #{creditAmount} ,
+            </if>
+            <if test="applyTime != null">
+                #{applyTime} ,
+            </if>
+            <if test="joinTime != null">
+                #{joinTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="startTime != null">
+                #{startTime} ,
+            </if>
+            <if test="endTime != null">
+                #{endTime} ,
+            </if>
+            <if test="endMark != null">
+                #{endMark} ,
+            </if>
+            <if test="orderTime != null">
+                #{orderTime} ,
+            </if>
+            <if test="orderNum != null">
+                #{orderNum} ,
+            </if>
+            <if test="orderMoney != null">
+                #{orderMoney} ,
+            </if>
+            <if test="lastOrder != null">
+                #{lastOrder} ,
+            </if>
+            <if test="joinNet != null">
+                #{joinNet} ,
+            </if>
+            <if test="isPaid != null">
+                #{isPaid} ,
+            </if>
+            <if test="creditPaidPercent != null">
+                #{creditPaidPercent} ,
+            </if>
+            <if test="paidAmount != null">
+                #{paidAmount} ,
+            </if>
+            <if test="paidTime != null">
+                #{paidTime} ,
+            </if>
+            <if test="depositTotalAmount != null">
+                #{depositTotalAmount} ,
+            </if>
+            <if test="depositClearingAmount != null">
+                #{depositClearingAmount} ,
+            </if>
+            <if test="refundAmount != null">
+                #{refundAmount} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag},
+            </if>
+            <if test="point!=null">
+            	#{point},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerJoin">
+        update DealerJoin
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="logoName != null">
+                logoName = #{logoName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="levelId != null">
+                levelId = #{levelId} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="joinSource != null">
+                joinSource = #{joinSource} ,
+            </if>
+            <if test="joinForm != null">
+                joinForm = #{joinForm} ,
+            </if>
+            <if test="joinState != null">
+                joinState = #{joinState} ,
+            </if>
+            <if test="creditCurrent != null">
+                creditCurrent = #{creditCurrent} ,
+            </if>
+            <if test="clearingAmount != null">
+                clearingAmount = #{clearingAmount} ,
+            </if>
+            <if test="discount != null">
+                discount = #{discount} ,
+            </if>
+            <if test="creditAmount != null">
+                creditAmount = #{creditAmount} ,
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime} ,
+            </if>
+            <if test="joinTime != null">
+                joinTime = #{joinTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="startTime != null">
+                startTime = #{startTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="endMark != null">
+                endMark = #{endMark} ,
+            </if>
+            <if test="orderTime != null">
+                orderTime = #{orderTime} ,
+            </if>
+            <if test="orderNum != null">
+                orderNum = #{orderNum} ,
+            </if>
+            <if test="orderMoney != null">
+                orderMoney = #{orderMoney} ,
+            </if>
+            <if test="lastOrder != null">
+                lastOrder = #{lastOrder} ,
+            </if>
+            <if test="joinNet != null">
+                joinNet = #{joinNet} ,
+            </if>
+            <if test="isPaid != null">
+                isPaid = #{isPaid} ,
+            </if>
+            <if test="creditPaidPercent != null">
+                creditPaidPercent = #{creditPaidPercent} ,
+            </if>
+            <if test="paidAmount != null">
+                paidAmount = #{paidAmount} ,
+            </if>
+            <if test="paidTime != null">
+                paidTime = #{paidTime} ,
+            </if>
+            <if test="depositTotalAmount != null">
+                depositTotalAmount = #{depositTotalAmount} ,
+            </if>
+            <if test="depositClearingAmount != null">
+                depositClearingAmount = #{depositClearingAmount} ,
+            </if>
+            <if test="refundAmount != null">
+                refundAmount = #{refundAmount} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag},
+            </if>
+            <if test="point!=null">
+            	isPoint=#{point}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerJoin">
+        UPDATE DealerJoin
+        SET
+            dealerId              = #{dealerId},
+            brandId               = #{brandId},
+            brandsId              = #{brandsId},
+            logoName              = #{logoName},
+            domainName            = #{domainName},
+            levelId               = #{levelId},
+            areaNo                = #{areaNo},
+            joinSource            = #{joinSource},
+            joinForm              = #{joinForm},
+            joinState             = #{joinState},
+            creditCurrent         = #{creditCurrent},
+            clearingAmount        = #{clearingAmount},
+            discount              = #{discount},
+            creditAmount          = #{creditAmount},
+            applyTime             = #{applyTime},
+            joinTime              = #{joinTime},
+            updateTime            = #{updateTime},
+            startTime             = #{startTime},
+            endTime               = #{endTime},
+            endMark               = #{endMark},
+            orderTime             = #{orderTime},
+            orderNum              = #{orderNum},
+            orderMoney            = #{orderMoney},
+            lastOrder             = #{lastOrder},
+            joinNet               = #{joinNet},
+            isPaid                = #{isPaid},
+            creditPaidPercent     = #{creditPaidPercent},
+            paidAmount            = #{paidAmount},
+            paidTime              = #{paidTime},
+            depositTotalAmount    = #{depositTotalAmount},
+            depositClearingAmount = #{depositClearingAmount},
+            refundAmount          = #{refundAmount},
+            delFlag               = #{delFlag},
+            isPoint               =#{point}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        SELECT
+        <include refid="dealerJoinColumns"/>
+        FROM DealerJoin a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="logoName != null and logoName != ''">
+            and a.logoName like CONCAT('%',#{logoName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="levelId != null and levelId != ''">
+            and a.levelId like CONCAT('%',#{levelId}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="joinSource != null and joinSource != ''">
+            and a.joinSource = #{joinSource}
+        </if>
+        <if test="joinForm != null and joinForm != ''">
+            and a.joinForm = #{joinForm}
+        </if>
+        <if test="joinState != null and joinState != ''">
+            and a.joinState = #{joinState}
+        </if>
+        <if test="creditCurrent != null and creditCurrent != ''">
+            and a.creditCurrent = #{creditCurrent}
+        </if>
+        <if test="discount != null and discount != ''">
+            and a.discount = #{discount}
+        </if>
+        <if test="creditAmount != null and creditAmount != ''">
+            and a.creditAmount = #{creditAmount}
+        </if>
+        <if test="applyTime != null and applyTime != ''">
+            and a.applyTime = #{applyTime}
+        </if>
+        <if test="joinTime != null and joinTime != ''">
+            and a.joinTime = #{joinTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and a.startTime = #{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="endMark != null and endMark != ''">
+            and a.endMark like CONCAT('%',#{endMark}, '%')
+        </if>
+        <if test="orderTime != null and orderTime != ''">
+            and a.orderTime = #{orderTime}
+        </if>
+        <if test="orderNum != null and orderNum != ''">
+            and a.orderNum = #{orderNum}
+        </if>
+        <if test="orderMoney != null and orderMoney != ''">
+            and a.orderMoney = #{orderMoney}
+        </if>
+        <if test="lastOrder != null and lastOrder != ''">
+            and a.lastOrder = #{lastOrder}
+        </if>
+        <if test="joinNet != null and joinNet != ''">
+            and a.joinNet = #{joinNet}
+        </if>
+        <if test="isPaid != null and isPaid != ''">
+            and a.isPaid = #{isPaid}
+        </if>
+        <if test="creditPaidPercent != null and creditPaidPercent != ''">
+            and a.creditPaidPercent = #{creditPaidPercent}
+        </if>
+        <if test="paidAmount != null and paidAmount != ''">
+            and a.paidAmount = #{paidAmount}
+        </if>
+        <if test="paidTime != null and paidTime != ''">
+            and a.paidTime = #{paidTime}
+        </if>
+        <if test="depositTotalAmount != null and depositTotalAmount != ''">
+            and a.depositTotalAmount = #{depositTotalAmount}
+        </if>
+        <if test="depositClearingAmount != null and depositClearingAmount != ''">
+            and a.depositClearingAmount = #{depositClearingAmount}
+        </if>
+        <if test="refundAmount != null and refundAmount != ''">
+            and a.refundAmount = #{refundAmount}
+        </if>
+        <if test="point!=null">
+        	and a.isPoint=#{point}
+        </if>
+        order by a.joinTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        SELECT
+        <include refid="dealerJoinColumns"/>
+        FROM DealerJoin a WHERE a.delFlag = 0
+    </select>
+    <select id="getDealerJoinCount" parameterType="com.zttx.web.module.dealer.entity.DealerJoin"
+            resultType="java.lang.Long">
+        select count(*) from DealerJoin where delFlag = 0 AND joinState=1
+        <if test="brandId != null">
+            AND brandId = #{brandId}
+        </if>
+        <if test="brandsId != null">
+            AND brandsId = #{brandsId}
+        </if>
+        <if test="dealerId != null">
+            AND dealerId = #{dealerId}
+        </if>
+    </select>
+    <select id="findByDealerId" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT
+            a.refrenceId AS refrenceId,
+            a.isPaid AS isPaid,
+            a.depositTotalAmount AS depositTotalAmount,
+            a.brandsId AS brandsId,
+            b.brandsName AS brandsName,
+            a.brandId AS brandId,
+            c.comName AS brandName
+        FROM
+            DealerJoin a,
+            BrandesInfo b,
+            BrandInfo c
+        WHERE
+            b.refrenceId = a.brandsId
+            AND a.brandId = c.refrenceId
+            AND a.dealerId = #{0}
+            AND a.joinState = #{1};
+    </select>
+    <select id="findCopBrandsByDealerId" parameterType="String" resultType="java.util.HashMap">
+        SELECT
+            a.brandId    AS supplierId,
+            a.brandsId   AS brandsId,
+            b.brandsName AS brandsName,
+            b.brandLogo  AS brandLogo
+        FROM DealerJoin a, BrandesInfo b
+        WHERE a.dealerId = #{dealerId}
+              AND a.joinState = 1
+              AND a.brandsId = b.refrenceId
+        ORDER BY a.startTime DESC
+    </select>
+
+    <!--查询经销商的授权产品库 品牌类目-->
+    <select id="selectGrantCataList" resultType="java.util.HashMap">
+        SELECT
+            b.refrenceId AS brandsId,
+            b.brandsName AS brandsName
+        FROM
+            DealerJoin a,
+            BrandesInfo b,
+            ProductBaseInfo c,
+            ProductSku d,
+            ProductCount e,
+            ProductSkuPrice f
+        WHERE
+            a.brandsId = b.refrenceId
+            AND a.brandsId = c.brandsId
+            AND c.refrenceId = f.productId
+            AND c.refrenceId = e.refrenceId
+            AND f.productSkuId = d.refrenceId
+            AND a.joinState = 1
+            AND a.delFlag = 0
+            AND b.brandState = 2
+            AND b.delFlag = 0
+            AND c.delFlag = 0
+            AND c.stateSet = 1
+            AND d.delFlag = 0
+            AND d.quantity > 0
+            AND a.dealerId = #{dealerId}
+        GROUP BY
+            brandsId
+    </select>
+
+    <!--根据productfilter 查询经销商的授权产品 -->
+    <select id="selectGrantProductList" parameterType="com.zttx.web.module.dealer.model.ProductFilter"
+            resultType="java.util.HashMap">
+        SELECT
+        a.joinState AS joinState,
+        b.refrenceId AS brandsId,
+        b.brandsName AS brandsName,
+        b.brandState AS brandState,
+        b.delFlag AS brandDelFlag,
+        c.refrenceId AS productId,
+        c.productNo AS productNo,
+        c.productPrice AS productPrice,
+        c.productTitle AS productTitle,
+        c.productImage AS productImage,
+        c.delFlag AS productDelFlag,
+        c.stateSet AS productState,
+        e.saleNum AS saleNum,
+        min(f.directPrice) lowestPrice,
+        min(f.creditPrice) lowestCreditPrice,
+        min(f.pointPrice) lowestPointPrice,
+        g.isCredit AS isCredit,
+        a.joinForm AS joinForm,
+        a.isPaid AS isPaid
+        FROM
+        DealerJoin a,
+        BrandesInfo b,
+        ProductBaseInfo c,
+        ProductSku d,
+        ProductCount e,
+        ProductSkuPrice f,
+        ProductExtInfo g
+        WHERE
+        a.brandsId = b.refrenceId
+        AND a.brandsId = c.brandsId
+        AND c.refrenceId = f.productId
+        AND c.refrenceId = g.refrenceId
+        AND c.refrenceId = e.refrenceId
+        AND f.productSkuId = d.refrenceId
+        AND a.joinState = 1
+        AND a.delFlag = 0
+        AND b.brandState = 2
+        AND b.delFlag = 0
+        AND c.delFlag = 0
+        AND c.stateSet = 1
+        AND d.delFlag = 0
+        AND d.quantity > 0
+        AND a.dealerId = #{dealerId}
+        <if test="null!=brandsId and ''!=brandsId">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="null!=keyWord and ''!=keyWord">
+            and c.productNo like CONCAT('%',#{keyWord}, '%')
+        </if>
+        <if test="null!=productNo and ''!=productNo">
+            and c.productNo = #{productNo}
+        </if>
+        group by f.productId
+        <if test="null!=sort and ''!=sort ">
+            <choose>
+                <when test="sort==1">
+                    order by e.saleNum desc     <!--销售数量 销售量-->
+                </when>
+                <when test="sort==2">
+                    order by lowestPrice desc  <!--最低直供价 价格-->
+                </when>
+                <when test="sort==3">
+                    order by e.viewNum desc  <!--浏览量 人气-->
+                </when>
+            </choose>
+        </if>
+
+    </select>
+
+    <select id="findByDealerIdAndBrandsId" parameterType="map"
+            resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where
+        a.dealerId = #{dealerId}
+        and a.brandsId = #{brandsId}
+        and a.joinState = 1 and delFlag = 0
+    </select>
+
+    <select id="findByRefrenceIdAndBrandId" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where
+        a.refrenceId = #{refrenceId} and a.brandId = #{brandId}
+        and a.joinState = 1 and delFlag = 0
+    </select>
+
+    <select id="findByRefrenceIdAndBrandIdMap" resultType="map">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where
+        a.refrenceId = #{refrenceId} and a.brandId = #{brandId}
+        and a.joinState = 1 and delFlag = 0
+    </select>
+
+    <select id="findByDealerIdByBrands" resultType="map">
+        SELECT
+            <include refid="dealerJoinColumns"/>
+            ,bi.comName AS brandName,
+            bsi.brandsName AS brandsName,
+            a.isPaid AS paid,
+            bi.comAddress AS comAddress,
+            bi.provinceName AS provinceName,
+            bi.cityName AS cityName,
+            bi.areaName AS areaName,
+            bsi.brandMark AS brandMark,
+            bsi.factoryStore AS factoryStore,
+            bsi.deposit AS deposit
+        FROM
+            DealerJoin a,
+            BrandInfo bi,
+            BrandesInfo bsi
+        WHERE
+            a.brandId = bi.refrenceid
+            AND bsi.refrenceId = a.brandsId
+            AND a.dealerId = #{dealerId}
+            AND a.joinState = 1
+            AND a.delFlag = 0
+            <if test="brandName != null and brandName != ''">
+                and bi.comName  like CONCAT('%',#{brandName}, '%')
+            </if>
+            <if test="brandsName != null and brandsName != ''">
+                and bsi.brandsName  like CONCAT('%',#{brandsName}, '%')
+            </if>
+        ORDER BY
+            a.joinTime DESC
+    </select>
+
+    <!--校验 0:dealerId 1:brandsId-->
+    <select id="getValidMap" resultType="java.util.HashMap">
+        SELECT
+            a.isPoint AS  isPoint,
+            a.joinForm AS joinForm,
+            a.isPaid AS isPaid,
+            a.joinState AS joinState,
+            a.discount AS discount,
+            e.isDiscount as isDiscount,
+            min(d.directPrice) AS lowestPrice,
+            min(d.creditPrice) AS lowestCreditPrice,
+            min(d.pointPrice) AS lowestPointPrice
+        FROM
+            DealerJoin a,
+            ProductBaseInfo b,
+            ProductExtInfo e,
+            ProductSku c,
+            ProductSkuPrice d
+        WHERE
+            a.brandsId = b.brandsId
+            AND b.refrenceId = c.productId
+            AND c.refrenceId = d.productSkuId
+            AND c.productId = e.refrenceId
+            AND c.delFlag = 0
+            AND a.dealerId = #{0} AND a.brandsId = #{1} AND c.productId = #{2}
+        GROUP BY
+            d.productId
+    </select>
+
+    <!-- 根据过滤条件获取经销商加盟信息 -->
+    <select id="getDealerJoinList" parameterType="com.zttx.web.module.dealer.entity.DealerJoin" resultType="map">
+        SELECT
+        b.dealerName AS dealerName,
+        a.dealerId AS dealerId,
+        a.levelId AS levelId,
+        a.areaNo AS areaNo
+        FROM
+        DealerJoin a,
+        DealerInfo b
+        WHERE
+        a.delFlag = 0
+        AND a.dealerId = b.refrenceId
+        <if test="levelId != null and levelId != ''">
+            and a.levelId = #{levelId}
+        </if>
+        <if test="areaNo != null">
+            and a.areaNo &gt;= #{areaNo} and a.areaNo &lt;= #{areaNo}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        and a.joinState = 1
+        order by a.joinTime desc
+    </select>
+
+    <select id="getDealerIdsWithJoin" resultType="string">
+        SELECT j.dealerId AS dealerId
+        FROM
+            DealerJoin j,
+            DealerInfo d
+        WHERE
+            j.dealerId = d.refrenceId
+            AND d.delFlag = 0
+            AND j.delFlag = 0
+            AND j.joinState = 1
+            AND j.brandId = #{brandId}
+    </select>
+
+    <select id="findJoinByDealerId" parameterType="java.lang.String" resultType="java.util.HashMap">
+        SELECT
+            dj.refrenceId    AS refrenceId,
+            dj.brandId       AS brandId,
+            bi.comName       AS brandName,
+            dj.brandsId      AS brandsId,
+            bsi.brandsName   AS brandsName,
+            dj.logoName      AS logoName,
+            dj.domainName    AS domainName,
+            dj.joinState     AS joinState,
+            dj.isPaid        AS paid,
+            dj.paidAmount    AS paidAmount,
+            bi.comAddress    AS comAddress,
+            bi.provinceName  AS provinceName,
+            bi.cityName      AS cityName,
+            bi.areaName      AS areaName,
+            bsi.brandMark    AS brandMark,
+            bsi.factoryStore AS factoryStore,
+            bsi.deposit      AS deposit
+        FROM
+            DealerJoin dj,
+            BrandInfo bi,
+            BrandesInfo bsi
+        WHERE
+            dj.brandId = bi.refrenceId
+            AND bsi.refrenceId = dj.brandsId
+            AND dj.dealerId = #{dealerId} AND
+            dj.joinState = 1
+        ORDER BY
+            dj.joinTime DESC
+    </select>
+
+    <select id="findDealerJoin" parameterType="com.zttx.web.module.dealer.entity.DealerJoin"
+            resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a where 1 = 1
+
+        <if test="filter.refrenceId != null">
+            and a.refrenceId = #{filter.refrenceId}
+        </if>
+
+        <if test="filter.dealerId != null">
+            and a.dealerId = #{filter.dealerId}
+        </if>
+
+        <if test="filter.brandId != null">
+            and a.brandId = #{filter.brandId}
+        </if>
+
+        <if test="filter.brandsId != null">
+            and a.brandsId = #{filter.brandsId}
+        </if>
+
+        <if test="filter.levelId != null">
+            and a.levelId = #{filter.levelId}
+        </if>
+
+        <if test="filter.joinState != null">
+            and a.joinState = #{filter.joinState}
+        </if>
+        <if test="filter.point!=null">
+        	and a.isPoint=#{filter.point}
+        </if>
+    </select>
+
+    <!-- 搜索加盟brandId所有的经销商 -->
+    <select id="findCooperatedDealer" parameterType="com.zttx.web.module.common.model.TransferSearchModel"
+            resultType="map">
+        SELECT
+        a.refrenceId AS dealerJoinId,
+        b.refrenceId AS refrenceId,
+        b.dealerName AS dealerName,
+        c.userName AS userName,
+        c.userMobile AS userMobile
+        FROM
+        DealerJoin a,
+        DealerInfo b,
+        UserInfo c
+        WHERE
+        a.delFlag = 0
+        AND b.delFlag = 0
+        AND c.delFlag = 0
+        AND a.dealerId = b.refrenceId
+        AND b.refrenceId = c.refrenceId
+        AND a.joinState = 1
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and b.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and c.userMobile = #{userMobile}
+        </if>
+         group by b.refrenceId order by a.joinTime desc
+    </select>
+
+    <!-- 搜索和dealerId合作的所有的品牌商 -->
+    <select id="findCooperatedBrand" parameterType="com.zttx.web.module.common.model.TransferSearchModel"
+            resultType="map">
+        SELECT
+        a.refrenceId AS dealerJoinId,
+        b.refrenceId AS brandId,
+        b.comName AS comName,
+        c.userMobile AS userMobile
+        FROM
+        DealerJoin a,
+        BrandInfo b,
+        UserInfo c,
+        BrandesInfo d
+        WHERE
+        a.delFlag = 0 
+        AND b.delFlag = 0 
+        AND c.delFlag = 0 
+        AND a.brandId = b.refrenceId 
+        AND b.refrenceId = c.refrenceId 
+        AND a.brandsId = d.refrenceId 
+        AND a.joinState = 1
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId = #{dealerId}
+        </if>
+        <if test="comName != null and comName != ''">
+            and b.comName like CONCAT('%',#{comName}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and c.userMobile = #{userMobile}
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and d.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+         group by b.refrenceId order by a.joinTime desc
+    </select>
+
+    <!-- 查询品牌商已合作的终端商 -->
+    <select id="findByBrandId" resultType="map">
+        SELECT
+        <include refid="dealerJoinColumns"/>
+        FROM
+        DealerJoin a,DealerInfo d
+        WHERE
+        a.brandId = #{branderId}
+        and d.refrenceId = a.dealerId
+        <!--  经销商名称 -->
+        <if test="filter.dealerName!=null and filter.dealerName!=''">
+            and d.dealerName like CONCAT('%',#{filter.dealerName}, '%')
+        </if>
+
+        <!-- 合作开始时间 -->
+        <if test="filter.startTime !=null and filter.startTime !=''">
+            and a.startTime &gt;= #{filter.startTimeLong}
+        </if>
+        <if test="filter.endTime !=null and filter.endTime !='' ">
+            and a.startTime &lt;= #{filter.endTimeLong}
+        </if>
+
+        <!--  品牌编号-->
+        <if test="filter.bid !=null and filter.bid !='' ">
+            and a.brandsId = #{filter.bid}
+        </if>
+
+        <!-- 经销商等级 -->
+        <if test="filter.dealerLevel !=null and filter.dealerLevel !=''">
+            and a.levelId = #{filter.dealerLevel}
+        </if>
+
+        <!--  累计进货金额 -->
+        <if test="filter.min !=null and filter.min !=''">
+            and orderMoney &gt;= #{filter.min}
+        </if>
+        <if test="filter.max !=null and filter.max !='' ">
+            and orderMoney &lt;= #{filter.max}
+        </if>
+
+        <!-- 加盟状态    state 2 已终止状态  -->
+        <if test="filter.state == 2">
+            <!-- joinState  1正在合作 -->
+            and a.joinState != 1
+            order by a.endTime desc
+        </if>
+        <if test="filter.state != 2">
+            <!-- joinState  1正在合作 -->
+            and a.joinState = 1
+            order by a.startTime desc
+        </if>
+
+
+    </select>
+
+    <select id="selectDealerJoinByDealerIdAndBrandsId" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where a.delFlag = 0
+        and a.dealerId = #{dealerId}
+        and a.brandsId = #{brandsId}
+    </select>
+
+    <select id="findByDealerIdBrandIdBrandsId" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where a.delFlag = 0
+        and a.dealerId = #{dealerId}
+        and a.brandId = #{brandId}
+        and a.brandsId = #{brandsId}
+    </select>
+
+    <select id="getDealerNewJoinList" resultType="com.zttx.web.module.dealer.model.DealerJoinModel">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where a.delFlag = 0
+        and a.dealerId = #{dealerJoin.dealerId}
+        and a.brandsId = #{dealerJoin.brandsId}
+        <if test="dealerJoin.brandId != null">
+            and d.brandId = #{dealerJoin.brandId}
+        </if>
+        order by d.joinTime desc
+
+    </select>
+
+    <!-- 修改合作品牌为brandsId下的押金信息 -->
+    <update id="updateDealerJoinIsPaid">
+        UPDATE DealerJoin a
+        SET a.isPaid     = #{isPaid},
+            a.paidTime   = #{paidTime},
+            a.paidAmount = #{paidAmount}
+        WHERE
+            a.delFlag = 0
+            AND a.joinState = 1
+            AND a.isPaid = 0
+            AND a.brandsId = #{brandsId}
+    </update>
+
+    <!-- 获取未结算的押金记录  -->
+    <select id="selectUnClearingDepositList" parameterType="com.zttx.web.module.dealer.entity.DealerJoin"
+            resultType="map">
+        SELECT
+        a.refrenceId AS refrenceId,
+        a.dealerId AS dealerId,
+        d.dealerName,
+        a.brandId AS brandId,
+        b.comName AS brandName,
+        a.brandsId AS brandsId,
+        c.brandsName AS brandsName,
+        a.paidAmount AS paidAmount,
+        a.depositTotalAmount AS depositTotalAmount,
+        a.paidTime AS paidTime,
+        a.depositClearingAmount AS depositClearingAmount
+        FROM
+        DealerJoin a,
+        BrandInfo b,
+        BrandesInfo c,
+        DealerInfo d
+        WHERE
+        a.delFlag = 0
+        AND b.delFlag = 0
+        AND c.delFlag = 0
+        AND d.delFlag = 0
+        AND a.brandId = b.refrenceId
+        AND b.refrenceId = c.brandId
+        AND a.dealerId = d.refrenceId
+        AND a.joinState = 1
+        AND a.paidAmount > 0
+        AND (
+        a.depositClearingAmount IS NULL
+        OR a.paidAmount > a.depositClearingAmount
+        )
+        <if test="dealerId != null and dealerId != ''">
+            AND a.dealerId = #{dealerId}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            AND a.brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            AND a.dealerId = #{dealerId}
+        </if>
+    </select>
+
+    
+     <!-- 查询品牌级别分页显示 -->
+	<select id="findDealerJoinPage" resultType="java.util.HashMap"
+		>
+		SELECT
+		<include refid="dealerJoinColumns" />
+		FROM DealerJoin a where a.brandId=#{dealerJoin.brandId} and
+		a.brandsId=#{dealerJoin.brandsId} and
+		a.joinState=1
+		<if test="dealerJoin.levelId != null  and  dealerJoin.levelId != '' ">
+            AND a.levelId = #{dealerJoin.levelId}
+        </if>
+		 order by a.joinTime
+		desc
+	</select>
+
+    <select id="listCreditJoin" resultType="java.util.HashMap">
+        SELECT DISTINCT
+        a.dealerId as dealerId, a.brandId as brandId
+        FROM
+        DealerJoin a, BrandesInfo b
+        WHERE
+        a.brandsId = b.refrenceId AND a.joinState = 1
+        AND b.delFlag = 0 AND a.joinForm = 1
+    </select>
+
+
+	
+	 <update id="updateDealerLevel">
+		update DealerJoin
+		set levelId=#{dealerJoin.levelId} where brandId=#{dealerJoin.brandId}
+		and brandsId=#{dealerJoin.brandsId} and  dealerId in
+		
+		 <foreach item="item" index="index" collection="idAry" open="(" separator="," close=")">  
+		  #{item}  
+		 </foreach>
+		
+	</update>
+
+
+
+    <select id="getNetwortNotDealerList" parameterType="map" resultType="map">
+        select a.refrenceId as refrenceId,a.areaNo as areaNo,a.levelId as levelId,a.dealerId as dealerId
+        from DealerJoin a where a.brandId=#{brandId} and a.brandsId=#{brandsId} and a.joinState=1
+        and not exists (select 1 from BrandNetwork b where a.dealerId=b.dealerId and a.brandId=b.brandId and a.brandsId=b.brandsId and  b.delState=0)
+        <if test="levelId != null and levelId != ''">
+            and a.levelId = #{levelId}
+        </if>
+        <if test="areaNo != null">
+            and a.areaNo = #{areaNo}
+        </if>
+        order by a.joinTime desc
+    </select>
+
+	<select id="findCooperatedBrandsName" resultType="string">
+        SELECT d.brandsName FROM DealerJoin a, BrandInfo b, UserInfo c, BrandesInfo d 
+        WHERE a.brandId = b.refrenceId AND b.refrenceId = c.refrenceId AND a.brandsId = d.refrenceId
+        AND a.joinState = 1 
+        <if test="dealerId != null and dealerId != ''">
+           AND a.dealerId = #{dealerId} 
+        </if>
+        <if test="brandId != null and brandId != ''">
+           AND a.brandId = #{brandId} 
+        </if>
+           order by a.joinTime desc
+    </select>
+
+	<select id="findrWithException" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        SELECT <include refid="dealerJoinColumns" />
+        FROM DealerJoin a
+        WHERE a.refrenceId =#{joinId} and a.dealerId =#{dealerId}
+    </select>
+    <select id="getByDealerIdAndBrandsId" resultType="com.zttx.web.module.dealer.entity.DealerJoin">
+        select
+        <include refid="dealerJoinColumns"/>
+        from DealerJoin a
+        where a.delFlag = 0
+        and a.dealerId = #{dealerId}
+        and a.brandsId = #{brandsId}
+        limit 1;
+    </select>
+    <select id="findByDealerIdAndBrandId" resultType="java.util.Map">
+        SELECT
+        b.brandsName as brandesName
+        FROM DealerJoin a ,BrandesInfo b
+        where a.brandsId = b.refrenceId and a.dealerId =#{dealerId} and a.brandId=#{brandId} and a.delFlag = 0
+    </select>
+</mapper>
+
+

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.AdvertsMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="advertsColumns">
+        a.refrenceId as refrenceId,
+        a.advertId as advertId ,
+        a.imgWeight as imgWeight,
+        a.adTitle as adTitle,
+        a.urlAddress as urlAddress,
+        a.domainName as domainName,
+        a.backgroundColor as backgroundColor,
+        a.adLogo as adLogo ,
+        a.altMark as altMark,
+        a.beginTime as beginTime,
+        a.endTime as endTime,
+        a.orderId as orderId,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.target as target,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.Adverts">
+        INSERT INTO Adverts (
+            refrenceId,
+            advertId,
+            imgWeight,
+            adTitle,
+            urlAddress,
+            domainName,
+            backgroundColor,
+            adLogo,
+            altMark,
+            beginTime,
+            endTime,
+            orderId,
+            createTime,
+            updateTime,
+            target,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{advertId},
+            #{imgWeight},
+            #{adTitle},
+            #{urlAddress},
+            #{domainName},
+            #{backgroundColor},
+            #{adLogo},
+            #{altMark},
+            #{beginTime},
+            #{endTime},
+            #{orderId},
+            #{createTime},
+            #{updateTime},
+            #{target},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM Adverts
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE Adverts
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.Adverts">
+        insert into Adverts
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="advertId != null">
+                advertId ,
+            </if>
+            <if test="imgWeight != null">
+                imgWeight ,
+            </if>
+            <if test="adTitle != null">
+                adTitle ,
+            </if>
+            <if test="urlAddress != null">
+                urlAddress ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="backgroundColor != null">
+                backgroundColor,
+            </if>
+            <if test="adLogo != null">
+                adLogo ,
+            </if>
+            <if test="altMark != null">
+                altMark ,
+            </if>
+            <if test="beginTime != null">
+                beginTime ,
+            </if>
+            <if test="endTime != null">
+                endTime ,
+            </if>
+            <if test="orderId != null">
+                orderId ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="target != null">
+                target ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="advertId != null">
+                #{advertId} ,
+            </if>
+            <if test="imgWeight != null">
+                #{imgWeight} ,
+            </if>
+            <if test="adTitle != null">
+                #{adTitle} ,
+            </if>
+            <if test="urlAddress != null">
+                #{urlAddress} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="backgroundColor != null">
+                #{backgroundColor} ,
+            </if>
+            <if test="adLogo != null">
+                #{adLogo} ,
+            </if>
+            <if test="altMark != null">
+                #{altMark} ,
+            </if>
+            <if test="beginTime != null">
+                #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                #{endTime} ,
+            </if>
+            <if test="orderId != null">
+                #{orderId} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="target != null">
+                #{target} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.Adverts">
+        update Adverts
+        <set>
+            <if test="advertId != null">
+                advertId = #{advertId} ,
+            </if>
+            <if test="imgWeight != null">
+                imgWeight = #{imgWeight} ,
+            </if>
+            <if test="adTitle != null">
+                adTitle = #{adTitle} ,
+            </if>
+            <if test="urlAddress != null">
+                urlAddress = #{urlAddress} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="backgroundColor != null">
+                backgroundColor = #{backgroundColor} ,
+            </if>
+            <if test="adLogo != null">
+                adLogo = #{adLogo} ,
+            </if>
+            <if test="altMark != null">
+                altMark = #{altMark} ,
+            </if>
+            <if test="beginTime != null">
+                beginTime = #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="target != null">
+                target = #{target} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.Adverts">
+        UPDATE Adverts
+        SET
+            advertId   = #{advertId},
+            imgWeight  = #{imgWeight},
+            adTitle    = #{adTitle},
+            urlAddress = #{urlAddress},
+            domainName = #{domainName},
+            backgroundColor = #{backgroundColor},
+            adLogo     = #{adLogo},
+            altMark    = #{altMark},
+            beginTime  = #{beginTime},
+            endTime    = #{endTime},
+            orderId    = #{orderId},
+            createTime = #{createTime},
+            updateTime = #{updateTime},
+            target     = #{target},
+            delFlag    = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.Adverts">
+        select
+        <include refid="advertsColumns"/>
+        from Adverts a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.Adverts">
+        SELECT
+        <include refid="advertsColumns"/>
+        FROM Adverts a WHERE a.delFlag = 0
+        <if test="advertId != null and advertId != ''">
+            and a.advertId like CONCAT('%',#{advertId}, '%')
+        </if>
+        <if test="imgWeight != null and imgWeight != ''">
+            and a.imgWeight = #{imgWeight}
+        </if>
+        <if test="adTitle != null and adTitle != ''">
+            and a.adTitle like CONCAT('%',#{adTitle}, '%')
+        </if>
+        <if test="urlAddress != null and urlAddress != ''">
+            and a.urlAddress like CONCAT('%',#{urlAddress}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="adLogo != null and adLogo != ''">
+            and a.adLogo like CONCAT('%',#{adLogo}, '%')
+        </if>
+        <if test="altMark != null and altMark != ''">
+            and a.altMark like CONCAT('%',#{altMark}, '%')
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and a.beginTime = #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="orderId != null and orderId != ''">
+            and a.orderId = #{orderId}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="target != null and target != ''">
+            and a.target like CONCAT('%',#{target}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.Adverts">
+        SELECT
+        <include refid="advertsColumns"/>
+        FROM Adverts a WHERE a.delFlag = 0
+    </select>
+    <!--分页-->
+    <select id="search" resultType="com.zttx.web.module.fronts.entity.Adverts">
+        SELECT
+        p.advertName as advertName,
+        <include refid="advertsColumns"/>
+        FROM Adverts a LEFT JOIN AdvertPosit p ON a.advertId=p.refrenceId
+        WHERE a.delFlag = 0
+        <if test="advertId != null and advertId != ''">
+            and a.advertId = #{advertId}
+        </if>
+        <if test="imgWeight != null and imgWeight != ''">
+            and a.imgWeight = #{imgWeight}
+        </if>
+        <if test="adTitle != null and adTitle != ''">
+            and a.adTitle like CONCAT('%',#{adTitle}, '%')
+        </if>
+        <if test="altMark != null and altMark != ''">
+            and a.altMark like CONCAT('%',#{altMark}, '%')
+        </if>
+        <!--开始时间<当前时间&&结束时间>当前时间(使用中)-->
+        <if test="usedState !=null and usedState ==1">
+            and a.beginTime &lt; #{currentTime} and a.endTime > #{currentTime}
+        </if>
+        <!--开始时间>当前时间(还未开始)-->
+        <if test="usedState !=null and usedState ==2">
+            and a.beginTime > #{currentTime}
+        </if>
+        <!--开始时间>当前时间(还未开始)-->
+        <if test="usedState !=null and usedState ==3">
+            and a.endTime &lt; #{currentTime}
+        </if>
+        order by a.createTime desc,a.orderId desc
+    </select>
+
+    <select id="searchAdverts" resultType="com.zttx.web.module.fronts.entity.Adverts">
+        SELECT
+        <include refid="advertsColumns"/>
+        FROM Adverts a
+        WHERE a.advertId = #{advertId}
+        and a.delFlag = 0
+        <if test="currentTime != null">
+            and a.beginTime &lt; #{currentTime} and #{currentTime} &lt;= a.endTime
+        </if>
+        order by a.orderId desc
+    </select>
+</mapper>
+

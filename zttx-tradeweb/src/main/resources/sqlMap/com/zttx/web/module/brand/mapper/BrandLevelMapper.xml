@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandLevelMapper">
+    <!-- 基础列 -->
+    <sql id="brandLevelColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.levelName as levelName ,
+        a.levelMark as levelMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandLevel">
+        insert into BrandLevel(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         levelName ,
+         levelMark ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{levelName}  ,
+        #{levelMark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandLevel where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandLevel set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandLevel">
+        insert into BrandLevel
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="levelName != null">
+            levelName ,
+        </if>
+        <if test="levelMark != null">
+            levelMark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="levelName != null">
+            #{levelName} ,
+        </if>
+        <if test="levelMark != null">
+            #{levelMark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandLevel">
+        update BrandLevel
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="levelName != null">
+                levelName = #{levelName} ,
+            </if>
+            <if test="levelMark != null">
+                levelMark = #{levelMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandLevel">
+        update BrandLevel set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            levelName = #{levelName} ,
+            levelMark = #{levelMark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandLevel">
+        select <include refid="brandLevelColumns"/> from BrandLevel a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandLevel">
+        SELECT
+        <include refid="brandLevelColumns"/>
+        FROM BrandLevel a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="levelName != null and levelName != ''">
+            and a.levelName like CONCAT('%',#{levelName}, '%')
+        </if>
+        <if test="levelMark != null and levelMark != ''">
+            and a.levelMark like CONCAT('%',#{levelMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandLevel">
+        SELECT
+        <include refid="brandLevelColumns"/>
+        FROM BrandLevel a WHERE a.delFlag = 0
+    </select>
+	
+	<resultMap type="com.zttx.web.module.brand.entity.BrandLevel" id="brandLevelWithBrandsInfo">
+	     <id property="refrenceId" column="refrenceId"/>
+	     <result property="brandId" column="brandId"/>
+	     <result property="brandsId" column="brandsId"/>
+	     <result property="levelName" column="levelName"/>
+	     <result property="levelMark" column="levelMark"/>
+	     <result property="createTime" column="createTime"/>
+	     <result property="updateTime" column="updateTime"/>
+	     <association property="brandesInfo" javaType="com.zttx.web.module.brand.entity.BrandesInfo">
+	         <id property="refrenceId" column="refrenceId"/>
+	         <result column="brandsName" property="brandsName"/>
+	     </association>
+	</resultMap>
+	
+	
+	<!-- 查询品牌级别分页显示 -->
+	<select id="getBrandLevelsBy" resultMap="brandLevelWithBrandsInfo">
+		SELECT 
+		a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.levelName as levelName ,
+        a.levelMark as levelMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag ,
+        b.brandsName as brandsName
+		FROM BrandLevel a ,BrandesInfo b WHERE a.delFlag=0 and a.brandId=#{brandId} and a.brandsId = b.refrenceId
+		<if test="brandsId != null and brandsId != ''">
+		    and a.brandsId = #{brandsId}
+		</if>
+		 order by brandsId
+	</select>
+
+</mapper>
+

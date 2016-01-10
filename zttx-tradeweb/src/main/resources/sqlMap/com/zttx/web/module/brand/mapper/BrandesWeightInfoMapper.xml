@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandesWeightInfoMapper">
+    <!-- 基础列 -->
+    <sql id="brandesWeightInfoColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandesId as brandesId ,
+        a.weight as weight ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        insert into BrandesWeightInfo(
+         refrenceId ,
+         brandId ,
+         brandesId ,
+         weight ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandesId}  ,
+        #{weight}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandesWeightInfo where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandesWeightInfo set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        insert into BrandesWeightInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandesId != null">
+                brandesId ,
+            </if>
+            <if test="weight != null">
+                weight ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandesId != null">
+                #{brandesId} ,
+            </if>
+            <if test="weight != null">
+                #{weight} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into BrandesWeightInfo(
+        refrenceId ,
+        brandId ,
+        brandesId ,
+        weight ,
+        createTime ,
+        updateTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.brandId} ,
+            #{item.brandesId} ,
+            #{item.weight} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        update BrandesWeightInfo
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandesId != null">
+                brandesId = #{brandesId} ,
+            </if>
+            <if test="weight != null">
+                weight = #{weight} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update BrandesWeightInfo set
+            brandId = #{item.brandId} ,
+            brandesId = #{item.brandesId} ,
+            weight = #{item.weight} ,
+            createTime = #{item.createTime} ,
+            updateTime = #{item.updateTime} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        update BrandesWeightInfo set
+            brandId = #{brandId} ,
+            brandesId = #{brandesId} ,
+            weight = #{weight} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        select
+        <include refid="brandesWeightInfoColumns"/>
+        from BrandesWeightInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        SELECT
+        <include refid="brandesWeightInfoColumns"/>
+        FROM BrandesWeightInfo a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandesId != null and brandesId != ''">
+            and a.brandesId like CONCAT('%',#{brandesId}, '%')
+        </if>
+        <if test="weight != null and weight != ''">
+            and a.weight = #{weight}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        SELECT
+        <include refid="brandesWeightInfoColumns"/>
+        FROM BrandesWeightInfo a WHERE a.delFlag = 0
+    </select>
+    <select id="searchByClient" resultType="com.zttx.web.module.brand.entity.BrandesWeightInfo">
+        SELECT
+        <include refid="brandesWeightInfoColumns"/>
+        , b.brandsName AS brandesName
+        , c.comName AS brandName
+        FROM
+        BrandesWeightInfo a,
+        BrandesInfo b,
+        BrandInfo c
+        WHERE
+        a.delFlag = 0
+        AND a.brandesId = b.refrenceId
+        AND a.brandId = c.refrenceId
+        <if test="brandName != null and brandName != ''">
+            and c.comName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="brandesName != null and brandesName != ''">
+            and b.brandsName like CONCAT('%',#{brandesName}, '%')
+        </if>
+        ORDER BY c.comName DESC, a.createTime DESC
+    </select>
+</mapper>
+

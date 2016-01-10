@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.exhibition.mapper.DecorateConfigLogMapper">
+    <!-- 基础列 -->
+    <sql id="decorateConfigLogColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.title as title ,
+        a.showTitle as showTitle ,
+        a.tagId as tagId ,
+        a.configType as configType ,
+        a.showFlag as showFlag ,
+        a.showType as showType ,
+        a.showText as showText ,
+        a.showOrder as showOrder ,        
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag  
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        insert into DecorateConfigLog(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         title ,
+         showTitle ,
+         tagId ,
+         configType ,
+         showFlag ,
+         showType ,
+         showText ,
+         showOrder ,
+         delFlag ,
+         createTime ,
+         updateTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{title}  ,
+        #{showTitle}  ,
+        #{tagId}  ,
+        #{configType}  ,
+        #{showFlag}  ,
+        #{showType}  ,
+        #{showText}  ,
+        #{showOrder}  ,
+        #{delFlag}  ,
+        #{createTime}  ,
+        #{updateTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DecorateConfigLog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DecorateConfigLog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        insert into DecorateConfigLog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="title != null">
+            title ,
+        </if>
+        <if test="showTitle != null">
+            showTitle ,
+        </if>
+        <if test="tagId != null">
+            tagId ,
+        </if>
+        <if test="configType != null">
+            configType ,
+        </if>
+        <if test="showFlag != null">
+            showFlag ,
+        </if>
+        <if test="showType != null">
+            showType ,
+        </if>
+        <if test="showText != null">
+            showText ,
+        </if>
+        <if test="showOrder != null">
+            showOrder ,
+        </if>
+        <if test="delFlag != null">
+            delFlag ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="title != null">
+            #{title} ,
+        </if>
+        <if test="showTitle != null">
+            #{showTitle} ,
+        </if>
+        <if test="tagId != null">
+            #{tagId} ,
+        </if>
+        <if test="configType != null">
+            #{configType} ,
+        </if>
+        <if test="showFlag != null">
+            #{showFlag} ,
+        </if>
+        <if test="showType != null">
+            #{showType} ,
+        </if>
+        <if test="showText != null">
+            #{showText} ,
+        </if>
+        <if test="showOrder != null">
+            #{showOrder} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        update DecorateConfigLog
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="title != null">
+                title = #{title} ,
+            </if>
+            <if test="showTitle != null">
+                showTitle = #{showTitle} ,
+            </if>
+            <if test="tagId != null">
+                tagId = #{tagId} ,
+            </if>
+            <if test="configType != null">
+                configType = #{configType} ,
+            </if>
+            <if test="showFlag != null">
+                showFlag = #{showFlag} ,
+            </if>
+            <if test="showType != null">
+                showType = #{showType} ,
+            </if>
+            <if test="showText != null">
+                showText = #{showText} ,
+            </if>
+            <if test="showOrder != null">
+                showOrder = #{showOrder} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        update DecorateConfigLog set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            title = #{title} ,
+            showTitle = #{showTitle} ,
+            tagId = #{tagId} ,
+            configType = #{configType} ,
+            showFlag = #{showFlag} ,
+            showType = #{showType} ,
+            showText = #{showText} ,
+            showOrder = #{showOrder} ,
+            delFlag = #{delFlag} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        select <include refid="decorateConfigLogColumns"/> from DecorateConfigLog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        SELECT
+        <include refid="decorateConfigLogColumns"/>
+        FROM DecorateConfigLog a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="title != null and title != ''">
+            and a.title like CONCAT('%',#{title}, '%')
+        </if>
+        <if test="showTitle != null and showTitle != ''">
+            and a.showTitle = #{showTitle}
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and a.tagId = #{tagId}
+        </if>
+        <if test="configType != null and configType != ''">
+            and a.configType = #{configType}
+        </if>
+        <if test="showFlag != null and showFlag != ''">
+            and a.showFlag = #{showFlag}
+        </if>
+        <if test="showType != null and showType != ''">
+            and a.showType = #{showType}
+        </if>
+        <if test="showText != null and showText != ''">
+            and a.showText like CONCAT('%',#{showText}, '%')
+        </if>
+        <if test="showOrder != null and showOrder != ''">
+            and a.showOrder = #{showOrder}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        SELECT
+        <include refid="decorateConfigLogColumns"/>
+        FROM DecorateConfigLog a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="findConfigLogs" parameterType="map"  resultType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        SELECT
+        <include refid="decorateConfigLogColumns"/>
+        FROM DecorateConfigLog a WHERE a.delFlag = 0
+         <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and a.tagId = #{tagId}
+        </if>
+        <if test="delFlag != null">
+            and a.delFlag = #{delFlag} 
+        </if>
+        order by a.showOrder,a.createTime 
+    </select>
+    
+    <select id="findConfigLogsByConfigType" parameterType="map"  resultType="com.zttx.web.module.exhibition.entity.DecorateConfigLog">
+        SELECT
+        <include refid="decorateConfigLogColumns"/>
+        FROM DecorateConfigLog a WHERE a.delFlag = 0
+         <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and a.tagId = #{tagId}
+        </if>
+       <if test="configType != null">
+            and a.configType = #{configType}
+        </if>
+        order by a.showOrder,a.createTime 
+    </select>
+</mapper>
+

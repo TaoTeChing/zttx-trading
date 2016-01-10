@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+@import "_global";
+@import "../fronts/meet/_brandRecoment";
+body{
+  background: #FFF;
+}
+.main{
+  .content{
+    height: 370px;
+    background: url("../../images/common/error-bg.jpg") 0 top no-repeat;
+    position: relative;
+    .info{
+      position:absolute;
+      right:195px;
+      top:130px;
+      height: 90px;
+      width: 340px;
+      font-family: "微软雅黑";
+      color:#555;
+      h3{
+        font-size: 20px;
+      }
+      p{
+        line-height: 30px;
+        a{
+          color:#ff0000;
+        }
+        i{
+          font-family: "Arial";
+          font-size: 18px;
+          color:#ff0000;
+        }
+      }
+    }
+  }
+}
+.main_three {
+    position: relative;
+}
+.main-three-items{
+    overflow: hidden;
+    zoom: 1;
+    margin-top: 10px;
+    //border-top: 2px solid #e70012;
+    li {
+        float: left;
+        width: 196px;
+        dl{
+            dt {
+                background-color: #e70012;
+                height: 25px;
+                font: 12px/25px "microsoft yahei";
+                color: #fff;
+                text-indent: 10px;
+            }
+        }
+    }
+}
+.line {
+    height: 2px;
+    background-color: #fff;
+    line-height: 0;
+    font: 0px Arial;
+}

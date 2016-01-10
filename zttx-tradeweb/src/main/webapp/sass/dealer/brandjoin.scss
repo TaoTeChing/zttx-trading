@@ -1,0 +1,350 @@
+@charset "UTF-8";
+/*品牌加盟*/
+/*品牌收藏库*/
+@import '../_mixin';
+@import "model/_form";
+@import "model/_button";
+@import 'model/_pagination';
+@import 'model/_table';
+@import 'model/_patch';
+
+/*.panel-table {
+    &.table-favorite,&.table-apply {
+        .panel-table-content th {
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .panel-table-content td {
+            text-align: center;
+            border: 1px solid #eee;
+            vertical-align: middle;
+            padding: 10px;
+        }
+    }
+}*/
+
+.ui-table th {
+    text-align: center;
+}
+
+.ui-table td {
+    text-align: center;
+}
+
+//申请加盟管理 tabs 04-02
+.panel-tabs {
+    .panel-head {
+        .toolbar {
+            line-height: 35px;
+            border: 1px solid #fff;
+            border-top: 0;
+            padding: 10px;
+            font-size: 14px;
+            div.pager {
+                margin-left: 830px;
+
+                a.ui-button {
+                    background-color: #fff;
+                }
+            }
+
+            .ui-select {
+                width: 150px;
+                height: 35px;
+                margin: 0;
+                vertical-align: middle;
+                line-height: 35px;
+                display: inline-block;
+            }
+
+            .ui-input {
+                width: 125px;
+                padding: 2px 9px;
+                height: 29px;
+                line-height: 29px;
+            }
+
+            .ui-button {
+                vertical-align: -2px;
+                height: 35px;
+                line-height: 35px;
+                width: 70px;
+            }
+            .inline-block{
+                vertical-align: top;
+                height: 35px;
+                line-height: 35px;
+            }
+            .ui-form-item{
+                padding: 0;
+                line-height: 35px;
+                height: 35px;
+            }
+            label{
+                height: 35px;
+                line-height: 35px;
+                display: inline-block;
+            }
+        }
+
+        ul {
+            border-top: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            background-color: #fbfbfb;
+            height: 45px;
+            @include clearfix;
+
+            li {
+                border-right: 1px solid #ddd;
+                float: left;
+                width: 140px;
+                border-bottom: 1px solid #ddd;
+
+                &.long {
+                    width: 180px;
+                }
+
+                &.short {
+                    width: 127px;
+                }
+
+                &.control {
+                    width: 124px;
+                }
+
+                &.on {
+                    background-color: #fff;
+                    border-bottom: 1px solid #fff;
+                    border-top:2px solid #fe0100;
+                    a {
+                        color: #333;
+                    }
+                }
+
+                a {
+                    color: #666;
+                    display: block;
+                    /*height: 36px;
+      line-height: 36px;*/
+                    text-align: center;
+                    height: 45px;
+                    line-height: 45px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .panel-content {
+        .tab-item {
+            padding: 0 10px 20px 10px;
+            .ui-table{
+                border:1px solid #d9d9d9;
+            }
+            th{
+                line-height: 20px;
+                background: #f5f5f5;
+                border:1px solid #d9d9d9;
+            }
+            td{
+                border:1px solid #d9d9d9;
+                h3{
+                    overflow: hidden;
+                }
+                a{
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.panel-favorite{
+    .panel-head {
+        .toolbar {
+            .ui-select {
+                width: 120px;
+            }
+            .ui-input {
+                width: 90px;
+            }
+            .ui-button-swhite{
+                width: 70px;
+                height: 25px;
+                line-height: 25px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.panel-joined {
+    padding:15px;
+    .brand-items {
+        li {
+            margin-bottom: 10px;
+            *zoom: 1;
+        }
+
+        td.brand-logo {
+            padding-bottom: 33px;
+            border-right: 1px solid #ddd;
+            position: relative;
+            a.btn {
+                padding: 0 25px;
+            }
+
+            /* img {
+                width: 120px;
+                height: 60px;
+                background: url(/images/common/120-60.gif);
+            }*/
+
+            .factory-brand-icon{
+                width: 178px;
+                height: 26px;
+                line-height: 25px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                *bottom: -1px;
+                text-align: center;
+                background: #f8f8f8;
+                border-top: 1px solid #ddd;
+            }
+        }
+
+        td.brand-info {
+            padding: 15px;
+
+            a.btn {
+                float: left;
+                height: 35px;
+                width: 132px;
+                line-height: 35px;
+                color: #0082cc;
+                border: 1px solid #eee;
+                background-color: #fbfbfb;
+
+                &:hover {
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    box-shadow: 0 0 3px #ccc;
+                }
+            }
+        }
+        /*table {
+        border: 1px solid #ddd;
+        width: 100%;
+
+        tr td {
+            border: 1px solid #eee;
+            vertical-align: middle;
+            line-height: 25px;
+            padding: 5px 10px;
+        }
+
+        thead tr th {
+            height: 32px;
+            vertical-align: middle;
+            text-align: center;
+            background-color: #eaeaea;
+            border-right: 1px solid #fff;
+            *padding: 1px 0 0 0;
+        }
+
+        
+
+        tr 
+
+        tr td.brand-info 
+
+        tr td.brand-info a.btn
+    }*/
+        .no-set-deposit{
+            width: 100%;
+            height: 22px;
+            line-height: 22px;
+            background: #f8f8f8;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #c00;
+        }
+    }
+}
+
+.panel-joined .brand-items .cell-1 {
+    width: 18%;
+}
+
+.panel-joined .brand-items .cell-2 {
+    width: 24%;
+}
+
+.panel-joined .brand-items .cell-3 {
+    width: 16%;
+}
+
+.panel-joined .brand-items .cell-4 {
+    width: 28%;
+}
+
+.panel-joined .brand-items .cell-5 {
+    width: 14%;
+    border-right: 1px solid #ddd;
+}
+
+.brandjoin-icon {
+    background: url(/images/dealer/icons-brandjoin.png) no-repeat;
+    margin-right: 5px;
+    padding: 14px 13px;
+    *margin-top: 5px;
+    *vertical-align: -15px;
+    line-height: 1;
+    font-size: 0;
+    *zoom: 1;
+}
+
+.i-book {
+    background-position: 0 0;
+}
+
+.i-file {
+    background-position: 0px -129px;
+}
+
+.i-box {
+    background-position: 0px -86px;
+}
+
+.i-text {
+    background-position: 0px -42px;
+}
+
+#add_brand {
+    .ui-form-item {
+        padding: 0 5px 20px 110px;
+        .ui-label {
+            width: auto;
+            margin-left: -70px;
+            font-size: 12px;
+        }
+    }
+}
+
+#look_brand {
+    .ui-table {
+        td {
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}
+
+.js-img-center{
+  img{height:100%;}
+}

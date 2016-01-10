@@ -1,0 +1,573 @@
+@charset "UTF-8";
+
+/*
+** seo 优化页面
+*/
+
+@import "../../mixin";
+//@import "../typography";
+@import "../../reset";
+
+@import "../../common/base";
+@import "../../common/header";
+@import "../../common/footer";
+@import "../../common/index/icons";
+
+//当前页面公用按钮 用seo-button 是为了和ts-button区分
+.seo-button {
+    display: inline-block;
+    *display: inline;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 0 30px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        text-decoration: none;
+        background-image: none;
+    }
+}
+.seo-button-orange,.seo-button-red{
+    @extend .seo-button;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    vertical-align: top;
+}
+.seo-button-orange{
+    background-color: #f80;
+    &:hover{
+        background-color: #f67404;
+    }
+}
+.seo-button-red{
+    background-color: #d8271c;
+    &:hover{
+        background-color: #c8251b;
+    }
+}
+.seo-button-gary{
+    @extend .seo-button;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 15px;
+    background: #e5e3e6;
+    font-size: 12px;
+}
+
+//公用图片居中显示
+.js_img_center,.js-img-center{
+    text-align: center;
+    font-size: 0;
+    img{
+        vertical-align: middle;
+    }
+    span{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+//seo页面重写 nav 名称为 seo-nav
+.seo-nav{
+    height: 36px;
+    min-width: 1200px;
+    background: url("../../../images/fronts/market/seopage/seo-nav-bg.png") repeat-x;
+    li{
+        font-size: 14px;
+        font-family: "Microsoft yahei";
+        a{
+            height: 30px;
+            line-height: 27px;
+            margin-top: 4px;
+            margin-right: 25px;
+            padding: 0 20px 2px 20px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            &:hover{
+                background: #fff;
+                color: #000;
+            }
+        }
+
+    }
+    .active{
+        a{
+            background: #fff;
+            color: #000;
+        }
+    }
+}
+
+.ts-container{
+    font-family: "Microsoft yahei";
+}
+
+//左右布局
+.seo-main{
+
+}
+.seo-col-1{
+    width: 950px;
+    float: left;
+    display: inline;
+}
+.seo-col-2{
+    width: 230px;
+    margin-left: 970px;
+}
+
+//品牌加盟标题、描述、面包屑导航
+.seo-title,.seo-description{
+    font-family: "Microsoft yahei";
+}
+.seo-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+.seo-description{
+    font-size: 14px;
+    color: #d8271c;
+}
+.seo-bread-nav{
+    .over{
+        font-family: "宋体";
+        color: #999;
+    }
+    .current{
+        color: #f80;
+    }
+}
+
+//详细信息介绍
+.seo-info{
+    .s-i-content{
+        border: 1px solid #e1e1e1;
+    }
+    .s-i-pic{
+        width: 400px;
+        height: 400px;
+        margin-right: 20px;
+    }
+    .s-i-detail{
+        width: 510px;
+        margin-top: 20px;
+        p{
+            line-height: 34px;
+        }
+    }
+    .s-i-major{
+        color: #999;
+    }
+    .s-i-contact{
+        border: 1px dashed #dadada;
+        border-left: 0;
+        border-right: 0;
+    }
+    .s-i-red18,.s-i-red24{
+        font-family: Arial;
+        color: #d8271c;
+    }
+    .s-i-black18{
+        font-size: 18px;
+        font-family: Arial;
+        color: #333;
+    }
+    .s-i-red18{
+        font-size: 18px;
+    }
+    .s-i-red24{
+        font-size: 24px;
+    }
+}
+//tabs
+.seo-tabs{
+    .s-t-menu{
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        border: 1px solid #e1e1e1;
+        border-bottom-color: #d8271c;
+        li{
+            border-right: 1px solid #e1e1e1;
+            a{
+                padding: 0 30px;
+                display: block;
+            }
+        }
+        .active{
+            line-height: 39px;
+            background: #f3f3f3;
+            border: 1px solid #d8271c;
+            border-top-width: 2px;
+            border-bottom: 1px solid #f3f3f3;
+            position: relative;
+            top: -1px;
+            left: -1px;
+            a{
+                color: #333;
+            }
+        }
+    }
+
+}
+
+//详细属性
+.seo-nature{
+    .s-n-con{
+        border-bottom: 1px solid #e6e6e6;
+        li{
+            height: 25px;
+            line-height: 25px;
+            border-top: 1px solid #e6e6e6;
+            text-indent: 15px;
+        }
+    }
+
+    .s-n-20{
+        width: 20%;
+        background: #f9f9f9;
+    }
+    .s-n-30{
+        width: 30%;
+    }
+}
+
+//通用盒子模型
+.seo-common-box{
+    .s-c-head{
+        padding-bottom: 5px;
+        border-bottom: 1px solid #bebebe;
+        h3{
+            font-size: 16px;
+            font-weight: bold;
+            color: #c0090d;
+        }
+        .s-c-name{
+            margin-right: 5px;
+            color: #333;
+        }
+        .s-c-know{
+            margin-top: 4px;
+            margin-left: 10px;
+            color: #8d8d8d;
+        }
+    }
+    .s-c-content{
+
+    }
+}
+
+//右侧部分
+
+//右侧公司信息部分
+.seo-company{
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    .s-c-picbox{
+        height: 70px;
+    }
+    .s-c-pic{
+        width: 55px;
+        height: 55px;
+        margin-right: 10px;
+    }
+    .s-c-title{
+        margin-top: 9px;
+        line-height: 25px;
+        font-size: 14px;
+    }
+    .s-c-quality{
+        padding: 5px 0;
+        border: 1px dashed #dadada;
+        border-left: 0;
+        border-right: 0;
+        p{
+            line-height: 30px;
+        }
+        span{
+            color: #999;
+        }
+    }
+    .s-c-des{
+        padding: 6px 0;
+        line-height: 25px;
+        text-indent:2em;
+        color: #666;
+    }
+    .s-c-share{
+        .share{
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+    }
+    .s-c-seoIcon{
+        width: 180px;
+        height: 36px;
+        background: #fbfcfc;
+        border: 1px solid #e1e3e5;
+        border-bottom-color: #cdcfd3;
+        li{
+            line-height: 36px;
+            cursor: pointer;
+        }
+    }
+}
+
+//公用部分
+.explosion-col{
+    .explosion-col-head{
+        height: 25px;
+        line-height: 24px;
+        padding-left: 8px;
+        border-left: 5px solid #666;
+        background: #f2f2f2;
+        h3{
+            font-size: 16px;
+            font-family: "Microsoft yahei";
+        }
+    }
+}
+
+//热门品牌
+.real-time{
+    @include clearfix();
+    margin-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e1e1e1;
+    &:hover{
+        .des{
+            color: #ff8800;
+        }
+    }
+    .pic{
+        @include float();
+    }
+    .title,.des{
+        margin-left: 80px;
+        color: #666;
+    }
+    .title{
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #ddd;
+        font-size: 13px;
+        font-family: "Microsoft yahei";
+
+    }
+    .des{
+        line-height: 20px;
+    }
+}
+
+//推荐品牌
+.ts-gallery-list{
+    @include inline-float();
+    margin-left:-6px;
+    margin-top:3px;
+    li{
+        width:112px;
+        margin-left:6px;
+        margin-top: 10px;
+        height:100px;
+        &:hover{
+            h4{
+                color: #ff8800;
+            }
+        }
+    }
+    .js-img-center{
+        width:112px;
+        height:70px;
+        display: block;
+    }
+    h4{
+        background-color: #f3f3f3;
+        text-align: center;
+        height:30px;
+        line-height:30px;
+    }
+}
+
+//固定导航条
+.fixed-scroll{
+    display: none;
+    position: fixed;
+    width: 80px;
+    margin-left: 620px;
+    background: #fff;
+    border: 4px solid #e5e5e5;
+    //left: 50%;
+    //top: 242px;
+    font-family: "宋体";
+    z-index: 999;
+    .f-s-title{
+        padding: 5px 7px;
+        text-align: right;
+        background: #e5e5e5;
+        cursor: pointer;
+    }
+
+    .f-s-brandbox{
+        margin-top: 10px;
+        text-align: center;
+    }
+    .f-s-brandindex{
+        font-family: "Microsoft yahei";
+        color: #333;
+    }
+    .f-s-brandname{
+        color: #999;
+    }
+    .f-s-menu{
+        li{
+            border-top: 1px dotted #e5e5e5;
+            text-align: center;
+            .seo-icons{
+                display: none;
+            }
+            p{
+                height: 30px;
+                line-height: 30px;
+            }
+        }
+        .active{
+            border-top: 2px solid #e5e5e5;
+            border-bottom: 2px solid #e5e5e5;
+            .seo-icons{
+                display: inline-block;
+            }
+        }
+        .back-to-top{
+            border-top: 2px solid #e5e5e5;
+            border-bottom: 0;
+            padding: 15px 0 10px 0;
+        }
+        .arrow-a{
+            border-top: 0;
+        }
+    }
+}
+//固定右侧导航
+.fixed-right{
+    width: 20px;
+    padding: 10px 5px 10px 6px;
+    border-radius: 3px 0 0 3px;
+    background: #e5e3e6;
+    position: fixed;
+    top: 242px;
+    right: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+//当前页面图标
+.seo-icons{
+    @include inline-block;
+    background: url("../../../images/fronts/market/seopage/seo-icons.png") no-repeat -999em;
+    cursor: pointer;
+}
+.seo-icons-sina,.seo-icons-tx,.seo-icons-wx{
+    width: 36px;
+    height: 36px;
+    border-right: 1px solid #e1e3e5;
+}
+.seo-icons-sina{
+    background-position: -2px 0;
+}
+.seo-icons-tx{
+    background-position: -38px 0;
+}
+.seo-icons-wx{
+    background-position: -75px 0;
+}
+.seo-icons-store{
+    width: 13px;
+    height: 12px;
+    background-position: -121px -12px;
+    margin-left: 10px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.seo-icons-up{
+    width: 7px;
+    height: 8px;
+    background-position: -197px -161px;
+    margin-left: 5px;
+}
+.seo-icons-return{
+    width: 14px;
+    height: 14px;
+    background-position: -201px -82px;
+    margin-left: 5px;
+}
+.seo-icons-ppzms,.seo-icons-clsj,.seo-icons-bk,.seo-icons-cpzs,.seo-icons-qyzs,.seo-icons-mdzs,.seo-icons-ppxw,.seo-icons-zlxz,.seo-icons-jyh,.seo-icons-ly{
+    width: 28px;
+    height: 24px;
+    margin-top: 10px;
+}
+.seo-icons-ppzms{
+    background-position: -262px -2px;
+}
+.seo-icons-clsj{
+    background-position: -262px -64px;
+}
+.seo-icons-bk{
+    background-position: -262px -126px;
+}
+.seo-icons-cpzs{
+    background-position: -262px -187px;
+}
+.seo-icons-qyzs{
+    background-position: -262px -249px;
+}
+.seo-icons-mdzs{
+    background-position: -262px -311px;
+}
+.seo-icons-ppxw{
+    background-position: -195px -187px;
+}
+.seo-icons-zlxz{
+    background-position: -262px -364px;
+}
+.seo-icons-jyh{
+    background-position: -262px -426px;
+}
+.seo-icons-ly{
+    background-position: -262px -488px;
+}
+.seo-icons-top{
+    width: 26px;
+    height: 15px;
+    background-position: -198px -15px;
+}
+.seo-icons-fly{
+    width: 18px;
+    height: 18px;
+    background-position: -201px -47px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #999;
+}
+.seo-icons-down{
+    width: 7px;
+    height: 8px;
+    background-position: -207px -161px;
+}

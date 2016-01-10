@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.comnewsbodydl {
+    height: 125px;
+    margin-bottom: 10px;
+    position: relative;
+    .imgbox {
+        margin: 0 15px 0 0;
+        width: 120px;
+        height: 120px;
+        .img{
+            width: 120px;
+            height: 120px;
+        }
+    }
+    .title {
+        font-family: "Microsoft YaHei","微软雅黑","SimHei","黑体";
+        font-size: 16px;
+        margin: 0 0 7px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+    .details {
+        margin-top: 10px;
+        a{
+            color: #0081c7;
+        }
+    }
+}

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.TelCodeMapper">
+    <!-- 基础列 -->
+    <sql id="telCodeColumns">
+        a.refrenceId as refrenceId ,
+        a.userMobile as userMobile ,
+        a.verifyCode as verifyCode ,
+        a.cusType as cusType ,
+        a.verifyType as verifyType ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.validTime as validTime ,
+        a.createIp as createIp ,
+        a.useState as useState ,
+        a.useTime as useTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.TelCode">
+        insert into TelCode(
+         refrenceId ,
+         userMobile ,
+         verifyCode ,
+         cusType ,
+         verifyType ,
+         createTime ,
+         updateTime ,
+         validTime ,
+         createIp ,
+         useState ,
+         useTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userMobile}  ,
+        #{verifyCode}  ,
+        #{cusType}  ,
+        #{verifyType}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{validTime}  ,
+        #{createIp}  ,
+        #{useState}  ,
+        #{useTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from TelCode where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update TelCode set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.TelCode">
+        insert into TelCode
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userMobile != null">
+            userMobile ,
+        </if>
+        <if test="verifyCode != null">
+            verifyCode ,
+        </if>
+        <if test="cusType != null">
+            cusType ,
+        </if>
+        <if test="verifyType != null">
+            verifyType ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="validTime != null">
+            validTime ,
+        </if>
+        <if test="createIp != null">
+            createIp ,
+        </if>
+        <if test="useState != null">
+            useState ,
+        </if>
+        <if test="useTime != null">
+            useTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userMobile != null">
+            #{userMobile} ,
+        </if>
+        <if test="verifyCode != null">
+            #{verifyCode} ,
+        </if>
+        <if test="cusType != null">
+            #{cusType} ,
+        </if>
+        <if test="verifyType != null">
+            #{verifyType} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="validTime != null">
+            #{validTime} ,
+        </if>
+        <if test="createIp != null">
+            #{createIp} ,
+        </if>
+        <if test="useState != null">
+            #{useState} ,
+        </if>
+        <if test="useTime != null">
+            #{useTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.TelCode">
+        update TelCode
+           <set>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="verifyCode != null">
+                verifyCode = #{verifyCode} ,
+            </if>
+            <if test="cusType != null">
+                cusType = #{cusType} ,
+            </if>
+            <if test="verifyType != null">
+                verifyType = #{verifyType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="validTime != null">
+                validTime = #{validTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="useState != null">
+                useState = #{useState} ,
+            </if>
+            <if test="useTime != null">
+                useTime = #{useTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.TelCode">
+        update TelCode set
+            userMobile = #{userMobile} ,
+            verifyCode = #{verifyCode} ,
+            cusType = #{cusType} ,
+            verifyType = #{verifyType} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            validTime = #{validTime} ,
+            createIp = #{createIp} ,
+            useState = #{useState} ,
+            useTime = #{useTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.TelCode">
+        select <include refid="telCodeColumns"/> from TelCode a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.TelCode">
+        SELECT
+        <include refid="telCodeColumns"/>
+        FROM TelCode a WHERE a.delFlag = 0
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="verifyCode != null and verifyCode != ''">
+            and a.verifyCode like CONCAT('%',#{verifyCode}, '%')
+        </if>
+        <if test="cusType != null and cusType != ''">
+            and a.cusType = #{cusType}
+        </if>
+        <if test="verifyType != null and verifyType != ''">
+            and a.verifyType like CONCAT('%',#{verifyType}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="validTime != null and validTime != ''">
+            and a.validTime = #{validTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="useState != null and useState != ''">
+            and a.useState = #{useState}
+        </if>
+        <if test="useTime != null and useTime != ''">
+            and a.useTime = #{useTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.TelCode">
+        SELECT
+        <include refid="telCodeColumns"/>
+        FROM TelCode a WHERE a.delFlag = 0
+    </select>
+
+    <select id="search" resultType="com.zttx.web.module.common.entity.TelCode">
+        select
+            <include refid="telCodeColumns"/>
+        from
+        TelCode a where a.userMobile=#{userMobile} and a.verifyType=#{verifyType}
+        <if test="useState != null ">
+            AND a.useState = #{useState}
+        </if>
+        order by createTime desc
+        Limit 1
+    </select>
+
+    <update id="updateUseState">
+        update TelCode
+        set useState=#{useState},useTime=#{useTime}
+        where refrenceId=#{refrenceId}
+    </update>
+</mapper>
+

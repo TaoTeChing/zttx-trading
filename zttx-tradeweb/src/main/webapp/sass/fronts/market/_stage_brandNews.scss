@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/*
+    前台装修页面-品牌新闻
+*/
+/*.listbody{
+  .sidebar-l{
+      //如有样式冲突，把下面的放到这里面即可
+  }
+}*/
+.comnews{
+  padding: 0 20px 20px 20px;
+  background: #fff;
+  border: 1px #ddd solid;
+  overflow: hidden;
+  .comnewsul{
+      margin: 10px 0 20px 0;
+      overflow: hidden;
+      li{
+          float: left;
+          padding: 2px 8px;
+          a {
+              color: #666;
+              &:hover{
+                  text-decoration: none;
+              }
+          }
+      }
+      .selected {
+          background: #666;
+          a {
+              color: #fff;
+          }
+      }
+  }
+  .comnewsbody {
+      height: 125px;
+      .timecla {
+          background: url("/images/fronts/market/timecla.jpg") no-repeat right top;
+          height: 125px;
+          padding: 0 20px 10px 0;
+          font-family: "Microsoft YaHei","微软雅黑","SimHei","黑体";
+          color: #333;
+      }
+  }
+  .comnewsbodydl {
+      height: 125px;
+      position: relative;
+      margin-left: 126px;
+      overflow: hidden;
+      .imgbox {
+          margin: 0 15px 0 0;
+          width: 120px;
+          height: 120px;
+          .img{
+              width: 120px;
+              height: 120px;
+          }
+      }
+      .title {
+          font-family: "Microsoft YaHei","微软雅黑","SimHei","黑体";
+          font-size: 16px;
+          margin: 0 0 7px 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-wrap: normal;
+      }
+      .details {
+          margin-top: 10px;
+          a{
+              color: #0081c7;
+          }
+      }
+  }
+}
+//品牌新闻详细页
+.comnewsinfo{
+  padding: 15px; background: #fff; border: 1px #DDD solid;
+  .comnewsinfo-nowtitle{ border-bottom: 1px solid #ddd;}
+  .comnewsinfo-nowtitle-name{ border-bottom: 2px solid #b00200; padding:0 5px 3px 5px; margin-left: 15px; margin-bottom: 1px; font-size: 16px; font-family: "microsoft yahei"; line-height: 30px;}
+  .comnewsinfo-bottom{ margin-top: 35px; color: #999;}
+}
+.comnewsinfo-content{
+  .comnewsinfo-title{ font-family: "microsoft yahei"; font-size: 16px; font-weight: 400; text-align: center; margin-top: 25px;}
+  .comnewsinfo-some{ border: 1px dashed #ececec; border-left: 0; border-right: 0; height: 30px; line-height: 30px; color: #999; text-align: center; margin-top: 15px; margin-bottom: 20px;}
+  .comnewsinfo-pstyle{ color: #666; margin: 0 15px; text-indent: 24px; line-height: 28px;}
+  img{ max-width: 855px;_width:855px;}
+}
+//品牌新闻详细页-相关推荐
+.comnewsinfo-relate{
+  padding: 5px 15px 10px 15px; background: #fff;border: 1px #DDD solid; overflow: hidden; *zoom:1;
+  .comnewsinfo-relatetit{ border-bottom: 1px solid #ddd;
+    .comnewsinfo-relatetit-name{ border-bottom: 2px solid #b00200; padding:0 5px 3px 5px; margin-left: 15px; margin-bottom: 1px; font-size: 14px; font-family: "microsoft yahei"; line-height: 30px;}
+  }
+  .comnewsinfo-relate-bl{ border-left: 1px dashed #e5e5e5;}
+  .comnewsinfo-relate-litem{ width: 405px; line-height: 25px; padding-left: 10px;list-style: square inside; float: left; color: #999;
+    a{ color: #666;}
+  }
+}

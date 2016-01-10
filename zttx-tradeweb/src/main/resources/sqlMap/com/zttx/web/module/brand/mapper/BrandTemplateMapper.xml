@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandTemplateMapper">
+    <!-- 基础列 -->
+    <sql id="brandTemplateColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.templateName as templateName ,
+        a.orderStart as orderStart ,
+        a.orderEnd as orderEnd ,
+        a.startNum as startNum ,
+        a.orderNum as orderNum ,
+        a.outStart as outStart ,
+        a.outEnd as outEnd ,
+        a.orderSelect as orderSelect ,
+        a.orderMoney as orderMoney ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandTemplate">
+        insert into BrandTemplate(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         templateName ,
+         orderStart ,
+         orderEnd ,
+         startNum ,
+         orderNum ,
+         outStart ,
+         outEnd ,
+         orderSelect ,
+         orderMoney ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{templateName}  ,
+        #{orderStart}  ,
+        #{orderEnd}  ,
+        #{startNum}  ,
+        #{orderNum}  ,
+        #{outStart}  ,
+        #{outEnd}  ,
+        #{orderSelect}  ,
+        #{orderMoney}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandTemplate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandTemplate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandTemplate">
+        insert into BrandTemplate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="templateName != null">
+            templateName ,
+        </if>
+        <if test="orderStart != null">
+            orderStart ,
+        </if>
+        <if test="orderEnd != null">
+            orderEnd ,
+        </if>
+        <if test="startNum != null">
+            startNum ,
+        </if>
+        <if test="orderNum != null">
+            orderNum ,
+        </if>
+        <if test="outStart != null">
+            outStart ,
+        </if>
+        <if test="outEnd != null">
+            outEnd ,
+        </if>
+        <if test="orderSelect != null">
+            orderSelect ,
+        </if>
+        <if test="orderMoney != null">
+            orderMoney ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="templateName != null">
+            #{templateName} ,
+        </if>
+        <if test="orderStart != null">
+            #{orderStart} ,
+        </if>
+        <if test="orderEnd != null">
+            #{orderEnd} ,
+        </if>
+        <if test="startNum != null">
+            #{startNum} ,
+        </if>
+        <if test="orderNum != null">
+            #{orderNum} ,
+        </if>
+        <if test="outStart != null">
+            #{outStart} ,
+        </if>
+        <if test="outEnd != null">
+            #{outEnd} ,
+        </if>
+        <if test="orderSelect != null">
+            #{orderSelect} ,
+        </if>
+        <if test="orderMoney != null">
+            #{orderMoney} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandTemplate">
+        update BrandTemplate
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="templateName != null">
+                templateName = #{templateName} ,
+            </if>
+            <if test="orderStart != null">
+                orderStart = #{orderStart} ,
+            </if>
+            <if test="orderEnd != null">
+                orderEnd = #{orderEnd} ,
+            </if>
+            <if test="startNum != null">
+                startNum = #{startNum} ,
+            </if>
+            <if test="orderNum != null">
+                orderNum = #{orderNum} ,
+            </if>
+            <if test="outStart != null">
+                outStart = #{outStart} ,
+            </if>
+            <if test="outEnd != null">
+                outEnd = #{outEnd} ,
+            </if>
+            <if test="orderSelect != null">
+                orderSelect = #{orderSelect} ,
+            </if>
+            <if test="orderMoney != null">
+                orderMoney = #{orderMoney} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandTemplate">
+        update BrandTemplate set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            templateName = #{templateName} ,
+            orderStart = #{orderStart} ,
+            orderEnd = #{orderEnd} ,
+            startNum = #{startNum} ,
+            orderNum = #{orderNum} ,
+            outStart = #{outStart} ,
+            outEnd = #{outEnd} ,
+            orderSelect = #{orderSelect} ,
+            orderMoney = #{orderMoney} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandTemplate">
+        select <include refid="brandTemplateColumns"/> from BrandTemplate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandTemplate">
+        SELECT
+        <include refid="brandTemplateColumns"/>
+        FROM BrandTemplate a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="templateName != null and templateName != ''">
+            and a.templateName like CONCAT('%',#{templateName}, '%')
+        </if>
+        <if test="orderStart != null and orderStart != ''">
+            and a.orderStart = #{orderStart}
+        </if>
+        <if test="orderEnd != null and orderEnd != ''">
+            and a.orderEnd = #{orderEnd}
+        </if>
+        <if test="startNum != null and startNum != ''">
+            and a.startNum = #{startNum}
+        </if>
+        <if test="orderNum != null and orderNum != ''">
+            and a.orderNum = #{orderNum}
+        </if>
+        <if test="outStart != null and outStart != ''">
+            and a.outStart = #{outStart}
+        </if>
+        <if test="outEnd != null and outEnd != ''">
+            and a.outEnd = #{outEnd}
+        </if>
+        <if test="orderSelect != null and orderSelect != ''">
+            and a.orderSelect = #{orderSelect}
+        </if>
+        <if test="orderMoney != null and orderMoney != ''">
+            and a.orderMoney = #{orderMoney}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandTemplate">
+        SELECT
+        <include refid="brandTemplateColumns"/>
+        FROM BrandTemplate a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="listBrandTemplate" resultType="com.zttx.web.module.brand.entity.BrandTemplate">
+    	select 
+			<include refid="brandTemplateColumns"/> 
+    	from BrandTemplate a 
+	    	where 
+	    	a.brandId = #{brandId}
+	    	and a.brandsId = #{brandsId} 
+	    	and a.delFlag = 0
+    </select>
+</mapper>
+

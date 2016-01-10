@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandesInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="brandesInfoColumns">
+        a.refrenceId as refrenceId,
+        a.brandId as brandId ,
+        a.brandsName as brandsName,
+        a.brandType as brandType,
+        a.logoDomin as logoDomin,
+        a.brandLogo as brandLogo,
+        a.proLogo as proLogo ,
+        a.brandHold as brandHold,
+        a.holdName as holdName,
+        a.brandSubMark as brandSubMark,
+        a.brandMark as brandMark,
+        a.brandState as brandState ,
+        a.beginTime as beginTime,
+        a.endTime as endTime,
+        a.ensureMoney as ensureMoney,
+        a.createTime as createTime,
+        a.updateTime as updateTime ,
+        a.createIp as createIp,
+        a.showed as showed,
+        a.recommendImage as recommendImage,
+        a.meetCount as meetCount,
+        a.factoryStore as factoryStore ,
+        a.deposit as deposit,
+        a.barCodeNum as barCodeNum,
+        a.userAuth as userAuth,
+        a.delFlag as delFlag
+    </sql>
+
+    <sql id="solrColumns">
+        a.refrenceId AS refrenceId,
+        b.refrenceId AS 'brandInfo.refrenceId',
+        b.refrenceId AS 'brandId',
+        b.comName AS 'brandInfo.comName',
+        b.dealType AS 'brandInfo.dealType',
+        b.legalName AS 'brandInfo.legalName',
+        b.provinceName AS 'brandInfo.provinceName',
+        b.cityName AS 'brandInfo.cityName',
+        b.areaName AS 'brandInfo.areaName',
+        b.comAddress AS 'brandInfo.comAddress',
+        b.regMoney AS 'brandInfo.regMoney',
+        c.applyCount AS 'brandsCount.applyCount',
+        c.productCount AS 'brandsCount.productCount',
+        c.favNum AS 'brandsCount.favNum',
+        c.inviteCount AS 'brandsCount.inviteCount',
+        c.joinCount AS 'brandsCount.joinCount',
+        c.orderNum AS 'brandsCount.orderNum',
+        c.viewNum AS 'brandsCount.viewNum',
+        a.brandsName AS brandsName,
+        a.brandType AS brandType,
+        a.brandLogo AS brandLogo,
+        a.proLogo AS proLogo,
+        a.holdName AS holdName,
+        a.brandMark AS brandMark,
+        a.brandState AS brandState,
+        a.recommendImage AS recommendImage,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        d.weight AS brandsWeight
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandesInfo">
+        INSERT INTO BrandesInfo (
+            refrenceId,
+            brandId,
+            brandsName,
+            brandType,
+            logoDomin,
+            brandLogo,
+            proLogo,
+            brandHold,
+            holdName,
+            brandSubMark,
+            brandMark,
+            brandState,
+            beginTime,
+            endTime,
+            ensureMoney,
+            createTime,
+            updateTime,
+            createIp,
+            showed,
+            recommendImage,
+            meetCount,
+            factoryStore,
+            deposit,
+            barCodeNum,
+            userAuth,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{brandId},
+            #{brandsName},
+            #{brandType},
+            #{logoDomin},
+            #{brandLogo},
+            #{proLogo},
+            #{brandHold},
+            #{holdName},
+            #{brandSubMark},
+            #{brandMark},
+            #{brandState},
+            #{beginTime},
+            #{endTime},
+            #{ensureMoney},
+            #{createTime},
+            #{updateTime},
+            #{createIp},
+            #{showed},
+            #{recommendImage},
+            #{meetCount},
+            #{factoryStore},
+            #{deposit},
+            #{barCodeNum},
+            #{userAuth},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM BrandesInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE BrandesInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandesInfo">
+        insert into BrandesInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsName != null">
+                brandsName ,
+            </if>
+            <if test="brandType != null">
+                brandType ,
+            </if>
+            <if test="logoDomin != null">
+                logoDomin ,
+            </if>
+            <if test="brandLogo != null">
+                brandLogo ,
+            </if>
+            <if test="proLogo != null">
+                proLogo ,
+            </if>
+            <if test="brandHold != null">
+                brandHold ,
+            </if>
+            <if test="holdName != null">
+                holdName ,
+            </if>
+            <if test="brandSubMark != null">
+                brandSubMark ,
+            </if>
+            <if test="brandMark != null">
+                brandMark ,
+            </if>
+            <if test="brandState != null">
+                brandState ,
+            </if>
+            <if test="beginTime != null">
+                beginTime ,
+            </if>
+            <if test="endTime != null">
+                endTime ,
+            </if>
+            <if test="ensureMoney != null">
+                ensureMoney ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="showed != null">
+                showed ,
+            </if>
+            <if test="recommendImage != null">
+                recommendImage ,
+            </if>
+            <if test="meetCount != null">
+                meetCount ,
+            </if>
+            <if test="factoryStore != null">
+                factoryStore ,
+            </if>
+            <if test="deposit != null">
+                deposit ,
+            </if>
+            <if test="barCodeNum != null">
+                barCodeNum ,
+            </if>
+            <if test="userAuth != null">
+                userAuth ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsName != null">
+                #{brandsName} ,
+            </if>
+            <if test="brandType != null">
+                #{brandType} ,
+            </if>
+            <if test="logoDomin != null">
+                #{logoDomin} ,
+            </if>
+            <if test="brandLogo != null">
+                #{brandLogo} ,
+            </if>
+            <if test="proLogo != null">
+                #{proLogo} ,
+            </if>
+            <if test="brandHold != null">
+                #{brandHold} ,
+            </if>
+            <if test="holdName != null">
+                #{holdName} ,
+            </if>
+            <if test="brandSubMark != null">
+                #{brandSubMark} ,
+            </if>
+            <if test="brandMark != null">
+                #{brandMark} ,
+            </if>
+            <if test="brandState != null">
+                #{brandState} ,
+            </if>
+            <if test="beginTime != null">
+                #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                #{endTime} ,
+            </if>
+            <if test="ensureMoney != null">
+                #{ensureMoney} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="showed != null">
+                #{showed} ,
+            </if>
+            <if test="recommendImage != null">
+                #{recommendImage} ,
+            </if>
+            <if test="meetCount != null">
+                #{meetCount} ,
+            </if>
+            <if test="factoryStore != null">
+                #{factoryStore} ,
+            </if>
+            <if test="deposit != null">
+                #{deposit} ,
+            </if>
+            <if test="barCodeNum != null">
+                #{barCodeNum} ,
+            </if>
+            <if test="userAuth != null">
+                #{userAuth} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandesInfo">
+        update BrandesInfo
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsName != null">
+                brandsName = #{brandsName} ,
+            </if>
+            <if test="brandType != null">
+                brandType = #{brandType} ,
+            </if>
+            <if test="logoDomin != null">
+                logoDomin = #{logoDomin} ,
+            </if>
+            <if test="brandLogo != null">
+                brandLogo = #{brandLogo} ,
+            </if>
+            <if test="proLogo != null">
+                proLogo = #{proLogo} ,
+            </if>
+            <if test="brandHold != null">
+                brandHold = #{brandHold} ,
+            </if>
+            <if test="holdName != null">
+                holdName = #{holdName} ,
+            </if>
+            <if test="brandSubMark != null">
+                brandSubMark = #{brandSubMark} ,
+            </if>
+            <if test="brandMark != null">
+                brandMark = #{brandMark} ,
+            </if>
+            <if test="brandState != null">
+                brandState = #{brandState} ,
+            </if>
+            <if test="beginTime != null">
+                beginTime = #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="ensureMoney != null">
+                ensureMoney = #{ensureMoney} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="showed != null">
+                showed = #{showed} ,
+            </if>
+            <if test="recommendImage != null">
+                recommendImage = #{recommendImage} ,
+            </if>
+            <if test="meetCount != null">
+                meetCount = #{meetCount} ,
+            </if>
+            <if test="factoryStore != null">
+                factoryStore = #{factoryStore} ,
+            </if>
+            <if test="deposit != null">
+                deposit = #{deposit} ,
+            </if>
+            <if test="barCodeNum != null">
+                barCodeNum = #{barCodeNum} ,
+            </if>
+            <if test="userAuth != null">
+                userAuth = #{userAuth} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandesInfo">
+        UPDATE BrandesInfo
+        SET
+            brandId        = #{brandId},
+            brandsName     = #{brandsName},
+            brandType      = #{brandType},
+            logoDomin      = #{logoDomin},
+            brandLogo      = #{brandLogo},
+            proLogo        = #{proLogo},
+            brandHold      = #{brandHold},
+            holdName       = #{holdName},
+            brandSubMark   = #{brandSubMark},
+            brandMark      = #{brandMark},
+            brandState     = #{brandState},
+            beginTime      = #{beginTime},
+            endTime        = #{endTime},
+            ensureMoney    = #{ensureMoney},
+            createTime     = #{createTime},
+            updateTime     = #{updateTime},
+            createIp       = #{createIp},
+            showed         = #{showed},
+            recommendImage = #{recommendImage},
+            meetCount      = #{meetCount},
+            factoryStore   = #{factoryStore},
+            deposit        = #{deposit},
+            barCodeNum     = #{barCodeNum},
+            userAuth       = #{userAuth},
+            delFlag        = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="brandesInfoColumns"/>
+        FROM BrandesInfo a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+        <if test="brandType != null and brandType != ''">
+            and a.brandType = #{brandType}
+        </if>
+        <if test="logoDomin != null and logoDomin != ''">
+            and a.logoDomin like CONCAT('%',#{logoDomin}, '%')
+        </if>
+        <if test="brandLogo != null and brandLogo != ''">
+            and a.brandLogo like CONCAT('%',#{brandLogo}, '%')
+        </if>
+        <if test="proLogo != null and proLogo != ''">
+            and a.proLogo like CONCAT('%',#{proLogo}, '%')
+        </if>
+        <if test="brandHold != null and brandHold != ''">
+            and a.brandHold = #{brandHold}
+        </if>
+        <if test="holdName != null and holdName != ''">
+            and a.holdName like CONCAT('%',#{holdName}, '%')
+        </if>
+        <if test="brandSubMark != null and brandSubMark != ''">
+            and a.brandSubMark like CONCAT('%',#{brandSubMark}, '%')
+        </if>
+        <if test="brandMark != null and brandMark != ''">
+            and a.brandMark like CONCAT('%',#{brandMark}, '%')
+        </if>
+        <if test="brandState != null">
+            and a.brandState = #{brandState}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and a.beginTime = #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="ensureMoney != null and ensureMoney != ''">
+            and a.ensureMoney = #{ensureMoney}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="showed != null and showed != ''">
+            and a.showed = #{showed}
+        </if>
+        <if test="recommendImage != null and recommendImage != ''">
+            and a.recommendImage like CONCAT('%',#{recommendImage}, '%')
+        </if>
+        <if test="meetCount != null and meetCount != ''">
+            and a.meetCount = #{meetCount}
+        </if>
+        <if test="factoryStore != null and factoryStore != ''">
+            and a.factoryStore = #{factoryStore}
+        </if>
+        <if test="deposit != null and deposit != ''">
+            and a.deposit = #{deposit}
+        </if>
+        <if test="barCodeNum != null and barCodeNum != ''">
+            and a.barCodeNum like CONCAT('%',#{barCodeNum}, '%')
+        </if>
+        <if test="userAuth != null and userAuth != ''">
+            and a.userAuth like CONCAT('%',#{userAuth}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="brandesInfoColumns"/>
+        FROM BrandesInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="listWithFilter" resultType="com.zttx.web.module.brand.model.BrandsInfoModel">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a
+        where a.brandId = #{brandId} and a.delFlag = 0
+        <if test="brandState != null">
+            and a.brandState = #{brandState}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <select id="findBrandesInfo" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="brandesInfoColumns"/>
+        FROM BrandesInfo a
+        WHERE a.brandId = #{brandId} AND a.refrenceId = #{refrenceId} AND a.delFlag = 0
+    </select>
+
+    <select id="findBrandesInfoToSolrCount" parameterType="map" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM
+        BrandesInfo a,
+        BrandInfo b,
+        BrandsCount c
+        WHERE a.brandId = b.refrenceId
+        AND c.brandsId = a.refrenceId
+        AND c.brandId = b.refrenceId
+        <include refid="brandSolrFilter"/>
+        AND b.delFlag = 0
+        AND a.brandState = 2
+        AND a.showed = 1
+        AND a.delFlag = 0
+    </select>
+
+    <select id="findBrandesInfoToSolr" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandesInfo"
+            useCache="false">
+        SELECT
+        <include refid="solrColumns"/>
+        FROM
+        BrandesInfo a,
+        BrandInfo b,
+        BrandsCount c,
+        BrandesWeightInfo d
+        WHERE a.brandId = b.refrenceId
+        AND c.brandsId = a.refrenceId
+        AND c.brandId = b.refrenceId
+        AND d.brandesId = a.refrenceId
+        <include refid="brandSolrFilter"/>
+        AND b.delFlag = 0
+        AND a.brandState = 2
+        AND a.showed = 1
+        AND a.delFlag = 0
+        AND d.delFlag = 0
+    </select>
+    <select id="findBybrandIdAndState" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="solrColumns"/>
+        FROM BrandesInfo a where a.delFlag = 0
+        and a.brandId = #{brandId} and a.brandState = #{brandState}
+    </select>
+
+    <sql id="brandSolrFilter">
+        <if test="brandesInfo != null">
+            <if test="brandesInfo.refrenceId != null and brandesInfo.refrenceId != ''">
+                and a.refrenceId = #{brandesInfo.refrenceId}
+            </if>
+            <if test="brandesInfo.brandId != null and brandesInfo.brandId != ''">
+                and a.brandId = #{brandesInfo.brandId}
+            </if>
+        </if>
+    </sql>
+
+    <!-- 判断品牌名称是否存在 -->
+    <select id="isExistBrandName" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="brandesInfoColumns"/>
+        FROM BrandesInfo a WHERE a.delFlag = 0
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName=#{brandsName}
+        </if>
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId!=#{refrenceId}
+        </if>
+    </select>
+
+    <!-- 根据区域编码 获取 该区域所有授权的产品ID -->
+    <select id="getMaxBrandesInfobarCodeNum" resultType="java.lang.String">
+        SELECT max(o.barCodeNum)
+        FROM BrandesInfo o
+        WHERE o.brandId = #{0}
+    </select>
+    <select id="getBrandsInfoCount" parameterType="com.zttx.web.module.brand.entity.BrandesInfo" resultType="Long">
+        SELECT count(*)
+        FROM BrandesInfo
+        WHERE brandId = #{brandId}
+              AND delFlag = 0
+              AND brandState = #{brandState}
+    </select>
+
+    <!-- 根据品牌商ID、品牌多个状态获取品牌 -->
+    <select id="listBrandStates" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a
+        where a.brandId = #{brandId} and a.delFlag = 0 and a.brandState in (#{brandStates})
+        order by a.createTime desc
+    </select>
+
+    <select id="findByBrandIdAndBrandsId" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a
+        where a.brandId = #{brandId}
+        and a.refrenceId = #{brandsId}
+        and a.delFlag = 0
+    </select>
+
+    <select id="findBrandAndBrandesInfo" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        a.refrenceId as refrenceId,
+        a.brandState as brandState,
+        a.brandsName as brandsName
+        FROM BrandesInfo a , BrandInfo b
+        WHERE a.brandId = b.refrenceId
+        and a.refrenceId = #{brandsId}
+        and a.delFlag = 0 and b.checkState = 1
+    </select>
+
+    <!-- 根据品牌商ID、品牌多个状态获取品牌 -->
+    <select id="listByBrandStates" resultType="com.zttx.web.module.brand.entity.BrandesInfo"
+            parameterType="java.util.List">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a
+        where
+        a.brandId = #{brandId}
+        and a.delFlag = 0
+        and a.brandState in
+        <foreach item="item" collection="brandStates" separator="," open="(" close=")" index="index">
+            #{item}
+        </foreach>
+        order by a.createTime desc
+    </select>
+
+    <!-- 根据一组品牌编码取品牌信息 -->
+    <select id="findBrandesInfoByIds" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a,
+        BrandesWeightInfo b
+        where b.brandesId = a.refrenceId
+        and a.refrenceId IN
+        <foreach item="id" collection="ids" separator="," open="(" close=")" index="index">
+            #{id}
+        </foreach>
+        <if test="mainIds != null">
+            and a.refrenceId in (
+              select b.brandesId
+                from BrandDeal b
+              where b.delFlag = 0
+              and b.dealNo in
+                <foreach item="id" collection="mainIds" separator="," open="(" close=")" index="index">
+                    #{id}
+                </foreach>
+            )
+        </if>
+        order by b.weight desc
+    </select>
+
+    <!-- 查询品牌商下品牌信息列表，用于DUBBO接口 -->
+    <select id="queryBrandesInfosList" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        select
+        <include refid="brandesInfoColumns"/>
+        from BrandesInfo a
+        where a.brandId = #{brandesInfo.brandId} and a.delFlag = 0 and (a.brandState = 1 or a.brandState = 2)
+
+        <if test="brandesInfo.createTime != null ">
+            and a.createTime &gt;#{brandesInfo.createTime}
+        </if>
+    </select>
+
+    <select id="findAllBrandsBaseInfo" resultType="java.util.HashMap">
+        SELECT
+            a.refrenceId AS refrenceId,
+            a.brandsName AS brandsName
+        FROM BrandesInfo a
+        WHERE a.delFlag = 0
+    </select>
+
+    <select id="getBrandsInfoByBrandsId" parameterType="String" resultType="java.util.HashMap">
+        SELECT
+            refrenceId AS brandsId,
+            brandsName AS brandsName,
+            brandId    AS supplierId
+        FROM BrandesInfo
+        WHERE refrenceId = #{brandsId}
+    </select>
+    <!--查询首页中品牌的数据-->
+    <select id="findIndexList" resultType="com.zttx.web.module.brand.model.BrandsInfoModel">
+        SELECT
+        <include refid="brandesInfoColumns"/>,
+        w.image AS image
+        FROM
+        BrandesInfo a,
+        WebBrandsShow w
+        WHERE
+        a.refrenceId = w.brandsId
+        AND a.delFlag = 0
+        AND w.delFlag = 0
+        <if test="brandState != null">
+            AND a.brandState = #{brandState}
+        </if>
+        <if test="showType != null">
+            AND w.showType = #{showType}
+        </if>
+    </select>
+    <select id="findBrandesInfoToSolrByIds" resultType="com.zttx.web.module.brand.entity.BrandesInfo">
+        SELECT
+        <include refid="solrColumns"/>
+        FROM
+        BrandesInfo a,
+        BrandInfo b,
+        BrandsCount c,
+        BrandesWeightInfo d
+        WHERE a.brandId = b.refrenceId
+        AND c.brandsId = a.refrenceId
+        AND c.brandId = b.refrenceId
+        AND d.brandesId = a.refrenceId
+        AND b.delFlag = 0
+        AND a.brandState = 2
+        AND a.showed = 1
+        AND a.delFlag = 0
+        AND d.delFlag = 0
+        AND a.refrenceId IN (<foreach collection="list" item="item" separator=",">#{item}</foreach>)
+    </select>
+</mapper>
+

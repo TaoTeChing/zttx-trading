@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerFeedMapper">
+    <!-- 基础列 -->
+    <sql id="dealerFeedColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.feedText as feedText ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.replyText as replyText ,
+        a.replyTime as replyTime ,
+        a.replyId as replyId ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerFeed">
+        insert into DealerFeed(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         feedText ,
+         createTime ,
+         updateTime ,
+         replyText ,
+         replyTime ,
+         replyId ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{feedText}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{replyText}  ,
+        #{replyTime}  ,
+        #{replyId}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerFeed where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerFeed set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerFeed">
+        insert into DealerFeed
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="feedText != null">
+            feedText ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="replyText != null">
+            replyText ,
+        </if>
+        <if test="replyTime != null">
+            replyTime ,
+        </if>
+        <if test="replyId != null">
+            replyId ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="feedText != null">
+            #{feedText} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="replyText != null">
+            #{replyText} ,
+        </if>
+        <if test="replyTime != null">
+            #{replyTime} ,
+        </if>
+        <if test="replyId != null">
+            #{replyId} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerFeed">
+        update DealerFeed
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="feedText != null">
+                feedText = #{feedText} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="replyText != null">
+                replyText = #{replyText} ,
+            </if>
+            <if test="replyTime != null">
+                replyTime = #{replyTime} ,
+            </if>
+            <if test="replyId != null">
+                replyId = #{replyId} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerFeed">
+        update DealerFeed set
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            feedText = #{feedText} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            replyText = #{replyText} ,
+            replyTime = #{replyTime} ,
+            replyId = #{replyId} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerFeed">
+        select <include refid="dealerFeedColumns"/> from DealerFeed a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerFeed">
+        SELECT
+        <include refid="dealerFeedColumns"/>
+        FROM DealerFeed a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="feedText != null and feedText != ''">
+            and a.feedText like CONCAT('%',#{feedText}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="replyText != null and replyText != ''">
+            and a.replyText like CONCAT('%',#{replyText}, '%')
+        </if>
+        <if test="replyTime != null and replyTime != ''">
+            and a.replyTime = #{replyTime}
+        </if>
+        <if test="replyId != null and replyId != ''">
+            and a.replyId like CONCAT('%',#{replyId}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerFeed">
+        SELECT
+        <include refid="dealerFeedColumns"/>
+        FROM DealerFeed a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findByBrandIdAndBrandsId" resultType="com.zttx.web.module.dealer.entity.DealerFeed">
+        select *
+        from DealerFeed feed
+        where feed.delFlag = 0 and feed.brandId= #{brandId}
+        <if test="brandsId != null and brandsId != ''">
+            and brandsId = #{brandsId}
+        </if>
+    </select>
+</mapper>
+

@@ -1,0 +1,109 @@
+@charset "utf-8";
+@import "../../mixin";
+
+.part-c{
+
+    .part-c-row{
+        @include clearfix();
+        margin-top:10px;
+    }
+    .part-c-col1,.part-c-col2{
+        @include float();
+        width:950px;
+    }
+    .part-c-col2{
+        width:230px;
+        margin-left:20px;
+    }
+
+    .brand-list{
+        @include inline-float();
+        height:700px;
+        overflow: hidden;
+        margin-left:-20px;
+        li{
+            margin-left:20px;
+            width:465px;
+        }
+    }
+
+    .brand-item{
+        border:1px solid #e1e1e1;
+        .brand-item-body{
+            padding:5px 10px;
+        }
+        dt{
+            //margin-bottom: 10px;
+        }
+
+        p{
+            line-height: 25px;
+        }
+        &:hover{
+            border: 1px solid #ff8900;
+        }
+    }
+
+
+    .explosion-col{
+        .explosion-col-head{
+            height: 25px;
+            line-height: 24px;
+            padding-left: 8px;
+            border-left: 5px solid #666;
+            background: #f2f2f2;
+            h3{
+                font-size: 16px;
+                font-family: "Microsoft yahei";
+            }
+        }
+    }
+
+    .ts-list{
+        //margin-top:4px;
+        li{
+            height: 34px;
+            line-height: 34px;
+            @include ellipsis();
+            border-bottom:1px dashed #eee;
+            a{
+                &:hover{
+                    color: #ff8800;
+                }
+            }
+        }
+    }
+
+    .ts-gallery-list{
+        @include inline-float();
+        margin-left:-6px;
+        margin-top:3px;
+        li{
+            width:112px;
+            height:93px;
+            margin-left:6px;
+            margin-top: 10px;
+        }
+        .js-img-center{
+            width:112px;
+            height:70px;
+        }
+        h4{
+            background-color: #f3f3f3;
+            text-align: center;
+            height:23px;
+            line-height:23px;
+        }
+    }
+
+    .p-c-font{
+        color:#f80;
+        font-family: Arial;
+    }
+
+    .p-c-major{
+        width:260px;
+        height:25px;
+        overflow: hidden;
+    }
+}

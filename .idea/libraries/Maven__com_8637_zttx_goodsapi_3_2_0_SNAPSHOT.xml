@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.8637:zttx-goodsapi:3.2.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-goodsapi/3.2.0-SNAPSHOT/zttx-goodsapi-3.2.0-20151209.024601-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-goodsapi/3.2.0-SNAPSHOT/zttx-goodsapi-3.2.0-20151209.024601-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-goodsapi/3.2.0-SNAPSHOT/zttx-goodsapi-3.2.0-20151209.024601-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

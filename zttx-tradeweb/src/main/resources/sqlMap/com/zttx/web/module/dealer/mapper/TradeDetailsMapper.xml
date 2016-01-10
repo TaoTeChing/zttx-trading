@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.TradeDetailsMapper">
+    <!-- 基础列 -->
+    <sql id="tradeDetailsColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.serialNumber as serialNumber ,
+        a.sendUserId as sendUserId ,
+        a.sendName as sendName ,
+        a.recUserId as recUserId ,
+        a.recName as recName ,
+        a.balance as balance ,
+        a.title as title ,
+        a.tradeType as tradeType ,
+        a.payState as payState ,
+        a.tradeState as tradeState ,
+        a.createTime as createTime ,
+        a.updatetime as updatetime ,
+        a.pointBalance as pointBalance ,
+        a.flag as flag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.TradeDetails">
+        insert into TradeDetails(
+         refrenceId ,
+         orderId ,
+         serialNumber ,
+         sendUserId ,
+         sendName ,
+         recUserId ,
+         recName ,
+         balance ,
+         title ,
+         tradeType ,
+         payState ,
+         tradeState ,
+         createTime ,
+         updatetime ,
+         pointBalance ,
+         flag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{serialNumber}  ,
+        #{sendUserId}  ,
+        #{sendName}  ,
+        #{recUserId}  ,
+        #{recName}  ,
+        #{balance}  ,
+        #{title}  ,
+        #{tradeType}  ,
+        #{payState}  ,
+        #{tradeState}  ,
+        #{createTime}  ,
+        #{updatetime}  ,
+        #{pointBalance}  ,
+        #{flag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from TradeDetails where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update TradeDetails set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.TradeDetails">
+        insert into TradeDetails
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="serialNumber != null">
+            serialNumber ,
+        </if>
+        <if test="sendUserId != null">
+            sendUserId ,
+        </if>
+        <if test="sendName != null">
+            sendName ,
+        </if>
+        <if test="recUserId != null">
+            recUserId ,
+        </if>
+        <if test="recName != null">
+            recName ,
+        </if>
+        <if test="balance != null">
+            balance ,
+        </if>
+        <if test="title != null">
+            title ,
+        </if>
+        <if test="tradeType != null">
+            tradeType ,
+        </if>
+        <if test="payState != null">
+            payState ,
+        </if>
+        <if test="tradeState != null">
+            tradeState ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updatetime != null">
+            updatetime ,
+        </if>
+        <if test="pointBalance != null">
+            pointBalance ,
+        </if>
+        <if test="flag != null">
+            flag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="serialNumber != null">
+            #{serialNumber} ,
+        </if>
+        <if test="sendUserId != null">
+            #{sendUserId} ,
+        </if>
+        <if test="sendName != null">
+            #{sendName} ,
+        </if>
+        <if test="recUserId != null">
+            #{recUserId} ,
+        </if>
+        <if test="recName != null">
+            #{recName} ,
+        </if>
+        <if test="balance != null">
+            #{balance} ,
+        </if>
+        <if test="title != null">
+            #{title} ,
+        </if>
+        <if test="tradeType != null">
+            #{tradeType} ,
+        </if>
+        <if test="payState != null">
+            #{payState} ,
+        </if>
+        <if test="tradeState != null">
+            #{tradeState} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updatetime != null">
+            #{updatetime} ,
+        </if>
+        <if test="pointBalance != null">
+            #{pointBalance} ,
+        </if>
+        <if test="flag != null">
+            #{flag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.TradeDetails">
+        update TradeDetails
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="serialNumber != null">
+                serialNumber = #{serialNumber} ,
+            </if>
+            <if test="sendUserId != null">
+                sendUserId = #{sendUserId} ,
+            </if>
+            <if test="sendName != null">
+                sendName = #{sendName} ,
+            </if>
+            <if test="recUserId != null">
+                recUserId = #{recUserId} ,
+            </if>
+            <if test="recName != null">
+                recName = #{recName} ,
+            </if>
+            <if test="balance != null">
+                balance = #{balance} ,
+            </if>
+            <if test="title != null">
+                title = #{title} ,
+            </if>
+            <if test="tradeType != null">
+                tradeType = #{tradeType} ,
+            </if>
+            <if test="payState != null">
+                payState = #{payState} ,
+            </if>
+            <if test="tradeState != null">
+                tradeState = #{tradeState} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime} ,
+            </if>
+            <if test="pointBalance != null">
+                pointBalance = #{pointBalance} ,
+            </if>
+            <if test="flag != null">
+                flag = #{flag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.TradeDetails">
+        update TradeDetails set
+            orderId = #{orderId} ,
+            serialNumber = #{serialNumber} ,
+            sendUserId = #{sendUserId} ,
+            sendName = #{sendName} ,
+            recUserId = #{recUserId} ,
+            recName = #{recName} ,
+            balance = #{balance} ,
+            title = #{title} ,
+            tradeType = #{tradeType} ,
+            payState = #{payState} ,
+            tradeState = #{tradeState} ,
+            createTime = #{createTime} ,
+            updatetime = #{updatetime} ,
+            pointBalance = #{pointBalance} ,
+            flag = #{flag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.TradeDetails">
+        select <include refid="tradeDetailsColumns"/> from TradeDetails a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.TradeDetails">
+        SELECT
+        <include refid="tradeDetailsColumns"/>
+        FROM TradeDetails a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="serialNumber != null and serialNumber != ''">
+            and a.serialNumber like CONCAT('%',#{serialNumber}, '%')
+        </if>
+        <if test="sendUserId != null and sendUserId != ''">
+            and a.sendUserId like CONCAT('%',#{sendUserId}, '%')
+        </if>
+        <if test="sendName != null and sendName != ''">
+            and a.sendName like CONCAT('%',#{sendName}, '%')
+        </if>
+        <if test="recUserId != null and recUserId != ''">
+            and a.recUserId like CONCAT('%',#{recUserId}, '%')
+        </if>
+        <if test="recName != null and recName != ''">
+            and a.recName like CONCAT('%',#{recName}, '%')
+        </if>
+        <if test="balance != null and balance != ''">
+            and a.balance = #{balance}
+        </if>
+        <if test="title != null and title != ''">
+            and a.title like CONCAT('%',#{title}, '%')
+        </if>
+        <if test="tradeType != null and tradeType != ''">
+            and a.tradeType = #{tradeType}
+        </if>
+        <if test="payState != null and payState != ''">
+            and a.payState = #{payState}
+        </if>
+        <if test="tradeState != null and tradeState != ''">
+            and a.tradeState = #{tradeState}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updatetime != null and updatetime != ''">
+            and a.updatetime = #{updatetime}
+        </if>
+        <if test="pointBalance != null and pointBalance != ''">
+            and a.pointBalance = #{pointBalance}
+        </if>
+        <if test="flag != null and flag != ''">
+            and a.flag = #{flag}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.TradeDetails">
+        SELECT
+        <include refid="tradeDetailsColumns"/>
+        FROM TradeDetails a WHERE a.delFlag = 0
+    </select>
+
+    <update id="updateTradeDetails">
+        update TradeDetails
+        set tradeState = #{tradeState}
+        where orderId= #{orderId}
+    </update>
+
+    <select id="listPaidByOrderId" resultType="com.zttx.web.module.dealer.entity.TradeDetails">
+        select * from TradeDetails a
+        where a.delFlag = 0 and a.orderId = #{orderId}
+    </select>
+
+    <update id="updatePayDetails">
+        update TradeDetails set balance = #{balance}
+        <if test="payState != null">
+            ,payState = #{payState}
+        </if>
+        where orderId = #{orderId}
+    </update>
+</mapper>
+

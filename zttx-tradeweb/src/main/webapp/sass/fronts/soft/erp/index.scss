@@ -1,0 +1,668 @@
+@charset "utf-8";
+
+@import "../global";
+@import "header";
+@import "../../../common/footer";
+
+body{
+    background: #fff;
+    font-family: "微软雅黑";
+}
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+img{
+    vertical-align: top;
+}
+
+
+.banner-center,.manager,.recomment,.slide-center,.brand-manager{
+    width: 1200px;
+    margin: 0 auto;
+}
+/*banner*/
+.banner{
+    //background: url(/images/soft/app/shadow.png);
+    min-width: 1200px;
+    height: 557px;
+    z-index: 99;
+    position: relative;
+    .banner-center{
+        height: 557px;
+        position: relative;
+        .erp-banner{
+            width: 750px;
+            height: 465px;
+            padding-top: 90px;
+            position: relative;
+            img{
+                position: absolute;
+            }
+            .e-b-img01{
+                top:86px;
+                left: 0;
+            }
+            .e-b-img02{
+                top:95px;
+                right: 7px;
+            }
+            .e-b-img03{
+                bottom:0;
+                left: 75px;
+            }
+            .e-b-img04{
+                left: 235px;
+                top: 203px;
+            }
+        }
+        .banner-downdes{
+            width: 400px;
+            position: absolute;
+            top:90px;
+            right: 50px;
+            p{
+                font-size: 16px;
+            }
+            .b-d-tit{
+                font-size: 26px;
+                text-shadow: 1px 1px 1px #fff;
+            }
+            .b-d-des{
+                color: #666;
+            }
+            .banner-downdes-suit{
+                margin-top: 55px;
+                img{
+                    vertical-align: middle;
+                }
+            }
+            .banner-downdes-update{
+                margin-bottom: 30px;
+            }
+            .dl-btn,.hy-btn{
+                height: 55px;
+                line-height: 55px;
+                text-align: center;
+                display: inline-block;
+                *display: inline;
+                *zoom:1;
+                font-size: 25px;
+                color:#fff;
+                //position: absolute;
+                //bottom: -60px;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                transition-duration:0.3s;
+                -webkit-transition-duration:0.3s;
+            }
+            .dl-btn{
+                width: 150px;
+                background: #fe8700 url("../../../../images/fronts/soft/erp/download-icon.png") 15px center no-repeat;
+                padding-left:30px;
+                &:hover{
+                    background-color: #f57403;
+                }
+            }
+            .hy-btn{
+                width: 180px;
+                background: #3eb240;
+                &:hover{
+                    background-color: #52b953;
+                }
+            }
+        }
+    }
+    .slide-center{
+        .slide-center-ul{
+            margin-top: -30px;
+            margin-left: 550px;
+            .slide-center-item{
+                float:left;
+                width: 11px;
+                height: 11px;
+                margin-right: 10px;
+                background: url("../../../../images/fronts/soft/erp/slide-on.png") no-repeat;
+                position:relative;
+                cursor: pointer;
+                a{
+                    position:absolute;
+                    display: inline-block;
+                    *display: inline;
+                    *zoom:1;
+                    height: 2px;
+                    background: #fff;
+                }
+            }
+            .active{
+                background: url("../../../../images/fronts/soft/erp/slide-active.png") no-repeat;
+            }
+        }
+    }
+}
+/* slide-contain */
+.slide-contain{
+    position: absolute; z-index: 1; top: 0;width: 100%; height: 636px;
+    .slide-contain-item{
+        position:absolute;
+        width: 100%;
+        min-width: 1200px;
+        height: 636px;
+        top:0;
+    }
+}
+
+/*manager*/
+.manager{
+    margin-top: 80px;
+    .manager-cen{
+        margin-right: -15px;
+        position: relative;
+    }
+    .manager-item{
+        width: 560px;
+        height: 80px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        padding: 15px;
+        float: left;
+        display: inline;
+        background: #f2f2f2;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        &:hover{
+            background: #e6e6e6;
+        }
+        dd{
+            margin-left: 90px;
+        }
+        .title{
+            font-size: 22px;
+            text-shadow: 1px 1px 1px #fff;
+        }
+        .des{
+            margin-top: 5px;
+            font-size: 14px;
+            color: #999;
+        }
+        .manager-dt{
+            width: 73px;
+            height: 73px;
+            background: url("../../../../images/fronts/soft/erp/manager.png") no-repeat 0 0;
+            float: left;
+            *display: inline;
+        }
+    }
+    .m-i-jxc{
+        .manager-dt{
+            background-position: 0 0;
+        }
+        .title{
+            color: #009944;
+        }
+    }
+    .m-i-dm{
+        .manager-dt{
+            background-position: -196px 0;
+        }
+        .title{
+            color: #688ea2;
+        }
+    }
+    .m-i-klfx{
+        .manager-dt{
+            background-position: 0 -121px;
+        }
+        .title{
+            color: #624599;
+        }
+    }
+    .m-i-yggl{
+        .manager-dt{
+            background-position: -196px -121px;
+        }
+        .title{
+            color: #00a0e9;
+        }
+    }
+    .m-i-dpdt{
+        .manager-dt{
+            background-position: 0 -243px;
+        }
+        .title{
+            color: #42b596;
+        }
+    }
+    .m-i-syjs{
+        .manager-dt{
+            background-position: -196px -243px;
+        }
+        .title{
+            color: #e4007f;
+        }
+    }
+    .m-i-hydx{
+        .manager-dt{
+            background-position: 0 -386px;
+        }
+        .title{
+            color: #ed6c2a;
+        }
+    }
+    .m-i-wgsj{
+        .manager-dt{
+            background-position: -196px -386px;
+        }
+        .title{
+            color: #2bb9ba;
+        }
+    }
+    .m-i-dm,.m-i-yggl,.m-i-syjs,.m-i-wgsj{
+        .manager-dt{
+            float: right;
+        }
+        .title,.des{
+            margin-left: 0;
+            margin-right: 90px;
+            text-align: right;
+        }
+    }
+    .m-c-bg{
+        width: 349px;
+        height: 381px;
+        background: url("../../../../images/fronts/soft/erp/manage-bg.png") no-repeat;
+        position: absolute;
+        top: 87px;
+        left: 435px;
+    }
+}
+/*brand-manger*/
+.brand-manager{
+    margin-top: 70px;
+    .manager-item{
+        float: left;
+        display: inline;
+        width: 365px;
+        padding: 15px;
+        margin-bottom: 50px;
+        transition-duration: 0.3s;
+        -webkit-transition-duration: 0.3s;
+        &:hover{
+            background: #f2f2f2;
+            dt{
+                border-color: #f80;
+                background: #f80 url("../../../../images/fronts/soft/erp/brand-manager.png") no-repeat;
+            }
+        }
+        dt{
+            width: 60px;
+            height: 60px;
+            float: left;
+            display: inline;
+            margin-top: 5px;
+            border: 1px solid #e4e4e4;
+            background: #fff url("../../../../images/fronts/soft/erp/brand-manager.png") no-repeat;
+            transition-duration: 0.3s;
+            -webkit-transition-duration: 0.3s;
+        }
+        .title{
+            margin-left: 80px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e4e4e4;
+            font-size: 18px;
+            color: #4d5359;
+        }
+        .des{
+            margin-left: 80px;
+            font-size: 14px;
+            color: #7a7c82;
+        }
+    }
+    .m-i-jbgl{
+        dt{
+            background-position: 0px 0px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px 0px;
+            }
+        }
+    }
+    .m-i-ddgl{
+        dt{
+            background-position: 0px -60px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px -60px;
+            }
+        }
+    }
+    .m-i-mdjk{
+        dt{
+            background-position: 0px -120px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px -120px;
+            }
+        }
+    }
+    .m-i-klfx{
+        dt{
+            background-position: 0px -180px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px -180px;
+            }
+        }
+    }
+    .m-i-sjbb{
+        dt{
+            background-position: 0px -240px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px -240px;
+            }
+        }
+    }
+    .m-i-crm{
+        dt{
+            background-position: 0px -300px;
+        }
+        &:hover{
+            dt{
+                background-position: -60px -300px;
+            }
+        }
+    }
+}
+
+/* recomment */
+.recomment{
+    margin-top:10px;
+    margin-bottom:20px;
+    ul{
+        margin-left:-30px;
+    }
+    li{
+        float:left;
+        _display: inline;
+        _zoom:1;
+        height: 161px;
+        width: 378px;
+        margin-left:30px;
+        border:1px solid #ddd;
+        border-radius: 3px;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        .info{
+            height: 157px;
+            width: 374px;
+            margin-left:2px;
+            margin-top:2px;
+            .content{
+                width:180px;
+                padding:25px;
+                .pic{
+                    background: url("../../../../images/fronts/soft/app/8637.png") no-repeat;
+                    height: 26px;
+                }
+                .title{
+                    font-size: 20px;
+                    color:#fff;
+                    margin-bottom:20px;
+                }
+                .new{
+                    font-size: 18px;
+                    color:#fffefe;
+                    opacity: 0.6;
+                    filter:alpha(opacity=60);
+                }
+            }
+        }
+    }
+    .zc-erp.hover{
+        border-color: #72ba1f;
+    }
+    .gg.hover{
+        border-color: #f68300;
+    }
+    .br-erp.hover{
+        border-color: #3483e5;
+    }
+    .zc-erp .info{
+        background: #72ba1f url("../../../../images/fronts/soft/app/recomment-img.png") 200px 20px no-repeat;
+    }
+    .gg .info{
+        background: #f68300 url("../../../../images/fronts/soft/app/phone.png") 235px 20px no-repeat;
+    }
+    .br-erp .info{
+        background: #3483e5 url("../../../../images/fronts/soft/app/recomment-img2.png") 200px 20px no-repeat;
+    }
+    .rec-list{
+        margin-top:28px;
+    }
+    .common-tit{
+        height: 50px;
+        line-height: 50px;
+        border-bottom:1px solid #ddd;
+        .title{
+            float:left;
+            font-size: 25px;
+            color:#666;
+        }
+        .more{
+            float:right;
+            font-size: 14px;
+            color:#999;
+        }
+    }
+}
+
+.s-animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.s-animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+.s-animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@keyframes moveLeft {
+    0% {
+        -webkit-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes moveLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-100px);
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.moveLeft {
+    -webkit-animation-name: moveLeft;
+    animation-name: moveLeft;
+}
+@keyframes moveRight {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes moveRight {
+    0% {
+        -webkit-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.moveRight {
+    -webkit-animation-name: moveRight;
+    animation-name: moveRight;
+}
+@keyframes moveRightDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes moveRightDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(50px);
+        transform: translateX(50px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.moveRightDelay{
+    -webkit-animation-name: moveRightDelay;
+    animation-name: moveRightDelay;
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+@keyframes moveLeftDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-30px);
+        transform: translateX(-30px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes moveLeftDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-30px);
+        transform: translateX(-30px);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.moveLeftDelay{
+    -webkit-animation-name: moverDelay;
+    animation-name: moverDelay;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+@keyframes moverDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+@-webkit-keyframes moverDelay {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+}
+
+.moverDelay{
+    -webkit-animation-name: moverDelay;
+    animation-name: moverDelay;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+@keyframes selfBouIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.3);
+        -ms-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes selfBouIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.selfBouIn{
+    -webkit-animation-name: selfBouIn;
+    animation-name: selfBouIn;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+@keyframes scaleIn {
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+@-webkit-keyframes scaleIn {
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(2);
+        transform: scale(2);
+    }
+}
+.scaleIn {
+    -webkit-animation-name: scaleIn;
+    animation-name: scaleIn;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}

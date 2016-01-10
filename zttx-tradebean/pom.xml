@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zttx-trading</artifactId>
+        <groupId>com.8637</groupId>
+        <version>3.2.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>zttx-tradebean</artifactId>
+    <name>zttx-tradebean</name>
+    <packaging>jar</packaging>
+    <description>交易平台实体对象</description>
+    
+    <dependencies> 
+		<dependency>
+			<groupId>com.8637</groupId>
+			<artifactId>zttx-tradeutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.8637</groupId>
+			<artifactId>zttx-goodsbean</artifactId>
+		</dependency> 
+	</dependencies>
+	
+</project>

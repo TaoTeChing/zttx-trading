@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.zttx:zttx-rpc-api:0.0.1-RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/zttx-rpc-api/0.0.1-RELEASE/zttx-rpc-api-0.0.1-RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/zttx-rpc-api/0.0.1-RELEASE/zttx-rpc-api-0.0.1-RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/zttx-rpc-api/0.0.1-RELEASE/zttx-rpc-api-0.0.1-RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

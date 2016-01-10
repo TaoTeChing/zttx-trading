@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*
+    前台装修页面-通用框-加盟申请-产品展示基础框
+
+*/
+.listbody{
+    .sidebar-l{
+        h3.title { height: 40px; padding: 0 10px; border: 1px #ddd solid; border-bottom:0; line-height: 40px; background: #fff; font-size: 14px; font-family: Verdana; font-weight: 600; color: #333; }
+        .content {background: #fff; border: 1px #ddd solid;overflow: hidden;margin: 0 0 10px 0;
+            .imgbox { width: 100%; text-align: center; overflow: hidden; }
+            //img{margin-left:-20px;margin-right:-20px;*zoom:1}//zxb 0625
+            h2.x-bt { font-size: 14px; font-weight: 400; color: #333; }
+            p.sidebar-p { font-family: Verdana; color: #666; line-height: 23px; margin: 0 0 10px 0; }
+        }
+        //加盟申请**此功能未使用
+        /*.joinapp{
+          background: #FFF; border: 1px #ddd solid; overflow: hidden; height: 311px; font-family: '宋体',Verdana; color: #ccc; position: relative;
+          table.sp { margin: 10px 20px; }
+          input.spname { border: #ccc 1px solid; padding: 0 0 0 5px; margin: 0 0 10px 0; height: 26px; line-height: 26px \9; }
+          textarea.message { width: 414px; height: 153px; border: #ccc 1px solid; padding: 5px 0 0 5px; margin: 0 0 20px 0; }
+          input.button { width: 151px; height: 43px; color: #fff; border: 0; background: #ff3300; cursor: pointer; }
+          .another {
+            height: 311px; width: 275px; padding: 70px 40px 0 20px; border-left: 1px #ddd solid; line-height: 21px;
+            a { color: #0066cc;
+              &:hover { text-decoration: none; cursor: pointer; }
+            }
+            a.btnn { display: block; width: 123px; height: 36px; background: #ff3300; color: #fff; text-align: center; line-height: 36px; margin: 0 10px 0 0; }
+            p.kefu { color: #999; }
+          }
+        }*/
+        //产品展示
+        .productshow { background: #FFF; border: 1px #ddd solid; overflow: hidden;
+            li{
+                width: 220px; height: 220px;
+                border: 1px solid #ddd;
+                a{
+                    display: block; width: 220px; height: 220px; overflow: hidden;
+                    img{ display: inline;}
+                }
+            }
+        }
+    }
+}

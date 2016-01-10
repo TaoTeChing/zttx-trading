@@ -1,0 +1,190 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="zttx-tradeweb:war exploded">
+    <output-path>$PROJECT_DIR$/zttx-tradeweb/target/zttx-tradeweb-3.2.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zttx-tradeweb" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.8637:zttx-sdk:3.0.3-RELEASE" />
+          <element id="library" level="project" name="Maven: de.idyl:winzipaes:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.3.2" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:4.3.1.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.0.CR2" />
+          <element id="library" level="project" name="Maven: com.googlecode.xmemcached:xmemcached:1.4.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.3.2" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.redisson:redisson:2.1.3" />
+          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.0.30.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-common:4.0.30.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.0.30.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.0.30.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec-http:4.0.30.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.0.30.Final" />
+          <element id="archive" name="zttx-tradeapi-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradeapi" />
+          </element>
+          <element id="library" level="project" name="Maven: com.zttx:pay-core:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.zttx:zttx-rpc-client:1.0.0-RELEASE" />
+          <element id="library" level="project" name="Maven: com.zttx:zttx-rpc-api:0.0.1-RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.avro:avro:1.7.7" />
+          <element id="library" level="project" name="Maven: com.thoughtworks.paranamer:paranamer:2.3" />
+          <element id="library" level="project" name="Maven: org.xerial.snappy:snappy-java:1.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.avro:avro-ipc:1.7.7" />
+          <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.7" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
+          <element id="library" level="project" name="Maven: com.zttx:zttx-commons:0.1.3-RELEASE" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-common:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-channel:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-utils:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.unionpay:unionpay-sdk:1.0.0-RELEASE" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.3.1" />
+          <element id="library" level="project" name="Maven: org.jdom:jdom:1.1" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-sdk:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:1.8.2.RELEASE" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-remoting:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.zttx:pay-beans:2.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:3.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.2.8.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:1.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:1.4.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.5" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.2.4.RELEASE" />
+          <element id="library" level="project" name="Maven: com.cmb:cmb:1.0" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.51" />
+          <element id="library" level="project" name="Maven: org.im4java:im4java:1.4.0" />
+          <element id="archive" name="zttx-tradebean-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradebean" />
+          </element>
+          <element id="library" level="project" name="Maven: com.8637:zttx-goodsbean:3.2.0-SNAPSHOT" />
+          <element id="archive" name="zttx-tradecore-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradecore" />
+          </element>
+          <element id="library" level="project" name="Maven: com.8637:zttx-goodsapi:3.2.0-SNAPSHOT" />
+          <element id="archive" name="zttx-tradesolr-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradesolr" />
+          </element>
+          <element id="library" level="project" name="Maven: com.8637:zttx-erpapi:3.0.2-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.8637:zttx-koudantongapi:3.0.2-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.8637:zttx-erpbean:3.0.2-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.2.8.Final" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:4.0.4.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
+          <element id="archive" name="zttx-tradetask-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradetask" />
+          </element>
+          <element id="archive" name="zttx-tradeutils-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradeutils" />
+          </element>
+          <element id="archive" name="zttx-tradedubbo-provider-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradedubbo-provider" />
+          </element>
+          <element id="archive" name="zttx-tradedubbo-hander-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradedubbo-hander" />
+          </element>
+          <element id="archive" name="zttx-tradedubbo-consumer-3.2.0-SNAPSHOT.jar">
+            <element id="module-output" name="zttx-tradedubbo-consumer" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:3.2.7.RELEASE" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
+          <element id="library" level="project" name="Maven: org.apache.mina:mina-core:2.0.9" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-compress:1.7" />
+          <element id="library" level="project" name="Maven: org.tukaani:xz:1.4" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.4" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Maven: commons-validator:commons-validator:1.4.1" />
+          <element id="library" level="project" name="Maven: commons-digester:commons-digester:1.8.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.5.4" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.8" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
+          <element id="library" level="project" name="Maven: com.github.sgroschupf:zkclient:0.1" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.7.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.3" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.5" />
+          <element id="library" level="project" name="Maven: org.imgscalr:imgscalr-lib:4.2" />
+          <element id="library" level="project" name="Maven: org.apache.solr:solr-solrj:5.2.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.3.2" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:stax2-api:3.1.4" />
+          <element id="library" level="project" name="Maven: org.codehaus.woodstox:woodstox-core-asl:4.4.1" />
+          <element id="library" level="project" name="Maven: org.noggit:noggit:0.6" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.22" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.8.1" />
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.7" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-spring:1.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-web:1.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-cas:1.2.2" />
+          <element id="library" level="project" name="Maven: org.jasig.cas.client:cas-client-core:3.2.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.quartz-scheduler:quartz:1.8.6" />
+          <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.0" />
+          <element id="library" level="project" name="Maven: com.caucho:hessian:4.0.38" />
+          <element id="library" level="project" name="Maven: net.coobird:thumbnailator:0.4.7" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.51" />
+          <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
+          <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.4.7" />
+          <element id="library" level="project" name="Maven: xmlpull:xmlpull:1.1.3.1" />
+          <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
+          <element id="library" level="project" name="Maven: com.itextpdf:itextpdf:5.4.5" />
+          <element id="library" level="project" name="Maven: com.google.code.kaptcha:kaptcha:2.3.2" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.9" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.9" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.9" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.3.0" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-excelant:3.10-FINAL" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant:1.8.2" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant-launcher:1.8.2" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.13" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.5" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.35" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.2.1" />
+          <element id="library" level="project" name="Maven: com.zttx:trade-remoting:0.1.2-RELEASE" />
+          <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.8.3" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.6" />
+          <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Maven: io.netty:netty:3.7.0.Final" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.12" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.12" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/zttx-tradeweb/target/zttx-tradeweb-3.2.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="zttx-tradeweb/web/Web" />
+    </root>
+  </artifact>
+</component>

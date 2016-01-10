@@ -1,0 +1,232 @@
+@charset "UTF-8";
+/*nav*/
+.nav{
+    height: 40px;
+    min-width: 1190px;
+}
+.nav .ts-container{
+    position: relative;
+    z-index: 201;
+}
+.nav .nav-move-item{
+    height: 40px;
+    position: absolute;
+    top: 0;
+    background: #990000;
+    z-index:9;
+}
+.nav .nav-left{
+    width:190px;
+    position: relative;
+    z-index:9;
+}
+.nav .nav-left .btn{
+    height: 40px;
+    width: 210px;
+    border-radius: 0;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+    color: #fff;
+    background-color: #ee0000;
+}
+.nav .nav-left .float-box{
+    position: absolute;
+    top:40px;
+    left: 0;
+    width:210px;
+    z-index:10;
+}
+.nav .nav-left .float-box.open{
+    display:none;
+}
+.nav .nav-left .type-box{
+    height:340px;
+    background-color: #fff;
+    position: relative;
+}
+.nav .nav-left .type-other{
+    position: absolute;
+    bottom:0;
+    width:100%;
+}
+.nav .nav-left .type-other a{
+    display:block;
+    height:35px;
+    line-height: 35px;
+    text-align:center;
+    border-top:1px solid #ddd;
+}
+.nav .nav-left .type-item{
+    /*padding: 11px 15px;*/
+    padding: 0 15px;
+    border-bottom: 1px dotted #c7c7c7;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.nav .nav-left .type-item:hover{
+    /*box-shadow: 0 1px 2px #999;*/
+    background-color: #fffdf0;
+}
+.nav .nav-left .type-item .type-item-head{
+    /*height:25px;
+    line-height:25px;*/
+    height: 33px;
+    line-height: 32px;
+}
+.nav .nav-left .type-item .type-item-title{
+    float: left;
+    display: inline;
+    font-size: 14px;
+    color: #e80010;
+}
+.nav .nav-left .type-item .type-item-title a{
+    color: #e80010;
+}
+.nav .nav-left .type-item .type-item-c{
+    float: left;
+    margin-left: 10px;
+}
+.nav .nav-left .type-item .type-item-c a{
+    line-height: 34px;
+    margin-right: 5px;
+}
+.nav .nav-left .type-item .type-item-more{
+    float: right;
+    display: inline;
+    color:#999;
+}
+.nav .nav-left .type-item-content{
+    line-height: 25px;
+}
+.nav .nav-left .type-item-content a{
+    margin-right:5px;
+    white-space: nowrap;
+}
+.nav .nav-left .type-item-content a.text-red{
+    color:#e00;
+}
+.nav .nav-left .type-item-sub{
+    width: 370px;
+    height: 340px;
+    background: url("../../../images/fronts/index/type_bg.png") no-repeat;
+    position: absolute;
+    top: 0;
+    left: 210px;
+    display: none;
+    z-index: 3;
+}
+.nav .nav-left .type-item-sub.hover{
+    z-index: 9;
+}
+.nav .nav-left .type-name{
+    margin-top: 11px;
+    margin-left: 40px;
+    color: #666;
+}
+.nav .nav-left .type-cate{
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.nav .nav-left .type-cate dl{
+    margin-bottom: 15px;
+}
+.nav .nav-left .type-cate dt{
+    float: left;
+    display: inline;
+    background-color: #ffdede;
+}
+.nav .nav-left .type-cate dt a{
+    display: block;
+    padding: 2px 10px;
+    color: #f66;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.nav .nav-left .type-cate dt a:hover{
+    background-color: #e00;
+    color: #fff;
+}
+.nav .nav-left .type-cate dd{
+    float: left;
+    display: inline;
+    margin-top: 2px;
+    margin-left: 11px;
+    overflow: hidden;
+}
+.nav .nav-left .type-cate dd a{
+    padding: 0 9px;
+    margin-left: -1px;
+    border-left: 1px solid #d7d9d9;
+}
+.nav .nav-left .type-brand{
+    width: 220px;
+    margin-top: 55px;
+    margin-left: 105px;
+}
+.nav .nav-left .type-brand a{
+    float: left;
+    display: inline;
+    width: 60px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: #fff;
+}
+.nav .nav-left .type-brand .js-img-center img{
+    max-width: 60px;
+    max-height: 30px;
+}
+.nav .nav-items{
+    z-index:99;
+    margin-left: 257px;
+}
+.nav .nav-items li{
+    float: left;
+    display: inline;
+    position: relative;
+}
+.nav .nav-items .icon-hot{
+    position: absolute;
+    top: -9px;
+    right: 10px;
+}
+.nav .nav-items .icon-fq{
+    position: absolute;
+    top: -9px;
+    right: 10px;
+}
+.nav .nav-items a{
+    display: block;
+    padding-left: 41px;
+    text-align: center;
+    color: #333;
+    font: 16px/40px "microsoft yahei";
+    text-decoration: none;
+    outline: none;
+}
+.nav .nav-items a.hot{
+    color:#fae052;
+}
+.nav .nav-items a:hover,
+.nav .nav-items a.hover{
+    color: #e80019;
+    /*background-color: #b61c0f;*/
+}
+.nav .nav-items .nav-item-title{
+    display: none;
+    position:absolute;
+    left:0;
+    top:40px;
+    width: 130px;
+    height:50px;
+    line-height:25px;
+    background: #b61c0f;
+    text-align: center;
+    color:#fff;
+}

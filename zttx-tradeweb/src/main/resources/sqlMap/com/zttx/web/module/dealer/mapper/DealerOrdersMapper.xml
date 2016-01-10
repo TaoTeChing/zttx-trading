@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerOrdersMapper">
+    <!-- 基础列 -->
+    <sql id="dealerOrdersColumns">
+        a.refrenceId AS refrenceId,
+        a.orderId AS orderId ,
+        a.dealerId AS dealerId,
+        a.lineId AS lineId,
+        a.agio AS agio,
+        a.brandId AS brandId,
+        a.brandsId AS brandsId ,
+        a.productId AS productId,
+        a.productTitle AS productTitle,
+        a.productNo AS productNo,
+        a.productImage AS productImage,
+        a.productSkuId AS productSkuId ,
+        a.productSkuCode AS productSkuCode,
+        a.productSkuName AS productSkuName,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        a.productAttrbute AS productAttrbute ,
+        a.price AS price,
+        a.oldPrice AS oldPrice,
+        a.adjustPrice AS adjustPrice,
+        a.quantity AS quantity,
+        a.shipCount AS shipCount,
+        a.discount AS discount ,
+        a.discountPrice AS discountPrice,
+        a.itemState AS itemState,
+        a.synchTime AS synchTime,
+        a.totalAmount AS totalAmount,
+        a.point AS POINT ,
+        a.pointAmount AS pointAmount,
+        a.pointPercent AS pointPercent,
+        a.delFlag AS delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        INSERT INTO DealerOrders (
+            refrenceId,
+            orderId,
+            dealerId,
+            lineId,
+            agio,
+            brandId,
+            brandsId,
+            productId,
+            productTitle,
+            productNo,
+            productImage,
+            productSkuId,
+            productSkuCode,
+            productSkuName,
+            createTime,
+            updateTime,
+            productAttrbute,
+            price,
+            oldPrice,
+            adjustPrice,
+            quantity,
+            shipCount,
+            discount,
+            discountPrice,
+            itemState,
+            synchTime,
+            totalAmount,
+            point,
+            pointAmount,
+            pointPercent,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{orderId},
+            #{dealerId},
+            #{lineId},
+            #{agio},
+            #{brandId},
+            #{brandsId},
+            #{productId},
+            #{productTitle},
+            #{productNo},
+            #{productImage},
+            #{productSkuId},
+            #{productSkuCode},
+            #{productSkuName},
+            #{createTime},
+            #{updateTime},
+            #{productAttrbute},
+            #{price},
+            #{oldPrice},
+            #{adjustPrice},
+            #{quantity},
+            #{shipCount},
+            #{discount},
+            #{discountPrice}
+            #{itemState},
+            #{synchTime},
+            #{totalAmount},
+            #{point},
+            #{pointAmount},
+            #{pointPercent},
+            #{delFlag}
+        )
+    </insert>
+    <insert id="insertBatch" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        insert into DealerOrders(
+        refrenceId ,
+        orderId ,
+        dealerId ,
+        lineId ,
+        agio ,
+        brandId ,
+        brandsId ,
+        productId ,
+        productTitle ,
+        productNo ,
+        productImage ,
+        productSkuId ,
+        productSkuCode ,
+        productSkuName ,
+        createTime ,
+        updateTime ,
+        productAttrbute ,
+        price ,
+        oldPrice,
+        adjustPrice,
+        quantity ,
+        shipCount ,
+        discount ,
+        discountPrice,
+        itemState ,
+        synchTime ,
+        totalAmount ,
+        point ,
+        pointAmount ,
+        pointPercent ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" index="index" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.orderId} ,
+            #{item.dealerId} ,
+            #{item.lineId} ,
+            #{item.agio} ,
+            #{item.brandId} ,
+            #{item.brandsId} ,
+            #{item.productId} ,
+            #{item.productTitle} ,
+            #{item.productNo} ,
+            #{item.productImage} ,
+            #{item.productSkuId} ,
+            #{item.productSkuCode} ,
+            #{item.productSkuName} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.productAttrbute} ,
+            #{item.price} ,
+            #{item.oldPrice},
+            #{item.adjustPrice} ,
+            #{item.quantity} ,
+            #{item.shipCount} ,
+            #{item.discount} ,
+            #{item.discountPrice},
+            #{item.itemState} ,
+            #{item.synchTime} ,
+            #{item.totalAmount} ,
+            #{item.point} ,
+            #{item.pointAmount} ,
+            #{item.pointPercent} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM DealerOrders
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE DealerOrders
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        insert into DealerOrders
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="orderId != null">
+                orderId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="lineId != null">
+                lineId ,
+            </if>
+            <if test="agio != null">
+                agio ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productTitle != null">
+                productTitle ,
+            </if>
+            <if test="productNo != null">
+                productNo ,
+            </if>
+            <if test="productImage != null">
+                productImage ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId ,
+            </if>
+            <if test="productSkuCode != null">
+                productSkuCode ,
+            </if>
+            <if test="productSkuName != null">
+                productSkuName ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="productAttrbute != null">
+                productAttrbute ,
+            </if>
+            <if test="price != null">
+                price ,
+            </if>
+            <if test="oldPrice != null">
+                oldPrice ,
+            </if>
+            <if test="adjustPrice != null">
+                adjustPrice ,
+            </if>
+            <if test="quantity != null">
+                quantity ,
+            </if>
+            <if test="shipCount != null">
+                shipCount ,
+            </if>
+            <if test="discount != null">
+                discount ,
+            </if>
+            <if test="null!=discountPrice and ''!=discountPrice">
+                discountPrice,
+            </if>
+            <if test="itemState != null">
+                itemState ,
+            </if>
+            <if test="synchTime != null">
+                synchTime ,
+            </if>
+            <if test="totalAmount != null">
+                totalAmount ,
+            </if>
+            <if test="point != null">
+                point ,
+            </if>
+            <if test="pointAmount != null">
+                pointAmount ,
+            </if>
+            <if test="pointPercent != null">
+                pointPercent ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="orderId != null">
+                #{orderId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="lineId != null">
+                #{lineId} ,
+            </if>
+            <if test="agio != null">
+                #{agio} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productTitle != null">
+                #{productTitle} ,
+            </if>
+            <if test="productNo != null">
+                #{productNo} ,
+            </if>
+            <if test="productImage != null">
+                #{productImage} ,
+            </if>
+            <if test="productSkuId != null">
+                #{productSkuId} ,
+            </if>
+            <if test="productSkuCode != null">
+                #{productSkuCode} ,
+            </if>
+            <if test="productSkuName != null">
+                #{productSkuName} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="productAttrbute != null">
+                #{productAttrbute} ,
+            </if>
+            <if test="price != null">
+                #{price} ,
+            </if>
+            <if test="oldPrice != null">
+                #{oldPrice} ,
+            </if>
+            <if test="adjustPrice != null">
+                #{adjustPrice} ,
+            </if>
+            <if test="quantity != null">
+                #{quantity} ,
+            </if>
+            <if test="shipCount != null">
+                #{shipCount} ,
+            </if>
+            <if test="discount != null">
+                #{discount} ,
+            </if>
+            <if test="null!=discountPirce and ''!=discountPirce">
+                #{discountPrice},
+            </if>
+            <if test="itemState != null">
+                #{itemState} ,
+            </if>
+            <if test="synchTime != null">
+                #{synchTime} ,
+            </if>
+            <if test="totalAmount != null">
+                #{totalAmount} ,
+            </if>
+            <if test="point != null">
+                #{point} ,
+            </if>
+            <if test="pointAmount != null">
+                #{pointAmount} ,
+            </if>
+            <if test="pointPercent != null">
+                #{pointPercent} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        update DealerOrders
+        <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="lineId != null">
+                lineId = #{lineId} ,
+            </if>
+            <if test="agio != null">
+                agio = #{agio} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productTitle != null">
+                productTitle = #{productTitle} ,
+            </if>
+            <if test="productNo != null">
+                productNo = #{productNo} ,
+            </if>
+            <if test="productImage != null">
+                productImage = #{productImage} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="productSkuCode != null">
+                productSkuCode = #{productSkuCode} ,
+            </if>
+            <if test="productSkuName != null">
+                productSkuName = #{productSkuName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="productAttrbute != null">
+                productAttrbute = #{productAttrbute} ,
+            </if>
+            <if test="price != null">
+                price = #{price} ,
+            </if>
+            <if test="oldPrice != null">
+                oldPrice = #{oldPrice} ,
+            </if>
+            <if test="adjustPrice != null">
+                adjustPrice = #{adjustPrice} ,
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity} ,
+            </if>
+            <if test="shipCount != null">
+                shipCount = #{shipCount} ,
+            </if>
+            <if test="discount != null">
+                discount = #{discount} ,
+            </if>
+            <if test="null!=discountPrice and ''!=discountPrice">
+                discountPrice = #{discountPrice},
+            </if>
+            <if test="itemState != null">
+                itemState = #{itemState} ,
+            </if>
+            <if test="synchTime != null">
+                synchTime = #{synchTime} ,
+            </if>
+            <if test="totalAmount != null">
+                totalAmount = #{totalAmount} ,
+            </if>
+            <if test="point != null">
+                point = #{point} ,
+            </if>
+            <if test="pointAmount != null">
+                pointAmount = #{pointAmount} ,
+            </if>
+            <if test="pointPercent != null">
+                pointPercent = #{pointPercent} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        UPDATE DealerOrders
+        SET
+            orderId         = #{orderId},
+            dealerId        = #{dealerId},
+            lineId          = #{lineId},
+            agio            = #{agio},
+            brandId         = #{brandId},
+            brandsId        = #{brandsId},
+            productId       = #{productId},
+            productTitle    = #{productTitle},
+            productNo       = #{productNo},
+            productImage    = #{productImage},
+            productSkuId    = #{productSkuId},
+            productSkuCode  = #{productSkuCode},
+            productSkuName  = #{productSkuName},
+            createTime      = #{createTime},
+            updateTime      = #{updateTime},
+            productAttrbute = #{productAttrbute},
+            price           = #{price},
+            oldPrice           = #{oldPrice},
+            adjustPrice     = #{adjustPrice},
+            quantity        = #{quantity},
+            shipCount       = #{shipCount},
+            discount        = #{discount},
+            itemState       = #{itemState},
+            synchTime       = #{synchTime},
+            totalAmount     = #{totalAmount},
+            point           = #{point},
+            pointAmount     = #{pointAmount},
+            pointPercent    = #{pointPercent},
+            delFlag         = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        SELECT
+        <include refid="dealerOrdersColumns"/>
+        FROM DealerOrders a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="lineId != null and lineId != ''">
+            and a.lineId like CONCAT('%',#{lineId}, '%')
+        </if>
+        <if test="agio != null and agio != ''">
+            and a.agio = #{agio}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productTitle != null and productTitle != ''">
+            and a.productTitle like CONCAT('%',#{productTitle}, '%')
+        </if>
+        <if test="productNo != null and productNo != ''">
+            and a.productNo like CONCAT('%',#{productNo}, '%')
+        </if>
+        <if test="productImage != null and productImage != ''">
+            and a.productImage like CONCAT('%',#{productImage}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="productSkuCode != null and productSkuCode != ''">
+            and a.productSkuCode like CONCAT('%',#{productSkuCode}, '%')
+        </if>
+        <if test="productSkuName != null and productSkuName != ''">
+            and a.productSkuName like CONCAT('%',#{productSkuName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="productAttrbute != null and productAttrbute != ''">
+            and a.productAttrbute like CONCAT('%',#{productAttrbute}, '%')
+        </if>
+        <if test="price != null and price != ''">
+            and a.price = #{price}
+        </if>
+        <if test="oldPrice != null and oldPrice != ''">
+            and a.oldPrice = #{oldPrice}
+        </if>
+        <if test="adjustPrice != null and adjustPrice != ''">
+            and a.adjustPrice = #{adjustPrice}
+        </if>
+        <if test="quantity != null and quantity != ''">
+            and a.quantity = #{quantity}
+        </if>
+        <if test="shipCount != null and shipCount != ''">
+            and a.shipCount = #{shipCount}
+        </if>
+        <if test="discount != null and discount != ''">
+            and a.discount = #{discount}
+        </if>
+        <if test="itemState != null and itemState != ''">
+            and a.itemState = #{itemState}
+        </if>
+        <if test="synchTime != null and synchTime != ''">
+            and a.synchTime = #{synchTime}
+        </if>
+        <if test="totalAmount != null and totalAmount != ''">
+            and a.totalAmount = #{totalAmount}
+        </if>
+        <if test="point != null and point != ''">
+            and a.point = #{point}
+        </if>
+        <if test="pointAmount != null and pointAmount != ''">
+            and a.pointAmount = #{pointAmount}
+        </if>
+        <if test="pointPercent != null">
+            and a.pointPercent = #{pointPercent}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        SELECT
+        <include refid="dealerOrdersColumns"/>
+        FROM DealerOrders a WHERE a.delFlag = 0
+    </select>
+
+    <!-- 根据订单流水号跟品牌商获取订单详细信息列表 根据产品编号分组 -->
+    <select id="findDifferentByBrandId" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where delFlag = 0 and a.orderId = #{orderId} and a.brandId = #{brandId}
+        group by a.productId
+    </select>
+
+    <select id="findByOrderIdAndBrandId" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where delFlag = 0 AND a.orderId = #{orderId} and a.brandId = #{brandId}
+        order by a.productSkuName
+    </select>
+
+    <select id="getDealerOrdersList" resultType="map">
+        SELECT
+            totalAmount AS totalAmount,
+            point       AS point,
+            pointAmount AS pointAmount
+        FROM DealerOrders
+        WHERE delFlag = 0 AND orderId = #{orderId} AND itemState > 0
+    </select>
+    <select id="getProductMap" resultType="java.util.HashMap">
+        SELECT
+            a.productTitle AS productTitle,
+            a.productImage AS image,
+            a.productNo    AS productNo,
+            a.productId    AS productId
+        FROM DealerOrders a
+        WHERE a.dealerId = #{dealerId} AND a.orderId = #{orderId}
+        GROUP BY a.productId
+    </select>
+    <select id="selectDealerOrders" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where a.delFlag = 0 and a.orderId = #{0} and a.dealerId = #{1}
+        order by a.productSkuName
+    </select>
+
+    <select id="getDealerOrdersByOrderId" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where a.delFlag = 0 and a.orderId = #{orderId}
+    </select>
+
+    <select id="countSaleNumByProductId" parameterType="String" resultType="Integer">
+        select sum(quantity)
+        from DealerOrders
+        <where>
+            delFlag = false
+            and productId=#{productId}
+        </where>
+    </select>
+
+    <select id="countMonthSaleNumByProductId" parameterType="String" resultType="java.util.HashMap">
+        select
+        sum(quantity) quantity,
+        FROM_UNIXTIME( createTime/1000, '%Y%m' ) month
+        from DealerOrders
+        <where>
+            delFlag = false
+            and productId=#{productId}
+        </where>
+        group by month
+    </select>
+
+    <select id="countSaleNumByProductIdAndMonth" parameterType="map" resultType="Integer">
+        select
+        sum(quantity) quantity
+        from DealerOrders
+        <where>
+            delFlag = false
+            and productId=#{productId}
+            and createTime &gt;=#{currentMonth}
+            and createTime &lt;#{nextMonth}
+        </where>
+    </select>
+
+    <select id="getDealerOrdersByUpdateTime" resultType="java.util.HashMap">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where a.brandId=#{dealerOrders.brandId}
+
+        <if test="dealerOrders.updateTime != null ">
+            and a.updateTime &gt; #{dealerOrders.updateTime}
+        </if>
+
+    </select>
+
+    <select id="getDealerOrdersByProductSkuId" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where a.orderId = #{orderid} and a.productSkuId = #{productSkuId}
+    </select>
+
+    <select id="getDealerSkuMap" resultType="map">
+        select a.productTitle as productTitle,a.productSkuName as productSkuName,
+        a.price as price ,a.quantity as quantity,a.shipCount as shipCount,
+        a.adjustPrice as adjustPrice,a.discount as discount,a.oldPrice as oldPrice
+        from DealerOrders a
+        where a.dealerId = #{dealerId} and a.orderId = #{orderId} and a.productId = #{productId}
+    </select>
+
+    <select id="getNoSendGoodsOrders" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select a.*
+        from DealerOrders a, DealerOrder b
+        where a.orderId = b.refrenceId
+        and a.productSkuId = #{productSkuId}
+        and b.dealerOrderType = 2 and b.orderStatus in (1, 2)
+    </select>
+</mapper>
+

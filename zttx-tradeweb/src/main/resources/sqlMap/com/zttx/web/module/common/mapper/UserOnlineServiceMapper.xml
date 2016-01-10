@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.UserOnlineServiceMapper">
+    <!-- 基础列 -->
+    <sql id="userOnlineServiceColumns">
+        a.refrenceId as refrenceId ,
+        a.userType as userType ,
+        a.onlineDateType as onlineDateType ,
+        a.onlineBeginTime as onlineBeginTime ,
+        a.onlineEndTime as onlineEndTime ,
+        a.createTime as createTime ,
+        a.userId as userId ,
+        a.showed as showed ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.UserOnlineService">
+        insert into UserOnlineService(
+         refrenceId ,
+         userType ,
+         onlineDateType ,
+         onlineBeginTime ,
+         onlineEndTime ,
+         createTime ,
+         userId ,
+         showed ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userType}  ,
+        #{onlineDateType}  ,
+        #{onlineBeginTime}  ,
+        #{onlineEndTime}  ,
+        #{createTime}  ,
+        #{userId}  ,
+        #{showed}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from UserOnlineService where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update UserOnlineService set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.UserOnlineService">
+        insert into UserOnlineService
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userType != null">
+            userType ,
+        </if>
+        <if test="onlineDateType != null">
+            onlineDateType ,
+        </if>
+        <if test="onlineBeginTime != null">
+            onlineBeginTime ,
+        </if>
+        <if test="onlineEndTime != null">
+            onlineEndTime ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="showed != null">
+            showed ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userType != null">
+            #{userType} ,
+        </if>
+        <if test="onlineDateType != null">
+            #{onlineDateType} ,
+        </if>
+        <if test="onlineBeginTime != null">
+            #{onlineBeginTime} ,
+        </if>
+        <if test="onlineEndTime != null">
+            #{onlineEndTime} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="showed != null">
+            #{showed} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.UserOnlineService">
+        update UserOnlineService
+           <set>
+            <if test="userType != null">
+                userType = #{userType} ,
+            </if>
+            <if test="onlineDateType != null">
+                onlineDateType = #{onlineDateType} ,
+            </if>
+            <if test="onlineBeginTime != null">
+                onlineBeginTime = #{onlineBeginTime} ,
+            </if>
+            <if test="onlineEndTime != null">
+                onlineEndTime = #{onlineEndTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="showed != null">
+                showed = #{showed} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.UserOnlineService">
+        update UserOnlineService set
+            userType = #{userType} ,
+            onlineDateType = #{onlineDateType} ,
+            onlineBeginTime = #{onlineBeginTime} ,
+            onlineEndTime = #{onlineEndTime} ,
+            createTime = #{createTime} ,
+            userId = #{userId} ,
+            showed = #{showed} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.UserOnlineService">
+        select <include refid="userOnlineServiceColumns"/> from UserOnlineService a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.UserOnlineService">
+        SELECT
+        <include refid="userOnlineServiceColumns"/>
+        FROM UserOnlineService a WHERE a.delFlag = 0
+        <if test="userType != null and userType != ''">
+            and a.userType = #{userType}
+        </if>
+        <if test="onlineDateType != null and onlineDateType != ''">
+            and a.onlineDateType = #{onlineDateType}
+        </if>
+        <if test="onlineBeginTime != null and onlineBeginTime != ''">
+            and a.onlineBeginTime = #{onlineBeginTime}
+        </if>
+        <if test="onlineEndTime != null and onlineEndTime != ''">
+            and a.onlineEndTime = #{onlineEndTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="showed != null and showed != ''">
+            and a.showed = #{showed}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.UserOnlineService">
+        SELECT
+        <include refid="userOnlineServiceColumns"/>
+        FROM UserOnlineService a WHERE a.delFlag = 0
+    </select>
+    <select id="findUserOnlineService" resultType="com.zttx.web.module.common.entity.UserOnlineService">
+        SELECT * FROM UserOnlineService WHERE userId = #{userId} AND delFlag = 0
+        ORDER BY createTime desc
+        LIMIT 1
+    </select>
+    <select id="listUserOnlineServiceDetail" parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        select * from UserOnlineServiceDetail o where o.userOnlineId = #{userOnlineId} AND delFlag = 0
+        order by o.createTime desc
+    </select>
+</mapper>
+

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerShopEnvTempMapper">
+    <!-- 基础列 -->
+    <sql id="dealerShopEnvTempColumns">
+        a.refrenceId as refrenceId ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.status as status ,
+        a.detail as detail ,
+        a.auditUser as auditUser ,
+        a.auditTime as auditTime ,
+        a.auditIp as auditIp ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        insert into DealerShopEnvTemp(
+        refrenceId ,
+        createTime ,
+        updateTime ,
+        status ,
+        detail ,
+        auditUser ,
+        auditTime ,
+        auditIp ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{createTime} ,
+        #{updateTime} ,
+        #{status} ,
+        #{detail} ,
+        #{auditUser} ,
+        #{auditTime} ,
+        #{auditIp} ,
+        #{delFlag}
+        )
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerShopEnvTemp(
+        refrenceId ,
+        createTime ,
+        updateTime ,
+        status ,
+        detail ,
+        auditUser ,
+        auditTime ,
+        auditIp ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="dealerShopEnvTemp" separator=",">
+            (
+            #{dealerShopEnvTemp.refrenceId} ,
+            #{dealerShopEnvTemp.createTime} ,
+            #{dealerShopEnvTemp.updateTime} ,
+            #{dealerShopEnvTemp.status} ,
+            #{dealerShopEnvTemp.detail} ,
+            #{dealerShopEnvTemp.auditUser} ,
+            #{dealerShopEnvTemp.auditTime} ,
+            #{dealerShopEnvTemp.auditIp} ,
+            #{dealerShopEnvTemp.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerShopEnvTemp where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerShopEnvTemp set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        insert into DealerShopEnvTemp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="status != null">
+                status ,
+            </if>
+            <if test="detail != null">
+                detail ,
+            </if>
+            <if test="auditUser != null">
+                auditUser ,
+            </if>
+            <if test="auditTime != null">
+                auditTime ,
+            </if>
+            <if test="auditIp != null">
+                auditIp ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="status != null">
+                #{status} ,
+            </if>
+            <if test="detail != null">
+                #{detail} ,
+            </if>
+            <if test="auditUser != null">
+                #{auditUser} ,
+            </if>
+            <if test="auditTime != null">
+                #{auditTime} ,
+            </if>
+            <if test="auditIp != null">
+                #{auditIp} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        update DealerShopEnvTemp
+        <set>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="status != null">
+                status = #{status} ,
+            </if>
+            <if test="detail != null">
+                detail = #{detail} ,
+            </if>
+            <if test="auditUser != null">
+                auditUser = #{auditUser} ,
+            </if>
+            <if test="auditTime != null">
+                auditTime = #{auditTime} ,
+            </if>
+            <if test="auditIp != null">
+                auditIp = #{auditIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        update DealerShopEnvTemp set
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        status = #{status} ,
+        detail = #{detail} ,
+        auditUser = #{auditUser} ,
+        auditTime = #{auditTime} ,
+        auditIp = #{auditIp} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        select
+        <include refid="dealerShopEnvTempColumns"/>
+        from DealerShopEnvTemp a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        SELECT
+        <include refid="dealerShopEnvTempColumns"/>
+        FROM DealerShopEnvTemp a WHERE a.delFlag = 0
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="status != null">
+            and a.status = #{status}
+        </if>
+        <if test="detail != null and detail != ''">
+            and a.detail like CONCAT('%',#{detail}, '%')
+        </if>
+        <if test="auditUser != null and auditUser != ''">
+            and a.auditUser like CONCAT('%',#{auditUser}, '%')
+        </if>
+        <if test="auditTime != null and auditTime != ''">
+            and a.auditTime = #{auditTime}
+        </if>
+        <if test="auditIp != null and auditIp != ''">
+            and a.auditIp like CONCAT('%',#{auditIp}, '%')
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerShopEnvTemp">
+        SELECT
+        <include refid="dealerShopEnvTempColumns"/>
+        FROM DealerShopEnvTemp a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

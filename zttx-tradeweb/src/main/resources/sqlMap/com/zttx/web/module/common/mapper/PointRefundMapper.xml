@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.PointRefundMapper">
+    <!-- 基础列 -->
+    <sql id="pointRefundColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.refundNum as refundNum ,
+        a.pointPrice as pointPrice ,
+        a.pointPercent as pointPercent ,
+        a.erpTime as erpTime ,
+        a.createTime as createTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.PointRefund">
+        insert into PointRefund(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         productId ,
+         productSkuId ,
+         refundNum ,
+         pointPrice ,
+         pointPercent ,
+         erpTime ,
+         createTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{productId}  ,
+        #{productSkuId}  ,
+        #{refundNum}  ,
+        #{pointPrice}  ,
+        #{pointPercent}  ,
+        #{erpTime}  ,
+        #{createTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from PointRefund where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update PointRefund set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.PointRefund">
+        insert into PointRefund
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="productSkuId != null">
+            productSkuId ,
+        </if>
+        <if test="refundNum != null">
+            refundNum ,
+        </if>
+        <if test="pointPrice != null">
+            pointPrice ,
+        </if>
+        <if test="pointPercent != null">
+            pointPercent ,
+        </if>
+        <if test="erpTime != null">
+            erpTime ,
+        </if>
+        <if test="createTime != null">
+            createTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="productSkuId != null">
+            #{productSkuId} ,
+        </if>
+        <if test="refundNum != null">
+            #{refundNum} ,
+        </if>
+        <if test="pointPrice != null">
+            #{pointPrice} ,
+        </if>
+        <if test="pointPercent != null">
+            #{pointPercent} ,
+        </if>
+        <if test="erpTime != null">
+            #{erpTime} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into PointRefund(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         productId ,
+         productSkuId ,
+         refundNum ,
+         pointPrice ,
+         pointPercent ,
+         erpTime ,
+         createTime 
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.dealerId}  ,
+            #{item.brandId}  ,
+            #{item.brandsId}  ,
+            #{item.productId}  ,
+            #{item.productSkuId}  ,
+            #{item.refundNum}  ,
+            #{item.pointPrice}  ,
+            #{item.pointPercent}  ,
+            #{item.erpTime}  ,
+            #{item.createTime}  
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.PointRefund">
+        update PointRefund
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="refundNum != null">
+                refundNum = #{refundNum} ,
+            </if>
+            <if test="pointPrice != null">
+                pointPrice = #{pointPrice} ,
+            </if>
+            <if test="pointPercent != null">
+                pointPercent = #{pointPercent} ,
+            </if>
+            <if test="erpTime != null">
+                erpTime = #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update PointRefund set
+            dealerId = #{item.dealerId} ,
+            brandId = #{item.brandId} ,
+            brandsId = #{item.brandsId} ,
+            productId = #{item.productId} ,
+            productSkuId = #{item.productSkuId} ,
+            refundNum = #{item.refundNum} ,
+            pointPrice = #{item.pointPrice} ,
+            pointPercent = #{item.pointPercent} ,
+            erpTime = #{item.erpTime} ,
+            createTime = #{item.createTime} 
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.PointRefund">
+        update PointRefund set
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            productId = #{productId} ,
+            productSkuId = #{productSkuId} ,
+            refundNum = #{refundNum} ,
+            pointPrice = #{pointPrice} ,
+            pointPercent = #{pointPercent} ,
+            erpTime = #{erpTime} ,
+            createTime = #{createTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.PointRefund">
+        select <include refid="pointRefundColumns"/> from PointRefund a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.PointRefund">
+        SELECT
+        <include refid="pointRefundColumns"/>
+        FROM PointRefund a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="refundNum != null and refundNum != ''">
+            and a.refundNum = #{refundNum}
+        </if>
+        <if test="pointPrice != null and pointPrice != ''">
+            and a.pointPrice = #{pointPrice}
+        </if>
+        <if test="pointPercent != null and pointPercent != ''">
+            and a.pointPercent = #{pointPercent}
+        </if>
+        <if test="erpTime != null and erpTime != ''">
+            and a.erpTime = #{erpTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.PointRefund">
+        SELECT
+        <include refid="pointRefundColumns"/>
+        FROM PointRefund a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandPaylogMapper">
+    <!-- 基础列 -->
+    <sql id="brandPaylogColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.oldWord as oldWord ,
+        a.newWord as newWord ,
+        a.oldSalt as oldSalt ,
+        a.newSalt as newSalt ,
+        a.createTime as createTime ,
+        a.createType as createType ,
+        a.createIp as createIp ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandPaylog">
+        insert into BrandPaylog(
+         refrenceId ,
+         brandId ,
+         oldWord ,
+         newWord ,
+         oldSalt ,
+         newSalt ,
+         createTime ,
+         createType ,
+         createIp ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{oldWord}  ,
+        #{newWord}  ,
+        #{oldSalt}  ,
+        #{newSalt}  ,
+        #{createTime}  ,
+        #{createType}  ,
+        #{createIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandPaylog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandPaylog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandPaylog">
+        insert into BrandPaylog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="oldWord != null">
+            oldWord ,
+        </if>
+        <if test="newWord != null">
+            newWord ,
+        </if>
+        <if test="oldSalt != null">
+            oldSalt ,
+        </if>
+        <if test="newSalt != null">
+            newSalt ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="createType != null">
+            createType ,
+        </if>
+        <if test="createIp != null">
+            createIp ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="oldWord != null">
+            #{oldWord} ,
+        </if>
+        <if test="newWord != null">
+            #{newWord} ,
+        </if>
+        <if test="oldSalt != null">
+            #{oldSalt} ,
+        </if>
+        <if test="newSalt != null">
+            #{newSalt} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="createType != null">
+            #{createType} ,
+        </if>
+        <if test="createIp != null">
+            #{createIp} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandPaylog">
+        update BrandPaylog
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="oldWord != null">
+                oldWord = #{oldWord} ,
+            </if>
+            <if test="newWord != null">
+                newWord = #{newWord} ,
+            </if>
+            <if test="oldSalt != null">
+                oldSalt = #{oldSalt} ,
+            </if>
+            <if test="newSalt != null">
+                newSalt = #{newSalt} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="createType != null">
+                createType = #{createType} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandPaylog">
+        update BrandPaylog set
+            brandId = #{brandId} ,
+            oldWord = #{oldWord} ,
+            newWord = #{newWord} ,
+            oldSalt = #{oldSalt} ,
+            newSalt = #{newSalt} ,
+            createTime = #{createTime} ,
+            createType = #{createType} ,
+            createIp = #{createIp} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandPaylog">
+        select <include refid="brandPaylogColumns"/> from BrandPaylog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandPaylog">
+        SELECT
+        <include refid="brandPaylogColumns"/>
+        FROM BrandPaylog a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="oldWord != null and oldWord != ''">
+            and a.oldWord like CONCAT('%',#{oldWord}, '%')
+        </if>
+        <if test="newWord != null and newWord != ''">
+            and a.newWord like CONCAT('%',#{newWord}, '%')
+        </if>
+        <if test="oldSalt != null and oldSalt != ''">
+            and a.oldSalt like CONCAT('%',#{oldSalt}, '%')
+        </if>
+        <if test="newSalt != null and newSalt != ''">
+            and a.newSalt like CONCAT('%',#{newSalt}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="createType != null and createType != ''">
+            and a.createType = #{createType}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandPaylog">
+        SELECT
+        <include refid="brandPaylogColumns"/>
+        FROM BrandPaylog a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

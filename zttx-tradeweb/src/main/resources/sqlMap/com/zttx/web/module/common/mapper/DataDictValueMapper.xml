@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.DataDictValueMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache" />
+    <!-- 基础列 -->
+    <sql id="dataDictValueColumns">
+        a.refrenceId as refrenceId,
+        a.dictid as dictid ,
+        a.dictCode as dictCode,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.dictValueName as dictValueName,
+        a.dictValue as dictValue ,
+        a.dictOrder as dictOrder,
+        a.remark as remark,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 可选条件 -->
+    <sql id="Where_Clause">
+        <if test="dictid != null and dictid != ''">
+            <!--and a.dictid like CONCAT('%',#{dictid}, '%')-->
+            and a.dictid = #{dictid}
+        </if>
+        <if test="dictCode != null and dictCode != ''">
+            and a.dictCode like CONCAT('%',#{dictCode}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="dictValueName != null and dictValueName != ''">
+            and a.dictValueName like CONCAT('%',#{dictValueName}, '%')
+        </if>
+        <if test="dictValue != null and dictValue != ''">
+            and a.dictValue like CONCAT('%',#{dictValue}, '%')
+        </if>
+        <if test="dictOrder != null and dictOrder != ''">
+            and a.dictOrder = #{dictOrder}
+        </if>
+        <if test="remark != null and remark != ''">
+            and a.remark like CONCAT('%',#{remark}, '%')
+        </if>
+    </sql>
+
+    <!-- 排序 -->
+    <sql id="orderBy">
+        order by a.dictOrder ASC , a.createTime DESC
+    </sql>
+    <!--<sql id="orderBy_bak">
+        <choose>
+            <when test="page.orderBy != null and page.orderBy !='' ">
+                order by ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.dictOrder asc,
+                a.createTime desc
+            </otherwise>
+        </choose>
+    </sql>-->
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.DataDictValue">
+        INSERT INTO DataDictValue (
+            refrenceId,
+            dictid,
+            dictCode,
+            createTime,
+            updateTime,
+            dictValueName,
+            dictValue,
+            dictOrder,
+            remark,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{dictid},
+            #{dictCode},
+            #{createTime},
+            #{updateTime},
+            #{dictValueName},
+            #{dictValue},
+            #{dictOrder},
+            #{remark},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM DataDictValue
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE DataDictValue
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.DataDictValue">
+        insert into DataDictValue
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dictid != null">
+                dictid ,
+            </if>
+            <if test="dictCode != null">
+                dictCode ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="dictValueName != null">
+                dictValueName ,
+            </if>
+            <if test="dictValue != null">
+                dictValue ,
+            </if>
+            <if test="dictOrder != null">
+                dictOrder ,
+            </if>
+            <if test="remark != null">
+                remark ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dictid != null">
+                #{dictid} ,
+            </if>
+            <if test="dictCode != null">
+                #{dictCode} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="dictValueName != null">
+                #{dictValueName} ,
+            </if>
+            <if test="dictValue != null">
+                #{dictValue} ,
+            </if>
+            <if test="dictOrder != null">
+                #{dictOrder} ,
+            </if>
+            <if test="remark != null">
+                #{remark} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.DataDictValue">
+        update DataDictValue
+        <set>
+            <if test="dictid != null">
+                dictid = #{dictid} ,
+            </if>
+            <if test="dictCode != null">
+                dictCode = #{dictCode} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="dictValueName != null">
+                dictValueName = #{dictValueName} ,
+            </if>
+            <if test="dictValue != null">
+                dictValue = #{dictValue} ,
+            </if>
+            <if test="dictOrder != null">
+                dictOrder = #{dictOrder} ,
+            </if>
+            <if test="remark != null">
+                remark = #{remark} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.DataDictValue">
+        UPDATE DataDictValue
+        SET
+            dictid        = #{dictid},
+            dictCode      = #{dictCode},
+            createTime    = #{createTime},
+            updateTime    = #{updateTime},
+            dictValueName = #{dictValueName},
+            dictValue     = #{dictValue},
+            dictOrder     = #{dictOrder},
+            remark        = #{remark},
+            delFlag       = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.DataDictValue">
+        select
+        <include refid="dataDictValueColumns"/>
+        from DataDictValue a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.DataDictValue">
+        SELECT
+        <include refid="dataDictValueColumns"/>
+        FROM DataDictValue a WHERE a.delFlag = 0
+        <include refid="Where_Clause"/>
+        <include refid="orderBy"/>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.DataDictValue">
+        SELECT
+        <include refid="dataDictValueColumns"/>
+        FROM DataDictValue a WHERE a.delFlag = 0
+        <include refid="orderBy"/>
+    </select>
+
+    <select id="countBySelective" parameterType="com.zttx.web.module.common.entity.DataDictValue" resultType="long">
+        SELECT count(1) FROM DataDictValue a WHERE a.delFlag = 0
+        <if test="_parameter != null">
+            <include refid="Where_Clause"/>
+        </if>
+    </select>
+
+    <select id="findByDictCodeAndDictValueName" resultType="com.zttx.web.module.common.entity.DataDictValue">
+        select
+        <include refid="dataDictValueColumns"/>
+        from DataDictValue a
+        where a.delFlag = 0 and a.dictCode = #{dictCode} and a.dictValueName = #{dictValueName}
+        order by a.dictOrder asc
+        Limit 1
+    </select>
+
+</mapper>
+

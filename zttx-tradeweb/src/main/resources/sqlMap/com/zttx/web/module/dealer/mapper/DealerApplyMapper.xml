@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerApplyMapper">
+    <!-- 基础列 -->
+    <sql id="dealerApplyColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.areaNo as areaNo ,
+        a.areaName as areaName ,
+        a.brandName as brandName ,
+        a.brandsName as brandsName ,
+        a.applyUser as applyUser ,
+        a.applyText as applyText ,
+        a.applyTime as applyTime ,
+        a.auditState as auditState ,
+        a.undoTime as undoTime ,
+        a.auditTime as auditTime ,
+        a.auditMark as auditMark ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerApply">
+        insert into DealerApply(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         areaNo ,
+         areaName ,
+         brandName ,
+         brandsName ,
+         applyUser ,
+         applyText ,
+         applyTime ,
+         auditState ,
+         undoTime ,
+         auditTime ,
+         auditMark ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{areaNo}  ,
+        #{areaName}  ,
+        #{brandName}  ,
+        #{brandsName}  ,
+        #{applyUser}  ,
+        #{applyText}  ,
+        #{applyTime}  ,
+        #{auditState}  ,
+        #{undoTime}  ,
+        #{auditTime}  ,
+        #{auditMark}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerApply where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerApply set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerApply">
+        insert into DealerApply
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="areaNo != null">
+            areaNo ,
+        </if>
+        <if test="areaName != null">
+            areaName ,
+        </if>
+        <if test="brandName != null">
+            brandName ,
+        </if>
+        <if test="brandsName != null">
+            brandsName ,
+        </if>
+        <if test="applyUser != null">
+            applyUser ,
+        </if>
+        <if test="applyText != null">
+            applyText ,
+        </if>
+        <if test="applyTime != null">
+            applyTime ,
+        </if>
+        <if test="auditState != null">
+            auditState ,
+        </if>
+        <if test="undoTime != null">
+            undoTime ,
+        </if>
+        <if test="auditTime != null">
+            auditTime ,
+        </if>
+        <if test="auditMark != null">
+            auditMark ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="areaNo != null">
+            #{areaNo} ,
+        </if>
+        <if test="areaName != null">
+            #{areaName} ,
+        </if>
+        <if test="brandName != null">
+            #{brandName} ,
+        </if>
+        <if test="brandsName != null">
+            #{brandsName} ,
+        </if>
+        <if test="applyUser != null">
+            #{applyUser} ,
+        </if>
+        <if test="applyText != null">
+            #{applyText} ,
+        </if>
+        <if test="applyTime != null">
+            #{applyTime} ,
+        </if>
+        <if test="auditState != null">
+            #{auditState} ,
+        </if>
+        <if test="undoTime != null">
+            #{undoTime} ,
+        </if>
+        <if test="auditTime != null">
+            #{auditTime} ,
+        </if>
+        <if test="auditMark != null">
+            #{auditMark} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerApply">
+        update DealerApply
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="brandName != null">
+                brandName = #{brandName} ,
+            </if>
+            <if test="brandsName != null">
+                brandsName = #{brandsName} ,
+            </if>
+            <if test="applyUser != null">
+                applyUser = #{applyUser} ,
+            </if>
+            <if test="applyText != null">
+                applyText = #{applyText} ,
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime} ,
+            </if>
+            <if test="auditState != null">
+                auditState = #{auditState} ,
+            </if>
+            <if test="undoTime != null">
+                undoTime = #{undoTime} ,
+            </if>
+            <if test="auditTime != null">
+                auditTime = #{auditTime} ,
+            </if>
+            <if test="auditMark != null">
+                auditMark = #{auditMark} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerApply">
+        update DealerApply set
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            areaNo = #{areaNo} ,
+            areaName = #{areaName} ,
+            brandName = #{brandName} ,
+            brandsName = #{brandsName} ,
+            applyUser = #{applyUser} ,
+            applyText = #{applyText} ,
+            applyTime = #{applyTime} ,
+            auditState = #{auditState} ,
+            undoTime = #{undoTime} ,
+            auditTime = #{auditTime} ,
+            auditMark = #{auditMark} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerApply">
+        select <include refid="dealerApplyColumns"/> from DealerApply a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerApply">
+        SELECT
+        <include refid="dealerApplyColumns"/>
+        FROM DealerApply a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="brandName != null and brandName != ''">
+            and a.brandName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+        <if test="applyUser != null and applyUser != ''">
+            and a.applyUser like CONCAT('%',#{applyUser}, '%')
+        </if>
+        <if test="applyText != null and applyText != ''">
+            and a.applyText like CONCAT('%',#{applyText}, '%')
+        </if>
+        <if test="applyTime != null and applyTime != ''">
+            and a.applyTime = #{applyTime}
+        </if>
+        <if test="auditState != null and auditState != ''">
+            and a.auditState = #{auditState}
+        </if>
+        <if test="undoTime != null and undoTime != ''">
+            and a.undoTime = #{undoTime}
+        </if>
+        <if test="auditTime != null and auditTime != ''">
+            and a.auditTime = #{auditTime}
+        </if>
+        <if test="auditMark != null and auditMark != ''">
+            and a.auditMark like CONCAT('%',#{auditMark}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerApply">
+        SELECT
+        <include refid="dealerApplyColumns"/>
+        FROM DealerApply a WHERE a.delFlag = 0
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="findByBrandIdAndId" resultType="com.zttx.web.module.dealer.entity.DealerApply">
+        SELECT
+        <include refid="dealerApplyColumns"/>
+        FROM DealerApply a WHERE a.refrenceId = #{refrenceId} and a.brandId =  #{brandId} and a.delFlag = 0
+    </select>
+    <select id="selectDealerApplyBy" resultType="com.zttx.web.module.dealer.entity.DealerApply">
+        select
+        <include refid="dealerApplyColumns"/>
+        FROM DealerApply a
+        WHERE a.dealerId=#{dealerId} and a.brandsId=#{brandsId} and (a.auditState=0 or a.auditState=1)
+        order by a.auditTime desc
+    </select>
+
+</mapper>
+

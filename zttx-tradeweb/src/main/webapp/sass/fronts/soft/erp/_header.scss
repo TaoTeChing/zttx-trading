@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*头部*/
+.header{
+  height: 80px;
+  background: url("../../../../images/fronts/soft/erp/head_shadow.png");
+  min-width: 1200px;
+  z-index: 100;
+  position: relative;
+  .header-bd{
+    width:1200px;
+    margin:0 auto;
+    height: 80px;
+    position: relative;
+    z-index:400;
+    .logo{
+      height: 51px;
+      margin-top: 15px;
+      span{
+        display: inline-block;
+        vertical-align: top;
+      }
+      .sep{
+        height: 50px;
+        width: 1px;
+        background: #b8c4aa;
+        margin:5px;
+      }
+      .product-center{
+        position: absolute;
+        top:27px;
+        width:90px;
+        left:150px;
+        h3{
+          font-size: 22px;
+          color:#FFF;
+          margin-bottom:20px;
+          cursor: pointer;
+        }
+        .panel{
+          display: none;
+          width:365px;
+          height: 92px;
+          background: #fe8700;
+          margin-left:-80px;
+          _margin-left:0;
+          span{
+            width:60px;
+            height: 17px;
+            margin-right:5px;
+          }
+          li{
+            float:left;
+            width: 120px;
+            height: 92px;
+            text-align: center;
+            background: url("../../../../images/fronts/soft/app/panel-icons.png") 43px 12px no-repeat;
+            a{
+              display: inline-block;
+              padding-right:13px;
+              height: 17px;
+              line-height: 18px;
+              text-align: left;
+              padding-left:5px;
+              margin-top:65px;
+              transition-duration:0.3s;
+              -webkit-transition-duration:0.3s;
+              color:#fff;
+              background:url("../../../../images/fronts/soft/app/panel-icon.png") right 5px no-repeat;
+              &:hover{
+                color:#fe8904;
+                background:#efefef url("../../../../images/fronts/soft/app/panel-icon.png") right -15px no-repeat;
+                border-radius: 3px;
+              }
+            }
+          }
+          .gg{
+            background-position: -77px 12px;
+          }
+          .br-erp{
+            background-position: -187px 12px;
+          }
+        }
+      }
+    }
+    .nav{
+      _display:inline;
+      _zoom:1;
+      position: absolute;
+      right:0;
+      top:45px;
+      .items {
+        _display:inline;
+        _zoom:1;
+        li{
+          float:left;
+          font-size:16px;
+          margin-left:10px;
+          a{
+            color:#FFF;
+            padding: 0 15px;
+          }
+        }
+        .active{
+          a{
+            color:#fd8501;
+          }
+        }
+      }
+      .line{
+        height: 3px;
+        top:32px;
+        color:#fd8501;
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        border:0;
+        background:#fd8501;
+      }
+    }
+  }
+}

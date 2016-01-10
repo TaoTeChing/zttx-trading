@@ -1,0 +1,113 @@
+﻿@charset "UTF-8";
+@import "../../mixin";
+@import "../../dealer/model/pagination";
+
+.text-red{
+  color:#e01;
+}
+
+.index-content{
+  .content-a{
+    padding-bottom: 50px;
+    p{line-height:29px;color:#666;margin:0 10px;}
+  }
+  .content-b{
+    padding-bottom: 50px;
+
+    h4{
+      //color: #666;
+      //font-family: "Microsoft YaHei";
+      //font-size: 14px;
+      line-height: 36px;
+    }
+    p{
+      line-height: 30px;
+      color: #888;
+    }
+  }
+  .content-c{
+    padding-bottom: 50px;
+    .superiority-content{
+      .superiority-row{
+        padding:18px;
+        .ts-grid-7{
+          border-right:1px dashed #ddd;
+          padding-right:10px;
+        }
+        .last{
+          border-right:0;
+        }
+        p{
+          padding:5px;
+
+          text-indent: 2em;
+        }
+      }
+
+      p{
+        color: #666;
+      }
+
+      h3,h4,p{ line-height: 30px;}
+      h3{
+        font-size:16px;
+      }
+      h4{
+        background: #ececec;
+        text-align: center;
+        height:30px;
+        font-size:14px;
+        font-weight: bold;
+        color:#e01;
+      }
+
+    }
+  }
+  .content-d{
+    padding:0 10px;
+    margin-bottom:50px;
+
+    li{
+      height:50px;
+      padding:15px 0;
+      border-bottom:1px dashed #eee;
+    }
+
+    p{
+      line-height:28px;
+    }
+
+    .pagination {
+      margin-top: 20px;
+      text-align: left;
+    }
+  }
+}
+
+$red: #e01;
+
+.about-tab{
+  a{
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:#ddd;
+    color:#333;
+    text-align: center;
+    margin-right:5px;
+
+    &:hover{
+      background:$red;
+      color:#fff;
+      text-decoration: none;
+    }
+  }
+  .ui-switchable-active{
+    background:$red;
+    color:#fff;
+  }
+}
+.about-tab-item{
+  display: none;
+}

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.FindAccountMapper">
+    <!-- 基础列 -->
+    <sql id="findAccountColumns">
+        a.refrenceId as refrenceId ,
+        a.uesrType as uesrType ,
+        a.realName as realName ,
+        a.certNo as certNo ,
+        a.certType as certType ,
+        a.userMobile as userMobile ,
+        a.certPhoto as certPhoto ,
+        a.userEmail as userEmail ,
+        a.createTime as createTime ,
+        a.userId as userId ,
+        a.checkTime as checkTime ,
+        a.checkState as checkState ,
+        a.checkMark as checkMark 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.FindAccount">
+        insert into FindAccount(
+         refrenceId ,
+         uesrType ,
+         realName ,
+         certNo ,
+         certType ,
+         userMobile ,
+         certPhoto ,
+         userEmail ,
+         createTime ,
+         userId ,
+         checkTime ,
+         checkState ,
+         checkMark 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{uesrType}  ,
+        #{realName}  ,
+        #{certNo}  ,
+        #{certType}  ,
+        #{userMobile}  ,
+        #{certPhoto}  ,
+        #{userEmail}  ,
+        #{createTime}  ,
+        #{userId}  ,
+        #{checkTime}  ,
+        #{checkState}  ,
+        #{checkMark}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from FindAccount where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update FindAccount set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.FindAccount">
+        insert into FindAccount
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="uesrType != null">
+            uesrType ,
+        </if>
+        <if test="realName != null">
+            realName ,
+        </if>
+        <if test="certNo != null">
+            certNo ,
+        </if>
+        <if test="certType != null">
+            certType ,
+        </if>
+        <if test="userMobile != null">
+            userMobile ,
+        </if>
+        <if test="certPhoto != null">
+            certPhoto ,
+        </if>
+        <if test="userEmail != null">
+            userEmail ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="checkTime != null">
+            checkTime ,
+        </if>
+        <if test="checkState != null">
+            checkState ,
+        </if>
+        <if test="checkMark != null">
+            checkMark 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="uesrType != null">
+            #{uesrType} ,
+        </if>
+        <if test="realName != null">
+            #{realName} ,
+        </if>
+        <if test="certNo != null">
+            #{certNo} ,
+        </if>
+        <if test="certType != null">
+            #{certType} ,
+        </if>
+        <if test="userMobile != null">
+            #{userMobile} ,
+        </if>
+        <if test="certPhoto != null">
+            #{certPhoto} ,
+        </if>
+        <if test="userEmail != null">
+            #{userEmail} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="checkTime != null">
+            #{checkTime} ,
+        </if>
+        <if test="checkState != null">
+            #{checkState} ,
+        </if>
+        <if test="checkMark != null">
+            #{checkMark} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into FindAccount(
+         refrenceId ,
+         uesrType ,
+         realName ,
+         certNo ,
+         certType ,
+         userMobile ,
+         certPhoto ,
+         userEmail ,
+         createTime ,
+         userId ,
+         checkTime ,
+         checkState ,
+         checkMark 
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.uesrType}  ,
+            #{item.realName}  ,
+            #{item.certNo}  ,
+            #{item.certType}  ,
+            #{item.userMobile}  ,
+            #{item.certPhoto}  ,
+            #{item.userEmail}  ,
+            #{item.createTime}  ,
+            #{item.userId}  ,
+            #{item.checkTime}  ,
+            #{item.checkState}  ,
+            #{item.checkMark}  
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.FindAccount">
+        update FindAccount
+           <set>
+            <if test="uesrType != null">
+                uesrType = #{uesrType} ,
+            </if>
+            <if test="realName != null">
+                realName = #{realName} ,
+            </if>
+            <if test="certNo != null">
+                certNo = #{certNo} ,
+            </if>
+            <if test="certType != null">
+                certType = #{certType} ,
+            </if>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="certPhoto != null">
+                certPhoto = #{certPhoto} ,
+            </if>
+            <if test="userEmail != null">
+                userEmail = #{userEmail} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="checkTime != null">
+                checkTime = #{checkTime} ,
+            </if>
+            <if test="checkState != null">
+                checkState = #{checkState} ,
+            </if>
+            <if test="checkMark != null">
+                checkMark = #{checkMark} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update FindAccount set
+            uesrType = #{item.uesrType} ,
+            realName = #{item.realName} ,
+            certNo = #{item.certNo} ,
+            certType = #{item.certType} ,
+            userMobile = #{item.userMobile} ,
+            certPhoto = #{item.certPhoto} ,
+            userEmail = #{item.userEmail} ,
+            createTime = #{item.createTime} ,
+            userId = #{item.userId} ,
+            checkTime = #{item.checkTime} ,
+            checkState = #{item.checkState} ,
+            checkMark = #{item.checkMark} 
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.FindAccount">
+        update FindAccount set
+            uesrType = #{uesrType} ,
+            realName = #{realName} ,
+            certNo = #{certNo} ,
+            certType = #{certType} ,
+            userMobile = #{userMobile} ,
+            certPhoto = #{certPhoto} ,
+            userEmail = #{userEmail} ,
+            createTime = #{createTime} ,
+            userId = #{userId} ,
+            checkTime = #{checkTime} ,
+            checkState = #{checkState} ,
+            checkMark = #{checkMark} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.FindAccount">
+        select <include refid="findAccountColumns"/> from FindAccount a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.FindAccount">
+        SELECT
+        <include refid="findAccountColumns"/>
+        FROM FindAccount a WHERE a.delFlag = 0
+        <if test="uesrType != null and uesrType != ''">
+            and a.uesrType = #{uesrType}
+        </if>
+        <if test="realName != null and realName != ''">
+            and a.realName like CONCAT('%',#{realName}, '%')
+        </if>
+        <if test="certNo != null and certNo != ''">
+            and a.certNo like CONCAT('%',#{certNo}, '%')
+        </if>
+        <if test="certType != null and certType != ''">
+            and a.certType = #{certType}
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="certPhoto != null and certPhoto != ''">
+            and a.certPhoto like CONCAT('%',#{certPhoto}, '%')
+        </if>
+        <if test="userEmail != null and userEmail != ''">
+            and a.userEmail like CONCAT('%',#{userEmail}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="checkTime != null and checkTime != ''">
+            and a.checkTime = #{checkTime}
+        </if>
+        <if test="checkState != null and checkState != ''">
+            and a.checkState = #{checkState}
+        </if>
+        <if test="checkMark != null and checkMark != ''">
+            and a.checkMark like CONCAT('%',#{checkMark}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.FindAccount">
+        SELECT
+        <include refid="findAccountColumns"/>
+        FROM FindAccount a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

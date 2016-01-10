@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandInviteMapper">
+
+    <!-- 基础列 -->
+    <sql id="brandInviteColumns">
+        a.refrenceId as refrenceId ,
+        a.opratorCata as opratorCata ,
+        a.brandId as brandId ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.brandName as brandName ,
+        a.brandsId as brandsId ,
+        a.brandsName as brandsName ,
+        a.domainName as domainName ,
+        a.brandsLogo as brandsLogo ,
+        a.areaNo as areaNo ,
+        a.provinceName as provinceName ,
+        a.cityName as cityName ,
+        a.areaName as areaName ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.inviteTime as inviteTime ,
+        a.inviteText as inviteText ,
+        a.inviteState as inviteState ,
+        a.applyState as applyState ,
+        a.undoTime as undoTime ,
+        a.auditTime as auditTime ,
+        a.auditMark as auditMark ,
+        a.readState as readState ,
+        a.sourceType as sourceType ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandInvite">
+        insert into BrandInvite(
+         refrenceId ,
+         opratorCata ,
+         brandId ,
+         dealerId ,
+         dealerName ,
+         brandName ,
+         brandsId ,
+         brandsName ,
+         domainName ,
+         brandsLogo ,
+         areaNo ,
+         provinceName ,
+         cityName ,
+         areaName ,
+         createTime ,
+         updateTime ,
+         inviteTime ,
+         inviteText ,
+         inviteState ,
+         applyState ,
+         undoTime ,
+         auditTime ,
+         auditMark ,
+         readState ,
+         sourceType ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{opratorCata}  ,
+        #{brandId}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{brandName}  ,
+        #{brandsId}  ,
+        #{brandsName}  ,
+        #{domainName}  ,
+        #{brandsLogo}  ,
+        #{areaNo}  ,
+        #{provinceName}  ,
+        #{cityName}  ,
+        #{areaName}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{inviteTime}  ,
+        #{inviteText}  ,
+        #{inviteState}  ,
+        #{applyState}  ,
+        #{undoTime}  ,
+        #{auditTime}  ,
+        #{auditMark}  ,
+        #{readState}  ,
+        #{sourceType}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandInvite where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandInvite set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandInvite">
+        insert into BrandInvite
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="opratorCata != null">
+                opratorCata ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="dealerName != null">
+                dealerName ,
+            </if>
+            <if test="brandName != null">
+                brandName ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="brandsName != null">
+                brandsName ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="brandsLogo != null">
+                brandsLogo ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="provinceName != null">
+                provinceName ,
+            </if>
+            <if test="cityName != null">
+                cityName ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="inviteTime != null">
+                inviteTime ,
+            </if>
+            <if test="inviteText != null">
+                inviteText ,
+            </if>
+            <if test="inviteState != null">
+                inviteState ,
+            </if>
+            <if test="applyState != null">
+                applyState ,
+            </if>
+            <if test="undoTime != null">
+                undoTime ,
+            </if>
+            <if test="auditTime != null">
+                auditTime ,
+            </if>
+            <if test="auditMark != null">
+                auditMark ,
+            </if>
+            <if test="readState != null">
+                readState ,
+            </if>
+            <if test="sourceType != null">
+                sourceType ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="opratorCata != null">
+                #{opratorCata} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                #{dealerName} ,
+            </if>
+            <if test="brandName != null">
+                #{brandName} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="brandsName != null">
+                #{brandsName} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="brandsLogo != null">
+                #{brandsLogo} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="inviteTime != null">
+                #{inviteTime} ,
+            </if>
+            <if test="inviteText != null">
+                #{inviteText} ,
+            </if>
+            <if test="inviteState != null">
+                #{inviteState} ,
+            </if>
+            <if test="applyState != null">
+                #{applyState} ,
+            </if>
+            <if test="undoTime != null">
+                #{undoTime} ,
+            </if>
+            <if test="auditTime != null">
+                #{auditTime} ,
+            </if>
+            <if test="auditMark != null">
+                #{auditMark} ,
+            </if>
+            <if test="readState != null">
+                #{readState} ,
+            </if>
+            <if test="sourceType != null">
+                #{sourceType} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandInvite">
+        update BrandInvite
+        <set>
+            <if test="opratorCata != null">
+                opratorCata = #{opratorCata} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="brandName != null">
+                brandName = #{brandName} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="brandsName != null">
+                brandsName = #{brandsName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="brandsLogo != null">
+                brandsLogo = #{brandsLogo} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="inviteTime != null">
+                inviteTime = #{inviteTime} ,
+            </if>
+            <if test="inviteText != null">
+                inviteText = #{inviteText} ,
+            </if>
+            <if test="inviteState != null">
+                inviteState = #{inviteState} ,
+            </if>
+            <if test="applyState != null">
+                applyState = #{applyState} ,
+            </if>
+            <if test="undoTime != null">
+                undoTime = #{undoTime} ,
+            </if>
+            <if test="auditTime != null">
+                auditTime = #{auditTime} ,
+            </if>
+            <if test="auditMark != null">
+                auditMark = #{auditMark} ,
+            </if>
+            <if test="readState != null">
+                readState = #{readState} ,
+            </if>
+            <if test="sourceType != null">
+                sourceType = #{sourceType} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandInvite">
+        update BrandInvite set
+            opratorCata = #{opratorCata} ,
+            brandId = #{brandId} ,
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            brandName = #{brandName} ,
+            brandsId = #{brandsId} ,
+            brandsName = #{brandsName} ,
+            domainName = #{domainName} ,
+            brandsLogo = #{brandsLogo} ,
+            areaNo = #{areaNo} ,
+            provinceName = #{provinceName} ,
+            cityName = #{cityName} ,
+            areaName = #{areaName} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            inviteTime = #{inviteTime} ,
+            inviteText = #{inviteText} ,
+            inviteState = #{inviteState} ,
+            applyState = #{applyState} ,
+            undoTime = #{undoTime} ,
+            auditTime = #{auditTime} ,
+            auditMark = #{auditMark} ,
+            readState = #{readState} ,
+            sourceType = #{sourceType} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        select
+        <include refid="brandInviteColumns"/>
+        from BrandInvite a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        SELECT
+        <include refid="brandInviteColumns"/>
+        FROM BrandInvite a WHERE a.delFlag = 0
+        <if test="opratorCata != null and opratorCata != ''">
+            and a.opratorCata = #{opratorCata}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="brandName != null and brandName != ''">
+            and a.brandName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="brandsLogo != null and brandsLogo != ''">
+            and a.brandsLogo like CONCAT('%',#{brandsLogo}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="inviteTime != null and inviteTime != ''">
+            and a.inviteTime = #{inviteTime}
+        </if>
+        <if test="inviteText != null and inviteText != ''">
+            and a.inviteText like CONCAT('%',#{inviteText}, '%')
+        </if>
+        <if test="inviteState != null and inviteState != ''">
+            and a.inviteState = #{inviteState}
+        </if>
+        <if test="applyState != null and applyState != ''">
+            and a.applyState = #{applyState}
+        </if>
+        <if test="undoTime != null and undoTime != ''">
+            and a.undoTime = #{undoTime}
+        </if>
+        <if test="auditTime != null and auditTime != ''">
+            and a.auditTime = #{auditTime}
+        </if>
+        <if test="auditMark != null and auditMark != ''">
+            and a.auditMark like CONCAT('%',#{auditMark}, '%')
+        </if>
+        <if test="readState != null and readState != ''">
+            and a.readState = #{readState}
+        </if>
+        <if test="sourceType != null and sourceType != ''">
+            and a.sourceType = #{sourceType}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        SELECT
+        <include refid="brandInviteColumns"/>
+        FROM BrandInvite a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getBrandInviteCount" parameterType="com.zttx.web.module.brand.entity.BrandInvite"
+            resultType="java.lang.Long">
+        select count(*)
+        from BrandInvite a, DealerInfo b
+        where a.dealerId = b.refrenceId and b.checkState = 1 AND a.delFlag = 0
+        <if test="brandId != null">
+            AND a.brandId = #{brandId}
+        </if>
+        <if test="dealerId != null">
+            AND a.dealerId = #{dealerId}
+        </if>
+        <if test="brandsId != null">
+            AND a.brandsId = #{brandsId}
+        </if>
+        <if test="applyState != null">
+            AND a.applyState = #{applyState}
+        </if>
+    </select>
+
+    <!-- 获取 终端商 加盟管理 申请加盟管理中的 申请中加盟的数据-->
+    <select id="getInviteApplyStateList" parameterType="com.zttx.web.module.brand.model.BrandInviteModel"
+            resultType="java.util.HashMap">
+        select
+        a.refrenceId as refrenceId,
+        a.brandId as brandId,
+        a.brandsId as brandsId,
+        c.brandsName as brandsName,
+        c.logoDomin as domainName,
+        c.proLogo as brandsLogo,
+        b.comName as brandName,
+        a.inviteText as inviteText,
+        a.inviteTime as inviteTime,
+        a.undoTime as undoTime,
+        b.emploeeNum as emploeeNum,
+        b.moneyNum as moneyNum,
+        a.auditTime as auditTime,
+        a.auditMark as auditMark
+        from
+        BrandInvite a,
+        BrandInfo b,
+        BrandesInfo c
+        where
+        a.brandId=b.refrenceId
+        and c.refrenceId = a.brandsId
+        and a.dealerId=#{dealerId}
+        and a.applyState=#{applyState}
+
+        <if test="null!= emploeeNum and ''!=emploeeNum">and b.emploeeNum=#{emploeeNum}</if>
+        <if test="null!=moneyNum and ''!=moneyNum">and b.moneyNum=#{moneyNum}</if>
+        <if test="null!=startTimeStr and ''!=startTimeStr ">and a.inviteTime &gt;=#{startTimeStr}</if>
+        <if test="null!=endTimeStr and ''!=endTimeStr">and a.inviteTime &lt; #{endTimeStr}</if>
+        <choose>
+            <when test="1==applyState">order by a.undoTime desc</when>
+            <!--审核通过-->
+            <when test="2==applyState">order by a.auditTime desc</when>
+            <!--审核失败-->
+            <otherwise>order by a.inviteTime desc</otherwise>
+        </choose>
+    </select>
+
+    <select id="getByDealerIdAndBrandsId" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        SELECT
+        <include refid="brandInviteColumns"/>
+        FROM BrandInvite
+        a WHERE a.delFlag = 0
+        and dealerId=#{dealerId}
+        and brandsId=#{brandsId}
+    </select>
+
+    <!-- 获取指定品牌商和终端商加盟数据 -->
+    <select id="getBrandInviteList" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        SELECT
+        <include refid="brandInviteColumns"/>
+        FROM BrandInvite a
+        WHERE a.delFlag = 0
+        and dealerId=#{dealerId}
+        and brandsId=#{brandsId}
+        <if test="brandId!=null">
+            and brandId=#{brandId}
+        </if>
+        order by inviteTime desc
+    </select>
+
+    <!-- 判断加盟关系是否存在 -->
+    <select id="isExist" resultType="Integer">
+        select count(1) from BrandInvite where brandId=#{brandId} and dealerId=#{dealerId}
+    </select>
+
+
+    <!-- 查询所有品牌商加盟信息 -->
+    <select id="search" resultType="java.util.HashMap">
+
+        select o.areaNo as areaNo, p.inviteTime as inviteTime,p.brandsId as brandsId, p.brandsName as brandsName,
+        p.inviteText as inviteText,
+        o.refrenceId as id, o.provinceName as province,o.cityName as city,o.areaName as area, o.shopNum as shopNum,
+        o.empNum as empNum, o.monNum as monNum,o.brandName as brandName, o.dealerName as dealerName,
+        o.foundTime as foundTime,p.auditMark as auditMark,o.gpsX as gpsX,o.gpsY as gpsY,o.dealerLevel as
+        dealerLevel,o.dealerLogo as dealerLogo, p.dealerId as dealerId
+
+        FROM BrandInvite p,DealerInfo o
+
+        <if test="info.dictValue != null">
+            ,DealerClass dc
+        </if>
+
+        where p.dealerId = o.refrenceId and p.brandId=#{info.brandId} and p.applyState = #{info.applyState} and
+        o.checkState=1
+
+        <if test="info.dictValue != null">
+            and dc.dealerId = o.refrenceId and dc.delState = 0
+            and dc.dealNo = #{info.dictValue}
+        </if>
+        <!-- 是否存在询价单 -->
+        <if test="info.isExitsInquiry != null and info.isExitsInquiry==true">
+            and exists (select 1 from QueryPrice qp where qp.dealerId = p.dealerId and qp.brandsId = p.brandsId and
+            qp.delState = 0 and qp.state=0)
+        </if>
+
+        <if test="info.areaNo != null and info.areaNo!=0">
+            <choose>
+                <when test="info.level==1">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,2),'%' )
+                </when>
+                <when test="info.level==2">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,4),'%' )
+                </when>
+                <when test="info.level==3">
+                    and o.areaNo = #{info.areaNo}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        <!-- 实体店经验 -->
+        <if test="info.shopExperiLeft != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &gt;=#{info.shopExperiLeft})
+        </if>
+        <if test="info.shopExperiRight != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &lt;=#{info.shopExperiRight})
+        </if>
+
+        <!-- 分店数量 -->
+        <if test="info.shopNumLeft != null">
+            and (o.shopNum &gt;=#{info.shopNumLeft})
+        </if>
+        <if test="info.shopNumRight != null">
+            and (o.shopNum &lt;=#{info.shopNumRight})
+        </if>
+        <!-- 月销售额 -->
+        <if test="info.saleTotalLeft != null">
+            and (o.monNum &gt;=#{info.saleTotalLeft})
+        </if>
+        <if test="info.saleTotalRight != null">
+            and (o.monNum &lt;=#{info.saleTotalRight})
+        </if>
+        <!--  员工数量 -->
+        <if test="info.employeeNumLeft != null">
+            and (o.empNum &gt;=#{info.employeeNumLeft})
+        </if>
+        <if test="info.employeeNumRight != null">
+            and (o.empNum &lt;=#{info.employeeNumRight})
+        </if>
+        <!--  手机号码 -->
+        <if test="info.userMobile != null">
+            and u.userMobile like CONCAT('%','${info.userMobile}','%' )
+        </if>
+        <!-- 终端商名称 -->
+        <if test="info.dealerName != null and info.dealerName != ''">
+            and o.dealerName like CONCAT('%','${info.dealerName}','%' )
+        </if>
+
+        <!-- 设置排序规则 -->
+        <if test="info.attrType != null and info.descType != null">
+            <choose>
+                <when test="info.attrType==1">
+                    order by o.shopNum
+                </when>
+                <when test="info.attrType==2">
+                    order by o.empNum
+                </when>
+                <when test="info.attrType==3">
+                    order by o.foundTime
+                </when>
+                <when test="info.descType==1">
+                    order by o.desc
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        order by p.inviteTime desc,o.dealerLevel desc
+    </select>
+
+    <!-- 判断加盟关系是否存在 -->
+    <select id="applyOrInvite" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+
+        select b.* from BrandInvite b,UserInfo u where b.dealerId = u.refrenceId
+
+        <if test="invite.dealerId != null">
+            and b.dealerId = #{invite.dealerId }
+        </if>
+
+        <if test="invite.refrenceId != null">
+            and b.refrenceId = #{invite.refrenceId }
+        </if>
+
+        <if test="invite.opratorCata != null">
+            and b.opratorCata = #{invite.opratorCata }
+        </if>
+
+        <if test="invite.brandId != null">
+            and b.brandId = #{invite.brandId }
+        </if>
+
+        <if test="invite.userMobile != null and invite.userMobile != ''">
+            and u.userMobile = #{invite.userMobile }
+        </if>
+
+        <if test="invite.updateTime != null">
+            and b.updateTime &gt; #{invite.updateTime }
+        </if>
+
+        <if test="invite.dealerName != null and invite.dealerName != ''">
+            and b.dealerName like CONCAT('%',#{invite.dealerName}, '%')
+        </if>
+
+        <if test="invite.applyState != null">
+            and b.applyState = #{invite.applyState }
+        </if>
+
+        <if test="invite.applyState == null and invite.invokeType == null">
+            and (b.applyState = 0 or b.applyState = 3)
+        </if>
+
+        order by b.updateTime desc
+    </select>
+
+    <!-- 获取指定品牌商所有加盟数据 -->
+    <select id="getBrandInvites" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        select a.* from BrandInvite a where brandId=#{brandInvite.brandId}
+        <if test="brandInvite.updateTime != null">
+            and updateTime &gt; #{brandInvite.updateTime}
+        </if>
+    </select>
+
+    <!-- 获取指定品牌商所有加盟数据 指定状态-->
+    <select id="getBrandInvite_erp" resultType="com.zttx.web.module.brand.entity.BrandInvite">
+        <!--  applyState 0; 未审核 1; 审核通过 3; 邀请加盟   4; 经销商中止合作 6; 品牌商中止合作  -->
+        select a.* from BrandInvite a where  applyState in (0,1,3,4,6 )
+
+        <if test="brandId != null">
+            and brandId =  #{brandId}
+        </if>
+
+    </select>
+
+</mapper>
+

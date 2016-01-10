@@ -1,0 +1,1 @@
+var index={init:function(){this.closeTip()},closeTip:function(){$(".security_tip").on("click",".close",function(){$(this).parent().slideUp(300,function(){$(this).remove()})})}};index.init();

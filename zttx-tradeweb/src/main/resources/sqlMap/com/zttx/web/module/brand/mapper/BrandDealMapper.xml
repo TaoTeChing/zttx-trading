@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandDealMapper">
+    <!-- 基础列 -->
+    <sql id="brandDealColumns">
+        a.refrenceId as refrenceId,
+        a.brandId as brandId ,
+        a.brandesId as brandesId,
+        a.dealNo as dealNo,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.createIp as createIp,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandDeal">
+        INSERT INTO BrandDeal (
+            refrenceId,
+            brandId,
+            brandesId,
+            dealNo,
+            createTime,
+            updateTime,
+            createIp,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{brandId},
+            #{brandesId},
+            #{dealNo},
+            #{createTime},
+            #{updateTime},
+            #{createIp},
+            #{delFlag}
+        )
+    </insert>
+
+    <!-- 批量添加 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into BrandDeal(
+        refrenceId ,
+        brandId ,
+        brandesId ,
+        dealNo ,
+        createTime ,
+        updateTime ,
+        createIp ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.refrenceId} ,
+            #{item.brandId} ,
+            #{item.brandesId} ,
+            #{item.dealNo} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.createIp} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM BrandDeal
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE BrandDeal
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandDeal">
+        insert into BrandDeal
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandesId != null">
+                brandesId ,
+            </if>
+            <if test="dealNo != null">
+                dealNo ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandesId != null">
+                #{brandesId} ,
+            </if>
+            <if test="dealNo != null">
+                #{dealNo} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandDeal">
+        update BrandDeal
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandesId != null">
+                brandesId = #{brandesId} ,
+            </if>
+            <if test="dealNo != null">
+                dealNo = #{dealNo} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandDeal">
+        UPDATE BrandDeal
+        SET
+            brandId    = #{brandId},
+            brandesId  = #{brandesId},
+            dealNo     = #{dealNo},
+            createTime = #{createTime},
+            updateTime = #{updateTime},
+            createIp   = #{createIp},
+            delFlag    = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量更新  -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update BrandDeal set
+            brandId = #{item.brandId} ,
+            brandesId = #{item.brandesId} ,
+            dealNo = #{item.dealNo} ,
+            createTime = #{item.createTime} ,
+            updateTime = #{item.updateTime} ,
+            createIp = #{item.createIp} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandDeal">
+        select
+        <include refid="brandDealColumns"/>
+        from BrandDeal a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandDeal">
+        SELECT
+        <include refid="brandDealColumns"/>
+        FROM BrandDeal a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandesId != null and brandesId != ''">
+            and a.brandesId like CONCAT('%',#{brandesId}, '%')
+        </if>
+        <if test="dealNo != null and dealNo != ''">
+            and a.dealNo = #{dealNo}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandDeal">
+        SELECT
+        <include refid="brandDealColumns"/>
+        FROM BrandDeal a WHERE a.delFlag = 0
+    </select>
+
+    <!--通过品牌商ID和品牌来ID来查询对应的所有品类 -->
+    <select id="findDealNoBy" resultType="java.lang.Integer">
+        SELECT a.dealNo
+        FROM BrandDeal a
+        WHERE a.delFlag = 0 AND a.brandId = #{0} AND a.brandesId = #{1}
+    </select>
+
+    <!-- 根据品牌商编号、品牌编号、删除标志 -->
+    <select id="findByBrandsId" resultType="com.zttx.web.module.brand.entity.BrandDeal">
+        SELECT
+        <include refid="brandDealColumns"/>
+        FROM BrandDeal a WHERE a.brandId=#{0} and a.brandesId=#{1} and a.delFlag = #{2} order by a.createTime desc
+    </select>
+
+    <!-- 获取品类名称列表 -->
+    <select id="getBrandDealNameList" resultType="java.util.HashMap">
+        SELECT
+            a.dealNo   AS dealNo,
+            b.dealName AS dealName
+        FROM BrandDeal a, DealDic b
+        WHERE a.brandesId = #{0} AND a.dealNo = b.dealNo AND a.delFlag = 0 AND b.delFlag = 0
+        ORDER BY a.createTime ASC
+    </select>
+
+    <!-- 根据品牌id获取品类名称列表 -->
+    <select id="selectBrandDealsByBrandesId" resultType="com.zttx.web.module.brand.entity.BrandDeal">
+        SELECT
+            a.refrenceId AS refrenceId,
+            a.brandId AS brandId,
+            a.brandesId AS brandesId,
+            a.dealNo AS dealNo,
+            b.dealName AS dealName,
+            a.createTime AS createTime,
+            a.updateTime AS updateTime,
+            a.createIp AS createIp,
+            a.delFlag AS delFlag
+        FROM
+            BrandDeal a,
+            DealDic b
+        WHERE
+            b.dealNo = a.dealNo
+            AND b.delFlag = 0
+            AND a.delFlag = 0
+            and a.brandesId=#{0}
+    </select>
+</mapper>

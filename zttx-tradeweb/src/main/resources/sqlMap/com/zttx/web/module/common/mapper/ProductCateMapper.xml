@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductCateMapper">
+    <!-- 基础列 -->
+    <sql id="productCateColumns">
+        a.refrenceId as refrenceId ,
+        a.cateId as cateId ,
+        a.productId as productId ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductCate">
+        insert into ProductCate(
+         refrenceId ,
+         cateId ,
+         productId ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{cateId}  ,
+        #{productId}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductCate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductCate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductCate">
+        insert into ProductCate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="cateId != null">
+            cateId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="cateId != null">
+            #{cateId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductCate">
+        update ProductCate
+           <set>
+            <if test="cateId != null">
+                cateId = #{cateId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductCate">
+        update ProductCate set
+            cateId = #{cateId} ,
+            productId = #{productId} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.ProductCate">
+        select <include refid="productCateColumns"/> from ProductCate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductCate">
+        SELECT
+        <include refid="productCateColumns"/>
+        FROM ProductCate a WHERE a.delFlag = 0
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductCate">
+        SELECT
+        <include refid="productCateColumns"/>
+        FROM ProductCate a WHERE a.delFlag = 0
+    </select>
+    <select id="getCateList" parameterType="String" resultType="com.zttx.web.module.common.entity.ProductCate">
+        select
+        <include refid="productCateColumns"/>
+        from ProductCate a
+        where a.productId=#{productId}
+        order by a.cateId
+    </select>
+    <select id="getProductCatesByProductId" parameterType="string"
+            resultType="com.zttx.web.module.common.entity.ProductCate">
+        select
+        <include refid="productCateColumns"/>
+        from ProductCate a
+        where a.productId = #{productId}
+        and a.delFlag = 0
+    </select>
+    
+    <delete id="deleteCateBatch" parameterType="java.util.Map">
+    	delete from  ProductCate
+    	<where>
+    		cateId in(
+    			<foreach collection="idArray" item="id" separator=",">
+    				#{id}
+    			</foreach>
+    		)
+    	</where>
+    </delete>
+    <select id="findByBrandIdAndProductId" parameterType="map" resultType="com.zttx.web.module.common.entity.ProductCate">
+    	select 
+    		<include refid="productCateColumns"/> 
+    	from ProductCate a,ProductCatalog b 
+    	<where> 
+    		a.cateId=b.refrenceId 
+    		and a.productId=#{productId}
+    		and b.brandId=#{brandId}
+    	</where>
+    </select>
+    <delete id="deleteBatch" parameterType="list">
+    	delete from ProductCate 
+    	<where>
+    		refrenceId in(
+    			<foreach collection="list" item="refrenceId" separator=",">
+    				#{refrenceId}
+    			</foreach>
+    		)
+    	</where>
+    </delete>
+
+    <insert id="insertBatch" parameterType="list">
+    	insert into ProductCate(
+	         refrenceId ,
+	         cateId ,
+	         productId ,
+	         createTime ,
+	         updateTime ,
+	         delFlag 
+        ) VALUES 
+        <foreach collection="list" item="cate" separator=",">
+        (
+	        #{cate.refrenceId}  ,
+	        #{cate.cateId}  ,
+	        #{cate.productId}  ,
+	        #{cate.createTime}  ,
+	        #{cate.updateTime}  ,
+	        #{cate.delFlag}  
+        )
+        </foreach>
+    </insert>
+    <delete id="deleteByProductId" parameterType="String">
+    	delete from ProductCate where productId=#{productId}
+    </delete>
+    <select id="countByCatalogId" parameterType="String" resultType="Integer">
+    	select 
+    		count(*)
+    	from ProductCate
+    	<where>
+    		cateId=#{catalogId}
+    		and delFlag=false
+    	</where>
+    </select>
+</mapper>
+

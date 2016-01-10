@@ -1,0 +1,1581 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<scenario xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2" xmlns:opns="http://www.omnigroup.com/namespace/OmniPlan/v2" id="arvYiqnzUMM">
+  <start-date>2015-08-14T00:00:00.000Z</start-date>
+  <prototype-task>
+    <task id="t-2">
+      <title>&gt;任务 1</title>
+      <effort>28800</effort>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-3">
+      <title>&gt;里程碑 1</title>
+      <type>milestone</type>
+    </task>
+  </prototype-task>
+  <prototype-task>
+    <task id="t-4">
+      <title>群组 1</title>
+      <type>group</type>
+    </task>
+  </prototype-task>
+  <prototype-resource>
+    <resource id="r-2">
+      <name>资源 1</name>
+      <type>Staff</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-3">
+      <name>设备 1</name>
+      <type>Equipment</type>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-4">
+      <name>素材 1</name>
+      <type>Material</type>
+      <units-available>0</units-available>
+      <efficiency>0</efficiency>
+    </resource>
+  </prototype-resource>
+  <prototype-resource>
+    <resource id="r-5">
+      <name>群组 1</name>
+      <type>Group</type>
+    </resource>
+  </prototype-resource>
+  <top-resource idref="r-1"/>
+  <resource id="r-1">
+    <type>Group</type>
+    <child-resource idref="r1"/>
+    <child-resource idref="r2"/>
+    <child-resource idref="r3"/>
+    <child-resource idref="r5"/>
+    <child-resource idref="r6"/>
+    <child-resource idref="r7"/>
+    <child-resource idref="r8"/>
+    <child-resource idref="r9"/>
+    <child-resource idref="r10"/>
+  </resource>
+  <resource id="r1">
+    <name>王仕贵</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r2">
+    <name>陈建平</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r3">
+    <name>李星</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r5">
+    <name>章旭楠</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r6">
+    <name>郭小亮</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r7">
+    <name>黄小平</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r8">
+    <name>季明清</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r9">
+    <name>江枫林</name>
+    <type>Staff</type>
+  </resource>
+  <resource id="r10">
+    <name>易永耀</name>
+    <type>Staff</type>
+  </resource>
+  <top-task idref="t-1"/>
+  <task id="t-1">
+    <type>group</type>
+    <child-task idref="t2"/>
+  </task>
+  <task id="t2">
+    <title>交易平台新版建设计划</title>
+    <type>group</type>
+    <child-task idref="t8"/>
+    <child-task idref="t380"/>
+    <child-task idref="t381"/>
+  </task>
+  <task id="t3">
+    <title>开发平台搭建</title>
+    <type>group</type>
+    <child-task idref="t4"/>
+    <child-task idref="t5"/>
+    <child-task idref="t6"/>
+  </task>
+  <task id="t4">
+    <title>SSI基础框架建设</title>
+    <effort>117000</effort>
+    <assignment idref="r7"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t5">
+    <title>Shiro细粒化权限控制</title>
+    <effort>113400</effort>
+    <prerequisite-task idref="t4"/>
+    <assignment idref="r7"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t6">
+    <title>Redis缓存构建</title>
+    <effort>115200</effort>
+    <prerequisite-task idref="t5"/>
+    <assignment idref="r7"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t8">
+    <title>开发计划</title>
+    <type>group</type>
+    <child-task idref="t3"/>
+    <child-task idref="t11"/>
+    <child-task idref="t9"/>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>开发计划只包括交易平台自身功能模块及业务的开发</lit>
+          </run>
+        </p>
+      </text>
+    </note>
+  </task>
+  <task id="t9">
+    <title>功能开发</title>
+    <type>group</type>
+    <child-task idref="t18"/>
+    <child-task idref="t14"/>
+    <child-task idref="t15"/>
+    <child-task idref="t17"/>
+    <child-task idref="t16"/>
+  </task>
+  <task id="t11">
+    <title>数据库设计</title>
+    <type>group</type>
+    <child-task idref="t12"/>
+    <child-task idref="t13"/>
+  </task>
+  <task id="t12">
+    <title>基础表设计</title>
+    <effort>86400</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t13">
+    <title>业务表设计</title>
+    <effort>144000</effort>
+    <prerequisite-task idref="t12"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t14">
+    <title>品牌商后台</title>
+    <type>group</type>
+    <child-task idref="t181"/>
+    <child-task idref="t157"/>
+    <child-task idref="t256"/>
+    <child-task idref="t161"/>
+    <child-task idref="t257"/>
+    <child-task idref="t158"/>
+    <child-task idref="t163"/>
+    <child-task idref="t159"/>
+    <child-task idref="t384"/>
+    <child-task idref="t162"/>
+    <child-task idref="t164"/>
+    <child-task idref="t264"/>
+  </task>
+  <task id="t15">
+    <title>终端商后台</title>
+    <type>group</type>
+    <child-task idref="t268"/>
+    <child-task idref="t267"/>
+    <child-task idref="t270"/>
+    <child-task idref="t385"/>
+    <child-task idref="t293"/>
+    <child-task idref="t294"/>
+    <child-task idref="t295"/>
+    <child-task idref="t289"/>
+  </task>
+  <task id="t16">
+    <title>前台展示</title>
+    <type>group</type>
+    <child-task idref="t305"/>
+    <child-task idref="t323"/>
+    <child-task idref="t324"/>
+    <child-task idref="t325"/>
+    <child-task idref="t326"/>
+    <child-task idref="t327"/>
+    <child-task idref="t320"/>
+    <child-task idref="t321"/>
+  </task>
+  <task id="t17">
+    <title>品牌展厅</title>
+    <type>group</type>
+    <child-task idref="t296"/>
+    <child-task idref="t297"/>
+    <child-task idref="t298"/>
+    <child-task idref="t299"/>
+    <child-task idref="t300"/>
+    <child-task idref="t301"/>
+    <child-task idref="t302"/>
+    <child-task idref="t303"/>
+    <prerequisite-task idref="t181"/>
+  </task>
+  <task id="t18">
+    <title>基础模块</title>
+    <type>group</type>
+    <child-task idref="t141"/>
+    <child-task idref="t142"/>
+    <child-task idref="t143"/>
+    <child-task idref="t188"/>
+    <child-task idref="t265"/>
+    <child-task idref="t266"/>
+    <child-task idref="t274"/>
+  </task>
+  <task id="t141">
+    <title>文件服务器</title>
+    <type>group</type>
+    <child-task idref="t148"/>
+    <child-task idref="t149"/>
+    <prerequisite-task idref="t11"/>
+  </task>
+  <task id="t142">
+    <title>搜索服务器</title>
+    <type>group</type>
+    <child-task idref="t150"/>
+    <child-task idref="t151"/>
+    <child-task idref="t152"/>
+    <child-task idref="t153"/>
+    <child-task idref="t154"/>
+    <child-task idref="t155"/>
+    <prerequisite-task idref="t141"/>
+  </task>
+  <task id="t143">
+    <title>权限管理</title>
+    <type>group</type>
+    <child-task idref="t144"/>
+    <child-task idref="t145"/>
+    <child-task idref="t146"/>
+    <child-task idref="t147"/>
+  </task>
+  <task id="t144">
+    <title>角色管理</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t145">
+    <title>用户管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t144"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t146">
+    <title>菜单管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t145"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t147">
+    <title>授权管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t146"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t148">
+    <title>建立公共的文件上传接口</title>
+    <effort>28800</effort>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>包括图片上传、视屏上传、</lit>
+          </run>
+          <run>
+            <lit>FLash</lit>
+          </run>
+          <run>
+            <lit>上传、文件上传以及一些专用的上传接口</lit>
+          </run>
+        </p>
+      </text>
+    </note>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t149">
+    <title>建立公共的文件转移接口</title>
+    <effort>28800</effort>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>包括图片转移、视屏转移、文件转移。。。</lit>
+          </run>
+        </p>
+      </text>
+    </note>
+    <prerequisite-task idref="t148"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t150">
+    <title>搭建搜索服务器</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t151">
+    <title>品牌索引实例</title>
+    <type>group</type>
+    <child-task idref="t331"/>
+    <child-task idref="t330"/>
+    <prerequisite-task idref="t150"/>
+  </task>
+  <task id="t152">
+    <title>产品索引实例</title>
+    <type>group</type>
+    <child-task idref="t336"/>
+    <child-task idref="t351"/>
+    <prerequisite-task idref="t151"/>
+  </task>
+  <task id="t153">
+    <title>帮助索引实例</title>
+    <type>group</type>
+    <child-task idref="t339"/>
+    <child-task idref="t357"/>
+    <prerequisite-task idref="t152"/>
+  </task>
+  <task id="t154">
+    <title>规则索引实例</title>
+    <type>group</type>
+    <child-task idref="t342"/>
+    <child-task idref="t363"/>
+    <prerequisite-task idref="t153"/>
+  </task>
+  <task id="t155">
+    <title>资讯索引实例</title>
+    <type>group</type>
+    <child-task idref="t345"/>
+    <child-task idref="t369"/>
+    <prerequisite-task idref="t154"/>
+  </task>
+  <task id="t157">
+    <title>品牌管理</title>
+    <type>group</type>
+    <child-task idref="t166"/>
+    <child-task idref="t167"/>
+  </task>
+  <task id="t158">
+    <title>产品管理</title>
+    <type>group</type>
+    <child-task idref="t199"/>
+    <child-task idref="t200"/>
+    <child-task idref="t201"/>
+  </task>
+  <task id="t159">
+    <title>交易管理</title>
+    <type>group</type>
+    <child-task idref="t226"/>
+    <child-task idref="t238"/>
+    <child-task idref="t227"/>
+    <child-task idref="t228"/>
+    <child-task idref="t288"/>
+    <prerequisite-task idref="t163"/>
+  </task>
+  <task id="t161">
+    <title>运费模版</title>
+    <type>group</type>
+    <child-task idref="t252"/>
+    <child-task idref="t253"/>
+    <child-task idref="t254"/>
+    <child-task idref="t255"/>
+  </task>
+  <task id="t162">
+    <title>图片管理</title>
+    <type>group</type>
+    <child-task idref="t239"/>
+    <child-task idref="t240"/>
+    <child-task idref="t241"/>
+    <child-task idref="t242"/>
+    <prerequisite-task idref="t266"/>
+    <prerequisite-task idref="t274"/>
+  </task>
+  <task id="t163">
+    <title>帐户管理</title>
+    <type>group</type>
+    <child-task idref="t243"/>
+    <child-task idref="t244"/>
+    <child-task idref="t245"/>
+    <child-task idref="t246"/>
+    <child-task idref="t247"/>
+  </task>
+  <task id="t164">
+    <title>消息管理</title>
+    <type>group</type>
+    <child-task idref="t248"/>
+    <child-task idref="t249"/>
+    <child-task idref="t250"/>
+    <prerequisite-task idref="t162"/>
+  </task>
+  <task id="t166">
+    <title>品牌管理</title>
+    <type>group</type>
+    <child-task idref="t170"/>
+    <child-task idref="t185"/>
+    <child-task idref="t171"/>
+    <child-task idref="t172"/>
+    <child-task idref="t173"/>
+    <child-task idref="t263"/>
+  </task>
+  <task id="t167">
+    <title>域名设置</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t166"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t168">
+    <title>品牌资料</title>
+    <type>group</type>
+    <child-task idref="t177"/>
+    <child-task idref="t178"/>
+    <child-task idref="t179"/>
+    <prerequisite-task idref="t169"/>
+  </task>
+  <task id="t169">
+    <title>品牌资讯</title>
+    <type>group</type>
+    <child-task idref="t180"/>
+    <prerequisite-task idref="t184"/>
+  </task>
+  <task id="t170">
+    <title>发布品牌</title>
+    <effort>28800</effort>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t171">
+    <title>品牌审核</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t170"/>
+    <prerequisite-task idref="t185"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t172">
+    <title>区域设置</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t171"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t173">
+    <title>用户授权</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t172"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t177">
+    <title>资料上传</title>
+    <effort>28800</effort>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t178">
+    <title>资料管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t177"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t179">
+    <title>分类管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t178"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t180">
+    <title>新闻资讯</title>
+    <effort>28800</effort>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t181">
+    <title>品牌展厅</title>
+    <type>group</type>
+    <child-task idref="t183"/>
+    <child-task idref="t187"/>
+    <child-task idref="t186"/>
+    <child-task idref="t184"/>
+    <child-task idref="t169"/>
+    <child-task idref="t168"/>
+    <child-task idref="t182"/>
+  </task>
+  <task id="t182">
+    <title>品牌招募书</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t168"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t183">
+    <title>门店展示</title>
+    <effort>28800</effort>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t184">
+    <title>陈列视觉</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t186"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t185">
+    <title>资料修改</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t170"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t186">
+    <title>展厅装修</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t187"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t187">
+    <title>企业展示</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t183"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t188">
+    <title>资讯类服务</title>
+    <type>group</type>
+    <child-task idref="t189"/>
+    <child-task idref="t190"/>
+    <child-task idref="t191"/>
+  </task>
+  <task id="t189">
+    <title>帮助管理</title>
+    <type>group</type>
+    <child-task idref="t192"/>
+    <child-task idref="t193"/>
+  </task>
+  <task id="t190">
+    <title>资讯管理</title>
+    <type>group</type>
+    <child-task idref="t194"/>
+    <child-task idref="t195"/>
+    <prerequisite-task idref="t189"/>
+  </task>
+  <task id="t191">
+    <title>规则管理</title>
+    <type>group</type>
+    <child-task idref="t196"/>
+    <child-task idref="t197"/>
+    <prerequisite-task idref="t190"/>
+  </task>
+  <task id="t192">
+    <title>帮助信息管理</title>
+    <effort>28800</effort>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t193">
+    <title>帮助类别管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t192"/>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t194">
+    <title>资讯类型管理</title>
+    <effort>28800</effort>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t195">
+    <title>资讯信息管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t194"/>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t196">
+    <title>规则类别管理</title>
+    <effort>28800</effort>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t197">
+    <title>规则信息管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t196"/>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t199">
+    <title>产品管理</title>
+    <type>group</type>
+    <child-task idref="t203"/>
+    <child-task idref="t204"/>
+    <child-task idref="t205"/>
+  </task>
+  <task id="t200">
+    <title>产品类别管理</title>
+    <type>group</type>
+    <child-task idref="t219"/>
+    <child-task idref="t220"/>
+    <prerequisite-task idref="t199"/>
+  </task>
+  <task id="t201">
+    <title>批量上传管理</title>
+    <type>group</type>
+    <child-task idref="t221"/>
+    <child-task idref="t222"/>
+    <prerequisite-task idref="t200"/>
+  </task>
+  <task id="t203">
+    <title>产品发布</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t204">
+    <title>产品预览</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t203"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t205">
+    <title>产品管理</title>
+    <type>group</type>
+    <child-task idref="t209"/>
+    <child-task idref="t210"/>
+    <child-task idref="t211"/>
+    <child-task idref="t212"/>
+    <child-task idref="t217"/>
+    <child-task idref="t208"/>
+    <child-task idref="t206"/>
+    <prerequisite-task idref="t204"/>
+  </task>
+  <task id="t206">
+    <title>产品回收</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t208"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t208">
+    <title>上下架管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t217"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t209">
+    <title>推荐管理</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t210">
+    <title>预定管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t209"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t211">
+    <title>库存管理</title>
+    <type>group</type>
+    <child-task idref="t214"/>
+    <child-task idref="t215"/>
+    <child-task idref="t216"/>
+    <prerequisite-task idref="t210"/>
+  </task>
+  <task id="t212">
+    <title>拿样管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t211"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t214">
+    <title>预警设置</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t215">
+    <title>库存查询</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t214"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t216">
+    <title>缺货管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t215"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t217">
+    <title>调价管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t212"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t219">
+    <title>类别设置</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t220">
+    <title>分类查询</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t219"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t221">
+    <title>上传文件模版管理</title>
+    <effort>28800</effort>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t222">
+    <title>上传文件数据处理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t221"/>
+    <assignment idref="r7"/>
+  </task>
+  <task id="t226">
+    <title>发货地址管理</title>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t227">
+    <title>服务评分管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t238"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t228">
+    <title>订单交易管理</title>
+    <type>group</type>
+    <child-task idref="t229"/>
+    <child-task idref="t236"/>
+    <child-task idref="t232"/>
+    <child-task idref="t233"/>
+    <child-task idref="t234"/>
+    <child-task idref="t235"/>
+    <child-task idref="t230"/>
+    <child-task idref="t231"/>
+    <prerequisite-task idref="t227"/>
+  </task>
+  <task id="t229">
+    <title>订单查询</title>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t230">
+    <title>发货管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t235"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t231">
+    <title>退款管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t230"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t232">
+    <title>订单详情</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t236"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t233">
+    <title>修改金额</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t232"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t234">
+    <title>关闭订单</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t233"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t235">
+    <title>延长收货期限</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t234"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t236">
+    <title>订单备注</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t229"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t238">
+    <title>物流公司管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t226"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t239">
+    <title>图片管理</title>
+    <effort>28800</effort>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t240">
+    <title>图片上传</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t239"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t241">
+    <title>分类管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t240"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t242">
+    <title>回收站</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t241"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t243">
+    <title>联系资料</title>
+    <effort>28800</effort>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t244">
+    <title>企业资料</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t243"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t245">
+    <title>证书管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t244"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t246">
+    <title>密码管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t245"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t247">
+    <title>安全验证</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t246"/>
+    <assignment idref="r3"/>
+  </task>
+  <task id="t248">
+    <title>站内消息</title>
+    <effort>28800</effort>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t249">
+    <title>系统消息</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t248"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t250">
+    <title>在线留言</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t249"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t252">
+    <title>运费明细管理</title>
+    <effort>28800</effort>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t253">
+    <title>运费模版管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t252"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t254">
+    <title>运费区域管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t253"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t255">
+    <title>运费模版设定</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t254"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t256">
+    <title>转帐功能</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t167"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t257">
+    <title>终端商管理</title>
+    <type>group</type>
+    <child-task idref="t260"/>
+    <child-task idref="t259"/>
+    <child-task idref="t261"/>
+    <child-task idref="t262"/>
+    <prerequisite-task idref="t161"/>
+  </task>
+  <task id="t259">
+    <title>申请中的</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t260"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t260">
+    <title>寻找终端商</title>
+    <effort>28800</effort>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t261">
+    <title>平台推荐</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t259"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t262">
+    <title>已合作的</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t261"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t263">
+    <title>授信管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t173"/>
+    <assignment idref="r2"/>
+  </task>
+  <task id="t264">
+    <title>优化建议</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t164"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t265">
+    <title>字典管理</title>
+    <effort>28800</effort>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t266">
+    <title>类目管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t265"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t267">
+    <title>进货单管理</title>
+    <type>group</type>
+    <child-task idref="t272"/>
+    <child-task idref="t273"/>
+    <child-task idref="t278"/>
+    <child-task idref="t279"/>
+    <child-task idref="t280"/>
+    <child-task idref="t281"/>
+    <prerequisite-task idref="t268"/>
+  </task>
+  <task id="t268">
+    <title>授权产品库</title>
+    <type>group</type>
+    <child-task idref="t285"/>
+    <child-task idref="t286"/>
+    <child-task idref="t287"/>
+  </task>
+  <task id="t270">
+    <title>结算单管理</title>
+    <type>group</type>
+    <child-task idref="t282"/>
+    <child-task idref="t283"/>
+    <child-task idref="t284"/>
+    <prerequisite-task idref="t267"/>
+  </task>
+  <task id="t272">
+    <title>加入进货单</title>
+    <effort>28800</effort>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t273">
+    <title>实时取价</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t272"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t274">
+    <title>用户注册</title>
+    <type>group</type>
+    <child-task idref="t275"/>
+    <child-task idref="t276"/>
+    <prerequisite-task idref="t266"/>
+  </task>
+  <task id="t275">
+    <title>品牌用户注册</title>
+    <effort>28800</effort>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t276">
+    <title>终端用户注册</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t275"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t278">
+    <title>清空进货单</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t273"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t279">
+    <title>移出产品</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t278"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t280">
+    <title>加入收藏夹</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t279"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t281">
+    <title>批量移出已下架产品</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t280"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t282">
+    <title>收货地址管理</title>
+    <effort>28800</effort>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t283">
+    <title>订单留言管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t282"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t284">
+    <title>生成订单管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t283"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t285">
+    <title>授权产品库</title>
+    <effort>28800</effort>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t286">
+    <title>常进款式</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t285"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t287">
+    <title>浏览记录</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t286"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t288">
+    <title>询价单管理</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t289">
+    <title>加盟管理</title>
+    <type>group</type>
+    <child-task idref="t290"/>
+    <child-task idref="t291"/>
+    <child-task idref="t292"/>
+    <prerequisite-task idref="t257"/>
+  </task>
+  <task id="t290">
+    <title>已加盟品牌库</title>
+    <effort>28800</effort>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t291">
+    <title>申请加盟管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t290"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t292">
+    <title>品牌收藏夹</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t291"/>
+    <assignment idref="r9"/>
+  </task>
+  <task id="t293">
+    <title>转帐功能</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-08-26T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t256"/>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2015-08-26T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t294">
+    <title>微店管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t264"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t295">
+    <title>服务管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t294"/>
+    <assignment idref="r5"/>
+  </task>
+  <task id="t296">
+    <title>品牌首页</title>
+    <effort>28800</effort>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t297">
+    <title>品牌招募书</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t296"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t298">
+    <title>陈列视觉</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t297"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t299">
+    <title>产品展示</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t298"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t300">
+    <title>企业展示</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t299"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t301">
+    <title>门店展示</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t300"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t302">
+    <title>品牌新闻</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t301"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t303">
+    <title>资料下载</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t302"/>
+    <assignment idref="r6"/>
+  </task>
+  <task id="t305">
+    <title>首页</title>
+    <type>group</type>
+    <child-task idref="t312"/>
+    <child-task idref="t311"/>
+    <child-task idref="t313"/>
+    <child-task idref="t314"/>
+    <child-task idref="t315"/>
+    <child-task idref="t316"/>
+    <child-task idref="t317"/>
+    <child-task idref="t318"/>
+    <prerequisite-task idref="t142"/>
+  </task>
+  <task id="t311">
+    <title>优先品牌</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t312"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t312">
+    <title>产品分类</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t313">
+    <title>女装品牌馆</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t311"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t314">
+    <title>男装品牌馆</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t313"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t315">
+    <title>内衣品牌馆</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t314"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t316">
+    <title>箱包品牌馆</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t315"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t317">
+    <title>其它</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t316"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t318">
+    <title>资讯</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t317"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t320">
+    <title>帮助与规则</title>
+    <type>group</type>
+    <child-task idref="t328"/>
+    <child-task idref="t329"/>
+    <prerequisite-task idref="t188"/>
+  </task>
+  <task id="t321">
+    <title>资讯</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t320"/>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t323">
+    <title>品牌厂商</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t305"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t324">
+    <title>终端门店</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t323"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t325">
+    <title>品牌订货会</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t324"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t326">
+    <title>男装市场</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t325"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t327">
+    <title>女装市场</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t326"/>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t328">
+    <title>帮助信息</title>
+    <effort>28800</effort>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t329">
+    <title>规则信息</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t328"/>
+    <assignment idref="r8"/>
+  </task>
+  <task id="t330">
+    <title>索引管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t331"/>
+  </task>
+  <task id="t331">
+    <title>索引查询</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t336">
+    <title>索引查询</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t339">
+    <title>索引查询</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t342">
+    <title>索引查询</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t345">
+    <title>索引查询</title>
+    <effort>28800</effort>
+    <assignment idref="r1"/>
+  </task>
+  <task id="t351">
+    <title>索引管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t336"/>
+  </task>
+  <task id="t357">
+    <title>索引管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t339"/>
+  </task>
+  <task id="t363">
+    <title>索引管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t342"/>
+  </task>
+  <task id="t369">
+    <title>索引管理</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t345"/>
+  </task>
+  <task id="t380">
+    <title>对接计划</title>
+    <type>group</type>
+    <child-task idref="t382"/>
+    <child-task idref="t383"/>
+    <note>
+      <text>
+        <p>
+          <run>
+            <lit>指与第三方系统对接的开发</lit>
+          </run>
+        </p>
+      </text>
+    </note>
+  </task>
+  <task id="t381">
+    <title>测试计划</title>
+    <effort>28800</effort>
+  </task>
+  <task id="t382">
+    <title>支撑系统</title>
+    <type>group</type>
+    <child-task idref="t410"/>
+    <child-task idref="t394"/>
+    <child-task idref="t395"/>
+    <child-task idref="t396"/>
+    <child-task idref="t397"/>
+    <child-task idref="t398"/>
+  </task>
+  <task id="t383">
+    <title>ERP系统</title>
+    <type>group</type>
+    <child-task idref="t387"/>
+    <child-task idref="t393"/>
+    <child-task idref="t388"/>
+    <child-task idref="t389"/>
+    <child-task idref="t390"/>
+    <child-task idref="t391"/>
+    <child-task idref="t392"/>
+  </task>
+  <task id="t384">
+    <title>终端商财务帐</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t159"/>
+  </task>
+  <task id="t385">
+    <title>品牌商财务帐</title>
+    <effort>28800</effort>
+    <prerequisite-task idref="t270"/>
+    <assignment idref="r10"/>
+  </task>
+  <task id="t387">
+    <title>采购订单</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t388">
+    <title>一键补货</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t389">
+    <title>授权产品</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r10"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t390">
+    <title>供应商信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t391">
+    <title>品牌信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r2"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t392">
+    <title>产品调价</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r7"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t393">
+    <title>发货通知</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r3"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t394">
+    <title>帮助与类别</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t401"/>
+    <child-task idref="t402"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t395">
+    <title>资讯与类别</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t403"/>
+    <child-task idref="t404"/>
+    <prerequisite-task idref="t394"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t396">
+    <title>规则与类别</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t406"/>
+    <child-task idref="t407"/>
+    <prerequisite-task idref="t395"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t397">
+    <title>广告与广告位</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t408"/>
+    <child-task idref="t409"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t398">
+    <title>购买服务</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t399"/>
+    <child-task idref="t400"/>
+    <prerequisite-task idref="t397"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t399">
+    <title>品牌商购买服务</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r5"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t400">
+    <title>终端商购买服务</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t399"/>
+    <assignment idref="r5"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t401">
+    <title>帮助信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t402">
+    <title>帮助类别</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t401"/>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t403">
+    <title>资讯信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t404">
+    <title>资讯类别</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t403"/>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t406">
+    <title>规则信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t407">
+    <title>规则类别</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t406"/>
+    <assignment idref="r8"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t408">
+    <title>广告信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t409">
+    <title>广告位信息</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <prerequisite-task idref="t408"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t410">
+    <title>品牌信息管理接口</title>
+    <type>group</type>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <child-task idref="t411"/>
+    <child-task idref="t412"/>
+    <child-task idref="t413"/>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t411">
+    <title>品牌信息查询</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t412">
+    <title>处理申请(审核通过/审核不通过/取消/合作/终止合作)</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <task id="t413">
+    <title>&gt;任务 1</title>
+    <effort>28800</effort>
+    <start-constraint-date>2015-09-01T00:00:00.000Z</start-constraint-date>
+    <start-no-earlier-than>2015-09-01T00:00:00.000Z</start-no-earlier-than>
+  </task>
+  <critical-path root="-1" enabled="false" resources="false">
+    <color r="1" g="0.5" b="0.5"/>
+  </critical-path>
+</scenario>

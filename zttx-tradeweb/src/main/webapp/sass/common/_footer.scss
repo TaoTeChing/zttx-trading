@@ -1,0 +1,107 @@
+﻿@charset "UTF-8";
+
+//@import "compass/css3";
+
+/*footer*/
+.footer{
+    min-width: 1190px;
+    padding-top: 24px;
+    background: #f2f2f2;
+    font-family: "Microsoft Yahei";
+    color: #666;
+}
+.footer a{
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.footer a:hover{
+    /*color: #000;*/
+    color: #e70012;
+}
+.footer .footer-coll{
+    width: 195px;
+}
+.footer .footer-colr{
+    width: 920px;
+}
+.footer .footer-sev{
+    padding-bottom: 20px;
+    background: url("/images/common/f-borderline.gif") repeat-x left bottom;
+}
+.footer .footer-severs{
+
+}
+.footer .footer-severs li{
+    width: 140px;
+}
+.footer .footer-severs dt{
+    line-height: 40px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    background: url("/images/common/f-borderline.gif") repeat-x left bottom;
+}
+.footer .footer-severs dd{
+    line-height: 30px;
+}
+.footer .footer-contact{
+    background: url("/images/common/f-borderline.gif") repeat-x left bottom;
+}
+.footer .footer-contact p{
+    line-height: 38px;
+    margin-left: -5px;
+    font-size: 0;
+}
+.footer .footer-contact span,
+.footer .footer-contact a{
+    float: left;
+    display: inline;
+    margin: 0 5px;
+    font-size: 12px;
+}
+.footer .footer-contact .line{
+    width: 1px;
+    height: 13px;
+    margin: 12px 0 0 0;
+    padding: 0;
+    background: #999;
+}
+.footer .footer-qrcode{
+    margin-left: 90px;
+}
+.footer .footer-qrcode h3{
+    line-height: 40px;
+    font-size: 16px;
+}
+.footer .footer-copyright{
+    line-height: 38px;
+    color: #999;
+}
+.footer-bottom{
+    background: #f2f2f2;
+    min-width: 1190px;
+    padding-bottom: 20px;
+}
+.footer-bottom img{
+    margin-right:5px;
+    border: 1px solid #b0b0b0;
+    border-radius: 2px;
+    background: #fff;
+}
+.sorry-ie{
+    position: absolute;
+    width:100%;
+}
+.sorry-ie .alert{
+    width:1200px;
+    margin:0 auto;
+    height:50px;
+    line-height: 50px;
+    background: #333;
+    text-align: center;
+    color:#fff;
+}
+.sorry-ie a{
+    color:#08c;
+}

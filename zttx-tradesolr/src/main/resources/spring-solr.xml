@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <description>Spring-SOLR配置</description>
+
+    <!--Solr查询服务-->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:solr.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:httpClient.properties"/>
+
+    <!-- spring 管理 httpclient -->
+    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig" factory-method="custom">
+        <property name="socketTimeout" value="${socketTimeoutInMillis}"/>
+        <property name="connectTimeout" value="${connectTimeoutInMillis}"/>
+    </bean>
+
+    <bean id="requestConfig" factory-bean="requestConfigBuilder" factory-method="build"/>
+
+    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create">
+        <property name="defaultRequestConfig" ref="requestConfig"/>
+    </bean>
+
+    <bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build" destroy-method="close"/>
+
+    <bean id="requestFactory" class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+        <property name="httpClient" ref="httpClient"/>
+    </bean>
+
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+        <property name="requestFactory" ref="requestFactory"/>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <constructor-arg value="UTF-8"/>
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>${web.content.html.type}</value>
+                            <value>${web.content.text.type}</value>
+                        </list>
+                    </property>
+                </bean>
+                <!-- JSON支持，避免IE执行AJAX时,返回JSON出现下载文件 -->
+                <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>${web.content.html.type}</value>
+                            <value>${web.content.text.type}</value>
+                            <value>${web.content.json.type}</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 索引头处理 -->
+    <bean id="solrjHandler" class="com.zttx.web.search.solrj.SolrjHandler">
+        <property name="solrServerInvokeUrl" value="${solr.server.invoke.url}"/>
+    </bean>
+    <bean id="articleSolrHandler" class="com.zttx.web.search.solrj.ArticleSolrHandler"/>
+    <bean id="brandeSolrHandler" class="com.zttx.web.search.solrj.BrandeSolrHandler"/>
+    <bean id="helpSolrHandler" class="com.zttx.web.search.solrj.HelpSolrHandler"/>
+    <bean id="ruleSolrHandler" class="com.zttx.web.search.solrj.RuleSolrHandler"/>
+    <bean id="productSolrHandler" class="com.zttx.web.search.solrj.ProductSolrHandler"/>
+
+    <!-- 规则索引查询服务  -->
+    <bean id="BaseQueryService" class="com.zttx.web.search.query.BaseSolrQueryService">
+        <property name="restTemplate" ref="restTemplate"/>
+        <property name="serverUrl" value="${solr.server.invoke.url}"/>
+    </bean>
+
+    <!-- 规则索引查询服务  -->
+    <bean id="rulesQueryService" class="com.zttx.web.search.query.RuleSolrQueryService">
+        <property name="rulesSearchUrl" value="${solr.rules.search.url}"/>
+    </bean>
+    <!-- 帮助索引查询服务  -->
+    <bean id="helpInfoQueryService" class="com.zttx.web.search.query.HelpSolrQueryService">
+        <property name="helpSearchUrl" value="${solr.help.search.url}"/>
+    </bean>
+    <!-- 产品索引查询服务  -->
+    <bean id="productQueryService" class="com.zttx.web.search.query.ProductSolrQueryService">
+        <property name="productSearchUrl" value="${solr.product.search.url}"/>
+    </bean>
+    <!-- 资讯索引查询服务  -->
+    <bean id="articleInfoQueryService" class="com.zttx.web.search.query.ArticleSolrQueryService">
+        <property name="articleSearchUrl" value="${solr.article.search.url}"/>
+    </bean>
+    <!-- 品牌索引查询服务  -->
+    <bean id="brandsQueryService" class="com.zttx.web.search.query.BrandeSolrQueryService">
+        <property name="brandsSearchUrl" value="${solr.brands.search.url}"/>
+    </bean>
+</beans>

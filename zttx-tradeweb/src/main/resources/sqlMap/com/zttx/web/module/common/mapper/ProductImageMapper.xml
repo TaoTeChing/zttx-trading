@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductImageMapper">
+    <!-- 基础列 -->
+    <sql id="productImageColumns">
+        a.refrenceId as refrenceId,
+        a.productId as productId ,
+        a.domainName as domainName,
+        a.photoName as photoName,
+        a.imageName as imageName,
+        a.imageMark as imageMark,
+        a.createTime as createTime ,
+        a.orderId as orderId,
+        a.isMain as isMain,
+        a.createIp as createIp,
+        a.attributeItemId as attributeItemId
+    </sql>
+    <select id="getProductImagesByProductId" parameterType="string"
+            resultType="com.zttx.web.module.common.entity.ProductImage">
+        SELECT
+        <include refid="productImageColumns"/>
+        FROM ProductImage a WHERE a.productId=#{productId}
+    </select>
+
+</mapper>
+

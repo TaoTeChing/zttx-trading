@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandViewContactMapper">
+    <!-- 基础列 -->
+    <sql id="brandViewContactColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.dealerId as dealerId ,
+        a.viewTime as viewTime ,
+        a.viewType as viewType ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandViewContact">
+        insert into BrandViewContact(
+         refrenceId ,
+         brandId ,
+         dealerId ,
+         viewTime ,
+         viewType ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{dealerId}  ,
+        #{viewTime}  ,
+        #{viewType}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandViewContact where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandViewContact set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandViewContact">
+        insert into BrandViewContact
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="viewTime != null">
+            viewTime ,
+        </if>
+        <if test="viewType != null">
+            viewType ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="viewTime != null">
+            #{viewTime} ,
+        </if>
+        <if test="viewType != null">
+            #{viewType} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandViewContact">
+        update BrandViewContact
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="viewTime != null">
+                viewTime = #{viewTime} ,
+            </if>
+            <if test="viewType != null">
+                viewType = #{viewType} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandViewContact">
+        update BrandViewContact set
+            brandId = #{brandId} ,
+            dealerId = #{dealerId} ,
+            viewTime = #{viewTime} ,
+            viewType = #{viewType} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandViewContact">
+        select <include refid="brandViewContactColumns"/> from BrandViewContact a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandViewContact">
+        SELECT
+        <include refid="brandViewContactColumns"/>
+        FROM BrandViewContact a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="viewTime != null and viewTime != ''">
+            and a.viewTime = #{viewTime}
+        </if>
+        <if test="viewType != null and viewType != ''">
+            and a.viewType = #{viewType}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandViewContact">
+        SELECT
+        <include refid="brandViewContactColumns"/>
+        FROM BrandViewContact a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="getBrandViewContactCount" parameterType="com.zttx.web.module.brand.entity.BrandViewContact" resultType="Long">
+    	select count(1)
+    	from BrandViewContact 
+    	where brandId=#{brandId} and viewType=#{viewType}
+    </select>
+
+    <!--    检测是否存在查看过联系方式的终端商 -->
+    <select id="isExist"   resultType="Integer" >
+    	select count(1) from BrandViewContact where brandId=#{brandId} and dealerId=#{dealerId}
+        <if test="viewType != null and viewType != '' ">
+            and viewType=#{viewType}
+        </if>
+    </select>
+
+    <!--    检测是否存在查看过联系方式的终端商 -->
+    <select id="isExistForBrandViewContact"   resultType="com.zttx.web.module.brand.entity.BrandViewContact" >
+    	select <include refid="brandViewContactColumns"/> from BrandViewContact a where brandId=#{brandViewContact.brandId} and dealerId=#{brandViewContact.dealerId}
+    </select>
+
+    <!--  查询品牌商查看经销商查看记录列表  -->
+    <select id="queryBrandViewContactsList"   resultType="com.zttx.web.module.brand.entity.BrandViewContact" >
+        SELECT
+        <include refid="brandViewContactColumns"/>
+        FROM BrandViewContact a WHERE a.delFlag = 0
+
+        <if test="brandViewContact.brandId != null  ">
+            and a.brandId =#{brandViewContact.brandId}
+        </if>
+        <if test="brandViewContact.dealerId != null ">
+            and a.dealerId ==#{brandViewContact.dealerId}
+        </if>
+        <if test="brandViewContact.viewTime != null ">
+            and a.viewTime &gt; #{brandViewContact.viewTime}
+        </if>
+
+    </select>
+
+</mapper>
+

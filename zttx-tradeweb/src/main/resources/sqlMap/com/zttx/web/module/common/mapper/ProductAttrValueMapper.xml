@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductAttrValueMapper">
+    <select id="getAttrValues" resultType="com.zttx.web.module.common.entity.ProductAttrValue">
+        SELECT DISTINCT
+            a.attributeId,
+            a.attributeItemId,
+            a.extAttributeValue,
+            a.isSkuAttr
+        FROM
+            ProductAttrValue a
+        WHERE
+            a.productId = #{productId}
+    </select>
+</mapper>
+

@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+@import "../global";
+@import "../../common/footer";
+@import "header";
+
+body{
+  background: url(/images/soft/app/header-bg.jpg) no-repeat;
+  font-family: "微软雅黑";
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+img{
+  vertical-align: top;
+}
+.contanier {
+  margin-bottom:70px;
+  .tabs{
+    height:176px;
+    background: #f4f4f4;
+    .item-box{
+      width:1200px;
+      margin:0 auto;
+      padding: 33px 0;
+      li{
+        float:left;
+        height: 110px;
+        width:320px;
+        border-radius: 4px;
+        background: #1d8cdb;
+        margin:0 15px;
+        cursor: pointer;
+        span{
+          display: inline-block;
+          height: 110px;
+          line-height: 110px;
+          float:left;
+          font-size: 14px;
+          color:#fff;
+        }
+        .text{
+          width:175px;
+          padding-left:85px;
+          font-size: 18px;
+        }
+        .android-ico{
+          background: url(/images/soft/app/android.png) 29px center no-repeat;
+        }
+        .iphone-ico{
+          background: url(/images/soft/app/apple.png) 29px center no-repeat;
+        }
+        .arrow{
+          width:59px;
+          border-left:1px solid #ddd;
+          background: url(/images/soft/app/arrow.png) center center no-repeat;
+        }
+      }
+      .active{
+        background: #f7af2b;
+      }
+    }
+  }
+  .tab-content{
+    width:1200px;
+    margin:0 auto;
+    margin-top:20px;
+    .content-box{
+      margin-left:20px;
+      h3{
+        color:#333;
+        font-size: 25px;
+      }
+      a{
+        display: block;
+        width: 210px;
+        border-radius: 4px;
+        background: #3ec06f;
+        color:#fff;
+        text-align: center;
+        padding:15px 0;
+        margin-top:30px;
+        .download{
+          font-size: 25px;
+          height: 25px;
+          line-height: 25px;
+        }
+      }
+      .intro{
+        margin-top:60px;
+        padding-bottom:200px;
+        position:relative;
+        li{
+          float:left;
+          width:590px;
+          margin-top:20px;
+          margin-bottom:60px;
+          .detail{
+            height: 124px;
+            width: 365px;
+            cursor: pointer;
+            .content{
+              padding:15px;
+              .ico{
+                height: 92px;
+                width: 92px;
+              }
+              .descr{
+                width:220px;
+                text-align: center;
+                h3{
+                  font-size: 24px;
+                  color: #333;
+                }
+                p{
+                  word-break: break-all;
+                  font-size: 14px;
+                  color:#999;
+                }
+              }
+            }
+          }
+          .active .content .descr h3{
+            color:#f7af2b;
+          }
+        }
+        .even{
+          .detail{
+            float:right;
+            .content{
+              padding:15px 5px 15px 25px;
+            }
+          }
+          .active{
+            background: url(/images/soft/app/right-box.png) no-repeat;
+          }
+        }
+        .odd{
+          .active{
+            background: url(/images/soft/app/left-box.png) no-repeat;
+          }
+        }
+        .android{
+          position: absolute;
+          top:0px;
+          left: 400px;
+          width: 362px;
+          height: 617px;
+          background: url(/images/soft/app/galaxy-bg.png) no-repeat;
+          img{
+            margin-left:51px;
+            margin-top:50px;
+            height: 484px;
+            width:274px;
+          }
+        }
+        .iphone{
+          position: absolute;
+          top:0px;
+          left: 400px;
+          width: 376px;
+          height: 619px;
+          background: url(/images/soft/app/iphone-bg.png) no-repeat;
+          img{
+            margin-left:60px;
+            margin-top:75px;
+            height: 419px;
+            width:256px;
+          }
+        }
+      }
+    }
+
+    .content-box{
+      .ico{
+        background: url(/images/soft/app/i-app-ico.png) no-repeat;
+      }
+      .ico1{
+        background-position: 0 0;
+      }
+      .ico2{
+        background-position: -157px 0;
+      }
+      .ico3{
+        background-position: 0 -122px;
+      }
+      .ico4{
+        background-position: -157px -122px;
+      }
+      .ico5{
+        background-position: 0px -242px;
+      }
+      .ico6{
+        background-position: -157px -242px;
+      }
+    }
+  }
+}

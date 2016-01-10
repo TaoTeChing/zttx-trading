@@ -1,0 +1,368 @@
+@charset "utf-8";
+
+@import "../global";
+@import "header";
+@import "../../../common/footer";
+
+body{
+    background:#fff url("../../../../images/fronts/soft/erp/banner-head.jpg") no-repeat;
+    font-family: "微软雅黑";
+    -webkit-text-size-adjust:none;
+}
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+img{
+    vertical-align: top;
+}
+/*头部*/
+.header{
+    background: url("../../../../images/fronts/soft/erp/head_shadow.png");
+}
+
+h3{
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.intro{
+    width: 1200px;
+    margin: 0 auto;
+    .title{
+        margin-top: 100px;
+    }
+    .ch{
+        margin-top: 25px;
+        font-size: 16px;
+        color: #666;
+        text-shadow: 1px 1px 1px #e6e6e6;
+    }
+    .en{
+        padding-bottom: 35px;
+        font-family: Arial;
+        font-size: 10px;
+        color: #999;
+    }
+}
+
+
+
+.intro-manage{
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background: #f1f1f1;
+    .intro-manage-center{
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        .s-p-blue{
+            top: -60px;
+            right: 50px;
+        }
+        .s-p-red{
+            top: -22px;
+            right: 25px;
+        }
+        .s-p-green{
+            top: -60px;
+            right: 0;
+        }
+        .s-p-qing{
+            top:120px;
+            right: 260px;
+        }
+    }
+    .i-m-bg{
+        width: 600px;
+        height: 500px;
+        background: url("../../../../images/fronts/soft/erp/intro-manage.jpg") no-repeat;
+    }
+    .i-m-detail{
+        margin-left: 610px;
+        dl{
+            margin-bottom: 5px;
+            dt{
+                @include inline-block;
+                height: 27px;
+                padding: 0 20px;
+                line-height: 26px;
+                font-size: 16px;
+                color: #fff;
+                text-shadow:1px 1px 2px #333;
+                -webkit-transition: 0.3s;
+                -moz-transition: 0.3s;
+                -o-transition: 0.3s;
+                transition: 0.3s;
+            }
+            dd{
+                height: 45px;
+                margin-top: 3px;
+                font-size: 14px;
+                color: #999;
+            }
+            .i-m-d-jxc{
+                background: #3992dd;
+            }
+            .i-m-d-cg{
+                background: #68cd72;
+            }
+            .i-m-d-yx{
+                background: #38cae4;
+            }
+            .i-m-d-hy{
+                background: #8bcd3c;
+            }
+            .i-m-d-bb{
+                background: #9c76e1;
+            }
+            .i-m-d-xt{
+                background: #62c8af;
+            }
+            &:hover{
+                dt{
+                    background: #f4ab1b;
+                }
+            }
+        }
+    }
+}
+
+.intro-kl{
+    padding: 70px 0;
+    .intro-kl-center{
+        width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        .s-p-red{
+            top:-45px;
+            left: 400px;
+        }
+        .s-p-green{
+            top:-60px;
+            left: 450px;
+        }
+        .s-p-qing{
+            top:358px;
+            right: 300px;
+        }
+    }
+    h3{
+        font-size: 30px;
+    }
+    .i-k-main{
+        margin-top: 40px;
+    }
+    .i-k-textbox{
+        width: 355px;
+    }
+    .i-k-imgbox{
+        width: 490px;
+        height: 452px;
+        background: url("../../../../images/fronts/soft/erp/intro-kl.jpg") no-repeat;
+    }
+    h5{
+        font-size: 20px;
+    }
+    .i-k-t-text{
+        margin: 15px;
+        line-height: 25px;
+        font-size: 13px;
+        color: #666;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        span{
+            color: #999;
+        }
+        em{
+            margin-left: 40px;
+        }
+        &:hover{
+            -webkit-transform:translateX(5px);
+            transform:translateX(5px);
+        }
+    }
+}
+
+.intro-special{
+    background: #f1f1f1;
+    .intro-special-center{
+        width: 1200px;
+        height: 594px;
+        margin: 0 auto;
+        background: url("../../../../images/fronts/soft/erp/intro-special.jpg") no-repeat;
+        position: relative;
+        .s-p-green{
+            top: 360px;
+            right: 0;
+        }
+        .s-p-orange{
+            right: 0;
+            bottom: 0;
+        }
+    }
+    .i-s-rbox{
+        width: 435px;
+        h3{
+            margin-top: 95px;
+            font-size: 30px;
+        }
+        p{
+            line-height: 25px;
+            font-size: 14px;
+            color: #666;
+        }
+        h4{
+            margin-top: 315px;
+            font-size: 18px;
+        }
+        span{
+            font-size: 10px;
+            font-family: Arial;
+            color: #999;
+        }
+    }
+    .i-s-pic{
+        position: absolute;
+        top: 224px;
+        left: 190px;
+    }
+}
+.intro-app{
+    margin-bottom: 20px;
+    padding-top: 80px;
+    height: 570px;
+    .intro-app-center{
+        width: 1200px;
+        height:570px;
+        margin: 0 auto;
+        position: relative;
+        .s-p-orange{
+            left: 684px;
+            bottom:0;
+        }
+        h3{
+            font-size: 30px;
+        }
+        p{
+            font-size: 14px;
+            color: #666;
+        }
+        .i-a-textbox{
+            width: 345px;
+            position: absolute;
+            top:0;
+            left: 413px;
+        }
+        .i-a-phone{
+            width: 265px;
+            height: 530px;
+            background: url("../../../../images/fronts/soft/erp/iphone6.png") no-repeat;
+            position: absolute;
+            top:0;
+            left: 138px;
+        }
+        .i-a-hand{
+            width: 310px;
+            height: 190px;
+            background: url("../../../../images/fronts/soft/erp/hand.png") no-repeat;
+            position: absolute;
+            top:144px;
+            left: 0;
+            z-index: 1;
+        }
+        .i-a-wx{
+            width: 1090px;
+            height: 570px;
+            background: url("../../../../images/fronts/soft/erp/intro-wx.png") no-repeat;
+            position: absolute;
+            top:0px;
+            left: 110px;
+        }
+    }
+}
+
+//星星的公用样式
+.six-pic{
+    position: absolute;
+}
+
+@keyframes moveRotate {
+    0% {
+        /*-webkit-transform: scale(1) translateX(0);
+        transform: scale(1) translateX(0);*/
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    50%{
+        /* -webkit-transform: scale(1.5) translateX(100px);
+         transform: scale(1.5) translateX(100px);*/
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+    100% {
+        /*-webkit-transform: scale(1) translateX(0);
+        transform: scale(1) translateX(0);*/
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+@-webkit-keyframes moveRotate {
+    0% {
+        /*-webkit-transform: scale(1) translateX(0);
+        transform: scale(1) translateX(0);*/
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+    50%{
+        /* -webkit-transform: scale(1.5) translateX(100px);
+         transform: scale(1.5) translateX(100px);*/
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }
+    100% {
+        /*-webkit-transform: scale(1) translateX(0);
+        transform: scale(1) translateX(0);*/
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+.moveRotate1 {
+    -webkit-animation-name: moveRotate;
+    animation-name: moveRotate;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 4s;
+    animation-duration: 4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.moveRotate2{
+    -webkit-animation-name: moveRotate;
+    animation-name: moveRotate;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.moveRotate3{
+    -webkit-animation-name: moveRotate;
+    animation-name: moveRotate;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}

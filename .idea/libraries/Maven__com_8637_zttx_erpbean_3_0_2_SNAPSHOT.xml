@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.8637:zttx-erpbean:3.0.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-erpbean/3.0.2-SNAPSHOT/zttx-erpbean-3.0.2-20151210.004737-15.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-erpbean/3.0.2-SNAPSHOT/zttx-erpbean-3.0.2-20151210.004737-15-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/8637/zttx-erpbean/3.0.2-SNAPSHOT/zttx-erpbean-3.0.2-20151210.004737-15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

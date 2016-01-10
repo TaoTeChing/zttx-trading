@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.ArticleCateMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="articleCateColumns">
+        a.refrenceId as refrenceId,
+        a.cateName as cateName ,
+        a.domainName as domainName,
+        a.cateIcon as cateIcon,
+        a.cateMark as cateMark,
+        a.parentId as parentId,
+        a.cateOrder as cateOrder ,
+        a.cateLevel as cateLevel,
+        a.articleNum as articleNum,
+        a.moduleFile as moduleFile,
+        a.htmlFile as htmlFile,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.ArticleCate">
+        INSERT INTO ArticleCate (
+        refrenceId,
+        cateName,
+        domainName,
+        cateIcon,
+        cateMark,
+        parentId,
+        cateOrder,
+        cateLevel,
+        articleNum,
+        moduleFile,
+        htmlFile,
+        createTime,
+        updateTime,
+        delFlag
+        ) VALUES (
+        #{refrenceId},
+        #{cateName},
+        #{domainName},
+        #{cateIcon},
+        #{cateMark},
+        #{parentId},
+        #{cateOrder},
+        #{cateLevel},
+        #{articleNum},
+        #{moduleFile},
+        #{htmlFile},
+        #{createTime},
+        #{updateTime},
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM ArticleCate
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE ArticleCate
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.ArticleCate">
+        insert into ArticleCate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="cateName != null">
+                cateName ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="cateIcon != null">
+                cateIcon ,
+            </if>
+            <if test="cateMark != null">
+                cateMark ,
+            </if>
+            <if test="parentId != null">
+                parentId ,
+            </if>
+            <if test="cateOrder != null">
+                cateOrder ,
+            </if>
+            <if test="cateLevel != null">
+                cateLevel ,
+            </if>
+            <if test="articleNum != null">
+                articleNum ,
+            </if>
+            <if test="moduleFile != null">
+                moduleFile ,
+            </if>
+            <if test="htmlFile != null">
+                htmlFile ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="cateName != null">
+                #{cateName} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="cateIcon != null">
+                #{cateIcon} ,
+            </if>
+            <if test="cateMark != null">
+                #{cateMark} ,
+            </if>
+            <if test="parentId != null">
+                #{parentId} ,
+            </if>
+            <if test="cateOrder != null">
+                #{cateOrder} ,
+            </if>
+            <if test="cateLevel != null">
+                #{cateLevel} ,
+            </if>
+            <if test="articleNum != null">
+                #{articleNum} ,
+            </if>
+            <if test="moduleFile != null">
+                #{moduleFile} ,
+            </if>
+            <if test="htmlFile != null">
+                #{htmlFile} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.ArticleCate">
+        update ArticleCate
+        <set>
+            <if test="cateName != null">
+                cateName = #{cateName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="cateIcon != null">
+                cateIcon = #{cateIcon} ,
+            </if>
+            <if test="cateMark != null">
+                cateMark = #{cateMark} ,
+            </if>
+            <if test="parentId != null">
+                parentId = #{parentId} ,
+            </if>
+            <if test="cateOrder != null">
+                cateOrder = #{cateOrder} ,
+            </if>
+            <if test="cateLevel != null">
+                cateLevel = #{cateLevel} ,
+            </if>
+            <if test="articleNum != null">
+                articleNum = #{articleNum} ,
+            </if>
+            <if test="moduleFile != null">
+                moduleFile = #{moduleFile} ,
+            </if>
+            <if test="htmlFile != null">
+                htmlFile = #{htmlFile} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.ArticleCate">
+        UPDATE ArticleCate
+        SET
+        cateName = #{cateName},
+        domainName = #{domainName},
+        cateIcon = #{cateIcon},
+        cateMark = #{cateMark},
+        parentId = #{parentId},
+        cateOrder = #{cateOrder},
+        cateLevel = #{cateLevel},
+        articleNum = #{articleNum},
+        moduleFile = #{moduleFile},
+        htmlFile = #{htmlFile},
+        createTime = #{createTime},
+        updateTime = #{updateTime},
+        delFlag = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.ArticleCate">
+        select
+        <include refid="articleCateColumns"/>
+        from ArticleCate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.ArticleCate">
+        SELECT
+        <include refid="articleCateColumns"/>
+        FROM ArticleCate a WHERE a.delFlag = 0
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId = #{refrenceId}
+        </if>
+        <if test="cateName != null and cateName != ''">
+            and a.cateName like CONCAT('%',#{cateName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="cateIcon != null and cateIcon != ''">
+            and a.cateIcon like CONCAT('%',#{cateIcon}, '%')
+        </if>
+        <if test="cateMark != null and cateMark != ''">
+            and a.cateMark like CONCAT('%',#{cateMark}, '%')
+        </if>
+        <if test="parentId != null and parentId != ''">
+            and a.parentId like CONCAT('%',#{parentId}, '%')
+        </if>
+        <if test="cateOrder != null and cateOrder != ''">
+            and a.cateOrder = #{cateOrder}
+        </if>
+        <if test="cateLevel != null and cateLevel != ''">
+            and a.cateLevel = #{cateLevel}
+        </if>
+        <if test="articleNum != null and articleNum != ''">
+            and a.articleNum = #{articleNum}
+        </if>
+        <if test="moduleFile != null and moduleFile != ''">
+            and a.moduleFile like CONCAT('%',#{moduleFile}, '%')
+        </if>
+        <if test="htmlFile != null and htmlFile != ''">
+            and a.htmlFile like CONCAT('%',#{htmlFile}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.ArticleCate">
+        SELECT
+        <include refid="articleCateColumns"/>
+        FROM ArticleCate a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findByLevel" resultType="com.zttx.web.module.fronts.entity.ArticleCate">
+        SELECT
+        <include refid="articleCateColumns"/>
+        FROM ArticleCate a WHERE a.cateLevel = #{cateLevel} and a.delFlag = 0
+    </select>
+    <select id="findByParentId" resultType="com.zttx.web.module.fronts.entity.ArticleCate">
+        SELECT
+        <include refid="articleCateColumns"/>
+        FROM ArticleCate a WHERE a.parentId = #{parentId} and a.delFlag = 0
+    </select>
+</mapper>
+

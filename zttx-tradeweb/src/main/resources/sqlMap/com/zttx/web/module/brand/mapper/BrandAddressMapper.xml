@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandAddressMapper">
+    <!-- 基础列 -->
+    <sql id="brandAddressColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.storeId as storeId ,
+        a.userName as userName ,
+        a.areaNo as areaNo ,
+        a.street as street ,
+        a.userTel as userTel ,
+        a.userMobile as userMobile ,
+        a.addressMark as addressMark ,
+        a.sendDefault as sendDefault ,
+        a.returnDefault as returnDefault ,
+        a.zipCode as zipCode ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandAddress">
+        insert into BrandAddress(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         storeId ,
+         userName ,
+         areaNo ,
+         street ,
+         userTel ,
+         userMobile ,
+         addressMark ,
+         sendDefault ,
+         returnDefault ,
+         zipCode ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{storeId}  ,
+        #{userName}  ,
+        #{areaNo}  ,
+        #{street}  ,
+        #{userTel}  ,
+        #{userMobile}  ,
+        #{addressMark}  ,
+        #{sendDefault}  ,
+        #{returnDefault}  ,
+        #{zipCode}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandAddress where refrenceId = #{refrenceId}
+    </delete>
+
+
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandAddress set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandAddress">
+        insert into BrandAddress
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="storeId != null">
+            storeId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="areaNo != null">
+            areaNo ,
+        </if>
+        <if test="street != null">
+            street ,
+        </if>
+        <if test="userTel != null">
+            userTel ,
+        </if>
+        <if test="userMobile != null">
+            userMobile ,
+        </if>
+        <if test="addressMark != null">
+            addressMark ,
+        </if>
+        <if test="sendDefault != null">
+            sendDefault ,
+        </if>
+        <if test="returnDefault != null">
+            returnDefault ,
+        </if>
+        <if test="zipCode != null">
+            zipCode ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="storeId != null">
+            #{storeId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="areaNo != null">
+            #{areaNo} ,
+        </if>
+        <if test="street != null">
+            #{street} ,
+        </if>
+        <if test="userTel != null">
+            #{userTel} ,
+        </if>
+        <if test="userMobile != null">
+            #{userMobile} ,
+        </if>
+        <if test="addressMark != null">
+            #{addressMark} ,
+        </if>
+        <if test="sendDefault != null">
+            #{sendDefault} ,
+        </if>
+        <if test="returnDefault != null">
+            #{returnDefault} ,
+        </if>
+        <if test="zipCode != null">
+            #{zipCode} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandAddress">
+        update BrandAddress
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="storeId != null">
+                storeId = #{storeId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="street != null">
+                street = #{street} ,
+            </if>
+            <if test="userTel != null">
+                userTel = #{userTel} ,
+            </if>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="addressMark != null">
+                addressMark = #{addressMark} ,
+            </if>
+            <if test="sendDefault != null">
+                sendDefault = #{sendDefault} ,
+            </if>
+            <if test="returnDefault != null">
+                returnDefault = #{returnDefault} ,
+            </if>
+            <if test="zipCode != null">
+                zipCode = #{zipCode} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandAddress">
+        update BrandAddress set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            storeId = #{storeId} ,
+            userName = #{userName} ,
+            areaNo = #{areaNo} ,
+            street = #{street} ,
+            userTel = #{userTel} ,
+            userMobile = #{userMobile} ,
+            addressMark = #{addressMark} ,
+            sendDefault = #{sendDefault} ,
+            returnDefault = #{returnDefault} ,
+            zipCode = #{zipCode} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        select <include refid="brandAddressColumns"/> from BrandAddress a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        SELECT
+        <include refid="brandAddressColumns"/>
+        FROM BrandAddress a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="storeId != null and storeId != ''">
+            and a.storeId like CONCAT('%',#{storeId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="street != null and street != ''">
+            and a.street like CONCAT('%',#{street}, '%')
+        </if>
+        <if test="userTel != null and userTel != ''">
+            and a.userTel like CONCAT('%',#{userTel}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="addressMark != null and addressMark != ''">
+            and a.addressMark like CONCAT('%',#{addressMark}, '%')
+        </if>
+        <if test="sendDefault != null and sendDefault != ''">
+            and a.sendDefault = #{sendDefault}
+        </if>
+        <if test="returnDefault != null and returnDefault != ''">
+            and a.returnDefault = #{returnDefault}
+        </if>
+        <if test="zipCode != null and zipCode != ''">
+            and a.zipCode like CONCAT('%',#{zipCode}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        SELECT
+        <include refid="brandAddressColumns"/>
+        FROM BrandAddress a WHERE a.delFlag = 0
+    </select>
+
+    <select id="listAddressMap" resultType="java.util.HashMap">
+        SELECT
+            a.refrenceId    AS id,
+            b.brandsName    AS brandsName,
+            c.storeName     AS storeName,
+            a.userName      AS userName,
+            a.areaNo        AS areaNo,
+            a.street        AS street,
+            a.userTel       AS userTel,
+            a.userMobile    AS userMobile,
+            a.returnDefault AS returnDefault,
+            a.zipCode       AS zipCode
+        FROM BrandAddress a, BrandesInfo b, BrandStore c
+        WHERE
+            a.brandId = #{brandId} AND a.delFlag = #{delFlag} AND a.brandsId = b.refrenceId AND a.storeId = c.refrenceId
+        ORDER BY a.createTime DESC
+    </select>
+
+    <update id="cancelSenderDefault" parameterType="map">
+        UPDATE BrandAddress a
+        SET a.sendDefault = #{newSendDefalt}
+        WHERE a.brandsId = #{brandsId} AND a.sendDefault = #{oldSendDefalt}
+    </update>
+
+    <update id="cancelReturnDefault">
+        UPDATE BrandAddress a
+        SET a.returnDefault = #{newReturnDefalt}
+        WHERE a.brandsId = #{brandsId} AND a.returnDefault = #{oldReturnDefalt}
+    </update>
+
+    <select id="getDefaultAddress" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        select *
+        from BrandAddress a
+        where a.returnDefault = 1 and a.brandsId = #{brandsId} and a.delFlag = 0
+        order by a.createTime desc
+        LIMIT 0,1
+    </select>
+
+    <select id="getFirstAddress" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        select *
+        from BrandAddress a
+        where a.delFlag = 0 and a.brandsId = #{brandsId}
+        order by a.createTime desc
+        LIMIT 0,1
+    </select>
+
+    <delete id="deleteByIdAndBrandId">
+        update BrandAddress a
+        set a.delFlag = TRUE
+        where a.refrenceId = #{refrenceId} and a.brandId = #{brandId}
+    </delete>
+
+    <select id="listAddress" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        SELECT a.*
+        FROM BrandAddress a
+        WHERE a.delFlag = 0 AND a.brandsId = #{brandsId}
+        ORDER BY a.createTime DESC
+    </select>
+
+    <select id="getDefaultBrandAddressByBrandId" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        SELECT a.*
+        FROM BrandAddress a
+        WHERE a.returnDefault = 1 AND a.brandId = #{brandId} AND a.delFlag = 0
+        ORDER BY a.createTime DESC
+        LIMIT 0,1
+    </select>
+
+    <select id="getFirstBrandAddressByBrandId" resultType="com.zttx.web.module.brand.entity.BrandAddress">
+        SELECT a.*
+        FROM BrandAddress a
+        WHERE a.brandId = #{brandId} AND a.delFlag = 0
+        ORDER BY a.createTime DESC
+        LIMIT 0,1
+    </select>
+</mapper>
+

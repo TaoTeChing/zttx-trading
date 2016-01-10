@@ -1,0 +1,54 @@
+@charset "utf-8";
+@import "../mixin";
+
+.ts-grid-row{
+  @include clearfix();
+  width:1200px;
+  margin-left:-5px;
+  margin-right:-5px;
+}
+
+.ts-grid-1,.ts-grid-2,.ts-grid-3,.ts-grid-4,
+.ts-grid-5,.ts-grid-6,.ts-grid-7,.ts-grid-8,
+.ts-grid-9,.ts-grid-10,.ts-grid-11.ts-grid-12{
+  @include float();
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.ts-grid-1{
+  width:90px;
+}
+.ts-grid-2{
+  width:190px;
+}
+.ts-grid-3{
+  width:290px;
+}
+.ts-grid-4{
+   width:390px;
+ }
+.ts-grid-5{
+  width:490px;
+}
+.ts-grid-6{
+    width:590px;
+}
+.ts-grid-7{
+  width:690px;
+}
+.ts-grid-8{
+  width:790px;
+}
+.ts-grid-9{
+  width:890px;
+}
+.ts-grid-10{
+  width:990px;
+}
+.ts-grid-11{
+  width:1090px;
+}
+.ts-grid-12{
+  width:1190px;
+}

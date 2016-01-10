@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductEditMapper">
+	<!-- 基础列 -->
+	<sql id="productEditColumns">
+		a.refrenceId as refrenceId ,
+		a.state as state ,
+		a.updateTime as updateTime ,
+		a.createTime as createTime
+	</sql>
+
+	<!-- 普通插入 -->
+	<insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductEdit">
+		insert into ProductEdit(
+		refrenceId ,
+		state ,
+		updateTime ,
+		createTime
+		) VALUES (
+		#{refrenceId} ,
+		#{state} ,
+		#{updateTime} ,
+		#{createTime}
+		)
+	</insert>
+	<!-- 根据主键物理删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from ProductEdit where refrenceId = #{refrenceId}
+	</delete>
+
+	<!-- 根据主键逻辑删除 -->
+	<update id="delete" parameterType="java.lang.String">
+		update ProductEdit set delFlag = true where refrenceId = #{refrenceId}
+	</update>
+
+	<!--根据条件是否插入数据 -->
+	<insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductEdit">
+		insert into ProductEdit
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="refrenceId != null">
+				refrenceId ,
+			</if>
+			<if test="state != null">
+				state ,
+			</if>
+			<if test="updateTime != null">
+				updateTime ,
+			</if>
+			<if test="createTime != null">
+				createTime
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="refrenceId != null">
+				#{refrenceId} ,
+			</if>
+			<if test="state != null">
+				#{state} ,
+			</if>
+			<if test="updateTime != null">
+				#{updateTime} ,
+			</if>
+			<if test="createTime != null">
+				#{createTime}
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 选择性更新数据 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductEdit">
+		update ProductEdit
+		<set>
+			<if test="state != null">
+				state = #{state} ,
+			</if>
+			<if test="updateTime != null">
+				updateTime = #{updateTime} ,
+			</if>
+			<if test="createTime != null">
+				createTime = #{createTime}
+			</if>
+		</set>
+		where refrenceId = #{refrenceId}
+	</update>
+
+	<!-- 根据主键更新一条信息所有数据 -->
+	<update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductEdit">
+		update ProductEdit set
+		state = #{state} ,
+		updateTime = #{updateTime} ,
+		createTime = #{createTime}
+		where refrenceId = #{refrenceId}
+	</update>
+
+	<!-- 根据主键取数据 -->
+	<select id="selectByPrimaryKey" parameterType="java.lang.String"
+		resultType="com.zttx.web.module.common.entity.ProductEdit">
+		select
+		<include refid="productEditColumns" />
+		from ProductEdit a where a.refrenceId = #{refrenceId}
+	</select>
+
+	<!-- 可分页的对象查询 -->
+	<select id="findList" resultType="com.zttx.web.module.common.entity.ProductEdit">
+		SELECT
+		<include refid="productEditColumns" />
+		FROM ProductEdit a WHERE a.delFlag = 0
+		<if test="state != null and state != ''">
+			and a.state = #{state}
+		</if>
+		<if test="updateTime != null and updateTime != ''">
+			and a.updateTime = #{updateTime}
+		</if>
+		<if test="createTime != null and createTime != ''">
+			and a.createTime = #{createTime}
+		</if>
+	</select>
+
+	<!-- 查询所有 -->
+	<select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductEdit">
+		SELECT
+		<include refid="productEditColumns" />
+		FROM ProductEdit a WHERE a.delFlag = 0
+	</select>
+
+	<select id="searchProList" parameterType="map" resultType="java.util.HashMap">
+		select 
+			a.refrenceId as productId,  
+			a.state as state, 
+			b.productImage as productImage, 
+			b.productNo as productNo, 
+			b.brandsName as brandsName
+		from ProductEdit a, ProductBaseInfo b
+		where 
+			a.refrenceId = b.refrenceId
+			<if test="state!=null">
+				and a.state = #{state}
+			</if>
+			<if test="info!=null and info.productNo!=null and info.productNo!=''">
+				and b.productNo like '%${info.productNo}%'
+			</if>
+			<if test="info!=null and info.brandsName!=null and info.brandsName!=''">
+				and b.brandsName like '%${info.brandsName}%'
+			</if>
+		order by a.updateTime desc
+	</select>
+</mapper>
+

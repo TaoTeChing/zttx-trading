@@ -1,0 +1,192 @@
+@charset "UTF-8";
+@import '../_mixin';
+@import "model/_button";
+@import "model/_form";
+@import "model/_table";
+@import "model/_pagination";
+.ui-table{
+    th,td{
+        text-align: center;
+        border:1px solid #d9d9d9;
+    }
+    th{
+        background: #F5F5F5;
+        font-size: 14px;
+        font-weight: normal;
+        color:#333;
+    }
+}
+/*.ui-table{
+    margin-bottom: -1px;
+    th,td{
+        text-align: center;
+    }
+    th{
+        line-height: 20px;
+        background: #fbfbfb;
+        color: #333;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    td{
+        line-height: 24px;
+    }
+}*/
+.ui-input{
+    width: 250px;
+}
+//下面统计
+.factory-count-box{
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+    text-align: right;
+    background: #fbfbfb;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: "Microsoft yahei";
+    .consult,.consult-r{
+        color: #0082cc;
+        font-size: 16px;
+    }
+    .consult-r{
+        color: #c00;
+    }
+}
+//分页
+.pagination{
+    padding: 5px;
+    margin-top:1px;
+}
+#favorite{
+    padding: 12px;
+    font-size: 14px;
+    .ui-button{
+        height: 34px;
+        line-height: 34px;
+    }
+}
+.factory-count{
+    padding: 0 10px;
+}
+
+.panel-tabs {
+    .panel-head ul {
+        border: 1px solid #D9D9D9;
+        //border-right: 0;
+        //border-bottom: 0;
+        margin-bottom: -1px;
+        position: relative;
+        background-color: #fbfbfb;
+        height: 46px;
+        @include inline-float();
+
+        a {
+            display: block;
+            border-right: 1px solid #ddd;
+            height: 46px;
+            line-height: 46px;
+            width: 110px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+            background: #fbfbfb;
+            font-size: 14px;
+            color:#666;
+            &.active{
+                background-color: #fff;
+                border-bottom: 1px solid #fff;
+                color:#333;
+                height: 44px;
+                border-top: 2px solid #fe0100;
+            }
+            &:hover{
+                text-decoration: none;
+            }
+            &:focus{
+                outline:none;
+            }
+        }
+    }
+    .panel-content {
+        margin-top:15px;
+        padding:0 15px;
+    }
+}
+
+// 申请退款 详细页需要下面的样式
+.certificate_box {
+    margin-right: 10px;
+
+    li {
+        width: 110px;
+        height: 110px;
+        padding: 1px;
+        border: #d9d9d9 solid 1px;
+        margin-right: 10px;
+
+        .img_contain {
+            width: 110px;
+            height: 110px;
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        span {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #b4b4b4;
+            font-size: 18px;
+            line-height: 1;
+            display: none;
+        }
+    }
+
+    .add_certificate {
+        width: 112px;
+        height: 112px;
+        padding: 0;
+        border: #ccc dashed 1px;
+        background: #f9f9f9;
+
+        .file_wrap {
+            width: 112px;
+            height: 112px;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            .iconfont{
+                color: #DDD;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 21px;
+            }
+        }
+
+        .icon-fileupload {
+            color: #ddd;
+            padding: 45px;
+            display: block;
+            margin-top: 11px;
+            background: url(/images/dealer/icon-fileupload.gif) no-repeat center;
+            *background: url(/images/dealer/icon-fileupload.gif) no-repeat center; /* For IE 6 and 7 */
+        }
+
+        .input_file {
+            width: 112px;
+            height: 112px;
+        }
+    }
+}

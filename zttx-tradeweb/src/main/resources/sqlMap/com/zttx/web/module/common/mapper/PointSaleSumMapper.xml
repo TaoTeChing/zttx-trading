@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.PointSaleSumMapper">
+    <!-- 基础列 -->
+    <sql id="pointSaleSumColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.saleNumSum as saleNumSum ,
+        a.salePriceSum as salePriceSum ,
+        a.pointPriceSum as pointPriceSum ,
+        a.costPriceSum as costPriceSum ,
+        a.paidPriceSum as paidPriceSum ,
+        a.debtPriceSum as debtPriceSum ,
+        a.erpTime as erpTime,
+        a.createTime as createTime,
+        a.isPaid as isPaid ,
+        a.payExtId as payExtId,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.PointSaleSum">
+        insert into PointSaleSum(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId,
+        saleNumSum ,
+        salePriceSum ,
+        pointPriceSum ,
+        costPriceSum ,
+        paidPriceSum ,
+        debtPriceSum ,
+        erpTime,
+        createTime,
+        isPaid ,
+        payExtId,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{dealerId} ,
+        #{brandId} ,
+        #{brandsId} ,
+        #{saleNumSum} ,
+        #{salePriceSum} ,
+        #{pointPriceSum} ,
+        #{costPriceSum} ,
+        #{paidPriceSum} ,
+        #{debtPriceSum} ,
+        #{erpTime} ,
+        #{createTime} ,
+        #{isPaid} ,
+        #{payExtId},
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from PointSaleSum where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update PointSaleSum set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.PointSaleSum">
+        insert into PointSaleSum
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="saleNumSum != null">
+                saleNumSum ,
+            </if>
+            <if test="salePriceSum != null">
+                salePriceSum ,
+            </if>
+            <if test="pointPriceSum != null">
+                pointPriceSum ,
+            </if>
+            <if test="costPriceSum != null">
+                costPriceSum ,
+            </if>
+            <if test="paidPriceSum != null">
+                paidPriceSum ,
+            </if>
+            <if test="debtPriceSum != null">
+                debtPriceSum ,
+            </if>
+            <if test="erpTime != null">
+                erpTime ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="isPaid != null">
+                isPaid ,
+            </if>
+            <if test="payExtId != null">
+                payExtId ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="saleNumSum != null">
+                #{saleNumSum} ,
+            </if>
+            <if test="salePriceSum != null">
+                #{salePriceSum} ,
+            </if>
+            <if test="pointPriceSum != null">
+                #{pointPriceSum} ,
+            </if>
+            <if test="costPriceSum != null">
+                #{costPriceSum} ,
+            </if>
+            <if test="paidPriceSum != null">
+                #{paidPriceSum} ,
+            </if>
+            <if test="debtPriceSum != null">
+                #{debtPriceSum} ,
+            </if>
+            <if test="erpTime != null">
+                #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="isPaid != null">
+                #{isPaid} ,
+            </if>
+            <if test="payExtId != null">
+                #{payExtId} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into PointSaleSum(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        saleNumSum ,
+        salePriceSum ,
+        pointPriceSum ,
+        costPriceSum ,
+        paidPriceSum ,
+        debtPriceSum ,
+        erpTime ,
+        createTime ,
+        isPaid ,
+        payExtId,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.dealerId} ,
+            #{item.brandId} ,
+            #{item.brandsId} ,
+            #{item.saleNumSum} ,
+            #{item.salePriceSum} ,
+            #{item.pointPriceSum} ,
+            #{item.costPriceSum} ,
+            #{item.paidPriceSum} ,
+            #{item.debtPriceSum} ,
+            #{item.erpTime} ,
+            #{item.createTime} ,
+            #{item.isPaid} ,
+            #{item.payExtId} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.PointSaleSum">
+        update PointSaleSum
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="saleNumSum != null">
+                saleNumSum = #{saleNumSum} ,
+            </if>
+            <if test="salePriceSum != null">
+                salePriceSum = #{salePriceSum} ,
+            </if>
+            <if test="pointPriceSum != null">
+                pointPriceSum = #{pointPriceSum} ,
+            </if>
+            <if test="costPriceSum != null">
+                costPriceSum = #{costPriceSum} ,
+            </if>
+            <if test="paidPriceSum != null">
+                paidPriceSum = #{paidPriceSum} ,
+            </if>
+            <if test="debtPriceSum != null">
+                debtPriceSum = #{debtPriceSum} ,
+            </if>
+            <if test="erpTime != null">
+                erpTime = #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="isPaid != null">
+                isPaid = #{isPaid} ,
+            </if>
+            <if test="payExtId != null">
+                isPaid = #{payExtId} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update PointSaleSum set
+            dealerId = #{item.dealerId} ,
+            brandId = #{item.brandId} ,
+            brandsId = #{item.brandsId} ,
+            saleNumSum = #{item.saleNumSum} ,
+            salePriceSum = #{item.salePriceSum} ,
+            pointPriceSum = #{item.pointPriceSum} ,
+            costPriceSum = #{item.costPriceSum} ,
+            paidPriceSum = #{item.paidPriceSum} ,
+            debtPriceSum = #{item.debtPriceSum} ,
+            erpTime = #{item.erpTime} ,
+            createTime = #{item.createTime} ,
+            isPaid = #{item.isPaid} ,
+            payExtId = #{item.payExtId} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.PointSaleSum">
+        update PointSaleSum set
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        brandsId = #{brandsId} ,
+        saleNumSum = #{saleNumSum} ,
+        salePriceSum = #{salePriceSum} ,
+        pointPriceSum = #{pointPriceSum} ,
+        costPriceSum = #{costPriceSum} ,
+        paidPriceSum = #{paidPriceSum} ,
+        debtPriceSum = #{debtPriceSum} ,
+        erpTime = #{erpTime} ,
+        createTime = #{createTime} ,
+        isPaid = #{isPaid} ,
+        payExtId = #{payExtId} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+    <update id="updatePointSaleSum">
+        UPDATE PointSaleSum a
+        SET a.payExtId = #{payExtId},
+        a.isPaid=#{isPaid}
+        WHERE
+        a.dealerId = #{dealerId}
+        AND a.brandId = #{brandId}
+        AND a.erpTime &gt;= #{startTimeLong}
+        AND a.erpTime &lt;= #{endTimeLong}
+        AND a.delFlag = 0
+        AND a.isPaid = 0
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.PointSaleSum">
+        select
+        <include refid="pointSaleSumColumns"/>
+        from PointSaleSum a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.PointSaleSum">
+        SELECT
+        <include refid="pointSaleSumColumns"/>
+        FROM PointSaleSum a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="saleNumSum != null and saleNumSum != ''">
+            and a.saleNumSum = #{saleNumSum}
+        </if>
+        <if test="salePriceSum != null and salePriceSum != ''">
+            and a.salePriceSum = #{salePriceSum}
+        </if>
+        <if test="pointPriceSum != null and pointPriceSum != ''">
+            and a.pointPriceSum = #{pointPriceSum}
+        </if>
+        <if test="costPriceSum != null and costPriceSum != ''">
+            and a.costPriceSum = #{costPriceSum}
+        </if>
+        <if test="paidPriceSum != null and paidPriceSum != ''">
+            and a.paidPriceSum = #{paidPriceSum}
+        </if>
+        <if test="debtPriceSum != null and debtPriceSum != ''">
+            and a.debtPriceSum = #{debtPriceSum}
+        </if>
+        <if test="erpTime != null and erpTime != ''">
+            and a.erpTime = #{erpTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="isPaid != null and isPaid != ''">
+            and a.isPaid = #{isPaid}
+        </if>
+        <if test="payExtId != null and payExtId != ''">
+            and a.payExtId = #{payExtId}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.PointSaleSum">
+        SELECT
+        <include refid="pointSaleSumColumns"/>
+        FROM PointSaleSum a WHERE a.delFlag = 0
+    </select>
+
+    <select id="selectPointSaleSumList" resultType="java.util.Map">
+        select
+        <include refid="pointSaleSumColumns"/>
+        from PointSaleSum a
+        where a.dealerId=#{pointSaleSum.dealerId}
+        and a.brandId=#{pointSaleSum.brandId}
+        <if test="null!=pointSaleSum.startTimeLong and ''!=pointSaleSum.startTimeLong">
+            and a.erpTime &gt;= #{pointSaleSum.startTimeLong}
+        </if>
+        <if test="null!=pointSaleSum.endTimeLong and ''!=pointSaleSum.endTimeLong">
+            and a.erpTime &lt;#{pointSaleSum.endTimeLong}
+        </if>
+        and a.delFlag = 0
+    </select>
+    <select id="countPointSaleSumListSum" resultType="java.util.Map">
+        select
+        count(a.refrenceId) as count,
+        sum(a.costPriceSum) as costPriceSum,
+        sum(a.paidPriceSum) as paidPriceSum,
+        sum(a.debtPriceSum) as debtPriceSum
+        from PointSaleSum a
+        where a.delFlag = 0
+        and a.dealerId=#{pointSaleSum.dealerId}
+        and a.brandId=#{pointSaleSum.brandId}
+        <if test="null!=pointSaleSum.startTimeLong and ''!=pointSaleSum.startTimeLong">
+            and a.erpTime &gt;= #{pointSaleSum.startTimeLong}
+        </if>
+        <if test="null!=pointSaleSum.endTimeLong and ''!=pointSaleSum.endTimeLong">
+            and a.erpTime &lt;#{pointSaleSum.endTimeLong}
+        </if>
+    </select>
+    <select id="countDealersPointFinancial" resultType="java.util.Map">
+        select
+        t.dealerId as dealerId,
+        t.brandId as brandId,
+        case when sum(a.saleNumSum) is null then 0 else sum(a.saleNumSum) end as allSaleNumSum,
+        case when sum(a.salePriceSum) is null then 0 else sum(a.salePriceSum) end as allSalePriceSum,
+        case when sum(a.pointPriceSum) is null then 0 else sum(a.pointPriceSum) end  as allPointPriceSum,
+        case when sum(a.costPriceSum) is null then 0 else sum(a.costPriceSum) end  as allCostPriceSum,
+        case when sum(a.paidPriceSum) is null then 0 else sum(a.paidPriceSum) end  as allPaidPriceSum,
+        case when sum(a.debtPriceSum) is null then 0 else sum(a.debtPriceSum) end  as allDebtPriceSum,
+        <choose>
+            <when test="null!=pointSaleSum.brandId and ''!=pointSaleSum.brandId">
+                b.dealerName as dealerName
+                from
+                (
+                SELECT
+                k.brandId,
+                k.dealerId
+                FROM
+                DealerOrder k
+                WHERE
+                k.dealerOrderType = 3
+                AND k.orderStatus > 2
+                AND k.orderStatus != 10
+                AND k.brandId = #{pointSaleSum.brandId}
+                GROUP BY
+                k.dealerId
+                ) t
+                LEFT JOIN (select * from PointSaleSum a where a.delFlag=0) a ON t.brandId = a.brandId
+                AND t.dealerId = a.dealerId
+                LEFT JOIN DealerInfo b ON t.dealerId = b.refrenceId
+                WHERE 1=1
+                <if test="null!=pointSaleSum.dealerName and ''!=pointSaleSum.dealerName">
+                    and b.dealerName like concat('%',#{pointSaleSum.dealerName},'%')
+                </if>
+                GROUP BY
+                t.dealerId
+                ORDER BY
+                a.erpTime DESC
+            </when>
+            <otherwise>
+                b.comName as brandName
+                from
+                (
+                SELECT
+                k.brandId,
+                k.dealerId
+                FROM
+                DealerOrder k
+                WHERE
+                k.dealerOrderType = 3
+                AND k.orderStatus > 2
+                AND k.orderStatus != 10
+                AND k.dealerId = #{pointSaleSum.dealerId}
+                GROUP BY
+                k.dealerId
+                ) t
+                LEFT JOIN (select * from PointSaleSum a where a.delFlag=0) a ON t.brandId = a.brandId
+                AND t.dealerId = a.dealerId
+                LEFT JOIN BrandInfo b ON t.brandId = b.refrenceId
+                WHERE 1=1
+                <if test="null!=pointSaleSum.brandName and ''!=pointSaleSum.brandName">
+                    and b.comName like concat('%',#{pointSaleSum.brandName},'%')
+                </if>
+                GROUP BY
+                t.dealerId
+                ORDER BY
+                a.erpTime DESC
+            </otherwise>
+        </choose>
+    </select>
+    <select id="countDealersPointFinancialSum" resultType="java.util.Map">
+        SELECT
+        count(t.count) AS count,
+        sum(t.sumSaleNumSum) AS sumSaleNumSum,
+        sum(t.sumSalePriceSum) AS sumSalePriceSum,
+        sum(t.sumPointPriceSum) AS sumPointPriceSum,
+        sum(t.sumCostPriceSum) AS sumCostPriceSum,
+        sum(t.sumPaidPriceSum) AS sumPaidPriceSum,
+        sum(t.sumDebtPriceSum) AS sumDebtPriceSum
+        FROM
+        (select
+        count(a.refrenceId) as count,
+        sum(a.saleNumSum) as sumSaleNumSum,
+        sum(a.salePriceSum) as sumSalePriceSum,
+        sum(a.pointPriceSum) as sumPointPriceSum,
+        sum(a.costPriceSum) as sumCostPriceSum,
+        sum(a.paidPriceSum) as sumPaidPriceSum,
+        sum(a.debtPriceSum) as sumDebtPriceSum
+        <choose>
+            <when test="null!=pointSaleSum.brandId and ''!=pointSaleSum.brandId">
+                from PointSaleSum a,DealerInfo b
+                where a.delFlag = 0 and a.dealerId = b.refrenceId
+                and a.brandId = #{pointSaleSum.brandId}
+                <if test="null!=pointSaleSum.dealerName and ''!=pointSaleSum.dealerName">
+                    and b.dealerName like concat('%',#{pointSaleSum.dealerName},'%')
+                </if>
+                group by a.dealerId
+            </when>
+            <otherwise>
+                from PointSaleSum a,BrandInfo b
+                where a.delFlag = 0 and a.brandId = b.refrenceId
+                and a.dealerId = #{pointSaleSum.dealerId}
+                <if test="null!=pointSaleSum.brandName and ''!=pointSaleSum.brandName">
+                    and b.comName like concat('%',#{pointSaleSum.brandName},'%')
+                </if>
+                group by a.brandId
+            </otherwise>
+        </choose>
+        ) t
+    </select>
+    <select id="selectNoPayPoint" resultType="java.util.Map">
+        SELECT
+        count(a.refrenceId) as count,
+        a.brandId as brandId,
+        b.comName as brandName,
+        sum(a.debtPriceSum) as debtPriceSum,
+        min(a.createTime) as startTime,
+        max(a.createTime) as endTime
+        FROM PointSaleSum a,BrandInfo b
+        where a.brandId = b.refrenceId and a.delFlag=0 and a.isPaid = 0 and a.delFlag = 0
+        and a.dealerId=#{dealerId} and (a.payExtId is null)
+        and a.brandId in
+        <foreach collection="brandIds" item="brandId" open="(" separator="," close=")">
+            #{brandId}
+        </foreach>
+        group by a.brandId
+    </select>
+    <select id="selectPayIng" resultType="java.util.Map">
+        select
+        sum(a.debtPriceSum) as payIngSum
+        from
+        PointSaleSum a
+        where a.dealerId = #{dealerId} and a.delFlag = 0 and a.payExtId is not null and a.isPaid = 0
+        and a.brandId in
+        <foreach collection="brandIds" item="brandId" open="(" separator="," close=")">
+        #{brandId}
+        </foreach>
+        group by a.brandId
+    </select>
+</mapper>
+

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerPaywordMapper">
+    <!-- 基础列 -->
+    <sql id="dealerPaywordColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerTel as dealerTel ,
+        a.payWord as payWord ,
+        a.paySalt as paySalt ,
+        a.createTime as createTime ,
+        a.createIp as createIp ,
+        a.flag as flag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerPayword">
+        insert into DealerPayword(
+         refrenceId ,
+         dealerTel ,
+         payWord ,
+         paySalt ,
+         createTime ,
+         createIp ,
+         flag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerTel}  ,
+        #{payWord}  ,
+        #{paySalt}  ,
+        #{createTime}  ,
+        #{createIp}  ,
+        #{flag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerPayword where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerPayword set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerPayword">
+        insert into DealerPayword
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerTel != null">
+                dealerTel ,
+            </if>
+            <if test="payWord != null">
+                payWord ,
+            </if>
+            <if test="paySalt != null">
+                paySalt ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="flag != null">
+                flag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerTel != null">
+                #{dealerTel} ,
+            </if>
+            <if test="payWord != null">
+                #{payWord} ,
+            </if>
+            <if test="paySalt != null">
+                #{paySalt} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="flag != null">
+                #{flag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerPayword(
+        refrenceId ,
+        dealerTel ,
+        payWord ,
+        paySalt ,
+        createTime ,
+        createIp ,
+        flag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.dealerTel} ,
+            #{item.payWord} ,
+            #{item.paySalt} ,
+            #{item.createTime} ,
+            #{item.createIp} ,
+            #{item.flag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerPayword">
+        update DealerPayword
+        <set>
+            <if test="dealerTel != null">
+                dealerTel = #{dealerTel} ,
+            </if>
+            <if test="payWord != null">
+                payWord = #{payWord} ,
+            </if>
+            <if test="paySalt != null">
+                paySalt = #{paySalt} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="flag != null">
+                flag = #{flag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update DealerPayword set
+            dealerTel = #{item.dealerTel} ,
+            payWord = #{item.payWord} ,
+            paySalt = #{item.paySalt} ,
+            createTime = #{item.createTime} ,
+            createIp = #{item.createIp} ,
+            flag = #{item.flag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerPayword">
+        update DealerPayword set
+            dealerTel = #{dealerTel} ,
+            payWord = #{payWord} ,
+            paySalt = #{paySalt} ,
+            createTime = #{createTime} ,
+            createIp = #{createIp} ,
+            flag = #{flag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerPayword">
+        select
+        <include refid="dealerPaywordColumns"/>
+        from DealerPayword a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerPayword">
+        SELECT
+        <include refid="dealerPaywordColumns"/>
+        FROM DealerPayword a WHERE a.delFlag = 0
+        <if test="dealerTel != null and dealerTel != ''">
+            and a.dealerTel like CONCAT('%',#{dealerTel}, '%')
+        </if>
+        <if test="payWord != null and payWord != ''">
+            and a.payWord like CONCAT('%',#{payWord}, '%')
+        </if>
+        <if test="paySalt != null and paySalt != ''">
+            and a.paySalt like CONCAT('%',#{paySalt}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="flag != null and flag != ''">
+            and a.flag = #{flag}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerPayword">
+        SELECT
+        <include refid="dealerPaywordColumns"/>
+        FROM DealerPayword a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

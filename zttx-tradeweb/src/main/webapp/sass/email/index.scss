@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "_global";
+@import "../meet/_brandRecoment";
+body{
+  background: #FFF;
+}
+.main{
+  .content{
+    height: 370px;
+    background: url(/images/common/email-success-bg.jpg) 250px center no-repeat;
+    position: relative;
+    .info{
+      position:absolute;
+      padding:15px 60px;
+      border-radius: 6px;
+      border:1px solid #dddddd;
+      right:230px;
+      top:120px;
+      font-family: "宋体";
+      color:#555;
+      width:330px;
+      background:#f3fcd2 url(/images/common/email-state-icon_01.png) 25px 10px no-repeat;
+      h3{
+        font-size: 14px;
+        color:#42ab4e;
+        font-weight: bold;
+      }
+      p{
+        line-height: 18px;
+        margin-top:10px;
+        a{
+          color:#ff0000;
+          font-weight: bold;
+        }
+        i{
+          font-family: "Arial";
+          font-size: 18px;
+          color:#ff0000;
+          vertical-align: top;
+        }
+      }
+    }
+    .cat{
+      height: 65px;
+      width: 65px;
+      background: url(/images/common/email-cat.png) no-repeat;
+      position: absolute;
+      top:-52px;
+      right:40px;
+    }
+  }
+  .failed{
+    background: url(/images/common/email-failed-bg.jpg) 250px center no-repeat;
+    .info{
+      background:#FFFFFF url(/images/common/email-state-icon_02.png) 25px 0 no-repeat;
+      h3{
+        color:#d42223;
+      }
+    }
+    .cat{
+      background: url(/images/common/email-cat.png) 0 -95px no-repeat;
+    }
+  }
+}

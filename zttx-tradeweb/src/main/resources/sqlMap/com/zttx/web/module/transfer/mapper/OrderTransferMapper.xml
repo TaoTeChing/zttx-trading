@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.transfer.mapper.OrderTransferMapper">
+
+    <sql id="dealerOrderColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productBulk as productBulk ,
+        a.productWeight as productWeight ,
+        a.productPrice as productPrice ,
+        a.productCount as productCount ,
+        a.isAdvancePayment as isAdvancePayment ,
+        a.orderMoney as orderMoney ,
+        a.shipCount as shipCount ,
+        a.receiveCount as receiveCount ,
+        a.adjustPrice as adjustPrice ,
+        a.freight as freight ,
+        a.adjustFreight as adjustFreight ,
+        a.frePayState as frePayState ,
+        a.payment as payment ,
+        a.payState as payState ,
+        a.shipName as shipName ,
+        a.areaNo as areaNo ,
+        a.dealerAddrProvince as dealerAddrProvince ,
+        a.dealerAddrCity as dealerAddrCity ,
+        a.dealerAddrArea as dealerAddrArea ,
+        a.dealerAddress as dealerAddress ,
+        a.postCode as postCode ,
+        a.dealerMobile as dealerMobile ,
+        a.dealerTel as dealerTel ,
+        a.remark as remark ,
+        a.levelMark as levelMark ,
+        a.brandRemark as brandRemark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.outActTime as outActTime ,
+        a.orderStatus as orderStatus ,
+        a.refundStatus as refundStatus ,
+        a.serProStatus as serProStatus ,
+        a.complaintState as complaintState ,
+        a.orderItem as orderItem ,
+        a.sourceState as sourceState ,
+        a.sourceId as sourceId ,
+        a.activitiesNo as activitiesNo ,
+        a.minPoint as minPoint ,
+        a.dealerOrderType as dealerOrderType ,
+        a.pointBalanceAmount as pointBalanceAmount ,
+        a.frePayType as frePayType ,
+        a.clearingStatus as clearingStatus ,
+        a.clearingAmount as clearingAmount ,
+        a.offSetAmount as offSetAmount ,
+        a.isSampleOrder as isSampleOrder,
+        a.noSendGoodsAmount AS noSendGoodsAmount,
+        a.delFlag as delFlag
+    </sql>
+
+    <sql id="dealerOrdersColumns">
+        a.refrenceId AS refrenceId,
+        a.orderId AS orderId ,
+        a.dealerId AS dealerId,
+        a.lineId AS lineId,
+        a.agio AS agio,
+        a.brandId AS brandId,
+        a.brandsId AS brandsId ,
+        a.productId AS productId,
+        a.productTitle AS productTitle,
+        a.productNo AS productNo,
+        a.productImage AS productImage,
+        a.productSkuId AS productSkuId ,
+        a.productSkuCode AS productSkuCode,
+        a.productSkuName AS productSkuName,
+        a.createTime AS createTime,
+        a.updateTime AS updateTime,
+        a.productAttrbute AS productAttrbute ,
+        a.price AS price,
+        a.adjustPrice AS adjustPrice,
+        a.quantity AS quantity,
+        a.shipCount AS shipCount,
+        a.discount AS discount ,
+        a.discountPrice AS discountPrice,
+        a.itemState AS itemState,
+        a.synchTime AS synchTime,
+        a.totalAmount AS totalAmount,
+        a.point AS POINT ,
+        a.pointAmount AS pointAmount,
+        a.delFlag AS delFlag
+    </sql>
+
+    <select id="findFavourableOrderInfoCount" resultType="long">
+      SELECT count(*)
+            FROM
+                DealerOrder a
+            WHERE
+                a.adjustPrice is not null
+			  AND a.adjustPrice != 0
+  </select>
+
+    <select id="findFavourableOrderInfo" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.adjustPrice is not null
+        AND a.adjustPrice != 0
+    </select>
+
+    <select id="findDealerOrdersByOrderIdAndBrandId" resultType="com.zttx.web.module.dealer.entity.DealerOrders">
+        select
+        <include refid="dealerOrdersColumns"/>
+        from DealerOrders a
+        where a.orderId = #{orderId} and a.brandId = #{brandId}
+        order by a.productSkuName
+    </select>
+
+
+    <update id="updateDealerOrdersAdjustPrice" parameterType="com.zttx.web.module.dealer.entity.DealerOrders">
+        UPDATE DealerOrders
+        SET
+        adjustPrice = #{adjustPrice}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <select id="findUnCompleteFactoryOrderInfoCount" resultType="long">
+      SELECT count(*)
+            FROM
+                DealerOrder a
+            WHERE a.dealerOrderType = 2 AND
+            a.orderStatus != 9 AND a.orderStatus != 10
+    </select>
+
+    <select id="findUnCompleteFactoryOrderInfo" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.dealerOrderType = 2 AND a.orderStatus != 9 AND a.orderStatus != 10
+    </select>
+
+    <select id="findWaitReceiveFactoryOrderInfoCount" resultType="long">
+        SELECT count(*)
+        FROM
+        DealerOrder a
+        WHERE
+        a.orderStatus = 4 and a.dealerOrderType = 2
+    </select>
+
+    <select id="findWaitReceiveFactoryOrderInfo" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.orderStatus = 4 and a.dealerOrderType = 2
+    </select>
+
+    <select id="findByOrderId" resultType="com.zttx.web.module.dealer.entity.DealerOrder">
+        select
+        <include refid="dealerOrderColumns"/>
+        from DealerOrder a
+        where a.orderId = #{orderId}
+    </select>
+
+    <update id="updateorderStatus">
+        UPDATE DealerOrder
+        SET
+        orderStatus = #{orderStatus}
+        WHERE orderId = #{orderId}
+    </update>
+</mapper>

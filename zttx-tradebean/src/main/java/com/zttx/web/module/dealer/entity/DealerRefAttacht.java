@@ -1,0 +1,109 @@
+/*
+ * Copyright 2015 Zttx, Inc. All rights reserved. 8637.com
+ * PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ */
+package com.zttx.web.module.dealer.entity;
+
+import com.zttx.sdk.core.GenericEntity;
+
+/**
+ * 退款附件 实体对象
+ * <p>File：DealerRefAttacht.java</p>
+ * <p>Title: DealerRefAttacht</p>
+ * <p>Description:DealerRefAttacht</p>
+ * <p>Copyright: Copyright (c) May 26, 2015</p>
+ * <p>Company: 8637.com</p>
+ * @author Playguy
+ * @version 1.0
+ */
+public class DealerRefAttacht extends GenericEntity {
+	
+	private static final long serialVersionUID = 1L;
+	
+	/**refundId*/
+	private java.lang.String refundId;
+	/**用户编号*/
+	private java.lang.String userId;
+	/**留言回复编号*/
+	private java.lang.String replyId;
+	/**用户/经销商/品牌商名称*/
+	private java.lang.String userName;
+	/**附件域名*/
+	private java.lang.String domainName;
+	/**附件地址*/
+	private java.lang.String attachtName;
+	/**建档时间*/
+	private java.lang.Long createTime;
+	
+	public java.lang.String getRefundId()
+	{
+		return this.refundId;
+	}
+	
+	public void setRefundId(java.lang.String refundId)
+	{
+		this.refundId = refundId;
+	}
+	
+	public java.lang.String getUserId()
+	{
+		return this.userId;
+	}
+	
+	public void setUserId(java.lang.String userId)
+	{
+		this.userId = userId;
+	}
+	
+	public java.lang.String getReplyId()
+	{
+		return this.replyId;
+	}
+	
+	public void setReplyId(java.lang.String replyId)
+	{
+		this.replyId = replyId;
+	}
+	
+	public java.lang.String getUserName()
+	{
+		return this.userName;
+	}
+	
+	public void setUserName(java.lang.String userName)
+	{
+		this.userName = userName;
+	}
+	
+	public java.lang.String getDomainName()
+	{
+		return this.domainName;
+	}
+	
+	public void setDomainName(java.lang.String domainName)
+	{
+		this.domainName = domainName;
+	}
+	
+	public java.lang.String getAttachtName()
+	{
+		return this.attachtName;
+	}
+	
+	public void setAttachtName(java.lang.String attachtName)
+	{
+		this.attachtName = attachtName;
+	}
+	
+	public java.lang.Long getCreateTime()
+	{
+		return this.createTime;
+	}
+	
+	public void setCreateTime(java.lang.Long createTime)
+	{
+		this.createTime = createTime;
+	}
+	
+}
+

@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+//物流详情
+/**
+    <ul>
+        <li>
+            <span class="logistics-date">2013-12-17 12:12:12</span>
+            <span class="logistics-log">生成订单   订单编号：  2013000021216</span>
+        </li>
+    </ul>
+*/
+.delivery_box{
+    li{
+        background: url("/images/common/delivery_icon.png") no-repeat 125px -76px;
+        color: #666666;
+        //height: 38px;
+        line-height: 38px;
+    }
+    .first{
+        background-position: 125px 0;
+    }
+    .start{
+        background-position: 125px -38px;
+    }
+    .end{
+        background-position: 125px -173px;
+    }
+    .logistics-date{
+        margin-right: 15px;
+        vertical-align: top;
+    }
+    .logistics-log {
+        width: 70%;
+        padding-left: 20px;
+        /*overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;*/
+    }
+}

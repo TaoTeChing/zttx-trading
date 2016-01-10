@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/*分页*/
+.pro-pages{ text-align: center;background: #fff;border:1px solid #e5e5e5;padding:10px;}
+.pro-pages .pagination .page{
+  padding:0;
+}
+.pro-pages a:hover{ background: #ca3331; color: #fff;}
+.pro-pages .page,.pro-pages .next,.pro-pages .prev{ display: inline-block; *display: inline; *zoom: 1; width: 36px; height: 36px; line-height: 36px; background: #ededed; color:#666; font-family: "微软雅黑"; font-size: 14px;margin:0 5px;}
+.pro-pages .current{background: #ca3331; color: #fff;}
+.pro-pages .next,.pro-pages .prev{ font-family: "宋体";border:0;border-radius: 0;width:60px;}

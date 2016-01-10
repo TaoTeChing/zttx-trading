@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerShopEnvMapper">
+    <!-- 基础列 -->
+    <sql id="dealerShopEnvColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.shopName as shopName ,
+        a.environment as environment ,
+        a.scale as scale ,
+        a.shopMeters as shopMeters ,
+        a.shape as shape ,
+        a.trade as trade ,
+        a.model as model ,
+        a.brand as brand ,
+        a.salesVolume as salesVolume ,
+        a.gPSX as gPSX ,
+        a.gPSY as gPSY ,
+        a.brandSituation as brandSituation ,
+        a.intention as intention ,
+        a.openTime as openTime ,
+        a.viewCount as viewCount ,
+        a.areaNo as areaNo ,
+        a.cityName as cityName ,
+        a.provinceName as provinceName ,
+        a.areaName as areaName ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.briefIntroduction as briefIntroduction ,
+        a.showed as showed ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        insert into DealerShopEnv(
+        refrenceId ,
+        dealerId ,
+        shopName ,
+        environment ,
+        scale ,
+        shopMeters ,
+        shape ,
+        trade ,
+        model ,
+        brand ,
+        salesVolume ,
+        gPSX ,
+        gPSY ,
+        brandSituation ,
+        intention ,
+        openTime ,
+        viewCount ,
+        areaNo ,
+        cityName ,
+        provinceName ,
+        areaName ,
+        createTime ,
+        updateTime ,
+        briefIntroduction ,
+        showed ,
+        delFlag
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{shopName}  ,
+        #{environment}  ,
+        #{scale}  ,
+        #{shopMeters}  ,
+        #{shape}  ,
+        #{trade}  ,
+        #{model}  ,
+        #{brand}  ,
+        #{salesVolume}  ,
+        #{gPSX}  ,
+        #{gPSY}  ,
+        #{brandSituation}  ,
+        #{intention}  ,
+        #{openTime}  ,
+        #{viewCount}  ,
+        #{areaNo}  ,
+        #{cityName}  ,
+        #{provinceName}  ,
+        #{areaName}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{briefIntroduction}  ,
+        #{showed}  ,
+        #{delFlag}
+        )
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerShopEnv(
+        refrenceId ,
+        dealerId ,
+        shopName ,
+        environment ,
+        scale ,
+        shopMeters ,
+        shape ,
+        trade ,
+        model ,
+        brand ,
+        salesVolume ,
+        gPSX ,
+        gPSY ,
+        brandSituation ,
+        intention ,
+        openTime ,
+        viewCount ,
+        areaNo ,
+        cityName ,
+        provinceName ,
+        areaName ,
+        createTime ,
+        updateTime ,
+        briefIntroduction ,
+        showed ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="dealerShopEnv" separator=",">
+            (
+            #{dealerShopEnv.refrenceId} ,
+            #{dealerShopEnv.dealerId} ,
+            #{dealerShopEnv.shopName} ,
+            #{dealerShopEnv.environment} ,
+            #{dealerShopEnv.scale} ,
+            #{dealerShopEnv.shopMeters} ,
+            #{dealerShopEnv.shape} ,
+            #{dealerShopEnv.trade} ,
+            #{dealerShopEnv.model} ,
+            #{dealerShopEnv.brand} ,
+            #{dealerShopEnv.salesVolume} ,
+            #{dealerShopEnv.gPSX} ,
+            #{dealerShopEnv.gPSY} ,
+            #{dealerShopEnv.brandSituation} ,
+            #{dealerShopEnv.intention} ,
+            #{dealerShopEnv.openTime} ,
+            #{dealerShopEnv.viewCount} ,
+            #{dealerShopEnv.areaNo} ,
+            #{dealerShopEnv.cityName} ,
+            #{dealerShopEnv.provinceName} ,
+            #{dealerShopEnv.areaName} ,
+            #{dealerShopEnv.createTime} ,
+            #{dealerShopEnv.updateTime} ,
+            #{dealerShopEnv.briefIntroduction} ,
+            #{dealerShopEnv.showed} ,
+            #{dealerShopEnv.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerShopEnv where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerShopEnv set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        insert into DealerShopEnv
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="shopName != null">
+                shopName ,
+            </if>
+            <if test="environment != null">
+                environment ,
+            </if>
+            <if test="scale != null">
+                scale ,
+            </if>
+            <if test="shopMeters != null">
+                shopMeters ,
+            </if>
+            <if test="shape != null">
+                shape ,
+            </if>
+            <if test="trade != null">
+                trade ,
+            </if>
+            <if test="model != null">
+                model ,
+            </if>
+            <if test="brand != null">
+                brand ,
+            </if>
+            <if test="salesVolume != null">
+                salesVolume ,
+            </if>
+            <if test="gPSX != null">
+                gPSX ,
+            </if>
+            <if test="gPSY != null">
+                gPSY ,
+            </if>
+            <if test="brandSituation != null">
+                brandSituation ,
+            </if>
+            <if test="intention != null">
+                intention ,
+            </if>
+            <if test="openTime != null">
+                openTime ,
+            </if>
+            <if test="viewCount != null">
+                viewCount ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="cityName != null">
+                cityName ,
+            </if>
+            <if test="provinceName != null">
+                provinceName ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="briefIntroduction != null">
+                briefIntroduction ,
+            </if>
+            <if test="showed != null">
+                showed ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="shopName != null">
+                #{shopName} ,
+            </if>
+            <if test="environment != null">
+                #{environment} ,
+            </if>
+            <if test="scale != null">
+                #{scale} ,
+            </if>
+            <if test="shopMeters != null">
+                #{shopMeters} ,
+            </if>
+            <if test="shape != null">
+                #{shape} ,
+            </if>
+            <if test="trade != null">
+                #{trade} ,
+            </if>
+            <if test="model != null">
+                #{model} ,
+            </if>
+            <if test="brand != null">
+                #{brand} ,
+            </if>
+            <if test="salesVolume != null">
+                #{salesVolume} ,
+            </if>
+            <if test="gPSX != null">
+                #{gPSX} ,
+            </if>
+            <if test="gPSY != null">
+                #{gPSY} ,
+            </if>
+            <if test="brandSituation != null">
+                #{brandSituation} ,
+            </if>
+            <if test="intention != null">
+                #{intention} ,
+            </if>
+            <if test="openTime != null">
+                #{openTime} ,
+            </if>
+            <if test="viewCount != null">
+                #{viewCount} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="cityName != null">
+                #{cityName} ,
+            </if>
+            <if test="provinceName != null">
+                #{provinceName} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="briefIntroduction != null">
+                #{briefIntroduction} ,
+            </if>
+            <if test="showed != null">
+                #{showed} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        update DealerShopEnv
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="shopName != null">
+                shopName = #{shopName} ,
+            </if>
+            <if test="environment != null">
+                environment = #{environment} ,
+            </if>
+            <if test="scale != null">
+                scale = #{scale} ,
+            </if>
+            <if test="shopMeters != null">
+                shopMeters = #{shopMeters} ,
+            </if>
+            <if test="shape != null">
+                shape = #{shape} ,
+            </if>
+            <if test="trade != null">
+                trade = #{trade} ,
+            </if>
+            <if test="model != null">
+                model = #{model} ,
+            </if>
+            <if test="brand != null">
+                brand = #{brand} ,
+            </if>
+            <if test="salesVolume != null">
+                salesVolume = #{salesVolume} ,
+            </if>
+            <if test="gPSX != null">
+                gPSX = #{gPSX} ,
+            </if>
+            <if test="gPSY != null">
+                gPSY = #{gPSY} ,
+            </if>
+            <if test="brandSituation != null">
+                brandSituation = #{brandSituation} ,
+            </if>
+            <if test="intention != null">
+                intention = #{intention} ,
+            </if>
+            <if test="openTime != null">
+                openTime = #{openTime} ,
+            </if>
+            <if test="viewCount != null">
+                viewCount = #{viewCount} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="briefIntroduction != null">
+                briefIntroduction = #{briefIntroduction} ,
+            </if>
+            <if test="showed != null">
+                showed = #{showed} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        update DealerShopEnv set
+        dealerId = #{dealerId} ,
+        shopName = #{shopName} ,
+        environment = #{environment} ,
+        scale = #{scale} ,
+        shopMeters = #{shopMeters} ,
+        shape = #{shape} ,
+        trade = #{trade} ,
+        model = #{model} ,
+        brand = #{brand} ,
+        salesVolume = #{salesVolume} ,
+        gPSX = #{gPSX} ,
+        gPSY = #{gPSY} ,
+        brandSituation = #{brandSituation} ,
+        intention = #{intention} ,
+        openTime = #{openTime} ,
+        viewCount = #{viewCount} ,
+        areaNo = #{areaNo} ,
+        cityName = #{cityName} ,
+        provinceName = #{provinceName} ,
+        areaName = #{areaName} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        briefIntroduction = #{briefIntroduction} ,
+        showed = #{showed} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        select
+        <include refid="dealerShopEnvColumns"/>
+        from DealerShopEnv a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        SELECT
+        <include refid="dealerShopEnvColumns"/>
+        FROM DealerShopEnv a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId = #{dealerId}
+        </if>
+        <if test="shopName != null and shopName != ''">
+            and a.shopName like CONCAT('%',#{shopName}, '%')
+        </if>
+        <if test="environment != null and environment != ''">
+            and a.environment like CONCAT('%',#{environment}, '%')
+        </if>
+        <if test="scale != null and scale != ''">
+            and a.scale = #{scale}
+        </if>
+        <if test="shopMeters != null and shopMeters != ''">
+            and a.shopMeters = #{shopMeters}
+        </if>
+        <if test="shape != null and shape != ''">
+            and a.shape like CONCAT('%',#{shape}, '%')
+        </if>
+        <if test="trade != null and trade != ''">
+            and a.trade like CONCAT('%',#{trade}, '%')
+        </if>
+        <if test="model != null and model != ''">
+            and a.model like CONCAT('%',#{model}, '%')
+        </if>
+        <if test="brand != null and brand != ''">
+            and a.brand like CONCAT('%',#{brand}, '%')
+        </if>
+        <if test="salesVolume != null and salesVolume != ''">
+            and a.salesVolume like CONCAT('%',#{salesVolume}, '%')
+        </if>
+        <if test="gPSX != null and gPSX != ''">
+            and a.gPSX = #{gPSX}
+        </if>
+        <if test="gPSY != null and gPSY != ''">
+            and a.gPSY = #{gPSY}
+        </if>
+        <if test="brandSituation != null and brandSituation != ''">
+            and a.brandSituation like CONCAT('%',#{brandSituation}, '%')
+        </if>
+        <if test="intention != null and intention != ''">
+            and a.intention like CONCAT('%',#{intention}, '%')
+        </if>
+        <if test="openTime != null and openTime != ''">
+            and a.openTime = #{openTime}
+        </if>
+        <if test="viewCount != null and viewCount != ''">
+            and a.viewCount = #{viewCount}
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="briefIntroduction != null and briefIntroduction != ''">
+            and a.briefIntroduction like CONCAT('%',#{briefIntroduction}, '%')
+        </if>
+        <if test="showed != null and showed != ''">
+            and a.showed = #{showed}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        SELECT
+        <include refid="dealerShopEnvColumns"/>
+        FROM DealerShopEnv a WHERE a.delFlag = 0
+    </select>
+
+    <select id="selectDealerShopEnvsBy" parameterType="com.zttx.web.module.dealer.entity.DealerShopEnv"
+            resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        select
+        <include refid="dealerShopEnvColumns"/>,
+        b.dealerName as username,
+        c.userMobile as mobile
+        from DealerShopEnv a,DealerInfo b,UserInfo c
+        where a.dealerId = b.refrenceId and a.dealerId = c.refrenceId
+        AND a.showed=1
+        <if test="trade != null and trade != '' and trade != 0 ">
+            and a.trade = #{trade}
+        </if>
+        <if test="shape != null and shape != '' and shape != 0 ">
+            and a.shape = #{shape}
+        </if>
+        <if test="model != null and model != '' and model != 0 ">
+            and a.model = #{model}
+        </if>
+        <if test="shopName != null and shopName != ''">
+            and a.shopName like CONCAT('%',#{shopName},'%' )
+        </if>
+        <if test="areaNo != null and areaNo != 0 ">
+            <choose>
+                <when test="areaNo % 10000 == 0">
+                    and (a.areaNo &gt; #{areaNo} and a.areaNo &lt; #{areaNo}+10000 )
+                </when>
+                <when test="areaNo % 100 == 0">
+                    and (a.areaNo &gt; #{areaNo} and a.areaNo &lt; #{areaNo}+100 )
+                </when>
+                <otherwise>
+                    and (a.areaNo=#{areaNo})
+                </otherwise>
+            </choose>
+        </if>
+        <if test="onlyShowPic != null and onlyShowPic">
+            and (select count(*) from DealerImage d where d.dealerId=a.dealerId)>0
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <select id="selectTopNewestDealerShopEnvs" resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        select
+        <include refid="dealerShopEnvColumns"/>
+        from DealerShopEnv a
+        where a.showed=1
+        order by a.createTime desc
+        limit 0,#{topn}
+    </select>
+
+    <select id="selectExcludeDealerShopEnvsBy" resultType="com.zttx.web.module.dealer.entity.DealerShopEnv">
+        select
+        <include refid="dealerShopEnvColumns"/>
+        from DealerShopEnv a
+        <choose>
+            <when test="currAreaNo % 100 == 0">
+                where a.showed=1
+                and ((a.areaNo &gt;= #{currAreaNo}/ 10000 * 10000 and a.areaNo &lt; #{currAreaNo}/ 100 * 100)
+                or (a.areaNo &gt;=(#{currAreaNo}/100+1)*100 and a.areaNo &lt; (#{currAreaNo}/10000+1)*10000))
+                order by a.createTime desc
+            </when>
+            <otherwise>
+                where  a.showed=1
+                and (a.areaNo &gt;= #{currAreaNo}/ 100 * 100
+                and a.areaNo &lt; (#{currAreaNo}/100+1)*100)
+                and a.areaNo!=#{currAreaNo}
+                order by a.createTime desc
+            </otherwise>
+        </choose>
+    </select>
+</mapper>
+

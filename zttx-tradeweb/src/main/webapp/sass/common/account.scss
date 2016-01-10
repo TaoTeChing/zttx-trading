@@ -1,0 +1,1038 @@
+﻿/* CSS Document */
+@charset "utf-8";
+/**
+ * @name: 登录注册密码找回页面
+ * @author: TXSB.ZXB
+ * @copyright:  http://www.8637.com/
+ */
+@import "../mixin";
+@import "../dealer/model/_button";
+@import "../dealer/model/_form";
+@import "../dealer/model/_icons";
+@import "../dealer/model/_iconfont";
+@import "dialog";
+
+/*
+.das {
+    background-color: #08c;
+}
+*/
+
+html{
+  overflow-y:auto;
+}
+
+body {
+    font: 12px/1.5 arial,verdana,"Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+    background:#f2f2f2;
+    margin: 0;
+    padding: 0;
+    color: #666;
+}
+
+.link{
+  color:#007cff;
+}
+
+.link-r{
+  color:#dc241f;
+}
+
+/*头部*/
+.header {
+    height: 88px;
+    background: #fff;
+    border-bottom:1px solid #e0e0e0;
+  .logo {
+    float: left;
+    /*margin-top: 10px;*/
+  }
+  h1 {
+    height: 80px;
+    width: 300px;
+    background: url(/images/common/logo-white.png) no-repeat;
+    text-indent: -999px;
+  }
+}
+
+.header .helper {
+    float: right;
+    text-align: right;
+}
+
+.header .helper .link {
+    margin: 10px 0 30px 0;
+    font-size: 12px;
+}
+
+.header .helper .phone {
+    font-size: 16px;
+}
+
+.main {
+  width:1000px;
+  margin:0 auto;
+  margin-bottom: 20px;
+  background: #fff;
+
+  .box{
+    @include clearfix();
+    padding:30px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 3px;
+  }
+
+  .main-left{
+    @include float();
+    width:664px;
+    .content {
+      width:460px;
+      margin:0 auto;
+      padding-top:60px;
+    }
+  }
+
+  .main-right{
+      @include float();
+      width:275px;
+      .content {
+        padding:20px 40px 0;
+        height:565px;
+        border-left:1px solid #ddd;
+        h3{font-size:14px;font-family: 'Microsoft Yahei', '黑体'}
+        a{display: block;}
+      }
+  }
+
+  .head{
+    height:20px;
+    border-left:3px solid #db2620;
+    padding-left:15px;
+    font-size: 20px;
+    line-height: 1;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .btn{
+    width:100%;
+    background:#db2620;
+    border:1px solid #db2620;
+    height:42px;
+    color:#fff;
+    border-radius: 0;
+    line-height:42px;
+    text-align: center;
+    font-size:16px;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+    &:active{
+      margin-top:1px;
+      margin-bottom: -1px;
+    }
+    &:disabled{
+      background:#efefef;
+      border:1px solid #e2e2e2;
+      color:#999;
+    }
+  }
+
+  form{
+    dl{
+      padding-left:80px;
+      padding-bottom: 28px;
+    }
+    dt{
+      @include float();
+      margin-left:-80px;
+      width:65px;
+      font-size:14px;
+      margin-top:10px;
+      color:#666;
+      font-family:'Microsoft Yahei', '黑体';
+      text-align: right;
+    }
+    dd{
+      @include clearfix();
+      position: relative;
+
+      .helper{
+        @include clearfix();
+        display: none;
+        position:absolute;
+        top:40px;
+        left:0;
+        color:#999;
+        margin-top: 3px;
+        z-index:1;
+      }
+    }
+    input.txt{
+      width:210px;
+      padding:12px 10px;
+      border: 1px solid #e1e1e1;
+      color:#666;
+
+      &:hover{
+        border: 1px solid #ff9241;
+      }
+      &:focus{
+        border: 1px solid #ff4646;
+        color:#333;
+      }
+    }
+    input.long{
+      width:358px;
+    }
+    input.short {
+      width: 80px;
+    }
+    input.code {
+      width: 200px;
+
+    }
+
+    .chosen-select{
+      padding:11px 10px;
+      border: 1px solid #e1e1e1;
+      width: 124px;
+      color:#333;
+      *margin-top:10px;
+    }
+    .captcha_img{
+      vertical-align: top;
+    }
+
+    .btn-getcode{
+      width:138px;
+      border-radius: 3px;
+      border:1px solid #e1e1e1;
+      background: #efefef;
+      color:#666;
+      height:40px;
+      margin-left:10px;
+      &:active{
+        background: #e1e1e1;
+      }
+    }
+  }
+}
+
+.register{
+  .main-right{
+    .content {
+      height:600px;
+    }
+  }
+}
+
+
+#Validform_msg {
+}
+
+.Validform_checktip {
+  @include clearfix();
+  display: block;
+  position: absolute;
+  top:40px;
+  left:0;
+  width: 90%;
+  background: #fff;
+  margin-top:3px;
+}
+.confirm{
+  .Validform_checktip{
+    top:20px;
+  }
+}
+
+.Validform_checktip:hover {
+  text-decoration: none;
+}
+
+.Validform_wrong,.Validform_right {
+  height:18px;
+  background:#fff url("../../images/common/error.png") no-repeat;
+  color: #e00;
+  padding-left: 20px;
+  z-index: 2;
+}
+
+.Validform_right {
+  background:#fff url("../../images/common/right.png") no-repeat;
+  color: #87C749;
+}
+
+
+
+
+.error-box{
+  padding-left:80px;
+  height:35px;
+}
+
+.passwordStrength {
+  @include clearfix();
+  margin-top: 3px;
+  position: absolute;
+  top:40px;
+  left:0;
+  z-index: 3;
+
+  span {
+    float: left;
+    display: block;
+    height: 18px;
+    width: 45px;
+    line-height: 18px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ccc;
+    border-right: 1px solid #fff;
+  }
+  .bgStrength {
+      color: #fff;
+      background-color: #ffa6a6;
+     /* &.first{
+        background-color: #ffa6a5;
+      }*/
+      /*&.last {
+        background-color: #71b83d;
+      }*/
+  }
+}
+
+.allStrength{
+  .bgStrength{
+    background-color: #71b83d;
+  }
+}
+
+.tabs {
+  /*margin-left: 155px;*/
+  overflow: hidden;
+  padding-bottom: 5px;
+  a {
+    position: relative;
+    @include float();
+    width: 50%;
+    font-size: 14px;
+    z-index: 99;
+
+    border-bottom: 3px solid #e6e6e6;
+    padding:15px 0;
+    text-align: center;
+    span{
+      @include inline-block();
+      width:100%;
+      border-right:1px solid #e6e6e6;
+    }
+    &.active{
+      margin-bottom: 0;
+      border-bottom: 3px solid #da251d;
+      .b-san{
+        display: block;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #da251d;
+      }
+    }
+  }
+  .b-san{
+    display: none;
+    bottom: -8px;
+    left: 50%;
+  }
+}
+
+
+
+.footer{
+  width:1000px;
+  margin:0 auto;
+  text-align: center;
+  line-height: 26px;
+}
+
+
+.img-upload {
+  .file_wrap {
+    width: 122px;
+    height: 122px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    *display: inline;
+    overflow: hidden;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+
+    a {
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      zoom: 1;
+      width: 120px;
+      height: 120px;
+      line-height: 111px;
+      color: rgb(228, 228, 228);
+      -webkit-text-shadow: #fff 1px 1px 1px;
+      text-shadow: #fff 1px 1px 1px;
+      overflow: hidden;
+    }
+  }
+
+  .icon-fileupload {
+    color: #ddd;
+    padding: 45px;
+    display: block;
+    margin-top: 11px;
+    background: url(/images/dealer/icon-fileupload.gif) no-repeat center;
+  }
+
+  .close {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: #b4b4b4;
+    font-size: 18px;
+    line-height: 1;
+    display: none;
+  }
+
+  .input_file {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -60px;
+    width: 182px;
+    height: 122px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+/*
+.main .main-left .tabs ul li a .b-san {
+  left: 55px;
+  border-top: 5px solid #fff;
+  _bottom: -35px;
+  display: none;
+}
+
+.main .main-left .tabs ul li a {
+  display: block;
+  background-color: #999999;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.main .main-left .tabs ul li a:hover, .main .main-left .tabs ul li a.on {
+  background-color: #E50015;
+}
+
+.main .main-left .tabs ul li a:hover .b-san, .main .main-left .tabs ul li a.on .b-san {
+  border-top: 5px solid #E50015;
+  display: block;
+}*/
+
+/*
+
+
+.main a.link {
+    color: #0066CC;
+}
+*/
+
+
+/*.main .main-left .head { height: 62px; }*/
+/*.main .main-left .head h2 {
+
+    text-indent: 50px;
+    background: url(/images/common/login-icon-user.png) no-repeat 5px 15px;
+}*/
+
+/*.main .main-left
+
+.main .main-left .content ul {
+    overflow: hidden;
+}*/
+
+/*.main .main-left .content ul li {
+    overflow: hidden;
+}*/
+/*注册*/
+/*
+.main .main-left .tabs {
+    margin-left: 155px;
+}
+
+.main .main-left .tabs ul {
+}
+
+.main .main-left .tabs ul li {
+    float: left;
+    width: 120px;
+    margin-right: 10px;
+    font-size: 14px;
+    z-index: 99;
+    position: relative;
+}
+
+.main .main-left .tabs ul li a .b-san {
+    left: 55px;
+    border-top: 5px solid #fff;
+    _bottom: -35px;
+    display: none;
+}
+
+.main .main-left .tabs ul li a {
+    display: block;
+    background-color: #999999;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.main .main-left .tabs ul li a:hover, .main .main-left .tabs ul li a.on {
+    background-color: #E50015;
+}
+
+.main .main-left .tabs ul li a:hover .b-san, .main .main-left .tabs ul li a.on .b-san {
+    border-top: 5px solid #E50015;
+    display: block;
+}
+
+.main .main-right {
+    margin-left: 690px;
+}
+
+.main .main-right .content {
+    padding-left: 50px;
+}
+
+.main .main-right .content h3 {
+    font: 16px/1.5 "microsoft yahei";
+    margin-bottom: 10px;
+}
+
+.main .main-right .content a {
+    line-height: 2;
+}
+
+.main .main-right .content a.btn {
+    display: block;
+    padding: 10px 0;
+    font: 16px/1 "microsoft yahei";
+    width: 160px;
+    text-align: center;
+    color: #fff;
+    background-color: #FC595A;
+    text-decoration: none;
+}
+
+.main .main-right .content a.btn:hover {
+    background-color: #E50015;
+    box-shadow: 0 0 10px 0 #666;
+}
+
+
+*/
+/*******表单*******************************//*
+
+*/
+/*.form dl { *//*
+*/
+/*overflow: hidden;*//*
+*/
+/*
+    zoom: 1;
+    clear: both;
+}
+
+.form dl dt {
+    float: left;
+    width: 80px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.form dl dd {
+    margin-left: 100px;
+    *margin-left: 0;
+    overflow: hidden;
+    position: relative;
+}*//*
+
+
+*/
+/*.form dl dd input, .form dl dd a, .form dl dd select, .form dl dd label, .form dl dd i, .form dl dd p {
+    //float: left;
+}*//*
+
+
+*/
+/*.form dl dd input.txt {
+    width: 180px;
+    border: 1px solid #999;
+}*//*
+
+
+*/
+/*.form dl dd input.long {
+    width: 200px;
+}*//*
+
+
+*/
+/*.form dl dd input.short {
+    width: 80px;
+}
+
+.form dl dd input.chk {
+    margin-top: 1px;
+}*//*
+
+
+.form dl dd .select {
+    border: 1px solid #999;
+    padding: 6px;
+    margin: 0 6px 0 0;
+    *margin: 7px 5px 0 0;
+    width: 98px;
+}
+
+.form dl dd a.btn {
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    color: #666;
+    text-decoration: none;
+}
+
+.form dl dd a.err {
+    background-color: #FC595A;
+    border: 1px solid #FC595A;
+    color: #fff;
+    text-decoration: none;
+}
+
+.form dl dd i {
+    border: 1px solid #c9d9ee;
+    background: #ecf8ff;
+}
+
+.form dl dd input.btn {
+    cursor: pointer;
+    border: 1px solid #B20000;
+}
+
+*/
+/*登录*//*
+
+.login .form dl {
+    margin-bottom: 20px;
+}
+
+.login .form dl dt label {
+    font-size: 14px;
+    line-height: 34px;
+    *line-height: 32px;
+}
+
+.login .form dl dd input.txt {
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+.login .form dl dd input.btn {
+    width: 220px;
+    height: 38px;
+    border: 1px solid #E50015;
+}
+
+.login .form dl dd input.btn:hover {
+    background-color: #B20000; */
+/*box-shadow: 0 0 10px #666;*//*
+
+}
+
+.login .form dl dd a.link {
+  padding: 0 10px;
+  padding-top: 6px;
+  vertical-align: top;
+  display: inline-block;
+  *display: inline;
+  *zoom:1;
+}
+
+.login .form dl dd input.chk {
+    margin-top: 6px;
+    /*/
+/*margin-top: 0;
+    vertical-align: -2px;
+}
+
+*/
+/*注册*//*
+
+.register .form dl {
+    margin-bottom: 15px;
+}
+
+.register .form dl dt {
+    float: left;
+    width: 80px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.register .form dl dd {
+    margin-left: 100px;
+    *margin-left: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.register .form dl dt label {
+    line-height: 32px;
+    *line-height: 32px;
+    font-size: 14px;
+}
+
+.register .form dl dd input.txt {
+    font-size: 14px;
+    padding: 7px 10px;
+}
+
+.register .form dl dd input.txt.Validform_error {
+    background-color: #FFE7E7;
+    border: 1px solid #FC595A;
+}
+
+.register .form dl dd a.btn, .register dl dd a.err {
+    font-size: 12px;
+    line-height: 30px;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+
+.register .form dl dd i {
+    font-size: 12px;
+    line-height: 2;
+    padding: 0 10px;
+    margin-top: 2px;
+    clear: both;
+    *width: 500px;
+    _margin-left: 100px;
+}
+*/
+/*.register .form dl dd p { font-size: 12px; line-height: 1.5; margin-top: 2px; clear: both; *width: 500px; }*//*
+
+.register .form dl dd input.btn {
+    width: 220px;
+    height: 38px;
+}
+
+.register .form dl dd input.btn:hover {
+    background-color: #E50015;
+    box-shadow: 0 0 10px 0 #666;
+}
+
+.register .form dl dd input.chk {
+    margin-top: 8px;
+    /*/
+/*margin-top: 0;
+    vertical-align: -2px;
+}
+
+.register .form dl dd select.select {
+    *margin-top: 6px;
+}
+
+.register .form dl dd span.help {
+    font-size: 12px;
+    line-height: 32px;
+    margin-left: 10px;
+    color: #999;
+    //position: absolute;
+    *margin-left: 30px;
+}
+
+.register .form dl dd a.err {
+    position: absolute;
+    margin-left: 0;
+    display: none; */
+/*left: 0; top: 36px;*//*
+ */
+/*z-index: 99; line-height: 1.5; *//*
+
+}
+
+*/
+/*注册成功*//*
+
+.success .main .main-left {
+    width: 968px;
+}
+
+.success .main .main-left .content {
+    padding: 35px 0 50px 40px;
+}
+
+.success .form dl dt label {
+    font-size: 16px;
+}
+
+.success .form dl {
+    margin-bottom: 40px;
+}
+
+.success .form dl dt {
+    line-height: 1;
+}
+
+.success .form dl dd a {
+    display: block;
+}
+
+.success .form dl dd span {
+    margin: 10px 0;
+    padding: 0;
+    font-size: 14px;
+    display: block;
+    margin-left: 2em;
+}
+
+.success .form dl dd a.box {
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 10px 0 0;
+    width: 230px;
+    height: 80px;
+    color: #fff;
+    background-image: url(/images/icon-arrow-right-36.gif);
+    background-repeat: no-repeat;
+    background-position: 200px 60px;
+}
+
+*/
+/*找回密码*//*
+
+.getpass .main .main-left .head h2 {
+    background: url(/images/common/login-icon-key.png) no-repeat 5px 20px;
+}
+
+.getpass .form dl dt label {
+    line-height: 34px;
+    *line-height: 32px;
+    font-size: 14px;
+}
+
+.getpass .form dl dd input.btn {
+    width: 200px;
+    height: 38px;
+    text-align: center;
+}
+
+.getpass .form dl dd input.btn:hover {
+    background-color: #E50015;
+    box-shadow: 0 0 10px 0 #666;
+}
+
+.getpass .form dl dd input.txt {
+    font-size: 14px;
+    padding: 5px 10px;
+    height: 20px;
+}
+
+.getpass .form dl dd a.c-b {
+    color: #0066CC;
+}
+
+.getpass .form dl dd a.btn, .register dl dd a.err {
+    font-size: 12px;
+    line-height: 30px;
+    *line-height: 30px;
+    margin-left: 10px;
+    padding: 0 10px;
+}
+
+.getpass .form dl dd i {
+    font-size: 12px;
+    line-height: 2;
+    padding: 0 10px;
+    margin-top: 5px;
+    clear: both;
+    *width: 500px;
+}
+
+.getpass .form dl dd a.noborder {
+    border: 0;
+}
+
+.getpass .form dl dd a.bgc-w {
+    background-color: #fff;
+}
+
+.getpass .form dl dd a.alpha {
+    margin-left: 0;
+}
+
+.getpass .form dl dd span.help {
+    font-size: 12px;
+    line-height: 32px;
+    *line-height: 30px;
+    margin-left: 10px;
+    color: #999;
+    position: absolute;
+    *margin-left: 30px;
+}
+
+*/
+/*验证结果容器*//*
+
+
+
+*/
+/* 新加注册成功页面 by：FTL 2014-05-09  *//*
+
+.content {
+    .reg-success-h1 {
+        font-size: 30px;
+        font-weight: 600;
+        background: url("/images/common/RegisterSuccess.png") no-repeat;
+        margin-left: 195px;
+        padding-left: 55px;
+        color: #e60015;
+    }
+
+    .reg-success-p {
+        line-height: 28px;
+        font-size: 14px;
+        margin-left: 80px;
+
+        em {
+            font-weight: 600;
+            color: #e60015;
+        }
+    }
+
+    .reg-success-minit {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .reg-success-conect {
+        margin-top: 20px;
+    }
+
+    .reg-success-look {
+        margin-top: 10px;
+        margin-left: 80px;
+
+        .reg-success-btn {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: "microsoft yahei";
+            margin-right: 10px;
+            padding: 0 10px;
+            background: #e60015;
+            color: #fff;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+
+            &:hover {
+                background: #b00000;
+            }
+
+            &:active {
+                position: relative;
+                top: 1px;
+                box-shadow: 1px 1px 3px #999 inset;
+                -webkit-box-shadow: 1px 1px 3px #999 inset;
+                -moz-box-shadow: 1px 1px 3px #999 inset;
+            }
+        }
+    }
+}
+
+.findaccount {
+    .main-right {
+        .head {
+            margin-left: 50px;
+
+            h2 {
+                font: 24px/62px "microsoft yahei";
+                text-indent: 50px;
+                background: url(/images/common/login-icon-user.png) no-repeat 5px 15px;
+            }
+        }
+
+        .content {
+            padding-top: 20px;
+        }
+    }
+
+    .ui-select {
+        padding: 6px;
+        width: 100px;
+        border: 1px solid #c1c1c1;
+    }
+
+    .ui-input {
+        width: 240px;
+    }
+    //03-31
+
+}
+
+.lh3 {
+    line-height: 3;
+}
+
+.mr20 {
+    margin-right: 20px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+.findAccountForm{
+    .ui-label{
+        font-size: 12px;
+    }
+    .c-r{
+        margin-right: 3px;
+        font-family: "宋体";
+    }
+    i.account-close{
+        display: inline-block;
+        *display: inline;
+        *zoom:1;
+        width: 16px;
+        height: 16px;
+        background: url("/images/common/account-close.png") no-repeat;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+*/

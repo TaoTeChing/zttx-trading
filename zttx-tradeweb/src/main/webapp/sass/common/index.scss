@@ -1,0 +1,238 @@
+﻿@charset "utf-8";
+@import "../mixin";
+@import "index/icons";
+@import "index/_part-a";
+@import "index/_part-b";
+@import "index/_part-c";
+@import "index/_part-d";
+@import "index/_part-e";
+@import "index/_part-f";
+@import "index/_part-g";
+@import "index/_part-h";
+
+@import "_header";
+@import "_footer";
+
+.fn-text-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.main-grid{
+   @include clearfix();
+   margin-bottom: 20px;
+   background-color:#fff;
+
+   .grid {
+      @include float();
+   }
+}
+
+//通用模型 ts-common-box
+.ts-common-box{
+    .ts-common-head{
+        @include clearfix();
+        height: 26px;
+        border-bottom: 1px solid #b6b6b6;
+        .title{
+            height: 26px;
+            border-bottom: 1px solid #333;
+        }
+        h3{
+            height: 22px;
+            line-height: 20px;
+            _display: inline;
+            padding: 0 15px 0 10px;
+            border-left: 5px solid #e70012;
+            font-size: 20px;
+            font-family: "Microsoft yahei";
+            font-weight: 700;
+            a{
+                color: #333;
+            }
+        }
+        .more{
+            color: #333;
+            &:hover{
+                color: #f80;
+                text-decoration: none;
+            }
+        }
+    }
+    .ts-common-headHot{
+        .title{
+            border-bottom: 1px solid #e70012;
+        }
+        h3{
+            border-left: 5px solid #e70012;
+            color: #e70012;
+            a{
+                color: #e70012;
+            }
+        }
+    }
+}
+
+//首页通用按钮 ts-button
+.ts-button{
+    display: inline-block;
+    *display: inline;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 3px 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    _height: 0;
+    _line-height: 0;
+    _padding: 5px 10px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+
+}
+.ts-button-white{
+    border: 1px solid #ccc;
+    color: #999;
+    &:hover{
+        background: #8ad496;
+        border: 1px solid #8ad496;
+        color: #fff;
+        .icon-message-s{
+            background-position: -335px -65px;
+        }
+    }
+}
+.ts-button-orange{
+    border: 1px solid #ff8800;
+    background: #ff8800;
+    color: #fff;
+    &:hover{
+        border: 1px solid #ff6600;
+        text-decoration: none;
+        background: #ff6600;
+        color: #fff;
+    }
+}
+.btn-query{
+    background: #ffd800;
+    border:1px solid #ffd800;
+    color:#8a5603;
+    &:hover{
+        background: #ff9000;
+        border:1px solid #ff9000;
+        color:#fff;
+    }
+}
+.ts-button-disabled{
+    background: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    cursor: default;
+    color: #fff;
+    &:hover{
+        background: #bfbfbf;
+        color: #fff;
+    }
+    &:active{
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+}
+
+.js-img-center{
+  display:block;
+  overflow: hidden;
+  text-align:center;
+  vertical-align: middle;
+  font-size:0;
+
+  img{
+    max-width:100%;
+    height:auto;
+    vertical-align: middle;
+  }
+  span {
+    vertical-align: middle;
+    @include inline-block();
+    height: 100%;
+  }
+}
+
+.cls-ks-loading,.ts-banner{
+  background:#fff url(/images/common/index/loading.gif) center no-repeat;
+}
+
+.ts-loading{
+  position:fixed;
+  _position: absolute;
+  top:0;
+  left:0;
+  width:0;
+  z-index: 9999;
+  text-align: right;
+
+  .ts-loading-bar{
+    height:2px;
+    background-color: #0e90d2;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+  }
+  .ts-loading-spinner{
+      *display: none;
+      display: none \9;
+      margin-top:2px;
+      margin-left:2px;
+      width:18px;
+      height:18px;
+      box-sizing:border-box;
+      border:solid 2px transparent;
+      border-top-color:#0e90d2;
+      border-left-color:#0e90d2;
+      border-radius: 50%;
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+      animation: nprogress-spinner 400ms linear infinite;
+  }
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.js-scrollAjax-area textarea{
+  visibility: hidden;
+}

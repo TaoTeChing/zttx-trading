@@ -1,0 +1,511 @@
+﻿@charset "UTF-8";
+
+@import "../../reset";
+@import "../../mixin";
+@import "../../typography";
+
+body {
+    font: 12px/1.5 '宋体',arial,verdana;
+    background:#f2f2f2 url(/images/common/index-bg.gif);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+a:hover {
+    text-decoration: underline;
+}
+/*返回顶部*/
+.ui-scrolltop {
+    display: none;
+    position: fixed;
+    _position: absolute;
+    right: 10px;
+    bottom: 80px;
+    z-index: 9999;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    background: #000 url(/images/common/scrolltop.png) 18px 21px no-repeat;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.inline-float {
+    @include inline-float();
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+/*布局*/
+.ts-container,.em100 {
+    width: 100em;
+    margin: auto;
+}
+
+.w1000 {
+    width: 1000px;
+    margin: auto;
+}
+
+.em80 {
+    width: 80em;
+    margin: auto;
+}
+.em90 {
+    width: 90em;
+    margin: auto;
+}
+.em20 {
+    width: 20em;
+    overflow: hidden;
+}
+
+.px1000 {
+    width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/*边框*/
+.bd {
+    border: 1px solid #ddd;
+}
+
+.nbd {
+    border: 0;
+}
+
+.nbd-t {
+    border-top: 0;
+}
+
+.nbd-l {
+    border-left: 0;
+}
+
+.nbd-r {
+    border-right: 0;
+}
+
+.nbd-b {
+    border-bottom: 0;
+}
+
+.last {
+    border-bottom: 0 !important;
+}
+
+/*填充*/
+.alpha {
+    margin-left: 0;
+}
+
+.omega {
+    margin-right: 0;
+}
+
+.p15 {
+    padding: 15px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.p5 {
+    padding: 5px;
+}
+
+.p9 {
+    padding: 9px;
+}
+
+.p8 {
+    padding: 8px;
+}
+
+.np-t {
+    padding-top: 0;
+}
+
+.ml20em {
+    margin-left: 20em;
+}
+
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.marg15 {
+    margin: 15px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+/*漂浮*/
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+/*闭合*/
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+
+/*背景颜色*/
+.bgc-h {
+    background-color: #ccc;
+}
+
+.bgc-h-on {
+    background-color: #eee;
+}
+
+.bgc-w {
+    background-color: #fff;
+}
+
+.bgc-r {
+    background-color: #B20000;
+}
+
+.bgc-r-on {
+    background-color: #CC3333;
+}
+
+.bgc-o {
+    background-color: #FF6600;
+}
+
+.bgc-o-on {
+    background-color: #FFD5B9;
+}
+
+.bgc-g {
+    background-color: #8ACB3F;
+}
+
+.bgc-g-on, .bgc-g:hover {
+    background-color: #79BC38;
+}
+/***艳蓝*/
+.bgc-yl {
+    background-color: #00CCCC;
+}
+
+.bgc-yl-on, .bgc-yl:hover {
+    background-color: #00bbCC;
+}
+/***咖啡*/
+.bgc-cf {
+    background-color: #FF9966;
+}
+
+.bgc-cf-on, .bgc-cf:hover {
+    background-color: #ff8855;
+}
+
+
+/*按钮*/
+.btn {
+    color: #fff;
+    display: inline-block;
+    *display: inline; /* IE7 inline-block hack */
+    *zoom: 1;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-n {
+    background-color: #fff;
+    color: #0082cc;
+    border: 1px solid #fff;
+}
+
+.btn-n:hover {
+    box-shadow: 0 0 10px #aaa;
+    border: 1px solid #bbb;
+}
+
+.btn-r {
+    background-color: #cc0000;
+    border: 1px solid #cc0000;
+}
+
+.btn-r:hover {
+    background-color: #b10000;
+    border: 1px solid #b10000;
+}
+
+.btn-y {
+    background-color: #ff8800;
+    border: 1px solid #ff8800;
+}
+
+.btn-y:hover {
+    background-color: #f57403;
+    border: 1px solid #f57403;
+}
+
+.btn-b {
+    background-color: #1d7ad9;
+    border: 1px solid #1d7ad9;
+}
+
+.btn-b:hover {
+    background-color: #126ecc;
+    border: 1px solid #126ecc;
+}
+
+.btn-h {
+    background-color: #999999;
+    border: 1px solid #999999;
+}
+
+.btn-h:hover {
+    background-color: #888888;
+    border: 1px solid #888888;
+}
+
+.btn-ch {
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #bbb;
+}
+
+.btn-ch:hover {
+    background-color: #eeeeee;
+}
+
+.btn-g {
+    background-color: #22ac38;
+    border: 1px solid #22ac38;
+}
+
+.btn-g:hover {
+    background-color: #009944;
+    border: 1px solid #009944;
+}
+
+
+
+/*字体*/
+.yahei {
+    font-family: "microsoft yahei";
+}
+
+/*字体色*/
+.c-w {
+    color: #fff;
+}
+
+.c-h {
+    color: #666;
+}
+
+.c-r {
+    color: #B20000;
+}
+
+.c-r-on {
+    color: #FC595A;
+}
+
+.c-o {
+    color: #FF6600;
+}
+
+.c-o-on {
+    color: #FFD5B9;
+}
+
+.c-g {
+    color: #00CC00;
+}
+
+.c-b {
+    color: #0066CC;
+}
+
+.c-y {
+    color: #ff8800;
+}
+
+/*字体大小*/
+.fs12 {
+    font-size: 12px;
+}
+
+.fs14 {
+    font-size: 14px;
+}
+
+.fs16 {
+    font-size: 16px;
+}
+
+.fs18 {
+    font-size: 18px;
+}
+
+.fs20 {
+    font-size: 20px;
+}
+
+.fs25 {
+    font-size: 25px;
+}
+/*字体加粗*/
+.b {
+    font-weight: 600;
+}
+
+.bb {
+    font-weight: 700;
+}
+
+/*功能*/
+.hide {
+    display: none;
+}
+
+.show, .block {
+    display: block;
+}
+
+.block {
+    overflow: hidden;
+}
+
+.line-1 {
+    line-height: 1;
+}
+
+/*分割线*/
+.hr {
+    border-top: 1px solid #ddd;
+    line-height: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.hr-dashed {
+    border-top: 1px dashed #ddd;
+    line-height: 0;
+    border-bottom: 1px dashed #fff;
+}
+
+/*位置*/
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.b-san {
+    position: absolute;
+    bottom: -5px;
+    left: 67px;
+    border-left: 5px solid #fff;
+    border-right: 5px solid #fff;
+    _border-left: 5px solid #fff;
+    _filter: chroma(color=#fff);
+    _border-right: 5px solid #fff;
+    _filter: chroma(color=#fff);
+    border-top: 5px solid #000;
+    width: 0;
+    height: 0;
+    z-index: 10;
+    _bottom: -22px;
+}
+
+.lh2 {
+    line-height: 2;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-l {
+    text-align: left;
+}
+
+a.link {
+    color: #08c;
+}

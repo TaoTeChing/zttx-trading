@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerGroomMapper">
+    <!-- 基础列 -->
+    <sql id="dealerGroomColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.dealerId as dealerId ,
+        a.userId as userId ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerGroom">
+        insert into DealerGroom(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         dealerId ,
+         userId ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{dealerId}  ,
+        #{userId}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerGroom where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerGroom set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerGroom">
+        insert into DealerGroom
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="userId != null">
+                userId ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="userId != null">
+                #{userId} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerGroom">
+        update DealerGroom
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerGroom">
+        update DealerGroom set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            dealerId = #{dealerId} ,
+            userId = #{userId} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerGroom">
+        select
+        <include refid="dealerGroomColumns"/>
+        from DealerGroom a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerGroom">
+        SELECT
+        <include refid="dealerGroomColumns"/>
+        FROM DealerGroom a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerGroom">
+        SELECT
+        <include refid="dealerGroomColumns"/>
+        FROM DealerGroom a WHERE a.delFlag = 0
+    </select>
+
+    <select id="search" resultType="java.util.HashMap">
+
+        select o.refrenceId as id,o.dealerName as dealerName,o.shopNum as shopNum,o.empNum as empNum,o.monNum as
+        monNum,o.brandName as brandName,o.foundTime as foundTime,o.provinceName as province,o.cityName as
+        city,o.areaName as area,o.areaNo as areaNo,o.gpsX as gpsX,o.gpsY as gpsY,o.dealerLevel as
+        dealerLevel,o.dealerLogo as dealerLogo , p.brandsName as brandsName)
+
+        FROM DealerGroom p, DealerInfo
+
+        <if test="info.dictValue != null">
+            ,DealerClass dc
+        </if>
+
+        where p.dealerId=o.refrenceId
+        and p.brandId=#{info.brandId} and o.checkState=1
+
+        <if test="info.dictValue != null">
+            and dc.dealerId = o.refrenceId and dc.delState = 0
+        </if>
+
+        <if test="info.dictValue != null">
+            and dc.dealNo = #{info.dictValue}
+        </if>
+
+        <if test="info.areaNo != null and info.areaNo!=0">
+            <choose>
+                <when test="info.level==1">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,2),'%' )
+                </when>
+                <when test="info.level==2">
+                    and o.areaNo like CONCAT(substring('${info.areaNo}',1,4),'%' )
+                </when>
+                <when test="info.level==3">
+                    and o.areaNo = #{info.areaNo}
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        <!-- 实体店经验 -->
+        <if test="info.shopExperiLeft != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &gt;=#{info.shopExperiLeft})
+        </if>
+        <if test="info.shopExperiRight != null">
+            and ((UNIX_TIMESTAMP()*1000-o.foundTime) &lt;=#{info.shopExperiRight})
+        </if>
+
+        <!-- 分店数量 -->
+        <if test="info.shopNumLeft != null">
+            and (o.shopNum &gt;=#{info.shopNumLeft})
+        </if>
+        <if test="info.shopNumRight != null">
+            and (o.shopNum &lt;=#{info.shopNumRight})
+        </if>
+        <!-- 月销售额 -->
+        <if test="info.saleTotalLeft != null">
+            and (o.monNum &gt;=#{info.saleTotalLeft})
+        </if>
+        <if test="info.saleTotalRight != null">
+            and (o.monNum &lt;=#{info.saleTotalRight})
+        </if>
+        <!--  员工数量 -->
+        <if test="info.employeeNumLeft != null">
+            and (o.empNum &gt;=#{info.employeeNumLeft})
+        </if>
+        <if test="info.employeeNumRight != null">
+            and (o.empNum &lt;=#{info.employeeNumRight})
+        </if>
+        <!--  手机号码 -->
+        <if test="info.userMobile != null">
+            and u.userMobile like CONCAT('%','${info.userMobile}','%' )
+        </if>
+        <!-- 终端商名称 -->
+        <if test="info.dealerName != null and info.dealerName != ''">
+            and o.dealerName like CONCAT('%','${info.dealerName}','%' )
+        </if>
+
+        <!-- 设置排序规则 -->
+        <if test="info.attrType != null and info.descType != null">
+            <choose>
+                <when test="info.attrType==1">
+                    order by o.shopNum
+                </when>
+                <when test="info.attrType==2">
+                    order by o.empNum
+                </when>
+                <when test="info.attrType==3">
+                    order by o.foundTime
+                </when>
+                <when test="info.descType==1">
+                    order by o.desc
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+        </if>
+
+        order by p.createTime desc,o.dealerLevel desc
+    </select>
+
+    <!-- 查询品牌商与终端商是否存在 -->
+    <select id="isExist" resultType="Integer">
+        select count(1) from DealerGroom where brandId=#{brandId} and dealerId=#{dealerId}
+    </select>
+
+
+    <!-- 根据主键逻辑删除 -->
+    <select id="listDealerGrooms" resultType="com.zttx.web.module.dealer.entity.DealerGroom"
+            parameterType="com.zttx.web.module.dealer.entity.DealerGroom">
+        select a.* from DealerGroom a where 1=1
+
+        <if test="dealerGroom.brandId != null">
+            and a.brandId = #{dealerGroom.brandId}
+        </if>
+        <if test="dealerGroom.createTime != null">
+            and a.createTime &gt; #{dealerGroom.createTime}
+        </if>
+
+    </select>
+
+    <!-- 查询推荐的品牌商列表 -->
+    <select id="queryDealerGrooms" resultType="com.zttx.web.module.dealer.entity.DealerGroom">
+        SELECT
+        <include refid="dealerGroomColumns"/>
+        FROM DealerGroom a WHERE a.delFlag = 0
+        and a.brandId = #{dealerGroom.brandId}
+
+        <if test="dealerGroom.createTime != null">
+            and a.createTime &gt; #{dealerGroom.createTime}
+        </if>
+
+    </select>
+
+</mapper>
+

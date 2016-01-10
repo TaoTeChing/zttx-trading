@@ -1,0 +1,74 @@
+﻿@import "../../mixin";
+
+.progress-list{
+  padding:40px;
+  font-family: 'Microsoft Yahei', '黑体';
+
+  li{
+      @include clearfix();
+      padding-left:80px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom:1px dashed #eee;
+      label{
+          @include float();
+          margin-top: 12px;
+          margin-left:-80px;
+          width:65px;
+          line-height: 65px;
+          height:65px;
+          background-color:#eee;
+          font-size:26px;
+          text-align: center;
+      }
+  }
+}
+
+
+.index-content{
+    .content-a{
+        padding-bottom: 50px;
+        p{line-height:35px;color:#666}
+    }
+  .content-b{
+      padding-bottom: 50px;
+      h4{
+          color: #666;
+          font-family: "Microsoft YaHei";
+          font-size: 14px;
+          line-height: 36px;
+      }
+      p{
+          line-height: 30px;
+          color: #888;
+      }
+  }
+}
+
+$red: #e01;
+
+.about-tab{
+  a{
+      display:block;
+      width:120px;
+      height:30px;
+      line-height:30px;
+      background:#ddd;
+      color:#333;
+      text-align: center;
+      margin-right:5px;
+
+      &:hover{
+          background:$red;
+          color:#fff;
+          text-decoration: none;
+      }
+  }
+  .ui-switchable-active{
+      background:$red;
+      color:#fff;
+  }
+}
+.about-tab-item{
+  display: none;
+}

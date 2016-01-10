@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.RoleInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="roleInfoColumns">
+        a.refrenceId as refrenceId,
+        a.roleCode as roleCode ,
+        a.roleName as roleName,
+        a.createIp as createIp,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.canDel as canDel,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.RoleInfo">
+        INSERT INTO RoleInfo (
+            refrenceId,
+            roleCode,
+            roleName,
+            createIp,
+            createTime,
+            updateTime,
+            canDel,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{roleCode},
+            #{roleName},
+            #{createIp},
+            #{createTime},
+            #{updateTime},
+            #{canDel},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM RoleInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE RoleInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.RoleInfo">
+        insert into RoleInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="roleCode != null">
+                roleCode ,
+            </if>
+            <if test="roleName != null">
+                roleName ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="canDel != null">
+                canDel ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="roleCode != null">
+                #{roleCode} ,
+            </if>
+            <if test="roleName != null">
+                #{roleName} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="canDel != null">
+                #{canDel} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.RoleInfo">
+        update RoleInfo
+        <set>
+            <if test="roleCode != null">
+                roleCode = #{roleCode} ,
+            </if>
+            <if test="roleName != null">
+                roleName = #{roleName} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="canDel != null">
+                canDel = #{canDel} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.RoleInfo">
+        UPDATE RoleInfo
+        SET
+            roleCode   = #{roleCode},
+            roleName   = #{roleName},
+            createIp   = #{createIp},
+            createTime = #{createTime},
+            updateTime = #{updateTime},
+            canDel     = #{canDel},
+            delFlag    = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.RoleInfo">
+        select
+        <include refid="roleInfoColumns"/>
+        from RoleInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.RoleInfo">
+        SELECT
+        <include refid="roleInfoColumns"/>
+        FROM RoleInfo a WHERE
+        delFlag=#{delFlag}
+        <if test="roleCode != null and roleCode != ''">
+            and a.roleCode like CONCAT('%',#{roleCode}, '%')
+        </if>
+        <if test="roleName != null and roleName != ''">
+            and a.roleName like CONCAT('%',#{roleName}, '%')
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="canDel != null and canDel != ''">
+            and a.canDel = #{canDel}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.RoleInfo">
+        SELECT
+        <include refid="roleInfoColumns"/>
+        FROM RoleInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="countBy" resultType="int">
+      SELECT COUNT(1) FROM RoleInfo a WHERE a.delFlag=0 AND a.roleCode=#{roleCode}
+      <if test="null != refrenceId and refrenceId != ''">
+          AND a.refrenceId != #{refrenceId}
+      </if>
+    </select>
+    <select id="findRefrenceIdByCode" resultType="java.lang.String">
+        SELECT a.refrenceId FROM RoleInfo a WHERE a.delFlag =0 AND a.roleCode=#{roleCode}
+    </select>
+
+    <update id="enable" parameterType="String">
+        update RoleInfo
+        <set>
+            delFlag=false
+        </set>
+        <where>
+            refrenceId=#{refrenceId}
+        </where>
+    </update>
+</mapper>
+

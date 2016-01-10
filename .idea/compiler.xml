@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradebean" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradebean" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradesolr" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradesolr" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradecore" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradecore" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradetask" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradetask" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradeutils" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradeutils" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-transfer" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-transfer" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradedubbo-hander" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradedubbo-hander" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradedubbo-consumer" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradedubbo-consumer" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradedubbo-provider" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradedubbo-provider" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradeweb" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradeweb" />
+      </profile>
+      <profile default="false" name="Annotation profile for zttx-tradeapi" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="zttx-tradeapi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="zttx-tradeapi" target="1.7" />
+      <module name="zttx-tradebean" target="1.7" />
+      <module name="zttx-tradecore" target="1.7" />
+      <module name="zttx-tradedubbo" target="1.7" />
+      <module name="zttx-tradedubbo-consumer" target="1.7" />
+      <module name="zttx-tradedubbo-hander" target="1.7" />
+      <module name="zttx-tradedubbo-provider" target="1.7" />
+      <module name="zttx-tradesolr" target="1.7" />
+      <module name="zttx-tradetask" target="1.7" />
+      <module name="zttx-tradeutils" target="1.7" />
+      <module name="zttx-tradeweb" target="1.7" />
+      <module name="zttx-trading" target="1.7" />
+      <module name="zttx-transfer" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

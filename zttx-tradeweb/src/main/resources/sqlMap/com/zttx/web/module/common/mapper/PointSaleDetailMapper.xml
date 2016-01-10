@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.PointSaleDetailMapper">
+    <!-- 基础列 -->
+    <sql id="pointSaleDetailColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.saleNum as saleNum ,
+        a.refundNum as refundNum ,
+        a.salePrice as salePrice ,
+        a.refundPrice as refundPrice ,
+        a.lossNum as lossNum ,
+        a.lossCost as lossCost ,
+        a.saleCost as saleCost ,
+        a.refundCost as refundCost ,
+        a.countCost as countCost,
+        a.erpTime as erpTime ,
+        a.createTime as createTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.PointSaleDetail">
+        insert into PointSaleDetail(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productId ,
+        productSkuId ,
+        saleNum ,
+        refundNum ,
+        salePrice ,
+        refundPrice ,
+        lossNum ,
+        lossCost ,
+        saleCost ,
+        refundCost ,
+        countCost,
+        erpTime ,
+        createTime ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{dealerId} ,
+        #{brandId} ,
+        #{brandsId} ,
+        #{productId} ,
+        #{productSkuId} ,
+        #{saleNum} ,
+        #{refundNum} ,
+        #{salePrice} ,
+        #{refundPrice} ,
+        #{lossNum} ,
+        #{lossCost} ,
+        #{saleCost} ,
+        #{refundCost} ,
+        #{countCost}
+        #{erpTime} ,
+        #{createTime} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from PointSaleDetail where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update PointSaleDetail set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.PointSaleDetail">
+        insert into PointSaleDetail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId ,
+            </if>
+            <if test="saleNum != null">
+                saleNum ,
+            </if>
+            <if test="refundNum != null">
+                refundNum ,
+            </if>
+            <if test="salePrice != null">
+                salePrice ,
+            </if>
+            <if test="refundPrice != null">
+                refundPrice ,
+            </if>
+            <if test="lossNum != null">
+                lossNum ,
+            </if>
+            <if test="lossCost != null">
+                lossCost ,
+            </if>
+            <if test="saleCost != null">
+                saleCost ,
+            </if>
+            <if test="refundCost != null">
+                refundCost ,
+            </if>
+            <if test="countCost != null">
+                countCost ,
+            </if>
+            <if test="erpTime != null">
+                erpTime ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                #{productSkuId} ,
+            </if>
+            <if test="saleNum != null">
+                #{saleNum} ,
+            </if>
+            <if test="refundNum != null">
+                #{refundNum} ,
+            </if>
+            <if test="salePrice != null">
+                #{salePrice} ,
+            </if>
+            <if test="refundPrice != null">
+                #{refundPrice} ,
+            </if>
+            <if test="lossNum != null">
+                #{lossNum} ,
+            </if>
+            <if test="lossCost != null">
+                #{lossCost} ,
+            </if>
+            <if test="saleCost != null">
+                #{saleCost} ,
+            </if>
+            <if test="refundCost != null">
+                #{refundCost} ,
+            </if>
+            <if test="countCost != null">
+                #{countCost} ,
+            </if>
+            <if test="erpTime != null">
+                #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into PointSaleDetail(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productId ,
+        productSkuId ,
+        saleNum ,
+        refundNum ,
+        salePrice ,
+        refundPrice ,
+        lossNum ,
+        lossCost ,
+        saleCost ,
+        refundCost ,
+        countCost,
+        erpTime ,
+        createTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.dealerId} ,
+            #{item.brandId} ,
+            #{item.brandsId} ,
+            #{item.productId} ,
+            #{item.productSkuId} ,
+            #{item.saleNum} ,
+            #{item.refundNum} ,
+            #{item.salePrice} ,
+            #{item.refundPrice} ,
+            #{item.lossNum} ,
+            #{item.lossCost} ,
+            #{item.saleCost} ,
+            #{item.refundCost} ,
+            #{item.countCost} ,
+            #{item.erpTime} ,
+            #{item.createTime} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.PointSaleDetail">
+        update PointSaleDetail
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="saleNum != null">
+                saleNum = #{saleNum} ,
+            </if>
+            <if test="refundNum != null">
+                refundNum = #{refundNum} ,
+            </if>
+            <if test="salePrice != null">
+                salePrice = #{salePrice} ,
+            </if>
+            <if test="refundPrice != null">
+                refundPrice = #{refundPrice} ,
+            </if>
+            <if test="lossNum != null">
+                lossNum = #{lossNum} ,
+            </if>
+            <if test="lossCost != null">
+                lossCost = #{lossCost} ,
+            </if>
+            <if test="saleCost != null">
+                saleCost = #{saleCost} ,
+            </if>
+            <if test="refundCost != null">
+                refundCost = #{refundCost} ,
+            </if>
+            <if test="countCost != null">
+                refundCost = #{countCost} ,
+            </if>
+            <if test="erpTime != null">
+                erpTime = #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update PointSaleDetail set
+            dealerId = #{item.dealerId} ,
+            brandId = #{item.brandId} ,
+            brandsId = #{item.brandsId} ,
+            productId = #{item.productId} ,
+            productSkuId = #{item.productSkuId} ,
+            saleNum = #{item.saleNum} ,
+            refundNum = #{item.refundNum} ,
+            salePrice = #{item.salePrice} ,
+            refundPrice = #{item.refundPrice} ,
+            lossNum = #{item.lossNum} ,
+            lossCost = #{item.lossCost} ,
+            saleCost = #{item.saleCost} ,
+            refundCost = #{item.refundCost} ,
+            countCost = #{item.countCost} ,
+            erpTime = #{item.erpTime} ,
+            createTime = #{item.createTime} ,
+            delFlag = #{item.delFlag}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.PointSaleDetail">
+        update PointSaleDetail set
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        brandsId = #{brandsId} ,
+        productId = #{productId} ,
+        productSkuId = #{productSkuId} ,
+        saleNum = #{saleNum} ,
+        refundNum = #{refundNum} ,
+        salePrice = #{salePrice} ,
+        refundPrice = #{refundPrice} ,
+        lossNum = #{lossNum} ,
+        lossCost = #{lossCost} ,
+        saleCost = #{saleCost} ,
+        refundCost = #{refundCost} ,
+        countCost = #{countCost} ,
+        erpTime = #{erpTime} ,
+        createTime = #{createTime} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.PointSaleDetail">
+        select
+        <include refid="pointSaleDetailColumns"/>
+        from PointSaleDetail a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.PointSaleDetail">
+        SELECT
+        <include refid="pointSaleDetailColumns"/>
+        FROM PointSaleDetail a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="saleNum != null and saleNum != ''">
+            and a.saleNum = #{saleNum}
+        </if>
+        <if test="refundNum != null and refundNum != ''">
+            and a.refundNum = #{refundNum}
+        </if>
+        <if test="salePrice != null and salePrice != ''">
+            and a.salePrice = #{salePrice}
+        </if>
+        <if test="refundPrice != null and refundPrice != ''">
+            and a.refundPrice = #{refundPrice}
+        </if>
+        <if test="lossNum != null and lossNum != ''">
+            and a.lossNum = #{lossNum}
+        </if>
+        <if test="lossCost != null and lossCost != ''">
+            and a.lossCost = #{lossCost}
+        </if>
+        <if test="saleCost != null and saleCost != ''">
+            and a.saleCost = #{saleCost}
+        </if>
+        <if test="refundCost != null and refundCost != ''">
+            and a.refundCost = #{refundCost}
+        </if>
+        <if test="erpTime != null and erpTime != ''">
+            and a.erpTime = #{erpTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.PointSaleDetail">
+        SELECT
+        <include refid="pointSaleDetailColumns"/>
+        FROM PointSaleDetail a WHERE a.delFlag = 0
+    </select>
+    <select id="selectPointSaleDetailList" resultType="java.util.Map">
+        select
+        b.productNo as productNo,
+        b.productTitle as productTitle,
+        c.productSkuName as productSkuName,
+        a.saleNum as saleNum,
+        a.salePrice as salePrice,
+        a.refundNum as refundNum,
+        a.refundPrice as refundPrice,
+        a.lossNum as lossNum,
+        a.lossCost as lossCost,
+        a.saleCost as saleCost,
+        a.refundCost as refundCost,
+        a.countCost as countCost
+        from PointSaleDetail a,ProductBaseInfo b ,ProductSku c
+        where a.productId = b.refrenceId and a.productSkuId = c.refrenceId and a.delFlag = 0
+        <if test="null!= pointSaleDetail.productTitle and ''!= pointSaleDetail.productTitle">
+            and b.productTitle like concat('%',#{pointSaleDetail.productTitle},'%')
+        </if>
+        <if test="null!=pointSaleDetail.productNo and ''!=pointSaleDetail.productNo">
+            and b.productNo like concat('%',#{pointSaleDetail.productNo},'%')
+        </if>
+        and a.dealerId = #{pointSaleDetail.dealerId}
+        and a.brandId = #{pointSaleDetail.brandId}
+        and a.erpTime = #{pointSaleDetail.erpTime}
+    </select>
+    <select id="countPointSaleDetailListSum" resultType="java.util.Map">
+        select
+        count(a.refrenceId) as count,
+        sum(a.countCost) as sumCountCost
+        from PointSaleDetail a,ProductBaseInfo b
+        where a.delFlag= 0 and a.productId = b.refrenceId
+        <if test="null!= pointSaleDetail.productTitle and ''!= pointSaleDetail.productTitle">
+            and b.productTitle like concat('%',#{pointSaleDetail.productTitle},'%')
+        </if>
+        <if test="null!=pointSaleDetail.productNo and ''!=pointSaleDetail.productNo">
+            and b.productNo like concat('%',#{pointSaleDetail.productNo},'%')
+        </if>
+        and a.dealerId = #{pointSaleDetail.dealerId}
+        and a.brandId = #{pointSaleDetail.brandId}
+        and a.erpTime = #{pointSaleDetail.erpTime}
+    </select>
+
+
+</mapper>
+

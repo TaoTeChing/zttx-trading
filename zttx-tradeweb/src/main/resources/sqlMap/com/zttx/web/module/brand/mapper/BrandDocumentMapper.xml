@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandDocumentMapper">
+    <!-- 基础列 -->
+    <sql id="brandDocumentColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.cateId as cateId ,
+        a.docName as docName ,
+        a.domainName as domainName ,
+        a.docoFile as docoFile ,
+        a.docnFile as docnFile ,
+        a.webAddress as webAddress ,
+        a.docPass as docPass ,
+        a.docMark as docMark ,
+        a.docOpen as docOpen ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,
+        a.downNum as downNum ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandDocument">
+        insert into BrandDocument(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         cateId ,
+         docName ,
+         domainName ,
+         docoFile ,
+         docnFile ,
+         webAddress ,
+         docPass ,
+         docMark ,
+         docOpen ,
+         createTime ,
+         updateTime ,
+         createIp ,
+         downNum ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{cateId}  ,
+        #{docName}  ,
+        #{domainName}  ,
+        #{docoFile}  ,
+        #{docnFile}  ,
+        #{webAddress}  ,
+        #{docPass}  ,
+        #{docMark}  ,
+        #{docOpen}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{createIp}  ,
+        #{downNum}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandDocument where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandDocument set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandDocument">
+        insert into BrandDocument
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="cateId != null">
+                cateId ,
+            </if>
+            <if test="docName != null">
+                docName ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="docoFile != null">
+                docoFile ,
+            </if>
+            <if test="docnFile != null">
+                docnFile ,
+            </if>
+            <if test="webAddress != null">
+                webAddress ,
+            </if>
+            <if test="docPass != null">
+                docPass ,
+            </if>
+            <if test="docMark != null">
+                docMark ,
+            </if>
+            <if test="docOpen != null">
+                docOpen ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="downNum != null">
+                downNum ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="cateId != null">
+                #{cateId} ,
+            </if>
+            <if test="docName != null">
+                #{docName} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="docoFile != null">
+                #{docoFile} ,
+            </if>
+            <if test="docnFile != null">
+                #{docnFile} ,
+            </if>
+            <if test="webAddress != null">
+                #{webAddress} ,
+            </if>
+            <if test="docPass != null">
+                #{docPass} ,
+            </if>
+            <if test="docMark != null">
+                #{docMark} ,
+            </if>
+            <if test="docOpen != null">
+                #{docOpen} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="downNum != null">
+                #{downNum} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandDocument">
+        update BrandDocument
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="cateId != null">
+                cateId = #{cateId} ,
+            </if>
+            <if test="docName != null">
+                docName = #{docName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="docoFile != null">
+                docoFile = #{docoFile} ,
+            </if>
+            <if test="docnFile != null">
+                docnFile = #{docnFile} ,
+            </if>
+            <if test="webAddress != null">
+                webAddress = #{webAddress} ,
+            </if>
+            <if test="docPass != null">
+                docPass = #{docPass} ,
+            </if>
+            <if test="docMark != null">
+                docMark = #{docMark} ,
+            </if>
+            <if test="docOpen != null">
+                docOpen = #{docOpen} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="downNum != null">
+                downNum = #{downNum} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandDocument">
+        update BrandDocument set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            cateId = #{cateId} ,
+            docName = #{docName} ,
+            domainName = #{domainName} ,
+            docoFile = #{docoFile} ,
+            docnFile = #{docnFile} ,
+            webAddress = #{webAddress} ,
+            docPass = #{docPass} ,
+            docMark = #{docMark} ,
+            docOpen = #{docOpen} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            createIp = #{createIp} ,
+            downNum = #{downNum} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandDocument">
+        select
+        <include refid="brandDocumentColumns"/>
+        from BrandDocument a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandDocument">
+        SELECT
+        <include refid="brandDocumentColumns"/>
+        FROM BrandDocument a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="docName != null and docName != ''">
+            and a.docName like CONCAT('%',#{docName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="docoFile != null and docoFile != ''">
+            and a.docoFile like CONCAT('%',#{docoFile}, '%')
+        </if>
+        <if test="docnFile != null and docnFile != ''">
+            and a.docnFile like CONCAT('%',#{docnFile}, '%')
+        </if>
+        <if test="webAddress != null and webAddress != ''">
+            and a.webAddress like CONCAT('%',#{webAddress}, '%')
+        </if>
+        <if test="docPass != null and docPass != ''">
+            and a.docPass like CONCAT('%',#{docPass}, '%')
+        </if>
+        <if test="docMark != null and docMark != ''">
+            and a.docMark like CONCAT('%',#{docMark}, '%')
+        </if>
+        <if test="docOpen != null and docOpen != ''">
+            and a.docOpen = #{docOpen}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="downNum != null and downNum != ''">
+            and a.downNum = #{downNum}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandDocument">
+        SELECT
+        <include refid="brandDocumentColumns"/>
+        FROM BrandDocument a WHERE a.delFlag = 0
+    </select>
+    
+    <!-- 可分页的对象查询 -->
+    <select id="findBrandDocumentModelList" resultType="com.zttx.web.module.brand.model.BrandDocumentModel">
+        SELECT
+        <include refid="brandDocumentColumns"/>
+        FROM BrandDocument a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="docName != null and docName != ''">
+            and a.docName like CONCAT('%',#{docName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="docoFile != null and docoFile != ''">
+            and a.docoFile like CONCAT('%',#{docoFile}, '%')
+        </if>
+        <if test="docnFile != null and docnFile != ''">
+            and a.docnFile like CONCAT('%',#{docnFile}, '%')
+        </if>
+        <if test="webAddress != null and webAddress != ''">
+            and a.webAddress like CONCAT('%',#{webAddress}, '%')
+        </if>
+        <if test="docPass != null and docPass != ''">
+            and a.docPass like CONCAT('%',#{docPass}, '%')
+        </if>
+        <if test="docMark != null and docMark != ''">
+            and a.docMark like CONCAT('%',#{docMark}, '%')
+        </if>
+        <if test="docOpen != null and docOpen != ''">
+            and a.docOpen = #{docOpen}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="downNum != null and downNum != ''">
+            and a.downNum = #{downNum}
+        </if>
+    </select>
+
+    <select id="getBrandDocumentListByDealerId" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandDocument">
+        SELECT
+        <include refid="brandDocumentColumns"/>
+          FROM BrandDocument a WHERE a.delFlag = 0
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="cateId != null and cateId != ''">
+            and a.cateId = #{cateId}
+        </if>
+
+        <if test="dealerId != null and dealerId != ''">
+            and (a.docOpen = 1 or exists (select 1 from BrandDocopen b where a.refrenceId = b.docId and b.dealerId = #{dealerId} ))
+        </if>
+        order by a.createTime desc
+
+    </select>
+</mapper>
+

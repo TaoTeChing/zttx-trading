@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerMessageMapper">
+    <!-- 基础列 -->
+    <sql id="dealerMessageColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.orderId as orderId ,
+        a.msgCate as msgCate ,
+        a.msgTitle as msgTitle ,
+        a.msgText as msgText ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.refuseReply as refuseReply ,
+        a.replyId as replyId ,
+        a.replyTime as replyTime ,
+        a.replyText as replyText ,
+        a.userId as userId ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into DealerMessage(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        orderId ,
+        msgCate ,
+        msgTitle ,
+        msgText ,
+        createTime ,
+        updateTime ,
+        refuseReply ,
+        replyId ,
+        replyTime ,
+        replyText ,
+        userId ,
+        delFlag
+        ) VALUES
+        <foreach collection="entityList" item="item" index="index" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.dealerId} ,
+            #{item.brandId} ,
+            #{item.orderId} ,
+            #{item.msgCate} ,
+            #{item.msgTitle} ,
+            #{item.msgText} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.refuseReply} ,
+            #{item.replyId} ,
+            #{item.replyTime} ,
+            #{item.replyText} ,
+            #{item.userId} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerMessage">
+        insert into DealerMessage(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        orderId ,
+        msgCate ,
+        msgTitle ,
+        msgText ,
+        createTime ,
+        updateTime ,
+        refuseReply ,
+        replyId ,
+        replyTime ,
+        replyText ,
+        userId ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{dealerId} ,
+        #{brandId} ,
+        #{orderId} ,
+        #{msgCate} ,
+        #{msgTitle} ,
+        #{msgText} ,
+        #{createTime} ,
+        #{updateTime} ,
+        #{refuseReply} ,
+        #{replyId} ,
+        #{replyTime} ,
+        #{replyText} ,
+        #{userId} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerMessage where refrenceId = #{refrenceId}
+    </delete>
+    <!--删除与品牌商相关的一条消息-->
+    <delete id="deleteDealerMessageByBrandId">
+        delete from DealerMessage where brandId = #{brandId} and refrenceId = #{msgId}
+    </delete>
+    <update id="deleteDealerMessageByDealerId">
+        update DealerMessage set delFlag = true where dealerId = #{dealerId}
+        <if test="msgId != null and msgId != ''">
+            and refrenceId = #{msgId}
+        </if>
+    </update>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerMessage set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerMessage">
+        insert into DealerMessage
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="orderId != null">
+                orderId ,
+            </if>
+            <if test="msgCate != null">
+                msgCate ,
+            </if>
+            <if test="msgTitle != null">
+                msgTitle ,
+            </if>
+            <if test="msgText != null">
+                msgText ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="refuseReply != null">
+                refuseReply ,
+            </if>
+            <if test="replyId != null">
+                replyId ,
+            </if>
+            <if test="replyTime != null">
+                replyTime ,
+            </if>
+            <if test="replyText != null">
+                replyText ,
+            </if>
+            <if test="userId != null">
+                userId ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="orderId != null">
+                #{orderId} ,
+            </if>
+            <if test="msgCate != null">
+                #{msgCate} ,
+            </if>
+            <if test="msgTitle != null">
+                #{msgTitle} ,
+            </if>
+            <if test="msgText != null">
+                #{msgText} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="refuseReply != null">
+                #{refuseReply} ,
+            </if>
+            <if test="replyId != null">
+                #{replyId} ,
+            </if>
+            <if test="replyTime != null">
+                #{replyTime} ,
+            </if>
+            <if test="replyText != null">
+                #{replyText} ,
+            </if>
+            <if test="userId != null">
+                #{userId} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerMessage">
+        update DealerMessage
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="msgCate != null">
+                msgCate = #{msgCate} ,
+            </if>
+            <if test="msgTitle != null">
+                msgTitle = #{msgTitle} ,
+            </if>
+            <if test="msgText != null">
+                msgText = #{msgText} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="refuseReply != null">
+                refuseReply = #{refuseReply} ,
+            </if>
+            <if test="replyId != null">
+                replyId = #{replyId} ,
+            </if>
+            <if test="replyTime != null">
+                replyTime = #{replyTime} ,
+            </if>
+            <if test="replyText != null">
+                replyText = #{replyText} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerMessage">
+        update DealerMessage set
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        orderId = #{orderId} ,
+        msgCate = #{msgCate} ,
+        msgTitle = #{msgTitle} ,
+        msgText = #{msgText} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        refuseReply = #{refuseReply} ,
+        replyId = #{replyId} ,
+        replyTime = #{replyTime} ,
+        replyText = #{replyText} ,
+        userId = #{userId} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        select
+        <include refid="dealerMessageColumns"/>
+        from DealerMessage a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        SELECT
+        <include refid="dealerMessageColumns"/>
+        FROM DealerMessage a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="msgCate != null and msgCate != ''">
+            and a.msgCate = #{msgCate}
+        </if>
+        <if test="msgTitle != null and msgTitle != ''">
+            and a.msgTitle like CONCAT('%',#{msgTitle}, '%')
+        </if>
+        <if test="msgText != null and msgText != ''">
+            and a.msgText like CONCAT('%',#{msgText}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="refuseReply != null and refuseReply != ''">
+            and a.refuseReply = #{refuseReply}
+        </if>
+        <if test="replyId != null and replyId != ''">
+            and a.replyId like CONCAT('%',#{replyId}, '%')
+        </if>
+        <if test="replyTime != null and replyTime != ''">
+            and a.replyTime = #{replyTime}
+        </if>
+        <if test="replyText != null and replyText != ''">
+            and a.replyText like CONCAT('%',#{replyText}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        SELECT
+        <include refid="dealerMessageColumns"/>
+        FROM DealerMessage a WHERE a.delFlag = 0
+    </select>
+    <!--获取品牌商发送的消息(单条)-->
+    <select id="getMsgWithBrand" resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        SELECT
+        <include refid="dealerMessageColumns"/>
+        FROM
+        DealerMessage a
+        WHERE
+        a.brandId = #{brandId}
+        AND a.refrenceId = #{msgId}
+    </select>
+    <!--获取与经销商相关的消息(单条)-->
+    <select id="getMsgWithDealer" resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        SELECT
+        <include refid="dealerMessageColumns"/>
+        FROM
+        DealerMessage a
+        WHERE
+        (
+        a.dealerId = #{dealerId}
+        )
+        AND refrenceId = #{msgId}
+    </select>
+    <!--根据经销商ID，获取未读消息ID列表-->
+    <select id="getUnReadMsgIdList" resultType="java.lang.String">
+        SELECT
+        m.refrenceId
+        FROM
+        DealerMessage m
+        WHERE
+        a.delFlag=false and
+        (
+        m.dealerId = #{dealerId}
+        )
+        AND NOT EXISTS (
+        SELECT
+        1
+        FROM
+        DealerRead r
+        WHERE
+        m.refrenceId = r.msgId
+        AND r.dealerId = #{dealerId}
+        )
+    </select>
+    <select id="listDealerMessage" resultType="com.zttx.web.module.dealer.entity.DealerMessage">
+        SELECT
+        <include refid="dealerMessageColumns"/>
+        FROM
+        DealerMessage a
+        WHERE
+        a.delFlag=false
+
+        <if test="null != dealerMessageModel.dealerId">
+            and a.dealerId = #{dealerMessageModel.dealerId}
+        </if>
+
+        <!--消息类型-->
+        <if test="null != dealerMessageModel.searchType and dealerMessageModel.searchType > 0">
+            AND a.msgCate = #{dealerMessageModel.searchType}
+        </if>
+        <!--关键词-->
+        <if test="dealerMessageModel.searchWord != null and dealerMessageModel.searchWord != ''">
+            AND a.msgTitle LIKE CONCAT( '%', #{dealerMessageModel.searchWord}, '%')
+        </if>
+        <!-- 1：已读 2：未读 0: 全部-->
+        <choose>
+            <when test="dealerMessageModel.msgStatus != null and 1 == dealerMessageModel.msgStatus">
+                AND EXISTS ( SELECT 1 FROM DealerRead r WHERE a.refrenceId = r.msgId AND r.dealerId =
+                #{dealerMessageModel.dealerId} and r.delFlag = 0)
+            </when>
+            <when test="dealerMessageModel.msgStatus != null and 2 == dealerMessageModel.msgStatus">
+                AND NOT EXISTS ( SELECT 1 FROM DealerRead r WHERE a.refrenceId = r.msgId AND r.dealerId =
+                #{dealerMessageModel.dealerId})
+            </when>
+        </choose>
+        <!--只取注册时间之后的数据-->
+        <if test="null != dealerMessageModel.dealerId">
+            AND a.createTime > ( SELECT registerTime FROM UserInfo u WHERE u.refrenceId = #{dealerMessageModel.dealerId}
+            )
+        </if>
+        ORDER BY a.createTime DESC
+    </select>
+    <!--统计经销商未读消息-->
+    <select id="countDealerUnReadMessages" resultType="long">
+        SELECT
+        count(1)
+        FROM
+        DealerMessage m
+        WHERE
+        m.delFlag=false and
+        (
+        m.dealerId = #{dealerId}
+        )
+        AND NOT EXISTS (
+        SELECT
+        1
+        FROM
+        DealerRead r
+        WHERE
+        m.refrenceId = r.msgId
+        AND r.dealerId = #{dealerId}
+        )
+    </select>
+</mapper>
+

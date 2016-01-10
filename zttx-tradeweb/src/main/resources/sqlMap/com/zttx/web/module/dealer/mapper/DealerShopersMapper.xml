@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerShopersMapper">
+    <!-- 基础列 -->
+    <sql id="dealerShopersColumns">
+        a.refrenceId as refrenceId ,
+        a.shoperId as shoperId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.purchaseNum as purchaseNum ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.productType as productType ,
+        a.productSkuPrice as productSkuPrice ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerShopers">
+        insert into DealerShopers(
+        refrenceId ,
+        shoperId ,
+        productId ,
+        productSkuId ,
+        purchaseNum ,
+        createTime ,
+        updateTime ,
+        productType ,
+        productSkuPrice ,
+        delFlag
+        ) VALUES (
+        #{refrenceId}  ,
+        #{shoperId}  ,
+        #{productId}  ,
+        #{productSkuId}  ,
+        #{purchaseNum}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{productType}  ,
+        #{productSkuPrice}  ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerShopers where refrenceId = #{refrenceId}
+    </delete>
+    <delete id="deleteBatch">
+        delete from DealerShopers where shoperId = #{shoperId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerShopers set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopers">
+        insert into DealerShopers
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="shoperId != null">
+                shoperId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId ,
+            </if>
+            <if test="purchaseNum != null">
+                purchaseNum ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="productType != null">
+                productType ,
+            </if>
+            <if test="productSkuPrice != null">
+                productSkuPrice ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="shoperId != null">
+                #{shoperId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                #{productSkuId} ,
+            </if>
+            <if test="purchaseNum != null">
+                #{purchaseNum} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="productType != null">
+                #{productType} ,
+            </if>
+            <if test="productSkuPrice != null">
+                #{productSkuPrice} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerShopers">
+        update DealerShopers
+        <set>
+            <if test="shoperId != null">
+                shoperId = #{shoperId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="purchaseNum != null">
+                purchaseNum = #{purchaseNum} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="productType != null">
+                productType = #{productType} ,
+            </if>
+            <if test="productSkuPrice != null">
+                productSkuPrice = #{productSkuPrice} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerShopers">
+        update DealerShopers set
+        shoperId = #{shoperId} ,
+        productId = #{productId} ,
+        productSkuId = #{productSkuId} ,
+        purchaseNum = #{purchaseNum} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        productType = #{productType} ,
+        productSkuPrice = #{productSkuPrice} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+        select <include refid="dealerShopersColumns"/> from DealerShopers a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+        SELECT
+        <include refid="dealerShopersColumns"/>
+        FROM DealerShopers a WHERE a.delFlag = 0
+        <if test="shoperId != null and shoperId != ''">
+            and a.shoperId like CONCAT('%',#{shoperId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="purchaseNum != null and purchaseNum != ''">
+            and a.purchaseNum = #{purchaseNum}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="productType != null and productType != ''">
+            and a.productType = #{productType}
+        </if>
+        <if test="productSkuPrice != null and productSkuPrice != ''">
+            and a.productSkuPrice = #{productSkuPrice}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+        SELECT
+        <include refid="dealerShopersColumns"/>
+        FROM DealerShopers a WHERE a.delFlag = 0
+    </select>
+    <!--批量/单一 保存购物单明细sku-->
+    <insert id="insertBatch" parameterType="com.zttx.web.module.dealer.entity.DealerShopers">
+        insert into DealerShopers(
+        refrenceId ,
+        shoperId ,
+        productId ,
+        productSkuId ,
+        purchaseNum ,
+        createTime ,
+        updateTime ,
+        productType ,
+        productSkuPrice ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator="," >
+            (
+            #{item.refrenceId},
+            #{item.shoperId}  ,
+            #{item.productId}  ,
+            #{item.productSkuId}  ,
+            #{item.purchaseNum}  ,
+            #{item.createTime}  ,
+            #{item.updateTime}  ,
+            #{item.productType}  ,
+            #{item.productSkuPrice}  ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+    <select id="selectSkuPrice2DealerShopers" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+        select
+        b.productSkuNo as productSkuCode,
+        b.productSkuName as productSkuName,
+        <choose>
+            <when test="null != productType and 0 == productType"> <!--现款价-->
+                c.directPrice as productSkuPrice ,
+            </when>
+            <when test="null != productType and 1 == productType"> <!--授信价-->
+                c.creditPrice as productSkuPrice ,
+            </when>
+            <when test="null != productType and 2 == productType"> <!--拿样价-->
+                c.samplePrice as productSkuPrice ,
+            </when>
+            <when test="null != productType and 3 == productType"> <!--返点价-->
+                c.pointPrice as productSkuPrice ,
+            </when>
+            <otherwise>
+                0 AS productSkuPrice,
+            </otherwise>
+        </choose>
+        b.quantity as productStock
+        from ProductSku b,ProductSkuPrice c
+        where b.refrenceId = c.productSkuId
+        and b.refrenceId = #{skuId} and b.delFlag=0
+    </select>
+   <!--根据shoperId 获取购物车副表 sku明细-->
+    <select id="selectDealerShopersBy" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+        select
+        a.refrenceId as refrenceId ,
+        a.shoperId as shoperId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.purchaseNum as purchaseNum ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.productType as productType ,
+      <choose>
+          <when test="null != productType and 0 == productType"> <!--现款价-->
+              c.directPrice as productSkuPrice ,
+          </when>
+          <when test="null != productType and 1 == productType"> <!--授信价-->
+              c.creditPrice as productSkuPrice ,
+          </when>
+          <when test="null != productType and 2 == productType"> <!--拿样价-->
+              c.samplePrice as productSkuPrice ,
+          </when>
+          <when test="null != productType and 3 == productType"> <!--返点价-->
+              c.pointPrice as productSkuPrice ,
+          </when>
+          <otherwise>
+              0 AS productSkuPrice,
+          </otherwise>
+      </choose>
+        a.delFlag as delFlag,
+        b.productSkuNo as productSkuCode,
+        b.productSkuName as productSkuName,
+        b.quantity as productStock
+        from DealerShopers a,ProductSku b,ProductSkuPrice c
+        where a.productSkuId = b.refrenceId and a.productSkuId = c.productSkuId
+        and a.shoperId = #{shoperId} and a.delFlag=0 order by  b.productSkuName;
+    </select>
+    <select id="selectDealerShopersSumBy" resultType="java.util.HashMap">
+        select
+        sum(a.purchaseNum) as purchaseNumSum,
+        sum(a.purchaseNum*a.productSkuPrice) as purchasePriceSum
+        from DealerShopers a
+        where a.shoperId = #{shoperId}
+        and a.delFlag = 0
+    </select>
+    
+    <select id="getByproductSkuIdAndDealerShopId" parameterType="map" resultType="com.zttx.web.module.dealer.entity.DealerShopers">
+    	select 
+    		<include refid="dealerShopersColumns"/>
+    	from DealerShopers a
+    	<where>
+    		a.delFlag = 0
+    		and a.shoperId = #{shopId}
+    		and a.productSkuId=#{skuId}
+    	</where>
+    </select>
+</mapper>
+

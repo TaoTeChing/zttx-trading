@@ -1,0 +1,218 @@
+﻿@charset "utf-8";
+@import "base";
+@import "_header";
+@import "_footer";
+body{
+  background: #FFF;
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+.content{
+  margin-top:25px;
+  margin-bottom: 55px;
+  border:1px solid #ddd;
+  padding:50px;
+  h3{
+    font-size: 30px;
+    font-family: "微软雅黑";
+    color:#333;
+    margin-bottom: 30px;
+  }
+  .navigation{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+    a{
+      padding:5px 0 5px 20px;
+      margin-right:20px;
+      background: url(/images/map/icons.png) no-repeat;
+      font-size: 14px;
+      font-family: "微软雅黑";
+      &:hover{
+        color:#e70012;
+      }
+    }
+    .index{
+      background-position:  0 5px;
+      &:hover{
+        background-position:  0 -26px;
+      }
+    }
+    .brand{
+      background-position: -72px 5px;
+      &:hover{
+        background-position:  -72px -26px;
+      }
+    }
+    .apply{
+      background-position: -167px 5px;
+      &:hover{
+        background-position:  -167px -26px;
+      }
+    }
+    .meet{
+      background-position: -266px 3px;
+      &:hover{
+        background-position:  -266px -28px;
+      }
+    }
+    .school{
+      background-position: -377px 5px;
+      &:hover{
+        background-position:  -377px -26px;
+      }
+    }
+    .info{
+      background-position: -488px 5px;
+      &:hover{
+        background-position:  -488px -26px;
+      }
+    }
+    .help{
+      background-position: -586px 5px;
+      &:hover{
+        background-position:  -586px -26px;
+      }
+    }
+    .rules{
+      background-position: -681px 5px;
+      &:hover{
+        background-position:  -681px -26px;
+      }
+    }
+  }
+  .channel {
+    padding-top:35px;
+    .headline {
+      margin-bottom: 10px;
+      span {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: top;
+        float: left;
+        font-family: "微软雅黑";
+      }
+      .cn {
+        font-size: 16px;
+        margin-right: 8px;
+      }
+      .en {
+        font-size: 14px;
+        color: #e6e6ea;
+      }
+      hr {
+        margin-top: 16px;
+        *margin-top:8px;
+        margin-left: 10px;
+        border: 1px solid #eaeaea;
+      }
+    }
+    .module {
+      margin-bottom:18px;
+      .title {
+        a {
+          width: 95px;
+          height: 30px;
+          line-height: 30px;
+          display: block;
+          border-radius: 4px;
+          font-size: 16px;
+          font-family: "微软雅黑";
+          color: #FFF;
+          background: #e70012;
+          text-align: center;
+        }
+      }
+      .details{
+        width:1003px;
+        background: #f0f0f0;
+        .list{
+          position: relative;
+          padding-top:15px;
+          *padding-bottom: 5px;
+          border-bottom: 1px dashed #ddd;
+          label{
+            position: absolute;
+            top:15px;
+            left:12px;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            a{
+              color:#333;
+            }
+          }
+          ul{
+            margin-left:130px;
+          }
+          li{
+            float:left;
+            width:218px;
+            height: 30px;
+            line-height: 30px;
+            overflow: hidden;
+            margin-bottom:10px;
+            a{
+              color:#666;
+              display: inline-block;
+              padding:0 10px;
+              &:hover{
+                color:#fff;
+                background: #ff0000;
+              }
+            }
+          }
+        }
+        .last{
+          border-bottom: 0;
+        }
+      }
+    }
+    .common{
+      ul{
+        margin-left:-30px;
+        _margin-left:-60px;
+      }
+      li{
+        float:left;
+        height: 30px;
+        line-height: 30px;
+        margin-left:28px;
+        a{
+          display: inline-block;
+          padding:0 15px;
+          height: 30px;
+          line-height: 30px;
+          overflow: hidden;
+          &:hover{
+            color:#fff;
+            background: #ff0000;
+          }
+        }
+      }
+      .details{
+        .list ul{
+          margin-left:60px;
+        }
+        .list li{
+          width:auto;
+
+        }
+      }
+    }
+    .learn{
+      .title{
+        a{
+          width:145px;
+        }
+      }
+      .details{
+        width:953px;
+      }
+    }
+  }
+}

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerOrderPayMapper">
+    <!-- 基础列 -->
+    <sql id="dealerOrderPayColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.orderNo as orderNo ,
+        a.payId as payId ,
+        a.payAmount as payAmount ,
+        a.createTime as createTime ,
+        a.state as state ,
+        a.orderType as orderType ,
+        a.pointBalance as pointBalance ,
+        a.unpayAmount as unpayAmount ,
+        a.payTime as payTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        insert into DealerOrderPay(
+         refrenceId ,
+         orderId ,
+         orderNo ,
+         payId ,
+         payAmount ,
+         createTime ,
+         state ,
+         orderType ,
+         pointBalance ,
+         unpayAmount ,
+         payTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{orderNo}  ,
+        #{payId}  ,
+        #{payAmount}  ,
+        #{createTime}  ,
+        #{state}  ,
+        #{orderType}  ,
+        #{pointBalance}  ,
+        #{unpayAmount}  ,
+        #{payTime}  ,
+        #{updateTime} ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerOrderPay where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerOrderPay set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        insert into DealerOrderPay
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="orderNo != null">
+            orderNo ,
+        </if>
+        <if test="payId != null">
+            payId ,
+        </if>
+        <if test="payAmount != null">
+            payAmount ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="state != null">
+            state ,
+        </if>
+        <if test="orderType != null">
+            orderType ,
+        </if>
+        <if test="pointBalance != null">
+            pointBalance ,
+        </if>
+        <if test="unpayAmount != null">
+            unpayAmount ,
+        </if>
+        <if test="payTime != null">
+            payTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="orderNo != null">
+            #{orderNo} ,
+        </if>
+        <if test="payId != null">
+            #{payId} ,
+        </if>
+        <if test="payAmount != null">
+            #{payAmount} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="state != null">
+            #{state} ,
+        </if>
+        <if test="orderType != null">
+            #{orderType} ,
+        </if>
+        <if test="pointBalance != null">
+            #{pointBalance} ,
+        </if>
+        <if test="unpayAmount != null">
+            #{unpayAmount} ,
+        </if>
+        <if test="payTime != null">
+            #{payTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        update DealerOrderPay
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="orderNo != null">
+                orderNo = #{orderNo} ,
+            </if>
+            <if test="payId != null">
+                payId = #{payId} ,
+            </if>
+            <if test="payAmount != null">
+                payAmount = #{payAmount} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="state != null">
+                state = #{state} ,
+            </if>
+            <if test="orderType != null">
+                orderType = #{orderType} ,
+            </if>
+            <if test="pointBalance != null">
+                pointBalance = #{pointBalance} ,
+            </if>
+            <if test="unpayAmount != null">
+                unpayAmount = #{unpayAmount} ,
+            </if>
+            <if test="payTime != null">
+                payTime = #{payTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        update DealerOrderPay set
+            orderId = #{orderId} ,
+            orderNo = #{orderNo} ,
+            payId = #{payId} ,
+            payAmount = #{payAmount} ,
+            createTime = #{createTime} ,
+            state = #{state} ,
+            orderType = #{orderType} ,
+            pointBalance = #{pointBalance} ,
+            unpayAmount = #{unpayAmount} ,
+            payTime = #{payTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        select <include refid="dealerOrderPayColumns"/> from DealerOrderPay a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        SELECT
+        <include refid="dealerOrderPayColumns"/>
+        FROM DealerOrderPay a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="orderNo != null and orderNo != ''">
+            and a.orderNo = #{orderNo}
+        </if>
+        <if test="payId != null and payId != ''">
+            and a.payId = #{payId}
+        </if>
+        <if test="payAmount != null and payAmount != ''">
+            and a.payAmount = #{payAmount}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="state != null and state != ''">
+            and a.state = #{state}
+        </if>
+        <if test="orderType != null and orderType != ''">
+            and a.orderType = #{orderType}
+        </if>
+        <if test="pointBalance != null and pointBalance != ''">
+            and a.pointBalance = #{pointBalance}
+        </if>
+        <if test="unpayAmount != null and unpayAmount != ''">
+            and a.unpayAmount = #{unpayAmount}
+        </if>
+        <if test="payTime != null and payTime != ''">
+            and a.payTime = #{payTime}
+        </if>
+        <if test="updateTime != null">
+            and a.updateTime &gt; #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        SELECT
+        <include refid="dealerOrderPayColumns"/>
+        FROM DealerOrderPay a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findByOrderId" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+      select <include refid="dealerOrderPayColumns"/>
+      from DealerOrderPay a
+      where a.delFlag = 0 and a.state = 1 and a.orderId=#{orderId}
+      order by a.payTime asc
+    </select>
+
+    <select id="listUnpay" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        select <include refid="dealerOrderPayColumns"/>
+        from DealerOrderPay a
+        where a.delFlag = 0 and a.state = 0 and a.orderId = #{orderId}
+        order by a.createTime
+    </select>
+
+    <select id="listPaid" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        select <include refid="dealerOrderPayColumns"/>
+        from DealerOrderPay a
+        where a.delFlag = 0 and a.state = 1 and a.orderId = #{orderId}
+        order by a.createTime
+    </select>
+
+    <select id="findByPayId" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        select <include refid="dealerOrderPayColumns"/>
+        from DealerOrderPay a
+        where a.delFlag = 0 and a.payId = #{payId}
+    </select>
+
+    <select id="findAllUnPay" resultType="com.zttx.web.module.dealer.entity.DealerOrderPay">
+        select <include refid="dealerOrderPayColumns"/>
+        from DealerOrderPay a
+        where a.delFlag = 0 and a.state = 0
+    </select>
+</mapper>
+

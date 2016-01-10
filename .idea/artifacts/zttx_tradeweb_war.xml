@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="zttx-tradeweb:war">
+    <output-path>$PROJECT_DIR$/zttx-tradeweb/target</output-path>
+    <root id="archive" name="zttx-tradeweb-3.2.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="zttx-tradeweb:war exploded" />
+    </root>
+  </artifact>
+</component>

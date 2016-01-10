@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.EmailValidateMapper">
+    <!-- 基础列 -->
+    <sql id="emailValidateColumns">
+        a.refrenceId as refrenceId ,
+        a.userId as userId ,
+        a.userCate as userCate ,
+        a.emailAddr as emailAddr ,
+        a.validTime as validTime ,
+        a.createIp as createIp ,
+        a.useTime as useTime ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.EmailValidate">
+        insert into EmailValidate(
+         refrenceId ,
+         userId ,
+         userCate ,
+         emailAddr ,
+         validTime ,
+         createIp ,
+         useTime ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userId}  ,
+        #{userCate}  ,
+        #{emailAddr}  ,
+        #{validTime}  ,
+        #{createIp}  ,
+        #{useTime}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from EmailValidate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update EmailValidate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.EmailValidate">
+        insert into EmailValidate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="userCate != null">
+            userCate ,
+        </if>
+        <if test="emailAddr != null">
+            emailAddr ,
+        </if>
+        <if test="validTime != null">
+            validTime ,
+        </if>
+        <if test="createIp != null">
+            createIp ,
+        </if>
+        <if test="useTime != null">
+            useTime ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="userCate != null">
+            #{userCate} ,
+        </if>
+        <if test="emailAddr != null">
+            #{emailAddr} ,
+        </if>
+        <if test="validTime != null">
+            #{validTime} ,
+        </if>
+        <if test="createIp != null">
+            #{createIp} ,
+        </if>
+        <if test="useTime != null">
+            #{useTime} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.EmailValidate">
+        update EmailValidate
+           <set>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="userCate != null">
+                userCate = #{userCate} ,
+            </if>
+            <if test="emailAddr != null">
+                emailAddr = #{emailAddr} ,
+            </if>
+            <if test="validTime != null">
+                validTime = #{validTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="useTime != null">
+                useTime = #{useTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.EmailValidate">
+        update EmailValidate set
+            userId = #{userId} ,
+            userCate = #{userCate} ,
+            emailAddr = #{emailAddr} ,
+            validTime = #{validTime} ,
+            createIp = #{createIp} ,
+            useTime = #{useTime} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.EmailValidate">
+        select <include refid="emailValidateColumns"/> from EmailValidate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.EmailValidate">
+        SELECT
+        <include refid="emailValidateColumns"/>
+        FROM EmailValidate a WHERE a.delFlag = 0
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="userCate != null and userCate != ''">
+            and a.userCate = #{userCate}
+        </if>
+        <if test="emailAddr != null and emailAddr != ''">
+            and a.emailAddr like CONCAT('%',#{emailAddr}, '%')
+        </if>
+        <if test="validTime != null and validTime != ''">
+            and a.validTime = #{validTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="useTime != null and useTime != ''">
+            and a.useTime = #{useTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.EmailValidate">
+        SELECT
+        <include refid="emailValidateColumns"/>
+        FROM EmailValidate a WHERE a.delFlag = 0
+    </select>
+
+    <select id="search" resultType="com.zttx.web.module.common.entity.EmailValidate">
+        SELECT
+        <include refid="emailValidateColumns"/>
+        FROM EmailValidate a
+        WHERE emailAddr = #{emailAddr} AND delFlag = #{useState}
+        ORDER BY createTime DESC
+        LIMIT 0,1
+    </select>
+
+    <update id="update">
+        update EmailValidate
+        set delFlag = #{useState}, useTime = #{useTime}
+        where refrenceId = ?
+    </update>
+</mapper>
+

@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.ArticleInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="articleInfoColumns">
+        a.refrenceId as refrenceId,
+        a.cateId as cateId ,
+        a.articleTitle as articleTitle,
+        a.articleText as articleText,
+        a.domainName as domainName,
+        a.articleImage as articleImage,
+        a.articleSource as articleSource ,
+        a.articleAuthor as articleAuthor,
+        a.viewNum as viewNum,
+        a.shareNum as shareNum,
+        a.isTop as isTop,
+        a.isHead as isHead ,
+        a.isComment as isComment,
+        a.isHot as isHot,
+        a.commentNum as commentNum,
+        a.collectNum as collectNum,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+    <!-- 扩展列 -->
+    <sql id="extArticleInfoColumns">
+        a.refrenceId as refrenceId,
+        c.cateName as cateName,
+        a.cateId as cateId,
+        a.articleTitle as articleTitle,
+        a.articleText as articleText,
+        a.domainName as domainName,
+        a.articleImage as articleImage,
+        a.articleSource as articleSource,
+        a.articleAuthor as articleAuthor,
+        a.viewNum as viewNum,
+        a.shareNum as shareNum,
+        a.isTop as isTop,
+        a.isHead as isHead,
+        a.isComment as isComment,
+        a.isHot as isHot,
+        a.commentNum as commentNum,
+        a.collectNum as collectNum,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        INSERT INTO ArticleInfo (
+            refrenceId,
+            cateId,
+            articleTitle,
+            articleText,
+            domainName,
+            articleImage,
+            articleSource,
+            articleAuthor,
+            viewNum,
+            shareNum,
+            isTop,
+            isHead,
+            isComment,
+            isHot,
+            commentNum,
+            collectNum,
+            createTime,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{cateId},
+            #{articleTitle},
+            #{articleText},
+            #{domainName},
+            #{articleImage},
+            #{articleSource},
+            #{articleAuthor},
+            #{viewNum},
+            #{shareNum},
+            #{isTop},
+            #{isHead},
+            #{isComment},
+            #{isHot},
+            #{commentNum},
+            #{collectNum},
+            #{createTime},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM
+            ArticleInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE ArticleInfo
+        SET delFlag
+        = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        insert into ArticleInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="cateId != null">
+                cateId ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle ,
+            </if>
+            <if test="articleText != null">
+                articleText ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="articleImage != null">
+                articleImage ,
+            </if>
+            <if test="articleSource != null">
+                articleSource ,
+            </if>
+            <if test="articleAuthor != null">
+                articleAuthor ,
+            </if>
+            <if test="viewNum != null">
+                viewNum ,
+            </if>
+            <if test="shareNum != null">
+                shareNum ,
+            </if>
+            <if test="isTop != null">
+                isTop ,
+            </if>
+            <if test="isHead != null">
+                isHead ,
+            </if>
+            <if test="isComment != null">
+                isComment ,
+            </if>
+            <if test="isHot != null">
+                isHot ,
+            </if>
+            <if test="commentNum != null">
+                commentNum ,
+            </if>
+            <if test="collectNum != null">
+                collectNum ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="cateId != null">
+                #{cateId} ,
+            </if>
+            <if test="articleTitle != null">
+                #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                #{articleImage} ,
+            </if>
+            <if test="articleSource != null">
+                #{articleSource} ,
+            </if>
+            <if test="articleAuthor != null">
+                #{articleAuthor} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum} ,
+            </if>
+            <if test="shareNum != null">
+                #{shareNum} ,
+            </if>
+            <if test="isTop != null">
+                #{isTop} ,
+            </if>
+            <if test="isHead != null">
+                #{isHead} ,
+            </if>
+            <if test="isComment != null">
+                #{isComment} ,
+            </if>
+            <if test="isHot != null">
+                #{isHot} ,
+            </if>
+            <if test="commentNum != null">
+                #{commentNum} ,
+            </if>
+            <if test="collectNum != null">
+                #{collectNum} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        update ArticleInfo
+        <set>
+            <if test="cateId != null">
+                cateId = #{cateId} ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle = #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                articleText = #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                articleImage = #{articleImage} ,
+            </if>
+            <if test="articleSource != null">
+                articleSource = #{articleSource} ,
+            </if>
+            <if test="articleAuthor != null">
+                articleAuthor = #{articleAuthor} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="shareNum != null">
+                shareNum = #{shareNum} ,
+            </if>
+            <if test="isTop != null">
+                isTop = #{isTop} ,
+            </if>
+            <if test="isHead != null">
+                isHead = #{isHead} ,
+            </if>
+            <if test="isComment != null">
+                isComment = #{isComment} ,
+            </if>
+            <if test="isHot != null">
+                isHot = #{isHot} ,
+            </if>
+            <if test="commentNum != null">
+                commentNum = #{commentNum} ,
+            </if>
+            <if test="collectNum != null">
+                collectNum = #{collectNum} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        UPDATE ArticleInfo
+        SET
+            cateId        = #{cateId},
+            articleTitle  = #{articleTitle},
+            articleText   = #{articleText},
+            domainName    = #{domainName},
+            articleImage  = #{articleImage},
+            articleSource = #{articleSource},
+            articleAuthor = #{articleAuthor},
+            viewNum       = #{viewNum},
+            shareNum      = #{shareNum},
+            isTop         = #{isTop},
+            isHead        = #{isHead},
+            isComment     = #{isComment},
+            isHot         = #{isHot},
+            commentNum    = #{commentNum},
+            collectNum    = #{collectNum},
+            createTime    = #{createTime},
+            updateTime    = #{updateTime},
+            delFlag       = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        select
+        <include refid="articleInfoColumns"/>
+        from ArticleInfo a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        SELECT
+        <include refid="articleInfoColumns"/>
+        FROM ArticleInfo a WHERE a.delFlag = 0
+        <if test="cateId != null and cateId != ''">
+            and a.cateId like CONCAT('%',#{cateId}, '%')
+        </if>
+        <if test="refrenceId != null and refrenceId != ''">
+            and a.refrenceId = #{refrenceId}
+        </if>
+        <if test="articleTitle != null and articleTitle != ''">
+            and a.articleTitle like CONCAT('%',#{articleTitle}, '%')
+        </if>
+        <if test="articleAuthor != null and articleAuthor != ''">
+            and a.articleAuthor like CONCAT('%',#{articleAuthor}, '%')
+        </if>
+        <if test="isTop != null and isTop != ''">
+            and a.isTop = #{isTop}
+        </if>
+        <if test="isHead != null and isHead != ''">
+            and a.isHead = #{isHead}
+        </if>
+        <if test="isComment != null and isComment != ''">
+            and a.isComment = #{isComment}
+        </if>
+        <if test="isHot != null and isHot != ''">
+            and a.isHot = #{isHot}
+        </if>
+    </select>
+
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        SELECT
+        <include refid="articleInfoColumns"/>
+        FROM ArticleInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="findArticleToSolrCount" parameterType="com.zttx.web.module.fronts.entity.ArticleInfo"
+            resultType="java.lang.Long">
+        SELECT count(*)
+        FROM ArticleInfo a
+        WHERE a.delFlag = 0
+    </select>
+    <select id="findArticleToSolr" parameterType="map"
+            resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        SELECT
+        <include refid="articleInfoColumns"/>
+        FROM ArticleInfo a WHERE a.delFlag = 0
+    </select>
+
+    <select id="count" parameterType="java.lang.String" resultType="java.lang.Long">
+        SELECT count(DISTINCT a.refrenceId)
+        FROM ArticleInfo a, ArticleCate o
+        WHERE (o.refrenceId = #{cateId} OR o.parentId = #{cateId})
+        AND (o.refrenceId = a.cateId OR o.parentId = a.cateId)
+        AND a.delFlag = 0
+    </select>
+    <select id="list" parameterType="java.util.Map" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        select a.refrenceId as refrenceId , a.cateId as cateId,
+        a.articleTitle as articleTitle, a.articleText as articleText,
+        a.domainName as domainName,a.articleImage as articleImage,
+        a.articleAuthor as articleAuthor, a.createTime as createTime,
+        o.cateName as cateName
+        from ArticleInfo a, ArticleCate o
+        where (o.refrenceId = #{cateId} or o.parentId = #{cateId} )
+        and (o.refrenceId = a.cateId or o.parentId = a.cateId)
+        and a.delFlag = 0
+        <if test="hasImg != null and hasImg == true">
+            and a.articleImage IS NOT NULL AND a.articleImage != ''
+        </if>
+        group by a.refrenceId order by a.createTime desc
+    </select>
+
+    <!-- 查询最新的新闻信息 -->
+    <select id="loadLatestNews" parameterType="java.util.Map" resultType="java.util.HashMap">
+        SELECT
+        a.refrenceId AS refrenceId,
+        a.cateId AS cateId,
+        a.articleTitle AS articleTitle,
+        a.createTime AS createTime,
+        o.cateName AS cateName,
+        a.domainName AS domainName,
+        a.articleImage AS articleImage,
+        a.articleAuthor AS articleAuthor,
+        a.articleText AS articleText
+        FROM
+        ArticleInfo a,
+        ArticleCate o
+        WHERE
+        a.cateId = o.refrenceId
+        AND a.delFlag = 0
+        AND (a.articleImage IS NOT NULL AND a.articleImage != '')
+        ORDER BY
+        a.createTime DESC
+    </select>
+
+    <!-- 查询热点文章信息 -->
+    <select id="findHotBy" parameterType="java.util.Map" resultType="java.util.HashMap">
+        select
+        a.refrenceId as refrenceId,
+        a.cateId as cateId,
+        a.articleTitle as articleTitle,
+        a.createTime as createTime ,
+        o.cateName as cateName,
+        a.domainName as domainName,
+        a.articleImage as articleImage,
+        a.articleAuthor as articleAuthor,
+        a.articleText as articleText
+        from ArticleInfo a, ArticleCate o
+        where a.cateId = o.refrenceId
+        and a.delFlag = 0
+        <if test="type == 0">
+            and a.isTop = 1
+        </if>
+        <if test="type == 1">
+            and (a.createTime between UNIX_TIMESTAMP(date_add(date(now()), interval -1 day)) *1000 and
+            UNIX_TIMESTAMP(date_add(date(now()), interval 0 day)) * 1000)
+        </if>
+        <if test="type == 2">
+            and (a.createTime between UNIX_TIMESTAMP(date_add(date(now()), interval 0 day)) *1000 and
+            UNIX_TIMESTAMP(date_add(date(now()), interval 1 day)) * 1000)
+        </if>
+        <if test="type == 3">
+            and (a.createTime between UNIX_TIMESTAMP(date_add(date(now()), interval -7 day)) *1000 and
+            UNIX_TIMESTAMP(date_add(date(now()), interval 1 day)) * 1000)
+        </if>
+        <!--order by a.viewNum desc, a.articleImage desc-->
+        order by a.updateTime desc,a.createTime desc
+</select>
+<!-- 查询热点文章信息 -->
+    <select id="findBy" parameterType="java.util.Map" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        select
+        <include refid="articleInfoColumns"/>
+        from ArticleInfo a
+        where a.delFlag = 0
+        and (a.articleImage is not null and a.articleImage!='')
+        <if test="type == 1">
+            and a.isTop = 1
+        </if>
+        <if test="type == 2">
+            and a.isHead = 1
+        </if>
+        <if test="type == 3">
+            and a.isComment = 1
+        </if>
+        <if test="type == 4">
+            and a.isHot = 1
+        </if>
+        order by a.updateTime desc,a.createTime desc
+    </select>
+
+    <select id="findOrder" parameterType="java.util.Map" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        select
+        <include refid="articleInfoColumns"/>
+        from ArticleInfo o
+        where o.delFlag = 0
+        order by
+        o.viewNum desc,
+        o.articleImage desc
+    </select>
+
+
+    <select id="findByCateId" parameterType="java.util.Map" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        select
+        <include refid="articleInfoColumns"/>
+        from ArticleInfo a where a.delFlag = 0
+        <choose>
+            <when test="cateId =='all'">
+                and a.articleImage is not null order by a.isComment desc, a.createTime desc
+            </when>
+            <when test="cateId =='hot'">
+                order by a.isComment desc, a.viewNum desc, a.articleImage desc
+            </when>
+            <otherwise>
+                and a.cateId = #{cateId} order by a.isComment desc, a.createTime desc, a.articleImage desc
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="search" resultType="com.zttx.web.module.fronts.entity.ArticleInfo">
+        SELECT
+        <include refid="articleInfoColumns"/>
+        ,b.cateName as cateName
+        FROM
+        ArticleInfo a,
+        ArticleCate b
+        WHERE
+        a.cateId = b.refrenceId
+        AND a.delFlag = 0
+        <!--过滤条件-->
+        <if test="null != articleInfoFilter and null != articleInfoFilter.cateId and articleInfoFilter.cateId != ''">
+            and a.cateId = #{articleInfoFilter.cateId}
+        </if>
+        <if test="null != articleInfoFilter and null != articleInfoFilter.keywords and articleInfoFilter.keywords != ''">
+            and (a.articleTitle like CONCAT('%',#{articleInfoFilter.keywords}, '%')
+            or a.articleAuthor like CONCAT('%',#{articleInfoFilter.keywords}, '%'))
+        </if>
+        <if test="null != articleInfoFilter and null != articleInfoFilter.isTop">
+            and a.isTop = #{articleInfoFilter.isTop}
+        </if>
+        <if test="null != articleInfoFilter and null != articleInfoFilter.isHead">
+            and a.isHead = #{articleInfoFilter.isHead}
+        </if>
+        <if test="null != articleInfoFilter and null != articleInfoFilter.isComment">
+            and a.isComment = #{articleInfoFilter.isComment}
+        </if>
+        <if test="null != articleInfoFilter and null != articleInfoFilter.isHot">
+            and a.isHot = #{articleInfoFilter.isHot}
+        </if>
+        <!--排序条件-->
+        <choose>
+            <when test="orderCriteria != null">
+                <choose>
+                    <when test="orderCriteria.createTime != null and orderCriteria.createTime != '' and orderCriteria.viewNum != null and orderCriteria.viewNum != ''">
+                        order by a.createTime ${orderCriteria.createTime},a.viewNum ${orderCriteria.viewNum}
+                    </when>
+                    <when test="orderCriteria.createTime != null and orderCriteria.createTime != '' ">
+                        order by a.createTime ${orderCriteria.createTime}
+                    </when>
+                    <when test="orderCriteria.viewNum != null and orderCriteria.viewNum != '' ">
+                        order by a.viewNum ${orderCriteria.viewNum}
+                    </when>
+                    <otherwise>
+                        order by a.createTime desc
+                    </otherwise>
+                </choose>
+            </when>
+            <otherwise>
+                order by a.createTime desc
+            </otherwise>
+        </choose>
+    </select>
+    <select id="countArticleNum" resultType="java.lang.Integer">
+        SELECT count(1) FROM ArticleInfo a
+        WHERE a.delFlag=0 AND a.cateId = #{cateId}
+    </select>
+</mapper>
+

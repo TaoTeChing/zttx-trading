@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+//首页通用按钮 ts-button
+.ts-button{
+    display: inline-block;
+    *display: inline;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 3px 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    _height: 0;
+    _line-height: 0;
+    _padding: 5px 10px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    &:hover{
+        text-decoration: none;
+    }
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+
+}
+.ts-button-white{
+    border: 1px solid #ccc;
+    color: #999;
+    &:hover{
+        background: #8ad496;
+        border: 1px solid #8ad496;
+        color: #fff;
+        .icon-message-s{
+            background-position: -335px -65px;
+        }
+    }
+}
+.ts-button-orange{
+    border: 1px solid #ff8800;
+    background: #ff8800;
+    color: #fff;
+    &:hover{
+        border: 1px solid #ff6600;
+        text-decoration: none;
+        background: #ff6600;
+        color: #fff;
+    }
+}
+.ts-button-disabled{
+    background: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    cursor: default;
+    color: #fff;
+    &:hover{
+        background: #bfbfbf;
+        color: #fff;
+    }
+    &:active{
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+}
+
+//爆款
+.explosion-area{
+    padding: 10px;
+    .pic{
+        width: 420px;
+        height: 420px;
+    }
+    .detail{
+        width: 420px;
+        margin-left: 20px;
+        text-align: center;
+        .e-a-number{
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 40px;
+            color: #666;
+        }
+        h4{
+            font-family: "Microsoft yahei";
+            font-size: 14px;
+            color: #333;
+            a:hover{
+                text-decoration: none;
+                color:#f80;
+            }
+        }
+        .e-a-price{
+            margin-top: 23px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            .e-a-bkj{
+                margin-top: 10px;
+                margin-left: 20px;
+                padding-left: 75px;
+                background: url("/images/common/index/explosion-price.png") no-repeat left 6px;
+                text-align: left;
+                em{
+                    font-size: 24px;
+                    color: #ff6600;
+                    vertical-align: -2px;
+                }
+                del{
+                    color: #999;
+                }
+            }
+            .e-a-time{
+                margin-left: 20px;
+                margin-bottom: 12px;
+                text-align: left;
+                color: #666;
+            }
+        }
+        .e-a-group{
+            border-top: 1px dashed #e1e1e1;
+            .icon{
+                height: 22px;
+                margin-top: 15px;
+                margin-bottom: 7px;
+            }
+            li{
+                width: 82px;
+                padding-bottom: 20px;
+                border-right: 1px dashed #e1e1e1;
+                color: #999;
+            }
+        }
+        .e-a-order{
+            margin: 20px auto;
+            font-family: "Microsoft yahei";
+            font-size: 16px;
+            color: #f33;
+        }
+        .e-a-btn{
+            .icon{
+                margin-right: 5px;
+            }
+        }
+    }
+    .e-a-spic{
+        margin-top: 25px;
+        margin-left: 50px;
+        li{
+            margin-right: 15px;
+            border: 4px solid #fff;
+        }
+        .active{
+            border-color: #5cc5c8;
+        }
+    }
+    .e-a-move{
+        .prev,.next{
+            font-family: "宋体";
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            bottom:20px;
+            color: #666;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+        .prev{
+            left: 25px;
+        }
+        .next{
+            right: 25px;
+        }
+    }
+}
+
+//产品展示样式
+/*
+.es-carousel-wrapper {
+    position: relative;
+    padding: 20px 50px;
+    height: 195px;
+    width: 790px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.es-carousel {
+    width: 790px;
+    height: 195px;
+    overflow: hidden;
+    ul {
+        width:9999px !important;
+        position: absolute;
+        li {
+            height: 100%;
+            float: left;
+            margin-right: 20px;
+            display: block;
+            a {
+                display: block;
+                img {
+                    display: block;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+.es-carousel-five{
+    ul{
+        li{
+            a{
+                width: 195px;
+                height:195px;
+                img{
+                    width: 195px;
+                    height:195px;
+                }
+            }
+        }
+    }
+}
+.es-carousel-eight{
+    height: 115px;
+    .es-carousel{
+        height: 115px;
+    }
+    ul{
+        li{
+            a{
+                width: 115px;
+                height:115px;
+                img{
+                    width: 115px;
+                    height:115px;
+                }
+            }
+        }
+    }
+}
+.es-nav{
+    span{
+        position: absolute;
+        top: 50%; left: 12px;
+        background: transparent url(/images/market/prenext.gif) no-repeat top left;
+        width: 16px;
+        height: 30px;
+        margin-top: -13px;
+        text-indent: -9000px;
+        cursor: pointer;
+        opacity: 0.8;
+        &:hover{
+            opacity: 1.0;
+        }
+    }
+    span.es-nav-next {
+        right: 12px; left: auto; background-position: top right;
+    }
+}*/

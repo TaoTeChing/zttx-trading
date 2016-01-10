@@ -1,0 +1,1442 @@
+﻿@charset "UTF-8";
+/*account css*/
+@import '../_mixin';
+@import "model/_table";
+@import "model/_form";
+@import 'model/_step';
+@import "model/_button";
+@import "model/_patch";
+//03-31
+#ChangeMobile {
+    .ui-form-item {
+        padding-left: 130px;
+
+        .ui-label {
+            width: 120px;
+            margin-left: -130px;
+        }
+
+        a.ui-button {
+            line-height: 27px;
+            height: 27px;
+            _line-height: 28px;
+            _height: 28px;
+            _vertical-align: top;
+        }
+    }
+}
+//03-31
+#From_BaseInfo {
+    .ui-form-item {
+        padding-left: 130px;
+
+        .ui-label {
+            width: 120px;
+            margin-left: -130px;
+            font-size: 12px;
+        }
+
+        .ui-input {
+            padding: 4px 9px;
+            line-height: 18px;
+        }
+
+        .ui-select {
+            padding: 5px;
+            margin: 0;
+        }
+    }
+    .ui-form-explain{
+        padding-top:0;
+    }
+}
+
+.address-title{
+    height: 35px;
+    line-height: 35px;
+    background: #FBFBFB;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    h3{
+        width: 170px;
+        border-top: 2px solid #fe0100;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #fff;
+        height: 33px;
+        background: #fff;
+        text-align: center;
+    }
+}
+//03-31
+#ShippingAddress {
+    .ui-form-item {
+        padding-left: 130px;
+
+        .ui-label {
+            width: 120px;
+            margin-left: -130px;
+            font-size: 14px;
+            padding-top:0;
+            line-height: 35px;
+        }
+
+        .ui-input {
+            /*height:28px;
+             height:28px;*/
+            padding: 4px 9px;
+            line-height: 25px;
+            height: 25px;
+
+            &.quhao {
+                width: 50px;
+            }
+
+            &.haoma {
+                width: 70px;
+            }
+        }
+
+        .ui-textarea {
+            width: 600px;
+        }
+
+        .ui-select {
+            height: 35px;
+            margin: 0;
+        }
+
+        .ui-checkbox {
+            vertical-align: -2px;
+        }
+        .ui-form-text{
+            height: 35px;
+            line-height: 35px;
+            margin-top:0;
+        }
+        .ui-button{
+            height: 35px;
+            width: 96px;
+        }
+    }
+}
+
+
+.panel .panel-head {
+    color: #333;
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    height: 38px;
+    line-height: 38px;
+}
+
+.panel .panel-head i {
+    display: inline-block;
+    vertical-align: top;
+    height: 32px;
+    margin-right: 5px;
+}
+
+.panel .panel-head h3 {
+    height: 36px;
+    color: #333;
+    width: 170px;
+    border-right:1px solid #ddd;
+    border-top:2px solid #fe0100;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
+.panel .panel-verify {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.panel .panel-verify .ui-form .ui-form-item {
+    padding-left: 20px;
+}
+
+.verify {
+    color: #666;
+
+    li {
+        height: 140px;
+        padding: 40px 0 20px 0;
+    }
+
+    .item1 {
+        width: 140px;
+        float: left;
+        padding-left: 50px;
+    }
+
+    .item2 {
+        width: 360px;
+        float: left;
+
+        i {
+            float: left;
+        }
+
+        dl {
+            margin-left: 70px;
+            margin-top:-8px;
+            dt {
+                color: #333;
+            }
+        }
+    }
+
+    .item3 {
+        width: 430px;
+        float: left;
+        padding-top:60px;
+        height: 120px;
+        .ui-form {
+            .ui-form-item {
+                padding-left: 70px;
+
+                * {
+                    vertical-align: middle;
+                }
+            }
+
+            .ui-input {
+
+                &.short {
+                    width: 70px;
+                }
+            }
+
+            button.ui-button {
+                line-height: 30px;
+                height: 30px;
+                _line-height: 25px;
+                _height: 25px;
+            }
+        }
+        .c-g{
+            margin: 0 8px;
+        }
+    }
+
+    &.verify-email {
+        .ui-form-item {
+            padding-left: 0;
+        }
+    }
+}
+
+
+
+.verify-phone {
+    border-bottom: 1px dashed #999;
+}
+
+.verify .item3 form p input.bgc-rd {
+    color: #fff;
+}
+
+.verify .item3 form p i {
+    float: left;
+}
+
+.verify-icon {
+    display: block;
+    background: url(/images/dealer/icons-account.png) /*/images/dealer/icons-account.png*/ no-repeat;
+    *background: url(/images/dealer/icons-account.png) no-repeat; /* For IE 6 and 7 */
+}
+
+.verify-icon.no {
+    background-position: 0 0;
+    width: 36px;
+    height: 51px;
+}
+
+.verify-icon.yes {
+    background-position: 0 -69px;
+    width: 36px;
+    height: 51px;
+}
+
+.verify-icon.phone {
+    background-position: -46px 0;
+    width: 50px;
+    height: 54px;
+}
+
+.verify-icon.email {
+    background-position: -46px -69px;
+    width: 50px;
+    height: 54px;
+}
+
+.verify-icon.i-user {
+    width: 14px;
+    background-position: -106px 13px;
+    margin-left:10px;
+}
+
+.panel-tabs {
+}
+
+.panel-tabs .panel-head ul {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    background-color: #f9f9f9;
+    height: 36px;
+  li {
+    border-right: 1px solid #ddd;
+    float: left;
+    position: relative;
+    _bottom: -1px;
+    cursor: pointer;
+    a{
+      @include inline-block();
+      width: 170px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+      color: #666;
+      &:hover{
+          text-decoration: none;
+      }
+    }
+    &.on {
+      background-color: #fff;
+      border-bottom: 1px solid #fff;
+      a{
+          border-top: 2px solid #fe0100;
+          color: #333;
+          height: 34px;
+      }
+    }
+  }
+}
+
+.passchange-login {
+    padding: 30px 0 0 20px;
+
+
+    .ui-form-item {
+        padding: 0 5px 10px 100px;
+
+        .ui-label {
+            margin-left: -82px;
+            margin-right: 8px;
+            width: 95px;
+        }
+        dd{
+            margin-left:20px;
+        }
+        .ui-input {
+            padding: 4px 9px;
+            line-height: 25px;
+            height: 25px;
+            width: 160px;
+
+            &.short {
+                width: 70px;
+            }
+        }
+    }
+    .ui-form-required{
+        margin-right: 20px;
+    }
+    .ui-button-mwhite{
+        height: 35px;
+    }
+    .ui-button-lorange{
+        margin-top:15px;
+    }
+}
+
+.passchange-pay {
+    padding: 30px 0 0 20px;
+
+    .ui-form-item {
+        padding: 0 5px 10px 100px;
+
+        .ui-label {
+            margin-left: -100px;
+            width: 90px;
+        }
+
+        .ui-input {
+            padding: 4px 9px;
+            line-height: 18px;
+            width: 160px;
+
+            &.short {
+                width: 70px;
+            }
+        }
+    }
+}
+
+.panel-tabs .panel-content .tab-item .passchange-pay dt,
+.panel-tabs .panel-content .tab-item .passchange-login dt {
+    width: 90px;
+    display: inline-block;
+    height: 30px;
+    *float: left;
+    *zoom: 1;
+}
+
+.panel-tabs .panel-content .tab-item .passchange-pay dd,
+.panel-tabs .panel-content .tab-item .passchange-login dd {
+    margin-left: 15px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+
+
+.panel-tabs .panel-content .tab-item dd a.ui-button {
+    padding: 1px 10px;
+}
+
+.panel-tabs .panel-content .tab-item dd input.ui-button {
+    padding: 0 20px;
+}
+
+.panel-tabs .panel-content .tab-item dd i {
+    display: inline-block;
+    *display: inline; /*vertical-align: 2px;*/ /*_vertical-align: 10px;*/ /**float:left;*/ /*vertical-align: baseline;*/ /*height: auto;*/
+    line-height: normal;
+}
+
+.panel-tabs .panel-content .tab-item .passchange-pay dd input.text.short,
+.panel-tabs .panel-content .tab-item .passchange-login dd input.text.short {
+    width: 70px;
+}
+
+.panel-tabs .panel-content .tab-item dd .ui-form-explain {
+    padding-top: 0;
+}
+
+
+
+.list-member {
+    border: 1px solid #ddd;
+    border-top: 0;
+    overflow: hidden;
+}
+
+.list-member .department {
+    width: 200px;
+    float: left;
+}
+
+.list-member .department .department-toolbar {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.list-member .department .department-toolbar .btn-add {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    _top: 18px;
+}
+
+.list-member .department .department-items {
+    padding: 10px;
+    border-top: 1px dashed #ddd;
+}
+
+.list-member .department .department-items input.item {
+    width: 120px;
+    border: 0;
+    background-color: transparent;
+    padding: 2px 4px;
+    height: 14px;
+}
+
+.list-member .department .department-items ul {
+    overflow: hidden;
+}
+
+.list-member .department .department-items ul li {
+    padding: 5px 5px;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.list-member .department .department-items ul li.newitem a.btn,
+.list-member .department .department-items ul li.on-edit a.btn {
+    @include inline-block;
+    padding: 0px 5px;
+    position: relative;
+    vertical-align: 1px;
+    background-color: #c00;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.list-member .department .department-items ul li.on, .list-member .department .department-items ul li.on-edit {
+    border: 1px solid #b1daef;
+    background-color: #e8f5f9;
+}
+
+.list-member .department .department-items ul li .edit-department,
+.list-member .department .department-items ul li .delete-department {
+    display: none;
+}
+
+.list-member .department .department-items ul li.on .edit-department,
+.list-member .department .department-items ul li.on .delete-department {
+    display: inline;
+}
+
+.list-member .department .department-items ul li.newitem {
+    display: none;
+}
+
+.list-member .department .department-items ul li input.edititem {
+    border: 1px solid #dadada;
+    border-top-color: #bcbcbc;
+    width: 115px;
+    background-color: #fefff4;
+    padding: 2px 4px;
+}
+
+.list-member .members {
+    margin-left: 201px;
+}
+
+.list-member .members .members-toolbar {
+    height: 50px;
+    line-height: 50px;
+    border-left: 1px solid #eee;
+}
+
+.list-member .members .members-toolbar .search {
+    _margin-top: 10px;
+}
+
+.list-member .members .members-toolbar .search .keyword { /*height: 23px; line-height: 23px;*/
+    vertical-align: middle;
+    border-right: 0;
+    padding: 3px 5px 4px 5px;
+    *padding: 4px 5px 4px 5px;
+}
+
+.list-member .members .members-toolbar .search .btn {
+    height: 23px;
+    line-height: 23px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border-radius: 0;
+}
+
+.list-member .members .members-toolbar .search .btn-addid {
+    border-radius: 3px;
+}
+
+.list-member .members .members-list {
+}
+
+.list-member .members .members-list table {
+    width: 100%;
+}
+
+.list-member .members .members-list table thead tr {
+    background-color: #f9f9f9;
+    height: 32px;
+    line-height: 32px;
+}
+
+.list-member .members .members-list table thead tr th {
+    border: 1px solid #eee;
+}
+
+.list-member .members .members-list table thead tr th.cell-1 {
+    width: 31%;
+}
+
+.list-member .members .members-list table thead tr th.cell-2 {
+    width: 27%;
+}
+
+.list-member .members .members-list table thead tr th.cell-3 {
+    width: 27%;
+}
+
+.list-member .members .members-list table thead tr th.cell-4 {
+    width: 15%;
+}
+
+.list-member .members .members-list table tbody tr td {
+    border: 1px solid #eee;
+    text-align: center;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.list-member .members .members-list table tbody tr td select {
+    width: 140px;
+}
+
+.list-member .members .members-list table tbody tr td a.btn {
+    padding: 5px 10px;
+}
+
+.list-member .members .members-list table tbody tr td a.open {
+}
+
+.list-member .members .members-list table tbody tr td a.close {
+}
+
+.list-member .members .members-list table tfoot tr td {
+    border: 1px solid #eee;
+    background-color: #e9e9e9;
+    text-align: right;
+    height: 24px;
+    line-height: 24px;
+}
+
+
+
+.list-limit {
+    border: 1px solid #ddd;
+    border-top: 0;
+    overflow: hidden;
+}
+
+.list-limit .role {
+    width: 200px;
+    float: left;
+}
+
+.list-limit .role .role-toolbar {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.list-limit .role .role-toolbar .btn-add {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    _top: 18px;
+}
+
+.list-limit .role .role-items {
+    padding: 10px;
+    border-top: 1px dashed #ddd;
+}
+
+.list-limit .role .role-items input.item {
+    width: 120px;
+    border: 0;
+    background-color: transparent;
+    padding: 2px 4px;
+    height: 14px;
+}
+
+.list-limit .role .role-items ul {
+    overflow: hidden;
+}
+
+.list-limit .role .role-items ul li {
+    padding: 5px 5px;
+    border: 1px solid #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+.list-limit .role .role-items ul li.newitem a.btn,
+.list-limit .role .role-items ul li.on-edit a.btn {
+    @include inline-block;
+    padding: 0px 5px;
+    position: relative;
+    vertical-align: 1px;
+    background-color: #c00;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.list-limit .role .role-items ul li.on, .list-limit .role .role-items ul li.on-edit {
+    border: 1px solid #b1daef;
+    background-color: #e8f5f9;
+}
+
+.list-limit .role .role-items ul li .edit-role,
+.list-limit .role .role-items ul li .delete-role {
+    display: none;
+}
+
+.list-limit .role .role-items ul li.on .edit-role,
+.list-limit .role .role-items ul li.on .delete-role {
+    display: inline;
+    /*height: 28px;
+    line-height: 28px;*/
+}
+
+.list-limit .role .role-items ul li.newitem {
+    display: none;
+}
+
+.list-limit .role .role-items ul li .edititem {
+    border: 1px solid #dadada;
+    border-top-color: #bcbcbc;
+    width: 115px;
+    padding: 2px 4px;
+    background-color: #fefff4;
+}
+
+
+.list-limit .limits {
+    margin-left: 201px;
+}
+
+.list-limit .limits .limits-toolbar {
+    background-color: #e9e9e9;
+    border-left: 1px solid #eee;
+    overflow: hidden;
+}
+
+.list-limit .limits .limits-toolbar textarea {
+    width: 756px;
+    border: 1px solid #fff;
+    height: 55px;
+    *width: 750px;
+    font-size: 12px;
+}
+
+.list-limit .limits .limits-toolbar textarea.edit {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px #ddd;
+    background-color: #fefff4;
+}
+
+.list-limit .limits .limits-list {
+    border-left: 1px solid #eee;
+    overflow: hidden;
+}
+
+.list-limit .limits .limits-list .panel-limits {
+}
+
+.list-limit .limits .limits-list .panel-limits .panel-title {
+    height: 33px;
+    line-height: 33px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    padding: 0 10px;
+    position: relative;
+}
+
+.list-limit .limits .limits-list .panel-limits .panel-title .title-toolbar {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.list-limit .limits .limits-list .panel-limits .panel-title .title-toolbar .btn {
+    padding: 0 10px;
+    border-radius: 3px;
+    height: 25px;
+    _height: 10px;
+    line-height: 25px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 2px;
+    _padding: 5px 10px;
+    _margin-top: 3px;
+}
+
+.list-limit .limits .limits-list .limits-tree {
+    padding: 20px;
+}
+
+//03-31
+#Form_AddChildren {
+    z-index: 99;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+
+    .ui-form-item {
+        padding: 0 5px 20px 0;
+    }
+
+    .ui-form-row {
+        @include clearfix;
+
+        .ui-form-item {
+            width: 180px;
+            float: left;
+            padding: 0 5px 20px 60px;
+
+            .ui-label {
+                width: 50px;
+                font-size: 12px;
+                color: #666;
+                margin-left: -60px;
+            }
+
+            .ui-select {
+                padding: 5px;
+                margin: 0;
+            }
+
+            .ui-input {
+                padding: 5px 9px;
+                line-height: 16px;
+            }
+
+            .ui-form-explain {
+                clear: both;
+                height: 20px;
+                line-height: 20px;
+                margin-left: 50px;
+                padding: 0;
+            }
+        }
+    }
+}
+
+
+
+#addShop {
+    line-height: 30px;
+}
+
+#addShop .account-icon {
+    background: url(/images/dealer/icons-account.png) no-repeat;
+    display: inline-block;
+    font-size: 0;
+    overflow: hidden;
+    zoom: 1;
+}
+
+#addShop .i-add-blue {
+    background-position: -145px -1px;
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+}
+
+#addShop .i-edit {
+    background-position: -105px -22px;
+    width: 12px;
+    height: 12px;
+}
+
+#addShop .i-cancel {
+    background-position: -105px -41px;
+    width: 12px;
+    height: 12px;
+}
+
+.panel-table{
+    margin:0 10px;
+    h3{
+        padding:10px 0;
+        border-top:1px dashed #ddd;
+    }
+}
+
+.panel-table-content table {
+    a.on {
+        color: #0082cc;
+    }
+
+    .cell-1 {
+        width: 13%;
+        text-align: center;
+    }
+
+    .cell-2 {
+        width: 25%;
+        text-align: left;
+    }
+
+    .cell-3 {
+        width: 19%;
+        text-align: left;
+    }
+
+    .cell-4 {
+        width: 20%;
+        text-align: center;
+    }
+
+    .cell-5 {
+        width: 10%;
+        text-align: center;
+    }
+
+    .cell-6 {
+        width: 7%;
+        text-align: center;
+    }
+
+    tfoot tr td a {
+        color: #333;
+    }
+
+    tbody tr.on td.cell-5 span {
+        color: #cc0000;
+        display: inline;
+    }
+
+    tbody tr td.cell-5 a {
+        color: #0082cc;
+        display: none;
+    }
+
+    tbody tr td.cell-5 a:hover {
+        color: #ff8800;
+    }
+
+    tbody tr.on {
+        border: 1px solid #ffbb75;
+        background-color: #fffcee;
+    }
+
+    tbody tr.hover {
+        border: 1px solid #a6cde3;
+        background-color: #e8f5f9;
+    }
+
+    tbody tr.hover td.cell-5 a {
+        display: inline;
+    }
+
+    tfoot tr td {
+        text-align: right;
+        line-height: 30px;
+        padding: 0 10px;
+        border-top: 1px solid #eee;
+    }
+}
+
+
+.panel-tabs .panel-content .tab-item form dl {
+    overflow: hidden;
+}
+
+.panel-tabs .panel-content .tab-item form dl dt {
+    height: 30px;
+    width: 110px;
+    line-height: 30px;
+    vertical-align: top;
+}
+
+.panel-tabs .panel-content .tab-item form dl dd { /*margin-left: 120px;*/
+}
+
+.panel-tabs .panel-content .tab-item form dl dd span.gang {
+    height: 30px;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+.panel-tabs .panel-content .tab-item form dl dd span.info {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.panel-tabs .panel-content .tab-item form dl dd span.err,
+.panel-tabs .panel-content .tab-item form dl.ui-form-item-error div.ui-form-explain {
+    display: inline-block;
+    background-color: #fef4e8;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 5px;
+    margin: 0 5px;
+}
+
+.panel-tabs .panel-content .tab-item form dl div.ui-form-explain {
+    display: inline-block;
+    *display: inline;
+    background-color: #fff;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 5px;
+    vertical-align: top;
+}
+/*.panel-tabs .panel-content .tab-item form dl dd a#addShop { height: 20px; line-height: 20px; *line-height: 32px; }*/
+.panel-tabs .tab-item input.text {
+    width: 220px;
+    margin-right: 0;
+    height: 20px;
+    padding: 4px 10px;
+    vertical-align: top;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.short {
+    width: 110px;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.sshort {
+    width: 60px;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.ssshort {
+    width: 40px;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.long {
+    width: 300px;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.clong {
+    width: 400px;
+}
+
+.panel-tabs .panel-content .tab-item form dl input.text.slong {
+    width: 600px;
+}
+
+
+.panel-tabs .panel-content .tab-item .panel-form form .ui-form-item input.radio {
+    vertical-align: -2px;
+}
+
+.panel-tabs .panel-content .tab-item .panel-form form .ui-form-item input.date {
+    padding-left: 30px;
+}
+
+
+/*.panel-tabs .panel-content .tab-item form dl input.btn { height: 30px; padding: 0 10px; border-radius: 3px;}*/
+
+.panel-tabs .panel-content .tab-item form dl dd.editor .edui-body-container {
+    height: 300px;
+}
+
+.panel-tabs .panel-content .tab-item form .ofh dl {
+    overflow: visible;
+}
+
+a.blue i.i-delete {
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+a.adelesp {
+    width: 100px;
+    top: 10px;
+}
+
+//03-31
+.img-upload {
+    .file_wrap {
+        width: 122px;
+        height: 122px;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        *display: inline;
+
+        a {
+            display: inline-block;
+            border: 1px dashed #ccc;
+            text-align: center;
+            background-color: #f9f9f9;
+            text-decoration: none;
+            zoom: 1;
+            width: 120px;
+            height: 120px;
+            line-height: 111px;
+            color: rgb(228, 228, 228);
+            -webkit-text-shadow: #fff 1px 1px 1px;
+            text-shadow: #fff 1px 1px 1px;
+            overflow: hidden;
+        }
+    }
+
+    .input_file {
+        width: 122px;
+        height: 122px;
+    }
+}
+
+//03-31
+.certificate_box {
+    margin-right: 10px;
+
+    li {
+        width: 110px;
+        height: 110px;
+        padding: 1px;
+        border: #d9d9d9 solid 1px;
+        margin-right: 10px;
+
+        .img_contain {
+            width: 110px;
+            height: 110px;
+            text-align: center;
+            position: relative;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        span {
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .close {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: #b4b4b4;
+            font-size: 18px;
+            line-height: 1;
+            display: none;
+        }
+    }
+
+    .add_certificate {
+        width: 112px;
+        height: 112px;
+        padding: 0;
+        border: #ccc dashed 1px;
+        background: #f9f9f9;
+
+        .file_wrap {
+            width: 112px;
+            height: 112px;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            .iconfont{
+                color: #DDD;
+                font-size: 46px;
+                display: inline-block;
+                margin-top: 21px;
+            }
+        }
+
+        .icon-fileupload {
+            color: #ddd;
+            padding: 45px;
+            display: block;
+            margin-top: 11px;
+            background: url(/images/dealer/icon-fileupload.gif) no-repeat center;
+            *background: url(/images/dealer/icon-fileupload.gif) no-repeat center; /* For IE 6 and 7 */
+        }
+
+        .input_file {
+            width: 112px;
+            height: 112px;
+        }
+    }
+}
+
+
+
+.product_area {
+    border: #d9d9d9 solid 1px;
+    height: 270px;
+    width: 642px;
+    background: #f2f2f2 url(/images/dealer/brandManage_categoryArrow.png) 416px 126px no-repeat;
+
+    .select_category, .select_class, .select_product {
+        width: 200px;
+        border-right: #d9d9d9 solid 1px;
+        /*height: 297px;
+        overflow: auto;*/
+        background: #fff;
+
+        h3 {
+            background-color: #f5f5f5;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            color: orangered;
+        }
+
+        .select_inner {
+            height: 270px;
+            overflow: auto;
+        }
+        .current{
+            background-color:#ddd;
+        }
+    }
+
+    .select_inner {
+        //margin-right: 15px;
+        .item {
+            float: none;
+            display: block;
+            height: 27px;
+            line-height: 27px;
+            padding-left: 10px;
+            position: relative;
+            cursor: pointer;
+
+            .account-icon {
+                position: absolute;
+                right: 6px;
+                top: 8px;
+            }
+
+            .close_icon {
+                display: none;
+            }
+        }
+    }
+
+    .select_product {
+        border-right: none;
+        margin-left: 40px;
+    }
+}
+
+
+
+/*.ui-dialog .ui-form {
+    margin-top: 15px;
+}
+
+.ui-dialog .ui-form-item {
+    padding-bottom: 15px;
+    padding-left: 120px;
+    *zoom: 1;
+}
+
+.ui-form-item {
+    padding-bottom: 15px;
+    padding-left: 70px;
+    *zoom: 1;
+}
+
+    .ui-form-item select {
+        vertical-align: middle;
+        _margin: 4px 0 0;
+    }
+
+.ui-form-item-error .ui-input, .ui-form-item-error .ui-textarea {
+    border: 1px #F00 solid;
+    color: #F00;
+}
+
+.ui-form-item-error .ui-input-reset {
+    border: 1px #9C9C9C solid;
+    color: #000;
+}
+
+.ui-form-item-error .ui-form-explain {
+    color: #FF5243;
+}
+
+.ui-form-item:after {
+    clear: both;
+    content: '';
+    display: table;
+}*/
+
+/*.ui-input {
+    padding: 4px;
+    height: 20px;
+    line-height: 20px \9;
+    *line-height: 20px;
+    border: 1px solid #c1c1c1;
+    color: #595959;
+    font-size: 12px;
+}
+
+    .ui-input:hover, .ui-textarea:hover, .ui-input-hover {
+        border: 1px #727272 solid;
+        border-top-color: #808080;
+    }
+
+    .ui-input:focus, .ui-textarea:focus, .ui-input-focus {
+        border: 1px #07f solid;
+        box-shadow: 0 0 3px #8cddff;
+        color: #595959;
+    }*/
+
+/*.ui-textarea {
+    line-height: 15px;
+    border: 1px #9C9C9C solid;
+    padding: 1px 3px 0 4px;
+    overflow: auto;
+    font-family: Arial;
+    font-size: 12px;
+}*/
+
+/*.ui-input[disabled], .ui-textarea[disabled] {
+        border: 1px solid #ccc;
+        background: #f2f2f2;
+    }
+
+    .ui-input:disabled, .ui-textarea:disabled {
+        border: 1px solid #ccc;
+        background: #f2f2f2;
+    }*/
+
+/*.ui-form-explain {
+    padding-top: 8px;
+    font-size: 12px;
+    color: #B2B2B2;
+}*/
+
+
+
+/*.ui-dialog .ui-form .link {
+    color: #0082cc;
+}*/
+
+
+
+#Form_AddChildren .children-info li .ui-label {
+    width: 90px;
+    margin-left: -40px;
+    padding-top: 0;
+}
+
+
+/*图标*/
+.account-icon {
+    background: url(/images/dealer/icons-account.png) no-repeat;
+    *background: url(/images/dealer/icons-account.png) no-repeat; /* For IE 6 and 7 */
+    display: inline-block;
+    background-repeat: no-repeat;
+    font-size: 0;
+    overflow: hidden;
+    *zoom: 1;
+}
+
+.i-add-blue {
+    background-position: -145px -1px;
+    width: 12px;
+    height: 12px;
+    vertical-align: -2px;
+    margin-right: 2px;
+}
+
+.i-edit {
+    background-position: -105px -22px;
+    width: 12px;
+    height: 12px;
+}
+
+.i-cancel {
+    background-position: -105px -40px;
+    width: 12px;
+    height: 12px;
+}
+
+.i-arrow-right {
+    background-position: -100px -100px;
+    width: 12px;
+    height: 12px;
+}
+
+.i-close {
+    background-position: -126px 0;
+    width: 12px;
+    height: 12px;
+}
+
+
+.flow-steps {
+    li {
+        width: 318px;
+        background: url("/images/dealer/step-red.png") no-repeat scroll 100% -80px #f0f0f0;
+    }
+
+    .current {
+        background-color: #b10100;
+        color: #FFFFFF;
+    }
+    .last-current{
+        background-color: #b10100;
+    }
+}
+
+//新的资料管理页面 20140618
+.success-tips{
+  margin: 0 20px;
+  padding-bottom: 20px;
+  padding-left: 35px;
+  font-family: "microsoft yahei";
+  border-bottom: 1px dashed #ddd;
+  .icon-regist-success{
+      width: 32px;
+      height: 32px;
+      margin-top: 10px;
+      margin-right: 15px;
+      background-position: 0 -216px;
+  }
+  h1.title{
+      font-size: 20px;
+  }
+  .tips{
+
+  }
+}
+.revise-form,.revise-sub-form{
+  font-size: 14px;
+  margin-top: 20px;
+  .ui-form-item{
+      padding-left: 140px;
+      padding-bottom: 15px;
+  }
+  .ui-label{
+      font-size: 14px;
+      padding-top:0;
+      line-height: 35px;
+  }
+  .ui-input{
+      padding: 5px;
+      height: 23px;
+  }
+  .date{
+      background-position: 3px -123px;
+  }
+  .ui-select{
+      height: 35px;
+  }
+  .ui-form-explain{
+      padding: 0;
+      display: inline-block;
+      *display: inline;
+      *zoom:1;
+  }
+  .ui-checkbox{
+      margin-right: 5px;
+      vertical-align: -2px;
+  }
+  .continue-class{//经营品类
+      width: 520px;
+      .item{
+          width: 100px;
+          margin-bottom: 10px;
+          float: left;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-wrap: normal;
+      }
+  }
+}

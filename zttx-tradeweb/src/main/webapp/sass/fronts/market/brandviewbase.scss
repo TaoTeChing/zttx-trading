@@ -1,0 +1,104 @@
+﻿@charset "utf-8";
+
+@import "../../mixin";
+@import "../../typography";
+@import "../../reset";
+@import "../../common/footer";
+@import "../../common/top";
+@import "brand-top";
+@import "../../common/dialog";
+
+//新加布局
+.ts-container, .em100 {
+    width: 100em;
+    margin: auto;
+}
+
+a { text-decoration: none; color:#333;}
+a:hover { text-decoration: underline; color:#F40; }
+h5{font-size: 12px;}
+.clear{ clear:both}
+.clearfix{@include clearfix;}
+.clear:before,.clear:after{content: "";display: table;font: 0/0 a;}
+.clear:after{clear: both;}
+.clear{zoom:1;/*for IE6、IE7*/}
+.f-l{ float:left}
+.f-r{ float:right}
+.fl{ float:left}
+.fr{ float:right}
+
+.customContent{min-height: 120px; _height: 120px;}
+/* header 高度150以内 */
+#site-nav{position: static;}
+.header-nav{min-width: 1200px; position:relative;background:#ba2926 repeat-x; }
+.header-navcen{ width:1200px; margin:0 auto; overflow: hidden; position:relative; background: url("../../../images/fronts/market/temp/banar.jpg");}
+.header-cen{ margin:0 auto; width:1200px; position:relative; overflow:hidden; }
+.header-cen .logo{ float:left; position:absolute; width:100px; height: 50px; top:25%; left:20px}
+.header-cen .logo h3{ font-size: 12px;}
+.nav-cen {width:1200px; margin:0 auto; overflow:hidden; position:relative; background:#745c44; font-family: "microsoft yahei"; }
+.nav-cen .menu-list{}
+.nav-cen .menu-list .menu{ float:left}
+.nav-cen .menu-list .menu .menu-link{ line-height:30px; font-size:14px; font-weight:100; display:block; padding:0 15px;}
+/*.nav-cen .menu-list .menu .menu-link.selected{ background:#4e3e2e}*/
+/*.nav-cen .menu-list .menu .menu-link:hover{ background:#4e3e2e}*/
+.nav-cen .menu-list .menu a:hover{ text-decoration:none;}
+.nav-cen .menu-list .address{ line-height:30px; margin-right:10px; color:#fff; position:absolute; right:10px; top:0; }
+
+.menu-link{ color:#fff;}
+.menu-link:hover{ color: #fff;}
+
+/*.nav-cen .menu-list .menu .menu-link.selected{ background:#4e3e2e}*/
+
+.menu-link.selected{ background:#4e3e2e}
+
+/*节省*/
+.font{ font-family:'宋体',Verdana}
+.fontcolor3{ color:#333}
+.fontcolor6{ color:#666}
+.fontcolor9{ color:#999}
+.ml5{margin-left: 5px !important;}
+.ml10{margin-left: 10px !important;}
+.ml15{margin-left: 15px !important;}
+.mr5{margin-right: 5px !important;}
+.mr10{margin-right: 10px !important;}
+.mt5{margin-top: 5px !important;}
+.mt10{margin-top: 10px !important;}
+.mt15{margin-top: 15px !important;}
+.mt20{margin-top: 20px !important;}
+.fz14{font-size: 14px;}
+.fz18{font-size: 18px;}
+.em100{width:1200px;margin: 0 auto;}
+
+.seticon{display: inline-block; *display: inline; *zoom:1;}
+
+.ta-c{ text-align: center;}
+.inline-block{display: inline-block; *display: inline; *zoom:1; vertical-align: middle;}
+
+/*2013-03-21 弹窗dialog*/
+.ui-dialog {padding: 0 20px 10px;border: #BABABA solid 1px;background: white;box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);min-height: 100px;_height: 100px;}
+.ui-dialog .ui-dialog-close {color: #999;cursor: pointer;font-family: tahoma;font-size: 18px;font-weight: bold;height: 18px;line-height: 10px;position: absolute;right: 7px;text-decoration: none;top: 7px;z-index: 10;color: #666;}
+.ui-dialog .ui-head {height: 34px;border-bottom: #CCC solid 1px;}
+.ui-dialog .ui-dialog-close {color: #999;cursor: pointer;font-family: tahoma;font-size: 18px;font-weight: bold;height: 18px;line-height: 10px;position: absolute;right: 7px;text-decoration: none;top: 7px;z-index: 10;color: #666;}
+.ui-dialog .ui-head h3 {font: 14px/34px "微软雅黑";}
+
+/*2014-04-01 分页样式*/
+.pagination {background: white;text-align: right;font-size: 0;}
+.pagination a:hover{ text-decoration: none;}
+.pagination .prev, .pagination .next {width: 58px;height: 20px;line-height: 20px;border: #DDD solid 1px;text-align: center;border-radius: 2px;margin-left: 10px;font-size: 12px;display: inline-block;color: #666;}
+.pagination .page {font-size: 12px;display: inline-block;margin-left: 10px;padding: 0 6px;height: 22px;line-height: 22px;background: #F3F3F3;color: #666;}
+.pagination .current {background-color: #0082CC;color: white;}
+.pagination .total {margin-left: 10px;font-size: 12px;}
+
+//图片垂直居中
+.js_img_center,.js-img-center{
+  text-align: center;
+  font-size: 0;
+  img{
+    vertical-align: middle;
+  }
+  span{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}

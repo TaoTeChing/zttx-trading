@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.UserOnlineServiceDetailMapper">
+    <!-- 基础列 -->
+    <sql id="userOnlineServiceDetailColumns">
+        a.refrenceId as refrenceId ,
+        a.userOnlineId as userOnlineId ,
+        a.qq as qq ,
+        a.name as name ,
+        a.createTime as createTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        insert into UserOnlineServiceDetail(
+         refrenceId ,
+         userOnlineId ,
+         qq ,
+         name ,
+         createTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userOnlineId}  ,
+        #{qq}  ,
+        #{name}  ,
+        #{createTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from UserOnlineServiceDetail where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update UserOnlineServiceDetail set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        insert into UserOnlineServiceDetail
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userOnlineId != null">
+            userOnlineId ,
+        </if>
+        <if test="qq != null">
+            qq ,
+        </if>
+        <if test="name != null">
+            name ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userOnlineId != null">
+            #{userOnlineId} ,
+        </if>
+        <if test="qq != null">
+            #{qq} ,
+        </if>
+        <if test="name != null">
+            #{name} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        update UserOnlineServiceDetail
+           <set>
+            <if test="userOnlineId != null">
+                userOnlineId = #{userOnlineId} ,
+            </if>
+            <if test="qq != null">
+                qq = #{qq} ,
+            </if>
+            <if test="name != null">
+                name = #{name} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        update UserOnlineServiceDetail set
+            userOnlineId = #{userOnlineId} ,
+            qq = #{qq} ,
+            name = #{name} ,
+            createTime = #{createTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        select <include refid="userOnlineServiceDetailColumns"/> from UserOnlineServiceDetail a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        SELECT
+        <include refid="userOnlineServiceDetailColumns"/>
+        FROM UserOnlineServiceDetail a WHERE a.delFlag = 0
+        <if test="userOnlineId != null and userOnlineId != ''">
+            and a.userOnlineId like CONCAT('%',#{userOnlineId}, '%')
+        </if>
+        <if test="qq != null and qq != ''">
+            and a.qq like CONCAT('%',#{qq}, '%')
+        </if>
+        <if test="name != null and name != ''">
+            and a.name like CONCAT('%',#{name}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.UserOnlineServiceDetail">
+        SELECT
+        <include refid="userOnlineServiceDetailColumns"/>
+        FROM UserOnlineServiceDetail a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="getByOnlineService" parameterType="String" resultType="com.zttx.web.module.common.entity.UserOnlineServiceDetail"> 
+    	SELECT
+        <include refid="userOnlineServiceDetailColumns"/>
+        FROM UserOnlineServiceDetail a 
+        WHERE 
+        	a.delFlag = 0
+        	and a.userOnlineId=#{onlineRefrenceId}
+    </select>
+</mapper>
+

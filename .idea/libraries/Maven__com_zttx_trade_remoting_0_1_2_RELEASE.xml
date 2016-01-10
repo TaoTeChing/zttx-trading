@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.zttx:trade-remoting:0.1.2-RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/trade-remoting/0.1.2-RELEASE/trade-remoting-0.1.2-RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/trade-remoting/0.1.2-RELEASE/trade-remoting-0.1.2-RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/nexus-work/com/zttx/trade-remoting/0.1.2-RELEASE/trade-remoting-0.1.2-RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>demo-lazyform</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/lazyform.js"></script>
+    <link href="css/lazyform.css" rel="stylesheet" />
+    <style type="text/css">
+	body
+	{
+		font: 12px Simsun, Arial, Helvetica, sans-serif;
+		line-height: 20px;
+	}
+    </style>
+
+    <script type="text/javascript">
+		$(function() {		
+			$('#form1').submit(function() {
+				var skin = $('#ddlSkin option:selected').val();
+				$('#lazyFormSkin').attr('href', 'css/' + skin + '/lazyform.css');
+				skin = 'Skin: ' + skin;
+				
+				var gender = 'Gender: ' + 
+					$('input[name=gender]:checked').val();
+				var gender2 = 'Gender2: ' + 
+					$('input[name=gender2]:checked').val();
+					
+				var hobby = 'Hobby: ' + 
+					($('#cbxBaskball').is(':checked') ? $('#cbxBaskball').val() + ' ' : '') + 
+					($('#cbxFootball').is(':checked') ? $('#cbxFootball').val() + ' ' : '') + 
+					($('#cbxSwimming').is(':checked') ? $('#cbxSwimming').val() + ' ' : '');
+				var hobby2 = "Hobby2: " + 
+					($('#cbxBaskball2').is(':checked') ? $('#cbxBaskball2').val() + ' ' : '') + 
+					($('#cbxFootball2').is(':checked') ? $('#cbxFootball2').val() + ' ' : '') + 
+					($('#cbxSwimming2').is(':checked') ? $('#cbxSwimming2').val() + ' ' : '');
+				
+				var country = 'Country: ' + $('#ddlCountry option:selected').text(); 	
+				var country2 = 'Country2: ' + $('#ddlCountry2 option:selected').text(); 	
+				
+				$('#result').html(skin + '<br />' + gender + '<br />' + gender2 + '<br />' + 
+					hobby + '<br />' + hobby2 + '<br />' + country + '<br />' + country2);
+				
+				return false;
+			});
+		});
+    </script>
+</head>
+
+<body>
+	<form id="form1" method="post" action="javascript:alert('success!');">        
+    	<p>
+        	<label for="Skin">Skin:</label>
+            <select id="ddlSkin">
+                <option value="Blue">Blue</option>
+				<option value="Black">Black</option>
+                <option value="Default">Default</option>
+                <option value="Gray" >Gray</option>
+            </select>
+        </p>
+    
+         <p>
+        	<label for="Gender">Gender:</label>
+            <br />
+            <input type="radio" id="rdoMale" name="gender" value="Male" checked="checked" />
+            Male	
+            
+            <br />
+            <input type="radio" id="rdoFemale" name="gender" value="Female" />
+            Female
+        </p>
+
+    	<p>
+        	<label for="Gender">Gender2:</label>
+            <input type="radio" id="rdoMale2" name="gender2" value="Male2" />
+            Male2
+            
+            <input type="radio" id="rdoFemale2" name="gender2" value="Female2" checked="checked" />
+            Female2
+        </p>
+ 
+       
+        <p>
+        	<label for="Hobby">Hobby:</label>
+          	<br />
+        	<input type="checkbox" id="cbxBaskball" value="Baskball" checked="checked" />
+            Baskball
+        	
+            <br />
+            <input type="checkbox" id="cbxFootball" value="Football" checked="checked" />
+            Football
+            
+            <br />
+            <input type="checkbox" id="cbxSwimming" value="Swimming" />
+            Swimming
+        </p>
+        
+        <p>
+        	<label for="Hobby">Hobby2:</label>
+        	<input type="checkbox" id="cbxBaskball12" value="Baskball2" checked="checked" />
+            Baskball12
+        	
+            <input type="checkbox" id="cbxFootball2" value="Football2" />
+            Football2a
+            
+            <input type="checkbox" id="cbxSwimming2" value="Swimming2" checked="checked" />
+            Swimming2
+        </p>
+       
+        <p>
+        	<label for="Country">Country:</label>
+            <br />
+            <select id="ddlCountry">
+                <option value="China"  selected="selected">China</option>
+                <option value="United States" >United States</option>
+                <option value="Canada" >Canada</option>
+                <option value="Holland">Holland</option>
+           </select>
+        </p>
+        
+        <p>
+        	<label for="Country">Country2:</label>
+            <select id="ddlCountry2" style="width: 350px;">
+                <option value="China2">China2</option>
+                <option value="United States2" selected="selected">United States2</option>
+                <option value="Canada2" >Canada2</option>
+                <option value="Holland2">Holland2</option>
+            </select>
+        </p>
+                
+		<p>
+            <input type="submit" value="submit" />
+        </p>	
+        
+        <p id="result"></p>
+    </form>
+</body>
+</html>

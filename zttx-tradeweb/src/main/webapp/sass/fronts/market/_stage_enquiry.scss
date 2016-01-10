@@ -1,0 +1,442 @@
+@charset "UTF-8";
+/*
+产品详情页，询价样式
+*/
+$textSize: 12px  !default;
+//询价按钮
+.to-enquiry-style{
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Microsoft yahei";
+    font-weight: normal;
+    color:#fff;
+    padding: 10px 25px;
+    background: #ddd;
+    border: none;
+    &:hover{
+        color: #fff;
+    }
+}
+.to-enquiry{
+    background: #d8271c;
+}
+.listbody .sidebar-l .chanpin .checkbox .t-e-ap{
+    font-size: 14px;
+    line-height: 19px;
+    color: #999;
+    a{
+        color: #0082cc;
+    }
+}
+.to-enquiry-after{
+    a{
+        color: #0082cc;
+        &:hover{
+            color: #f80;
+        }
+    }
+}
+
+.enquiry-dialog{
+    border: #bababa solid 1px;
+    background: #fff;
+    //box-shadow: 0 0 3px rgba(0,0,0,.4);
+    outline: none;
+}
+.enquiry-dialog{
+    min-height: 100px;
+    _height: 100px;
+    padding: 0 20px 10px;
+    .enquiry-dialog-close{
+        cursor: pointer;
+        font-family: tahoma;
+        font-size: 18px;
+        font-weight: bold;
+        height: 18px;
+        line-height: 1;
+        position: absolute;
+        right: 7px;
+        text-decoration: none;
+        top: 3px;
+        z-index: 10;
+        color: #666;
+    }
+    .enquiry-dialog-content{
+        position: relative;
+    }
+    .enquiry-head{
+        height: 34px;
+        border-bottom: #ccc solid 1px;
+        h3{
+            font: 14px/34px "微软雅黑";
+        }
+    }
+}
+
+.ui_button {
+    display: inline-block;
+    *display: inline;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: $textSize;
+    font-family: inherit; /* Correct font family not being inherited in all browsers for <button> <input> */
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 0 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        text-decoration: none;
+        background-image: none;
+    }
+}
+
+//浅色按钮
+a.simple_button,button.simple_button,p.simple_button{
+    @extend .ui_button;
+    background-color: #f5f5f5;
+    height: 28px;
+    border:#bfbdbc solid 1px;
+    color: #333;
+    vertical-align: top;
+    &:hover{
+        background-color: #eee;
+        color: #333;
+    }
+}
+a.simple_button,p.simple_button{
+    line-height: 28px;
+}
+
+//步骤
+.enquiry-steps {
+    ol{
+        @extend %clearfix;
+    }
+    li{
+        width: 92px;
+        background: url("../../images/market/enquiry-step.png") no-repeat scroll 100% -40px #ebebeb;
+        zoom: 1;
+        color: #666;
+        float: left;
+        font: 12px "微软雅黑";
+        height: 32px;
+        line-height: 32px;
+        padding: 0 15px 0 0;
+        text-align: center;
+        span{
+            display: block;
+        }
+        .first {
+            background: none;
+        }
+    }
+    .first{
+        border-radius: 3px 0 0 3px;
+    }
+    .last{
+        border-radius: 0 3px 3px 0;
+        background-position: 100% -138px;
+    }
+    .current{
+        background-color: #e0d8cf;
+        color: #333;
+    }
+    .current-prev {background-position: 100% 0 !important;}
+    .done{
+        background-color: #e0d8cf;
+        background-position: 100% 0;
+        color: #333;
+        .first {
+            background-position: -12px -115px;
+        }
+    }
+    .last-current {
+        border-radius: 0 3px 3px 0;
+        background-color: #e0d8cf;
+        background-position: 100% -161px;
+        color: #333;
+    }
+}
+
+//表单重置
+.enquiry-form{
+    margin-bottom: 15px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-family: "Microsoft yahei";
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    .ui-label{
+        color: #000;
+    }
+    .ui-form-explain{
+        float: left;
+        *display: inline;
+        padding-top: 0;
+        margin-left: 5px;
+    }
+    .e-f-textstyle{
+        width: 425px;
+        float: left;
+        display: inline;
+        margin-top: 4px;
+        color: #666;
+    }
+    .e-f-fitem{
+        padding-bottom: 0;
+    }
+    .e-f-label{
+        color: #999;
+    }
+    .e-f-add{
+        color: #0082cc;
+    }
+    .e-f-explain{
+        color: #999;
+    }
+    .e-f-mixbox{
+        height: 28px;
+        width: 24px;
+        *margin-top: 1px;
+        border: 1px solid #c1c1c1;
+        border-left: 0 none;
+        .e-f-mixbox-item{
+            width: 24px;
+            height: 13px;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+    .e-f-plus,.e-f-minus{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent transparent #a4a4a4 transparent;
+        _border-color: tomato tomato #a4a4a4 tomato;
+        _filter: chroma(color=tomato);
+        border-width: 5px 4px;
+        overflow: hidden;
+        position: absolute;
+        top:-1px;
+        left: 8px;
+    }
+    .e-f-minus{
+        border-color: #a4a4a4 transparent transparent transparent;
+        _border-color: #a4a4a4 tomato tomato tomato;
+        top:5px;
+    }
+}
+.e-f-submit{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 45px;
+    background-color: #ff8800;
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Microsoft yahei";
+    &:hover{
+        color: #fff;
+        background: #f60;
+    }
+}
+
+/*******表单*******************************/
+.form dl { /*overflow: hidden;*/
+    zoom: 1;
+    clear: both;
+}
+
+.form dl dt {
+    float: left;
+    width: 80px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.form dl dd {
+    margin-left: 100px;
+    *margin-left: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.form dl dd input, .form dl dd a, .form dl dd select, .form dl dd label, .form dl dd i, .form dl dd p {
+    //float: left;
+}
+
+.form dl dd input.txt {
+    width: 180px;
+    border: 1px solid #999;
+}
+
+.form dl dd input.long {
+    width: 200px;
+}
+
+.form dl dd input.short {
+    width: 80px;
+}
+
+.form dl dd input.chk {
+    margin-top: 1px;
+}
+
+.form dl dd .select {
+    border: 1px solid #999;
+    padding: 6px;
+    margin: 0 6px 0 0;
+    *margin: 7px 5px 0 0;
+    width: 98px;
+}
+
+.form dl dd a.btn {
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    color: #666;
+    text-decoration: none;
+}
+
+.form dl dd a.err {
+    background-color: #FC595A;
+    border: 1px solid #FC595A;
+    color: #fff;
+    text-decoration: none;
+}
+
+.form dl dd i {
+    border: 1px solid #c9d9ee;
+    background: #ecf8ff;
+}
+
+.form dl dd input.btn {
+    cursor: pointer;
+    border: 1px solid #B20000;
+}
+
+.login{
+    margin-top: 45px;
+    font-size: 14px;
+    font-family: "Microsoft yahei";
+}
+/*登录*/
+.login .form dl {
+    margin-bottom: 20px;
+}
+
+.login .form dl dt label {
+    font-size: 14px;
+    line-height: 34px;
+    *line-height: 32px;
+}
+
+.login .form dl dd input.txt {
+    font-size: 14px;
+    padding: 8px 10px;
+}
+
+.login .form dl dd input.btn {
+    width: 220px;
+    height: 38px;
+    border: 1px solid #f80;
+    border-radius: 3px;
+    background-color: #f80;
+    color: #fff;
+    font-size: 16px;
+    font-family: "Microsoft yahei";
+}
+
+.login .form dl dd input.btn:hover {
+    background-color: #f80; /*box-shadow: 0 0 10px #666;*/
+}
+
+.login .form dl dd a.link {
+    padding: 0 10px;
+    padding-top: 6px;
+    vertical-align: top;
+    display: inline-block;
+    *display: inline;
+    *zoom:1;
+}
+
+.login .form dl dd input.chk {
+    margin-top: 6px;
+    //*margin-top: 0;
+    vertical-align: -2px;
+}
+/*未登录 点击“我要询价”*/
+.enquiry-login-dialog{
+    position: relative;
+    .e-l-d-tabs{
+        position: absolute;
+        top: -86px;
+        left: -21px;
+    }
+    .e-l-d-menu{
+        li{
+            height: 40px;
+            line-height: 40px;
+            margin-right: 5px;
+            padding: 0 40px;
+            font-size: 16px;
+            font-family: "Microsoft yahei";
+            background: #e1e1e1;
+            border: 1px solid #bababa;
+            border-bottom: 0;
+            cursor: pointer;
+            a{
+                color: #666;
+            }
+        }
+        .active{
+            background: #fff;
+            a{
+                color: #333;
+            }
+        }
+    }
+}
+
+//已加盟,但未报价
+.enquiry-join-already{
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-family: "Microsoft yahei";
+    font-size: 14px;
+    .e-j-a-tit{
+        text-align: center;
+        color: #666;
+        a{
+            color: #0082cc;
+        }
+    }
+    .e-j-a-detail{
+        padding-top: 35px;
+        text-align: center;
+    }
+}

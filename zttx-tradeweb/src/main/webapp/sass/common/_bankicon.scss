@@ -1,0 +1,13 @@
+﻿@mixin bank-icon() {
+    background: url(/images/common/bank-icon/banklogo.gif) no-repeat;
+}
+
+.ACBC {
+    @include bank-icon();
+    background-position: 0 -100px;
+}
+
+.ABC {
+    @include bank-icon();
+    background-position: 0 0;
+}

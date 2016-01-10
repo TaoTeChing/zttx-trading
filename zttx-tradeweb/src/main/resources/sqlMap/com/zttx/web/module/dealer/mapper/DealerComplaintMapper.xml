@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerComplaintMapper">
+    <!-- 基础列 -->
+    <sql id="dealerComplaintColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.complaintNumberId as complaintNumberId ,
+        a.orderNumber as orderNumber ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.complaintCause as complaintCause ,
+        a.complaintName as complaintName ,
+        a.description as description ,
+        a.comState as comState ,
+        a.interposeTime as interposeTime ,
+        a.brandDesc as brandDesc ,
+        a.complaintResult as complaintResult ,
+        a.createtime as createtime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        insert into DealerComplaint(
+         refrenceId ,
+         orderId ,
+         complaintNumberId ,
+         orderNumber ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         complaintCause ,
+         complaintName ,
+         description ,
+         comState ,
+         interposeTime ,
+         brandDesc ,
+         complaintResult ,
+         createtime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{complaintNumberId}  ,
+        #{orderNumber}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{complaintCause}  ,
+        #{complaintName}  ,
+        #{description}  ,
+        #{comState}  ,
+        #{interposeTime}  ,
+        #{brandDesc}  ,
+        #{complaintResult}  ,
+        #{createtime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerComplaint where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerComplaint set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        insert into DealerComplaint
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="complaintNumberId != null">
+            complaintNumberId ,
+        </if>
+        <if test="orderNumber != null">
+            orderNumber ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="complaintCause != null">
+            complaintCause ,
+        </if>
+        <if test="complaintName != null">
+            complaintName ,
+        </if>
+        <if test="description != null">
+            description ,
+        </if>
+        <if test="comState != null">
+            comState ,
+        </if>
+        <if test="interposeTime != null">
+            interposeTime ,
+        </if>
+        <if test="brandDesc != null">
+            brandDesc ,
+        </if>
+        <if test="complaintResult != null">
+            complaintResult ,
+        </if>
+        <if test="createtime != null">
+            createtime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="complaintNumberId != null">
+            #{complaintNumberId} ,
+        </if>
+        <if test="orderNumber != null">
+            #{orderNumber} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="complaintCause != null">
+            #{complaintCause} ,
+        </if>
+        <if test="complaintName != null">
+            #{complaintName} ,
+        </if>
+        <if test="description != null">
+            #{description} ,
+        </if>
+        <if test="comState != null">
+            #{comState} ,
+        </if>
+        <if test="interposeTime != null">
+            #{interposeTime} ,
+        </if>
+        <if test="brandDesc != null">
+            #{brandDesc} ,
+        </if>
+        <if test="complaintResult != null">
+            #{complaintResult} ,
+        </if>
+        <if test="createtime != null">
+            #{createtime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        update DealerComplaint
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="complaintNumberId != null">
+                complaintNumberId = #{complaintNumberId} ,
+            </if>
+            <if test="orderNumber != null">
+                orderNumber = #{orderNumber} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="complaintCause != null">
+                complaintCause = #{complaintCause} ,
+            </if>
+            <if test="complaintName != null">
+                complaintName = #{complaintName} ,
+            </if>
+            <if test="description != null">
+                description = #{description} ,
+            </if>
+            <if test="comState != null">
+                comState = #{comState} ,
+            </if>
+            <if test="interposeTime != null">
+                interposeTime = #{interposeTime} ,
+            </if>
+            <if test="brandDesc != null">
+                brandDesc = #{brandDesc} ,
+            </if>
+            <if test="complaintResult != null">
+                complaintResult = #{complaintResult} ,
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        update DealerComplaint set
+            orderId = #{orderId} ,
+            complaintNumberId = #{complaintNumberId} ,
+            orderNumber = #{orderNumber} ,
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            complaintCause = #{complaintCause} ,
+            complaintName = #{complaintName} ,
+            description = #{description} ,
+            comState = #{comState} ,
+            interposeTime = #{interposeTime} ,
+            brandDesc = #{brandDesc} ,
+            complaintResult = #{complaintResult} ,
+            createtime = #{createtime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        select <include refid="dealerComplaintColumns"/> from DealerComplaint a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        SELECT
+        <include refid="dealerComplaintColumns"/>
+        FROM DealerComplaint a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="complaintNumberId != null and complaintNumberId != ''">
+            and a.complaintNumberId = #{complaintNumberId}
+        </if>
+        <if test="orderNumber != null and orderNumber != ''">
+            and a.orderNumber = #{orderNumber}
+        </if>
+        <if test="complaintCause != null and complaintCause != ''">
+            and a.complaintCause = #{complaintCause}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="complaintName != null and complaintName != ''">
+            and a.complaintName like CONCAT('%',#{complaintName}, '%')
+        </if>
+        <if test="description != null and description != ''">
+            and a.description like CONCAT('%',#{description}, '%')
+        </if>
+        <if test="comState != null and comState != ''">
+            and a.comState = #{comState}
+        </if>
+        <if test="interposeTime != null and interposeTime != ''">
+            and a.interposeTime = #{interposeTime}
+        </if>
+        <if test="brandDesc != null and brandDesc != ''">
+            and a.brandDesc like CONCAT('%',#{brandDesc}, '%')
+        </if>
+        <if test="complaintResult != null and complaintResult != ''">
+            and a.complaintResult like CONCAT('%',#{complaintResult}, '%')
+        </if>
+        <if test="createtime != null and createtime != ''">
+            and a.createtime = #{createtime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        SELECT
+        <include refid="dealerComplaintColumns"/>
+        FROM DealerComplaint a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getDealerComplaint" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        select
+        <include refid="dealerComplaintColumns"/>
+        from DealerComplaint a where a.orderId = #{orderId}
+
+    </select>
+
+    <select id="isExiect" resultType="java.lang.Boolean">
+        select count(1) from
+        DealerComplaint a
+        where a.delFlag = 0 and a.orderId = #{orderId}
+        limit 0,1
+    </select>
+
+    <select id="loadDealerComplaint" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        select
+        <include refid="dealerComplaintColumns"/>
+        from DealerComplaint a where 1=1 and a.delFlag = 0
+         and a.refrenceId=#{refrenceId} and a.dealerId=#{dealerId}
+    </select>
+
+    <select id="getList" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        select
+        <include refid="dealerComplaintColumns"/>
+        from DealerComplaint a
+        where 1=1  and a.delFlag = 0
+        and a.dealerId = #{dealerComplaint.dealerId}
+        <if test="dealerComplaint.keyOrderNumber != null">
+            and a.orderNumber = #{dealerComplaint.keyOrderNumber}
+        </if>
+        <if test="dealerComplaint.startTime != null and dealerComplaint.startTime !=''">
+            and a.createtime &gt;= #{dealerComplaint.startTime}
+        </if>
+        <if test="dealerComplaint.endTime != null and dealerComplaint.endTime !=''">
+            and a.createtime &lt;= #{dealerComplaint.endTime}
+        </if>
+        <if test="dealerComplaint.keyOrderNumber != null">
+            and a.complaintNumberId = #{dealerComplaint.keyComplaintNumberId}
+        </if>
+        <if test="dealerComplaint.comState != null">
+            and a.comState = #{dealerComplaint.comState}
+        </if>
+        order by a.createtime desc
+    </select>
+    <select id="searchByClient" resultType="com.zttx.web.module.dealer.entity.DealerComplaint">
+        SELECT
+            <include refid="dealerComplaintColumns"/>
+            ,b.comName as brandName
+            ,d.dealerName as dealerName
+            ,c.brandsName as brandsName
+        FROM
+            DealerComplaint a,
+            BrandInfo b,
+            BrandesInfo c,
+            DealerInfo d
+        WHERE
+            a.brandId = b.refrenceId
+        AND a.dealerId = d.refrenceId
+        AND a.brandsId = c.refrenceId
+        AND a.delFlag = 0
+        <if test="dealerComplaint.dealerName != null and dealerComplaint.dealerName != ''">
+            and d.dealerName like CONCAT('%',#{dealerComplaint.dealerName}, '%')
+        </if>
+        <if test="dealerComplaint.brandsName != null and dealerComplaint.brandsName != ''">
+            and c.brandsName like CONCAT('%',#{dealerComplaint.brandsName}, '%')
+        </if>
+        <if test="dealerComplaint.comState != null">
+            and a.comState = #{dealerComplaint.comState}
+        </if>
+        <if test="dealerComplaint.orderNumber != null">
+            and a.orderNumber = #{dealerComplaint.orderNumber}
+        </if>
+        <if test="dealerComplaint.complaintCause != null">
+            and a.complaintCause = #{dealerComplaint.complaintCause}
+        </if>
+        ORDER BY
+            a.createtime DESC,
+            a.interposeTime ASC
+    </select>
+</mapper>
+

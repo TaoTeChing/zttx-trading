@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+@import "button";
+
+%common_table{
+    td,th{
+        padding: 8px 0;
+    }
+    td{
+        border-right: #eee solid 1px;
+        border-bottom: #eee solid 1px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    th{
+        background: #e4ecf8;
+        border-right: #fff solid 1px;
+        font-weight: normal;
+        color: #666;
+    }
+    .odd{
+        td{
+          background: #f9f9f9;
+        }
+    }
+    .last{
+        border-right: none;
+    }
+    .link{
+        color: #0082cc;
+        &:hover{
+          color: #ff8800;
+        }
+    }
+}
+
+.myServices {
+    .main_con {
+        .inner {
+            margin-left: 0;
+            background: #fff;
+        }
+    }
+    .main_ui_tab,.tab_con{
+        margin: 15px 20px 0;
+    }
+    .list_table{
+        th{
+            height: 30px;
+            background: #e4ecf7;
+            color: #666;
+            font-weight: normal;
+        }
+        td{
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: #eee solid 1px;
+        }
+    }
+    .star{
+        background: url("/images/brand/star.png") no-repeat;
+        display: inline-block;
+        vertical-align: top;
+        width: 10px;
+        height: 9px;
+        margin-right: 3px;
+    }
+    .time{
+        margin-top: 5px;
+        color: #cc0000;
+    }
+    .img_contain{
+        float: left;
+        display: inline;
+        margin-left: 10px;
+    }
+    .info_contain{
+        float: left;
+        display: inline-block;
+        margin-left: 13px;
+        position: relative;
+        height: 68px;
+        .name{
+            a{
+                color: #333;
+                &:hover{
+                    color: #0082cc;
+                }
+            }
+        }
+        .price{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #cc0000;
+            font: 14px "Arial";
+        }
+    }
+    .status_btn{
+        width: 92px;
+        height: 28px;
+        line-height: 28px;
+        color: #fff;
+        border-radius: 3px;
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+    }
+    .status_1{
+        background: #ff8800;
+    }
+    .status_2{
+        background: #1d7ad9;
+    }
+    .status_3{
+        background: #22ac38;
+    }
+    .detail_con{
+        margin: 15px 15px 0 20px;
+        .side_bar{
+            float: left;
+            width: 200px;
+        }
+        .common_module{
+            padding: 0 10px;
+            border: #D9D9D9 solid 1px;
+        }
+        .icon_pic{
+            height: 150px;
+            img{
+                border-radius: 3px;
+            }
+        }
+        .service_intro{
+            padding-top: 8px;
+            min-height: 160px;
+            _height: 160px;
+            .contact{
+                padding-bottom: 10px;
+                border-bottom: #cccccc dashed 1px;
+            }
+            .item{
+                margin-top: 8px;
+                label{
+                    display: inline-block;
+                    width: 60px;
+                    text-align: right;
+                    color: #666;
+                }
+            }
+            .intro{
+                padding: 12px 0;
+                h3{
+                    font-size: 12px;
+                    color: #666;
+                }
+                p{
+                    margin-top: 5px;
+                }
+            }
+        }
+        .service_recommend{
+            h3{
+                color: #666;
+                font-size: 12px;
+                margin: 10px 0;
+            }
+            .item{
+                padding-bottom: 20px;
+                zoom: 1;
+                &:after{
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+                img{
+                    float: left;
+                    border-radius: 3px;
+                    margin-right: 15px;
+                }
+                .info{
+                    overflow: hidden;
+                }
+                .name{
+                    margin-top: 3px;
+                }
+                .price{
+                    margin-top: 6px;
+                    color: #cc0000;
+                    font: 14px "Arial";
+                }
+                .rating{
+                    margin-top: 10px;
+                }
+            }
+        }
+        .right{
+            float: right;
+            width: 946px;
+            h2{
+                float: left;
+                font-weight: bold;
+                margin-right: 20px;
+            }
+            .rating{
+                float: left;
+                margin-top: 3px;
+                .star{
+                    vertical-align: middle;
+                }
+                .text{
+                    display: inline-block;
+                    vertical-align: -2px;
+                }
+            }
+            .intro{
+                margin-top: 10px;
+                line-height: 16px;
+                height: 32px;
+            }
+        }
+        .property{
+            margin-top: 8px;
+            .item{
+                label{
+                    color: #666;
+                }
+                ul,li,span{
+                    display: inline-block;
+                    *display: inline;
+                    *zoom: 1;
+                }
+                ul{
+                    font-size: 0;
+                }
+                li{
+                    font-size: 12px;
+                    margin-right: 10px;
+                    border: #fff solid 1px;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    .span_inner{
+                        padding: 0 8px;
+                        height: 22px;
+                        line-height: 22px;
+                        border: #d9d9d9 solid 1px;
+                    }
+                }
+                .current{
+                    border-color: #0082cc;
+                    .span_inner{
+                        border-color: #0082cc;
+                    }
+                }
+            }
+            .price{
+                color: #cc0000;
+                font: 24px "Arial";
+                vertical-align: -2px;
+            }
+            .operate{
+                .ui_button{
+                    font-size: 16px;
+                    font-family: "微软雅黑";
+                }
+                .ui_button_lorange{
+                    width: 85px;
+                    height: 34px;
+                    line-height: 34px;
+                }
+                .buy_person{
+                    margin-left: 4px;
+                    color: #999;
+                }
+            }
+        }
+        .main_ui_tab{
+            margin: 30px 0 0 0;
+        }
+        .tab_con{
+            margin: 20px 0 0 0;
+        }
+        .edit_con{
+
+        }
+        .comments_list{
+            margin-top: 10px;
+            .list_table{
+                @extend %common_table;
+            }
+        }
+    }
+}

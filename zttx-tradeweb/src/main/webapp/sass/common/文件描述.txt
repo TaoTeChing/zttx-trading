@@ -1,0 +1,9 @@
+animate ------ 一些从animate.css里面分离出来的css3动画样式
+index   ------ 新版首页图标，以及index页面的样式
+	_bankicon.scss  ------ 银行图标
+	_dialog.scss
+	_footer.scss    ------ 通用footer样式
+	_header.scss    ------ 通用header样式
+	_top.scss       ------ 通用top样式	
+
+	index 下的 button 等等暂未使用，

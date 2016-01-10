@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerFavoriteMapper">
+    <!-- 基础列 -->
+    <sql id="dealerFavoriteColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.tagId as tagId ,
+        a.collectTime as collectTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        insert into DealerFavorite(
+         refrenceId ,
+         dealerId ,
+         brandId ,
+         brandsId ,
+         productId ,
+         tagId ,
+         collectTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{productId}  ,
+        #{tagId}  ,
+        #{collectTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerFavorite where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerFavorite set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        insert into DealerFavorite
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="tagId != null">
+            tagId ,
+        </if>
+        <if test="collectTime != null">
+            collectTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="tagId != null">
+            #{tagId} ,
+        </if>
+        <if test="collectTime != null">
+            #{collectTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        update DealerFavorite
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="tagId != null">
+                tagId = #{tagId} ,
+            </if>
+            <if test="collectTime != null">
+                collectTime = #{collectTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        update DealerFavorite set
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            productId = #{productId} ,
+            tagId = #{tagId} ,
+            collectTime = #{collectTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        select <include refid="dealerFavoriteColumns"/> from DealerFavorite a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        SELECT
+        <include refid="dealerFavoriteColumns"/>
+        FROM DealerFavorite a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and a.tagId like CONCAT('%',#{tagId}, '%')
+        </if>
+        <if test="collectTime != null and collectTime != ''">
+            and a.collectTime = #{collectTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerFavorite">
+        SELECT
+        <include refid="dealerFavoriteColumns"/>
+        FROM DealerFavorite a WHERE a.delFlag = 0
+    </select>
+
+    <select id="selectProductFavoriteList" resultType="java.util.HashMap">
+        select
+        a.refrenceId as refrenceId,
+        b.refrenceId as brandsId,
+        b.brandState as brandState,
+        b.delFlag as brandDelFlag,
+        c.refrenceId as productId,
+        c.productTitle as productTitle,
+        c.productNo as productNo,
+        c.productImage as productImage,
+        c.stateSet as productState,
+        c.productPrice as productPrice,
+        c.delFlag as productDelFlag,
+        d.isCredit as isCredit,
+        e.saleNum as saleNum
+        from
+        DealerFavorite a, BrandesInfo b,ProductBaseInfo c,ProductExtInfo d,ProductCount e
+        where
+        a.delFlag = 0 and a.brandsId = b.refrenceId and a.productId = c.refrenceId and a.productId = d.refrenceId and a.productId = e.refrenceId
+        and a.dealerId = #{dealerId}
+        <if test="null!=brandsId and ''!=brandsId">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="null!=productNo and ''!=productNo">
+            and c.productNo like CONCAT('%',#{productNo}, '%')
+        </if>
+        <if test="null!=sort and ''!=sort ">
+            <choose>
+                <when test="sort==1">
+                    order by e.saleNum desc     <!--销售数量 销售量-->
+                </when>
+                <when test="sort==2">
+                    order by productPrice desc  <!--最低直供价 价格-->
+                </when>
+                <when test="sort==3">
+                    order by e.viewNum desc  <!--浏览量 人气-->
+                </when>
+            </choose>
+        </if>
+
+    </select>
+    
+    
+    <select id="countDealerFavorite" resultType="Integer">
+        SELECT count(*) FROM DealerFavorite a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and a.tagId like CONCAT('%',#{tagId}, '%')
+        </if>
+        <if test="collectTime != null and collectTime != ''">
+            and a.collectTime = #{collectTime}
+        </if>
+    </select>
+    <select id="isExist" resultType="java.lang.Boolean">
+        select
+        count(a.refrenceId)
+        from DealerFavorite a
+        where a.dealerId=#{0} and a.productId=#{1} and a.delFlag =0
+    </select>
+    <select id="selectFavoriteCata" resultType="java.util.HashMap">
+        select
+        b.refrenceId as brandsId,
+        b.brandsName as brandsName
+        from
+        DealerFavorite a, BrandesInfo b,ProductBaseInfo c,ProductExtInfo d,ProductCount e
+        where
+        a.delFlag = 0 and a.brandsId = b.refrenceId and a.productId = c.refrenceId and a.productId = d.refrenceId and a.productId = e.refrenceId
+        and a.dealerId = #{dealerId}
+        group by a.brandsId
+    </select>
+</mapper>
+

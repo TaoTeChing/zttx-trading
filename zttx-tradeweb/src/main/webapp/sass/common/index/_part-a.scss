@@ -1,0 +1,237 @@
+@charset "utf-8";
+@import "../../mixin";
+
+.part-a{
+    .brand{
+        width:190px;
+        height:450px;
+        position: relative;
+
+        .link-superiority {
+            display:block;
+            position: absolute;
+            bottom: 0;
+            left:0;
+            width:190px;
+            height:110px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+    }
+
+    .middle{
+        width:800px;
+        margin-left:10px;
+
+        .banner{
+            height:250px;
+            width:800px;
+            overflow: hidden;
+        }
+
+        .product{
+            ul{
+                @include inline-float()
+            }
+            li{
+                width:200px;
+                position: relative;
+                .p-i-clickarea{
+                    @include inline-block;
+                    width: 200px;
+                    height: 186px;
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                }
+            }
+        }
+
+    }
+    .apply{
+        margin-left:10px;
+        width: 190px;
+        li{
+            height:225px;
+        }
+
+    }
+
+
+
+    //我是经销商
+    //我是品牌商
+    .imbrand,.imdealer{
+        padding:10px 15px;
+        border:1px solid #e1e1e1;
+        .head{
+            height: 90px;
+            border-bottom: 1px dashed #e1e1e1;
+            font-family: "microsoft yahei";
+            text-align: center;
+            h3{
+                font-weight: 700;
+                font-size:14px;
+                margin-bottom:5px;
+                a{
+                    color: #333;
+                    &:hover{
+                        color: #ff8800;
+                    }
+                }
+            }
+            p{
+                text-align: left;
+                color:#999;
+            }
+        }
+        .content{
+            color:#999;
+            padding:10px 0;
+            span{
+                font-family: Arial;
+                color: #f80;
+            }
+            p{
+                line-height: 30px;
+                color:#999;
+                a{
+                    color: #999;
+                    &:hover{
+                        color: #f80;
+                    }
+                }
+            }
+        }
+        .btn-apply{
+            display: block;
+            height:34px;
+            line-height:34px;
+            background-color:#ff8800;
+            border-radius: 3px;
+            color:#fff;
+            text-decoration: none;
+            text-align:center;
+            font-weight: 700;
+            font-size:14px;
+            &:hover{
+                background: #f60;
+            }
+        }
+    }
+    .imdealer{border-top:0;}
+}
+
+.product-item{
+    height:70px;
+    padding:116px 10px 0 10px;
+    //margin-right:10px;
+    border-right:1px dashed #e1e1e1;
+    font-family: "microsoft yahei";
+    /*i {
+        @include float();
+        margin-left: -50px;
+    }*/
+
+    h3{
+        font-size:16px;
+        //margin-top: 116px;
+        padding-bottom: 5px;
+        text-align: center;
+        background: #fff;
+        position: relative;
+        color: #333;
+        a{
+            color: #333;
+        }
+    }
+
+    .product-item-word{
+        height: 66px;
+        overflow: hidden;
+        position: relative;
+    }
+    p{
+        margin-left: 5px;
+        background: #fff;
+        position: relative;
+        color:#999;
+        /*.p-i-overstep{
+            display: none;
+        }*/
+        a{
+            color: #999;
+        }
+    }
+    /*.active{
+        .p-i-ellipsis{
+            display: none;
+        }
+        .p-i-overstep{
+            display: inline;
+        }
+    }*/
+
+    &.last{
+        border-right:0;
+    }
+
+    &.item-a{
+        background:url(/images/common/index/index-product-item.jpg) no-repeat 35px 0px;
+    }
+
+    &.item-b{
+        background:url(/images/common/index/index-product-item.jpg) no-repeat -173px 0px;
+    }
+
+    &.item-c{
+        background:url(/images/common/index/index-product-item.jpg) no-repeat -356px 4px;
+    }
+
+    &.item-d{
+        background:url(/images/common/index/index-product-item.jpg) no-repeat -580px 0px;
+    }
+
+}
+
+
+.ts-banner{
+    position: relative;
+    width: 800px;
+    height:250px;
+    overflow: hidden;
+    .ts-banner-content{
+        width:9999px !important;
+    }
+    .ui-switchable-nav{
+        _width:800px;
+        position: absolute;
+        bottom:0;
+        *bottom: 10px;
+        left:0;
+        right:0;
+        text-align: center;
+        .ui-switchable-trigger{
+            @include inline-block();
+            @include ir();
+            width:10px;
+            height:10px;
+            line-height: 10px;
+            margin:0 5px;
+            border-radius: 5px;
+            background-color: #999;
+            color: #999;
+            cursor: pointer;
+        }
+        .ui-switchable-active{
+            background-color: #EB0010;
+            text-indent: -999em;
+        }
+    }
+
+    .ts-banner-item{
+        position: relative;
+    }
+}

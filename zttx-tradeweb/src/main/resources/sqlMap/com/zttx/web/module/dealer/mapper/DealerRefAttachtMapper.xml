@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerRefAttachtMapper">
+    <!-- 基础列 -->
+    <sql id="dealerRefAttachtColumns">
+        a.refrenceId as refrenceId ,
+        a.refundId as refundId ,
+        a.userId as userId ,
+        a.replyId as replyId ,
+        a.userName as userName ,
+        a.domainName as domainName ,
+        a.attachtName as attachtName ,
+        a.createTime as createTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        insert into DealerRefAttacht(
+         refrenceId ,
+         refundId ,
+         userId ,
+         replyId ,
+         userName ,
+         domainName ,
+         attachtName ,
+         createTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{refundId}  ,
+        #{userId}  ,
+        #{replyId}  ,
+        #{userName}  ,
+        #{domainName}  ,
+        #{attachtName}  ,
+        #{createTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerRefAttacht(
+        refrenceId ,
+        refundId ,
+        userId ,
+        replyId ,
+        userName ,
+        domainName ,
+        attachtName ,
+        createTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.refundId}  ,
+            #{item.userId}  ,
+            #{item.replyId}  ,
+            #{item.userName}  ,
+            #{item.domainName}  ,
+            #{item.attachtName}  ,
+            #{item.createTime}  ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerRefAttacht where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerRefAttacht set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        insert into DealerRefAttacht
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="refundId != null">
+            refundId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="replyId != null">
+            replyId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="attachtName != null">
+            attachtName ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="refundId != null">
+            #{refundId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="replyId != null">
+            #{replyId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="attachtName != null">
+            #{attachtName} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        update DealerRefAttacht
+           <set>
+            <if test="refundId != null">
+                refundId = #{refundId} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="replyId != null">
+                replyId = #{replyId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="attachtName != null">
+                attachtName = #{attachtName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        update DealerRefAttacht set
+            refundId = #{refundId} ,
+            userId = #{userId} ,
+            replyId = #{replyId} ,
+            userName = #{userName} ,
+            domainName = #{domainName} ,
+            attachtName = #{attachtName} ,
+            createTime = #{createTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        select <include refid="dealerRefAttachtColumns"/> from DealerRefAttacht a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        SELECT
+        <include refid="dealerRefAttachtColumns"/>
+        FROM DealerRefAttacht a WHERE a.delFlag = 0
+        <if test="refundId != null and refundId != ''">
+            and a.refundId like CONCAT('%',#{refundId}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="replyId != null and replyId != ''">
+            and a.replyId like CONCAT('%',#{replyId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="attachtName != null and attachtName != ''">
+            and a.attachtName like CONCAT('%',#{attachtName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        SELECT
+        <include refid="dealerRefAttachtColumns"/>
+        FROM DealerRefAttacht a WHERE a.delFlag = 0
+    </select>
+
+    <select id="listByRefundId" resultType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+        select
+        <include refid="dealerRefAttachtColumns"/>
+        from DealerRefAttacht a
+        where a.delFlag =0 and a.refundId= #{refundId}
+        order by a.createTime desc
+    </select>
+
+    <select id="listByRefundIdAndReplyId" resultType="com.zttx.web.module.dealer.entity.DealerRefAttacht">
+       select <include refid="dealerRefAttachtColumns"/>
+       from DealerRefAttacht a
+       where a.delFlag=0 and a.refundId=#{refundId} and a.replyId=#{replyId}
+       order by a.createTime desc
+    </select>
+</mapper>
+

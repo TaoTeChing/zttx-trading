@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import "../../mixin";
+/*
+$service-spacing: 20px;
+$service-sprite-dimensions: true;
+@import "compass/utilities/sprites";
+@import "service*//*.png";
+@include all-service-sprites;
+*/
+//服务图标 需求 #609 增加
+.service-sprite,.service-bags,.service-bedding,.service-children,.service-daily,.service-dress,.service-m-shoe,.service-man,.service-maternal,.service-shirt,.service-shoes,.service-w-shoe,.service-women{
+    @include inline-block;
+    background:url('../../images/common/service-sb84a5aa94b.png') no-repeat;
+    vertical-align: -5px;
+    *vertical-align: -2px;
+    margin-right: 5px;
+}
+.service-bags{background-position:0 -273px;height:19px;width:19px;}
+.service-bedding{background-position:0 -390px;height:19px;width:19px;}
+.service-children{background-position:0 -234px;height:19px;width:19px;}
+.service-daily{background-position:0 -78px;height:19px;width:19px;}
+.service-dress{background-position:0 -312px;height:19px;width:19px;}
+.service-m-shoe{background-position:0 -429px;height:19px;width:19px;}
+.service-man{background-position:0 -156px;height:19px;width:19px;}
+.service-maternal{background-position:0 -39px;height:19px;width:19px;}
+.service-shirt{background-position:0 -195px;height:19px;width:19px;}
+.service-shoes{background-position:0 0;height:19px;width:19px;}
+.service-w-shoe{background-position:0 -117px;height:19px;width:19px;}
+.service-women{background-position:0 -351px;height:19px;width:19px;}

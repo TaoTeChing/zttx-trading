@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.SmsTemplateMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="smsTemplateColumns">
+        a.refrenceId as refrenceId ,
+        a.smsKey as smsKey ,
+        a.templateName as templateName ,
+        a.content as content ,
+        a.place as place ,
+        a.remark as remark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.SmsTemplate">
+        insert into SmsTemplate(
+         refrenceId ,
+         smsKey ,
+         templateName ,
+         content ,
+         place ,
+         remark ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{smsKey}  ,
+        #{templateName}  ,
+        #{content}  ,
+        #{place}  ,
+        #{remark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from SmsTemplate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update SmsTemplate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.SmsTemplate">
+        insert into SmsTemplate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="smsKey != null">
+            smsKey ,
+        </if>
+        <if test="templateName != null">
+            templateName ,
+        </if>
+        <if test="content != null">
+            content ,
+        </if>
+        <if test="place != null">
+            place ,
+        </if>
+        <if test="remark != null">
+            remark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="smsKey != null">
+            #{smsKey} ,
+        </if>
+        <if test="templateName != null">
+            #{templateName} ,
+        </if>
+        <if test="content != null">
+            #{content} ,
+        </if>
+        <if test="place != null">
+            #{place} ,
+        </if>
+        <if test="remark != null">
+            #{remark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.SmsTemplate">
+        update SmsTemplate
+           <set>
+            <if test="smsKey != null">
+                smsKey = #{smsKey} ,
+            </if>
+            <if test="templateName != null">
+                templateName = #{templateName} ,
+            </if>
+            <if test="content != null">
+                content = #{content} ,
+            </if>
+            <if test="place != null">
+                place = #{place} ,
+            </if>
+            <if test="remark != null">
+                remark = #{remark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.SmsTemplate">
+        update SmsTemplate set
+            smsKey = #{smsKey} ,
+            templateName = #{templateName} ,
+            content = #{content} ,
+            place = #{place} ,
+            remark = #{remark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.SmsTemplate">
+        select <include refid="smsTemplateColumns"/> from SmsTemplate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.SmsTemplate">
+        SELECT
+        <include refid="smsTemplateColumns"/>
+        FROM SmsTemplate a WHERE a.delFlag = 0
+        <if test="smsKey != null and smsKey != ''">
+            and a.smsKey like CONCAT('%',#{smsKey}, '%')
+        </if>
+        <if test="templateName != null and templateName != ''">
+            and a.templateName like CONCAT('%',#{templateName}, '%')
+        </if>
+        <if test="content != null and content != ''">
+            and a.content like CONCAT('%',#{content}, '%')
+        </if>
+        <if test="place != null and place != ''">
+            and a.place like CONCAT('%',#{place}, '%')
+        </if>
+        <if test="remark != null and remark != ''">
+            and a.remark like CONCAT('%',#{remark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.SmsTemplate">
+        SELECT
+        <include refid="smsTemplateColumns"/>
+        FROM SmsTemplate a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getBySmsKey" resultType="com.zttx.web.module.common.entity.SmsTemplate">
+        select <include refid="smsTemplateColumns"/>
+        from SmsTemplate a
+        where a.delFlag = 0 and a.smsKey = #{smsKey}
+    </select>
+
+    <select id="pageSearch" parameterType="com.zttx.web.module.common.entity.SmsTemplate"
+            resultType="com.zttx.web.module.common.entity.SmsTemplate">
+        select
+        <include refid="smsTemplateColumns"/>
+        from SmsTemplate a
+        where 1 = 1 and a.delFlag = 0
+        <if test="refrenceId != null and refrenceId !=''">
+            and a.refrenceId = #{refrenceId}
+        </if>
+        <if test="smsKey != null and smsKey !=''">
+            and a.smsKey like CONCAT('%',#{smsKey}, '%')
+        </if>
+        <if test="templateName != null and templateName !=''">
+            and a.templateName like CONCAT('%',#{templateName}, '%')
+        </if>
+        order by a.createTime desc ,a.smsKey
+    </select>
+</mapper>
+

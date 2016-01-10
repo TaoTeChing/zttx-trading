@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.fronts.mapper.RulesInfoLogMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="rulesInfoLogColumns">
+        a.refrenceId as refrenceId ,
+        a.rulesId as rulesId ,
+        a.articleTitle as articleTitle ,
+        a.articleText as articleText ,
+        a.domainName as domainName ,
+        a.articleImage as articleImage ,
+        a.createTime as createTime ,
+        a.viewNum as viewNum
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        insert into RulesInfoLog(
+        refrenceId ,
+        rulesId ,
+        articleTitle ,
+        articleText ,
+        domainName ,
+        articleImage ,
+        createTime ,
+        viewNum
+        ) VALUES (
+        #{refrenceId} ,
+        #{rulesId} ,
+        #{articleTitle} ,
+        #{articleText} ,
+        #{domainName} ,
+        #{articleImage} ,
+        #{createTime} ,
+        #{viewNum}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from RulesInfoLog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update RulesInfoLog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        insert into RulesInfoLog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="rulesId != null">
+                rulesId ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle ,
+            </if>
+            <if test="articleText != null">
+                articleText ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="articleImage != null">
+                articleImage ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="viewNum != null">
+                viewNum
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="rulesId != null">
+                #{rulesId} ,
+            </if>
+            <if test="articleTitle != null">
+                #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                #{articleImage} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="viewNum != null">
+                #{viewNum}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        update RulesInfoLog
+        <set>
+            <if test="rulesId != null">
+                rulesId = #{rulesId} ,
+            </if>
+            <if test="articleTitle != null">
+                articleTitle = #{articleTitle} ,
+            </if>
+            <if test="articleText != null">
+                articleText = #{articleText} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="articleImage != null">
+                articleImage = #{articleImage} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        update RulesInfoLog set
+        rulesId = #{rulesId} ,
+        articleTitle = #{articleTitle} ,
+        articleText = #{articleText} ,
+        domainName = #{domainName} ,
+        articleImage = #{articleImage} ,
+        createTime = #{createTime} ,
+        viewNum = #{viewNum}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        select
+        <include refid="rulesInfoLogColumns"/>
+        from RulesInfoLog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        SELECT
+        <include refid="rulesInfoLogColumns"/>
+        FROM RulesInfoLog a WHERE a.delFlag = 0
+        <if test="rulesId != null and rulesId != ''">
+            and a.rulesId like CONCAT('%',#{rulesId}, '%')
+        </if>
+        <if test="articleTitle != null and articleTitle != ''">
+            and a.articleTitle like CONCAT('%',#{articleTitle}, '%')
+        </if>
+        <if test="articleText != null and articleText != ''">
+            and a.articleText like CONCAT('%',#{articleText}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="articleImage != null and articleImage != ''">
+            and a.articleImage like CONCAT('%',#{articleImage}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.fronts.entity.RulesInfoLog">
+        SELECT
+        <include refid="rulesInfoLogColumns"/>
+        FROM RulesInfoLog a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

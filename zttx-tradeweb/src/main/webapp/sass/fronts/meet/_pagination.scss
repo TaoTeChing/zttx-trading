@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+$textSize: 12px;
+.pagination{
+    background: #fff;text-align: center;font-size: 0;padding:23px 0;border-top:1px dashed #DDDDDD;
+    .total{
+        margin-left: 10px;
+        font-size: $textSize;
+        strong{
+            font-weight: normal;
+        }
+    }
+    .ellipsis{
+        margin-left: 10px;
+        font-size: $textSize;
+    }
+    .page{
+        font-size: $textSize;
+        display: inline-block;
+        margin-left: 10px;
+        padding: 0 6px;
+        height: 22px;
+        line-height: 22px;
+        background: #f3f3f3;
+        color: #666;
+        &:hover{
+            background-color: #C90909;
+            color: #fff;
+        }
+    }
+    .current{
+        background-color: #C90909;
+        color: #fff;
+    }
+    .prev,.next{
+        width: 58px;
+        height: 20px;
+        line-height: 20px;
+        border: #ddd solid 1px;
+        text-align: center;
+        border-radius: 2px;
+        margin-left: 10px;
+        font-size: $textSize;
+        display: inline-block;
+        color: #666;
+        &:hover{
+            color: #0082cc;
+        }
+    }
+}

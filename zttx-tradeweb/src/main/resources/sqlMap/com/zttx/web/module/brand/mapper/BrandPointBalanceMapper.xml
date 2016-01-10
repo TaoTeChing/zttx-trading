@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandPointBalanceMapper">
+    <!-- 基础列 -->
+    <sql id="brandPointBalanceColumns">
+        a.refrenceId as refrenceId ,
+        a.brandsId as brandsId ,
+        a.point as point ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.joinForm as joinForm,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        insert into BrandPointBalance(
+         refrenceId ,
+         brandsId ,
+         point ,
+         createTime ,
+         updateTime ,
+         joinForm ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandsId}  ,
+        #{point}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{joinForm} ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandPointBalance where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandPointBalance set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        insert into BrandPointBalance
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="point != null">
+            point ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="joinForm != null">
+            joinForm ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="point != null">
+            #{point} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="joinForm != null">
+            #{joinForm} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        update BrandPointBalance
+           <set>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="point != null">
+                point = #{point} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="joinForm != null">
+                joinForm = #{joinForm} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        update BrandPointBalance set
+            brandsId = #{brandsId} ,
+            point = #{point} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            joinForm = #{joinForm} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        select <include refid="brandPointBalanceColumns"/> from BrandPointBalance a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        SELECT
+        <include refid="brandPointBalanceColumns"/>
+        FROM BrandPointBalance a WHERE a.delFlag = 0
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="point != null and point != ''">
+            and a.point = #{point}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="joinForm != null">
+            and a.joinForm = #{joinForm}
+        </if>
+        order by a.joinForm asc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandPointBalance">
+        SELECT
+        <include refid="brandPointBalanceColumns"/>
+        FROM BrandPointBalance a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="findByBrandPointBalanceModel" resultType="com.zttx.web.module.brand.entity.BrandPointBalance" parameterType="com.zttx.web.module.brand.model.BrandPointBalanceModel">
+        SELECT
+        <include refid="brandPointBalanceColumns"/>
+        FROM BrandPointBalance a WHERE a.delFlag = 0
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="point != null and point != ''">
+            and a.point = #{point}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="joinForm != null and joinForm != ''">
+            and a.joinForm = #{joinForm}
+        </if>
+    </select>
+    
+    <select id="findVlidBrandesInfo" resultType="java.util.HashMap" parameterType="com.zttx.web.module.brand.model.BrandPointBalanceModel">
+    	SELECT b.refrenceId as brandId, b.comName as brandName, a.refrenceId as brandsId, a.brandsName as brandsName 
+    	FROM BrandesInfo a, BrandInfo b 
+    	WHERE a.delFlag = 0 and b.delFlag = 0 and a.brandId = b.refrenceId and b.checkState = 1 and a.brandState > 0
+    	<if test="brandName != null and brandName != ''">
+            and b.comName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="brandsName != null and brandsName != ''">
+            and a.brandsName like CONCAT('%',#{brandsName}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.refrenceId = #{brandsId}
+        </if>
+         order by a.createTime desc
+    </select>
+</mapper>
+

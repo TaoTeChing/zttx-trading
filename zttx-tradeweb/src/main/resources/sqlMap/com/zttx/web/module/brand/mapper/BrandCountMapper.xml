@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandCountMapper">
+    <!-- 基础列 -->
+    <sql id="brandCountColumns">
+        a.refrenceId as refrenceId ,
+        a.cooperCount as cooperCount ,
+        a.applyCount as applyCount ,
+        a.inviteCount as inviteCount ,
+        a.waitPayCount as waitPayCount ,
+        a.preOrderCount as preOrderCount ,
+        a.creditCount as creditCount ,
+        a.waitSendCount as waitSendCount ,
+        a.waitConfirmCount as waitConfirmCount ,
+        a.refundCount as refundCount ,
+        a.publishedCount as publishedCount ,
+        a.waitPublishCount as waitPublishCount ,
+        a.tightInventoryCount as tightInventoryCount ,
+        a.shortageCount as shortageCount ,
+        a.prePublishedCount as prePublishedCount ,
+        a.viewDealerCount as viewDealerCount ,
+        a.brandsCount as brandsCount ,
+        a.viewDealerTotal as viewDealerTotal ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandCount">
+        insert into BrandCount(
+         refrenceId ,
+         cooperCount ,
+         applyCount ,
+         inviteCount ,
+         waitPayCount ,
+         preOrderCount ,
+         creditCount ,
+         waitSendCount ,
+         waitConfirmCount ,
+         refundCount ,
+         publishedCount ,
+         waitPublishCount ,
+         tightInventoryCount ,
+         shortageCount ,
+         prePublishedCount ,
+         viewDealerCount ,
+         brandsCount ,
+         viewDealerTotal ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{cooperCount}  ,
+        #{applyCount}  ,
+        #{inviteCount}  ,
+        #{waitPayCount}  ,
+        #{preOrderCount}  ,
+        #{creditCount}  ,
+        #{waitSendCount}  ,
+        #{waitConfirmCount}  ,
+        #{refundCount}  ,
+        #{publishedCount}  ,
+        #{waitPublishCount}  ,
+        #{tightInventoryCount}  ,
+        #{shortageCount}  ,
+        #{prePublishedCount}  ,
+        #{viewDealerCount}  ,
+        #{brandsCount}  ,
+        #{viewDealerTotal}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandCount where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandCount set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandCount">
+        insert into BrandCount
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="cooperCount != null">
+            cooperCount ,
+        </if>
+        <if test="applyCount != null">
+            applyCount ,
+        </if>
+        <if test="inviteCount != null">
+            inviteCount ,
+        </if>
+        <if test="waitPayCount != null">
+            waitPayCount ,
+        </if>
+        <if test="preOrderCount != null">
+            preOrderCount ,
+        </if>
+        <if test="creditCount != null">
+            creditCount ,
+        </if>
+        <if test="waitSendCount != null">
+            waitSendCount ,
+        </if>
+        <if test="waitConfirmCount != null">
+            waitConfirmCount ,
+        </if>
+        <if test="refundCount != null">
+            refundCount ,
+        </if>
+        <if test="publishedCount != null">
+            publishedCount ,
+        </if>
+        <if test="waitPublishCount != null">
+            waitPublishCount ,
+        </if>
+        <if test="tightInventoryCount != null">
+            tightInventoryCount ,
+        </if>
+        <if test="shortageCount != null">
+            shortageCount ,
+        </if>
+        <if test="prePublishedCount != null">
+            prePublishedCount ,
+        </if>
+        <if test="viewDealerCount != null">
+            viewDealerCount ,
+        </if>
+        <if test="brandsCount != null">
+            brandsCount ,
+        </if>
+        <if test="viewDealerTotal != null">
+            viewDealerTotal ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="cooperCount != null">
+            #{cooperCount} ,
+        </if>
+        <if test="applyCount != null">
+            #{applyCount} ,
+        </if>
+        <if test="inviteCount != null">
+            #{inviteCount} ,
+        </if>
+        <if test="waitPayCount != null">
+            #{waitPayCount} ,
+        </if>
+        <if test="preOrderCount != null">
+            #{preOrderCount} ,
+        </if>
+        <if test="creditCount != null">
+            #{creditCount} ,
+        </if>
+        <if test="waitSendCount != null">
+            #{waitSendCount} ,
+        </if>
+        <if test="waitConfirmCount != null">
+            #{waitConfirmCount} ,
+        </if>
+        <if test="refundCount != null">
+            #{refundCount} ,
+        </if>
+        <if test="publishedCount != null">
+            #{publishedCount} ,
+        </if>
+        <if test="waitPublishCount != null">
+            #{waitPublishCount} ,
+        </if>
+        <if test="tightInventoryCount != null">
+            #{tightInventoryCount} ,
+        </if>
+        <if test="shortageCount != null">
+            #{shortageCount} ,
+        </if>
+        <if test="prePublishedCount != null">
+            #{prePublishedCount} ,
+        </if>
+        <if test="viewDealerCount != null">
+            #{viewDealerCount} ,
+        </if>
+        <if test="brandsCount != null">
+            #{brandsCount} ,
+        </if>
+        <if test="viewDealerTotal != null">
+            #{viewDealerTotal} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandCount">
+        update BrandCount
+           <set>
+            <if test="cooperCount != null">
+                cooperCount = #{cooperCount} ,
+            </if>
+            <if test="applyCount != null">
+                applyCount = #{applyCount} ,
+            </if>
+            <if test="inviteCount != null">
+                inviteCount = #{inviteCount} ,
+            </if>
+            <if test="waitPayCount != null">
+                waitPayCount = #{waitPayCount} ,
+            </if>
+            <if test="preOrderCount != null">
+                preOrderCount = #{preOrderCount} ,
+            </if>
+            <if test="creditCount != null">
+                creditCount = #{creditCount} ,
+            </if>
+            <if test="waitSendCount != null">
+                waitSendCount = #{waitSendCount} ,
+            </if>
+            <if test="waitConfirmCount != null">
+                waitConfirmCount = #{waitConfirmCount} ,
+            </if>
+            <if test="refundCount != null">
+                refundCount = #{refundCount} ,
+            </if>
+            <if test="publishedCount != null">
+                publishedCount = #{publishedCount} ,
+            </if>
+            <if test="waitPublishCount != null">
+                waitPublishCount = #{waitPublishCount} ,
+            </if>
+            <if test="tightInventoryCount != null">
+                tightInventoryCount = #{tightInventoryCount} ,
+            </if>
+            <if test="shortageCount != null">
+                shortageCount = #{shortageCount} ,
+            </if>
+            <if test="prePublishedCount != null">
+                prePublishedCount = #{prePublishedCount} ,
+            </if>
+            <if test="viewDealerCount != null">
+                viewDealerCount = #{viewDealerCount} ,
+            </if>
+            <if test="brandsCount != null">
+                brandsCount = #{brandsCount} ,
+            </if>
+            <if test="viewDealerTotal != null">
+                viewDealerTotal = #{viewDealerTotal} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandCount">
+        update BrandCount set
+            cooperCount = #{cooperCount} ,
+            applyCount = #{applyCount} ,
+            inviteCount = #{inviteCount} ,
+            waitPayCount = #{waitPayCount} ,
+            preOrderCount = #{preOrderCount} ,
+            creditCount = #{creditCount} ,
+            waitSendCount = #{waitSendCount} ,
+            waitConfirmCount = #{waitConfirmCount} ,
+            refundCount = #{refundCount} ,
+            publishedCount = #{publishedCount} ,
+            waitPublishCount = #{waitPublishCount} ,
+            tightInventoryCount = #{tightInventoryCount} ,
+            shortageCount = #{shortageCount} ,
+            prePublishedCount = #{prePublishedCount} ,
+            viewDealerCount = #{viewDealerCount} ,
+            brandsCount = #{brandsCount} ,
+            viewDealerTotal = #{viewDealerTotal} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandCount">
+        select <include refid="brandCountColumns"/> from BrandCount a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandCount">
+        SELECT
+        <include refid="brandCountColumns"/>
+        FROM BrandCount a WHERE a.delFlag = 0
+        <if test="cooperCount != null and cooperCount != ''">
+            and a.cooperCount = #{cooperCount}
+        </if>
+        <if test="applyCount != null and applyCount != ''">
+            and a.applyCount = #{applyCount}
+        </if>
+        <if test="inviteCount != null and inviteCount != ''">
+            and a.inviteCount = #{inviteCount}
+        </if>
+        <if test="waitPayCount != null and waitPayCount != ''">
+            and a.waitPayCount = #{waitPayCount}
+        </if>
+        <if test="preOrderCount != null and preOrderCount != ''">
+            and a.preOrderCount = #{preOrderCount}
+        </if>
+        <if test="creditCount != null and creditCount != ''">
+            and a.creditCount = #{creditCount}
+        </if>
+        <if test="waitSendCount != null and waitSendCount != ''">
+            and a.waitSendCount = #{waitSendCount}
+        </if>
+        <if test="waitConfirmCount != null and waitConfirmCount != ''">
+            and a.waitConfirmCount = #{waitConfirmCount}
+        </if>
+        <if test="refundCount != null and refundCount != ''">
+            and a.refundCount = #{refundCount}
+        </if>
+        <if test="publishedCount != null and publishedCount != ''">
+            and a.publishedCount = #{publishedCount}
+        </if>
+        <if test="waitPublishCount != null and waitPublishCount != ''">
+            and a.waitPublishCount = #{waitPublishCount}
+        </if>
+        <if test="tightInventoryCount != null and tightInventoryCount != ''">
+            and a.tightInventoryCount = #{tightInventoryCount}
+        </if>
+        <if test="shortageCount != null and shortageCount != ''">
+            and a.shortageCount = #{shortageCount}
+        </if>
+        <if test="prePublishedCount != null and prePublishedCount != ''">
+            and a.prePublishedCount = #{prePublishedCount}
+        </if>
+        <if test="viewDealerCount != null and viewDealerCount != ''">
+            and a.viewDealerCount = #{viewDealerCount}
+        </if>
+        <if test="brandsCount != null and brandsCount != ''">
+            and a.brandsCount = #{brandsCount}
+        </if>
+        <if test="viewDealerTotal != null and viewDealerTotal != ''">
+            and a.viewDealerTotal = #{viewDealerTotal}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandCount">
+        SELECT
+        <include refid="brandCountColumns"/>
+        FROM BrandCount a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

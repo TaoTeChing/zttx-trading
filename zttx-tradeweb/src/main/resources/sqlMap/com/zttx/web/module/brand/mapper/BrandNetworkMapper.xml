@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandNetworkMapper">
+    <!-- 基础列 -->
+    <sql id="brandNetworkColumns">
+        a.refrenceId as refrenceId,
+        a.brandId as brandId ,
+        a.brandsId as brandsId,
+        a.dealerId as dealerId,
+        a.dealerName as dealerName,
+        a.levelId as levelId,
+        a.userName as userName ,
+        a.telphone as telphone,
+        a.mobile as mobile,
+        a.provinceName as provinceName,
+        a.cityName as cityName,
+        a.areaName as areaName ,
+        a.areaNo as areaNo,
+        a.address as address,
+        a.showFlag as showFlag,
+        a.wholePercent as wholePercent,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+    <sql id="brandNetworkWithImageColumns">
+        i.domainName AS domain,
+        i.imageName AS path
+    </sql>
+
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandNetwork">
+        INSERT INTO BrandNetwork (
+            refrenceId,
+            brandId,
+            brandsId,
+            dealerId,
+            dealerName,
+            levelId,
+            userName,
+            telphone,
+            mobile,
+            provinceName,
+            cityName,
+            areaName,
+            areaNo,
+            address,
+            showFlag,
+            wholePercent,
+            createTime,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{brandId},
+            #{brandsId},
+            #{dealerId},
+            #{dealerName},
+            #{levelId},
+            #{userName},
+            #{telphone},
+            #{mobile},
+            #{provinceName},
+            #{cityName},
+            #{areaName},
+            #{areaNo},
+            #{address},
+            #{showFlag},
+            #{wholePercent},
+            #{createTime},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM BrandNetwork
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE BrandNetwork
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandNetwork">
+        insert into BrandNetwork
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="dealerName != null">
+                dealerName ,
+            </if>
+            <if test="levelId != null">
+                levelId ,
+            </if>
+            <if test="userName != null">
+                userName ,
+            </if>
+            <if test="telphone != null">
+                telphone ,
+            </if>
+            <if test="mobile != null">
+                mobile ,
+            </if>
+            <if test="provinceName != null">
+                provinceName ,
+            </if>
+            <if test="cityName != null">
+                cityName ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="address != null">
+                address ,
+            </if>
+            <if test="showFlag != null">
+                showFlag ,
+            </if>
+            <if test="wholePercent != null">
+                wholePercent ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                #{dealerName} ,
+            </if>
+            <if test="levelId != null">
+                #{levelId} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="telphone != null">
+                #{telphone} ,
+            </if>
+            <if test="mobile != null">
+                #{mobile} ,
+            </if>
+            <if test="provinceName != null">
+                #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="address != null">
+                #{address} ,
+            </if>
+            <if test="showFlag != null">
+                #{showFlag} ,
+            </if>
+            <if test="wholePercent != null">
+                #{wholePercent} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandNetwork">
+        update BrandNetwork
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="levelId != null">
+                levelId = #{levelId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="telphone != null">
+                telphone = #{telphone} ,
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="address != null">
+                address = #{address} ,
+            </if>
+            <if test="showFlag != null">
+                showFlag = #{showFlag} ,
+            </if>
+            <if test="wholePercent != null">
+                wholePercent = #{wholePercent} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandNetwork">
+        UPDATE BrandNetwork
+        SET
+            brandId      = #{brandId},
+            brandsId     = #{brandsId},
+            dealerId     = #{dealerId},
+            dealerName   = #{dealerName},
+            levelId      = #{levelId},
+            userName     = #{userName},
+            telphone     = #{telphone},
+            mobile       = #{mobile},
+            provinceName = #{provinceName},
+            cityName     = #{cityName},
+            areaName     = #{areaName},
+            areaNo       = #{areaNo},
+            address      = #{address},
+            showFlag     = #{showFlag},
+            wholePercent = #{wholePercent},
+            createTime   = #{createTime},
+            updateTime   = #{updateTime},
+            delFlag      = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandNetwork">
+        select
+        <include refid="brandNetworkColumns"/>
+        from BrandNetwork a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandNetwork">
+        SELECT
+        <include refid="brandNetworkColumns"/>
+        FROM BrandNetwork a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="levelId != null and levelId != ''">
+            and a.levelId like CONCAT('%',#{levelId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="telphone != null and telphone != ''">
+            and a.telphone like CONCAT('%',#{telphone}, '%')
+        </if>
+        <if test="mobile != null and mobile != ''">
+            and a.mobile like CONCAT('%',#{mobile}, '%')
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="address != null and address != ''">
+            and a.address like CONCAT('%',#{address}, '%')
+        </if>
+        <if test="showFlag != null and showFlag != ''">
+            and a.showFlag = #{showFlag}
+        </if>
+        <if test="wholePercent != null and wholePercent != ''">
+            and a.wholePercent = #{wholePercent}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandNetwork">
+        SELECT
+        <include refid="brandNetworkColumns"/>
+        FROM BrandNetwork a WHERE a.delFlag = 0
+    </select>
+
+    <select id="selectNetworkAndImgByBrandesId" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandNetwork">
+        SELECT
+        <include refid="brandNetworkColumns"/>,
+        <include refid="brandNetworkWithImageColumns"/>
+        FROM
+        BrandNetwork a left join BrandNetimg i
+        ON i.networkId = a.refrenceId
+        WHERE a.brandsId = #{brandsId}
+        AND a.showFlag = 1
+        AND i.mainFlag = 1
+        AND a.delFlag = 0
+    </select>
+
+    <select id="getBrandNetwork" resultType="com.zttx.web.module.brand.entity.BrandNetwork">
+        select
+        <include refid="brandNetworkColumns"/>
+        from BrandNetwork a where a.brandId = #{brandId} and a.brandsId = #{brandsId} and a.dealerId = #{dealerId} and
+        a.delFlag = 0
+        <if test="showFlag != null and showFlag != ''">
+            and a.showFlag = #{showFlag}
+        </if>
+    </select>
+
+    <select id="isExistNetworkDealer" resultType="java.lang.Integer">
+
+        select count(1) from BrandNetwork where brandId = #{brandNetwork.brandId} and brandsId = #{brandNetwork.brandsId} and  delFlag=0
+        <choose>
+            <when test="brandNetwork.dealerId != null and brandNetwork.dealerId != ''">
+                and dealerId = #{brandNetwork.dealerId}
+            </when>
+            <otherwise>
+                and dealerName = #{brandNetwork.dealerName}
+            </otherwise>
+        </choose>
+
+    </select>
+
+
+    <update id="updateShowFlag" parameterType="com.zttx.web.module.brand.entity.BrandNetwork">
+        UPDATE BrandNetwork
+        SET showFlag = #{showFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+	<update id="updateNetworkLevel" >
+	update BrandNetwork set levelId=#{levelId}   where brandId=#{brandId} and brandsId=#{brandsId} and
+	dealerId=#{dealerId}  and delFlag=0
+    </update>
+
+</mapper>
+

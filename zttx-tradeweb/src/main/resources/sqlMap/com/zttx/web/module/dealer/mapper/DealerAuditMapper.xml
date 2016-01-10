@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerAuditMapper">
+    <!-- 基础列 -->
+    <sql id="dealerAuditColumns">
+        a.refrenceId as refrenceId ,
+        a.userId as userId ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.checkTime as checkTime ,
+        a.checkState as checkState ,
+        a.checkMark as checkMark ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerAudit">
+        insert into DealerAudit(
+         refrenceId ,
+         userId ,
+         dealerId ,
+         dealerName ,
+         checkTime ,
+         checkState ,
+         checkMark ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userId}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{checkTime}  ,
+        #{checkState}  ,
+        #{checkMark}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerAudit where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerAudit set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerAudit">
+        insert into DealerAudit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="dealerName != null">
+            dealerName ,
+        </if>
+        <if test="checkTime != null">
+            checkTime ,
+        </if>
+        <if test="checkState != null">
+            checkState ,
+        </if>
+        <if test="checkMark != null">
+            checkMark ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="dealerName != null">
+            #{dealerName} ,
+        </if>
+        <if test="checkTime != null">
+            #{checkTime} ,
+        </if>
+        <if test="checkState != null">
+            #{checkState} ,
+        </if>
+        <if test="checkMark != null">
+            #{checkMark} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerAudit">
+        update DealerAudit
+           <set>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="checkTime != null">
+                checkTime = #{checkTime} ,
+            </if>
+            <if test="checkState != null">
+                checkState = #{checkState} ,
+            </if>
+            <if test="checkMark != null">
+                checkMark = #{checkMark} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerAudit">
+        update DealerAudit set
+            userId = #{userId} ,
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            checkTime = #{checkTime} ,
+            checkState = #{checkState} ,
+            checkMark = #{checkMark} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerAudit">
+        select <include refid="dealerAuditColumns"/> from DealerAudit a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerAudit">
+        SELECT
+        <include refid="dealerAuditColumns"/>
+        FROM DealerAudit a WHERE a.delFlag = 0
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="checkTime != null and checkTime != ''">
+            and a.checkTime = #{checkTime}
+        </if>
+        <if test="checkState != null and checkState != ''">
+            and a.checkState = #{checkState}
+        </if>
+        <if test="checkMark != null and checkMark != ''">
+            and a.checkMark like CONCAT('%',#{checkMark}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerAudit">
+        SELECT
+        <include refid="dealerAuditColumns"/>
+        FROM DealerAudit a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

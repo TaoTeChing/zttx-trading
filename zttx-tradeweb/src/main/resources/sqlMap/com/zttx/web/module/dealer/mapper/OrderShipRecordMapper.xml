@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.OrderShipRecordMapper">
+    <!-- 基础列 -->
+    <sql id="orderShipRecordColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.brandId as brandId ,
+        a.brandName as brandName ,
+        a.shipCount as shipCount ,
+        a.logisticName as logisticName ,
+        a.shipNumber as shipNumber ,
+        a.createTime as createTime ,
+        a.sourceState as sourceState ,
+        a.errNumber as errNumber 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        insert into OrderShipRecord(
+         refrenceId ,
+         orderId ,
+         brandId ,
+         brandName ,
+         shipCount ,
+         logisticName ,
+         shipNumber ,
+         createTime ,
+         sourceState ,
+         errNumber 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{brandId}  ,
+        #{brandName}  ,
+        #{shipCount}  ,
+        #{logisticName}  ,
+        #{shipNumber}  ,
+        #{createTime}  ,
+        #{sourceState}  ,
+        #{errNumber}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from OrderShipRecord where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update OrderShipRecord set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        insert into OrderShipRecord
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandName != null">
+            brandName ,
+        </if>
+        <if test="shipCount != null">
+            shipCount ,
+        </if>
+        <if test="logisticName != null">
+            logisticName ,
+        </if>
+        <if test="shipNumber != null">
+            shipNumber ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="sourceState != null">
+            sourceState ,
+        </if>
+        <if test="errNumber != null">
+            errNumber 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandName != null">
+            #{brandName} ,
+        </if>
+        <if test="shipCount != null">
+            #{shipCount} ,
+        </if>
+        <if test="logisticName != null">
+            #{logisticName} ,
+        </if>
+        <if test="shipNumber != null">
+            #{shipNumber} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="sourceState != null">
+            #{sourceState} ,
+        </if>
+        <if test="errNumber != null">
+            #{errNumber} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        update OrderShipRecord
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandName != null">
+                brandName = #{brandName} ,
+            </if>
+            <if test="shipCount != null">
+                shipCount = #{shipCount} ,
+            </if>
+            <if test="logisticName != null">
+                logisticName = #{logisticName} ,
+            </if>
+            <if test="shipNumber != null">
+                shipNumber = #{shipNumber} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="sourceState != null">
+                sourceState = #{sourceState} ,
+            </if>
+            <if test="errNumber != null">
+                errNumber = #{errNumber} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        update OrderShipRecord set
+            orderId = #{orderId} ,
+            brandId = #{brandId} ,
+            brandName = #{brandName} ,
+            shipCount = #{shipCount} ,
+            logisticName = #{logisticName} ,
+            shipNumber = #{shipNumber} ,
+            createTime = #{createTime} ,
+            sourceState = #{sourceState} ,
+            errNumber = #{errNumber} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        select <include refid="orderShipRecordColumns"/> from OrderShipRecord a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        SELECT
+        <include refid="orderShipRecordColumns"/>
+        FROM OrderShipRecord a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandName != null and brandName != ''">
+            and a.brandName like CONCAT('%',#{brandName}, '%')
+        </if>
+        <if test="shipCount != null and shipCount != ''">
+            and a.shipCount = #{shipCount}
+        </if>
+        <if test="logisticName != null and logisticName != ''">
+            and a.logisticName like CONCAT('%',#{logisticName}, '%')
+        </if>
+        <if test="shipNumber != null and shipNumber != ''">
+            and a.shipNumber like CONCAT('%',#{shipNumber}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="sourceState != null and sourceState != ''">
+            and a.sourceState = #{sourceState}
+        </if>
+        <if test="errNumber != null and errNumber != ''">
+            and a.errNumber = #{errNumber}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        SELECT
+        <include refid="orderShipRecordColumns"/>
+        FROM OrderShipRecord a WHERE a.delFlag = 0
+    </select>
+    <select id="getOrderShipRecord" resultType="com.zttx.web.module.dealer.entity.OrderShipRecord">
+        select
+        <include refid="orderShipRecordColumns"/>
+        from OrderShipRecord a
+        where a.orderId = #{orderId} order by a.createTime desc;
+    </select>
+</mapper>
+

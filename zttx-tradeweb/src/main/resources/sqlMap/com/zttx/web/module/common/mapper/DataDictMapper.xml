@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.DataDictMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache" />
+    <!-- 基础列 -->
+    <sql id="dataDictColumns">
+        a.refrenceId as refrenceId,
+        a.dictName as dictName ,
+        a.dictCode as dictCode,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.dictDesc as dictDesc
+    </sql>
+    <!-- 排序 -->
+    <sql id="orderBy">
+        order by a.dictCode desc, a.createTime desc
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.DataDict">
+        INSERT INTO DataDict (
+        refrenceId,
+        dictName,
+        dictCode,
+        createTime,
+        updateTime,
+        dictDesc
+        ) VALUES (
+        #{refrenceId},
+        #{dictName},
+        #{dictCode},
+        #{createTime},
+        #{updateTime},
+        #{dictDesc}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM DataDict
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE DataDict
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.DataDict">
+        insert into DataDict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dictName != null">
+                dictName ,
+            </if>
+            <if test="dictCode != null">
+                dictCode ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="dictDesc != null">
+                dictDesc
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dictName != null">
+                #{dictName} ,
+            </if>
+            <if test="dictCode != null">
+                #{dictCode} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="dictDesc != null">
+                #{dictDesc}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.DataDict">
+        update DataDict
+        <set>
+            <if test="dictName != null">
+                dictName = #{dictName} ,
+            </if>
+            <if test="dictCode != null">
+                dictCode = #{dictCode} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="dictDesc != null">
+                dictDesc = #{dictDesc}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.DataDict">
+        UPDATE DataDict
+        SET
+        dictName = #{dictName},
+        dictCode = #{dictCode},
+        createTime = #{createTime},
+        updateTime = #{updateTime},
+        dictDesc = #{dictDesc}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.DataDict">
+        select
+        <include refid="dataDictColumns"/>
+        from DataDict a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.DataDict">
+        SELECT
+        <include refid="dataDictColumns"/>
+        FROM DataDict a WHERE a.delFlag = 0
+        <if test="dictName != null and dictName != ''">
+            and a.dictName like CONCAT('%',#{dictName}, '%')
+        </if>
+        <if test="dictCode != null and dictCode != ''">
+            and a.dictCode like CONCAT('%',#{dictCode}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="dictDesc != null and dictDesc != ''">
+            and a.dictDesc like CONCAT('%',#{dictDesc}, '%')
+        </if>
+        <include refid="orderBy"/>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.DataDict">
+        SELECT
+        <include refid="dataDictColumns"/>
+        FROM DataDict a WHERE a.delFlag = 0
+    </select>
+
+    <select id="searchByClient" resultType="com.zttx.web.module.common.entity.DataDict">
+        select
+        <include refid="dataDictColumns"/>
+        from DataDict a where a.delFlag = 0
+        <if test="dictName != null">
+            And a.dictName like CONCAT('%',#{dictName},'%')
+        </if>
+        <if test="dictCode != null">
+            And a.dictCode like CONCAT('%',#{dictCode},'%')
+        </if>
+        order by a.createTime desc
+    </select>
+    <select id="countByDictCode" resultType="java.lang.Long">
+        SELECT
+        COUNT(1)
+        FROM
+        DataDict a
+        WHERE
+        a.delFlag = 0 and
+        a.dictCode = #{dictCode}
+        <if test="refrenceId != null and refrenceId != ''">
+            AND a.refrenceId != #{refrenceId}
+        </if>
+    </select>
+    <select id="findByDictCode" resultType="com.zttx.web.module.common.entity.DataDict">
+        SELECT
+        <include refid="dataDictColumns"/>
+        FROM
+        DataDict a
+        WHERE
+        a.delFlag = 0 and
+        a.dictCode = #{dictCode}
+    </select>
+</mapper>
+

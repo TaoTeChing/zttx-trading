@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/**dialog表单样式**/
+.content-dom{
+    .banner{
+        height:80px;width:840px;overflow: hidden;margin:15px 0;
+    }
+    .join-form{
+        padding-left:140px;font-family: "微软雅黑";font-size:14px;
+    }
+}
+#join-form{
+    .field-content{
+        height: 30px;line-height: 30px;padding:5px 0;position:relative;
+        .field{
+            display: inline-block;
+        }
+        .field-input{
+            width:240px;height: 28px;line-height: 28px;padding:0 5px;
+        }
+        .field-textarea{
+            height: 100px;width:570px;padding:5px;overflow: auto;
+        }
+        .ui-form-explain{
+            position:absolute;left:345px;top:6px;font-size: 12px;color:#FF5243;
+        }
+    }
+    .field-textarea-content{
+        height: 110px;
+        label{
+            height: 110px;line-height: 110px;
+        }
+        .ui-form-explain{
+            top:114px;left:80px;
+        }
+    }
+    label{
+        display: inline-block;height: 28px;line-height: 28px;width:70px;text-align: right;margin-right:5px;vertical-align: top;
+    }
+    .tool-bar{
+        padding:20px 0 10px 80px;
+        button{
+            display: inline-block;height: 28px;line-height: 28px;padding:0 20px;border-radius: 3px;color:#FFFFFF;border:0;cursor:pointer;
+        }
+        .sub-form{
+            background: #cc0001;margin-right:10px;
+            &:hover{
+                background: #b20000;
+            }
+        }
+        .reset-form{
+            background: #ff8800;
+            &:hover{
+                background: #f67404;
+            }
+        }
+    }
+    .field-selet{
+        label{
+            margin-right:9px;
+        }
+        span{
+            margin-right:15px;
+        }
+        .ui-form-explain{
+            position:static;
+        }
+    }
+}
+.venue-panel{
+    tr{
+        height: 25px;line-height: 25px;
+    }
+    td{
+        width:75px;cursor: pointer;
+    }
+    .sort{
+        color:#f57303;font-size:14px;font-weight: bold;
+    }
+    .hover{
+        background: #f57303;color:#FFFFFF;
+    }
+    h4{
+        color: #F57303;font-size: 14px;font-weight: bold;height: 30px;line-height: 30px;
+    }
+}

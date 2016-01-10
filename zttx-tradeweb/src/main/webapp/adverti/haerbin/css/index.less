@@ -1,0 +1,600 @@
+@import "_reset.less";
+
+body, ul, li, dd, dl, dt {
+    font-family: 'Microsoft YaHei';
+    color: #333;
+}
+
+a,img {
+    outline: 0;
+    text-decoration: none;
+}
+
+.hide {
+    display: none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+    font: 0/0 a;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+.wallpaper {
+    background: url("../img/wallpaper.jpg") no-repeat center top;
+}
+
+.container,.ts-container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    padding:0;
+}
+
+
+#site-nav{
+    position:static;
+}
+
+.heb-page {
+}
+
+.heb-page-1 {
+    height: 1700px;
+
+    .day {
+        position: absolute;
+        top: 458px;
+        left: 551px;
+        color: #fff;
+        font-size: 45px;
+        font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+        font-weight: bold;
+    }
+
+    .img {
+        position: absolute;
+        background-image: url("../img/heb-page-1-1.png");
+        background-repeat: no-repeat;
+        width: 272px;
+        height: 272px;
+        -moz-transition: ease-in-out 0.2s;
+        -o-transition: ease-in-out 0.2s;
+        -webkit-transition: ease-in-out 0.2s;
+        transition: ease-in-out 0.2s;
+
+        &:hover {
+            -moz-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            -o-transform: scale(0.9);
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+    }
+
+    .img-1 {
+        top: 879px;
+        left: 157px;
+        background-position: 0 0;
+    }
+
+    .img-2 {
+        top: 879px;
+        left: 465px;
+        background-position: -272px 0;
+    }
+
+    .img-3 {
+        top: 879px;
+        left: 770px;
+        background-position: -544px 0;
+    }
+
+    .img-4 {
+        top: 1035px;
+        left: 311px;
+        background-position: 0 -272px;
+    }
+
+    .img-5 {
+        top: 1035px;
+        left: 617px;
+        background-position: -272px -272px;
+    }
+
+    .img-6 {
+        top: 1185px;
+        left: 465px;
+        background-position: -544px -272px;
+    }
+}
+
+.heb-page-2 {
+    height: 400px;
+    background: #aee5e3 url("../img/heb-page-8-1.jpg") no-repeat center top;
+
+    .introduction {
+        position: absolute;
+        background: url("../img/heb-page-2-1.png") no-repeat center top;
+        width: 1188px;
+        height: 325px;
+        top: 30px;
+    }
+}
+
+.heb-page-3 {
+    height: 3168px;
+    background: #2a278b url("../img/heb-page-3-1.jpg") no-repeat center -50px;
+
+    .pic-1, .pic-2 {
+        position: absolute;
+        top: 1214px;
+        left: 0;
+    }
+
+    .pic-2 {
+        top: 1964px;
+        left: auto;
+        right: 0;
+    }
+}
+
+.heb-page-4 {
+    height: 1600px;
+    background: #b3e7e5 url("../img/heb-page-4-1.jpg") no-repeat center top;
+
+    .shop {
+        position: absolute;
+        left: 25px;
+        top: 750px;
+
+        dt {
+            text-align: center;
+            padding-bottom: 15px;
+            color: #fff;
+        }
+    }
+
+    .shop-1 {
+        top: 700px;
+        left: 205px;
+    }
+
+    .shop-2 {
+        top: 670px;
+        left: 400px;
+    }
+
+    .shop-3 {
+        top: 650px;
+        left: 615px;
+    }
+
+    .shop-4 {
+        top: 700px;
+        left: 830px;
+    }
+
+    .shop-5 {
+        top: 750px;
+        left: 1024px;
+    }
+
+    .shop-6 {
+        top: 890px;
+        left: 205px;
+    }
+
+    .shop-7 {
+        top: 870px;
+        left: 400px;
+    }
+
+    .shop-8 {
+        top: 880px;
+        left: 615px;
+    }
+
+    .shop-9 {
+        top: 890px;
+        left: 830px;
+    }
+}
+
+.heb-page-5 {
+    height: 2350px;
+    background-color: #2a278b;
+
+    .title {
+        padding-top: 50px;
+        padding-bottom: 35px;
+    }
+
+    .list {
+        background: #fff;
+        padding: 50px;
+        padding-bottom: 28px;
+        overflow: hidden;
+
+        li {
+            float: left;
+            display: inline;
+            width: 50%;
+        }
+
+        .border {
+            padding: 22px;
+            background: url('../img/heb-page-7-1.jpg') no-repeat;
+        }
+
+        .item {
+            overflow: hidden;
+        }
+
+        .item-more{
+            padding:100px 0;
+            text-align:center;
+            font-size:26px;
+            line-height:50px;
+            color:#999;
+            font-weight:lighter;
+        }
+        .info {
+            float: left;
+            display: inline;
+            width: 300px;
+            height: 340px;
+            background-color: #f3f3f3;
+
+            .info-logo {
+                padding: 70px 90px;
+                background: url('../img/heb-page-5-3.png') no-repeat center;
+
+                img {
+                    width: 120px;
+                    height: 60px;
+                }
+            }
+
+            .info-name {
+                text-align: center;
+                padding: 0 20px;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .info-cont {
+                font-size: 14px;
+                padding: 0 20px;
+                color: #666;
+                line-height: 26px;
+                text-align: center;
+            }
+        }
+
+        .pic {
+            float: left;
+            display: inline;
+            width: 196px;
+            height: 340px;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 392px;
+
+            img {
+                float: left;
+                display: inline;
+            }
+
+            .s {
+                margin-bottom: 5px;
+            }
+        }
+    }
+
+    .more {
+        text-align: right;
+        padding: 20px;
+        overflow: hidden;
+
+        .btn-red {
+            float: right;
+            height: 35px;
+            width: 130px;
+            line-height: 35px;
+            text-align: center;
+            background: #ed1b24;
+            border-radius: 25px;
+            color: #fff;
+            font-size:14px;
+
+            &:hover {
+                background: lighten(#ed1b24,5%);
+            }
+        }
+
+        .sanj {
+            height: 0;
+            width: 0;
+            border-top: 8px solid #ed1b24;
+            border-left: 8px solid #fff;
+            border-bottom: 8px solid #ed1b24;
+            font-size: 0;
+            vertical-align: top;
+            margin-left: 5px;
+        }
+    }
+}
+
+.heb-page-6 {
+    height: 1730px;
+    background: #ee3222 url("../img/heb-page-6-1.jpg") no-repeat center -40px;
+}
+
+.heb-page-7 {
+    height: 119px;
+    background-color: #2a278b;
+
+    .title {
+        background-image: url('../img/heb-page-7-1.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        width: 693px;
+        height: 119px;
+    }
+}
+
+.heb-page-8 {
+    height: 530px;
+    background: #aee5e3 url("../img/heb-page-8-1.jpg") no-repeat center top;
+
+    ul {
+        padding-top: 60px;
+    }
+
+    li {
+        float: left;
+        display: inline;
+        width: 360px;
+        margin:0 20px;
+        background: #2b268b;
+    }
+
+    .item {
+        display: block;
+        padding: 20px;
+        color: #fff;
+        font-size: 18px;
+
+        img {
+            display: block;
+            width: 320px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        h5{ font-size:16px;}
+        span{
+            font-size:14px;
+            color:#ccc;
+        }
+    }
+}
+
+.enroll-tag{
+    position:fixed;
+    left:0;
+    bottom:21px;
+    width:170px;
+    height:108px;
+    background: url('../img/enroll-tag.png') no-repeat;
+}
+
+.footer {
+    left: -3000px;
+    position: fixed;
+    margin-bottom: 21px;
+    margin-top: 8px;
+    background: #281877;
+    height: 140px;
+    width: 100%;
+    bottom: 0;
+    padding:0;
+    z-index: 999;
+
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 35px;
+        color: #fff;
+        font-weight: lighter;
+    }
+
+    .content {
+        margin-bottom: -21px;
+        margin-top: -8px;
+        margin-left: -10px;
+        background: url('../img/footer-1.png') no-repeat left top;
+        height: 140px;
+        padding: 8px 0 21px 10px;
+    }
+
+    .tag, .form, .wxcode {
+        float: left;
+        display: inline;
+    }
+
+    .tag {
+        width: 270px;
+    }
+
+    .form {
+        width: 730px;
+
+        form {
+            padding: 15px 50px;
+            overflow: hidden;
+        }
+
+        .checkbox {
+            font-size: 14px;
+
+            label {
+                display: block;
+                padding: 10px 0;
+            }
+        }
+
+        .checkbox, .input, .submit {
+            float: left;
+            display: inline;
+            width: 150px;
+            color: #fff;
+        }
+
+        .input {
+            width: 300px;
+            font-size: 14px;
+
+            .item {
+                background: #2b268b;
+                border-radius: 6px;
+                margin-right: 40px;
+                margin-bottom: 10px;
+                height: 30px;
+                padding: 0 0 0 15px;
+            }
+
+            input {
+                border: 0;
+                padding: 0 10px;
+                margin: 0;
+                height: 30px;
+                line-height: 30px;
+                background: #2b268b;
+                width: 150px;
+                color: #999;
+            }
+        }
+
+        .submit {
+            width: 180px;
+
+            button {
+                width: 180px;
+                height: 110px;
+                background: url('../img/footer-submit.jpg') center no-repeat;
+                border: 3px solid #f9262f;
+                cursor: pointer;
+                -moz-transition: all 0.2s;
+                -o-transition: all 0.2s;
+                -webkit-transition: all 0.2s;
+                transition: all 0.2s;
+
+                &:hover {
+                    border: 3px solid #fcff03;
+                }
+            }
+        }
+    }
+
+    .wxcode {
+        width: 140px;
+        height: 140px;
+        background: url('../img/erweima.png') center no-repeat;
+    }
+}
+
+
+
+.c-slide {
+    width: 960px;
+    margin: 40px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.c-slide li {
+    overflow: hidden;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    width: 960px;
+    height: 500px;
+
+    img {
+        display: block;
+        width: auto;
+        margin: 0 auto;
+        height: 500px;
+    }
+}
+
+#c-prev, #c-next {
+    width: 26px;
+    height: 50px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    background: url("/images/market/c-silde-page.png") no-repeat;
+    position: absolute;
+    top: 230px;
+}
+
+#c-prev {
+    background-position: 0 0;
+    left: 10px;
+}
+
+#c-next {
+    background-position: -26px 0;
+    right: 10px;
+}
+
+
+.ui-dialog {
+    background: #fff;
+
+    .ui-dialog-close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 30px;
+        color: #333;
+        text-decoration: none;
+        line-height: 30px;
+        height: 30px;
+        width: 30px;
+        z-index: 200;
+    }
+}
+
+.ui-switchable-nav {
+    display: none;
+}
+
+.fixed{
+    position:static;
+}
+
+.nav{
+    margin-bottom: 0;
+}
+
+#zhuanti{
+    display:none;
+}

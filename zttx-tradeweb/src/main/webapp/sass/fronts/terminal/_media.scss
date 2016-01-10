@@ -1,0 +1,60 @@
+@media (max-width: 1200px) {
+    #site-nav .site-nav-bd{
+        width: 1000px;
+    }
+    .em100 {
+        width: 1000px;
+    }
+
+    .header-round {
+        min-width: 1000px;
+    }
+    .header {
+        width: 1000px;
+    }
+    .nav {
+        min-width: 1000px;
+        .nav-items li {
+            padding-right: 20px;
+        }
+    }
+
+    .footer {
+        min-width: 1000px;
+        .service {
+            .ser-ppbz {
+                margin-left: 0px;
+            }
+
+            ul li {
+                width: 130px;
+                margin-right: 20px;
+            }
+
+        }
+
+        .copyright {
+            min-width: 1000px;
+        }
+    }
+
+    .main-list{
+        .list-dealer{
+            ul.order-grid{
+                margin-left: -30px;
+                li {
+                    margin-left: 30px;
+                }
+            }
+        }
+
+        .list-dealer ul.order-list li .list-item .info{
+            div{
+                width: 180px;
+            }
+            .address{
+                width: 100px;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import "../../mixin";
+@import "../animate/bouncing";
+
+.part-f{
+    .brand-recommend{
+        li{
+            width: 300px;
+            height: 300px;
+            div{
+                float:left;
+                padding-right: 1px;
+                padding-bottom: 1px;
+            }
+            a{
+                display:block;
+                height:147px;
+                line-height:140px;
+            }
+            .show-hd{
+                a{
+                  height:297px;
+                  line-height:290px;
+                }
+            }
+            /*img{
+              -webkit-transition: all 0.3s ease;
+              -moz-transition: all 0.3s ease;
+              -ms-transition: all 0.3s ease;
+              -o-transition: all 0.3s ease;
+              transition: all 0.3s ease;
+              margin-left:-10px;
+            }
+            a:hover{
+              img{
+                margin-left:0;
+              }
+            }*/
+
+        }
+    }
+}

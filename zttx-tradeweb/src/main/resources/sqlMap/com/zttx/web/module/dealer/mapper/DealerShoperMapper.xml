@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerShoperMapper">
+    <!-- 基础列 -->
+    <sql id="dealerShoperColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.productNum as productNum ,
+        a.productPrice as productPrice ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.sourceId as sourceId ,
+        a.productType as productType ,
+        a.discountPrice as discountPrice,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerShoper">
+        insert into DealerShoper(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productId ,
+        productNum ,
+        productPrice ,
+        createTime ,
+        updateTime ,
+        sourceId ,
+        productType ,
+        discountPrice,
+        delFlag
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{productId}  ,
+        #{productNum}  ,
+        #{productPrice}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{sourceId}  ,
+        #{productType},
+        #{discountPrice},
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerShoper where refrenceId = #{refrenceId}
+    </delete>
+
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerShoper set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerShoper">
+        insert into DealerShoper
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productNum != null">
+                productNum ,
+            </if>
+            <if test="productPrice != null">
+                productPrice ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="sourceId != null">
+                sourceId ,
+            </if>
+            <if test="productType != null">
+                productType ,
+            </if>
+            <if test="null!=discountPrice and ''!=discountPrice">
+                discountPrice,
+            </if>
+
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productNum != null">
+                #{productNum} ,
+            </if>
+            <if test="productPrice != null">
+                #{productPrice} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="sourceId != null">
+                #{sourceId} ,
+            </if>
+            <if test="productType != null">
+                #{productType} ,
+            </if>
+            <if test="null!=discountPrice and ''!=discountPrice">
+                #{discountPrice} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerShoper">
+        update DealerShoper
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productNum != null">
+                productNum = #{productNum} ,
+            </if>
+            <if test="productPrice != null">
+                productPrice = #{productPrice} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="sourceId != null">
+                sourceId = #{sourceId} ,
+            </if>
+            <if test="productType != null">
+                productType = #{productType} ,
+            </if>
+            <if test="null!=discountPrice">
+                discountPrice = #{discountPrice} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerShoper">
+        update DealerShoper set
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        brandsId = #{brandsId} ,
+        productId = #{productId} ,
+        productNum = #{productNum} ,
+        productPrice = #{productPrice} ,
+        createTime = #{createTime} ,
+        updateTime = #{updateTime} ,
+        sourceId = #{sourceId} ,
+        productType = #{productType} ,
+        discountPrice = #{discountPrice} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        select
+        <include refid="dealerShoperColumns"/>
+        from DealerShoper a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        SELECT
+        <include refid="dealerShoperColumns"/>
+        FROM DealerShoper a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productNum != null and productNum != ''">
+            and a.productNum = #{productNum}
+        </if>
+        <if test="productPrice != null and productPrice != ''">
+            and a.productPrice = #{productPrice}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="sourceId != null and sourceId != ''">
+            and a.sourceId like CONCAT('%',#{sourceId}, '%')
+        </if>
+        <if test="productType != null and productType != ''">
+            and a.productType = #{productType}
+        </if>
+    </select>
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        SELECT
+        <include refid="dealerShoperColumns"/>
+        FROM DealerShoper a WHERE a.delFlag = 0
+    </select>
+    <!--批量插入-->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into DealerShoper(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productId ,
+        productNum ,
+        productPrice ,
+        createTime ,
+        updateTime ,
+        sourceId ,
+        productType ,
+        discountPrice,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.refrenceId} ,
+            #{item.dealerId} ,
+            #{item.brandId} ,
+            #{item.brandsId} ,
+            #{item.productId} ,
+            #{item.productNum} ,
+            #{item.productPrice} ,
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.sourceId} ,
+            #{item.productType} ,
+            #{item.discountPrice},
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+    <select id="getShoperCountByUserId" parameterType="String" resultType="Long">
+    	select count(*)from DealerShoper
+    	where 
+    		dealerId=#{userId} 
+    		and delFlag=0
+    </select>
+    <!--0:dealerId   1:productId-->
+    <select id="selectDealerShoperBy" resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        select
+        <include refid="dealerShoperColumns"/>,
+        b.comName as brandName,
+        c.brandState as brandState,
+        c.delFlag as brandDelFlag,
+        c.brandsName as brandsName,
+        d.productNo as productNo,
+        d.productImage as productImage,
+        d.productTitle as productTitle,
+        d.stateSet as productStateSet,
+        d.delFlag as productDelFlag,
+        e.startNum as startNum,
+        e.isSample as isSample,
+        e.isCredit as isCredit,
+        e.isPoint AS isPoint,
+        e.pointPercent AS pointPercent,
+        e.isDiscount as isDiscount
+        from DealerShoper a , BrandInfo b, BrandesInfo c,ProductBaseInfo d,ProductExtInfo e
+        where a.brandId = b.refrenceId and a.brandsId = c.refrenceId and a.productId = d.refrenceId and a.productId =
+        e.refrenceId
+        and a.dealerId= #{0} and a.productId=#{1} and a.delFlag = 0 limit 1
+    </select>
+    <select id="selectDealerShoperByDealerId" resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        select
+        <include refid="dealerShoperColumns"/>,
+        b.comName as brandName,
+        c.brandState as brandState,
+        c.delFlag as brandDelFlag,
+        c.brandsName as brandsName,
+        d.productNo as productNo,
+        d.productImage as productImage,
+        d.productTitle as productTitle,
+        d.stateSet as productStateSet,
+        d.delFlag as productDelFlag,
+        e.startNum as startNum,
+        e.isSample as isSample,
+        e.isCredit as isCredit,
+        e.isPoint AS isPoint,
+        e.pointPercent AS pointPercent,
+        e.isDiscount as isDiscount
+        from DealerShoper a , BrandInfo b, BrandesInfo c,ProductBaseInfo d,ProductExtInfo e
+        where a.brandId = b.refrenceId and a.brandsId = c.refrenceId and a.productId = d.refrenceId and a.productId =
+        e.refrenceId
+        and a.delFlag = 0 and a.dealerId = #{dealerId} order by a.createTime desc
+        <if test="isHome">
+            limit 3
+        </if>
+    </select>
+
+    <!--删除dealerId 下的所有车单-->
+    <delete id="deleteDealerShoperAndShopers">
+        delete a.*,b.* from DealerShoper a left JOIN  DealerShopers b ON a.refrenceId = b.shoperId
+        where a.dealerId = #{dealerId}
+    </delete>
+    <!--根据 shopId 获取已经加车并将结算车单-->
+    <select id="selectDealerShoperList" resultType="com.zttx.web.module.dealer.entity.DealerShoper">
+        select
+        <include refid="dealerShoperColumns"/>,
+        b.comName as brandName,
+        c.brandState as brandState,
+        c.delFlag as brandDelFlag,
+        c.brandsName as brandsName,
+        d.productNo as productNo,
+        d.productImage as productImage,
+        d.productTitle as productTitle,
+        d.stateSet as productStateSet,
+        d.delFlag as productDelFlag,
+        e.startNum as startNum,
+        e.isSample as isSample,
+        e.isCredit as isCredit,
+        e.isPoint AS isPoint,
+        e.pointPercent AS pointPercent,
+        e.isDiscount as isDiscount
+        from DealerShoper a , BrandInfo b, BrandesInfo c,ProductBaseInfo d,ProductExtInfo e
+        <where>
+            a.brandId = b.refrenceId and a.brandsId = c.refrenceId and a.productId = d.refrenceId and a.productId =
+            e.refrenceId
+            and a.delFlag = 0 and a.refrenceId in
+            <foreach collection="array" item="shopId" open="(" close=")" separator=",">
+                #{shopId}
+            </foreach>
+        </where>
+    </select>
+</mapper>
+

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.MessageHistoryMapper">
+    <!-- 基础列 -->
+    <sql id="messageHistoryColumns">
+        a.refrenceId as refrenceId ,
+        a.userMobile as userMobile ,
+        a.message as message ,
+        a.createTime as createTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.MessageHistory">
+        insert into MessageHistory(
+         refrenceId ,
+         userMobile ,
+         message ,
+         createTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{userMobile}  ,
+        #{message}  ,
+        #{createTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from MessageHistory where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update MessageHistory set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.MessageHistory">
+        insert into MessageHistory
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="userMobile != null">
+            userMobile ,
+        </if>
+        <if test="message != null">
+            message ,
+        </if>
+        <if test="createTime != null">
+            createTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="userMobile != null">
+            #{userMobile} ,
+        </if>
+        <if test="message != null">
+            #{message} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.MessageHistory">
+        update MessageHistory
+           <set>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="message != null">
+                message = #{message} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.MessageHistory">
+        update MessageHistory set
+            userMobile = #{userMobile} ,
+            message = #{message} ,
+            createTime = #{createTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.MessageHistory">
+        select <include refid="messageHistoryColumns"/> from MessageHistory a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.MessageHistory">
+        SELECT
+        <include refid="messageHistoryColumns"/>
+        FROM MessageHistory a WHERE a.delFlag = 0
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="message != null and message != ''">
+            and a.message like CONCAT('%',#{message}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.MessageHistory">
+        SELECT
+        <include refid="messageHistoryColumns"/>
+        FROM MessageHistory a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerRefundMapper">
+    <!-- 基础列 -->
+    <sql id="dealerRefundColumns">
+        a.refrenceId as refrenceId ,
+        a.orderId as orderId ,
+        a.refundId as refundId ,
+        a.orderNumber as orderNumber ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.received as received ,
+        a.needRefund as needRefund ,
+        a.totalAmount as totalAmount ,
+        a.refundAmount as refundAmount ,
+        a.comPayment as comPayment ,
+        a.refundReason as refundReason ,
+        a.refundMark as refundMark ,
+        a.brandRecAddr as brandRecAddr ,
+        a.returnTime as returnTime ,
+        a.logisticsName as logisticsName ,
+        a.transNum as transNum ,
+        a.refundState as refundState ,
+        a.remark as remark ,
+        a.brandMark as brandMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.nextActTime as nextActTime ,
+        a.updateNum as updateNum ,
+        a.cusJoin as cusJoin ,
+        a.joinTime as joinTime ,
+        a.applyTime as applyTime ,
+        a.serProStatus as serProStatus ,
+        a.serProResult as serProResult ,
+        a.factoryStore as factoryStore ,
+        a.reachAmount as reachAmount ,
+        a.reachStatus as reachStatus ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        insert into DealerRefund(
+         refrenceId ,
+         orderId ,
+         refundId ,
+         orderNumber ,
+         dealerId ,
+         brandId ,
+         received ,
+         needRefund ,
+         totalAmount ,
+         refundAmount ,
+         comPayment ,
+         refundReason ,
+         refundMark ,
+         brandRecAddr ,
+         returnTime ,
+         logisticsName ,
+         transNum ,
+         refundState ,
+         remark ,
+         brandMark ,
+         createTime ,
+         updateTime ,
+         nextActTime ,
+         updateNum ,
+         cusJoin ,
+         joinTime ,
+         applyTime ,
+         serProStatus ,
+         serProResult ,
+         factoryStore ,
+         reachAmount ,
+         reachStatus ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{orderId}  ,
+        #{refundId}  ,
+        #{orderNumber}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{received}  ,
+        #{needRefund}  ,
+        #{totalAmount}  ,
+        #{refundAmount}  ,
+        #{comPayment}  ,
+        #{refundReason}  ,
+        #{refundMark}  ,
+        #{brandRecAddr}  ,
+        #{returnTime}  ,
+        #{logisticsName}  ,
+        #{transNum}  ,
+        #{refundState}  ,
+        #{remark}  ,
+        #{brandMark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{nextActTime}  ,
+        #{updateNum}  ,
+        #{cusJoin}  ,
+        #{joinTime}  ,
+        #{applyTime}  ,
+        #{serProStatus}  ,
+        #{serProResult}  ,
+        #{factoryStore}  ,
+        #{reachAmount}  ,
+        #{reachStatus}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerRefund where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerRefund set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        insert into DealerRefund
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="refundId != null">
+            refundId ,
+        </if>
+        <if test="orderNumber != null">
+            orderNumber ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="received != null">
+            received ,
+        </if>
+        <if test="needRefund != null">
+            needRefund ,
+        </if>
+        <if test="totalAmount != null">
+            totalAmount ,
+        </if>
+        <if test="refundAmount != null">
+            refundAmount ,
+        </if>
+        <if test="comPayment != null">
+            comPayment ,
+        </if>
+        <if test="refundReason != null">
+            refundReason ,
+        </if>
+        <if test="refundMark != null">
+            refundMark ,
+        </if>
+        <if test="brandRecAddr != null">
+            brandRecAddr ,
+        </if>
+        <if test="returnTime != null">
+            returnTime ,
+        </if>
+        <if test="logisticsName != null">
+            logisticsName ,
+        </if>
+        <if test="transNum != null">
+            transNum ,
+        </if>
+        <if test="refundState != null">
+            refundState ,
+        </if>
+        <if test="remark != null">
+            remark ,
+        </if>
+        <if test="brandMark != null">
+            brandMark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="nextActTime != null">
+            nextActTime ,
+        </if>
+        <if test="updateNum != null">
+            updateNum ,
+        </if>
+        <if test="cusJoin != null">
+            cusJoin ,
+        </if>
+        <if test="joinTime != null">
+            joinTime ,
+        </if>
+        <if test="applyTime != null">
+            applyTime ,
+        </if>
+        <if test="serProStatus != null">
+            serProStatus ,
+        </if>
+        <if test="serProResult != null">
+            serProResult ,
+        </if>
+        <if test="factoryStore != null">
+            factoryStore ,
+        </if>
+        <if test="reachAmount != null">
+            reachAmount ,
+        </if>
+        <if test="reachStatus != null">
+            reachStatus ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="refundId != null">
+            #{refundId} ,
+        </if>
+        <if test="orderNumber != null">
+            #{orderNumber} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="received != null">
+            #{received} ,
+        </if>
+        <if test="needRefund != null">
+            #{needRefund} ,
+        </if>
+        <if test="totalAmount != null">
+            #{totalAmount} ,
+        </if>
+        <if test="refundAmount != null">
+            #{refundAmount} ,
+        </if>
+        <if test="comPayment != null">
+            #{comPayment} ,
+        </if>
+        <if test="refundReason != null">
+            #{refundReason} ,
+        </if>
+        <if test="refundMark != null">
+            #{refundMark} ,
+        </if>
+        <if test="brandRecAddr != null">
+            #{brandRecAddr} ,
+        </if>
+        <if test="returnTime != null">
+            #{returnTime} ,
+        </if>
+        <if test="logisticsName != null">
+            #{logisticsName} ,
+        </if>
+        <if test="transNum != null">
+            #{transNum} ,
+        </if>
+        <if test="refundState != null">
+            #{refundState} ,
+        </if>
+        <if test="remark != null">
+            #{remark} ,
+        </if>
+        <if test="brandMark != null">
+            #{brandMark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="nextActTime != null">
+            #{nextActTime} ,
+        </if>
+        <if test="updateNum != null">
+            #{updateNum} ,
+        </if>
+        <if test="cusJoin != null">
+            #{cusJoin} ,
+        </if>
+        <if test="joinTime != null">
+            #{joinTime} ,
+        </if>
+        <if test="applyTime != null">
+            #{applyTime} ,
+        </if>
+        <if test="serProStatus != null">
+            #{serProStatus} ,
+        </if>
+        <if test="serProResult != null">
+            #{serProResult} ,
+        </if>
+        <if test="factoryStore != null">
+            #{factoryStore} ,
+        </if>
+        <if test="reachAmount != null">
+            #{reachAmount} ,
+        </if>
+        <if test="reachStatus != null">
+            #{reachStatus} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        update DealerRefund
+           <set>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="refundId != null">
+                refundId = #{refundId} ,
+            </if>
+            <if test="orderNumber != null">
+                orderNumber = #{orderNumber} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="received != null">
+                received = #{received} ,
+            </if>
+            <if test="needRefund != null">
+                needRefund = #{needRefund} ,
+            </if>
+            <if test="totalAmount != null">
+                totalAmount = #{totalAmount} ,
+            </if>
+            <if test="refundAmount != null">
+                refundAmount = #{refundAmount} ,
+            </if>
+            <if test="comPayment != null">
+                comPayment = #{comPayment} ,
+            </if>
+            <if test="refundReason != null">
+                refundReason = #{refundReason} ,
+            </if>
+            <if test="refundMark != null">
+                refundMark = #{refundMark} ,
+            </if>
+            <if test="brandRecAddr != null">
+                brandRecAddr = #{brandRecAddr} ,
+            </if>
+            <if test="returnTime != null">
+                returnTime = #{returnTime} ,
+            </if>
+            <if test="logisticsName != null">
+                logisticsName = #{logisticsName} ,
+            </if>
+            <if test="transNum != null">
+                transNum = #{transNum} ,
+            </if>
+            <if test="refundState != null">
+                refundState = #{refundState} ,
+            </if>
+            <if test="remark != null">
+                remark = #{remark} ,
+            </if>
+            <if test="brandMark != null">
+                brandMark = #{brandMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="nextActTime != null">
+                nextActTime = #{nextActTime} ,
+            </if>
+            <if test="updateNum != null">
+                updateNum = #{updateNum} ,
+            </if>
+            <if test="cusJoin != null">
+                cusJoin = #{cusJoin} ,
+            </if>
+            <if test="joinTime != null">
+                joinTime = #{joinTime} ,
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime} ,
+            </if>
+            <if test="serProStatus != null">
+                serProStatus = #{serProStatus} ,
+            </if>
+            <if test="serProResult != null">
+                serProResult = #{serProResult} ,
+            </if>
+            <if test="factoryStore != null">
+                factoryStore = #{factoryStore} ,
+            </if>
+            <if test="reachAmount != null">
+                reachAmount = #{reachAmount} ,
+            </if>
+            <if test="reachStatus != null">
+                reachStatus = #{reachStatus} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        update DealerRefund set
+            orderId = #{orderId} ,
+            refundId = #{refundId} ,
+            orderNumber = #{orderNumber} ,
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            received = #{received} ,
+            needRefund = #{needRefund} ,
+            totalAmount = #{totalAmount} ,
+            refundAmount = #{refundAmount} ,
+            comPayment = #{comPayment} ,
+            refundReason = #{refundReason} ,
+            refundMark = #{refundMark} ,
+            brandRecAddr = #{brandRecAddr} ,
+            returnTime = #{returnTime} ,
+            logisticsName = #{logisticsName} ,
+            transNum = #{transNum} ,
+            refundState = #{refundState} ,
+            remark = #{remark} ,
+            brandMark = #{brandMark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            nextActTime = #{nextActTime} ,
+            updateNum = #{updateNum} ,
+            cusJoin = #{cusJoin} ,
+            joinTime = #{joinTime} ,
+            applyTime = #{applyTime} ,
+            serProStatus = #{serProStatus} ,
+            serProResult = #{serProResult} ,
+            factoryStore = #{factoryStore} ,
+            reachAmount = #{reachAmount} ,
+            reachStatus = #{reachStatus} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select <include refid="dealerRefundColumns"/> from DealerRefund a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        SELECT
+        <include refid="dealerRefundColumns"/>
+        FROM DealerRefund a WHERE a.delFlag = 0
+        <if test="orderId != null and orderId != ''">
+            and a.orderId like CONCAT('%',#{orderId}, '%')
+        </if>
+        <if test="refundId != null and refundId != ''">
+            and a.refundId = #{refundId}
+        </if>
+        <if test="orderNumber != null and orderNumber != ''">
+            and a.orderNumber = #{orderNumber}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="received != null and received != ''">
+            and a.received = #{received}
+        </if>
+        <if test="needRefund != null and needRefund != ''">
+            and a.needRefund = #{needRefund}
+        </if>
+        <if test="totalAmount != null and totalAmount != ''">
+            and a.totalAmount = #{totalAmount}
+        </if>
+        <if test="refundAmount != null and refundAmount != ''">
+            and a.refundAmount = #{refundAmount}
+        </if>
+        <if test="comPayment != null and comPayment != ''">
+            and a.comPayment = #{comPayment}
+        </if>
+        <if test="refundReason != null and refundReason != ''">
+            and a.refundReason like CONCAT('%',#{refundReason}, '%')
+        </if>
+        <if test="refundMark != null and refundMark != ''">
+            and a.refundMark like CONCAT('%',#{refundMark}, '%')
+        </if>
+        <if test="brandRecAddr != null and brandRecAddr != ''">
+            and a.brandRecAddr like CONCAT('%',#{brandRecAddr}, '%')
+        </if>
+        <if test="returnTime != null and returnTime != ''">
+            and a.returnTime = #{returnTime}
+        </if>
+        <if test="logisticsName != null and logisticsName != ''">
+            and a.logisticsName like CONCAT('%',#{logisticsName}, '%')
+        </if>
+        <if test="transNum != null and transNum != ''">
+            and a.transNum like CONCAT('%',#{transNum}, '%')
+        </if>
+        <if test="refundState != null and refundState != ''">
+            and a.refundState = #{refundState}
+        </if>
+        <if test="remark != null and remark != ''">
+            and a.remark like CONCAT('%',#{remark}, '%')
+        </if>
+        <if test="brandMark != null and brandMark != ''">
+            and a.brandMark like CONCAT('%',#{brandMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="nextActTime != null and nextActTime != ''">
+            and a.nextActTime = #{nextActTime}
+        </if>
+        <if test="updateNum != null and updateNum != ''">
+            and a.updateNum = #{updateNum}
+        </if>
+        <if test="cusJoin != null and cusJoin != ''">
+            and a.cusJoin = #{cusJoin}
+        </if>
+        <if test="joinTime != null and joinTime != ''">
+            and a.joinTime = #{joinTime}
+        </if>
+        <if test="applyTime != null and applyTime != ''">
+            and a.applyTime = #{applyTime}
+        </if>
+        <if test="serProStatus != null and serProStatus != ''">
+            and a.serProStatus = #{serProStatus}
+        </if>
+        <if test="serProResult != null and serProResult != ''">
+            and a.serProResult like CONCAT('%',#{serProResult}, '%')
+        </if>
+        <if test="factoryStore != null and factoryStore != ''">
+            and a.factoryStore = #{factoryStore}
+        </if>
+        <if test="reachAmount != null and reachAmount != ''">
+            and a.reachAmount = #{reachAmount}
+        </if>
+        <if test="reachStatus != null and reachStatus != ''">
+            and a.reachStatus = #{reachStatus}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        SELECT
+        <include refid="dealerRefundColumns"/>
+        FROM DealerRefund a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getEntityByOrderNumber" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select <include refid="dealerRefundColumns"/>
+        FROM DealerRefund a
+        WHERE a.delFlag = 0 and a.orderNumber= #{orderNumber}
+    </select>
+
+    <select id="getDealerRefundCount" parameterType="com.zttx.web.module.dealer.entity.DealerRefund" resultType="java.lang.Long">
+        select count(*) from DealerRefund where 1=1 and delFlag = 0
+          <![CDATA[ and refundState<6 ]]>
+        <if test=" brandId != null and brandId !=''">
+            and brandId = #{brandId}
+        </if>
+        <if test=" dealerId != null and dealerId !=''">
+            and dealerId = #{dealerId}
+        </if>
+        <if test=" nextActTime != null">
+            <![CDATA[ and refundState < #{nextActTime}  ]]>
+        </if>
+    </select>
+
+    <update id="updateNextActTime">
+        update DealerRefund
+        set nextActTime= #{nextActTime}
+        where refrenceId= #{refrenceId}
+    </update>
+
+    <update id="updateRefundState">
+         Update DealerRefund o
+         set o.refundState = #{refundState} ,o.returnTime= UNIX_TIMESTAMP()
+         Where o.refrenceId= #{refrenceId}
+    </update>
+
+    <update id="updateRefundState4Factory">
+        update DealerRefund o
+        set o.refundState = #{refundState},o.returnTime=UNIX_TIMESTAMP(),o.reachAmount=#{reachAmount},o.reachStatus=#{reachStatus}
+        where o.refrenceId=#{refrenceId}
+    </update>
+
+    <select id="findByOrderId" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select
+        <include refid="dealerRefundColumns"/>
+        from DealerRefund a
+        where a.orderId = #{orderId}
+        order by a.returnTime desc
+    </select>
+
+    <select id="getEntityById" resultType="com.zttx.web.module.dealer.model.DealerRefundModel">
+        select
+        <include refid="dealerRefundColumns"/>
+        , b.comName as brandName , c.dealerName
+        from DealerRefund a,BrandInfo b , DealerInfo c
+        where a.brandId = b.refrenceId and a.dealerId = c.refrenceId
+        AND a.refrenceId = #{refrenceId}
+    </select>
+
+    <update id="updateSerProStatus">
+        update DealerRefund
+        set serProStatus = #{serProStatus}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateRefuseJoin" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        update DealerRefund
+        set serProStatus=#{serProStatus} , serProResult= #{serProResult}
+        where refrenceId=#{refrenceId}
+    </update>
+
+    <update id="updateModify" parameterType="com.zttx.web.module.dealer.entity.DealerRefund">
+        update DealerRefund
+        set serProStatus=#{serProStatus} , refundAmount=#{refundAmount},
+        comPayment=#{comPayment},nextActTime=#{nextActTime},updateNum=#{updateNum}, serProResult= #{serProResult}
+         where refrenceId=#{refrenceId}
+    </update>
+
+    <update id="refuseRefund">
+         Update DealerRefund o
+         set o.refundState = #{refundState} , o.nextActTime = ${nextActTime}
+         Where o.refrenceId = #{refrenceId}
+    </update>
+
+    <update id="updateAgreeReturnBoth1">
+        Update DealerRefund o
+        set o.refundState = #{refundState},o.brandRecAddr = #{brandRecAddr} ,o.nextActTime= #{nextActTime},o.updateTime= #{updateTime}
+        Where o.refrenceId= #{refrenceId}
+    </update>
+
+    <select id="getByRefundIdAndBrandId" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select a.* FROM DealerRefund a WHERE 1=1 and a.delFlag = 0
+        <if test="refundId != null">
+            and a.refundId = #{refundId}
+        </if>
+        <if test="brandId != null and brandId !=''">
+            and a.brandId = #{brandId}
+        </if>
+    </select>
+
+    <select id="factoryStoreDealerRefund" parameterType="com.zttx.web.module.dealer.entity.DealerRefund"
+            resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select <include refid="dealerRefundColumns"></include>
+        ,d.dealerName AS dealerName
+        from DealerRefund a,DealerInfo d
+        where a.delFlag = 0 and a.brandId = #{brandId} and a.dealerId = d.refrenceId
+        <if test="factoryStore != null">
+            and a.factoryStore = #{factoryStore}
+        </if>
+        <if test="needRefund != null">
+            and a.needRefund = #{needRefund}
+        </if>
+        <if test="refundId != null">
+            and a.refundId = #{refundId}
+        </if>
+        <if test="refundState != null">
+            <choose>
+                <when test="refundState == 7">
+                    and (a.refundState = 9 or a.refundState = 10 )
+                </when>
+                <when test="refundState == 6">
+                    and a.refundState = 7
+                </when>
+                <when test="refundState == 5">
+                    and a.refundState = 6
+                </when>
+                <when test="refundState == 4">
+                    and a.refundState = 5
+                </when>
+                <when test="refundState == 3">
+                    and a.refundState = 4
+                </when>
+                <when test="refundState == 2">
+                    and (a.refundState = 2 or a.refundState = 3)
+                </when>
+                <otherwise>
+                    and a.refundState = 1
+                </otherwise>
+            </choose>
+        </if>
+        order by a.updateTime desc
+    </select>
+
+    <select id="getDealerRefundList4Boss" parameterType="com.zttx.web.module.dealer.model.DealerRefundModel"
+            resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        select
+        <include refid="dealerRefundColumns"/>
+        from DealerRefund a
+        where 1= 1 and delFlag = 0
+        <if test="beginTime != null">
+            <![CDATA[  and a.updateTime > #{beginTime}  ]]>
+        </if>
+        <if test="endTime != null">
+            <![CDATA[  and a.updateTime < #{endTime}  ]]>
+        </if>
+    </select>
+
+    <update id="updateRefundStatutsCusJoin">
+        update DealerRefund
+        set refundState = #{refundState}, serProStatus= #{serProStatus}, updateTime= UNIX_TIMESTAMP()
+        where refrenceId= #{refrenceId}
+    </update>
+
+    <select id="getDealerRefund" resultType="com.zttx.web.module.dealer.model.DealerRefundModel">
+        select
+        <include refid="dealerRefundColumns"/>
+        , b.comName as brandName , c.dealerName
+        from DealerRefund a,BrandInfo b , DealerInfo c
+        where a.brandId = b.refrenceId and a.dealerId = c.refrenceId
+        and a.delFlag = 0
+        <![CDATA[ and  a.refundState < 6 ]]>
+        <![CDATA[ and a.nextActTime < #{nextActTime} ]]>
+    </select>
+
+    <select id="getCompleteDealerRefundList" resultType="map">
+        select totalAmount as totalAmount,refundAmount as refundAmount,comPayment as comPayment
+         from DealerRefund where orderId = #{refrenceId} and ( refundState = 9 or refundState = 10 )
+    </select>
+
+    <select id="selectAllCusJoin" resultType="com.zttx.web.module.dealer.model.DealerRefundModel">
+        select
+        <include refid="dealerRefundColumns"/>
+        , b.comName as brandName , c.dealerName
+        from DealerRefund a,BrandInfo b , DealerInfo c
+        where a.brandId = b.refrenceId and a.dealerId = c.refrenceId
+        and a.delFlag = 0
+        and a.cusJoin=true
+        <if test="dealerId != null">
+            and a.dealerId = #{dealerId}
+        </if>
+        <if test="orderNumber != null and orderNumber != 0">
+            and a.orderNumber = #{orderNumber}
+        </if>
+        <if test="applyTimeStart != null and applyTimeStart !=''">
+            <![CDATA[ and a.applyTime >=  #{applyTimeStart} ]]>
+        </if>
+        <if test="applyTimeEnd != null and applyTimeEnd != ''">
+            <![CDATA[ and a.applyTime <= #{applyTimeEnd} ]]>
+        </if>
+        <if test="refundId != null and refundId != 0">
+            and a.refundId = ${refundId}
+        </if>
+        <if test="refundState != null and refundState != 0">
+            and a.refundState = ${refundState}
+        </if>
+        <if test="serProStatus != null and serProStatus != 0">
+            and a.serProStatus = ${serProStatus}
+        </if>
+        order by a.applyTime desc
+    </select>
+    <select id="selectRefundTypeList" resultType="java.util.Map">
+        SELECT
+        a.needRefund as needRefund,
+        a.refundState as refundState
+        FROM  DealerRefund a
+        where a.dealerId = #{dealerId} and a.brandId = #{brandId} and a.factoryStore = 1 and a.delFlag = 0
+    </select>
+    <select id="selectDealerRefund" resultType="com.zttx.web.module.dealer.entity.DealerRefund">
+        SELECT
+        <include refid="dealerRefundColumns"/>
+        from DealerRefund a
+        <where>
+            a.orderId = ""
+              <if test=" null!=needRefundSel and ''!=needRefundSel ">
+                  and a.needRefund = #{needRefundSel}
+              </if>
+              <if test="null != refundState and refundState == 1">
+                  and a.refundState = 1
+              </if>
+
+              <if test="null != refundState and refundState == 23">
+                  and (a.refundState = 2 or a.refundState = 3)
+              </if>
+              <if test="null != refundState and refundState == 4">
+                  and a.refundState = 4
+              </if>
+              <if test="null != refundState and refundState == 5">
+                  and a.refundState = 5
+              </if>
+              <if test="null != refundState and refundState == 6">
+                  and a.refundState = 6
+              </if>
+              <if test="null != refundState and refundState == 7">
+                  and a.refundState = 7
+              </if>
+              <if test="null != refundState and refundState == 109">
+                  and (a.refundState = 9 or a.refundState = 10)
+              </if>
+
+              <if test="null != refundId and ''!=refundId">
+                  and a.refundId = #{refundId}
+              </if>
+              and a.dealerId = #{dealerId}
+              and a.brandId = #{brandId}
+              and a.delFlag = 0
+              order by a.applyTime desc
+        </where>
+    </select>
+    <select id="getDealerRefundInfoProcessing" resultType="java.util.Map">
+        select sum(o.refundAmount) as totalRefundAmount
+        FROM DealerRefund o
+        where
+        o.factoryStore=true and (o.refundState=1 or o.refundState=2 or o.refundState=3) and o.brandId=#{1} and o.dealerId= #{0}
+
+    </select>
+
+    <update id="returnDeliver">
+        update DealerRefund
+        set nextActTime=#{dealerRefund.nextActTime}, logisticsName=#{dealerRefund.logisticsName}
+        ,transNum=#{dealerRefund.transNum}, refundState=3
+        where refrenceId=#{dealerRefund.refrenceId} and dealerId=#{dealerId} and refundState=2
+    </update>
+
+    <update id="appserJoin">
+        Update DealerRefund d
+        set d.cusJoin=1,d.serProStatus=5,d.joinTime=#{joinTime}
+        Where d.refrenceId=#{refrenceId} and d.dealerId= #{dealerId}
+    </update>
+</mapper>
+

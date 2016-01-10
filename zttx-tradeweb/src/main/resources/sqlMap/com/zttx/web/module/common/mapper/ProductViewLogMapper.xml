@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.ProductViewLogMapper">
+    <!-- 基础列 -->
+    <sql id="productViewLogColumns">
+        a.refrenceId as refrenceId ,
+        a.productId as productId ,
+        a.productTitle as productTitle ,
+        a.userId as userId ,
+        a.userName as userName ,
+        a.productImage as productImage ,
+        a.productPrice as productPrice ,
+        a.userCate as userCate ,
+        a.viewNum as viewNum ,
+        a.createTime as createTime 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.ProductViewLog">
+        insert into ProductViewLog(
+         refrenceId ,
+         productId ,
+         productTitle ,
+         userId ,
+         userName ,
+         productImage ,
+         productPrice ,
+         userCate ,
+         viewNum ,
+         createTime 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{productId}  ,
+        #{productTitle}  ,
+        #{userId}  ,
+        #{userName}  ,
+        #{productImage}  ,
+        #{productPrice}  ,
+        #{userCate}  ,
+        #{viewNum}  ,
+        #{createTime}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from ProductViewLog where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update ProductViewLog set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.ProductViewLog">
+        insert into ProductViewLog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="productId != null">
+            productId ,
+        </if>
+        <if test="productTitle != null">
+            productTitle ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="productImage != null">
+            productImage ,
+        </if>
+        <if test="productPrice != null">
+            productPrice ,
+        </if>
+        <if test="userCate != null">
+            userCate ,
+        </if>
+        <if test="viewNum != null">
+            viewNum ,
+        </if>
+        <if test="createTime != null">
+            createTime 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="productId != null">
+            #{productId} ,
+        </if>
+        <if test="productTitle != null">
+            #{productTitle} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="productImage != null">
+            #{productImage} ,
+        </if>
+        <if test="productPrice != null">
+            #{productPrice} ,
+        </if>
+        <if test="userCate != null">
+            #{userCate} ,
+        </if>
+        <if test="viewNum != null">
+            #{viewNum} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.ProductViewLog">
+        update ProductViewLog
+           <set>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productTitle != null">
+                productTitle = #{productTitle} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="productImage != null">
+                productImage = #{productImage} ,
+            </if>
+            <if test="productPrice != null">
+                productPrice = #{productPrice} ,
+            </if>
+            <if test="userCate != null">
+                userCate = #{userCate} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.ProductViewLog">
+        update ProductViewLog set
+            productId = #{productId} ,
+            productTitle = #{productTitle} ,
+            userId = #{userId} ,
+            userName = #{userName} ,
+            productImage = #{productImage} ,
+            productPrice = #{productPrice} ,
+            userCate = #{userCate} ,
+            viewNum = #{viewNum} ,
+            createTime = #{createTime} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.ProductViewLog">
+        select <include refid="productViewLogColumns"/> from ProductViewLog a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.ProductViewLog">
+        SELECT
+        <include refid="productViewLogColumns"/>
+        FROM ProductViewLog a WHERE a.delFlag = 0
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productTitle != null and productTitle != ''">
+            and a.productTitle like CONCAT('%',#{productTitle}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="productImage != null and productImage != ''">
+            and a.productImage like CONCAT('%',#{productImage}, '%')
+        </if>
+        <if test="productPrice != null and productPrice != ''">
+            and a.productPrice = #{productPrice}
+        </if>
+        <if test="userCate != null and userCate != ''">
+            and a.userCate = #{userCate}
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.ProductViewLog">
+        SELECT
+        <include refid="productViewLogColumns"/>
+        FROM ProductViewLog a WHERE a.delFlag = 0
+    </select>
+    <!--
+    * 经销商浏览商品记录信息
+    * @param params： dealerId pagination filter
+    * @author 易永耀
+    -->
+    <select id="selectViewLogProductList" resultType="java.util.HashMap">
+        SELECT
+        b.refrenceId AS productId,
+        b.domainName AS domainName,
+        b.productImage AS productImage,
+        b.productNo AS productNo,
+        b.productTitle AS productTitle,
+        b.productPrice AS productPrice,
+        b.productCate AS productCate,
+        b.stateSet AS productState,
+        b.delFlag AS productDelFlag,
+        a.viewNum AS viewNum,
+        a.refrenceId AS productViewLogId,
+        c.saleNum AS saleNum,
+        d.brandsName AS brandsName,
+        d.refrenceId AS brandsId,
+        d.brandState AS brandState
+        FROM
+        ProductViewLog a,
+        ProductBaseInfo b,
+        ProductCount c,
+        BrandesInfo d
+        WHERE
+        a.userId = #{dealerId}
+        AND a.productId = b.refrenceId
+        AND c.refrenceId = a.productId
+        AND c.brandsId = d.refrenceId
+        AND a.delFlag = 0
+    <if test="null !=brandsId and ''!=brandsId">
+        and b.brandsId = #{brandsId}
+    </if>
+    <if test="null!=productNo and ''!=productNo">
+      and b.productNo like CONCAT('%',#{productNo}, '%')
+    </if>
+    <choose>
+        <when test="null!=sort and sort==1">order by c.saleNum desc</when>
+        <when test="null!=sort and sort==2">order by price asc </when>
+        <when test="null!=sort and sort==3">order by c.viewNum desc</when>
+        <otherwise>order by a.createTime desc</otherwise>
+    </choose>
+</select>
+<!--经销商 我的浏览记录 品牌分类-->
+    <select id="selectViewLogCata" resultType="java.util.HashMap">
+        select
+        d.refrenceId as brandsId,
+        d.brandsName as brandsName
+        from
+        ProductViewLog a,
+        ProductBaseInfo b,
+        ProductCount c,
+        BrandesInfo d
+        where
+        a.userId=#{dealerId}
+        and a.productId = b.refrenceId and c.refrenceId = a.productId and c.brandsId = d.refrenceId and a.delFlag = 0
+        group by  brandsId
+    </select>
+	<select id="countViewLogByProduct" parameterType="String" resultType="Integer">
+		select sum(viewNum)
+		from ProductViewLog
+		<where>
+			productId=#{productId}
+			and delFlag=0
+		</where>
+	</select>
+    <select id="selectProductViewLog" resultType="com.zttx.web.module.common.entity.ProductViewLog">
+        SELECT
+        <include refid="productViewLogColumns"/>
+        from ProductViewLog a where a.productId = #{productId} and a.userId = #{userId} and a.delFlag = 0 limit 1
+    </select>
+</mapper>
+

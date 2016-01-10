@@ -1,0 +1,853 @@
+@charset "UTF-8";
+@import "../_mixin";
+@import "model/_form";
+@import "model/_box";
+@import "model/_tab";
+@import "model/_button";
+@import "model/_table";
+@import "model/_dialog";
+@import "model/_pagination";
+@import "model/_uploadfile";
+@import 'model/_patch';
+
+.weshop-apply {
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+  .ui-form {
+    //padding-top: 30px;
+    .ui-form-explain{
+      padding:0;
+      @include inline-block();
+    }
+  }
+
+  .apply-box{
+    padding:30px 0;
+    margin-left:300px;
+
+    .apply-flog{
+      @include float;
+      width:300px;
+
+      margin-left:-300px;
+      text-align: center;
+    }
+    .apply-form{
+      @include float;
+    }
+  }
+}
+
+.weshop-apply-success {
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+
+    padding: 10px 0 30px 100px;
+    i {
+      vertical-align: -10px;
+    }
+  }
+  .apply-box{
+    padding-top:30px;
+    margin-left:350px;
+
+    .apply-flog{
+      @include float;
+      width:350px;
+      margin-left:-350px;
+      text-align: center;
+    }
+    .apply-form{
+      @include float;
+      padding-top:30px;
+    }
+  }
+}
+
+.weshop-store,.weshop-leading-in {
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .ui-table {
+    td, th {
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    .ui-input{
+      width:40px;
+      padding: 2px 9px;
+      line-height: 12px;
+    }
+
+    .js-img-center {
+      @include inline-block();
+      height:160px;
+      width:160px;
+      overflow: hidden;
+      img{width:100%}
+    }
+
+  }
+
+  .ui-tab-item-search{
+    @include inline-block();
+    text-align: right;
+    width:580px;
+    label{
+      padding: 6px;
+      line-height: 14px;
+      *vertical-align: 6px;
+    }
+    .ui-input{
+      width:400px;
+      padding: 6px 9px;
+      line-height: 14px;
+      text-align:left;
+    }
+    .ui-button{
+      vertical-align: 0px;
+      vertical-align: 1px \0;
+    }
+
+  }
+
+  .number-plugin{
+    @include inline-block;
+    @include clearfix;
+      .minus,.ui-input,.plus{
+          @include float;
+          text-align:center;
+      }
+      .ui-input{
+        width:40px;
+      }
+      .minus,.plus{
+          width:18px;
+          border:1px solid #ddd;
+      }
+  }
+}
+
+.weshop-trends {
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .trends-items {
+    width:1000px;
+    ul {
+      //margin-left: -25px;
+    }
+    li {
+      //margin-left: 30px;
+      width: 310px;
+    }
+    .ui-box {
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border-bottom: 1px solid #ccc;
+      .ui-box-head {
+        border-bottom: 0;
+        background: none;
+        filter: none;
+      }
+      .ui-box-container {
+        .ui-box-content{
+            position: relative;
+            h3{
+              position: absolute;
+              bottom: 10px;
+              left:10px;
+              right:10px;
+              background-color:rgba(0,0,0,0.5);
+              color: #fff;
+              padding: 10px;
+            }
+          .js-img-center {
+            height:160px;
+            width:288px;
+            overflow: hidden;
+          }
+        }
+
+      }
+
+      .trends-cont-item{
+          @include clearfix;
+          padding:10px;
+          border-top: 1px solid #ddd;
+          .cont{
+              width: 190px;
+              word-break: break-all;
+              p{
+              }
+          }
+          .js-img-center {
+            height:80px;
+            width:80px;
+            overflow: hidden;
+            img{width:100%}
+          }
+      }
+
+      .ui-box-foot {
+        background-color: #f4f4f4;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 10px;
+
+        em {
+          @include inline-block;
+          height: 20px;
+          border-left: 1px solid #bbb;
+          border-right: 1px solid #fff;
+        }
+        a {
+          @include inline-block;
+          width: 143px;
+          text-align: center;
+          color: #888;
+          font-size: 16px;
+          text-decoration: none;
+          i {
+            cursor: pointer;
+          }
+          &:hover {
+            color: #08c;
+          }
+        }
+      }
+    }
+    .new-trends {
+      display: block;
+      margin-bottom: 15px;
+      height: 80px;
+      border-radius: 8px;
+      border: 2px dashed #ccc;
+      background-color: #fff;
+      text-align:center;
+      text-decoration:none;
+      *zoom:1;
+
+      &:hover{
+        background-color: #fbfbfb;
+        border: 2px solid #ccc;
+      }
+
+      .iconfont{
+        //vertical-align: middle;
+        color:#eee;
+        font-size:50px;
+        cursor: pointer;
+        line-height: 80px;
+      }
+    }
+
+  }
+  .js-img-center{
+    img{width:100%;}
+  }
+}
+
+
+
+.weshop-trends-publish{
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .trends-publish{
+    margin-left:340px;
+  }
+  .trends-cover{
+    @include float;
+    margin-left:-340px;
+    width:310px;
+    border:1px solid #ccc;
+    border-radius: 6px;
+
+    .trends-image,.trends-cont,.trends-other{
+      position: relative;
+      padding:10px;
+      border-top: 1px solid #ccc;
+      cursor: pointer;
+      z-index: 8;
+
+      .trends-arrow{
+        display:none;
+        position: absolute;
+        top: 30px;
+        right: -30px;
+        width: 13px;
+        height: 24px;
+        background: url(/images/dealer/weshop/trends-arrow.jpg);
+        z-index:9;
+      }
+      .trends-delete{
+        position: absolute;
+        top: 0;
+        right:0px;
+        bottom:0;
+        width: 60px;overflow: hidden;
+        i{
+          position: absolute;
+          top: 0;
+          right:-60px;
+          bottom:0;
+          width:60px;
+          padding:26px 0;
+          text-align: center;
+          color:#fff;
+          font-size:32px;
+          background-color: #666;
+          background-color: rgba(0,0,0,0.5);
+        }
+      }
+      &.active{
+        background-color:#f9f9f9;
+        box-shadow:0 0 6px #08c;
+        .trends-arrow{
+          display:block;
+        }
+      }
+    }
+    .trends-image{
+      position:relative;
+      border-top:none;
+      h3{
+        position: absolute;
+        bottom:10px;
+        width:280px;
+        @include ellipsis;
+        background-color: #666;
+        background-color: rgba(0,0,0,0.5);
+        font-size:14px;
+        color: #fff;
+        padding:5px;
+      }
+
+      .trends-delete{
+        i{
+          padding:66px 0;
+        }
+      }
+
+    }
+    .trends-cont{
+      @include clearfix;
+      .cont{
+          width: 190px;
+          word-break: break-all;
+        p{
+
+        }
+      }
+    }
+    .trends-other{
+      border-bottom:0;
+
+      .new-other{
+        display:block;
+        border: 2px dashed #ccc;
+        height:75px;
+        line-height: 74px;
+        text-align:center;
+        text-decoration:none;
+        *zoom:1;
+
+        &:hover{
+          background-color: #f5f5f5;
+          //border: 2px dotted #ccc;
+        }
+
+        .iconfont{
+          //vertical-align: middle;
+          color:#ccc;
+          font-size:60px;
+          cursor: pointer;
+          //line-height: 315px;
+        }
+
+      }
+
+      .trends-delete{
+        display: none;
+      }
+    }
+  }
+  .trends-content{
+    position: relative;
+
+    .content-form{
+      padding:20px;
+      border:1px solid #ccc;
+      border-radius:4px;
+      background-color: #f8f8f8;
+
+      .content-form-item{
+        padding:5px 0 15px 0;
+      }
+      .ui-form-item:after{
+        clear: none;
+      }
+      .ui-form-explain{
+        display: none;
+      }
+
+      label{
+        display: block;
+        font:14px/2 "microsoft yahei";
+      }
+
+      span{
+        color:#888;
+      }
+
+      .ui-input{
+        width:598px;
+        border-radius:5px;
+      }
+    }
+  }
+
+  .js-img-center{
+    img{width:100%;}
+  }
+
+
+}
+
+//webshop 发布商品
+.weshop-publish-goods{
+    color: #333;
+    img{
+        vertical-align: baseline;
+    }
+    .ui-button{
+        vertical-align: baseline;
+    }
+    h2 {
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px;
+    }
+    .ui-form{
+        margin-top: 30px;
+        .ui-form-item{
+            padding-bottom: 10px;
+            padding-left: 120px;
+        }
+        .ui-label{
+            font-size: 12px;
+            color: #666;
+        }
+        .ui-form-required{
+            font-size: 12px;
+            margin-right: 0;
+        }
+        .ui-input{
+            padding: 5px;
+            width: 105px;
+        }
+        .ui-select{
+            width: 202px;
+            padding: 6px;
+            color: #666;
+        }
+        .ui-form-explain{
+            display: inline-block;
+            padding: 0;
+        }
+    }
+    //色彩尺码选择模块
+    .color-size-box{
+        width: 720px;
+        padding: 10px 20px;
+        background: #f8f8f8;
+        border: 1px solid #eee;
+        .item-classes-ul{
+            margin-top: 10px;
+            .item-classes-items{
+                width: 175px;
+                height: 25px;
+                margin-bottom: 10px;
+                position: relative;
+                float: left;
+            }
+            .edit{
+                .editinput{
+                    display: inline;
+                }
+                .itemattr{
+                    display: none;
+                }
+            }
+        }
+        .editinput,.priceinput{
+            display: none;
+            width: 100px;
+            padding: 3px 5px;
+            line-height: 18px;
+            border: 1px solid #c1c1c1;
+            color: #666;
+            font-size: 12px;
+        }
+        .editinput{
+            margin-top: -5px;
+        }
+        .priceinput{
+            display: inline;
+        }
+    }
+    .colorarea{//颜色色块
+        width: 13px;
+        height: 13px;
+        margin-right: 5px;
+        border: 1px solid #E4E4E4;
+        vertical-align: -3px;
+    }
+    .file_wrap{//上传按钮布局
+        width: 90px;
+        height: 32px;
+        line-height: 32px;
+        position: relative;
+        .ui-button{
+            width: 68px;
+            padding: 0 10px;
+        }
+        .input_file{
+            width: 90px;
+            height: 32px;
+        }
+    }
+    .link{
+        color: #0082cc;
+    }
+    .uploadfile_contain{
+        width: 680px;
+    }
+    .item-classes-tip{
+      color:#FF5243;
+    }
+}
+
+
+//微店管理
+.weshop-manage{
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+
+  .weshop-manage-setting{
+    padding:20px;
+  }
+  .setting-item{
+    border-left:2px solid #fff;
+    border-right:2px solid #fff;
+    &:hover,&.active{
+      border-left:2px solid #08c;
+      border-right:2px solid #08c;
+    }
+
+    @include clearfix;
+    padding-left:200px;
+    padding-right:200px;
+    padding-top:25px;
+    padding-bottom:25px;
+    border-bottom: 1px solid #ccc;
+    .ui-label{
+      text-align: left;
+      padding-left:40px;
+      width: 160px;
+      margin-left: -200px;
+    }
+    .setting-box{
+      @include float(right);
+      width:160px;
+      padding-right:40px;
+      margin-right:-200px;
+      text-align: right;
+    }
+
+  }
+
+
+  .js-img-center{
+    img{width:100%;}
+  }
+
+}
+
+
+.weshop-list{
+  color: #333;
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+  }
+}
+
+
+.weshop-nav {
+  ul {
+    @include inline-float;
+    margin-top: 10px;
+  }
+  a {
+    display: block;
+    width: 200px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    text-align: center;
+    background: url(/images/dealer/weshop/weshop-nav.png) no-repeat 70px 10px;
+    
+    &:hover, &.active {
+      color: #0082cc;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+  .i-store {
+    background-position: 70px 10px;
+    &:hover, &.active {
+      background-position: -165px 10px;
+    }
+  }
+  .i-publish-goods {
+    background-position: 70px -110px;
+    &:hover, &.active {
+      background-position: -165px -110px;
+    }
+  }
+  .i-leading-in {
+    background-position: 70px -220px;
+    &:hover, &.active {
+      background-position: -165px -220px;
+    }
+  }
+  .i-trends {
+    background-position: 70px -330px;
+    &:hover, &.active {
+      background-position: -165px -330px;
+    }
+  }
+  .i-manage {
+    background-position: 70px -440px;
+    &:hover, &.active {
+      background-position: -165px -440px;
+    }
+  }
+}
+
+
+
+
+.changelogo-img{
+  /*max-width:200px;
+  max-height:200px;*/
+}
+
+
+.jcrop-holder{
+  @include inline-block;
+}
+.preview-logo {
+    @include inline-block;
+    width: 160px;
+    height: 160px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    vertical-align: top;
+
+    .preview-container {
+      width: 160px;
+      height: 160px;
+      overflow: hidden;
+    }
+}
+.preview-bg {
+    @include inline-block;
+    width: 320px;
+    height: 110px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    vertical-align: top;
+
+    .preview-container {
+      width: 320px;
+      height: 110px;
+      overflow: hidden;
+    }
+}
+
+
+#dialogQRSize{
+  .ui-table{
+    td,th{text-align:center}
+  }
+}
+
+#dialogChangeWaterMark{
+    .watermark-preview,.watermark-setting{
+      @include float;
+      width:49%;
+    }
+}
+
+
+//开关按钮
+.ui-offbutton{
+  position: relative;
+  @include inline-block;
+  width:40px;
+  height:20px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  background-color:#ddd;
+  cursor: pointer;
+
+
+  span {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+      background-color:#4EB9F7;
+      border:1px solid #24a7cc;
+      span{
+        left:21px;
+        //border:1px solid #08c;
+        //background-color:#6199D2;
+      }
+  }
+}
+
+
+.apply-btn{
+  display: block;
+  background-color: #f6f6f6;
+  width:225px;
+  margin:0 auto;
+  text-align: center;
+  text-decoration: none;
+  h4{
+    font-weight:700;
+    font-size: 14px;
+    padding: 20px 0;
+  }
+  span{
+      display: block;
+      width:128px;
+      height:135px;
+      margin:0 auto;
+      background:url(/images/dealer/weshop/weshop-apply.png) no-repeat;
+    &.lock{}
+    &.notepad{background-position:0px -236px;}
+    &.iphone{background-position:0px -470px;}
+    }
+  p{
+    line-height: 1.5;
+    padding:20px 10px;
+  }
+}
+
+
+.weshop-box{
+  margin-left:-15px;
+  @include clearfix();
+}
+
+.weshop-item{
+  @include float();
+  width:300px;
+  border:1px solid #eee;
+  margin-left:30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px #eee;
+  height:180px;
+
+  .shop-title{
+    @include clearfix();
+    padding:10px;
+    padding-bottom: 0;
+
+    h3{
+      font-size:14px;
+      font-family: 'Microsoft Yahei', '黑体';
+      color:#333;
+    }
+  }
+  .shop-info{
+    @include clearfix();
+    padding:10px;
+    border-bottom:1px solid #eee;
+  }
+  .shop-data{
+    padding:10px;
+    @include inline-float();
+
+    li{
+      width:140px;
+      height:45px;
+      line-height: 45px;
+    }
+  }
+}
+.weshop-item-new{
+  .btn-add-weshop{
+    display:block;
+    border:2px dashed #eee;
+    height:176px;
+    line-height:0;
+    border-radius: 5px;
+    text-align: center;
+    color:#aaa;
+    font-size:14px;
+
+    &:hover{
+      border:2px solid #ccc;
+      text-decoration: none;
+      color:#999;
+    }
+  }
+}

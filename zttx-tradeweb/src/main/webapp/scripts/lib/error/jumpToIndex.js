@@ -1,0 +1,1 @@
+var s=0;setInterval(function(){return s+=1,s>5?void(location.href="/"):(o=document.getElementById("second"),void(o.innerHTML=5-s))},1e3);

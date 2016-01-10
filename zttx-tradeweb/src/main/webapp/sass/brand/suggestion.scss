@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@import "button";
+
+//优化建议主体部分
+.main_suggestion{
+  padding: 20px 20px 100px 20px;
+  background: #fff;
+  overflow: hidden;
+  //
+  p{
+    .suggestimg{
+      margin: 0 0 15px 0;
+    }
+    .suggestintr{
+      width: 860px;
+      font-family: "microsoft yahei";
+      font-size: 14px;
+      margin: 20px 0 0 0;
+      line-height: 25px;
+      color: #333;
+    }
+    .textareabox{
+      width: 950px;
+      height: 200px;
+      padding: 5px;
+      overflow: auto;
+      border: #dadada 1px solid;
+      border-top:#bcbcbc 1px solid;
+      color: #999;
+    }
+    .suggestsub{
+      margin: 20px 4px 0 0;
+    }
+  }
+}

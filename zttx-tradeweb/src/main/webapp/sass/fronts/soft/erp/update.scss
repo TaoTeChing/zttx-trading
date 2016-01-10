@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+@import "../global";
+@import "header";
+@import "../../../common/footer";
+
+body{
+  background: url("../../../../images/fronts/soft/erp/banner-head.jpg") no-repeat;
+  font-family: "微软雅黑";
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+img{
+  vertical-align: top;
+}
+/*头部*/
+.header{
+  background: url("../../../../images/fronts/soft/erp/head_shadow.png");
+}
+
+.contanier {
+  margin-bottom:70px;
+  .tabs{
+    height:176px;
+    background: #f4f4f4;
+    .item-box{
+      width:1200px;
+      margin:0 auto;
+      padding: 33px 0;
+      li{
+        float:left;
+        height: 110px;
+        width:320px;
+        border-radius: 4px;
+        background: #1d8cdb;
+        margin:0 15px;
+        cursor: pointer;
+        span{
+          display: inline-block;
+          height: 110px;
+          line-height: 110px;
+          float:left;
+          font-size: 14px;
+          color:#fff;
+        }
+        .text{
+          width:175px;
+          padding-left:85px;
+        }
+        .android-ico{
+          background: url("../../../../images/fronts/soft/app/android.png") 29px center no-repeat;
+        }
+        .iphone-ico{
+          background: url("../../../../images/fronts/soft/app/apple.png") 29px center no-repeat;
+        }
+        .arrow{
+          width:59px;
+          border-left:1px solid #ddd;
+          background: url("../../../../images/fronts/soft/app/arrow.png") center center no-repeat;
+        }
+      }
+      .active{
+        background: #f7af2b;
+      }
+    }
+  }
+  .tab-content{
+    width:1200px;
+    margin:0 auto;
+    .content-box{
+      margin-top:40px;
+      margin-left: 55px;
+      .title{
+        font-size: 25px;
+        color:#333;
+        margin-bottom: 30px;
+        padding-bottom:20px;
+        padding-left: 67px;
+        background: url("../../../../images/fronts/soft/erp/update-title.png") no-repeat;
+        border-bottom: 1px dashed #ddd;
+      }
+      .year{
+        font-size:25px;
+        color:#1d8cdb;
+        height: 58px;
+        line-height: 58px;
+        width:200px;
+        cursor:pointer;
+        background: url("../../../../images/fronts/soft/app/pitch-point.png") 90px 0px no-repeat;
+      }
+      .year-line{
+        height: 40px;
+        width: 1px;
+        margin-left:140px;
+        _margin-left:139px;
+        margin-top:-1px;
+        background: url("../../../../images/fronts/soft/app/line.jpg") repeat-y;
+      }
+      .last .year-line{
+        display: none;
+      }
+      .logs{
+        margin-left:70px;
+        .date{
+          width:50px;
+          height: 50px;
+          color:#c3c3c3;
+          margin-right:13px;
+          text-align: right;
+          .dd{
+            font-size: 18px;
+          }
+        }
+        dl{
+          background: url("../../../../images/fronts/soft/app/line.jpg") repeat-y;
+          background-position: 7px 0;
+          _background-position:6px 0;
+          padding-bottom: 70px;
+          padding-top: 6px;
+        }
+        dt,dd{
+          padding-left:40px;
+          color:#333;
+        }
+        dt{
+          background: url("../../../../images/fronts/soft/app/pitch-point.png") -41px -107px no-repeat;
+          font-size: 20px;
+          height: 20px;
+          line-height: 20px;
+          margin-bottom:30px;
+        }
+        dd{
+          font-size: 14px;
+          height: 28px;
+          line-height: 28px;
+          color:#666;
+        }
+      }
+      .new{
+        .date,dt{
+          color:#f7af2b;
+        }
+      }
+    }
+  }
+}

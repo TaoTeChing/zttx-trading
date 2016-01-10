@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/*网站导航部分样式*/
+#navigation{
+
+  background: #e90112;
+
+  .nav-items{
+    height: 35px;
+    line-height: 35px;
+    width:1200px;
+    margin:0 auto;
+    li{
+      display: inline;*display: inline;*zoom:1;float:left;
+    }
+    a{
+      display: block;
+      padding:0 20px;
+      color:#FFF;
+      font-size: 16px;
+      font-family: "微软雅黑";
+      border-right:2px solid #e90112;
+      &:hover{
+        background: darken(#e90112,5%);
+      }
+    }
+    .active a{
+      background: #fff;
+      color:#e90112;
+      border-right:2px solid #be0110;
+    }
+  }
+
+  .crumbs{
+    background-color: #fff;
+    border-bottom: 1px dashed #ccc;
+    .crumbs-content{
+      width:1200px;
+      margin:0 auto;
+      height:32px;
+      line-height:32px;
+    }
+  }
+}
+

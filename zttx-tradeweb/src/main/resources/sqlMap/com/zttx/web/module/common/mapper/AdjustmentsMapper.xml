@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.AdjustmentsMapper">
+    <!-- 基础列 -->
+    <sql id="adjustmentsColumns">
+        a.refrenceId as refrenceId ,
+        a.brandAdjustId as brandAdjustId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.oldFacSkuDirPrice as oldFacSkuDirPrice ,
+        a.nowFacSkuDirPrice as nowFacSkuDirPrice ,
+        a.quantity as quantity ,
+        a.totalAdjustPrice as totalAdjustPrice ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <insert id="insertBatch" parameterType="list">
+        insert into Adjustments(
+        refrenceId ,
+        brandAdjustId ,
+        productId ,
+        productSkuId ,
+        oldFacSkuDirPrice ,
+        nowFacSkuDirPrice ,
+        quantity ,
+        totalAdjustPrice ,
+        createTime ,
+        updateTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="adjustments" separator=",">
+            (
+            #{adjustments.refrenceId} ,
+            #{adjustments.brandAdjustId} ,
+            #{adjustments.productId} ,
+            #{adjustments.productSkuId} ,
+            #{adjustments.oldFacSkuDirPrice} ,
+            #{adjustments.nowFacSkuDirPrice} ,
+            #{adjustments.quantity} ,
+            #{adjustments.totalAdjustPrice} ,
+            #{adjustments.createTime} ,
+            #{adjustments.updateTime} ,
+            0
+            )
+        </foreach>
+	</insert>
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.Adjustments">
+        insert into Adjustments(
+         refrenceId ,
+         brandAdjustId ,
+         productId ,
+         productSkuId ,
+         oldFacSkuDirPrice ,
+         nowFacSkuDirPrice ,
+         quantity ,
+         totalAdjustPrice ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandAdjustId}  ,
+        #{productId}  ,
+        #{productSkuId}  ,
+        #{oldFacSkuDirPrice}  ,
+        #{nowFacSkuDirPrice}  ,
+        #{quantity}  ,
+        #{totalAdjustPrice}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from Adjustments where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update Adjustments set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.Adjustments">
+        insert into Adjustments
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandAdjustId != null">
+                brandAdjustId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId ,
+            </if>
+            <if test="oldFacSkuDirPrice != null">
+                oldFacSkuDirPrice ,
+            </if>
+            <if test="nowFacSkuDirPrice != null">
+                nowFacSkuDirPrice ,
+            </if>
+            <if test="quantity != null">
+                quantity ,
+            </if>
+            <if test="totalAdjustPrice != null">
+                totalAdjustPrice ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandAdjustId != null">
+                #{brandAdjustId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                #{productSkuId} ,
+            </if>
+            <if test="oldFacSkuDirPrice != null">
+                #{oldFacSkuDirPrice} ,
+            </if>
+            <if test="nowFacSkuDirPrice != null">
+                #{nowFacSkuDirPrice} ,
+            </if>
+            <if test="quantity != null">
+                #{quantity} ,
+            </if>
+            <if test="totalAdjustPrice != null">
+                #{totalAdjustPrice} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.Adjustments">
+        update Adjustments
+        <set>
+            <if test="brandAdjustId != null">
+                brandAdjustId = #{brandAdjustId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="oldFacSkuDirPrice != null">
+                oldFacSkuDirPrice = #{oldFacSkuDirPrice} ,
+            </if>
+            <if test="nowFacSkuDirPrice != null">
+                nowFacSkuDirPrice = #{nowFacSkuDirPrice} ,
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity} ,
+            </if>
+            <if test="totalAdjustPrice != null">
+                totalAdjustPrice = #{totalAdjustPrice} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.Adjustments">
+        update Adjustments set
+            brandAdjustId = #{brandAdjustId} ,
+            productId = #{productId} ,
+            productSkuId = #{productSkuId} ,
+            oldFacSkuDirPrice = #{oldFacSkuDirPrice} ,
+            nowFacSkuDirPrice = #{nowFacSkuDirPrice} ,
+            quantity = #{quantity} ,
+            totalAdjustPrice = #{totalAdjustPrice} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.Adjustments">
+        select
+        <include refid="adjustmentsColumns"/>
+        from Adjustments a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.Adjustments">
+        SELECT
+        <include refid="adjustmentsColumns"/>
+        FROM Adjustments a WHERE a.delFlag = 0
+        <if test="brandAdjustId != null and brandAdjustId != ''">
+            and a.brandAdjustId like CONCAT('%',#{brandAdjustId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="oldFacSkuDirPrice != null and oldFacSkuDirPrice != ''">
+            and a.oldFacSkuDirPrice = #{oldFacSkuDirPrice}
+        </if>
+        <if test="nowFacSkuDirPrice != null and nowFacSkuDirPrice != ''">
+            and a.nowFacSkuDirPrice = #{nowFacSkuDirPrice}
+        </if>
+        <if test="quantity != null and quantity != ''">
+            and a.quantity = #{quantity}
+        </if>
+        <if test="totalAdjustPrice != null and totalAdjustPrice != ''">
+            and a.totalAdjustPrice = #{totalAdjustPrice}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.Adjustments">
+        SELECT
+        <include refid="adjustmentsColumns"/>
+        FROM Adjustments a WHERE a.delFlag = 0
+    </select>
+    <select id="getBrandAdjustmentsList" resultType="java.util.Map">
+        SELECT
+        a.createTime AS time,
+        c.brandsName AS brandesName,
+        c.productTitle AS productTitle,
+        c.productNo AS productNo,
+        d.productSkuName AS productSkuName,
+        b.oldFacSkuDirPrice AS oldFacSkuDirPrice,
+        b.nowFacSkuDirPrice AS nowFacSkuDirPrice,
+        b.quantity AS quantity,
+        b.totalAdjustPrice AS totalAdjustPrice
+        FROM
+        Adjustment a,
+        Adjustments b,
+        ProductBaseInfo c,
+        ProductSku d
+        WHERE a.delFlag = 0
+        AND a.dealerId = #{filter.dealerId}
+        AND a.brandId = #{filter.brandId}
+        AND a.refrenceId = #{filter.brandAdjustId}
+        AND a.refrenceId = b.brandAdjustId
+        AND b.productId = c.refrenceId
+        AND b.productSkuId = d.refrenceId
+        <if test="filter.brandesName != null and filter.brandesName != ''">
+            and c.brandsName like CONCAT('%',#{filter.brandesName}, '%')
+        </if>
+        <if test="filter.productTitle != null and filter.productTitle != ''">
+            and c.productTitle like CONCAT('%',#{filter.productTitle}, '%')
+        </if>
+        <if test="filter.productNo != null and filter.productNo != ''">
+            and c.productNo = #{filter.productNo}
+        </if>
+    </select>
+    <select id="getBrandAdjustmentsListSum" resultType="java.util.Map">
+        SELECT
+        sum(b.totalAdjustPrice) AS totalAdjustPrice,
+        count(b.refrenceId) AS totalNum
+        FROM
+        Adjustment a,
+        Adjustments b,
+        ProductBaseInfo c,
+        ProductSku d
+        WHERE a.delFlag = 0
+        AND a.dealerId = #{dealerId}
+        AND a.brandId = #{brandId}
+        AND a.refrenceId = #{brandAdjustId}
+        AND a.refrenceId = b.brandAdjustId
+        AND b.productId = c.refrenceId
+        AND b.productSkuId = d.refrenceId
+        <if test="brandesName != null and brandesName != ''">
+            and c.brandsName like CONCAT('%',#{brandesName}, '%')
+        </if>
+        <if test="productTitle != null and productTitle != ''">
+            and c.productTitle like CONCAT('%',#{productTitle}, '%')
+        </if>
+        <if test="productNo != null and productNo != ''">
+            and c.productNo = #{productNo}
+        </if>
+    </select>
+</mapper>
+

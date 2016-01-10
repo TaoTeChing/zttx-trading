@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "../../mixin";
+
+.part-d{
+    .part-d-col1{
+        width: 950px;
+    }
+    .part-d-col2{
+        width: 230px;
+    }
+    .online-fair-list{
+        li{
+            @include clearfix;
+            width: 950px;
+            margin-top: 10px;
+        }
+        .detail{
+            @include float();
+            width: 224px;
+            height: 188px;
+            border: 1px solid #E1E1E1;
+            border-right:0;
+            text-align: center;
+            font-family: "Microsoft yahei";
+            .time{
+                font-size: 13px;
+                color: #666;
+                span{
+                    color: #333;
+                }
+            }
+            .brand{
+                height: 10px;
+                margin: 5px 40px 10px 40px;
+                border-bottom: 1px solid #e1e1e1;
+                position: relative;
+                color: #999;
+                span{
+                    padding: 0 5px;
+                    background: #fff;
+                    position: relative;
+                    bottom: 0px;
+                }
+            }
+            .discount{
+                span,em{
+                    font-size: 13px;
+                    color: #ff0000;
+                }
+                span{
+                    font-size: 30px;
+                    font-family: Arial;
+                }
+            }
+            .number{
+                color: #666;
+                span{
+                    color: #ff6600;
+                    font-family: Arial;
+                }
+            }
+        }
+        .pic{
+            @include float();
+        }
+        .icon{
+            margin-right: 5px;
+        }
+    }
+    .online-fair-start{
+        li{
+            margin-top: 10px;
+        }
+        .des{
+            height: 30px;
+            line-height: 30px;
+            padding: 0 8px;
+            background: #f3f3f3;
+            color: #666;
+            span{
+                font-family: Arial;
+                font-weight: bold;
+                color: #f80;
+            }
+        }
+    }
+}

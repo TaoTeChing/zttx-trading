@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.RegionalMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="regionalColumns">
+        a.refrenceId as refrenceId,
+        a.areaNo as areaNo ,
+        a.areaName as areaName,
+        a.areaParent as areaParent,
+        a.areaLevel as areaLevel,
+        a.areaOrder as areaOrder,
+        a.createTime as createTime ,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.Regional">
+        INSERT INTO Regional (
+            refrenceId,
+            areaNo,
+            areaName,
+            areaParent,
+            areaLevel,
+            areaOrder,
+            createTime,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{areaNo},
+            #{areaName},
+            #{areaParent},
+            #{areaLevel},
+            #{areaOrder},
+            #{createTime},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM Regional
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE Regional
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.Regional">
+        insert into Regional
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="areaParent != null">
+                areaParent ,
+            </if>
+            <if test="areaLevel != null">
+                areaLevel ,
+            </if>
+            <if test="areaOrder != null">
+                areaOrder ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="areaParent != null">
+                #{areaParent} ,
+            </if>
+            <if test="areaLevel != null">
+                #{areaLevel} ,
+            </if>
+            <if test="areaOrder != null">
+                #{areaOrder} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.Regional">
+        update Regional
+        <set>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="areaParent != null">
+                areaParent = #{areaParent} ,
+            </if>
+            <if test="areaLevel != null">
+                areaLevel = #{areaLevel} ,
+            </if>
+            <if test="areaOrder != null">
+                areaOrder = #{areaOrder} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.Regional">
+        UPDATE Regional
+        SET
+            areaNo     = #{areaNo},
+            areaName   = #{areaName},
+            areaParent = #{areaParent},
+            areaLevel  = #{areaLevel},
+            areaOrder  = #{areaOrder},
+            createTime = #{createTime},
+            updateTime = #{updateTime},
+            delFlag    = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.Regional">
+        SELECT
+        <include refid="regionalColumns"/>
+        FROM Regional a WHERE a.delFlag = 0
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="areaParent != null and areaParent != ''">
+            and a.areaParent like CONCAT('%',#{areaParent}, '%')
+        </if>
+        <if test="areaLevel != null and areaLevel != ''">
+            and a.areaLevel = #{areaLevel}
+        </if>
+        <if test="areaOrder != null and areaOrder != ''">
+            and a.areaOrder = #{areaOrder}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        order by a.areaNo asc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.Regional">
+        SELECT
+        <include refid="regionalColumns"/>
+        FROM Regional a WHERE a.delFlag = 0
+        order by a.areaNo asc,a.areaLevel asc
+    </select>
+
+    <select id="getNameByAreaNo" parameterType="java.lang.Integer" resultType="java.lang.String">
+        SELECT a.areaName
+        FROM Regional a
+        WHERE a.areaNo = #{areaNo}
+    </select>
+
+    <select id="selectRegionalByName" parameterType="String" resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a where
+        a.areaName like CONCAT('%',#{name}, '%')
+        order by a.areaNo asc limit 0,1
+    </select>
+    
+    <select id="selectRegionalByCode" parameterType="java.lang.Integer" resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a where
+        a.areaNo = #{areaNo}
+        order by a.areaNo asc limit 0,1
+    </select>
+
+    <select id="searchByAreaFilter" resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a
+        where a.delFlag = 0
+        <if test="startNo != null">
+            <![CDATA[ and a.areaNo > #{startNo} ]]>
+        </if>
+        <if test="endNo != null">
+            <![CDATA[ and a.areaNo < #{endNo} ]]>
+        </if>
+        <if test="level != null">
+            and a.areaLevel = #{level}
+        </if>
+        order by a.areaNo
+    </select>
+
+    <select id="loadRegionalByAreaNo" resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a
+        where a.delFlag =0 and a.areaNo=#{areaNo}
+        limit 0,1
+    </select>
+
+    <select id="getSubRegionalByCode" resultType="com.zttx.web.module.common.entity.Regional">
+        select
+        <include refid="regionalColumns"/>
+        from Regional a
+        where a.areaNo &gt; #{beginCode}
+        and a.areaNo &lt; #{endCode}
+        and a.areaName !='市辖区'
+        and a.areaName !='县'
+        and a.areaName!='市辖区'
+    </select>
+
+    <select id="selectRegionalArea" resultType="map">
+        select a.areaName,rc.areaName as zipCode ,a.areaNo
+        from Regional a , RegionalCode rc
+        where a.areaNo=rc.areaNos
+        and a.areaNo &gt; #{areaNo}
+        and a.areaNo &lt; #{areaNo} / 10000 * 10000 + 10000
+        order by a.areaNo asc
+    </select>
+
+    <select id="getRegionalAreaByInfo" resultType="map">
+        select a.areaName,rc.areaName as zipCode ,a.areaNo
+        from Regional a , RegionalCode rc
+        where a.areaNo=rc.areaNos
+        and (a.areaName like CONCAT('%',#{cityInfo}, '%') or rc.areaName = #{cityInfo})
+        limit 0,1
+    </select>
+
+    <select id="getRegionalNameByAreaLevel" resultType="string">
+        select a.areaName
+        from Regional a , RegionalCode rc
+        where a.areaNo=rc.areaNos
+        and a.areaLevel = #{areaLevel}
+    </select>
+</mapper>
+

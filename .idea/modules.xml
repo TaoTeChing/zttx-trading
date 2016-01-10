@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradeapi/zttx-tradeapi.iml" filepath="$PROJECT_DIR$/zttx-tradeapi/zttx-tradeapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradebean/zttx-tradebean.iml" filepath="$PROJECT_DIR$/zttx-tradebean/zttx-tradebean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradecore/zttx-tradecore.iml" filepath="$PROJECT_DIR$/zttx-tradecore/zttx-tradecore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo.iml" filepath="$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-consumer/zttx-tradedubbo-consumer.iml" filepath="$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-consumer/zttx-tradedubbo-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-hander/zttx-tradedubbo-hander.iml" filepath="$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-hander/zttx-tradedubbo-hander.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-provider/zttx-tradedubbo-provider.iml" filepath="$PROJECT_DIR$/zttx-tradedubbo/zttx-tradedubbo-provider/zttx-tradedubbo-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradesolr/zttx-tradesolr.iml" filepath="$PROJECT_DIR$/zttx-tradesolr/zttx-tradesolr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradetask/zttx-tradetask.iml" filepath="$PROJECT_DIR$/zttx-tradetask/zttx-tradetask.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradeutils/zttx-tradeutils.iml" filepath="$PROJECT_DIR$/zttx-tradeutils/zttx-tradeutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-tradeweb/zttx-tradeweb.iml" filepath="$PROJECT_DIR$/zttx-tradeweb/zttx-tradeweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-trading.iml" filepath="$PROJECT_DIR$/zttx-trading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zttx-transfer/zttx-transfer.iml" filepath="$PROJECT_DIR$/zttx-transfer/zttx-transfer.iml" />
+    </modules>
+  </component>
+</project>

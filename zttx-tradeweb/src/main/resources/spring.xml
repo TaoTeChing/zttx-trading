@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+    <description>Spring全局配置</description>
+
+    <!-- 加载属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:druid.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:email.properties"/>
+    <!-- 短信平台 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sms.properties"/>
+    <!--物流信息-->
+    <!--<context:property-placeholder ignore-unresolvable="true" location="classpath:logistic.properties"/>-->
+    <!-- 异步处理能力 -->
+    <task:annotation-driven/>
+
+    <!-- 使用Annotation自动注册Bean，解决事务失效问题：在主容器中不扫描@Controller注解，在SpringMvc中只扫描@Controller注解。  -->
+    <context:component-scan base-package="com.zttx.web"><!-- base-package 如果多个，用“,”分隔 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 配置 JSR303 Bean Validator 定义 -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+    <!-- Spring邮件发送 -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host">
+            <value>${mailserver.host}</value>
+        </property>
+        <property name="username">
+            <value>${mailserver.username}</value>
+        </property>
+        <property name="password">
+            <value>${mailserver.password}</value>
+        </property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">
+                    ${mailserver.transport.protocol}
+                </prop>
+                <prop key="mail.store.protocol">${mailserver.store.protocol}
+                </prop>
+                <prop key="mail.smtp.class">${mailserver.smtp.class}</prop>
+                <prop key="mail.smtp.host">${mailserver.smtp.host}</prop>
+                <prop key="mail.smtp.auth">${mailserver.smtp.auth}</prop>
+                <prop key="mail.smtp.timeout">${mailserver.smtp.timeout}</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="sendMail" class="com.zttx.web.utils.SendMail">
+        <property name="sender">
+            <ref local="mailSender"/>
+        </property>
+    </bean>
+
+    <bean id="weshopAPIConfig" class="com.zttx.web.bean.WeshopAPIConfig"/>
+
+    <!-- 短信发送 -->
+    <bean id="textMessageSender" class="com.zttx.web.bean.TextMessageSender">
+        <property name="smsUrl" value="${sms.url}"/>
+        <property name="userId" value="${user.id}"/>
+        <property name="userKey" value="${user.key}"/>
+        <property name="userName" value="${user.name}"/>
+    </bean>
+
+    <bean id="springContextHolder" class="com.zttx.sdk.utils.SpringUtils"></bean>
+
+    <!-- 快递查询服务 -->
+    <!--<bean id="logisticQueryService" class="com.zttx.web.module.common.service.LogisticQueryService">
+        <property name="serverUrl" value="${logistic_server}"/>
+        <property name="key" value="${logistic_key}"/>
+        <property name="socketTimeOut" value="${socketTimeoutInMillis}"/>
+        <property name="connectTimeOut" value="${connectTimeoutInMillis}"/>
+    </bean>-->
+
+</beans>

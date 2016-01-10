@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+@import "form";
+/*
+前台装修页面-留言互动
+*/
+.leaveMessage{
+    padding: 20px;
+    position: relative;
+    .ui-label{
+        font-size: 12px;
+    }
+    .ui-radio{
+        margin-right: 5px;
+    }
+    .ui-select{
+        padding: 5px;
+    }
+    .submit-button{
+        height: 25px;
+        line-height: 25px;
+        padding:0 10px;
+        border: 0;
+        background: #C33;
+        color:#fff;
+        cursor:pointer;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -moz-border-radius: 3px;
+        &:active{
+            position: relative;
+            top: 1px;
+        }
+    }
+    .check-message{
+        position: absolute;
+        bottom: 55px;
+        right: 25px;
+        border: 1px solid #f09300;
+        padding: 10px;
+        h3{
+            font-size: 14px;
+            font-weight: bold;
+            color: #f09300;
+        }
+        p{
+            line-height: 25px;
+            cursor: pointer;
+        }
+        .arrow{
+            position: absolute;
+            bottom: 43px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-color: transparent #f09300 transparent transparent;
+            _border-color: #f09300 tomato tomato tomato;
+            _filter: chroma(color=tomato);
+            border-width: 7px 7px;
+            overflow: hidden;
+        }
+    }
+}
+//留言滚动展示
+.message-roll{
+    padding: 20px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    img{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .message-roll-layout{
+        height: 420px;
+        overflow: hidden;
+    }
+    .m-r-item{
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        p{
+            line-height: 22px;
+        }
+    }
+    .m-r-member{
+        width: 60px;
+    }
+    .m-r-name{
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        width: 60px;
+        line-height: 24px;
+        word-break: break-all;
+        text-align: center;
+        color: #666;
+    }
+    .m-r-con{
+        margin-left: 20px;
+    }
+    .m-r-question{
+        border-bottom: 1px dashed #ddd;
+    }
+    .m-r-anp{
+        color: #0082cc;
+    }
+    .m-r-time{
+        color: #999;
+    }
+    .m-r-replay{
+        color: #666;
+    }
+}

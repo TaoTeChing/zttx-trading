@@ -1,0 +1,124 @@
+@charset "utf-8";
+@import "../global";
+@import "header";
+@import "footer";
+body{
+  background: #fff;
+  font-family: "微软雅黑";
+}
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+
+.contanier {
+  margin-bottom:70px;
+  .tabs{
+    height:85px;
+    .item-box{
+      width:1000px;
+      margin:0 auto;
+      padding-top:40px;
+      ul{
+        height: 45px;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #ccc;
+        padding-left: 40px;
+        background: url("/images/soft/app/schedule.png") 0 center no-repeat;
+      }
+      li{
+        float:left;
+        height: 45px;
+        line-height: 45px;
+        margin:0 25px;
+        cursor: pointer;
+        font-size: 18px;
+        color:#666;
+        border-bottom: 2px solid #FFF;
+      }
+      .active{
+        color:#333;
+        font-size: 20px;
+        border-bottom:2px solid #f5af2b;
+      }
+    }
+  }
+  .tab-content{
+    width:1000px;
+    margin:0 auto;
+    .content-box{
+      margin-top:40px;
+      margin-left: 55px;
+      .title{
+        font-size: 25px;
+        color:#5a5a5a;
+        margin-bottom:50px;
+      }
+      .year{
+        font-size:25px;
+        color:#1d8cdb;
+        height: 58px;
+        line-height: 58px;
+        width:200px;
+        cursor:pointer;
+        background: url(/images/soft/app/pitch-point.png) 90px 0px no-repeat;
+      }
+      .year-line{
+        height: 40px;
+        width: 1px;
+        margin-left:140px;
+        _margin-left:139px;
+        margin-top:-1px;
+        background: url(/images/soft/app/line.jpg) repeat-y;
+      }
+      .last .year-line{
+        display: none;
+      }
+      .logs{
+        margin-left:70px;
+        .date{
+          width:50px;
+          height: 50px;
+          color:#c3c3c3;
+          margin-right:13px;
+          text-align: right;
+          .dd{
+            font-size: 18px;
+          }
+        }
+        dl{
+          background: url(/images/soft/app/line.jpg) repeat-y;
+          background-position: 7px 0;
+          _background-position:6px 0;
+          padding-bottom: 70px;
+          padding-top: 6px;
+        }
+        dt,dd{
+          padding-left:40px;
+          color:#333;
+        }
+        dt{
+          background: url(/images/soft/app/pitch-point.png) -41px -107px no-repeat;
+          font-size: 20px;
+          height: 20px;
+          line-height: 20px;
+          margin-bottom:30px;
+        }
+        dd{
+          font-size: 14px;
+          height: 28px;
+          line-height: 28px;
+          color:#666;
+        }
+      }
+      .new{
+        .date,dt{
+          color:#f7af2b;
+        }
+      }
+    }
+  }
+}

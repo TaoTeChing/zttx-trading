@@ -1,0 +1,289 @@
+@charset "UTF-8";
+#footer{
+  height: 342px;
+  background: url("/images/soft/app/footer-bg.jpg") repeat;
+  .footer-bd{
+    height: 342px;
+    width: 1000px;
+    margin:0 auto;
+  }
+  .footer-top{
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+    font-size: 16px;
+    ul{margin-right:-60px;}
+    li{
+      float:left;
+      margin-right:70px;
+      _margin-top:15px;
+      _display:inline;
+      zoom:1;
+      i{
+        display: inline-block;
+        height: 70px;
+        width: 70px;
+        cursor: pointer;
+        vertical-align: middle;
+        background: url("/images/soft/app/footer-icon.png") no-repeat;
+        margin-right:10px;
+        &:hover{
+          -webkit-animation: icon-bounce 0.5s alternate;
+          -moz-animation: icon-bounce 0.5s alternate;
+          -o-animation: icon-bounce 0.5s alternate;
+          animation: icon-bounce 0.5s alternate;
+        }
+      }
+    }
+    img{
+      vertical-align: middle;
+      _vertical-align: top;
+    }
+    .email i{
+      background-position: 0 -18px;
+    }
+    .team i{
+      background-position: -80px -18px;
+    }
+    .weixin i{
+      background-position: -160px -18px;
+    }
+    .tel i{
+      background-position: -240px -18px;
+    }
+  }
+  .footer-contact{
+    height: 42px;
+    line-height: 42px;
+    color:#999;
+    font-size: 14px;
+    a{
+      color:#999;
+      transition:0.3s;
+      &:hover{
+        color:#FFF;
+      }
+    }
+  }
+  .footer-bottom{
+    color: #666;
+    height: 200px;
+    position: relative;
+    .about-team{margin-right:240px;}
+    h3{
+      font-size: 18px;
+      color:#999;
+      line-height: 30px;
+    }
+    dt{
+      font-size: 14px;
+      line-height: 25px;
+    }
+    dd{
+      font-size: 12px;
+      line-height: 25px;
+    }
+    p{
+      font-size: 16px;
+      line-height: 30px;
+      margin-right:50px;
+    }
+    .sp{
+      width: 1px;
+      background: url("/images/soft/app/footer-icon.png") -441px 0 no-repeat;
+      height: 141px;
+      margin-right:20px;
+    }
+    .team-avastar{
+      position: absolute;
+      bottom: 0;
+      left:40px;
+    }
+    .downLoad{
+      margin-right:32px;
+      a{
+        display: block;
+        height: 59px;
+        width: 234px;
+        margin-bottom:20px;
+        background: url("/images/soft/app/button-middle.png") no-repeat;
+        transition:0.3;
+        &:hover{
+          color:#FFF;
+        }
+        color: #666;
+        text-decoration: none;
+      }
+      i{
+        display: inline-block;
+        height: 59px;
+        width: 46px;
+        margin-left:15px;
+        vertical-align: top;
+        margin-right: 5px;
+        background: url("/images/soft/app/footer-icon.png") no-repeat;
+      }
+      .apple{
+        background-position: -374px -22px;
+      }
+      .android{
+        background-position: -324px -22px;
+      }
+    }
+  }
+  .hardware{
+    display: inline-block;
+    font-size: 19.37px;
+    margin-top:6px;
+    span{
+      display: block;
+    }
+    .version{
+      font-size: 12.33px;
+    }
+  }
+}
+@keyframes icon-bounce {
+  0%, 100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  50% {
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  85% {
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+@-webkit-keyframes icon-bounce {
+  0%, 100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  50% {
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  85% {
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+@-moz-keyframes icon-bounce {
+  0%, 100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  50% {
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  85% {
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}
+@-o-keyframes icon-bounce {
+  0%, 100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -moz-transform: rotate(15deg);
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+
+  50% {
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+
+  85% {
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandAlbumMapper">
+    <!-- 基础列 -->
+    <sql id="brandAlbumColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.domainName as domainName ,
+        a.photoName as photoName ,
+        a.imageName as imageName ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,       
+        a.delFlag as delFlag  
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandAlbum">
+        insert into BrandAlbum(
+         refrenceId,
+		brandId,
+		brandsId,
+		domainName,
+		photoName,
+		imageName,
+		createTime,
+		updateTime,
+		createIp,
+		delFlag
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{domainName}  ,
+        #{photoName}  ,
+        #{imageName}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{createIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandAlbum where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandAlbum set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+
+    <update id="delBatch" parameterType="Map">
+        update BrandAlbum set delFlag = true where refrenceId in (
+        <foreach collection="brandAlbumIdList" item="item" index="index"
+                 separator=",">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+        )
+    </update>
+
+
+ 
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandAlbum">
+        update BrandAlbum
+           <set>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="photoName != null">
+                photoName = #{photoName} ,
+            </if>
+            <if test="imageName != null">
+                imageName = #{imageName} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+ 
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandAlbum">
+        update BrandAlbum set
+            domainName = #{domainName} ,
+            photoName = #{photoName} ,
+            imageName = #{imageName} ,
+            createIp = #{createIp} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandAlbum">
+        select <include refid="brandAlbumColumns"/> from BrandAlbum a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandAlbum">
+        SELECT
+        <include refid="brandAlbumColumns"/>
+        FROM BrandAlbum a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+         
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="photoName != null and photoName != ''">
+            and a.photoName like CONCAT('%',#{photoName}, '%')
+        </if>
+        <if test="imageName != null and imageName != ''">
+            and a.imageName like CONCAT('%',#{imageName}, '%')
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+        <if test="delFlag != null and delFlag != ''">
+            and a.delFlag = #{delFlag}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandAlbum">
+        SELECT
+        <include refid="brandAlbumColumns"/>
+        FROM BrandAlbum a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

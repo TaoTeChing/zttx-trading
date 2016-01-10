@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+//此为公用头部
+
+.tbar{
+    height: 35px;
+    line-height: 35px;
+    background: #fff;
+    min-width: 1200px;
+    color:#666;
+    em{
+        color: #ddd;
+        margin:0 12px;
+    }
+    a{
+        color: #666;
+        &:hover{
+            color: #0082cc;
+        }
+    }
+    .c_red{
+        color: #ca0200;
+    }
+    .iconfont{
+        font-size: 14px;
+        color: #666;
+        vertical-align: -2px;
+        margin-right: 2px;
+    }
+  .logout{
+    padding:0 0 0 20px;
+    background: url("/images/brand/global-icon.jpg") 5px 0 no-repeat;
+    &:hover{
+      color:#ca0200;
+    }
+  }
+}

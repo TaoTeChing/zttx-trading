@@ -1,0 +1,139 @@
+﻿@charset "UTF-8";
+
+@import "../../mixin";
+@import "../../common/index/icons";
+@import "../../common/header";
+@import "../../common/footer";
+
+
+
+.clearance-introduction{
+  height:1260px;
+  background: url("../../../images/fronts/market/clearance/qccl-bg.jpg") center top no-repeat;
+  font-family: 'Microsoft Yahei', '黑体';
+
+  .main-grid{
+    width:1000px;
+    margin: 0 auto;
+  }
+
+}
+
+.row{
+   @include clearfix();
+  .box{
+    @include float();
+    width:500px;
+
+    .content{
+      width:410px;
+      margin:0 auto;
+      padding-top:45px;
+
+      h4{
+        font-size:18px;
+        margin-bottom: 10px;
+      }
+      .bg{
+        background:#ededed;
+        color:#de272e;
+        padding:8px 20px;
+        border-radius: 10px;
+      }
+    }
+
+  }
+
+}
+
+.box{
+  .head{
+    height:50px;
+
+    h3{
+      height:50px;
+      line-height: 50px;
+      text-align: center;
+      font-size:24px;
+      font-weight: bold;
+      color:#ea4a5d;
+    }
+  }
+  .content{
+    font-size:14px;
+
+    ul{
+      @include inline-float();
+      li{
+        width: 500px;
+      }
+      .item{
+        width:400px;
+        margin:0 auto;
+        padding-top:36px;
+
+        h4{
+          height:45px;
+          line-height: 45px;
+          text-align: center;
+          color:#fff;
+
+          span{
+            color:#ffc253;
+          }
+        }
+        p{
+          padding:20px 0 0 0;
+          height:98px;
+        }
+      }
+    }
+  }
+}
+
+
+.clearance-registration{
+  width:260px;
+  height:280px;
+  padding-top:70px;
+  margin-left:720px;
+  .button{
+    @include inline-block();
+    width:230px;
+    height:40px;
+    line-height: 40px;
+    text-align:center;
+    color:#fff;
+    background: #ff8900;
+    font-size: 18px;
+    border-radius: 6px;
+
+    &:hover{
+      background:lighten(#ff8900,5%);
+    }
+  }
+  p{
+    height:30px;
+    line-height: 30px;
+  }
+  .js-img-center{
+    border:1px solid #ccc;
+    padding:1px;
+  }
+}
+
+.js-img-center{
+  vertical-align: middle;
+  font-size: 0;
+  overflow: hidden;
+
+  img{
+    vertical-align: middle;
+    width:100%;
+  }
+  span{
+    @include inline-block();
+    height:100%;
+    vertical-align: middle;
+  }
+}

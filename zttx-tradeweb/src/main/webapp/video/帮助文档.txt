@@ -1,0 +1,98 @@
+
+一：文件里的东西：
+
+     Clear_Skin_1      Flvplayer      FLVPlayer_Progressive    视频文件     JS文件   
+
+     （上面 5 个是必须的，需要传到服务器上面）
+
+二：服务器类型
+
+I）云主机：需要配置 IIS（如果使用TOMCAT发布的网站就不用了）
+
+   步骤：1.打开 IIS
+         2.网站  右击 属性 
+         3.http头 -->MIME  --> 新建 --->  .flv   /   .flv     ||||    .swf   /    .swf
+         4.确定
+
+II)空间：通过 后台管理 --》控制面板 配置，如果没有，联系空间服务商
+
+III)模板建站：一般通过后台管理加脚本，加在底部
+
+三：路径
+
+I）如果是传在根目录，直接在后台加  脚本串
+  
+   例：<script type="text/javascript" src="http://www.aaa.com/liyunwangluo_20131128.js"></script>
+
+   例中的  liyunwangluo_20131128.js      换成   自己文件夹里的  JS文件名称
+
+
+II）如果是传在文件夹下，假设是 sp 文件夹
+
+   打开 JS 文件 ， 搜索以下几个关键词：
+   Clear_Skin_1      FLVPlayer_Progressive    FLV视频文件名称     
+
+   能搜到的在前面加上绝对路径，有 6  个
+
+   同时 脚本串也改：<script type="text/javascript"    src="http://www.aaa.com/sp/liyunwangluo_20131128.js"></script>
+
+
+四：ie兼容性问题
+
+   第一行加上这个
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+   head里面加上这个
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+五：绑定域名
+
+   打开JS文件， 第二行有 if(host==''||host=='')， 自己添加即可
+
+
+六：可能遇到的问题
+
+I）盗用视频 ： 没绑定域名，参见 （五）
+
+II）只有一个 关闭 按钮 ： 云主机 ， 没配置 IIS  MIME   ，参见（二）
+
+III）什么都没有：路径的问题，参见（三）
+
+IIII）其他问题， QQ：800058887  ，
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

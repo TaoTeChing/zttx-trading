@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerCountMapper">
+    <!-- 基础列 -->
+    <sql id="dealerCountColumns">
+        a.dealerId as dealerId ,
+        a.joinCount as joinCount ,
+        a.applyCount as applyCount ,
+        a.inviteCount as inviteCount ,
+        a.balanceCount as balanceCount ,
+        a.waitConfirmCount as waitConfirmCount ,
+        a.refundCount as refundCount ,
+        a.sysMessageCount as sysMessageCount ,
+        a.warningCount as warningCount ,
+        a.factoryJoinCount as factoryJoinCount ,
+        a.factoryHasPaid as factoryHasPaid ,
+        a.factoryNonPaid as factoryNonPaid ,
+        a.createtime as createtime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerCount">
+        insert into DealerCount(
+        dealerId ,
+        joinCount ,
+        applyCount ,
+        inviteCount ,
+        balanceCount ,
+        waitConfirmCount ,
+        refundCount ,
+        sysMessageCount ,
+        warningCount ,
+        factoryJoinCount ,
+        factoryHasPaid ,
+        factoryNonPaid ,
+        createtime ,
+        updateTime ,
+        delFlag
+        ) VALUES (
+        #{dealerId} ,
+        #{joinCount} ,
+        #{applyCount} ,
+        #{inviteCount} ,
+        #{balanceCount} ,
+        #{waitConfirmCount} ,
+        #{refundCount} ,
+        #{sysMessageCount} ,
+        #{warningCount} ,
+        #{factoryJoinCount} ,
+        #{factoryHasPaid} ,
+        #{factoryNonPaid} ,
+        #{createtime} ,
+        #{updateTime} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerCount where dealerId = #{dealerId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerCount set delFlag = true where dealerId = #{dealerId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerCount">
+        insert into DealerCount
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="joinCount != null">
+                joinCount ,
+            </if>
+            <if test="applyCount != null">
+                applyCount ,
+            </if>
+            <if test="inviteCount != null">
+                inviteCount ,
+            </if>
+            <if test="balanceCount != null">
+                balanceCount ,
+            </if>
+            <if test="waitConfirmCount != null">
+                waitConfirmCount ,
+            </if>
+            <if test="refundCount != null">
+                refundCount ,
+            </if>
+            <if test="sysMessageCount != null">
+                sysMessageCount ,
+            </if>
+            <if test="warningCount != null">
+                warningCount ,
+            </if>
+            <if test="factoryJoinCount != null">
+                factoryJoinCount ,
+            </if>
+            <if test="factoryHasPaid != null">
+                factoryHasPaid ,
+            </if>
+            <if test="factoryNonPaid != null">
+                factoryNonPaid ,
+            </if>
+            <if test="createtime != null">
+                createtime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="joinCount != null">
+                #{joinCount} ,
+            </if>
+            <if test="applyCount != null">
+                #{applyCount} ,
+            </if>
+            <if test="inviteCount != null">
+                #{inviteCount} ,
+            </if>
+            <if test="balanceCount != null">
+                #{balanceCount} ,
+            </if>
+            <if test="waitConfirmCount != null">
+                #{waitConfirmCount} ,
+            </if>
+            <if test="refundCount != null">
+                #{refundCount} ,
+            </if>
+            <if test="sysMessageCount != null">
+                #{sysMessageCount} ,
+            </if>
+            <if test="warningCount != null">
+                #{warningCount} ,
+            </if>
+            <if test="factoryJoinCount != null">
+                #{factoryJoinCount} ,
+            </if>
+            <if test="factoryHasPaid != null">
+                #{factoryHasPaid} ,
+            </if>
+            <if test="factoryNonPaid != null">
+                #{factoryNonPaid} ,
+            </if>
+            <if test="createtime != null">
+                #{createtime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerCount">
+        update DealerCount
+        <set>
+            <if test="joinCount != null">
+                joinCount = #{joinCount} ,
+            </if>
+            <if test="applyCount != null">
+                applyCount = #{applyCount} ,
+            </if>
+            <if test="inviteCount != null">
+                inviteCount = #{inviteCount} ,
+            </if>
+            <if test="balanceCount != null">
+                balanceCount = #{balanceCount} ,
+            </if>
+            <if test="waitConfirmCount != null">
+                waitConfirmCount = #{waitConfirmCount} ,
+            </if>
+            <if test="refundCount != null">
+                refundCount = #{refundCount} ,
+            </if>
+            <if test="sysMessageCount != null">
+                sysMessageCount = #{sysMessageCount} ,
+            </if>
+            <if test="warningCount != null">
+                warningCount = #{warningCount} ,
+            </if>
+            <if test="factoryJoinCount != null">
+                factoryJoinCount = #{factoryJoinCount} ,
+            </if>
+            <if test="factoryHasPaid != null">
+                factoryHasPaid = #{factoryHasPaid} ,
+            </if>
+            <if test="factoryNonPaid != null">
+                factoryNonPaid = #{factoryNonPaid} ,
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where dealerId = #{dealerId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerCount">
+        update DealerCount set
+        joinCount = #{joinCount} ,
+        applyCount = #{applyCount} ,
+        inviteCount = #{inviteCount} ,
+        balanceCount = #{balanceCount} ,
+        waitConfirmCount = #{waitConfirmCount} ,
+        refundCount = #{refundCount} ,
+        sysMessageCount = #{sysMessageCount} ,
+        warningCount = #{warningCount} ,
+        factoryJoinCount = #{factoryJoinCount} ,
+        factoryHasPaid = #{factoryHasPaid} ,
+        factoryNonPaid = #{factoryNonPaid} ,
+        createtime = #{createtime} ,
+        updateTime = #{updateTime} ,
+        delFlag = #{delFlag}
+        where dealerId = #{dealerId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerCount">
+        select
+        <include refid="dealerCountColumns"/>
+        from DealerCount a where a.dealerId = #{dealerId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerCount">
+        SELECT
+        <include refid="dealerCountColumns"/>
+        FROM DealerCount a WHERE a.delFlag = 0
+        <if test="joinCount != null and joinCount != ''">
+            and a.joinCount = #{joinCount}
+        </if>
+        <if test="applyCount != null and applyCount != ''">
+            and a.applyCount = #{applyCount}
+        </if>
+        <if test="inviteCount != null and inviteCount != ''">
+            and a.inviteCount = #{inviteCount}
+        </if>
+        <if test="balanceCount != null and balanceCount != ''">
+            and a.balanceCount = #{balanceCount}
+        </if>
+        <if test="waitConfirmCount != null and waitConfirmCount != ''">
+            and a.waitConfirmCount = #{waitConfirmCount}
+        </if>
+        <if test="refundCount != null and refundCount != ''">
+            and a.refundCount = #{refundCount}
+        </if>
+        <if test="sysMessageCount != null and sysMessageCount != ''">
+            and a.sysMessageCount = #{sysMessageCount}
+        </if>
+        <if test="warningCount != null and warningCount != ''">
+            and a.warningCount = #{warningCount}
+        </if>
+        <if test="factoryJoinCount != null and factoryJoinCount != ''">
+            and a.factoryJoinCount = #{factoryJoinCount}
+        </if>
+        <if test="factoryHasPaid != null and factoryHasPaid != ''">
+            and a.factoryHasPaid = #{factoryHasPaid}
+        </if>
+        <if test="factoryNonPaid != null and factoryNonPaid != ''">
+            and a.factoryNonPaid = #{factoryNonPaid}
+        </if>
+        <if test="createtime != null and createtime != ''">
+            and a.createtime = #{createtime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerCount">
+        SELECT
+        <include refid="dealerCountColumns"/>
+        FROM DealerCount a WHERE a.delFlag = 0
+    </select>
+   <!--根据dealerId查询实体-->
+    <select id="selectByDealerId" resultType="com.zttx.web.module.dealer.entity.DealerCount">
+        select
+        <include refid="dealerCountColumns"/>
+        from DealerCount a where a.delFlag = 0 and a.dealerId = #{dealerId}
+    </select>
+
+    <update id="updateDealerCount">
+        update DealerCount
+        <choose>
+            <when test="columnType == 0">
+                set joinCount = joinCount + #{count}
+            </when>
+            <when test="columnType == 1">
+                set applyCount = applyCount + #{count}
+            </when>
+            <when test="columnType == 2">
+                set inviteCount = inviteCount + #{count}
+            </when>
+            <when test="columnType == 3">
+                set balanceCount = balanceCount + #{count}
+            </when>
+            <when test="columnType == 4">
+                set waitConfirmCount = waitConfirmCount + #{count}
+            </when>
+            <when test="columnType == 5">
+                set refundCount = refundCount + #{count}
+            </when>
+            <when test="columnType == 6">
+                set sysMessageCount = sysMessageCount + #{count}
+            </when>
+            <when test="columnType == 7">
+                set warningCount = warningCount + #{count}
+            </when>
+            <when test="columnType == 8">
+                set factoryJoinCount = factoryJoinCount + #{count}
+            </when>
+            <when test="columnType == 9">
+                set factoryHasPaid = factoryHasPaid + #{count}
+            </when>
+            <when test="columnType == 10">
+                set factoryNonPaid = factoryNonPaid + #{count}
+            </when>
+        </choose>
+        where dealerId=#{dealerId}
+    </update>
+    
+    <!-- 根据dealerId 对 factoryJoinCount,factoryHasPaid做++处理 -->
+    <update id="updateCount">
+        update DealerCount a set
+        a.factoryJoinCount = a.factoryJoinCount+1 ,
+        a.factoryHasPaid = a.factoryHasPaid+1 ,
+        a.updateTime = #{updateTime} 
+        where a.delFlag = 0 and a.dealerId = #{dealerId}
+    </update>
+</mapper>
+

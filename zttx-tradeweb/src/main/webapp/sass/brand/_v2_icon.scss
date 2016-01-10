@@ -1,0 +1,23 @@
+@charset "utf-8";
+//第二版所有的图标
+.v2-icon-help,.v2-icon-explain{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    *margin-right: 5px;
+    background: url("../../images/brand/v2-icon.png") no-repeat;
+}
+.v2-icon-help{
+    width: 14px;
+    height: 14px;
+    background-position: 0 0;
+    margin-right: 5px;
+    vertical-align: -2px;
+    *vertical-align: middle;
+}
+.v2-icon-explain{
+    width: 19px;
+    height: 19px;
+    background-position: -16px 0;
+    margin-right: 5px;
+}

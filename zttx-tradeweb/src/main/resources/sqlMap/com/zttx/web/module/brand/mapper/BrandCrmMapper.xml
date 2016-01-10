@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandCrmMapper">
+    <!-- 基础列 -->
+    <sql id="brandCrmColumns">
+        a.refrenceId as refrenceId ,
+        a.json as json ,
+        a.jsonType as jsonType ,
+        a.createTime as createTime ,
+        a.brandState as brandState 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandCrm">
+        insert into BrandCrm(
+         refrenceId ,
+         json ,
+         jsonType ,
+         createTime ,
+         brandState 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{json}  ,
+        #{jsonType}  ,
+        #{createTime}  ,
+        #{brandState}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandCrm where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandCrm set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandCrm">
+        insert into BrandCrm
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="json != null">
+            json ,
+        </if>
+        <if test="jsonType != null">
+            jsonType ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="brandState != null">
+            brandState 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="json != null">
+            #{json} ,
+        </if>
+        <if test="jsonType != null">
+            #{jsonType} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="brandState != null">
+            #{brandState} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandCrm">
+        update BrandCrm
+           <set>
+            <if test="json != null">
+                json = #{json} ,
+            </if>
+            <if test="jsonType != null">
+                jsonType = #{jsonType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="brandState != null">
+                brandState = #{brandState} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandCrm">
+        update BrandCrm set
+            json = #{json} ,
+            jsonType = #{jsonType} ,
+            createTime = #{createTime} ,
+            brandState = #{brandState} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandCrm">
+        select <include refid="brandCrmColumns"/> from BrandCrm a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandCrm">
+        SELECT
+        <include refid="brandCrmColumns"/>
+        FROM BrandCrm a WHERE 1 = 1
+        <if test="json != null and json != ''">
+            and a.json like CONCAT('%,',#{json}, ',%'))
+        </if>
+        <if test="jsonType != null and jsonType != ''">
+            and a.jsonType = #{jsonType}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="brandState != null and brandState != ''">
+            and a.brandState = #{brandState}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandCrm">
+        SELECT
+        <include refid="brandCrmColumns"/>
+        FROM BrandCrm a 
+    </select>
+    
+    <!-- 通过接口获取品牌商更新信息-->
+    <select id="selectBrandCrmByClient" resultType="com.zttx.web.module.brand.entity.BrandCrm">
+        SELECT
+        <include refid="brandCrmColumns"/>
+        FROM BrandCrm a WHERE a.brandState = 1
+        <if test="jsonType != null and jsonType != ''">
+            and a.jsonType = #{jsonType}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime &gt; #{createTime}
+        </if>
+         order by a.createTime asc
+    </select>
+</mapper>
+

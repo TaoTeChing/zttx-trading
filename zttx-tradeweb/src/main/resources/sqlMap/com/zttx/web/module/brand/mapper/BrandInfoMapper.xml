@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandInfoMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="brandInfoColumns">
+        a.refrenceId as refrenceId,
+        a.comName as comName ,
+        a.comType as comType,
+        a.dealType as dealType,
+        a.domainName as domainName,
+        a.brandPhoto as brandPhoto,
+        a.brandImage as brandImage ,
+        a.userPhoto as userPhoto,
+        a.userImage as userImage,
+        a.comNum as comNum,
+        a.idNum as idNum,
+        a.legalName as legalName ,
+        a.regMoney as regMoney,
+        a.areaNo as areaNo,
+        a.provinceName as provinceName,
+        a.cityName as cityName,
+        a.areaName as areaName ,
+        a.comAddress as comAddress,
+        a.comWeb as comWeb,
+        a.comMark as comMark,
+        a.createTime as createTime,
+        a.updateTime as updateTime ,
+        a.checkState as checkState,
+        a.emploeeNum as emploeeNum,
+        a.moneyNum as moneyNum,
+        a.barCodeNum as barCodeNum,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandInfo">
+        INSERT INTO BrandInfo (
+            refrenceId,
+            comName,
+            comType,
+            dealType,
+            domainName,
+            brandPhoto,
+            brandImage,
+            userPhoto,
+            userImage,
+            comNum,
+            idNum,
+            legalName,
+            regMoney,
+            areaNo,
+            provinceName,
+            cityName,
+            areaName,
+            comAddress,
+            comWeb,
+            comMark,
+            createTime,
+            updateTime,
+            checkState,
+            emploeeNum,
+            moneyNum,
+            barCodeNum,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{comName},
+            #{comType},
+            #{dealType},
+            #{domainName},
+            #{brandPhoto},
+            #{brandImage},
+            #{userPhoto},
+            #{userImage},
+            #{comNum},
+            #{idNum},
+            #{legalName},
+            #{regMoney},
+            #{areaNo},
+            #{provinceName},
+            #{cityName},
+            #{areaName},
+            #{comAddress},
+            #{comWeb},
+            #{comMark},
+            #{createTime},
+            #{updateTime},
+            #{checkState},
+            #{emploeeNum},
+            #{moneyNum},
+            #{barCodeNum},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM BrandInfo
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE BrandInfo
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandInfo">
+        insert into BrandInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="comName != null">
+                comName ,
+            </if>
+            <if test="comType != null">
+                comType ,
+            </if>
+            <if test="dealType != null">
+                dealType ,
+            </if>
+            <if test="domainName != null">
+                domainName ,
+            </if>
+            <if test="brandPhoto != null">
+                brandPhoto ,
+            </if>
+            <if test="brandImage != null">
+                brandImage ,
+            </if>
+            <if test="userPhoto != null">
+                userPhoto ,
+            </if>
+            <if test="userImage != null">
+                userImage ,
+            </if>
+            <if test="comNum != null">
+                comNum ,
+            </if>
+            <if test="idNum != null">
+                idNum ,
+            </if>
+            <if test="legalName != null">
+                legalName ,
+            </if>
+            <if test="regMoney != null">
+                regMoney ,
+            </if>
+            <if test="areaNo != null">
+                areaNo ,
+            </if>
+            <if test="provinceName != null">
+                provinceName ,
+            </if>
+            <if test="cityName != null">
+                cityName ,
+            </if>
+            <if test="areaName != null">
+                areaName ,
+            </if>
+            <if test="comAddress != null">
+                comAddress ,
+            </if>
+            <if test="comWeb != null">
+                comWeb ,
+            </if>
+            <if test="comMark != null">
+                comMark ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="checkState != null">
+                checkState ,
+            </if>
+            <if test="emploeeNum != null">
+                emploeeNum ,
+            </if>
+            <if test="moneyNum != null">
+                moneyNum ,
+            </if>
+            <if test="barCodeNum != null">
+                barCodeNum ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="comName != null">
+                #{comName} ,
+            </if>
+            <if test="comType != null">
+                #{comType} ,
+            </if>
+            <if test="dealType != null">
+                #{dealType} ,
+            </if>
+            <if test="domainName != null">
+                #{domainName} ,
+            </if>
+            <if test="brandPhoto != null">
+                #{brandPhoto} ,
+            </if>
+            <if test="brandImage != null">
+                #{brandImage} ,
+            </if>
+            <if test="userPhoto != null">
+                #{userPhoto} ,
+            </if>
+            <if test="userImage != null">
+                #{userImage} ,
+            </if>
+            <if test="comNum != null">
+                #{comNum} ,
+            </if>
+            <if test="idNum != null">
+                #{idNum} ,
+            </if>
+            <if test="legalName != null">
+                #{legalName} ,
+            </if>
+            <if test="regMoney != null">
+                #{regMoney} ,
+            </if>
+            <if test="areaNo != null">
+                #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                #{areaName} ,
+            </if>
+            <if test="comAddress != null">
+                #{comAddress} ,
+            </if>
+            <if test="comWeb != null">
+                #{comWeb} ,
+            </if>
+            <if test="comMark != null">
+                #{comMark} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="checkState != null">
+                #{checkState} ,
+            </if>
+            <if test="emploeeNum != null">
+                #{emploeeNum} ,
+            </if>
+            <if test="moneyNum != null">
+                #{moneyNum} ,
+            </if>
+            <if test="barCodeNum != null">
+                #{barCodeNum} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandInfo">
+        update BrandInfo
+        <set>
+            <if test="comName != null">
+                comName = #{comName} ,
+            </if>
+            <if test="comType != null">
+                comType = #{comType} ,
+            </if>
+            <if test="dealType != null">
+                dealType = #{dealType} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="brandPhoto != null">
+                brandPhoto = #{brandPhoto} ,
+            </if>
+            <if test="brandImage != null">
+                brandImage = #{brandImage} ,
+            </if>
+            <if test="userPhoto != null">
+                userPhoto = #{userPhoto} ,
+            </if>
+            <if test="userImage != null">
+                userImage = #{userImage} ,
+            </if>
+            <if test="comNum != null">
+                comNum = #{comNum} ,
+            </if>
+            <if test="idNum != null">
+                idNum = #{idNum} ,
+            </if>
+            <if test="legalName != null">
+                legalName = #{legalName} ,
+            </if>
+            <if test="regMoney != null">
+                regMoney = #{regMoney} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="provinceName != null">
+                provinceName = #{provinceName} ,
+            </if>
+            <if test="cityName != null">
+                cityName = #{cityName} ,
+            </if>
+            <if test="areaName != null">
+                areaName = #{areaName} ,
+            </if>
+            <if test="comAddress != null">
+                comAddress = #{comAddress} ,
+            </if>
+            <if test="comWeb != null">
+                comWeb = #{comWeb} ,
+            </if>
+            <if test="comMark != null">
+                comMark = #{comMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="checkState != null">
+                checkState = #{checkState} ,
+            </if>
+            <if test="emploeeNum != null">
+                emploeeNum = #{emploeeNum} ,
+            </if>
+            <if test="moneyNum != null">
+                moneyNum = #{moneyNum} ,
+            </if>
+            <if test="barCodeNum != null">
+                barCodeNum = #{barCodeNum} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandInfo">
+        UPDATE BrandInfo
+        SET
+            comName      = #{comName},
+            comType      = #{comType},
+            dealType     = #{dealType},
+            domainName   = #{domainName},
+            brandPhoto   = #{brandPhoto},
+            brandImage   = #{brandImage},
+            userPhoto    = #{userPhoto},
+            userImage    = #{userImage},
+            comNum       = #{comNum},
+            idNum        = #{idNum},
+            legalName    = #{legalName},
+            regMoney     = #{regMoney},
+            areaNo       = #{areaNo},
+            provinceName = #{provinceName},
+            cityName     = #{cityName},
+            areaName     = #{areaName},
+            comAddress   = #{comAddress},
+            comWeb       = #{comWeb},
+            comMark      = #{comMark},
+            createTime   = #{createTime},
+            updateTime   = #{updateTime},
+            checkState   = #{checkState},
+            emploeeNum   = #{emploeeNum},
+            moneyNum     = #{moneyNum},
+            barCodeNum   = #{barCodeNum},
+            delFlag      = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandInfo">
+        select
+        <include refid="brandInfoColumns"/>
+        from BrandInfo a where a.delFlag = 0 and a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandInfo">
+        SELECT
+        <include refid="brandInfoColumns"/>
+        FROM BrandInfo a WHERE a.delFlag = 0
+        <if test="comName != null and comName != ''">
+            and a.comName like CONCAT('%',#{comName}, '%')
+        </if>
+        <if test="comType != null and comType != ''">
+            and a.comType = #{comType}
+        </if>
+        <if test="dealType != null and dealType != ''">
+            and a.dealType = #{dealType}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="brandPhoto != null and brandPhoto != ''">
+            and a.brandPhoto like CONCAT('%',#{brandPhoto}, '%')
+        </if>
+        <if test="brandImage != null and brandImage != ''">
+            and a.brandImage like CONCAT('%',#{brandImage}, '%')
+        </if>
+        <if test="userPhoto != null and userPhoto != ''">
+            and a.userPhoto like CONCAT('%',#{userPhoto}, '%')
+        </if>
+        <if test="userImage != null and userImage != ''">
+            and a.userImage like CONCAT('%',#{userImage}, '%')
+        </if>
+        <if test="comNum != null and comNum != ''">
+            and a.comNum like CONCAT('%',#{comNum}, '%')
+        </if>
+        <if test="idNum != null and idNum != ''">
+            and a.idNum like CONCAT('%',#{idNum}, '%')
+        </if>
+        <if test="legalName != null and legalName != ''">
+            and a.legalName like CONCAT('%',#{legalName}, '%')
+        </if>
+        <if test="regMoney != null and regMoney != ''">
+            and a.regMoney = #{regMoney}
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo = #{areaNo}
+        </if>
+        <if test="provinceName != null and provinceName != ''">
+            and a.provinceName like CONCAT('%',#{provinceName}, '%')
+        </if>
+        <if test="cityName != null and cityName != ''">
+            and a.cityName like CONCAT('%',#{cityName}, '%')
+        </if>
+        <if test="areaName != null and areaName != ''">
+            and a.areaName like CONCAT('%',#{areaName}, '%')
+        </if>
+        <if test="comAddress != null and comAddress != ''">
+            and a.comAddress like CONCAT('%',#{comAddress}, '%')
+        </if>
+        <if test="comWeb != null and comWeb != ''">
+            and a.comWeb like CONCAT('%',#{comWeb}, '%')
+        </if>
+        <if test="comMark != null and comMark != ''">
+            and a.comMark like CONCAT('%',#{comMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="checkState != null and checkState != ''">
+            and a.checkState = #{checkState}
+        </if>
+        <if test="emploeeNum != null and emploeeNum != ''">
+            and a.emploeeNum = #{emploeeNum}
+        </if>
+        <if test="moneyNum != null and moneyNum != ''">
+            and a.moneyNum = #{moneyNum}
+        </if>
+        <if test="barCodeNum != null and barCodeNum != ''">
+            and a.barCodeNum like CONCAT('%',#{barCodeNum}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandInfo">
+        SELECT
+        <include refid="brandInfoColumns"/>
+        FROM BrandInfo a WHERE a.delFlag = 0
+    </select>
+
+    <!-- 获取品牌商 最大条形码助记码 -->
+    <select id="getMaxBrandInfobarCodeNum" resultType="java.lang.String">
+        SELECT max(o.barCodeNum)
+        FROM BrandInfo o
+    </select>
+
+    <select id="isExits" resultType="java.lang.Boolean">
+        select count(1)
+        from BrandInfo
+        where comName = #{comName}
+        <if test="oldBrandId != null">
+            And refrenceId != #{oldBrandId}
+        </if>
+        Limit 1
+    </select>
+    <select id="getBrandMInStore" parameterType="String" resultType="Integer">
+        SELECT min(a.minStore)
+        FROM ProductExtInfo a, ProductBaseInfo b
+        WHERE
+            a.refrenceId = b.refrenceId
+            AND b.brandId = #{brandId}
+            AND b.delFlag = 0
+            AND b.stateSet != 3
+    </select>
+
+    <select id="findAllBrandBaseInfo" resultType="java.util.HashMap">
+        SELECT
+            a.refrenceId AS refrenceId,
+            a.comName    AS comName
+        FROM BrandInfo a
+        WHERE a.delFlag = 0
+    </select>
+</mapper>
+

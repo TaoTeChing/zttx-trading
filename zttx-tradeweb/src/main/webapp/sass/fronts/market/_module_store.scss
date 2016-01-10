@@ -1,0 +1,49 @@
+@charset "UTF-8";
+//new-edit 为区分之前和现在的
+.new-edit-network{
+    padding: 10px 8px 0 8px;
+    background: #f3f3f3;
+}
+.new-edit-networkul {
+    margin-right: -15px;
+    li {
+        float: left;
+        width: 280px;
+        margin:0 15px 15px 0;
+        _display: inline;
+        .imgbox{
+            width: 280px;
+            height: 180px;
+        }
+        .title,.address,.price{
+            padding:0 10px;
+            background: #fff;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+        }
+        .title {
+            line-height: 30px;
+            color: #666;
+        }
+        .address {
+            width: 260px;
+            padding-bottom: 10px;
+            line-height: 20px;
+            color: #333;
+        }
+        .price{
+            padding-bottom: 10px;
+            line-height: 20px;
+            font-size: 13px;
+            font-family: Arial;
+            font-weight: bold;
+            color: #000;
+            em{
+                font-family: "Microsoft yahei";
+            }
+        }
+    }
+}

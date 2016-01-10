@@ -1,0 +1,135 @@
+﻿@charset "UTF-8";
+
+@import "../../reset";
+@import "../../mixin";
+@import "../../typography";
+
+body {
+    font: 12px/1.5 '宋体',arial,verdana;
+    background:#ecebe1;
+    color: #333;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+}
+a {
+    text-decoration: none;
+    color: #666;
+}
+a:hover {
+    text-decoration: underline;
+    color: #ff8900;
+}
+
+a.link {
+  color: #08c;
+}
+
+.inline-float {
+    @include inline-float();
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+
+/*填充*/
+
+.mb5 {
+    margin-bottom: 5px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+.mb40 {
+    margin-bottom: 40px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.ml5 {
+    margin-left: 5px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml20 {
+    margin-left: 20px;
+}
+
+.mt5 {
+    margin-top: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+/*漂浮*/
+.fl {
+    @include float();
+}
+
+.fr {
+    @include float(right);
+}
+
+/*功能*/
+.hide {
+    display: none;
+}
+
+.show, .block {
+    display: block;
+}
+
+.block {
+    overflow: hidden;
+}
+
+/*分割线*/
+.hr {
+    border-top: 1px solid #ddd;
+    line-height: 0;
+    border-bottom: 1px solid #fff;
+}
+
+.hr-dashed {
+    border-top: 1px dashed #ddd;
+    line-height: 0;
+    border-bottom: 1px dashed #fff;
+}
+
+/*位置*/
+.pr {
+    position: relative;
+}
+
+.pa {
+    position: absolute;
+}
+
+.ta-r {
+    text-align: right;
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.ta-l {
+    text-align: left;
+}
+

@@ -1,0 +1,89 @@
+﻿@charset "UTF-8";
+
+.shop-logo {
+    position: relative;
+    /*height: 400px;*/
+    /*background-repeat:no-repeat;
+    background-position: center center;
+    background-size:100% 400px;*/
+
+    .badge{
+      position: absolute;
+      bottom:10px;
+      right:10px;
+      font-size:20px;
+      background-color:rgba(0,0,0,0.5);
+    }
+    img {
+        display: block;
+        //width: 100%;
+        max-height: 400px;
+
+        /*border: 3px solid rgba(255,255,255,0.2);*/
+        /*border-radius: 10px;*/
+        margin: 0 auto;
+        //background-color: rgba(255,255,255,0.2);
+        //-webkit-appearance: none;
+    }
+
+    h1 {
+        display: block;
+        text-align: center;
+        color: #fff;
+        text-shadow: 2px 2px 2px #111;
+    }
+}
+
+.shop-content {
+    background-color: #f0f0f0;
+
+    .container {
+
+        a {
+            text-decoration: none;
+
+            img {
+                margin: 5px auto;
+            }
+        }
+
+        h4 {
+            color: #666;
+
+            &.money {
+                color: #e70012;
+            }
+        }
+    }
+}
+
+.pr5 {
+    padding-right: 5px;
+}
+
+.pl5 {
+    padding-left: 5px;
+}
+.mb10 {
+    margin-bottom:10px;
+}
+.mb20 {
+    margin-bottom:20px;
+}
+
+.shop-btns {
+    
+    margin-top:20px;
+    /*padding-top:28px;*/
+    /*background-color: #fff;
+    border-radius:7px;*/
+}
+
+.shop-title {
+    background-color:#fff;
+    box-shadow: 0 3px 6px rgba(0,0,0,.05);
+}
+.hr {
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #fff;
+}

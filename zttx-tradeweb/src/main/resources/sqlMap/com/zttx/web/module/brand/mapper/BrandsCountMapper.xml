@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandsCountMapper">
+    <!-- 基础列 -->
+    <sql id="brandsCountColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.joinCount as joinCount ,
+        a.applyCount as applyCount ,
+        a.inviteCount as inviteCount ,
+        a.orderNum as orderNum ,
+        a.productCount as productCount ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.ranking as ranking ,
+        a.favNum as favNum ,
+        a.viewNum as viewNum ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandsCount">
+        insert into BrandsCount(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         joinCount ,
+         applyCount ,
+         inviteCount ,
+         orderNum ,
+         productCount ,
+         createTime ,
+         updateTime ,
+         ranking ,
+         favNum ,
+         viewNum ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{joinCount}  ,
+        #{applyCount}  ,
+        #{inviteCount}  ,
+        #{orderNum}  ,
+        #{productCount}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{ranking}  ,
+        #{favNum}  ,
+        #{viewNum}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandsCount where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandsCount set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandsCount">
+        insert into BrandsCount
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="joinCount != null">
+            joinCount ,
+        </if>
+        <if test="applyCount != null">
+            applyCount ,
+        </if>
+        <if test="inviteCount != null">
+            inviteCount ,
+        </if>
+        <if test="orderNum != null">
+            orderNum ,
+        </if>
+        <if test="productCount != null">
+            productCount ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="ranking != null">
+            ranking ,
+        </if>
+        <if test="favNum != null">
+            favNum ,
+        </if>
+        <if test="viewNum != null">
+            viewNum ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="joinCount != null">
+            #{joinCount} ,
+        </if>
+        <if test="applyCount != null">
+            #{applyCount} ,
+        </if>
+        <if test="inviteCount != null">
+            #{inviteCount} ,
+        </if>
+        <if test="orderNum != null">
+            #{orderNum} ,
+        </if>
+        <if test="productCount != null">
+            #{productCount} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="ranking != null">
+            #{ranking} ,
+        </if>
+        <if test="favNum != null">
+            #{favNum} ,
+        </if>
+        <if test="viewNum != null">
+            #{viewNum} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandsCount">
+        update BrandsCount
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="joinCount != null">
+                joinCount = #{joinCount} ,
+            </if>
+            <if test="applyCount != null">
+                applyCount = #{applyCount} ,
+            </if>
+            <if test="inviteCount != null">
+                inviteCount = #{inviteCount} ,
+            </if>
+            <if test="orderNum != null">
+                orderNum = #{orderNum} ,
+            </if>
+            <if test="productCount != null">
+                productCount = #{productCount} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="ranking != null">
+                ranking = #{ranking} ,
+            </if>
+            <if test="favNum != null">
+                favNum = #{favNum} ,
+            </if>
+            <if test="viewNum != null">
+                viewNum = #{viewNum} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandsCount">
+        update BrandsCount set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            joinCount = #{joinCount} ,
+            applyCount = #{applyCount} ,
+            inviteCount = #{inviteCount} ,
+            orderNum = #{orderNum} ,
+            productCount = #{productCount} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            ranking = #{ranking} ,
+            favNum = #{favNum} ,
+            viewNum = #{viewNum} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandsCount">
+        select <include refid="brandsCountColumns"/> from BrandsCount a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandsCount">
+        SELECT
+        <include refid="brandsCountColumns"/>
+        FROM BrandsCount a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="joinCount != null and joinCount != ''">
+            and a.joinCount = #{joinCount}
+        </if>
+        <if test="applyCount != null and applyCount != ''">
+            and a.applyCount = #{applyCount}
+        </if>
+        <if test="inviteCount != null and inviteCount != ''">
+            and a.inviteCount = #{inviteCount}
+        </if>
+        <if test="orderNum != null and orderNum != ''">
+            and a.orderNum = #{orderNum}
+        </if>
+        <if test="productCount != null and productCount != ''">
+            and a.productCount = #{productCount}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="ranking != null and ranking != ''">
+            and a.ranking = #{ranking}
+        </if>
+        <if test="favNum != null and favNum != ''">
+            and a.favNum = #{favNum}
+        </if>
+        <if test="viewNum != null and viewNum != ''">
+            and a.viewNum = #{viewNum}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandsCount">
+        SELECT
+        <include refid="brandsCountColumns"/>
+        FROM BrandsCount a WHERE a.delFlag = 0
+    </select>
+
+
+    <select id="findByBrandIdAndBrandesId" resultType="com.zttx.web.module.brand.entity.BrandsCount">
+        select 
+			<include refid="brandsCountColumns"/>
+        from BrandsCount a
+        where a.brandsId = #{brandesId}
+        and a.brandId=#{brandId}
+        AND a.delFlag = 0
+        ORDER BY a.createTime DESC
+        LIMIT 1
+    </select>
+    <select id="getBrandsCountUpdatedBetween" resultType="java.lang.String">
+        SELECT
+	        a.refrenceId
+        FROM
+            BrandsCount a
+        WHERE
+            a.updateTime BETWEEN #{time1}
+        AND #{time2}
+    </select>
+
+    <update id="updateBrandsCount" parameterType="map" >
+		update BrandsCount set #{colnumnName} = #{colnumnName} + #{count},updateTime = #{now} where brandId =  #{brandId} and brandsId =  #{brandsId} and #{colnumnName} > 0
+	</update>
+	
+</mapper>
+

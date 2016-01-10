@@ -1,0 +1,548 @@
+@charset "utf-8";
+body{
+  background: #f1eee5;
+}
+a{
+  text-decoration: none;
+  color:#666;
+  &:hover{
+    text-decoration: none;
+  }
+}
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+i, em {
+  font-style: normal;
+}
+.em100 {
+  margin:0 auto;
+  width: 100em;
+}
+.clearfix:after {
+  visibility: hidden;
+  font-size: 0;
+  clear: both;
+  content: "​";
+  display: block;
+  height: 0;
+}
+.clearfix{
+  *zoom:1;
+}
+.top{
+  background: #FFF;
+}
+.top-center .logo{
+  background: url(../../../images/fronts/market/logo.png)0 center no-repeat;
+}
+.top-center .top-r li .top-search-text{
+  background: url(../../../images/fronts/market/search_b.jpg)0 center no-repeat;
+}
+.navigation{
+  height: 38px;
+  background: #232323;
+  margin-bottom:18px;
+  .nav-items li {
+    float:left;
+    a{
+      color:#FFF;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: "微软雅黑";
+      padding:0 40px;
+      display: inline-block;
+      height: 38px;
+      line-height: 38px;
+      &:hover{
+        background: #a20000;
+      }
+    }
+    .active{
+      background: #a20000;
+    }
+  }
+  .nav{
+    position: relative;
+    background: #232323;
+    .brand-menu{
+      position: absolute;
+      top:0;
+      right:0;
+      height: 38px;
+      line-height: 38px;
+      li{
+        float:left;
+        a{
+          font-family: "微软雅黑";
+          font-size: 14px;
+          color:#FFF;
+          display: inline-block;
+          height: 38px;
+          line-height: 38px;
+          padding:0 20px;
+        }
+      }
+      .collect{
+        border-right:1px solid #333;
+      }
+    }
+  }
+}
+
+.main{
+  font-family: "宋体";
+}
+/*搜索列表*/
+.left-part{
+  width:890px;
+  .result-bar{
+    margin:10px 0;
+    border-bottom:2px solid #333333;
+    height: 35px;
+    line-height: 35px;
+    .statitacs{
+      margin-right:10px;
+      i{
+        color:#cc3333;
+      }
+    }
+    .title{
+      padding-left: 30px;
+      background: url(../../../images/fronts/meet/search.png) 5px center no-repeat;
+      .result{
+        font-size: 18px;
+        font-family: "微软雅黑";
+        color:#333;
+      }
+      .sort{
+        a{
+
+          font-family: "微软雅黑";
+        }
+        .active{
+          color:#cc3333;
+          font-size: 14px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+  /*品牌列表*/
+  .brand-list{
+    padding:0 10px 0 18px;
+    background: #FFF;
+    li{
+      height: 122px;
+      padding: 26px 0;
+      border-bottom:1px solid #e4e3e3;
+      overflow: hidden;
+    }
+    .last-item{
+      border:0;
+    }
+    .img{
+      border:1px solid #b5a27c;
+      width: 212px;
+      height: 120px;
+      margin-right:15px;
+      overflow: hidden;
+      img{
+        vertical-align: top;
+        border:2px solid #dbd4c8;
+      }
+    }
+    .introduce{
+      width: 420px;
+      height: 122px;
+      overflow: hidden;
+      margin-right:30px;
+      h3{
+        font-size: 16px;
+        font-family: "微软雅黑";
+        font-weight: normal;
+      }
+      p{
+        color:#666;
+        line-height: 23px;
+        word-break: break-all;
+        margin-top:8px;
+      }
+    }
+    .info{
+      color:#333;
+      .field{
+        height: 25px;
+        line-height: 25px;
+      }
+      label{
+        display: inline-block;
+        width: 60px;
+        text-align: right;
+      }
+      .settled{
+        color:#b10000;
+      }
+      .btns{
+        a{
+          display: inline-block;
+          width: 60px;
+          height: 22px;
+          line-height: 22px;
+          padding-left: 20px;
+          color:#FFF;
+          background: url(../../../images/fronts/market/favorite.jpg) no-repeat;
+          &:hover{
+            opacity:0.85;
+            filter:alpha(opacity=85);
+          }
+        }
+        .show-detail{
+          background: url(../../../images/fronts/market/detail.jpg) no-repeat;
+        }
+      }
+    }
+  }
+  /*资讯列表*/
+  .info-list{
+    padding: 0 18px;
+    background: #FFF;
+    .items{
+      .new{
+        position: relative;
+        height: 131px;
+        .detail{
+          margin-left:230px;
+        }
+      }
+      li{
+        padding:18px 0;
+        border-bottom: 1px solid #DDD;
+      }
+      .last-item{
+        border:0;
+      }
+      .title{
+        font-family: "微软雅黑";
+        font-size: 16px;
+        color: #333;
+        &:hover{
+          color:#ff8800;
+        }
+      }
+      .pub-date{
+        padding-left:25px;
+        background: url(../../../images/fronts/market/date.jpg) no-repeat;
+        color:#999;
+      }
+      p{
+        height: 50px;
+        line-height: 25px;
+        word-break: break-all;
+        overflow: hidden;
+        margin-top:5px;
+        margin-bottom:10px;
+        color:#666;
+      }
+      .btns a{
+        display: block;
+        height: 28px;
+        line-height: 28px;
+        text-align:center;
+        width:75px;
+        border-radius: 3px;
+        color:#FFF;
+        background: #ff8800;
+        &:hover{
+          background: #f57403;
+        }
+      }
+    }
+    .img{
+      border:1px solid #e6e4e4;
+      width:204px;
+      height: 123px;
+      overflow: hidden;
+      padding:3px;
+      position: absolute;
+      top:18px;
+      left:0;
+      img{
+        vertical-align: top;
+      }
+    }
+  }
+}
+.right-part{
+  width:300px;
+  .hot-word{
+    background: #FFF;
+    border:1px solid #DDD;
+    .content{
+      padding:0 11px 10px 11px;
+      .hots{
+        width:135px;
+        height: 80px;
+        overflow: hidden;
+        float:left;
+        margin-left:3px;
+        margin-bottom:3px;
+        *display: inline;
+        *zoom: 1;
+        position: relative;
+        div{
+          width: 135px;
+          height: 80px;
+          overflow: hidden;
+          .title{
+            position: absolute;
+            bottom:0;
+            left:0;
+            z-index: 1001;
+            color:#FFF;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            width: 135px;
+            i{
+              display: inline-block;
+              height: 20px;
+              width: 20px;
+              background: #cc3333;
+              text-align: center;
+              font-style: italic;
+            }
+            span{
+              margin-left:12px;
+            }
+          }
+          .modal{
+            position:absolute;
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            bottom:0;
+            left:0;
+            background: #333;
+            opacity: 0.5;
+            filter:alpha(opacity=50);
+            width:135px;
+            z-index:1000;
+          }
+        }
+      }
+      .list{
+        clear:both;
+        height: 30px;
+        line-height: 30px;
+        margin-left:3px;
+        i{
+          color: #CC3333;
+          font-style: italic;
+        }
+        a:hover{
+          color:#0082cc;
+        }
+      }
+    }
+  }
+  .art-list{
+    background: #FFF;
+    margin-top:10px;
+    .items{
+      padding:10px;
+      li{
+        height: 30px;
+        line-height: 30px;
+        width: 265px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-left:10px;
+        background: url(../../../images/fronts/school/dot.gif)0 center no-repeat;
+        .chanel{
+          color:#333;
+        }
+        a:hover{
+          color:#0082cc;
+        }
+      }
+    }
+  }
+}
+#tab-view .common-tit{
+  height: 35px;
+  line-height: 35px;
+  border:0;
+  padding:2px 10px;
+  margin:0;
+  .tit{
+    height: 35px;
+    line-height: 35px;
+    border:0;
+    padding:0;
+    margin: 0;
+  }
+}
+/*相关品牌*/
+.related{
+  margin-bottom:20px;
+}
+.related .title{
+  position: relative;
+  height: 35px;
+  line-height: 35px;
+  h3{
+    position: absolute;
+    top:0;
+    left: 0;
+    color:#333333;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    font-weight:normal;
+  }
+  .hr{
+    border:0;
+    border-bottom:1px solid #b2b1ac;
+    margin-left:140px;
+    padding-top:17px;
+  }
+}
+.related .brand-img{
+  margin-right:-24px;
+  div{
+    height: 180px;
+    width:180px;
+    float:left;
+    overflow: hidden;
+    margin-right:24px;
+    *display: inline;
+    *zoom:1;
+    position: relative;
+    a{
+      display: block;
+      height: 180px;
+      width: 180px;
+      position: absolute;
+      top:0;
+      left:0;
+      background: #333;
+      opacity: 0;
+      filter:alpha(opacity=0);
+      &:hover{
+        opacity: 0.3;
+        filter:alpha(opacity=30);
+      }
+    }
+  }
+}
+/*相关咨询*/
+.related-info{
+  .related-info-list{
+    background: #FFF;
+    padding:10px 0 10px 20px;
+    li{
+      float: left;
+      margin-right: 18px;
+      background: url("../../../images/fronts/school/dot.gif") 2px center no-repeat;
+      height: 30px;
+      line-height: 30px;
+      padding-left:10px;
+      a{
+        width: 365px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color:#666;
+        &:hover{
+          color:#0082cc;
+        }
+      }
+    }
+  }
+}
+.common-tit {
+  font-family: "微软雅黑"; height: 48px;line-height: 48px;margin-bottom: 14px;position: relative;border-bottom:1px solid #E5E5E5;margin:0 10px;
+  .tit {
+    height: 46px; border-bottom:2px solid #B10000;color: #7A7A7A;display: inline-block;float: left;font-family: "微软雅黑";font-size: 16px;margin-left: 16px;padding-left: 10px; padding-right: 5px;
+  }
+  .detail {
+    display: inline-block;float: right;margin-right: 14px;
+    .more {
+      background: url("../../../images/fronts/school/icon-linkMore.png") no-repeat; display: inline-block;height: 16px;margin-top: 18px; width: 25px;
+      &:hover{
+        background-position: 0 -16px;
+      }
+    }
+  }
+}
+.hidden{
+  display: none;
+}
+.hot-nav ul{
+  margin:0 11px 0 14px;
+  border-bottom:3px solid #CC3333;
+  li{
+    float:left;
+    cursor: pointer;
+    padding:5px 10px;
+    color:#CC3333;
+  }
+  .active{
+    background: #cc3333;
+    color:#FFF;
+  }
+}
+/*分页*/
+$textSize: 12px;
+.pagination{
+  text-align: center;font-size: 0;padding:23px 0;
+  .total{
+    margin-left: 10px;
+    font-size: $textSize;
+    strong{
+      font-weight: normal;
+    }
+  }
+  .ellipsis{
+    margin-left: 10px;
+    font-size: $textSize;
+  }
+  .page{
+    font-size: $textSize;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 0 6px;
+    height: 22px;
+    line-height: 22px;
+    background: #f3f3f3;
+    color: #666;
+    &:hover{
+      background-color: #C90909;
+      color: #fff;
+    }
+  }
+  .current{
+    background-color: #C90909;
+    color: #fff;
+  }
+  .prev,.next{
+    width: 58px;
+    height: 20px;
+    line-height: 20px;
+    border: #ddd solid 1px;
+    text-align: center;
+    border-radius: 2px;
+    margin-left: 10px;
+    font-size: $textSize;
+    display: inline-block;
+    color: #666;
+    &:hover{
+      color: #0082cc;
+    }
+  }
+}

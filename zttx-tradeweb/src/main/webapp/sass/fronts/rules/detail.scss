@@ -1,0 +1,352 @@
+@charset "UTF-8";
+
+@import "../common/base";
+@import "_header";
+@import "../common/_footer";
+@import "_pagination";
+@import "_dialog";
+@import "_breadnav";
+
+a{
+  text-decoration: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+body{
+  background: #FFF;
+}
+
+.slider{
+  width: 238px;
+  dl{
+    border:1px solid #DDD;
+    font-family: "微软雅黑";
+    dt{
+      height: 40px;
+      line-height: 40px;
+      font-size: 14px;
+      color:#3e3e3e;
+      margin:0 10px;
+      padding-left: 15px;
+      background: url(/images/help/icons-e-c.png) 0 -13px no-repeat;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    dd{
+      font-size: 12px;
+      height: 40px;
+      line-height: 40px;
+      margin-left:30px;
+      margin-right:10px;
+      a{
+        display: block;
+        color:#3e3e3e;
+        padding-left:15px;
+        background: url(/images/help/icons-e-c.png) 0 -40px no-repeat;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover{
+          color:#FF6600;
+        }
+      }
+    }
+  }
+}
+
+/*列表页右侧*/
+.subject{
+  width:950px;
+  .refine-search{
+    border:1px solid #DDD;
+    min-height: 400px;
+    .search-box{
+      margin:3px;
+      padding-bottom:10px;
+      h3{
+        margin:0 10px 10px 0;
+        padding-left:10px;
+        border-bottom:1px dashed #DDD;
+        line-height: 32px;
+        color: #333;
+        font-size:14px;
+        font-weight: bold;
+      }
+      .search{
+        height: 27px;
+        line-height: 27px;
+        *height: 30px;
+        padding:0 20px;
+        overflow: hidden;
+        label{
+          display: inline-block;*display: inline;*zoom:1;
+          font-size:15px;
+          color: #4a4949;
+          font-family: "微软雅黑";
+          margin-right:8px;
+        }
+        #searchForm{
+          *display: inline;*zoom:1;
+          input{
+            height: 25px;
+            line-height: 25px;
+          }
+          .search-input{
+            width:300px;
+            padding:0 10px;
+            border:1px solid #DDD;
+          }
+          .sub-btn{
+            width:70px;
+            background: #e70012;
+            border:0;
+            color:#FFF;
+            cursor:pointer;
+          }
+        }
+        .hot-search{
+          margin-left:5px;
+          width: 400px;
+          height: 25px;
+          overflow: hidden;
+          *display: inline;*zoom:1;
+          a{
+            margin:0 12px;
+            float: left;
+            *display: inline;
+            *zoom:1;
+            &:hover{
+              color:#e70012;
+            }
+          }
+        }
+      }
+    }
+    .result{
+      padding:10px 0;
+      h3{
+        font-size: 14px;
+        font-weight: bold;
+        color:#333;
+        padding:0 40px;
+        margin-bottom: 10px;
+        i{
+          color:#e70012;
+        }
+      }
+      ul{
+        margin-left:2px;
+      }
+      li{
+        a{
+          display: block;
+          height: 35px;
+          line-height: 35px;
+          width:865px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding: 0 40px;
+          background: url(/images/school/dot.gif) 20px center no-repeat;
+          &:hover{
+            background-color: #0082cc;
+            color:#FFF;
+          }
+        }
+      }
+      .even{
+        background-color: #f7f7f7;
+      }
+      .hover{
+        background-color: #0082cc;
+        a{
+          color:#FFF;
+        }
+      }
+    }
+  }
+}
+
+/*详情页右侧*/
+.article{
+  width:950px;
+  overflow: hidden;
+  .details{
+    padding:15px 0;
+    border:1px solid #DDD;
+    .head{
+      text-align: center;
+      h3{
+        font-family: "微软雅黑";
+        font-size: 24px;
+        color:#333;
+        padding: 0 20px;
+      }
+      .version{
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        margin-top:5px;
+        background: #f2f2f2;
+        color:#999;
+        .history-ver{
+          position: absolute;
+          top:0;
+          right:10px;
+          color:#999;
+        }
+      }
+    }
+    .content{
+      padding:0 35px;
+      margin-top:30px;
+      line-height: 30px;
+      color:#666;
+      .section{
+        margin-top:20px;
+        dt{
+          text-indent:24px;
+          color:#333;
+          font-weight: bold;
+        }
+        dd{
+          text-indent: 24px;
+          word-break: break-all;
+          i{
+            font-weight: bold;
+          }
+        }
+      }
+      p{
+        line-height: 30px !important;
+      }
+    }
+  }
+  .question{
+    border:1px solid #DDD;
+    h3{
+      font-size: 14px;
+      font-weight: bold;
+      color:#666;
+      height: 32px;
+      line-height: 32px;
+      padding-left:20px;
+      background: #f2f2f2;
+    }
+    .content{
+      padding:20px;
+      div{
+        line-height: 30px;
+        color:#666;
+      }
+      .support{
+        padding-left:20px;
+        background: url(/images/rules/hander.png)0 6px no-repeat;
+        a{
+          text-decoration: underline;
+          color:#c98320;
+        }
+      }
+      .oppose{
+        padding-left:20px;
+        background: url(/images/rules/hander.png)0 -21px no-repeat;
+        a{
+          text-decoration: underline;
+          color:#c98320;
+        }
+      }
+      .online-consult{
+        h4{
+          font-weight: bold;
+          padding-left:30px;
+          background: url(/images/rules/consult.png)0 center no-repeat;
+        }
+        div{
+          font-weight: normal;
+          a{
+            color:#3366cc;
+          }
+        }
+      }
+    }
+  }
+}
+
+#reasonForm{
+  margin:30px 0;
+  .field-content{
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .ui-form-explain{
+    position: absolute;
+    left:355px;
+    top:0;
+    color:#FF5243;
+  }
+  .leave-msg{
+    height: 150px;
+    textarea{
+      height: 140px;
+      width: 445px;
+      border:1px solid #DDD;
+      border-radius: 3px;
+      padding:5px 0px 5px 10px;
+      overflow: auto;
+    }
+    label{
+      height: 150px;
+      line-height: 150px;
+      vertical-align: top;
+    }
+    .ui-form-explain{
+      top:150px;
+      left:490px;
+    }
+  }
+  label{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 80px;
+    text-align: right;
+    margin-right:10px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+  }
+  .filed-input{
+    width: 230px;
+    height: 30px;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    padding:0 10px;
+  }
+  .btns{
+    margin-left:95px;
+    input{
+      border:0;
+      border-radius: 3px;
+      height: 25px;
+      line-height: 25px;
+      width: 80px;
+      color:#FFF;
+      cursor: pointer;
+    }
+    .save{
+      background: #cb0101;
+      &:hover{
+        background: #b20000;
+      }
+    }
+    .cancel{
+      background: #fe8800;
+      &:hover{
+        background: #f77402;
+      }
+    }
+  }
+}

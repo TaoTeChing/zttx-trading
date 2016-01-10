@@ -1,0 +1,26 @@
+#XK_Container{font-size:12px;z-index:9999;position:fixed;_position:fixed;text-align:left;overflow:visible;width:150px}
+#XK_Container h1,h2{margin:0;padding:0;font-weight:normal}
+#XK_Container ul,li{margin:0;padding:0;list-style:none}
+#XK_Container img{border:0}
+#XK_Container.nofound,#XK_Container.nosupport{padding:5px 35px 5px 14px;text-shadow:0 1px 0 rgba(255,255,255,0.5);color:#c09853;background-color:#fcf8e3;border:1px solid #fbeed5;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;text-shadow:0 1px 0 rgba(255,255,255,0.5)}
+#XK_Container.nofound p{height:20px;line-height:20px}
+#XK_Container.nofound .close,#XK_Container.nosupport .close{position:relative;top:-2px;right:-21px;line-height:20px;padding:0;cursor:pointer;background:transparent;border:0;-webkit-appearance:none;float:right;font-size:20px;font-weight:bold;line-height:20px;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}
+#XKad_wrap{overflow:hidden}
+#XKad_wrap img{padding:2px;border:1px solid #ccc}
+#XKad_time{position:absolute;top:2px;right:2px}
+#XK_Controller{position:absolute;height:43px;line-height:43px;margin:0 auto;overflow:hidden}
+#XK_Controller .thleft{height:43px;width:10px;float:left}
+#XK_Controller .thright{height:43px;width:10px;float:left}
+#XK_Controller .thindex{float:left;text-align:center;padding-left:5px}
+#XK_Controller li{float:left;margin-right:10px;height:43px;line-height:43px}
+#XK_Controller li a{display:inline-block;background:url(hecheng.png) no-repeat;width:19px;height:19px;margin-top:12px}
+#XK_Controller li .play{background-position:0 0}
+#XK_Controller li .pause{background-position:0 -20px}
+#XK_Controller li .stop{background-position:0 -40px}
+#XK_Controller li .voice{background-position:0 -60px;width:22px;height:18px}
+#XK_Controller li .dis-voice{background-position:0 -80px;width:22px;height:18px}
+#XK_Controller li .close{background-position:0 -196px;width:22px;height:19px}
+#XK_Controller li .no-play{background-position:0 -98px}
+#XK_Controller li .no-pause{background-position:0 -118px}
+#XK_Controller li .no-stop{background-position:0 -138px}
+#XK_Controller li .no-voice{background-position:0 -157px;width:22px;height:18px}

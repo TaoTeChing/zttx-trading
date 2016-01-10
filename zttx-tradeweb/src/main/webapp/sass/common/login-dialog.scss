@@ -1,0 +1,214 @@
+﻿@charset "UTF-8";
+/*
+* 弹窗登录样式，有弹窗登录的地方可以用
+*/
+#ajaxLogin{
+    position:fixed;
+    left:50%;
+    top:200px;
+    margin-left:-310px;
+    z-index: 300;
+}
+.login-dialog{
+    background:#fff;
+    a{
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    .ui-head{
+        width:100%;
+        height: 45px;
+        background: #e70012 url("/images/common/login-dialog-logo.png") no-repeat 15px bottom;
+        h2{
+            padding-top: 15px;
+            text-indent: 76px;
+            font-size: 16px;
+            font-family: "microsoft yahei";
+            font-weight: 500;
+            color: #fff;
+            span{
+                color: #ffcc00;
+            }
+        }
+    }
+    .login-dialog-close{
+        cursor: pointer;
+        font-family: tahoma;
+        font-size: 0;
+        font-weight: bold;
+        width: 23px;
+        height: 23px;
+        line-height: 1;
+        background: url("/images/common/login-dialog-close.png") no-repeat;
+        position: absolute;
+        right: 15px;
+        text-decoration: none;
+        top: 11px;
+        z-index: 10;
+        color: #666;
+    }
+    .login-dialog-content{
+        padding: 0 40px 25px 40px;
+        border: 3px solid #e7e7e7;
+        border-top: 0;
+        .login-dialog-tit{
+            padding-top: 25px;
+            font-family: "microsoft yahei";
+            font-size: 20px;
+            .dialog-tit-ch{
+                color: #cd3333;
+            }
+            .dialog-tit-en{
+                font-size: 18px;
+                color:#666;
+                font-weight: 500;
+            }
+        }
+        .login-dialog-left{
+            width: 325px;
+            float: left;
+            background: url("/images/common/login-dialog-left.png") no-repeat right center;
+        }
+        .login-dialog-right{
+            margin-left: 355px;
+            margin-top: 90px;
+            color: #999;
+            line-height: 25px;
+            span{
+                color: #cd3333;
+            }
+            .login-dialog-join{
+                padding: 5px 7px;
+                border: 0;
+                background: #f8970a;
+                color: #fff;
+                cursor: pointer;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                &:hover{
+                    filter: Alpha(Opacity=70);
+                    opacity: 0.7;
+                }
+            }
+        }
+        .login-dialog-tabmenu{
+            margin-top: 10px;
+            li{
+                margin-right: 5px;
+                padding: 3px 5px;
+                float: left;
+                background: #999;
+                color: #fff;
+                position: relative;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+                a{
+                    display: block;
+                    color: #fff;
+                }
+                .login-dialog-arrow{
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-color: #e70012 transparent transparent transparent;
+                    border-width: 5px 6px;
+                    overflow: hidden;
+                    display: none;
+                    left: 27px;
+                    bottom: -9px;
+                }
+            }
+            .selected{
+                background: #e70012;
+                .login-dialog-arrow{
+                    display: block;
+                }
+            }
+        }
+        .login-dialog-tabcon{
+            margin-top: 1px;
+            padding-top: 20px;
+            background: url("/images/common/login-dialog-menu.png") no-repeat left 0px;
+        }
+        .login-dialog-ul{
+            dl{
+                margin-bottom: 15px;
+            }
+            .login-dialog-nextlogin{
+                margin-top: -5px;
+                text-align: right;
+                font-family: "microsoft yahei";
+                .login-dialog-fogt{
+                    margin-right: 45px;
+                    color: #0082cc;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .login-dialog-text{
+            width: 230px;
+            padding: 10px 5px 10px 45px;
+            border: 1px solid #cccccc;
+            background: url("/images/common/login-dialog-text.png") no-repeat -999em;
+            color: #666;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            &:focus{
+                border-color: #666;
+            }
+        }
+        .captcha_img{
+            width: 100px;
+            height: 38px;
+            margin-left: 3px;
+        }
+        .Validform_checktip{//验证提示样式
+            margin-top: 10px;
+            display: block;
+            color:#FF5243;
+        }
+        .login-dialog-username{
+            background-position: 16px 6px;
+        }
+        .login-dialog-password{
+          background-position: 16px -46px;
+        }
+        .login-dialog-checkbox{
+            vertical-align: -2px;
+        }
+        .login-dialog-button{
+            margin-left: 80px;
+            padding: 5px 40px;
+            border: 0;
+            background: #e70012;
+            font-family: "microsoft yahei";
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            &:hover{
+                filter: Alpha(Opacity=70);
+                opacity: 0.7;
+            }
+        }
+        .login-dialog-tip{
+            padding-top: 10px;
+            color: #666;
+        }
+        .login-dialog-explain{
+            display: block;
+            line-height: 30px;
+            background: url("/images/common/icon_warn.png") 0 -243px no-repeat;
+            padding-left: 20px;
+            color: #FF5243;
+        }
+    }
+
+}

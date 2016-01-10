@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandContactMapper">
+    <!-- 基础列 -->
+    <sql id="brandContactColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.userName as userName ,
+        a.userPhoto as userPhoto ,
+        a.userMail as userMail ,
+        a.userGender as userGender ,
+        a.userJob as userJob ,
+        a.userIm as userIm ,
+        a.userMobile as userMobile ,
+        a.userTelphone as userTelphone ,
+        a.userFax as userFax ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandContact">
+        insert into BrandContact(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         userName ,
+         userPhoto ,
+         userMail ,
+         userGender ,
+         userJob ,
+         userIm ,
+         userMobile ,
+         userTelphone ,
+         userFax ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{userName}  ,
+        #{userPhoto}  ,
+        #{userMail}  ,
+        #{userGender}  ,
+        #{userJob}  ,
+        #{userIm}  ,
+        #{userMobile}  ,
+        #{userTelphone}  ,
+        #{userFax}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandContact where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandContact set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandContact">
+        insert into BrandContact
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="userPhoto != null">
+            userPhoto ,
+        </if>
+        <if test="userMail != null">
+            userMail ,
+        </if>
+        <if test="userGender != null">
+            userGender ,
+        </if>
+        <if test="userJob != null">
+            userJob ,
+        </if>
+        <if test="userIm != null">
+            userIm ,
+        </if>
+        <if test="userMobile != null">
+            userMobile ,
+        </if>
+        <if test="userTelphone != null">
+            userTelphone ,
+        </if>
+        <if test="userFax != null">
+            userFax ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="userPhoto != null">
+            #{userPhoto} ,
+        </if>
+        <if test="userMail != null">
+            #{userMail} ,
+        </if>
+        <if test="userGender != null">
+            #{userGender} ,
+        </if>
+        <if test="userJob != null">
+            #{userJob} ,
+        </if>
+        <if test="userIm != null">
+            #{userIm} ,
+        </if>
+        <if test="userMobile != null">
+            #{userMobile} ,
+        </if>
+        <if test="userTelphone != null">
+            #{userTelphone} ,
+        </if>
+        <if test="userFax != null">
+            #{userFax} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandContact">
+        update BrandContact
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="userPhoto != null">
+                userPhoto = #{userPhoto} ,
+            </if>
+            <if test="userMail != null">
+                userMail = #{userMail} ,
+            </if>
+            <if test="userGender != null">
+                userGender = #{userGender} ,
+            </if>
+            <if test="userJob != null">
+                userJob = #{userJob} ,
+            </if>
+            <if test="userIm != null">
+                userIm = #{userIm} ,
+            </if>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="userTelphone != null">
+                userTelphone = #{userTelphone} ,
+            </if>
+            <if test="userFax != null">
+                userFax = #{userFax} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandContact">
+        update BrandContact set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            userName = #{userName} ,
+            userPhoto = #{userPhoto} ,
+            userMail = #{userMail} ,
+            userGender = #{userGender} ,
+            userJob = #{userJob} ,
+            userIm = #{userIm} ,
+            userMobile = #{userMobile} ,
+            userTelphone = #{userTelphone} ,
+            userFax = #{userFax} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandContact">
+        select <include refid="brandContactColumns"/> from BrandContact a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandContact">
+        SELECT
+        <include refid="brandContactColumns"/>
+        FROM BrandContact a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="userPhoto != null and userPhoto != ''">
+            and a.userPhoto like CONCAT('%',#{userPhoto}, '%')
+        </if>
+        <if test="userMail != null and userMail != ''">
+            and a.userMail like CONCAT('%',#{userMail}, '%')
+        </if>
+        <if test="userGender != null and userGender != ''">
+            and a.userGender = #{userGender}
+        </if>
+        <if test="userJob != null and userJob != ''">
+            and a.userJob like CONCAT('%',#{userJob}, '%')
+        </if>
+        <if test="userIm != null and userIm != ''">
+            and a.userIm like CONCAT('%',#{userIm}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="userTelphone != null and userTelphone != ''">
+            and a.userTelphone like CONCAT('%',#{userTelphone}, '%')
+        </if>
+        <if test="userFax != null and userFax != ''">
+            and a.userFax like CONCAT('%',#{userFax}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandContact">
+        SELECT
+        <include refid="brandContactColumns"/>
+        FROM BrandContact a WHERE a.delFlag = 0
+    </select>
+    <select id="findByBrandId" parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandContact">
+        SELECT * FROM BrandContact a WHERE a.brandId = #{brandId}
+    </select>
+
+</mapper>
+

@@ -1,0 +1,323 @@
+@charset "UTF-8";
+/*
+    前台装修页面-公用样式
+*/
+a:hover{ text-decoration: none;}
+//编辑模式下遮挡层
+.lig {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background:#000;
+    filter:alpha(opacity=70); opacity:0.7;
+}
+//左右布局
+.listbody{
+    width: 1200px;
+    margin:0 auto;
+    padding-top:15px;
+    padding-bottom:30px;
+    position: relative;
+    _overflow: hidden;
+    .sidebar-l{
+        width: 890px;
+        float: left;
+        *display: inline;
+        margin: 0 8px 15px 0;
+        overflow: hidden;
+    }
+    .sidebar-r {
+        width: 302px;
+        float: left;
+        *display: inline;
+        background: #fff;
+        color: #333;
+        overflow: hidden;
+        margin: 0 0 15px 0;
+    }
+}
+//产品展示样式
+.es-carousel-wrapper {
+    position: relative;
+    padding: 20px 50px;
+    height: 220px;
+    width: 708px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.es-carousel {
+    width: 708px;
+    height: 222px;
+    overflow: hidden;
+    ul {
+        width:9999px !important;
+        position: absolute;
+        //display: none;
+        li {
+            height: 100%;
+            float: left;
+            margin-right: 20px;
+            display: block;
+            a {
+                display: block;
+                width: 230px;
+                height:260px;
+                img {
+                    display: block;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+.es-nav{
+    span{
+        position: absolute; top: 50%; left: 12px; background: transparent url("/images/fronts/market/prenext.gif") no-repeat top left; width: 16px; height: 30px; margin-top: -13px; text-indent: -9000px; cursor: pointer; opacity: 0.8;
+        &:hover{
+            opacity: 1.0;
+        }
+    }
+    span.es-nav-next {
+        right: 12px; left: auto; background-position: top right;
+    }
+}
+//右侧通用模块
+.listbody {
+    .sidebar-r{
+        //收藏数
+        .attention{
+            height: 40px; border: 1px #ddd solid; line-height: 40px; padding: 0 20px 0 20px;
+            p{
+                float: left; margin: 0 12px 0 0; cursor: pointer;
+                span{ margin: 10px 5px 0 0; float: left;}
+                span.guanzhudu { display: block; background: url("/images/fronts/market/attention.gif") no-repeat; width: 18px; height: 14px;}
+                span.yiguanzhu { display: block; background: url("/images/fronts/market/attention.gif") no-repeat -19px 0; width: 22px; height: 19px;}
+                span.weiguanzhu{display:block; background:url("/images/fronts/market/attention.gif") no-repeat -44px 0; width:22px; height:19px;}
+            }
+        }
+        //logo标记
+        .hidelogobox {
+            height: 210px; overflow: hidden; text-align: center; border: 1px #ddd solid; border-top: 0; border-bottom: 0; position: relative; padding: 5px 0 0 0;
+            .title{ padding-top:10px;font-size: 16px; }
+            .imgbox{ margin-top: 10px;
+                img{ width: 240px; height: 120px;}
+            }
+            .btnn{
+                height: 103px; width: 16px; position: absolute; left: 0; border: 1px #ddd solid; border-left: 0; top: 25%; background: url("/images/fronts/market/hideshow.gif") no-repeat left center; cursor: pointer;
+            }
+        }
+        h3.title { height: 40px; padding: 0 15px; border-top: 1px #ddd solid; line-height: 40px; background: #fff; font-size: 14px; font-weight: 600; font-family: Verdana; color: #333; }
+        //品牌供应商
+        .suppbra { line-height: 25px; border-left: 1px #ddd solid; border-right: 1px #ddd solid;
+            .content { padding: 0 15px;
+                .sitemsg{
+                    a { color: #0066cc; }
+                }
+                .join {
+                    display: block; width: 258px; height: 41px; background: url("/images/fronts/market/join.jpg") no-repeat; margin: 20px 0 10px 0; -webkit-transition: 0.4s; -moz-transition: 0.4s; -o-transition: 0.4s; cursor: pointer;
+                    &:hover { filter: Alpha(Opacity=70); opacity: 0.7; }
+
+                }
+                .brannk,.rule{
+                    display: block;
+                    text-indent: 1em;
+                    font-size: 14px;
+                    font-family: "Microsoft YaHei","微软雅黑","SimHei","黑体";
+                    color: #0081cc;
+                    width: 130px;
+                }
+                .brannk {
+                    background: url("/images/fronts/market/rule.gif") no-repeat 0 7px; }
+                .rule{
+                    background: url("/images/fronts/market/rule.gif") no-repeat 0 -19px; }
+                .suppbra-content-subtn{ height: 25px;line-height: 25px; padding:0 10px;border: 0;background: #C33;color:#fff; cursor:pointer;border-radius: 3px;-moz-border-radius: 3px; -moz-border-radius: 3px;
+                    &:active{position: relative;top: 1px;}
+                }
+            }
+        }
+        //公司旗下品牌
+        .comdown { border-left: 1px #ddd solid; border-right: 1px #ddd solid; border-bottom: 1px #ddd solid; padding: 0 0 20px 0; overflow: hidden;
+            .comdownul{
+                li{
+                    .imgbox{
+                        a { display: block; height: 50px;  width: 100px; overflow: hidden; }
+                    }
+                }
+            }
+        }
+        //在线沟通
+        .contact{
+            border: 1px #ddd solid; border-top: 0;
+            .conbody { padding: 10px; text-align: center; }
+        }
+        //产品详细页推荐产品
+        .recommend{
+            border-left: 1px #ddd solid; border-right: 1px #ddd solid; border-bottom: 1px #ddd solid; padding-bottom: 20px;
+            .recommend-combox{
+                margin:0 15px;
+                padding: 10px 0;
+                border-bottom: 1px solid #ededed;
+                .recommend-img{
+                    float: left;
+                    width: 45px;
+                    height: 45px;
+                    border: 1px solid #ededed;
+                    padding: 1px;
+                    overflow: hidden;
+                    margin-top: -3px;
+                    margin-right: 10px;
+                }
+                .recommend-title{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    word-wrap: normal;
+                    a{
+                        color: #333;
+                    }
+                }
+                .recommend-price{
+                    font-family: "microsoft yahei";
+                    color: #F00000;
+                    line-height: 25px;
+                    em{
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        //增加右侧的通用代码
+        .suppbra-tel{
+            color: #666;padding-left: 10px;
+            border-top: 1px dashed #ddd;
+            line-height: 29px;
+        }
+        .suppbra-times{
+            background: #f2f2f2; border-top: 1px #DDD solid;border-bottom: 1px #DDD solid;font-family: arial,'微软雅黑'; line-height: 22px;padding: 0 10px;
+        }
+        .suppbra-qq-service{
+            padding-top: 10px; padding-left: 17px; color: #666;
+            .inline-block{
+                display: block;
+                margin-bottom: 10px;
+            }
+            .qq-service{
+                width: 100px; height: 22px; background:url("/images/fronts/market/qq-service.png") no-repeat;display: inline-block;*display: inline; *zoom:1; vertical-align: middle;
+            }
+        }
+        .qq-area{
+            width: 100px; height: 22px; display: inline-block;*display: inline; *zoom:1; vertical-align: middle; margin-left: 5px;position: absolute; bottom: 20px; left: 20px;
+        }
+    }
+}
+//公司旗下品牌-焦点图
+#focus {
+    width: 228px;
+    height: 187px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 0 35px;
+    ul {
+        height: 187px;
+        position: absolute;
+        li {
+            float: left;
+            width: 228px;
+            overflow: hidden;
+            position: relative;
+            dd {
+                display: block;
+                float: left;
+                background: #fff;
+                margin: 3px 7px;
+                width: 100px;
+                height: 90px;
+                div.imgbox {
+                    text-align: center;
+                }
+                div.des {
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .btnBg {
+        position: absolute;
+        width: 260px;
+        height: 20px;
+        left: 0;
+        bottom: 0;
+    }
+    .btnn {
+        position: absolute; width: 260px; height: 10px; padding: 5px 10px; left: 75px; bottom: 2px; display: none;
+        span { display: inline-block; _display: inline; _zoom: 1; width: 10px; height: 10px; _font-size: 0; margin-left: 5px; cursor: pointer; background: #000; border-radius: 5px;}
+        span.on { background: #fff; }
+    }
+    .preNext { width: 15px; height: 30px; position: absolute; top: 62px; background: #000 no-repeat 0 0; cursor: pointer; display: none; font-family: "宋体"; color: #fff; line-height: 30px; text-align: center; }
+    .pre { left: 7px; }
+    .next { right: 7px; background-position: right top; }
+}
+//品牌招募书后加入样式
+p.ppzms-condition{ font-size: 16px}
+.ppzms-condition-table{ width: 100%; border-bottom: 1px dashed #cbcbcb;margin: 20px 20px 0 20px;}
+.ppzms-condition-table tr td{ padding-right: 40px; padding-bottom: 15px;}
+h1.ppzms-condition-title{ font-size: 20px; text-align: center; font-weight: 400}
+//右侧点击提交加盟申请书之后
+.js_login_box{ display: none;width: 640px;padding: 0 20px 10px;border: #BABABA solid 1px;background: white;box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);min-height: 100px;_height: 100px;}
+.ui-box-tanchuang{
+    .login_box_table{
+        td{ vertical-align: middle; }
+        .login_box_cla{ vertical-align: 10px}
+        .login_box_text{border: #CCC 1px solid; width:200px;padding: 5px;margin: 0 0 10px 0; color: #666;}
+        .login_box_textarea{width: 540px;max-width: 540px;height: 170px;border: #CCC 1px solid;padding: 5px;overflow: auto;}
+        .button{width: 130px;color: white;border: 0;padding: 8px;background: #F30;cursor: pointer;-webkit-transition: 0.4s; -moz-transition: 0.4s; -o-transition: 0.4s;
+            &:hover{ background: #fd8364}
+        }
+        .login_box_req{
+            em{ color: #f00}
+        }
+    }
+    .ui-dialog-close {color: #999;cursor: pointer;font-family: tahoma;font-size: 18px;font-weight: bold;height: 18px;line-height: 10px;position: absolute;right: 7px;text-decoration: none;top: 7px;z-index: 10;color: #666;}
+    .ui-head {
+        height: 34px;border-bottom: #CCC solid 1px;
+        h3 {font: 14px/34px "微软雅黑"; font-weight: 400}
+        i{ color: #999;cursor: pointer;font-family: tahoma;font-size: 14px;font-weight: bold;height: 13px;line-height: 10px;position: absolute;right: 10px;text-decoration: none;top: 12px;z-index: 10;color: #666;}
+    }
+}
+//面包屑导航
+.crumbs-nav{
+    background: #fff; border: 1px solid #ddd; height: 40px; line-height: 40px; padding: 0 15px;
+    .crumbs-nav-icon{ display: inline-block; width: 18px; height: 22px; background: url("/images/fronts/info/info.gif") no-repeat;vertical-align: -4px;}
+    .crumbs-nav-now{ color: #666;}
+    .crumbs-nav-arrow{ color: #9f9f9f;}
+    .crumbs-nav-link{ color:#0089cc;}
+    .crumbs-nav-nowpage{color:#d00c0d;}
+}
+//暂无产品
+.no-productsul{
+    width: 480px;
+    margin: 48px auto 0 auto;
+    .no-productspic{
+        width: 170px;
+        height: 177px;
+        background: url("/images/fronts/market/no-products.jpg") no-repeat;
+    }
+    .no-productscon{
+        padding-top: 90px;
+        padding-left: 40px;
+        .title{
+            font-size: 14px;
+            font-weight: 600;
+        }
+        p{
+            color: #666;
+            line-height: 30px;
+        }
+    }
+}
+//经销网络测试
+.network-bigimgshow{ position: absolute;; z-index: 303; text-align:center; background-color:#0066FF; display: none; }

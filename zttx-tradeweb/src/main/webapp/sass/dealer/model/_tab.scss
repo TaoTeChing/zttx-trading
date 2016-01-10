@@ -1,0 +1,66 @@
+﻿@charset "utf-8";
+/*! define alice/tab/1.0.1/tab-debug.css */
+/* alice.tab 样式模块 */
+
+$textSize: 12px;
+$borderColor: #EC5C4D;
+$textColor: #666;
+$borderCurrentColor: #e00000;
+$textHoverColor: #333;
+$minWidth: 120px;
+
+.ui_tab,.ui-tab {
+    li {
+        vertical-align: top;
+        position: relative;
+        top: 1px;
+    }
+
+    .ui_tab_items,.ui-tab-items {
+        border-bottom: 1px solid $borderCurrentColor;
+        font-size: $textSize;
+    }
+
+    .ui_tab_item,.ui-tab-item {
+        display: inline-block;
+        display: inline \0; /* fix https://github.com/aliceui/tab/issues/1 */
+        *display: inline;
+        *zoom: 1;
+        *margin-right: 4px;
+
+        a {
+            background: #fff;
+            line-height: 32px;
+            height: 32px;
+            padding: 0 5px;
+            text-align: center;
+            min-width: $minWidth;
+            _width: $minWidth;
+            border: 1px solid $borderColor;
+            padding-top: 1px;
+            border-bottom: none;
+            color: $textColor;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            transition: background-color 0.4s ease-out, color 0.4s ease-out;
+            outline: none;
+        }
+    }
+
+    .current {
+        a {
+            font-weight: bold;
+            height: 33px;
+            padding-top: 0;
+            border-top-width: 2px;
+            border-color: $borderCurrentColor;
+            color: $textHoverColor;
+
+            &:hover {
+                background: #fff;
+                color: $textHoverColor;
+            }
+        }
+    }
+}

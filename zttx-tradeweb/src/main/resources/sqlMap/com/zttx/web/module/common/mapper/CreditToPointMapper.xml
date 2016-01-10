@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.CreditToPointMapper">
+    <!-- 基础列 -->
+    <sql id="creditToPointColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.dealerId as dealerId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.productSkuId as productSkuId ,
+        a.costPirce as costPirce ,
+        a.baseStock as baseStock ,
+        a.sumCost as sumCost ,
+        a.pointPrice as pointPrice ,
+        a.pointPercent as pointPercent ,
+        a.erpTime as erpTime ,
+        a.createTime as createTime
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.CreditToPoint">
+        insert into CreditToPoint(
+        refrenceId ,
+        brandId ,
+        dealerId ,
+        brandsId ,
+        productId ,
+        productSkuId ,
+        costPirce ,
+        baseStock ,
+        sumCost ,
+        pointPrice ,
+        pointPercent ,
+        erpTime ,
+        createTime
+        ) VALUES (
+        #{refrenceId} ,
+        #{brandId} ,
+        #{dealerId} ,
+        #{brandsId} ,
+        #{productId} ,
+        #{productSkuId} ,
+        #{costPirce} ,
+        #{baseStock} ,
+        #{sumCost} ,
+        #{pointPrice} ,
+        #{pointPercent} ,
+        #{erpTime} ,
+        #{createTime}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from CreditToPoint where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update CreditToPoint set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.CreditToPoint">
+        insert into CreditToPoint
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId ,
+            </if>
+            <if test="costPirce != null">
+                costPirce ,
+            </if>
+            <if test="baseStock != null">
+                baseStock ,
+            </if>
+            <if test="sumCost != null">
+                sumCost ,
+            </if>
+            <if test="pointPrice != null">
+                pointPrice ,
+            </if>
+            <if test="pointPercent != null">
+                pointPercent ,
+            </if>
+            <if test="erpTime != null">
+                erpTime ,
+            </if>
+            <if test="createTime != null">
+                createTime
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                #{productSkuId} ,
+            </if>
+            <if test="costPirce != null">
+                #{costPirce} ,
+            </if>
+            <if test="baseStock != null">
+                #{baseStock} ,
+            </if>
+            <if test="sumCost != null">
+                #{sumCost} ,
+            </if>
+            <if test="pointPrice != null">
+                #{pointPrice} ,
+            </if>
+            <if test="pointPercent != null">
+                #{pointPercent} ,
+            </if>
+            <if test="erpTime != null">
+                #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into CreditToPoint(
+        refrenceId ,
+        brandId ,
+        dealerId ,
+        brandsId ,
+        productId ,
+        productSkuId ,
+        costPirce ,
+        baseStock ,
+        sumCost ,
+        pointPrice ,
+        pointPercent ,
+        erpTime ,
+        createTime
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId} ,
+            #{item.brandId} ,
+            #{item.dealerId} ,
+            #{item.brandsId} ,
+            #{item.productId} ,
+            #{item.productSkuId} ,
+            #{item.costPirce} ,
+            #{item.baseStock} ,
+            #{item.sumCost} ,
+            #{item.pointPrice} ,
+            #{item.pointPercent} ,
+            #{item.erpTime} ,
+            #{item.createTime}
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.CreditToPoint">
+        update CreditToPoint
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="productSkuId != null">
+                productSkuId = #{productSkuId} ,
+            </if>
+            <if test="costPirce != null">
+                costPirce = #{costPirce} ,
+            </if>
+            <if test="baseStock != null">
+                baseStock = #{baseStock} ,
+            </if>
+            <if test="sumCost != null">
+                sumCost = #{sumCost} ,
+            </if>
+            <if test="pointPrice != null">
+                pointPrice = #{pointPrice} ,
+            </if>
+            <if test="pointPercent != null">
+                pointPercent = #{pointPercent} ,
+            </if>
+            <if test="erpTime != null">
+                erpTime = #{erpTime} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update CreditToPoint set
+            brandId = #{item.brandId} ,
+            dealerId = #{item.dealerId} ,
+            brandsId = #{item.brandsId} ,
+            productId = #{item.productId} ,
+            productSkuId = #{item.productSkuId} ,
+            costPirce = #{item.costPirce} ,
+            baseStock = #{item.baseStock} ,
+            sumCost = #{item.sumCost} ,
+            pointPrice = #{item.pointPrice} ,
+            pointPercent = #{item.pointPercent} ,
+            erpTime = #{item.erpTime} ,
+            createTime = #{item.createTime}
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.CreditToPoint">
+        update CreditToPoint set
+        brandId = #{brandId} ,
+        dealerId = #{dealerId} ,
+        brandsId = #{brandsId} ,
+        productId = #{productId} ,
+        productSkuId = #{productSkuId} ,
+        costPirce = #{costPirce} ,
+        baseStock = #{baseStock} ,
+        sumCost = #{sumCost} ,
+        pointPrice = #{pointPrice} ,
+        pointPercent = #{pointPercent} ,
+        erpTime = #{erpTime} ,
+        createTime = #{createTime}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.CreditToPoint">
+        select
+        <include refid="creditToPointColumns"/>
+        from CreditToPoint a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.CreditToPoint">
+        SELECT
+        <include refid="creditToPointColumns"/>
+        FROM CreditToPoint a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId like CONCAT('%',#{brandsId}, '%')
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="productSkuId != null and productSkuId != ''">
+            and a.productSkuId like CONCAT('%',#{productSkuId}, '%')
+        </if>
+        <if test="costPirce != null and costPirce != ''">
+            and a.costPirce = #{costPirce}
+        </if>
+        <if test="baseStock != null and baseStock != ''">
+            and a.baseStock = #{baseStock}
+        </if>
+        <if test="sumCost != null and sumCost != ''">
+            and a.sumCost = #{sumCost}
+        </if>
+        <if test="pointPrice != null and pointPrice != ''">
+            and a.pointPrice = #{pointPrice}
+        </if>
+        <if test="pointPercent != null and pointPercent != ''">
+            and a.pointPercent = #{pointPercent}
+        </if>
+        <if test="erpTime != null and erpTime != ''">
+            and a.erpTime = #{erpTime}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.CreditToPoint">
+        SELECT
+        <include refid="creditToPointColumns"/>
+        FROM CreditToPoint a WHERE a.delFlag = 0
+    </select>
+    <select id="selectCreditToPointList" resultType="java.util.Map">
+        select
+        a.erpTime as createTime,
+        b.brandsName as brandsName,
+        c.productTitle as productTitle,
+        c.productNo as productNo,
+        d.productSkuName as productSkuName,
+        a.costPirce as costPrice,
+        a.baseStock as baseStock,
+        a.sumCost as sumCost
+        from CreditToPoint a,BrandesInfo b,ProductBaseInfo c,ProductSku d where
+        a.brandsId = b.refrenceId and a.productId = c.refrenceId and a.productSkuId = d.refrenceId
+        <if test="null!=brandId and ''!=brandId">
+            AND a.brandId = #{brandId}
+        </if>
+        <if test="null!=dealerId and ''!=dealerId">
+            AND a.dealerId = #{dealerId}
+        </if>
+        <if test="null!=brandsName and ''!=brandsName">
+           and b.brandsName like concat('%', #{brandsName},'%')
+        </if>
+        <if test="null!=productTitle and ''!=productTitle">
+          and c.productTitle like concat('%', #{productTitle},'%')
+        </if>
+        <if test="null!=productNo and ''!=productNo">
+        and c.productNo like concat('%', #{productNo},'%')
+        </if>
+        order by a.erpTime desc
+    </select>
+
+    <select id="countCreditToPointListSum" resultType="java.util.Map">
+        select
+        sum(a.sumCost) as allSumCost,
+        count(a.refrenceId) as count
+        from CreditToPoint a,BrandesInfo b,ProductBaseInfo c where
+        a.brandsId = b.refrenceId and a.productId = c.refrenceId
+        <if test="null!=brandId and ''!=brandId">
+            AND a.brandId = #{brandId}
+        </if>
+        <if test="null!=dealerId and ''!=dealerId">
+            and a.dealerId = #{dealerId}
+        </if>
+        <if test="null!=brandsName and ''!=brandsName">
+            and b.brandsName like concat('%',#{brandsName},'%')
+        </if>
+        <if test="null!=productTitle and ''!=productTitle">
+            and c.productTitle like concat('%',#{productTitle},'%')
+        </if>
+        <if test="null!=productNo and ''!=productNo">
+            and c.productNo like concat('%',#{productNo},'%')
+        </if>
+    </select>
+    <select id="isExistCreditToPoint" resultType="java.lang.Boolean">
+        select
+        count(a.refrenceId)
+        from CreditToPoint a where 1=1
+        <if test="null!=brandId and ''!=brandId">
+            AND a.brandId = #{brandId}
+        </if>
+        <if test="null!=dealerId and ''!=dealerId">
+            and a.dealerId = #{dealerId}
+        </if>
+    </select>
+</mapper>
+

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.SecurityCertMapper">
+    <!-- 基础列 -->
+    <sql id="securityCertColumns">
+        a.refrenceId as refrenceId,
+        a.userIdId as userIdId ,
+        a.userName as userName,
+        a.userCate as userCate,
+        a.oldMobile as oldMobile,
+        a.userMobile as userMobile,
+        a.userPhoto as userPhoto ,
+        a.certPhoto as certPhoto,
+        a.applyType as applyType,
+        a.createTime as createTime,
+        a.createIp as createIp,
+        a.actState as actState ,
+        a.userId as userId,
+        a.actionDate as actionDate,
+        a.actionIp as actionIp
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.SecurityCert">
+        INSERT INTO SecurityCert (
+            refrenceId,
+            userIdId,
+            userName,
+            userCate,
+            oldMobile,
+            userMobile,
+            userPhoto,
+            certPhoto,
+            applyType,
+            createTime,
+            createIp,
+            actState,
+            userId,
+            actionDate,
+            actionIp
+        ) VALUES (
+            #{refrenceId},
+            #{userIdId},
+            #{userName},
+            #{userCate},
+            #{oldMobile},
+            #{userMobile},
+            #{userPhoto},
+            #{certPhoto},
+            #{applyType},
+            #{createTime},
+            #{createIp},
+            #{actState},
+            #{userId},
+            #{actionDate},
+            #{actionIp}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM SecurityCert
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE SecurityCert
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.SecurityCert">
+        insert into SecurityCert
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="userIdId != null">
+                userIdId ,
+            </if>
+            <if test="userName != null">
+                userName ,
+            </if>
+            <if test="userCate != null">
+                userCate ,
+            </if>
+            <if test="oldMobile != null">
+                oldMobile ,
+            </if>
+            <if test="userMobile != null">
+                userMobile ,
+            </if>
+            <if test="userPhoto != null">
+                userPhoto ,
+            </if>
+            <if test="certPhoto != null">
+                certPhoto ,
+            </if>
+            <if test="applyType != null">
+                applyType ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="createIp != null">
+                createIp ,
+            </if>
+            <if test="actState != null">
+                actState ,
+            </if>
+            <if test="userId != null">
+                userId ,
+            </if>
+            <if test="actionDate != null">
+                actionDate ,
+            </if>
+            <if test="actionIp != null">
+                actionIp
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="userIdId != null">
+                #{userIdId} ,
+            </if>
+            <if test="userName != null">
+                #{userName} ,
+            </if>
+            <if test="userCate != null">
+                #{userCate} ,
+            </if>
+            <if test="oldMobile != null">
+                #{oldMobile} ,
+            </if>
+            <if test="userMobile != null">
+                #{userMobile} ,
+            </if>
+            <if test="userPhoto != null">
+                #{userPhoto} ,
+            </if>
+            <if test="certPhoto != null">
+                #{certPhoto} ,
+            </if>
+            <if test="applyType != null">
+                #{applyType} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="createIp != null">
+                #{createIp} ,
+            </if>
+            <if test="actState != null">
+                #{actState} ,
+            </if>
+            <if test="userId != null">
+                #{userId} ,
+            </if>
+            <if test="actionDate != null">
+                #{actionDate} ,
+            </if>
+            <if test="actionIp != null">
+                #{actionIp}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.SecurityCert">
+        update SecurityCert
+        <set>
+            <if test="userIdId != null">
+                userIdId = #{userIdId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="userCate != null">
+                userCate = #{userCate} ,
+            </if>
+            <if test="oldMobile != null">
+                oldMobile = #{oldMobile} ,
+            </if>
+            <if test="userMobile != null">
+                userMobile = #{userMobile} ,
+            </if>
+            <if test="userPhoto != null">
+                userPhoto = #{userPhoto} ,
+            </if>
+            <if test="certPhoto != null">
+                certPhoto = #{certPhoto} ,
+            </if>
+            <if test="applyType != null">
+                applyType = #{applyType} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="actState != null">
+                actState = #{actState} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="actionDate != null">
+                actionDate = #{actionDate} ,
+            </if>
+            <if test="actionIp != null">
+                actionIp = #{actionIp}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.SecurityCert">
+        UPDATE SecurityCert
+        SET
+            userIdId   = #{userIdId},
+            userName   = #{userName},
+            userCate   = #{userCate},
+            oldMobile  = #{oldMobile},
+            userMobile = #{userMobile},
+            userPhoto  = #{userPhoto},
+            certPhoto  = #{certPhoto},
+            applyType  = #{applyType},
+            createTime = #{createTime},
+            createIp   = #{createIp},
+            actState   = #{actState},
+            userId     = #{userId},
+            actionDate = #{actionDate},
+            actionIp   = #{actionIp}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.SecurityCert">
+        select
+        <include refid="securityCertColumns"/>
+        from SecurityCert a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.SecurityCert">
+        SELECT
+        <include refid="securityCertColumns"/>
+        FROM SecurityCert a WHERE 1=1
+        <if test="userIdId != null and userIdId != ''">
+            and a.userIdId=#{userIdId}
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="userCate != null">
+            and a.userCate = #{userCate}
+        </if>
+        <if test="oldMobile != null and oldMobile != ''">
+            and a.oldMobile like CONCAT('%',#{oldMobile}, '%')
+        </if>
+        <if test="userMobile != null and userMobile != ''">
+            and a.userMobile like CONCAT('%',#{userMobile}, '%')
+        </if>
+        <if test="applyType != null">
+            and a.applyType = #{applyType}
+        </if>
+        <if test="actState != null">
+            and a.actState = #{actState}
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId=#{userId}
+        </if>
+        order by a.createTime desc,a.actionDate asc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.SecurityCert">
+        SELECT
+        <include refid="securityCertColumns"/>
+        FROM SecurityCert a WHERE 1 = 1
+    </select>
+
+    <select id="findByUserIdAndActState" resultType="com.zttx.web.module.common.entity.SecurityCert">
+        select
+        <include refid="securityCertColumns"/>
+        from SecurityCert a
+        WHERE 1 = 1
+        <if test="userId != null">
+            AND a.userIdId = #{userId}
+        </if>
+        <if test="actState != null">
+            and a.actState = #{actState}
+        </if>
+    </select>
+</mapper>
+

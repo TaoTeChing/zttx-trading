@@ -1,0 +1,91 @@
+﻿@charset "UTF-8";
+/*feedback css*/
+@import '../_mixin';
+@import 'model/_pagination';
+@import "model/_form";
+@import "model/_button";
+@import "model/_table";
+
+.ui-table-container {
+    margin: 0 18px 20px;
+    border: 1px solid #d9d9d9;
+    .ui-table{
+        text-align: center;
+        margin-left: -1px;
+        margin-bottom: -1px;
+        th{
+            text-align: center;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+    thead tr th.cell-1 {
+        width: 15%;
+    }
+
+    thead tr th.cell-2 {
+        width: 20%;
+    }
+
+    thead tr th.cell-3 {
+        width: 50%;
+        //text-align: center;
+    }
+
+    thead tr th.cell-4 {
+        width: 15%;
+        //text-align: center;
+    }
+    th,td{
+        border-left:1px solid #d9d9d9;
+        border-top:1px solid #d9d9d9;
+    }
+    th{
+        background: #fbfbfb;
+    }
+    td{
+        height: 35px;
+    }
+    h3{
+        height: 35px;
+        line-height: 35px;
+        padding-left:13px;
+        span{
+            padding-left:10px;
+            border-left:3px solid #fe0200;
+            font-size: 14px;
+        }
+    }
+    .pagination{
+        margin-top:1px;
+    }
+}
+
+.ui-form-explain {
+    clear: both;
+}
+
+#Form_FeedBack {
+    padding: 20px 0;
+    font-size: 14px;
+    .ui-label {
+        margin-left: -90px;
+        width: 80px;
+    }
+
+    .ui-form-item {
+        padding: 0 5px 15px 90px;
+    }
+
+    .ui-textarea {
+        width: 780px;
+        height: 240px;
+        padding: 5px;
+    }
+
+    .ui-select {
+        height: 35px;
+        width: 130px;
+        margin:0;
+    }
+}

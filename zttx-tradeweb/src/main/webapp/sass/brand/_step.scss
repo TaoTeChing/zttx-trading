@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.flow-steps {
+    ol{
+        @extend %clearfix;
+    }
+    li{
+        width: 186px;
+        background: url("../../images/brand/step.png") no-repeat scroll 100% -80px #ccc;
+        zoom: 1;
+        color: #333;
+        float: left;
+        font: 14px "微软雅黑";
+        height: 35px;
+        line-height: 35px;
+        padding: 0 15px 0 0;
+        text-align: center;
+        span{
+            display: block;
+        }
+        .first {
+            background: none;
+        }
+    }
+    .last{
+        background-position: 100% -138px;
+    }
+    .current{
+        background-color: #1d7ad9;
+        color: #FFFFFF;
+    }
+    .current-prev {background-position: 100% 0 !important;}
+    .done{
+        background-color: #64a5ff;
+        background-position: 100% -40px;
+        color: #fff;
+        .first {
+            background-position: -12px -115px;
+        }
+    }
+    .last-current {
+        background-color: #1d7ad9;
+        background-position: 100% -161px;
+        color: #FFFFFF;
+    }
+}
+/*第二版*/
+.v2-steps{
+    width: 976px;
+    padding-top: 20px;
+    padding-bottom: 45px;
+    margin: 0 15px;
+    position: relative;
+    font-size: 14px;
+    color: #999;
+    .steps{
+        width: 741px;
+        height: 38px;
+        margin: 0 auto;
+        background: url("../../images/brand/v2_step.png") no-repeat;
+    }
+    .v2-steps-1{
+        background-position: 0 0;
+    }
+    .v2-steps-2{
+        background-position: 0 -51px;
+    }
+    .v2-steps-3{
+        background-position: 0 -102px;
+    }
+    .v2-steps-4{
+        background-position: 0 -153px;
+    }
+    span{
+        position: absolute;
+    }
+    .text1,.text2,.text3,.text4{
+        top: 65px;
+    }
+    .text1{
+        left: 107px;
+    }
+    .text2{
+        left: 345px;
+    }
+    .text3{
+        left: 578px;
+    }
+    .text4{
+        left: 810px;
+    }
+    .current{
+        color: #0082cc;
+    }
+}
+.v2-3steps .steps{
+    background-image: url("../../images/brand/v2-3steps.png");
+}
+
+.v2-steps.spe{
+    width: 510px;
+    margin: 0 20px;
+    .text1{
+        left: 0;
+    }
+    .text2{
+        left:228px;
+    }
+    .text3{
+        left: 450px;
+    }
+}

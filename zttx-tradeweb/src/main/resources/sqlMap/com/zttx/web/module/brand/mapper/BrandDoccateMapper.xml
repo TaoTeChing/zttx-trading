@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandDoccateMapper">
+    <!-- 基础列 -->
+    <sql id="brandDoccateColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.cateName as cateName ,
+        a.createTime as createTime ,
+        a.orderId as orderId ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandDoccate">
+        insert into BrandDoccate(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         cateName ,
+         createTime ,
+         orderId ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{cateName}  ,
+        #{createTime}  ,
+        #{orderId}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandDoccate where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandDoccate set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandDoccate">
+        insert into BrandDoccate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="cateName != null">
+            cateName ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="orderId != null">
+            orderId ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="cateName != null">
+            #{cateName} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="orderId != null">
+            #{orderId} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandDoccate">
+        update BrandDoccate
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="cateName != null">
+                cateName = #{cateName} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="orderId != null">
+                orderId = #{orderId} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandDoccate">
+        update BrandDoccate set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            cateName = #{cateName} ,
+            createTime = #{createTime} ,
+            orderId = #{orderId} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandDoccate">
+        select <include refid="brandDoccateColumns"/> from BrandDoccate a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandDoccate">
+        SELECT
+        <include refid="brandDoccateColumns"/>
+        FROM BrandDoccate a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="cateName != null and cateName != ''">
+            and a.cateName like CONCAT('%',#{cateName}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="orderId != null and orderId != ''">
+            and a.orderId = #{orderId}
+        </if>
+        order by a.orderId asc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandDoccate">
+        SELECT
+        <include refid="brandDoccateColumns"/>
+        FROM BrandDoccate a WHERE a.delFlag = 0
+    </select>
+    
+    <!-- 根据ID批量删除 -->
+    <update id="updateBrandDoccateDelFlag">
+        update BrandDoccate set delFlag = 1
+        where refrenceId in
+        <foreach collection="list" item="refrenceId" index="index" open="(" close=")" separator=",">
+            #{refrenceId}
+        </foreach>
+    </update>
+
+</mapper>
+

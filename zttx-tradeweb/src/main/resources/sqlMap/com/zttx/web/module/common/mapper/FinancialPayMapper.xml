@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.FinancialPayMapper">
+    <!-- 基础列 -->
+    <sql id="financialPayColumns">
+        a.refrenceId as refrenceId ,
+        a.payExtId as payExtId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.payAmount as payAmount ,
+        a.payState as payState ,
+        a.beginTime as beginTime ,
+        a.endTime as endTime ,
+        a.amountType as amountType ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.FinancialPay">
+        insert into FinancialPay(
+         refrenceId ,
+         payExtId ,
+         dealerId ,
+         brandId ,
+         payAmount ,
+         payState ,
+         beginTime ,
+         endTime ,
+         amountType ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{payExtId}  ,
+        #{dealerId}  ,
+        #{brandId}  ,
+        #{payAmount}  ,
+        #{payState}  ,
+        #{beginTime}  ,
+        #{endTime}  ,
+        #{amountType}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from FinancialPay where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update FinancialPay set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.FinancialPay">
+        insert into FinancialPay
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="payExtId != null">
+            payExtId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="payAmount != null">
+            payAmount ,
+        </if>
+        <if test="payState != null">
+            payState ,
+        </if>
+        <if test="beginTime != null">
+            beginTime ,
+        </if>
+        <if test="endTime != null">
+            endTime ,
+        </if>
+        <if test="amountType != null">
+            amountType ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="payExtId != null">
+            #{payExtId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="payAmount != null">
+            #{payAmount} ,
+        </if>
+        <if test="payState != null">
+            #{payState} ,
+        </if>
+        <if test="beginTime != null">
+            #{beginTime} ,
+        </if>
+        <if test="endTime != null">
+            #{endTime} ,
+        </if>
+        <if test="amountType != null">
+            #{amountType} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into FinancialPay(
+         refrenceId ,
+         payExtId ,
+         dealerId ,
+         brandId ,
+         payAmount ,
+         payState ,
+         beginTime ,
+         endTime ,
+         amountType ,
+         delFlag 
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.refrenceId}  ,
+            #{item.payExtId}  ,
+            #{item.dealerId}  ,
+            #{item.brandId}  ,
+            #{item.payAmount}  ,
+            #{item.payState}  ,
+            #{item.beginTime}  ,
+            #{item.endTime}  ,
+            #{item.amountType}  ,
+            #{item.delFlag}  
+            )
+        </foreach>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.FinancialPay">
+        update FinancialPay
+           <set>
+            <if test="payExtId != null">
+                payExtId = #{payExtId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="payAmount != null">
+                payAmount = #{payAmount} ,
+            </if>
+            <if test="payState != null">
+                payState = #{payState} ,
+            </if>
+            <if test="beginTime != null">
+                beginTime = #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="amountType != null">
+                amountType = #{amountType} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 批量修改 -->
+    <update id="updateBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update FinancialPay set
+            payExtId = #{item.payExtId} ,
+            dealerId = #{item.dealerId} ,
+            brandId = #{item.brandId} ,
+            payAmount = #{item.payAmount} ,
+            payState = #{item.payState} ,
+            beginTime = #{item.beginTime} ,
+            endTime = #{item.endTime} ,
+            amountType = #{item.amountType} ,
+            delFlag = #{item.delFlag} 
+            where refrenceId = #{item.refrenceId}
+        </foreach>
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.FinancialPay">
+        update FinancialPay set
+            payExtId = #{payExtId} ,
+            dealerId = #{dealerId} ,
+            brandId = #{brandId} ,
+            payAmount = #{payAmount} ,
+            payState = #{payState} ,
+            beginTime = #{beginTime} ,
+            endTime = #{endTime} ,
+            amountType = #{amountType} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+    <update id="updateFinancialPay">
+        update FinancialPay a set a.payState = #{payState} where a.payExtId=#{payExtId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.common.entity.FinancialPay">
+        select <include refid="financialPayColumns"/> from FinancialPay a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.FinancialPay">
+        SELECT
+        <include refid="financialPayColumns"/>
+        FROM FinancialPay a WHERE a.delFlag = 0
+        <if test="payExtId != null and payExtId != ''">
+            and a.payExtId like CONCAT('%',#{payExtId}, '%')
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId like CONCAT('%',#{brandId}, '%')
+        </if>
+        <if test="payAmount != null and payAmount != ''">
+            and a.payAmount = #{payAmount}
+        </if>
+        <if test="payState != null and payState != ''">
+            and a.payState = #{payState}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and a.beginTime = #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="amountType != null and amountType != ''">
+            and a.amountType = #{amountType}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.FinancialPay">
+        SELECT
+        <include refid="financialPayColumns"/>
+        FROM FinancialPay a WHERE a.delFlag = 0
+    </select>
+
+
+</mapper>
+

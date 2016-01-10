@@ -1,0 +1,264 @@
+﻿@charset "utf-8";
+/*
+    辅助类
+*/
+.ts-fl {
+    @include float();
+}
+
+.ts-fr {
+    @include float(right);
+}
+
+.ts-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ts-cf {
+    @include clearfix();
+}
+
+.ts-nbfc {
+    overflow: hidden;
+}
+
+.ts-nbfc-alt {
+    display: table-cell;
+    width: 10000px;
+}
+
+///*排版*/
+
+.text-yahei{
+  font-family: 'Microsoft Yahei', '黑体';
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+///*排版*/
+
+///*文字*/
+.text-xs {
+    font-size: 0.8em;
+}
+
+.text-sm {
+    font-size: 1em;
+}
+
+.text-md {
+    font-size: 1.2em;
+}
+
+.text-lg {
+    font-size: 1.4em;
+}
+
+.text-muted {
+    color: #777;
+}
+
+.text-warning {
+    color: #8a6d3b;
+}
+
+.text-info {
+    color: #31708f;
+}
+
+.text-success {
+    color: #3c763d;
+}
+
+.text-primary {
+    color: #428bca;
+}
+
+.text-danger {
+    color: #a94442;
+}
+
+.text-bold,strong{
+  font-weight: bold;
+}
+///*文字*/
+
+
+///*辅助*/
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+//大隐
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.ts-rmb {
+    font-family: "微软雅黑";
+}
+
+// 图片替换文字
+.ts-ir {
+    @include ir();
+}
+
+.ts-text-overflow {
+    @include ellipsis();
+}
+
+.ts-pr {
+    position: relative;
+}
+
+.ts-block {
+    display: block !important;
+}
+
+.ts-inline {
+    display: inline !important;
+}
+
+.ts-inline-block {
+    @include inline-block();
+    vertical-align: middle;
+}
+
+.ts-inline-float {
+    @include clearfix();
+    li{
+        @include float();
+    }
+}
+///*辅助*/
+
+/*间隔*/
+//向上
+.ts-mt-xs {
+    margin-top: 5px;
+}
+
+.ts-mt-sm {
+    margin-top: 10px;
+}
+
+.ts-mt-lg {
+    margin-top: 20px;
+}
+
+//向右
+.ts-mr-xs {
+    margin-right: 5px;
+}
+
+.ts-mr-sm {
+    margin-right: 10px;
+}
+
+.ts-mr-lg {
+    margin-right: 20px;
+}
+
+//向下
+.ts-mb-xs {
+    margin-bottom: 5px;
+}
+
+.ts-mb-sm {
+    margin-bottom: 10px;
+}
+
+.ts-mb-lg {
+    margin-bottom: 20px;
+}
+
+//向左
+.ts-ml-xs {
+    margin-left: 5px;
+}
+
+.ts-ml-sm {
+    margin-left: 10px;
+}
+
+.ts-ml-lg {
+    margin-left: 20px;
+}
+
+/*间隔*/
+
+
+.ts-scrollable-box {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 170px;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    resize: both;
+    //border-radius: 3px;
+}
+
+
+.ts-responsive-width, .ts-responsive-height {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ts-responsive-width {
+    max-width: 100%;
+    height: auto;
+}
+
+.ts-responsive-height {
+    max-height: 100%;
+    width: auto;
+}
+
+//垂直对齐
+.ts-v-align {
+    font-size: 0.001px;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+.ts-v-align-middle,
+.ts-v-align-bottom {
+    display: inline-block;
+    font-size: 1rem;
+    max-width: 100%;
+
+    .ts-v-align-middle {
+        vertical-align: middle;
+    }
+
+    .ts-v-align-bottom {
+        vertical-align: bottom;
+    }
+}

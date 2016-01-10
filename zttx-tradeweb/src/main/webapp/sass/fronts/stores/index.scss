@@ -1,0 +1,1014 @@
+﻿@charset "utf-8";
+@import "../mixin";
+@import "../common/index/icons";
+@import "../typography";
+/*@import "../ts-models/grids";*/
+@import "../common/header";
+@import "../common/footer";
+@import "pagination";
+
+.ts-grid-row{
+    @include clearfix();
+    margin-bottom: 20px;
+    background-color:#fff;
+
+    .ts-grid-item {
+        @include float();
+    }
+}
+
+//通用模型 ts-common-box
+.ts-box{
+    border: 1px solid #ddd;
+    .ts-box-head{
+        @include clearfix();
+        height: 30px;
+        line-height: 30px;
+
+        .ts-box-head-title{
+            @include float();
+            padding:0 10px;
+        }
+        h3{
+             /*height: 22px;
+             line-height: 22px;
+             _display: inline;
+             padding: 0 15px;
+             //border-left: 5px solid #e70012;
+             font-size: 20px;
+             font-family: "Microsoft yahei";
+             font-weight: 700;*/
+        }
+        .ts-box-head-text{
+            @include float();
+        }
+        .ts-box-head-more{
+            @include float(right);
+            color: #333;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    .ts-box-content{background-color:#fff;}
+    .ts-box-padded{padding:10px;}
+}
+//
+.contact-box{
+    .inner{
+        padding: 10px 10px 0;
+    }
+    .contact{
+        height: 34px;
+        border-bottom: #e1e1e1 dashed 1px;
+        padding-left: 10px;
+    }
+    .tel{
+        height: 67px;
+    }
+}
+
+//首页通用按钮 ts-button
+.ts-button{
+    display: inline-block;
+    *display: inline;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: "宋体";
+    font-weight: normal;
+    border-radius: 3px;
+    padding: 3px 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    _height: 0;
+    _line-height: 0;
+    _padding: 5px 10px;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        text-decoration: none;
+        background-image: none;
+    }
+}
+.ts-button-white{
+    border: 1px solid #ccc;
+    color: #999;
+    &:hover{
+        background: #8ad496;
+        border: 1px solid #8ad496;
+        color: #fff;
+        .icon-message-s{
+            background-position: -335px -65px;
+        }
+    }
+}
+.ts-button-orange{
+    border: 1px solid #ff8800;
+    background: #ff8800;
+    color: #fff;
+    &:hover{
+        border: 1px solid #ff6600;
+        text-decoration: none;
+        background: #ff6600;
+        color: #fff;
+    }
+}
+.ts-button-otherwhite{
+    border: 1px solid #e1e1e1;
+    color: #666;
+    &:hover{
+        color: #ff8800;
+    }
+}
+.ts-button-disabled{
+    background: #bfbfbf;
+    border: 1px solid #bfbfbf;
+    cursor: default;
+    color: #fff;
+    &:hover{
+        background: #bfbfbf;
+    }
+    &:active{
+        position: relative;
+        top: 0;
+        box-shadow: none;
+    }
+}
+
+.js-img-center{
+    display:block;
+    overflow: hidden;
+    text-align:center;
+    vertical-align: middle;
+
+    img{
+        max-width:100%;
+        height:auto;
+        vertical-align: middle;
+    }
+    span {
+        @include inline-block();
+    }
+}
+
+.js-scrollAjax-area{
+    background:#fff url(/images/common/index/loading.gif) center no-repeat;
+}
+
+.ts-loading{
+    position:fixed;
+    _position: absolute;
+    top:0;
+    left:0;
+    width:0;
+    z-index: 9999;
+    text-align: right;
+
+    .ts-loading-bar{
+        height:2px;
+        background-color: #0e90d2;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+    }
+    .ts-loading-spinner{
+        *display: none;
+        display: none \9;
+        margin-top:2px;
+        margin-left:2px;
+        width:18px;
+        height:18px;
+        box-sizing:border-box;
+        border:solid 2px transparent;
+        border-top-color:#0e90d2;
+        border-left-color:#0e90d2;
+        border-radius: 50%;
+        -webkit-animation: nprogress-spinner 400ms linear infinite;
+        animation: nprogress-spinner 400ms linear infinite;
+    }
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes nprogress-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.area-1-1{
+    width:190px;
+    margin-right:10px;
+    .ts-box-contant{
+        height:396px;
+        input{
+            border:0;
+            border-top:1px solid #ddd;
+            border-bottom:1px solid #ddd;
+            padding:13px 20px;
+            margin-left:-10px;
+            margin-right:-10px;
+            width:148px;
+            &:focus{
+                border-top:1px solid #aaa;
+                border-bottom:1px solid #aaa;
+            }
+        }
+        .input-search{
+            background:url(/images/common/icon-search.gif) no-repeat 0 center;
+        }
+    }
+}
+.area-1-2{
+    width:1000px;
+    #banner{
+        width:800px;
+        height: 250px;
+        overflow:hidden;
+        position: relative;
+        .ui-switchable-nav{
+            position: absolute;
+            bottom: 10px;
+            left: 370px;
+            li{
+                @include float();
+                width: 12px;
+                height: 12px;
+                line-height: 12px;
+                margin-right: 10px;
+                text-align: center;
+                background: url("/images/explosion/explosion-slide-nav.png") no-repeat right top;
+                cursor: pointer;
+                color: #fff;
+            }
+            .ui-switchable-active{
+                background-position: left top;
+                color: #e50015;
+            }
+        }
+    }
+    .ts-banner{
+        width:9999px !important;
+        li{
+            width:800px;
+            height: 250px;
+        }
+    }
+    .banner-dealer{
+        width: 190px;
+        height: 248px;
+        border: 1px solid #E1E1E1;
+    }
+    .imdealer-i{
+        padding:10px 15px;
+        .head{
+            height: 90px;
+            border-bottom: 1px dashed #eee;
+            font-family: "microsoft yahei";
+            text-align: center;
+            h3{
+                font-weight: 700;
+                font-size:14px;
+                margin-bottom:5px;
+            }
+            p{
+                color:#999;
+            }
+        }
+        .content{
+            color:#999;
+            padding:15px 0 20px 0;
+            p{
+                line-height: 30px;
+                color:#999;
+                a{
+                    color: #999;
+                    &:hover{
+                        color: #f80;
+                    }
+                }
+            }
+        }
+        .btn-apply{
+            display: block;
+            height:34px;
+            line-height:34px;
+            background-color:#ff8800;
+            border-radius: 3px;
+            color:#fff;
+            text-decoration: none;
+            text-align:center;
+            font-weight: 700;
+            font-size:14px;
+            &:hover{
+                background: #f60;
+            }
+        }
+    }
+}
+
+.area-2-1{
+    width:950px;
+    margin-right:20px;
+}
+
+.area-2-2{
+    width:230px;
+}
+
+.ts-select{
+    .ts-select-label,dt{
+        @include float();
+        padding:2px 0;
+        margin-bottom: 10px;
+    }
+    .ts-select-item,dd{
+        @include float();
+        padding:2px 5px;
+        margin-right:5px;
+        margin-bottom: 10px;
+        color:#08c;
+        cursor:pointer;
+
+        &.active{
+            color:#fff;
+            background-color:#f80;
+        }
+    }
+}
+
+.stores-total{
+    *padding-bottom: 20px;
+
+    li{
+        width:198px;
+        border-right:1px dashed #e1e1e1;
+        margin:20px 0;
+        .text-sm{
+            color: #666;
+        }
+    }
+    .last{
+        border-right:0;
+    }
+    i{
+        margin:10px 0;
+    }
+}
+
+.explosion-col{
+    .explosion-col-head{
+        height: 25px;
+        line-height: 24px;
+        padding-left: 8px;
+        border-left: 5px solid #666;
+        background: #f2f2f2;
+        h3{
+            font-size: 16px;
+            font-family: "Microsoft yahei";
+        }
+    }
+}
+
+.ts-list{
+    //margin-top:4px;
+    li{
+        height: 36px;
+        line-height: 36px;
+        @include ellipsis();
+        border-bottom:1px dashed #eee;
+        font-family: "Microsoft yahei";
+        a{
+            &:hover{
+                color: #ff8800;
+            }
+        }
+    }
+}
+
+
+.brand-list{
+    @include inline-float();
+    margin-left:-20px;
+
+    li{
+        margin-left:20px;
+        width:465px;
+    }
+}
+
+//公用颜色变化
+.b-l-lookmore{
+    a{
+        &:hover{
+            color: #f80;
+        }
+    }
+}
+
+.brand-item{
+    border:1px solid #e1e1e1;
+    &:hover{
+        border-color:#f80;
+    }
+    .brand-item-body{
+        padding:10px;
+    }
+    dl{
+        //margin-left:124px;
+    }
+    dt{
+        @include float();
+        //margin-left: -124px;
+        padding-right: 10px;
+        border-right:1px dashed #eee;
+        width:102px;
+        text-align: center;
+
+        a{
+            display: block;
+            border:1px solid #ddd;
+        }
+        span{
+            display: block;
+            border:1px solid #ddd;
+            border-top:0;
+            background-color: #f2f2f2;
+            height:22px;
+            line-height: 22px;
+        }
+    }
+
+    dd {
+        line-height: 30px;
+        margin-left: 123px;
+    }
+    .text-lg{
+        font-size:30px;
+    }
+}
+
+
+//通用模型 ts-common-box
+.ts-common-box{
+    .ts-common-head{
+        @include clearfix();
+        height: 26px;
+        border-bottom: 1px solid #b6b6b6;
+        .title{
+            height: 26px;
+            border-bottom: 1px solid #333;
+        }
+        h3{
+            height: 22px;
+            line-height: 20px;
+            _display: inline;
+            padding: 0 15px 0 10px;
+            border-left: 5px solid #e70012;
+            font-size: 20px;
+            font-family: "Microsoft yahei";
+            font-weight: 700;
+            a{
+                color: #333;
+            }
+        }
+        .more{
+            color: #333;
+            &:hover{
+                text-decoration: none;
+                color: #f80;
+            }
+        }
+    }
+    .ts-common-headHot{
+        .title{
+            border-bottom: 1px solid #e70012;
+        }
+        h3{
+            border-left: 5px solid #e70012;
+            color: #e70012;
+        }
+    }
+}
+
+
+.explosion-list{
+    height: 796px;
+    margin-right: -25px;
+    overflow: hidden;
+    li{
+        width: 460px;
+        margin-right: 25px;
+        margin-bottom: 20px;
+        border: 1px solid #e1e1e1;
+        &:hover{
+            border: 1px solid #ff8900;
+        }
+    }
+    .pic{
+        @include float();
+    }
+    .detail{
+        width: 195px;
+        margin-left: 260px;
+        color: #999;
+        p{
+            line-height: 25px;
+        }
+        .icon{
+            margin-right: 5px;
+        }
+        .title{
+            height: 40px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-family: "Microsoft yahei";
+            font-size: 13px;
+            a{
+                text-decoration: none;
+                color: #333;
+                &:hover{
+                    color: #f80;
+                }
+            }
+        }
+        .price{
+            padding: 0 0 10px 75px;
+            background: url("/images/common/index/explosion-price.png") no-repeat left top;
+            font-family: arial;
+            font-size: 30px;
+            color: #ff6600;
+        }
+        .time{
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ddd;
+            color: #666;
+        }
+        .unempower{
+            height: 25px;
+            padding-bottom: 10px;
+            background: url("../../images/common/index/unempower.png") no-repeat;
+            color:#fff;
+        }
+    }
+}
+
+.icon-a,.icon-b,.icon-c,.icon-d,.icon-e{
+    @include inline-block();
+    @include ir();
+    background: url(/images/stores/stores-icon.jpg) no-repeat;
+    width:48px;
+    height:48px;
+}
+.icon-a{
+    background-position:0 0;
+}
+.icon-b{background-position:-209px 0;}
+.icon-c{background-position:-411px 0;}
+.icon-d{background-position:-608px 0;}
+.icon-e{background-position:-806px 0;}
+
+
+//经销商列表页
+.info-bread-nav{
+    height: 30px;
+    a{
+        text-decoration: none;
+        &:hover{
+            color: #0082cc;
+        }
+    }
+}
+
+.brand-col-l{
+    width: 950px;
+}
+.brand-col-r{
+    width: 230px;
+}
+.classify{
+    border: 1px solid #e1e1e1;
+    border-top: 0;
+    background: #f6f6f6;
+    position: relative;
+    .classify-height{
+        height: 35px;
+    }
+    .classify-tit{
+        width: 84px;
+        margin-top: 10px;
+        padding-left: 10px;
+        color: #666;
+    }
+    .classify-sel{
+        width: 854px;
+        background: #fff;
+        .icons-brand-selmore{
+            *vertical-align: 3px;
+            _vertical-align: -2px;
+            *margin-right: 5px;
+        }
+        .icons-brand-morejian{
+            *vertical-align: 5px;
+            _vertical-align: -2px;
+        }
+    }
+    .classify-ul{
+        width: 680px;
+        overflow:hidden;
+        li{
+            float:left;
+            height: 35px;
+            line-height: 35px;
+            margin-left: 25px;
+            white-space: nowrap;
+            a{
+                display: inline-block;
+                *display: inline-block;
+                *zoom: 1;
+                height: 20px;
+                line-height: 20px;
+                position: relative;
+                color: #666;
+                padding-left: 3px;
+                padding-right:20px;
+                _margin-top:8px;
+                border:1px solid #fff;
+                &:hover{
+                    color: #ff8800;
+                }
+            }
+            .pp-selested{
+                border-color: #B0A59F;
+                &:hover{
+                    border-color: #c30000;
+                    i{ background-position:-29px -32px;}
+                }
+                i{
+                    position: absolute;
+                    width:13px;
+                    height: 13px;
+                    overflow: hidden;
+                    background-position:-29px -51px;
+                    right: 3px;
+                    top:3px;
+                }
+            }
+        }
+        .active{
+            font-weight: bold;
+        }
+    }
+    .classify-btngroup{
+        //此按钮功能暂时废除
+        text-align: center;
+        display: none;
+        padding-bottom: 10px;
+    }
+    .classify-selmore{
+        background: #f2f0ef;
+        padding: 0 5px;
+        *margin-right: 5px;
+        a{
+            color: #806f66;
+        }
+    }
+    .classify-more{
+        a{
+            color: #806f66;
+        }
+    }
+}
+.classify-main{
+    border: 1px solid #e1e1e1;
+    margin-top: -1px;
+}
+.classify-bottom{
+    background: #eae5dd; height: 5px;
+}
+//筛选条
+.filter{
+    height: 40px;
+    border: 1px solid #ddd;
+    background: #fff;
+    margin-top: 15px;
+    color: #666;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 2px 2px #ece9e2;
+    -webkit-box-shadow: 0px 2px 2px #ece9e2;
+    -moz-box-shadow: 0px 2px 2px #ece9e2;
+    .filter-sort{
+        display: inline-block;
+        padding: 13px 0;
+        width: 70px;
+        text-align: center;
+        *display: inline;
+        *zoom:1;
+        border-right: 1px solid #ddd;
+        color: #666;
+    }
+    .filter-select{
+        background: #cc3333;
+        color: #fff;
+    }
+    .filter-sort{
+        .icons-brand-greyarrow{
+            margin-left: 5px;
+        }
+    }
+    .filter-upstyle{
+        .icons-brand-greyarrow{
+            background-position: -15px -60px;
+        }
+    }
+    .filter-downstyle{
+        .icons-brand-greyarrow{
+            background-position: -57px -32px;
+        }
+    }
+
+    .filter-box{
+        @include float();
+    }
+}
+.isbrand-content{
+    font-family: "Microsoft yahei";
+    li{
+        @include clearfix;
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px solid #e1e1e1;
+        &:hover{
+            border: 1px solid #FF8A01;
+        }
+    }
+    .pic{
+        @include float();
+        width: 370px;
+    }
+    .detail{
+        @include float();
+        width: 540px;
+        margin-left: 20px;
+    }
+    .isbrand-content-title{
+        margin-top: 10px;
+        margin-left: 5px;
+        padding-left: 10px;
+        //border-left: 1px solid #e2e2e2;
+        .name{
+            font-size: 14px;
+            a{
+                color: #333;
+            }
+        }
+    }
+    .color666{
+        color: #666;
+    }
+    .isbrand-logo{
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #e2e2e2;
+        .address{
+            margin-top: 10px;
+            text-align: right;
+            color: #999;
+        }
+    }
+    .isbrand-info{
+        padding: 5px 0;
+        border-bottom: 1px dashed #e2e2e2;
+        font-family: "宋体";
+        p{
+            height: 31px;
+            line-height: 31px;
+            //clear: both;
+            color: #999;
+        }
+        a{
+            color: #666;
+        }
+        span{
+            color: #666;
+        }
+        em{
+            color: #999;
+        }
+        div{
+            width: 50%;
+        }
+        .price,.number,.s-number{
+            font-family: Arial;
+        }
+        .price{
+            font-size: 18px;
+            color: #f80;
+        }
+        .number{
+            font-size: 14px;
+            color: #f80;
+        }
+        .s-number{
+            color: #f80;
+        }
+        .i-i-mainpro{
+            color: #999;
+            margin-top: 3px;
+            height: 26px;
+        }
+        .i-i-pro{
+            @include ellipsis;
+            width: 190px;
+            height: 26px;
+            margin-top: 3px;
+        }
+    }
+    .isbrand-group{
+        font-family: "宋体";
+        a{
+            margin-right: 5px;
+        }
+        .i-g-link{
+            color: #0082cc;
+            &:hover{
+                color: #f80;
+            }
+        }
+    }
+}
+.imbrand-list,.imdealer-list{
+    padding:10px 12px;
+    border:1px solid #e1e1e1;
+    .head{
+        height: 90px;
+        border-bottom: 1px dashed #e1e1e1;
+        font-family: "microsoft yahei";
+        text-align: center;
+        h3{
+            font-weight: 700;
+            font-size:14px;
+            margin-bottom:5px;
+        }
+        p{
+            color:#999;
+        }
+    }
+    .content{
+        color:#999;
+        padding:15px 0;
+        span{
+            font-family: "Microsoft yahei";
+            font-size: 16px;
+            color: #FF8900;
+        }
+    }
+    .btn-apply{
+        display: block;
+        height:34px;
+        line-height:34px;
+        background-color:#ff8800;
+        border-radius: 3px;
+        color:#fff;
+        text-decoration: none;
+        text-align:center;
+        font-weight: 700;
+        font-size:14px;
+        &:hover{
+            background: #f60;
+        }
+    }
+}
+.imdealer-list{border-top:0;}
+//实时动态
+.real-time{
+    @include clearfix();
+    margin-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e1e1e1;
+    &:hover{
+        .des{
+            color: #ff8800;
+            a{
+                text-decoration: none;
+                color: #ff8800;
+            }
+        }
+        .title{
+            color: #ff8800;
+        }
+    }
+    .pic{
+        @include float();
+    }
+    .title,.des{
+        margin-left: 80px;
+        color: #666;
+    }
+    .title{
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        //border-bottom: 1px dashed #ddd;
+        font-size: 13px;
+        font-family: "Microsoft yahei";
+    }
+    .des{
+        line-height: 20px;
+    }
+}
+
+//搜索结果为空，即无品牌
+.classify{
+    //padding: 20px 20px 0 20px;
+    background: #f4f4f4;
+    position: relative;
+
+    .n-r-say{
+        height: 66px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #d6d6d6;
+        background: url("../../images/stores/no-result.png") no-repeat 36px top;
+        font-family: "Microsoft yahei";
+        font-size: 16px;
+        color: #666;
+        p{
+            padding-top: 10px;
+            line-height: 20px;
+            text-indent: 135px;
+        }
+        span{
+            color: #d8271c;
+        }
+    }
+    .n-r-recomed{
+        line-height: 40px;
+        span{
+            color: #666;
+        }
+        a{
+            color: #f80;
+        }
+    }
+    .n-r-search{
+        position: absolute;
+        top: 37px;
+        right: 25px;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        background: #fff;
+        .n-r-text,.n-r-btn{
+            border: 0;
+        }
+        .n-r-text{
+            width: 140px;
+            height: 25px;
+            line-height: 25px;
+            color: #999;
+            padding-left: 5px;
+        }
+        .n-r-btn{
+            width: 30px;
+            height: 25px;
+            margin: 1px;
+            background: #f80 url("../../images/market/clearance/isearch-on.png") no-repeat center;
+            border-radius: 0 3px 3px 0 ;
+        }
+    }
+}
+
+//上下箭头
+.brandicons{ display: inline-block; *display: inline; *zoom:1; background: url("/images/market/common-icons.png") no-repeat -999em;}
+.icons-brand-greyarrow{ width: 9px; height: 10px; background-position: 0 -60px;}
+.icons-brand-whitearrow{ width: 9px; height: 10px; background-position: -15px -60px;}
+.levelicons{display: inline-block; *display: inline; *zoom:1; background: url("/images/market/isbrand-list.png") no-repeat -999em;}
+.levelicons-vip{width: 42px; height: 16px; background-position: 0 0; vertical-align: top;}
+.levelicons-rz{width: 23px; height: 19px;background-position: right 0;}

@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+@import "button";
+@import "form";
+
+
+.main{
+    .inner{
+        background: #fff;
+    }
+}
+
+//蓝色字
+.bluefont{
+  color: #0082cc;
+}
+//黄色字
+.orangefont{
+  color: #ff8800;
+}
+//#666字
+.sixcolor{
+  color: #666;
+}
+
+.mymessage{
+    overflow: hidden;
+    *zoom:1;
+    padding-top: 20px;
+}
+.js_grademanage_menu{
+    overflow: hidden;
+    ul{
+        border: 1px solid #ddd;
+        background: #fbfbf8;
+    }
+    li{
+        width: 150px;
+        height: 45px;
+        float: left;
+        text-align: center;
+        line-height: 45px;
+        margin: 0;
+        background: #fbfbf8;
+        font-family: "microsoft yahei";
+        font-size: 14px;
+        color: #666;
+        cursor: pointer;
+        border: 1px solid #ddd;
+        border-bottom: 0;
+        border-top: 0;
+        margin-left: -2px;
+        a{
+          display: block;
+          color:#666;
+        }
+    }
+    .selected{
+        background: #fff;
+        color: #333;
+        border-top: 2px solid #1d7ad9;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        position: relative;
+        height: 43px;
+        bottom: -2px;
+        margin-top: -2px;
+    }
+}
+.js_grademanage_con{
+    z-index: 1;
+    .hide{
+        display: none;
+    }
+}
+
+//发送消息
+.mymessage-send{
+  .ui-label{
+      font-size: 12px;
+      margin-left: -60px;
+      margin-right: 5px;
+      color: #666;
+  }
+  .radio-group{
+      vertical-align: -5px;
+  }
+  .ui_button{
+    margin-left: 45px;
+  }
+  .dealers_layer{
+      margin-top: 10px;
+      margin-left: 45px;
+      width: 770px;
+      border: #d9d9d9 solid 1px;
+  }
+  .search_condition{
+      height: 30px;
+      overflow: hidden;
+      background: #e4ecf7;
+      select{
+        width: 110px;
+        height: 20px;
+      }
+      label{
+        _vertical-align: 1px;
+      }
+      .check_box{
+        margin: 6px 0 0 8px;
+      }
+      .level{
+        margin: 5px 0 0 25px;
+      }
+      .area{
+        margin: 5px 0 0 20px;
+      }
+  }
+  .data_list{
+      height: 350px;
+      overflow: auto;
+      tr:nth-child(even){
+        background-color: #f9f9f9;
+      }
+      td{
+        height: 32px;
+        border-right: #d9d9d9 solid 1px;
+        border-bottom: #d9d9d9 solid 1px;
+        padding-left: 8px;
+      }
+      .last{
+        border-right: none;
+      }
+      tr:last-child{
+        border-bottom: none;
+      }
+  }
+}
+
+//消息管理-（全部消息、预警消息）
+.mymessage-msgman{
+  font-size: 14px;
+  padding-top: 15px;
+  .ui-form-item{
+      float: left;
+      padding-left: 0;
+      margin-left: 15px;
+      .ui-select{
+          width: 195px;
+          height: 35px;
+          *margin-top: 6px;
+      }
+      .ui-input{
+          width: 85px;
+          height: 25px;
+      }
+      .simple_button{
+          font-family: "microsoft yahei";
+          font-size: 14px;
+      }
+      label{
+          vertical-align: middle;
+      }
+  }
+  .msgman-table{
+      width: 100%;
+      border-left:1px solid #fff ;
+      thead{
+          tr{
+              th{
+                  background: #e3edf7;
+                  line-height: 35px;
+                  font-weight: 400;
+                  text-align: left;
+                  text-indent: 10px;
+              }
+          }
+      }
+      tbody{
+          tr{
+              td{
+                  border-bottom: 1px solid #eee;
+                  padding:10px;
+              }
+              .msgman-table-tdtl{
+                  text-align: left;
+              }
+          }
+      }
+  }
+  .pagination{
+      margin-right: 15px;
+  }
+  .hasDatepicker{
+      background-position: 4px -122px;
+  }
+}
+
+//手机短信服务
+.mobile-sever{
+   .mobile-cansend{
+      font-size: 14px;
+      font-family: "microsoft yahei";
+      em{
+        color: #cc0000;
+      }
+      .ui_button{
+          margin-left: 50px;
+      }
+   }
+   .send-history{
+      margin-left: 59px;
+   }
+   .mobile-table{
+      width: 100%;
+      margin-top: 13px;
+      .mobile-table-tl{
+        text-align: left;
+      }
+      thead{
+          tr{
+              th{
+                  background: #e3edf7;
+                  line-height: 30px;
+                  font-weight: 400;
+                  color: #666;
+                  padding-left: 10px;
+              }
+          }
+      }
+       tbody{
+           tr{
+               td{
+                   border-bottom: 1px solid #eee;
+                   text-align: center;
+                   padding:10px;
+               }
+           }
+           tr:nth-child(even){
+              background: #f9f9f9;
+           }
+       }
+   }
+   .pagination{
+      padding: 5px 0;
+   }
+   .mobile-setmsg{
+      font-family: "microsoft yahei";
+      font-size: 14px;
+      margin-top: 20px;
+   }
+   .mobile-tip{
+      margin-top: 10px;
+      margin-bottom: -10px;
+      position: relative;
+      .down-address{
+          position: absolute;
+          right: 0;
+          _right: 20px;
+          top: 0;
+      }
+   }
+   .setmsg-table{
+      margin-bottom: 20px;
+      margin-top: 16px;
+      .mobile-onoff{
+          width: 45px;
+          height: 17px;
+          background: url(../../images/brand/onoff.png) no-repeat -999em;
+          cursor: pointer;
+      }
+       .mobile-on{
+          background-position: 0 0;
+       }
+       .mobile-off{
+          background-position: 0 -17px;
+       }
+   }
+}
+//消息管理查看
+.message-info-title{
+    font-family: "microsoft yahei";
+    font-size: 16px;
+    text-align: center;
+    em{
+        color: #d62b2b;
+    }
+}
+.message-info-some{
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: right;
+    border-bottom: 1px dashed #ccc;
+    text-align: center;
+    font-size: 14px;
+    .ui_button{
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+}
+.message-info-content{
+    margin-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    text-indent: 2em;
+    padding: 0 1em;
+    line-height: 30px;
+    .message-info-taitou{
+        margin: 15px 0;
+    }
+    .message-info-p{
+        text-indent: 24px;
+        line-height: 25px;
+    }
+}
+//回复消息
+.message-info-reply{
+    border-top: 1px dashed #CCC;
+    .ui-form{
+        margin-top: 10px;
+    }
+    .ui-form-item{
+        padding-left: 0;
+    }
+    .ui-textarea{
+        width: 959px;
+        height: 100px;
+    }
+    input.simple_button{
+        @extend .ui_button;
+        margin-top: -20px;
+        background-color: #f5f5f5;
+        height: 28px;
+        border:#bfbdbc solid 1px;
+        color: #333;
+        vertical-align: top;
+        &:hover{
+            background-color: #eee;
+            color: #333;
+        }
+    }
+}

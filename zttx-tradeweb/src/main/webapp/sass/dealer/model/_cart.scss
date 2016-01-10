@@ -1,0 +1,74 @@
+@charset "UTF-8";
+.shopping-cart { }
+.shopping-cart .brand-list { }
+.shopping-cart .brand-list .brand-item { margin-bottom: 10px; _zoom: 1; }
+.shopping-cart .brand-list .brand-item .detailed-list { overflow: hidden; }
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-head { height: 34px; line-height: 34px;border:1px solid #ddd;border-bottom:0;zoom:1; }
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-head input.chk{vertical-align:-2px;margin-right:5px;}
+
+
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-body { line-height: 34px; text-align: center; }
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-body .detailed-list-body-content { line-height: 27px; }
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-body dl { overflow: hidden; *zoom: 1; }
+.shopping-cart .brand-list .brand-item .detailed-list .detailed-list-body dd { overflow: hidden; *zoom: 1; float: left; }
+
+.detailed-list-body-title ul { overflow: hidden; }
+.detailed-list-body-title ul li { text-align: center; background-color: #f9f9f9; /*border: 1px solid #ddd;*/ }
+
+.shopping-cart table { }
+.shopping-cart table tr th { border: 1px solid #ddd; }
+.shopping-cart table tr .goods-td { border: 1px solid #ddd;position:relative;}
+.shopping-cart table tr .goods-td .chk{ position:absolute;top:50%;left:10px; }
+.shopping-cart .cell-1 { width: 144px;padding-left:30px; }
+.shopping-cart .cell-2 { width: 105px; }
+.shopping-cart .cell-3 { width: 115px; }
+.shopping-cart .cell-4 { width: 60px; }
+.shopping-cart .cell-5 { width: 65px; }
+.shopping-cart .cell-6 { width: 120px; }
+.shopping-cart .cell-7 { width: 80px; }
+.shopping-cart .cell-8 { width: 75px; }
+.shopping-cart .cell-9 { width: 100px; }
+.shopping-cart .cell-10 { width: 95px; }
+.shopping-cart .cell-1,
+.shopping-cart .cell-2,
+.shopping-cart .cell-3,
+.shopping-cart .cell-4,
+.shopping-cart .cell-5,
+.shopping-cart .cell-6,
+.shopping-cart .cell-7,
+.shopping-cart .cell-8,
+.shopping-cart .cell-9,
+.shopping-cart .cell-10 { /*border: 1px solid #ddd; border-left: 0; border-top: 0;*/ }
+
+
+
+/*.goods-items .goods-item { }*/
+.goods { width: 100%; }
+.goods td { vertical-align: middle; }
+.goods .goods-attribute { vertical-align: top; /*border-right: 0; */ /*border-bottom: 0;*/ }
+.goods .goods-attribute table{ width: 100%;}
+.goods .goods-attribute .goods-main-attribute { border-bottom: 1px solid #ddd;border-right: 1px solid #ddd; }
+.goods .goods-attribute .goods-main-attribute.last { border: 0; border-bottom: 0; }
+.goods .goods-attribute .goods-other-attribute { border-bottom: 1px solid #ddd; }
+.goods .goods-attribute .goods-other-attribute .hide { /*border-top: 1px solid #ddd;*/ }
+.goods .goods-attribute .last td{border-bottom: none;}
+
+.goods .goods-attribute .goods-other-attribute td {border: 0 none;}
+.goods .i-delete{_display: none;}
+.goods .goods-attribute .expand {border-bottom: 0; border-right: 0;height:35px;line-height:35px;_height:25px;_padding-top:10px;cursor:pointer;}
+/*.goods .goods-attribute .expand.hide { border-top: 0; }*/
+.goods .goods-attribute .expand.first { border-top: 0; }
+
+.goods .goods-attribute .goods-other-attribute .last td { border-bottom: 0; }
+.goods .goods-attribute .goods-other-attribute .attributes th { border-bottom: 0;border-top: 0; }
+
+.goods .goods-attribute .goods-other-attribute .attributes ul li dl { width:100%; }
+.goods .goods-attribute .goods-other-attribute .attributes ul li dl dd{  }
+
+.td-inner .td-inner-msg { display:none; }
+.td-inner .item-amount { overflow:hidden;width:100px;margin:auto;  }
+.td-inner .item-amount .txt-amount { width: 58px; height: 20px; border: 1px solid #e4e4e4;border-top-color:#bcbcbc; float:left;text-align:center;}
+.td-inner .item-amount a { float:left; width: 18px; height: 20px; border: 1px solid #e5e5e5;line-height:20px;text-decoration:none;background-color:#f0f0f0 }
+.td-inner .item-amount a:hover { border: 1px solid #f47501;color:#f47501;text-decoration:none; }
+.td-inner .item-amount a.disable {  border: 1px solid #e5e5e5;color:#999;}
+.td-inner .item-amount a.disable:hover {  border: 1px solid #e5e5e5;color:#999;}

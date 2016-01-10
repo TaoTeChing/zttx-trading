@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerOrdercMapper">
+    <!-- 基础列 -->
+    <sql id="dealerOrdercColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.productId as productId ,
+        a.subTime as subTime ,
+        a.subNum as subNum ,
+        a.joinNum as joinNum ,
+        a.orderNum as orderNum ,
+        a.orderTime as orderTime ,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        insert into DealerOrderc(
+        refrenceId ,
+        dealerId ,
+        brandId ,
+        brandsId ,
+        productId ,
+        subTime ,
+        subNum ,
+        joinNum ,
+        orderNum ,
+        orderTime ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{dealerId} ,
+        #{brandId} ,
+        #{brandsId} ,
+        #{productId} ,
+        #{subTime} ,
+        #{subNum} ,
+        #{joinNum} ,
+        #{orderNum} ,
+        #{orderTime} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerOrderc where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerOrderc set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        insert into DealerOrderc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="brandsId != null">
+                brandsId ,
+            </if>
+            <if test="productId != null">
+                productId ,
+            </if>
+            <if test="subTime != null">
+                subTime ,
+            </if>
+            <if test="subNum != null">
+                subNum ,
+            </if>
+            <if test="joinNum != null">
+                joinNum ,
+            </if>
+            <if test="orderNum != null">
+                orderNum ,
+            </if>
+            <if test="orderTime != null">
+                orderTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                #{productId} ,
+            </if>
+            <if test="subTime != null">
+                #{subTime} ,
+            </if>
+            <if test="subNum != null">
+                #{subNum} ,
+            </if>
+            <if test="joinNum != null">
+                #{joinNum} ,
+            </if>
+            <if test="orderNum != null">
+                #{orderNum} ,
+            </if>
+            <if test="orderTime != null">
+                #{orderTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        update DealerOrderc
+        <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="productId != null">
+                productId = #{productId} ,
+            </if>
+            <if test="subTime != null">
+                subTime = #{subTime} ,
+            </if>
+            <if test="subNum != null">
+                subNum = #{subNum} ,
+            </if>
+            <if test="joinNum != null">
+                joinNum = #{joinNum} ,
+            </if>
+            <if test="orderNum != null">
+                orderNum = #{orderNum} ,
+            </if>
+            <if test="orderTime != null">
+                orderTime = #{orderTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        update DealerOrderc set
+        dealerId = #{dealerId} ,
+        brandId = #{brandId} ,
+        brandsId = #{brandsId} ,
+        productId = #{productId} ,
+        subTime = #{subTime} ,
+        subNum = #{subNum} ,
+        joinNum = #{joinNum} ,
+        orderNum = #{orderNum} ,
+        orderTime = #{orderTime} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        select
+        <include refid="dealerOrdercColumns"/>
+        from DealerOrderc a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        SELECT
+        <include refid="dealerOrdercColumns"/>
+        FROM DealerOrderc a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="productId != null and productId != ''">
+            and a.productId like CONCAT('%',#{productId}, '%')
+        </if>
+        <if test="subTime != null and subTime != ''">
+            and a.subTime = #{subTime}
+        </if>
+        <if test="subNum != null and subNum != ''">
+            and a.subNum = #{subNum}
+        </if>
+        <if test="joinNum != null and joinNum != ''">
+            and a.joinNum = #{joinNum}
+        </if>
+        <if test="orderNum != null and orderNum != ''">
+            and a.orderNum = #{orderNum}
+        </if>
+        <if test="orderTime != null and orderTime != ''">
+            and a.orderTime = #{orderTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        SELECT
+        <include refid="dealerOrdercColumns"/>
+        FROM DealerOrderc a WHERE a.delFlag = 0
+    </select>
+    <!--经销商  常进款式-->
+    <select id="selectOrdercProductList" resultType="java.util.HashMap">
+        select
+        b.refrenceId as productId,
+        b.domainName as domainName,
+        b.productImage as productImage,
+        b.productNo as productNo,
+        b.productTitle as productTitle,
+        b.productPrice as productPrice,
+        b.productCate as productCate,
+        b.stateSet as productState,
+        b.delFlag as productDelFlag,
+        a.orderNum as orderNum,
+        a.brandsId as brandsId,
+        a.dealerId as dealerId,
+        a.joinNum as joinNum,
+        a.refrenceId as dealerOrdercId,
+        c.saleNum as saleNum,
+        d.brandsName as brandsName,
+        d.brandState as brandState,
+        d.delFlag as brandDelFlag,
+        h.isCredit as isCredit,
+        e.joinForm as joinForm,
+        e.isPaid as isPaid,
+        e.joinState as joinState,
+        min(g.directPrice) lowestPrice,
+        min(g.creditPrice) lowestCreditPrice,
+        min(g.pointPrice) lowestPointPrice
+        from
+        DealerOrderc a LEFT JOIN DealerJoin e ON a.brandId = e.brandId and a.dealerId = e.dealerId and a.brandsId =
+        e.brandsId,
+        ProductBaseInfo b,
+        ProductCount c,
+        BrandesInfo d,
+        ProductSku f,
+        ProductSkuPrice g,
+        ProductExtInfo h
+        where a.dealerId = #{dealerId}
+        and a.productId = b.refrenceId
+        and c.refrenceId = a.productId
+        and a.brandsId = d.refrenceId
+        AND a.productId = f.productId
+        AND f.refrenceId = g.productSkuId
+        AND a.productId = h.refrenceId
+        AND f.delFlag = 0
+        AND a.delFlag = 0
+        <if test="null!= brandsId and '' != brandsId">
+            and b.brandsId = #{brandsId}
+        </if>
+        <if test="null!=productNo and ''!=productNo">
+            and b.productNo like CONCAT('%',#{productNo}, '%')
+        </if>
+        group by g.productId
+        <if test="null!=sort and ''!=sort ">
+            <choose>
+                <when test="sort==1">
+                    order by c.saleNum desc     <!--销售数量 销售量-->
+                </when>
+                <when test="sort==2">
+                    order by productPrice desc  <!--产品吊牌价 价格-->
+                </when>
+                <when test="sort==3">
+                    order by c.viewNum desc  <!--浏览量 人气-->
+                </when>
+            </choose>
+        </if>
+    </select>
+    <!--经销商  常进款式 品牌分类-->
+    <select id="selectOrdercCata" resultType="java.util.HashMap">
+        select
+        d.refrenceId as brandsId,
+        d.brandsName as brandsName
+        from
+        DealerOrderc a,
+        ProductBaseInfo b,
+        ProductCount c,
+        BrandesInfo d,
+        DealerJoin e,
+        ProductSku f,
+        ProductSkuPrice g,
+        ProductExtInfo h
+        where
+        a.productId = b.refrenceId and  a.productId=c.refrenceId and a.brandsId = d.refrenceId and a.brandsId=e.brandsId and a.dealerId = e.dealerId
+        and a.productId = f.productId and f.refrenceId = g.productSkuId and a.productId = h.refrenceId and f.delFlag = 0
+        and a.dealerId= #{dealerId}
+        and a.delFlag = 0
+        group by brandsId
+    </select>
+
+    <select id="selectByIds" resultType="com.zttx.web.module.dealer.entity.DealerOrderc">
+        select
+        <include refid="dealerOrdercColumns"/>
+        from DealerOrderc a where a.dealerId = #{dealerId} and a.brandId = #{brandId} and a.brandsId=#{brandsId} and
+        a.productId=#{productId} and a.delFlag = 0;
+    </select>
+
+    <select id="countProCate" resultType="java.lang.String">
+        select productId from DealerOrderc where dealerId = #{dealerId} and brandId = #{brandId} and brandsId = #{brandsId}
+    </select>
+
+    <select id="countFreProCate" resultType="java.lang.String">
+        select productId from DealerOrderc where dealerId = #{dealerId} and brandId = #{brandId} and brandsId = #{brandsId} order by joinNum desc limit 0,10
+    </select>
+
+    <select id="searchToMap" resultType="map">
+        select b.refrenceId as id, b.domainName as domainName, b.productImage as productImage, b.productNo as productNo,
+        b.productTitle as productTitle,b.productPrice as origPrice,b.productPrice as price,b.productCate as productCate,
+        a.orderNum as orderNum,a.joinNum as joinNum,c.saleNum as saleNum, d.brandName as brandName
+        from DealerOrderc a, ProductBaseInfo b, ProductCount c, BrandesInfo d
+        where a.productId = b.refrenceId and c.productId = a.productId and c.brandsId = d.refrenceId and
+        a.dealerId=#{dealerId}
+
+        <if test="null!=filter.brandsId and ''!=filter.brandsId">
+            and b.brandsId =#{filter.brandsId}
+        </if>
+
+        <if test="null!=filter.category">
+            <if test="null!=filter.categoryBase and filter.categoryBase!=0">
+                and dealNo &gt;= #{filter.category} and dealNo &lt; #{filter.categoryBase}
+            </if>
+            <if test="null==filter.categoryBase or filter.categoryBase==0">
+                and dealNo = #{filter.category}
+            </if>
+        </if>
+
+        group by a.productId
+
+    </select>
+
+</mapper>
+

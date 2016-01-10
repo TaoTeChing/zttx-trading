@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+
+$linkColor:             #666 #0082cc !default;
+
+
+
+select{
+    -webkit-appearance: none;
+}
+
+body{
+    color: #333;
+    font:12px/1.5 arial, "宋体", Helvetica Neue, Helvetica, Tahoma, sans-serif;
+}
+
+// links
+a{
+    text-decoration:none;
+    @if length($linkColor) > 1{
+        color:nth($linkColor,1);
+        &:hover{
+            color:nth($linkColor,2);
+        }
+    } @else {
+        color:$linkColor;
+        &:hover{
+            color:darken($linkColor,10%);
+        }
+    }
+}
+
+.link{
+  color:nth($linkColor,2);
+}
+
+
+.em100{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.rel{
+    position: relative;
+}
+
+.ta-l{
+    text-align: left;
+}
+.ta-c{
+    text-align: center;
+}
+.ta-r{
+    text-align: right;
+}
+
+.ml5{
+    margin-left: 5px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.mt5{
+    margin-top: 5px;
+}
+.mt10{
+    margin-top: 10px;
+}
+
+.text-red{color:#f00;}
+.text-yellow{color:#ff8800;}
+
+
+.inline-float{
+  @include clearfix();
+  dt,dd,li{
+    @include float();
+  }
+}
+
+
+.row{
+  @include clearfix();
+  margin-right:260px;
+}
+
+.col-left{
+  //@include clearfix();
+  @include float();
+  width:100%;
+  *margin-right:10px;
+}
+.col-right{
+  @include float(right);
+  width:250px;
+  margin-right:-260px;
+}
+
+
+.btn{
+  cursor: pointer;
+}
+
+a.btn{
+  text-align: center;
+  &:hover{
+    text-decoration:none;
+  }
+}
+
+.btn-orange{
+  background-color:#ff8800;
+  color:#fff;
+  &:hover{
+    background-color:lighten(#ff8800,5%);
+    color: #fff;
+  }
+}
+.btn-disabled{
+    background-color:#e1e1e1;
+    border: 1px solid #e1e1e1;
+    cursor: default;
+    &:hover{
+        background-color:#e1e1e1;
+        border: 1px solid #e1e1e1;
+    }
+}
+.btn-block{display:block;}
+.btn-lg{
+  height:40px;
+  font-size:16px;
+}
+a.btn-lg{
+  line-height:40px;
+}
+
+.panel{
+  border:1px solid #ddd;
+  .panel-head{
+    position: relative;
+    background-color:#fff;
+    padding:10px;
+    padding-bottom:5px;
+
+    .panel-head-more{
+      position: absolute;
+      right:10px;
+      top:10px;
+    }
+  }
+  .panel-body{
+    background-color:#fff;
+    padding:10px;
+    padding-top:5px;
+
+    li{
+      @include clearfix();
+      line-height: 30px;
+    }
+
+    em{
+      @include float(right);
+      color:#888;
+    }
+  }
+  .panel-foot{
+    background-color:#f7f7f7;
+    padding:10px;
+  }
+}
+
+dl.select{
+  dt{
+    padding:4px;
+  }
+  dd{
+    margin-right:15px;
+    padding:4px;
+    cursor: pointer;
+    color:#08c;
+    &.active{
+      background-color: #ff8800;
+      color:#fff;
+    }
+  }
+}
+
+.ui-checkbox,INPUT[type='checkbox']{
+  *vertical-align: 3px;
+}
+

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerBankMapper">
+    <!-- 基础列 -->
+    <sql id="dealerBankColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.bankCate as bankCate ,
+        a.bankId as bankId ,
+        a.userName as userName ,
+        a.userId as userId ,
+        a.bankNo as bankNo ,
+        a.openBank as openBank ,
+        a.subBank as subBank ,
+        a.areaNo as areaNo ,
+        a.cardDefault as cardDefault ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.checkState as checkState ,
+        a.flag as flag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerBank">
+        insert into DealerBank(
+         refrenceId ,
+         dealerId ,
+         bankCate ,
+         bankId ,
+         userName ,
+         userId ,
+         bankNo ,
+         openBank ,
+         subBank ,
+         areaNo ,
+         cardDefault ,
+         createTime ,
+         updateTime ,
+         checkState ,
+         flag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{bankCate}  ,
+        #{bankId}  ,
+        #{userName}  ,
+        #{userId}  ,
+        #{bankNo}  ,
+        #{openBank}  ,
+        #{subBank}  ,
+        #{areaNo}  ,
+        #{cardDefault}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{checkState}  ,
+        #{flag}  
+        )
+    </insert>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" parameterType="list">
+        insert into DealerBank(
+         refrenceId ,
+         dealerId ,
+         bankCate ,
+         bankId ,
+         userName ,
+         userId ,
+         bankNo ,
+         openBank ,
+         subBank ,
+         areaNo ,
+         cardDefault ,
+         createTime ,
+         updateTime ,
+         checkState ,
+         flag 
+        ) VALUES
+        <foreach collection="list" item="dealerBank" separator=",">
+        (
+        #{dealerBank.refrenceId}  ,
+        #{dealerBank.dealerId}  ,
+        #{dealerBank.bankCate}  ,
+        #{dealerBank.bankId}  ,
+        #{dealerBank.userName}  ,
+        #{dealerBank.userId}  ,
+        #{dealerBank.bankNo}  ,
+        #{dealerBank.openBank}  ,
+        #{dealerBank.subBank}  ,
+        #{dealerBank.areaNo}  ,
+        #{dealerBank.cardDefault}  ,
+        #{dealerBank.createTime}  ,
+        #{dealerBank.updateTime}  ,
+        #{dealerBank.checkState}  ,
+        #{dealerBank.flag}  
+        )
+        </foreach>
+    </insert>
+
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerBank where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerBank set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerBank">
+        insert into DealerBank
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="bankCate != null">
+            bankCate ,
+        </if>
+        <if test="bankId != null">
+            bankId ,
+        </if>
+        <if test="userName != null">
+            userName ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="bankNo != null">
+            bankNo ,
+        </if>
+        <if test="openBank != null">
+            openBank ,
+        </if>
+        <if test="subBank != null">
+            subBank ,
+        </if>
+        <if test="areaNo != null">
+            areaNo ,
+        </if>
+        <if test="cardDefault != null">
+            cardDefault ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="checkState != null">
+            checkState ,
+        </if>
+        <if test="flag != null">
+            flag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="bankCate != null">
+            #{bankCate} ,
+        </if>
+        <if test="bankId != null">
+            #{bankId} ,
+        </if>
+        <if test="userName != null">
+            #{userName} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="bankNo != null">
+            #{bankNo} ,
+        </if>
+        <if test="openBank != null">
+            #{openBank} ,
+        </if>
+        <if test="subBank != null">
+            #{subBank} ,
+        </if>
+        <if test="areaNo != null">
+            #{areaNo} ,
+        </if>
+        <if test="cardDefault != null">
+            #{cardDefault} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="checkState != null">
+            #{checkState} ,
+        </if>
+        <if test="flag != null">
+            #{flag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerBank">
+        update DealerBank
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="bankCate != null">
+                bankCate = #{bankCate} ,
+            </if>
+            <if test="bankId != null">
+                bankId = #{bankId} ,
+            </if>
+            <if test="userName != null">
+                userName = #{userName} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="bankNo != null">
+                bankNo = #{bankNo} ,
+            </if>
+            <if test="openBank != null">
+                openBank = #{openBank} ,
+            </if>
+            <if test="subBank != null">
+                subBank = #{subBank} ,
+            </if>
+            <if test="areaNo != null">
+                areaNo = #{areaNo} ,
+            </if>
+            <if test="cardDefault != null">
+                cardDefault = #{cardDefault} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="checkState != null">
+                checkState = #{checkState} ,
+            </if>
+            <if test="flag != null">
+                flag = #{flag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerBank">
+        update DealerBank set
+            dealerId = #{dealerId} ,
+            bankCate = #{bankCate} ,
+            bankId = #{bankId} ,
+            userName = #{userName} ,
+            userId = #{userId} ,
+            bankNo = #{bankNo} ,
+            openBank = #{openBank} ,
+            subBank = #{subBank} ,
+            areaNo = #{areaNo} ,
+            cardDefault = #{cardDefault} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            checkState = #{checkState} ,
+            flag = #{flag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerBank">
+        select <include refid="dealerBankColumns"/> from DealerBank a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerBank">
+        SELECT
+        <include refid="dealerBankColumns"/>
+        FROM DealerBank a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="bankCate != null and bankCate != ''">
+            and a.bankCate = #{bankCate}
+        </if>
+        <if test="bankId != null and bankId != ''">
+            and a.bankId like CONCAT('%',#{bankId}, '%')
+        </if>
+        <if test="userName != null and userName != ''">
+            and a.userName like CONCAT('%',#{userName}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+        <if test="bankNo != null and bankNo != ''">
+            and a.bankNo like CONCAT('%',#{bankNo}, '%')
+        </if>
+        <if test="openBank != null and openBank != ''">
+            and a.openBank like CONCAT('%',#{openBank}, '%')
+        </if>
+        <if test="subBank != null and subBank != ''">
+            and a.subBank like CONCAT('%',#{subBank}, '%')
+        </if>
+        <if test="areaNo != null and areaNo != ''">
+            and a.areaNo like CONCAT('%',#{areaNo}, '%')
+        </if>
+        <if test="cardDefault != null and cardDefault != ''">
+            and a.cardDefault = #{cardDefault}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="checkState != null and checkState != ''">
+            and a.checkState = #{checkState}
+        </if>
+        <if test="flag != null and flag != ''">
+            and a.flag = #{flag}
+        </if>
+        order by a.createTime desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerBank">
+        SELECT
+        <include refid="dealerBankColumns"/>
+        FROM DealerBank a WHERE a.delFlag = 0
+    </select>
+</mapper>
+

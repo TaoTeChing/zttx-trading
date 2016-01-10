@@ -1,0 +1,60 @@
+@charset "utf-8";
+@import "../../mixin";
+
+//业绩介绍
+.part-h{
+    .outstandinde-list{
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-family: "Microsoft yahei";
+        li{
+            width: 240px;
+            text-align: center;
+            color: #666;
+            p{
+                em{
+                    font-family: Arial;
+                }
+            }
+            .title{
+                font-size: 30px;
+            }
+            .pic{
+                height: 80px;
+                margin: 10px 0;
+            }
+            .dateil{
+                font-size: 14px;
+            }
+        }
+    }
+    .outstandinde-bd{
+        padding: 20px 0 25px 0;
+        background: #d7291c;
+        text-align: center;
+        font-family: "Microsoft yahei";
+        .des{
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .number{
+            font-size: 40px;
+            font-weight: 700;
+            span{
+                @include inline-block();
+                width: 35px;
+                height: 57px;
+                line-height: 52px;
+                margin-right: 5px;
+                background: url("/images/common/index/index-icons.png") no-repeat -358px 0;
+            }
+            .comma{
+                width: 25px;
+                background-position: -380px -70px;
+                color: #fff;
+            }
+        }
+    }
+}

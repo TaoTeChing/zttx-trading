@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandReadMapper">
+    <!-- 基础列 -->
+    <sql id="brandReadColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.msgId as msgId ,
+        a.readTime as readTime ,
+        a.delFlag as delFlag
+    </sql>
+    <insert id="insertBatch" parameterType="list">
+        insert into BrandRead(
+        refrenceId ,
+        brandId ,
+        msgId ,
+        readTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="brandRead" separator=",">
+            (
+            #{brandRead.refrenceId} ,
+            #{brandRead.brandId} ,
+            #{brandRead.msgId} ,
+            #{brandRead.readTime} ,
+            #{brandRead.delFlag}
+            )
+        </foreach>
+    </insert>
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        insert into BrandRead(
+        refrenceId ,
+        brandId ,
+        msgId ,
+        readTime ,
+        delFlag
+        ) VALUES (
+        #{refrenceId} ,
+        #{brandId} ,
+        #{msgId} ,
+        #{readTime} ,
+        #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandRead where refrenceId = #{refrenceId}
+    </delete>
+
+    <!--带条件物理删除-->
+    <delete id="deleteRealSelective" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        delete from BrandRead where 1=1
+        <if test="refrenceId != null and refrenceId != ''">
+            and refrenceId = #{refrenceId}
+        </if>
+        <if test="brandId != null and brandId != ''">
+            and brandId = #{brandId}
+        </if>
+        <if test="msgId != null and msgId != ''">
+            and msgId = #{msgId}
+        </if>
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandRead set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <update id="deleteSelective" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        update BrandRead set delFlag = true
+        WHERE delFlag = false
+        <if test="brandId != null and brandId != ''">
+            and brandId = #{brandId}
+        </if>
+        <if test="msgId != null and msgId != ''">
+            and msgId = #{msgId}
+        </if>
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        insert into BrandRead
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="msgId != null">
+                msgId ,
+            </if>
+            <if test="readTime != null">
+                readTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="msgId != null">
+                #{msgId} ,
+            </if>
+            <if test="readTime != null">
+                #{readTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        update BrandRead
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="msgId != null">
+                msgId = #{msgId} ,
+            </if>
+            <if test="readTime != null">
+                readTime = #{readTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandRead">
+        update BrandRead set
+        brandId = #{brandId} ,
+        msgId = #{msgId} ,
+        readTime = #{readTime} ,
+        delFlag = #{delFlag}
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.brand.entity.BrandRead">
+        select
+        <include refid="brandReadColumns"/>
+        from BrandRead a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandRead">
+        SELECT
+        <include refid="brandReadColumns"/>
+        FROM BrandRead a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="msgId != null and msgId != ''">
+            and a.msgId = #{msgId}
+        </if>
+        <if test="readTime != null and readTime != ''">
+            and a.readTime = #{readTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandRead">
+        SELECT
+        <include refid="brandReadColumns"/>
+        FROM BrandRead a WHERE a.delFlag = 0
+    </select>
+    <select id="getBrandReadList" resultType="com.zttx.web.module.brand.entity.BrandRead">
+        SELECT
+        <include refid="brandReadColumns"/>
+        FROM BrandRead a WHERE a.delFlag = 0
+        <if test="msgIdList != null">
+            and a.msgId in
+            <foreach collection="msgIdList" item="listItem" open="(" close=")" separator=",">
+                #{listItem}
+            </foreach>
+        </if>
+    </select>
+    <!--判断与品牌商相关的已读记录是否已存在-->
+    <select id="selectBrandRead" resultType="integer">
+        select 1 from BrandRead r where r.brandId = #{brandId} and r.msgId = #{msgId} and r.delFlag = 0
+    </select>
+</mapper>
+

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.common.mapper.DealDicMapper">
+    <cache type="com.zttx.sdk.cache.RedisCache"/>
+    <!-- 基础列 -->
+    <sql id="dealDicColumns">
+        a.refrenceId as refrenceId,
+        a.dealNo as dealNo ,
+        a.dealName as dealName,
+        a.dealIcon as dealIcon,
+        a.parentId as parentId,
+        a.dealLevel as dealLevel,
+        a.dealOrder as dealOrder ,
+        a.productNum as productNum,
+        a.productWeight as productWeight,
+        a.createTime as createTime,
+        a.updateTime as updateTime,
+        a.delFlag as delFlag
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.common.entity.DealDic">
+        INSERT INTO DealDic (
+            refrenceId,
+            dealNo,
+            dealName,
+            dealIcon,
+            parentId,
+            dealLevel,
+            dealOrder,
+            productNum,
+            productWeight,
+            createTime,
+            updateTime,
+            delFlag
+        ) VALUES (
+            #{refrenceId},
+            #{dealNo},
+            #{dealName},
+            #{dealIcon},
+            #{parentId},
+            #{dealLevel},
+            #{dealOrder},
+            #{productNum},
+            #{productWeight},
+            #{createTime},
+            #{updateTime},
+            #{delFlag}
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM DealDic
+        WHERE refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        UPDATE DealDic
+        SET delFlag = TRUE
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.common.entity.DealDic">
+        insert into DealDic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="dealNo != null">
+                dealNo ,
+            </if>
+            <if test="dealName != null">
+                dealName ,
+            </if>
+            <if test="dealIcon != null">
+                dealIcon ,
+            </if>
+            <if test="parentId != null">
+                parentId ,
+            </if>
+            <if test="dealLevel != null">
+                dealLevel ,
+            </if>
+            <if test="dealOrder != null">
+                dealOrder ,
+            </if>
+            <if test="productNum != null">
+                productNum ,
+            </if>
+            <if test="productWeight != null">
+                productWeight ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="dealNo != null">
+                #{dealNo} ,
+            </if>
+            <if test="dealName != null">
+                #{dealName} ,
+            </if>
+            <if test="dealIcon != null">
+                #{dealIcon} ,
+            </if>
+            <if test="parentId != null">
+                #{parentId} ,
+            </if>
+            <if test="dealLevel != null">
+                #{dealLevel} ,
+            </if>
+            <if test="dealOrder != null">
+                #{dealOrder} ,
+            </if>
+            <if test="productNum != null">
+                #{productNum} ,
+            </if>
+            <if test="productWeight != null">
+                #{productWeight} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.common.entity.DealDic">
+        update DealDic
+        <set>
+            <if test="dealNo != null">
+                dealNo = #{dealNo} ,
+            </if>
+            <if test="dealName != null">
+                dealName = #{dealName} ,
+            </if>
+            <if test="dealIcon != null">
+                dealIcon = #{dealIcon} ,
+            </if>
+            <if test="parentId != null">
+                parentId = #{parentId} ,
+            </if>
+            <if test="dealLevel != null">
+                dealLevel = #{dealLevel} ,
+            </if>
+            <if test="dealOrder != null">
+                dealOrder = #{dealOrder} ,
+            </if>
+            <if test="productNum != null">
+                productNum = #{productNum} ,
+            </if>
+            <if test="productWeight != null">
+                productWeight = #{productWeight} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.common.entity.DealDic">
+        UPDATE DealDic
+        SET
+            dealNo        = #{dealNo},
+            dealName      = #{dealName},
+            dealIcon      = #{dealIcon},
+            parentId      = #{parentId},
+            dealLevel     = #{dealLevel},
+            dealOrder     = #{dealOrder},
+            productNum    = #{productNum},
+            productWeight = #{productWeight},
+            createTime    = #{createTime},
+            updateTime    = #{updateTime},
+            delFlag       = #{delFlag}
+        WHERE refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.common.entity.DealDic">
+        select
+        <include refid="dealDicColumns"/>
+        from DealDic a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE a.delFlag = 0
+        <if test="dealNo != null and dealNo != ''">
+            and a.dealNo = #{dealNo}
+        </if>
+        <if test="dealName != null and dealName != ''">
+            and a.dealName like CONCAT('%',#{dealName}, '%')
+        </if>
+        <if test="dealIcon != null and dealIcon != ''">
+            and a.dealIcon like CONCAT('%',#{dealIcon}, '%')
+        </if>
+        <if test="parentId != null and parentId != ''">
+            and a.parentId like CONCAT('%',#{parentId}, '%')
+        </if>
+        <if test="dealLevel != null and dealLevel != ''">
+            and a.dealLevel = #{dealLevel}
+        </if>
+        <if test="dealOrder != null and dealOrder != ''">
+            and a.dealOrder = #{dealOrder}
+        </if>
+        <if test="productNum != null and productNum != ''">
+            and a.productNum = #{productNum}
+        </if>
+        <if test="productWeight != null and productWeight != ''">
+            and a.productWeight = #{productWeight}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        order by a.dealOrder desc
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getTopProductDealDics" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+            dd2.refrenceId,
+            dd2.dealNo,
+            dd2.dealName,
+            count(pi.refrenceId) AS stockNum
+        FROM
+            ProductBaseInfo pi,
+            ProductExtInfo pe,
+            DealDic dd,
+            DealDic dd2
+        WHERE
+            pi.refrenceId = pe.refrenceId
+            AND pi.dealNo = dd.dealNo
+            AND dd.parentId = dd2.refrenceId
+            AND pi.delFlag = '0'
+            AND pe.stopState = 0
+            AND pi.stateSet = 1
+            AND dd.delFlag = '0'
+            AND dd2.delFlag = '0'
+            AND dd2.parentId = '-1'
+        GROUP BY
+            dd2.refrenceId
+        ORDER BY
+            stockNum DESC
+    </select>
+    <!--根据字典编码取下级与产品有关的字典-->
+    <select id="getProductDealDics" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+            dd.refrenceId,
+            dd.dealNo,
+            dd.dealName,
+            count(pi.refrenceId) AS stockNum
+        FROM
+            ProductBaseInfo pi,
+            ProductExtInfo pe,
+            DealDic dd,
+            DealDic dd2
+        WHERE
+            pi.refrenceId = pe.refrenceId
+            AND pi.dealNo = dd.dealNo
+            AND dd.parentId = dd2.refrenceId
+            AND pi.delFlag = FALSE
+            AND pe.stopState = FALSE
+            AND pi.stateSet = 1
+            AND dd.delFlag = FALSE
+            AND dd2.delFlag = FALSE
+            AND dd2.dealNo = #{dealNo}
+        GROUP BY
+            dd.refrenceId
+        ORDER BY
+            stockNum DESC
+    </select>
+
+    <!--通过父级ID进行查询-->
+    <select id="getDealDicsBy" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a
+        WHERE
+        a.parentId = #{parentId}
+        AND a.delFlag = 0
+        ORDER BY
+        a.dealOrder DESC
+    </select>
+
+    <!--通过 指定DealNo的查询记录-->
+    <select id="selectDealDicByDealNo" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE a.dealNo =#{dealNo} AND a.delFlag = 0
+    </select>
+
+    <!--通过 等级查询记录-->
+    <select id="getDealDicByLevel" resultType="com.zttx.web.module.common.entity.DealDic"
+            parameterType="com.zttx.sdk.bean.Pagination">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE a.delFlag = 0 AND a.dealLevel = 2 ORDER BY a.dealOrder ASC
+    </select>
+
+    <select id="getDealDicOrderByField" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE a.delFlag = 0 AND a.dealLevel = 1 ORDER BY a.dealOrder desc
+    </select>
+
+    <select id="findIndexNav" parameterType="map" resultType="java.util.HashMap">
+        SELECT
+            o.refrenceId AS refrenceId,
+            o.logoDomin  AS logoDomin,
+            o.brandLogo  AS brandLogo,
+            o.brandsName AS brandName
+        FROM
+            BrandesInfo o,
+            BrandDeal b
+        WHERE
+            b.dealNo BETWEEN #{dealNo}
+            AND #{dealNo} + 10000
+            AND b.brandesId = o.refrenceId
+            AND o.delFlag = 0
+        ORDER BY
+            o.createTime DESC
+    </select>
+
+    <select id="getMaxDealNo" parameterType="map" resultType="integer">
+        SELECT
+        max(dealNo) maxDealNo
+        FROM
+        DealDic
+        WHERE
+        delFlag = 0
+        <if test="dealLevel != null ">
+            AND dealLevel = #{dealLevel}
+        </if>
+        <if test="parentId != null ">
+            AND parentId = #{parentId}
+        </if>
+    </select>
+
+    <select id="getDealDicByDealNo" parameterType="java.lang.Integer"
+            resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE
+        a.dealNo = #{dealNo}
+        and a.delFlag = 0
+    </select>
+
+    <select id="getDealDicByDealNos" parameterType="map" resultType="com.zttx.web.module.common.entity.DealDic">
+        SELECT
+        <include refid="dealDicColumns"/>
+        FROM DealDic a WHERE
+        a.dealNo IN
+        <foreach item="item" collection="dealNos" separator="," open="(" close=")" index="index">
+            #{item}
+        </foreach>
+        and a.delFlag = 0
+    </select>
+</mapper>
+

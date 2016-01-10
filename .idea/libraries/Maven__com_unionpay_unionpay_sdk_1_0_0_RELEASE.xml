@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.unionpay:unionpay-sdk:1.0.0-RELEASE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/nexus-work/com/unionpay/unionpay-sdk/1.0.0-RELEASE/unionpay-sdk-1.0.0-RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/nexus-work/com/unionpay/unionpay-sdk/1.0.0-RELEASE/unionpay-sdk-1.0.0-RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/nexus-work/com/unionpay/unionpay-sdk/1.0.0-RELEASE/unionpay-sdk-1.0.0-RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

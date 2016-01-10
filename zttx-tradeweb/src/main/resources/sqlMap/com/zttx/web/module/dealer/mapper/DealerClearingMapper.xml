@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerClearingMapper">
+    <!-- 基础列 -->
+    <sql id="dealerClearingColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.dealerId as dealerId ,
+        a.brandsId as brandsId,
+        a.clearingStatus as clearingStatus ,
+        a.clearingTime as clearingTime ,
+        a.salesAmount as salesAmount ,
+        a.clearingAmount as clearingAmount ,
+        a.clearingVolume as clearingVolume ,
+        a.isClearingAmount as isClearingAmount,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        insert into DealerClearing(
+         refrenceId ,
+         brandId ,
+         dealerId ,
+         brandsId,
+         clearingStatus ,
+         clearingTime ,
+         salesAmount ,
+         clearingAmount ,
+         clearingVolume ,
+        isClearingAmount,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{dealerId}  ,
+        #{brandsId},
+        #{clearingStatus}  ,
+        #{clearingTime}  ,
+        #{salesAmount}  ,
+        #{clearingAmount}  ,
+        #{clearingVolume}  ,
+        #{isClearingAmount},
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+
+    <insert id="insertBatch" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        insert into DealerClearing(
+        refrenceId ,
+        brandId ,
+        dealerId ,
+        brandsId,
+        clearingStatus ,
+        clearingTime ,
+        salesAmount ,
+        clearingAmount ,
+        clearingVolume ,
+        isClearingAmount,
+        createTime ,
+        updateTime ,
+        delFlag
+        ) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.refrenceId},
+            #{item.brandId} ,
+            #{item.dealerId} ,
+            #{item.brandsId},
+            #{item.clearingStatus} ,
+            #{item.clearingTime} ,
+            #{item.salesAmount} ,
+            #{item.clearingAmount} ,
+            #{item.clearingVolume} ,
+            #{item.isClearingAmount},
+            #{item.createTime} ,
+            #{item.updateTime} ,
+            #{item.delFlag}
+            )
+        </foreach>
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerClearing where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerClearing set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        insert into DealerClearing
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                refrenceId ,
+            </if>
+            <if test="brandId != null">
+                brandId ,
+            </if>
+            <if test="dealerId != null">
+                dealerId ,
+            </if>
+            <if test="null!=brandsId and ''!=brandsId">
+                brandsId,
+            </if>
+            <if test="clearingStatus != null">
+                clearingStatus ,
+            </if>
+            <if test="clearingTime != null">
+                clearingTime ,
+            </if>
+            <if test="salesAmount != null">
+                salesAmount ,
+            </if>
+            <if test="clearingAmount != null">
+                clearingAmount ,
+            </if>
+            <if test="clearingVolume != null">
+                clearingVolume ,
+            </if>
+            <if test="createTime != null">
+                createTime ,
+            </if>
+            <if test="updateTime != null">
+                updateTime ,
+            </if>
+            <if test="delFlag != null">
+                delFlag
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="refrenceId != null">
+                #{refrenceId} ,
+            </if>
+            <if test="brandId != null">
+                #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                #{dealerId} ,
+            </if>
+            <if test="null!=brandsId and ''!=brandsId">
+                #{brandsId},
+            </if>
+            <if test="clearingStatus != null">
+                #{clearingStatus} ,
+            </if>
+            <if test="clearingTime != null">
+                #{clearingTime} ,
+            </if>
+            <if test="salesAmount != null">
+                #{salesAmount} ,
+            </if>
+            <if test="clearingAmount != null">
+                #{clearingAmount} ,
+            </if>
+            <if test="clearingVolume != null">
+                #{clearingVolume} ,
+            </if>
+            <if test="createTime != null">
+                #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                #{delFlag}
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        update DealerClearing
+        <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="null!=brandsId and ''!=brandsId">
+                brandsId = #{brandsId},
+            </if>
+            <if test="clearingStatus != null">
+                clearingStatus = #{clearingStatus} ,
+            </if>
+            <if test="clearingTime != null">
+                clearingTime = #{clearingTime} ,
+            </if>
+            <if test="salesAmount != null">
+                salesAmount = #{salesAmount} ,
+            </if>
+            <if test="clearingAmount != null">
+                clearingAmount = #{clearingAmount} ,
+            </if>
+            <if test="clearingVolume != null">
+                clearingVolume = #{clearingVolume} ,
+            </if>
+            <if test="null!=isClearingAmount and ''!=isClearingAmount">
+                 isClearingAmount=#{isClearingAmount},
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag}
+            </if>
+        </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        update DealerClearing set
+            brandId = #{brandId} ,
+            dealerId = #{dealerId} ,
+            brandsId  = #{brandsId},
+            clearingStatus = #{clearingStatus} ,
+            clearingTime = #{clearingTime} ,
+            salesAmount = #{salesAmount} ,
+            clearingAmount = #{clearingAmount} ,
+            clearingVolume = #{clearingVolume} ,
+            isClearingAmount= #{isClearingAmount},
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String"
+            resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        select
+        <include refid="dealerClearingColumns"/>
+        from DealerClearing a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        SELECT
+        <include refid="dealerClearingColumns"/>
+        FROM DealerClearing a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="null!=brandsId and ''!=brandsId">
+            and a.brandsId like concat('%',#{brandsId},'%')
+        </if>
+        <if test="clearingStatus != null and clearingStatus != ''">
+            and a.clearingStatus = #{clearingStatus}
+        </if>
+        <if test="clearingTime != null and clearingTime != ''">
+            and a.clearingTime = #{clearingTime}
+        </if>
+        <if test="salesAmount != null and salesAmount != ''">
+            and a.salesAmount = #{salesAmount}
+        </if>
+        <if test="clearingAmount != null and clearingAmount != ''">
+            and a.clearingAmount = #{clearingAmount}
+        </if>
+        <if test="clearingVolume != null and clearingVolume != ''">
+            and a.clearingVolume = #{clearingVolume}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        SELECT
+        <include refid="dealerClearingColumns"/>
+        FROM DealerClearing a WHERE a.delFlag = 0
+    </select>
+
+    <select id="getUnClearAmount" resultType="java.math.BigDecimal">
+        select sum(o.clearingAmount)
+        from DealerClearing o
+        where o.clearingStatus = 0 and o.brandId = #{brandId} and o.dealerId = #{dealerId}
+    </select>
+    <select id="selectDealerClearingList" resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        select
+        <include refid="dealerClearingColumns"/>
+        from
+        DealerClearing a
+        where a.dealerId = #{dealerId} and a.brandId = #{brandId}
+        and a.clearingTime = #{clearingTime} and a.delFlag = 0
+    </select>
+    <select id="selectDealerClearingListGroupByClearingTime"
+            resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        select
+        <include refid="dealerClearingColumns"/>
+        from
+        DealerClearing a
+        where a.dealerId = #{dealerId} and a.brandId = #{brandId}
+        <if test="null!=startTime and ''!=startTime">
+            and a.clearingTime &gt;= #{startTime}
+        </if>
+        <if test="null!=endTime and ''!=endTime">
+            and a.clearingTime &lt; #{endTime}
+        </if>
+        and a.delFlag = 0
+        group by a.clearingTime
+        order by a.clearingTime desc
+    </select>
+
+    <update id="updateDealerClearingBy" parameterType="com.zttx.web.module.dealer.entity.DealerClearing">
+        update DealerClearing a
+        set a.clearingStatus=#{clearingStatus}
+        where a.brandId=#{brandId} and a.dealerId=#{dealerId}
+    </update>
+
+    <select id="selectDealerClearingNoPayedByDealerIdAndBrandId"
+            resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        select
+        <include refid="dealerClearingColumns"/>
+        from DealerClearing a
+        where (a.clearingStatus is null or a.clearingStatus =false)
+        and a.brandId=#{brandId} and a.dealerId= #{dealerId}
+    </select>
+    <select id="selectDealerClearingSelective" resultType="com.zttx.web.module.dealer.entity.DealerClearing">
+        select
+        <include refid="dealerClearingColumns"/>
+        from DealerClearing a
+        <where>
+            <if test="null!=dealerId and ''!=dealerId">
+                a.dealerId = #{dealerId} and
+            </if>
+            <if test="null!=brandsId and ''!=brandsId">
+                a.brandId = #{brandsId} and
+            </if>
+            <if test="null!=clearingTime and ''!=clearingTime">
+                a.clearingTime = #{clearingTime} and
+            </if>
+            a.delFlag = 0
+        </where>
+        limit 1
+    </select>
+    <select id="selectDealerClearingNoPayed" resultType="java.util.Map">
+        SELECT
+        sum(a.clearingAmount) as clearingAmount
+        FROM  DealerClearing a
+        where a.dealerId = #{dealerId} and a.brandId = #{brandId} and a.delFlag = 0 and a.clearingStatus = 0
+    </select>
+    <select id="selectDealerClearingPayTime" resultType="java.util.Map">
+        select
+        min(a.clearingTime) as startTime,
+        max(a.clearingTime) as endTime,
+        COUNT(a.refrenceId) as count
+        from DealerClearing a
+        where a.dealerId = #{dealerId} and a.brandId = #{brandId}
+        and a.clearingStatus=0
+
+
+    </select>
+</mapper>
+

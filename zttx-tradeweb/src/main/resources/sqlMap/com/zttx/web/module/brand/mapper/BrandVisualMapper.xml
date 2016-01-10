@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandVisualMapper">
+    <!-- 基础列 -->
+    <sql id="brandVisualColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.brandsId as brandsId ,
+        a.domainName as domainName ,
+        a.vedioDoc as vedioDoc ,
+        a.vedioFile as vedioFile ,
+        a.threeDoc as threeDoc ,
+        a.threeFile as threeFile ,
+        a.brandMark as brandMark ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.createIp as createIp ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandVisual">
+        insert into BrandVisual(
+         refrenceId ,
+         brandId ,
+         brandsId ,
+         domainName ,
+         vedioDoc ,
+         vedioFile ,
+         threeDoc ,
+         threeFile ,
+         brandMark ,
+         createTime ,
+         updateTime ,
+         createIp ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{brandsId}  ,
+        #{domainName}  ,
+        #{vedioDoc}  ,
+        #{vedioFile}  ,
+        #{threeDoc}  ,
+        #{threeFile}  ,
+        #{brandMark}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{createIp}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandVisual where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandVisual set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandVisual">
+        insert into BrandVisual
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="vedioDoc != null">
+            vedioDoc ,
+        </if>
+        <if test="vedioFile != null">
+            vedioFile ,
+        </if>
+        <if test="threeDoc != null">
+            threeDoc ,
+        </if>
+        <if test="threeFile != null">
+            threeFile ,
+        </if>
+        <if test="brandMark != null">
+            brandMark ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="createIp != null">
+            createIp ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="vedioDoc != null">
+            #{vedioDoc} ,
+        </if>
+        <if test="vedioFile != null">
+            #{vedioFile} ,
+        </if>
+        <if test="threeDoc != null">
+            #{threeDoc} ,
+        </if>
+        <if test="threeFile != null">
+            #{threeFile} ,
+        </if>
+        <if test="brandMark != null">
+            #{brandMark} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="createIp != null">
+            #{createIp} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandVisual">
+        update BrandVisual
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="brandsId != null">
+                brandsId = #{brandsId} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="vedioDoc != null">
+                vedioDoc = #{vedioDoc} ,
+            </if>
+            <if test="vedioFile != null">
+                vedioFile = #{vedioFile} ,
+            </if>
+            <if test="threeDoc != null">
+                threeDoc = #{threeDoc} ,
+            </if>
+            <if test="threeFile != null">
+                threeFile = #{threeFile} ,
+            </if>
+            <if test="brandMark != null">
+                brandMark = #{brandMark} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="createIp != null">
+                createIp = #{createIp} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandVisual">
+        update BrandVisual set
+            brandId = #{brandId} ,
+            brandsId = #{brandsId} ,
+            domainName = #{domainName} ,
+            vedioDoc = #{vedioDoc} ,
+            vedioFile = #{vedioFile} ,
+            threeDoc = #{threeDoc} ,
+            threeFile = #{threeFile} ,
+            brandMark = #{brandMark} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            createIp = #{createIp} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandVisual">
+        select <include refid="brandVisualColumns"/> from BrandVisual a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandVisual">
+        SELECT
+        <include refid="brandVisualColumns"/>
+        FROM BrandVisual a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="vedioDoc != null and vedioDoc != ''">
+            and a.vedioDoc like CONCAT('%',#{vedioDoc}, '%')
+        </if>
+        <if test="vedioFile != null and vedioFile != ''">
+            and a.vedioFile like CONCAT('%',#{vedioFile}, '%')
+        </if>
+        <if test="threeDoc != null and threeDoc != ''">
+            and a.threeDoc like CONCAT('%',#{threeDoc}, '%')
+        </if>
+        <if test="threeFile != null and threeFile != ''">
+            and a.threeFile like CONCAT('%',#{threeFile}, '%')
+        </if>
+        <if test="brandMark != null and brandMark != ''">
+            and a.brandMark like CONCAT('%',#{brandMark}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="createIp != null and createIp != ''">
+            and a.createIp = #{createIp}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandVisual">
+        SELECT
+        <include refid="brandVisualColumns"/>
+        FROM BrandVisual a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="findByBrandIdAndBrandesId" parameterType="com.zttx.web.module.brand.entity.BrandVisual" resultType="com.zttx.web.module.brand.entity.BrandVisual">
+        SELECT
+        <include refid="brandVisualColumns"/>
+        FROM BrandVisual a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="brandsId != null and brandsId != ''">
+            and a.brandsId = #{brandsId}
+        </if>
+    </select>
+    
+    
+</mapper>
+

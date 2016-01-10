@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:druid.properties"/>
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties"/>
+
+    <!-- 经销商付款超时，品牌商自动关闭订单-->
+    <bean id="closeOrderTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.BrandCloseOrderTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 0/30 * * * ?"/>
+    </bean>
+
+    <!--申请退货、等待品牌商确认 品牌商确认退款超时、经销商填写物流信息超时-->
+    <bean id="dealerRefundTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.DealerRefundTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 0/30 * * * ?"/>
+    </bean>
+
+    <!--全部发货后经销商逾期未确认收货 逾期时间datadictvalue表内配置;终端商付清全部款项后，品牌商逾期未发货订单自动退款-->
+    <bean id="dealerTakeDeliveryTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.DealerTakeDeliveryTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 0/30 * * * ?"/>
+    </bean>
+
+    <!--erp推送每日销售数据（当期数据）-->
+    <bean id="sellErpDaySynTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.SellErpDaySynTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 05 * * * ?"/>
+    </bean>
+
+    <!--同步 结算平台订单状态 到交易平台-->
+    <bean id="checkOrderPayTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" >
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.CheckOrderPayTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 0/30 * * * ?"/>
+    </bean>
+
+    <!-- 每天刷新统计信息表 -->
+    <bean id="webInfoCountTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="cronExpression" value="0 15 0 * * ?"/>
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.WebInfoCountTask</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 每小时刷新产品统计信息表索引服务器 -->
+    <bean id="productCountTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="cronExpression" value="0 0 * * * ?"/>
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.ProductCountTask</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- 每小时刷新品牌统计信息表索引服务器 -->
+    <bean id="brandesCountTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="cronExpression" value="0 30 * * * ?"/>
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.BrandsCountTask</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!--erp每日返点财务帐-->
+    <bean id="financialPointTask" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.JobDetailBean">
+                <property name="jobClass">
+                    <value>com.zttx.web.task.FinancialPointTask</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression" value="0 0/10 * * * ?"/>
+    </bean>
+
+    <!-- 计划调度 -->
+    <bean id="quartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="configLocation" value="classpath:quartz.properties"/>
+        <property name="startupDelay" value="15"/>
+        <property name="triggers">
+            <list>
+                <ref bean="productCountTrigger"/>
+                <ref bean="brandesCountTrigger"/>
+                <ref bean="webInfoCountTrigger"/>
+                <ref bean="closeOrderTrigger"/>
+                <ref bean="dealerRefundTaskTrigger"/>
+                <ref bean="dealerTakeDeliveryTrigger"/>
+                <ref bean="checkOrderPayTrigger"/>
+                <ref bean="sellErpDaySynTrigger"/>
+                <ref bean="financialPointTask"/>
+            </list>
+        </property>
+        <property name="applicationContextSchedulerContextKey">
+            <value>applicationContext</value>
+        </property>
+        <property name="dataSource" ref="dataSource_quartz"/>
+    </bean>
+
+    <!-- 定义quartz数据源 -->
+    <bean id="dataSource_quartz" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <!-- 基本属性driver、 url、user、password -->
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${master.jdbc.quartz.url}"/>
+        <property name="username" value="${master.jdbc.username}"/>
+        <property name="password" value="${master.jdbc.password}"/>
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="1"/>
+        <property name="maxActive" value="2"/>
+        <!-- <property name="maxIdle" value="${druid.maxIdle}" /> -->
+        <property name="minIdle" value="1"/>
+        <property name="maxWait" value="${druid.maxWait}"/>
+
+        <property name="validationQuery" value="${jdbc.check}"/>
+        <property name="testOnBorrow" value="${druid.testOnBorrow}"/>
+        <property name="testOnReturn" value="${druid.testOnReturn}"/>
+        <property name="testWhileIdle" value="${druid.testWhileIdle}"/>
+
+        <property name="timeBetweenEvictionRunsMillis" value="${druid.timeBetweenEvictionRunsMillis}"/>
+        <property name="minEvictableIdleTimeMillis" value="${druid.minEvictableIdleTimeMillis}"/>
+
+        <property name="removeAbandoned" value="${druid.removeAbandoned}"/>
+        <property name="removeAbandonedTimeout" value="${druid.removeAbandonedTimeout}"/>
+        <property name="logAbandoned" value="${druid.logAbandoned}"/>
+        <property name="filters" value="${druid.filters}"/>
+    </bean>
+</beans>

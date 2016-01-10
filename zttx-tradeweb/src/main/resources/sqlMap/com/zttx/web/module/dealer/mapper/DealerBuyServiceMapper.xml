@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerBuyServiceMapper">
+    <!-- 基础列 -->
+    <sql id="dealerBuyServiceColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.dealerName as dealerName ,
+        a.serviceId as serviceId ,
+        a.servicerCate as servicerCate ,
+        a.chargType as chargType ,
+        a.buyTime as buyTime ,
+        a.beginTime as beginTime ,
+        a.endTime as endTime ,
+        a.buyMoney as buyMoney ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        insert into DealerBuyService(
+         refrenceId ,
+         dealerId ,
+         dealerName ,
+         serviceId ,
+         servicerCate ,
+         chargType ,
+         buyTime ,
+         beginTime ,
+         endTime ,
+         buyMoney ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{dealerName}  ,
+        #{serviceId}  ,
+        #{servicerCate}  ,
+        #{chargType}  ,
+        #{buyTime}  ,
+        #{beginTime}  ,
+        #{endTime}  ,
+        #{buyMoney}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerBuyService where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerBuyService set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        insert into DealerBuyService
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="dealerName != null">
+            dealerName ,
+        </if>
+        <if test="serviceId != null">
+            serviceId ,
+        </if>
+        <if test="servicerCate != null">
+            servicerCate ,
+        </if>
+        <if test="chargType != null">
+            chargType ,
+        </if>
+        <if test="buyTime != null">
+            buyTime ,
+        </if>
+        <if test="beginTime != null">
+            beginTime ,
+        </if>
+        <if test="endTime != null">
+            endTime ,
+        </if>
+        <if test="buyMoney != null">
+            buyMoney ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="dealerName != null">
+            #{dealerName} ,
+        </if>
+        <if test="serviceId != null">
+            #{serviceId} ,
+        </if>
+        <if test="servicerCate != null">
+            #{servicerCate} ,
+        </if>
+        <if test="chargType != null">
+            #{chargType} ,
+        </if>
+        <if test="buyTime != null">
+            #{buyTime} ,
+        </if>
+        <if test="beginTime != null">
+            #{beginTime} ,
+        </if>
+        <if test="endTime != null">
+            #{endTime} ,
+        </if>
+        <if test="buyMoney != null">
+            #{buyMoney} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        update DealerBuyService
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="dealerName != null">
+                dealerName = #{dealerName} ,
+            </if>
+            <if test="serviceId != null">
+                serviceId = #{serviceId} ,
+            </if>
+            <if test="servicerCate != null">
+                servicerCate = #{servicerCate} ,
+            </if>
+            <if test="chargType != null">
+                chargType = #{chargType} ,
+            </if>
+            <if test="buyTime != null">
+                buyTime = #{buyTime} ,
+            </if>
+            <if test="beginTime != null">
+                beginTime = #{beginTime} ,
+            </if>
+            <if test="endTime != null">
+                endTime = #{endTime} ,
+            </if>
+            <if test="buyMoney != null">
+                buyMoney = #{buyMoney} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        update DealerBuyService set
+            dealerId = #{dealerId} ,
+            dealerName = #{dealerName} ,
+            serviceId = #{serviceId} ,
+            servicerCate = #{servicerCate} ,
+            chargType = #{chargType} ,
+            buyTime = #{buyTime} ,
+            beginTime = #{beginTime} ,
+            endTime = #{endTime} ,
+            buyMoney = #{buyMoney} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        select <include refid="dealerBuyServiceColumns"/> from DealerBuyService a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        SELECT
+        <include refid="dealerBuyServiceColumns"/>
+        FROM DealerBuyService a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId like CONCAT('%',#{dealerId}, '%')
+        </if>
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="serviceId != null and serviceId != ''">
+            and a.serviceId like CONCAT('%',#{serviceId}, '%')
+        </if>
+        <if test="servicerCate != null and servicerCate != ''">
+            and a.servicerCate = #{servicerCate}
+        </if>
+        <if test="chargType != null and chargType != ''">
+            and a.chargType = #{chargType}
+        </if>
+        <if test="buyTime != null and buyTime != ''">
+            and a.buyTime = #{buyTime}
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and a.beginTime = #{beginTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and a.endTime = #{endTime}
+        </if>
+        <if test="buyMoney != null and buyMoney != ''">
+            and a.buyMoney = #{buyMoney}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        SELECT
+        <include refid="dealerBuyServiceColumns"/>
+        FROM DealerBuyService a WHERE a.delFlag = 0
+    </select>
+    <select id="findBy" resultType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        select
+        <include refid="dealerBuyServiceColumns"/>
+        from DealerBuyService a where
+        a.delFlag=0
+        and a.dealerId=#{dealerId} and a.serviceId=#{serviceId}
+    </select>
+    <select id="searchByClient" resultType="com.zttx.web.module.dealer.entity.DealerBuyService">
+        SELECT
+        <include refid="dealerBuyServiceColumns"/>
+        ,w.serviceName as serviceName
+        FROM
+        DealerBuyService a,
+        WebServiceItems w
+        WHERE
+        a.delFlag = 0 AND
+        a.serviceId = w.refrenceId
+        <if test="dealerName != null and dealerName != ''">
+            and a.dealerName like CONCAT('%',#{dealerName}, '%')
+        </if>
+        <if test="serviceId != null and serviceId != ''">
+            and a.serviceId like CONCAT('%',#{serviceId}, '%')
+        </if>
+        <if test="servicerCate != null">
+            and a.servicerCate = #{servicerCate}
+        </if>
+        <if test="startSearchTime != null">
+            and a.buyTime >= #{startSearchTime}
+        </if>
+        <if test="endSearchTime != null">
+            and a.buyTime &lt;= #{endSearchTime}
+        </if>
+        order by a.buyTime desc
+    </select>
+</mapper>
+

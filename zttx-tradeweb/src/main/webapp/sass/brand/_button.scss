@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+/*
+    通用按钮
+    ui-button ui-button-lorange 橙色大按钮
+    ui-button ui-button-morange 橙色中按钮
+    ui-button ui-button-sorange 橙色小按钮
+
+    ui-button ui-button-lblue  蓝色大按钮
+    ui-button ui-button-mblue  蓝色中按钮
+    ui-button ui-button-mblue  蓝色小按钮
+
+    ui-button ui-button-lgreen  绿色大按钮
+    ui-button ui-button-lgreen  绿色中按钮
+    ui-button ui-button-lgreen  绿色小按钮
+
+*/
+$btnColorClass: (orange #ff8800 #fff #f67404) (green #22ad38 #fff #009a44)  (blue #67acf2 #fff #70b2f5) (gray #999 #fff #888) (red #CC0000 #fff #CC0000) !default;//按钮各种颜色
+
+$textSize: 12px  !default;
+
+.ui_button {
+    display: inline-block;
+    *display: inline;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: $textSize;
+    font-family: inherit; /* Correct font family not being inherited in all browsers for <button> <input> */
+    font-weight: normal;
+    border-radius: 2px;
+    padding: 0 10px;
+    min-width: 60px;
+    *zoom: 1;
+    *overflow: visible;
+    background-image: none;
+    border: none;
+    &:active{
+        position: relative;
+        top: 1px;
+        box-shadow: 1px 1px 3px #999 inset;
+    }
+    &:hover{
+        text-decoration: none;
+        background-image: none;
+    }
+}
+
+//浅色按钮
+a.simple_button,button.simple_button,p.simple_button{
+    @extend .ui_button;
+    background-color: #f5f5f5;
+    height: 28px;
+    border:#bfbdbc solid 1px;
+    color: #333;
+    vertical-align: top;
+    &:hover{
+        background-color: #eee;
+        color: #333;
+    }
+}
+a.simple_button,p.simple_button{
+    line-height: 28px;
+}
+
+
+@each $colorClass in $btnColorClass{
+
+    $class: nth($colorClass,1);
+    $bgColor: nth($colorClass,2);
+    $textColor: nth($colorClass,3);
+    $bgHoverColor: nth($colorClass,4);
+
+    .ui_button_l#{$class},
+    .ui_button_m#{$class},
+    .ui_button_s#{$class} {
+        color: $textColor;
+        background-color: $bgColor;
+    }
+
+    .ui_button_l#{$class}:hover,
+    .ui_button_m#{$class}:hover,
+    .ui_button_s#{$class}:hover {
+        background-color: $bgHoverColor;
+    }
+
+    a.ui_button_l#{$class},
+    a.ui_button_m#{$class},
+    a.ui-button_s#{$class},
+    a.ui-button_l#{$class}:hover,
+    a.ui_button_m#{$class}:hover,
+    a.ui_button_s#{$class}:hover,
+    a.ui_button_l#{$class}:active,
+    a.ui_button_m#{$class}:active,
+    a.ui_button_s#{$class}:active {
+        color:#fff;
+    }
+
+    .ui_button_l#{$class} {
+        line-height:32px;
+        height:32px;
+    }
+
+    .ui_button_m#{$class} {
+        line-height:28px;
+        height:28px;
+    }
+
+    .ui_button_s#{$class} {
+        line-height:24px;
+        height:24px;
+        font-size:12px;
+    }
+
+    a.ui_button_l#{$class} {
+        line-height:30px;
+        height:30px;
+    }
+
+    a.ui_button_m#{$class} {
+        line-height:26px;
+        height:26px;
+    }
+
+    a.ui_button_s#{$class} {
+        line-height:22px;
+        height:22px;
+    }
+}

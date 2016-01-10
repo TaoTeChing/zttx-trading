@@ -1,0 +1,635 @@
+﻿@charset "UTF-8";
+@import "compass/css3";
+@import "../../mixin";
+@import "../../common/index/icons";
+@import "../../common/header";
+@import "../../common/footer";
+@import "../terminal/pagination";
+@import "clearance-icons";
+
+.part-a{
+    @include clearfix();
+    .part-col1{
+        @include float();
+        height:42px;
+        line-height:42px;
+        width:120px;
+    }
+
+    .part-col2{
+        @include float();
+        height:42px;
+        line-height:42px;
+        width:970px;
+        overflow: hidden;
+
+        .clearance-brands{
+            width:970px;overflow: hidden;
+        }
+
+        ul{
+            width:970px;
+        }
+
+        li{
+            width: 998px;
+            margin-left: -28px;
+            overflow: hidden;
+            height:42px;
+        }
+
+        a{
+            @include float();
+            padding:1px;
+            height:40px;
+            width:80px;
+            line-height:0;
+            margin-left:28px;
+
+            &:hover{
+                padding:0;
+                border:1px solid #f80;
+            }
+        }
+    }
+    .part-col3{
+        @include float();
+        height:42px;
+        line-height:42px;
+        width:100px;
+
+        .paging{
+            padding:0 10px;
+            text-align: right;
+        }
+        .prev,.next{
+            font-size:20px;
+            font-weight: 700;
+
+            &:hover{
+                color:#f80;
+                text-decoration: none;
+            }
+        }
+
+        .dot{
+            @include inline-block();
+            width:10px;
+            height:10px;
+            border-radius: 50%;
+            background-color:#ccc;
+            margin:0 3px;
+
+        }
+        .active{
+            background-color:#999;
+        }
+    }
+}
+
+.part-b{
+    @include clearfix();
+    .part-col1{
+        @include float();
+        width:950px;
+
+
+        .ts-banner{
+            width:950px;
+            height: 250px;
+            overflow: hidden;
+            .ts-banner-content{
+                width:99999px;
+            }
+        }
+
+    }
+    .part-col2{
+        @include float();
+        width:230px;
+        margin-left:20px;
+
+
+        .ts-list{
+            //margin-top:4px;
+            li{
+                height: 36px;
+                line-height: 36px;
+                @include ellipsis();
+                border-bottom:1px dashed #eee;
+                a{
+                    &:hover{
+                        color: #f80;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.part-c{
+    @include clearfix();
+    .part-col1{
+        @include float();
+        width:950px;
+
+
+        ul.order-grid {
+            @include inline-float();
+            min-height: 400px;
+            margin-left: -18px;
+            li {
+                margin-left: 17px;
+                margin-bottom: 10px;
+
+                .list-item {
+                    border: 1px solid #e1e1e1;
+                    width: 223px;
+                    height: 451px;
+                    &:hover, &.hover {
+                        border: 1px solid #ff8a01;
+                    }
+
+                    .list-item-logo{
+                        display: block;
+                        text-align:center;
+
+                    }
+
+                    .pic-thumbs{
+                        position: relative;
+
+                        .pic-prev,.pic-next{
+                            display: none;
+                            position: absolute;
+                            width:10px;
+                            height:30px;
+                            line-height: 30px;
+                            border:1px solid #f1f1f1;
+                            color:#f1f1f1;
+                            top:5px;
+                            border-radius: 2px;
+                            text-align: center;
+
+                            &:hover{
+                                padding:0px;
+                                border:1px solid #f80;
+                                color:#f80;
+                                text-decoration: none;
+                            }
+                        }
+                        .pic-prev{
+                            left:5px;
+                        }
+                        .pic-next{
+
+                            right:5px;
+                        }
+
+                    }
+                    .pic-thumb-list{
+                        @include inline-float();
+                        height: 30px;
+                        padding:5px 20px;
+                        li{
+                            margin-left: 5px;
+                            margin-bottom: 0px;
+                        }
+
+                    }
+                    .info{
+                        height: 146px;
+                        padding: 0 10px 10px 10px;
+                        .simply{
+                            height:36px;
+                            overflow: hidden;
+                        }
+                        .unempower{
+                            height: 22px;
+                            padding-bottom: 10px;
+                            background: url("../../../images/fronts/common/index/unempower.png") no-repeat;
+                            color:#fff;
+                        }
+                    }
+                    .compare{
+                        margin:0 10px;
+                        padding:10px 0;
+                        border-top:1px dashed #e1e1e1;
+                    }
+                    .operate{
+                        @include clearfix();
+                        height:32px;
+                        line-height: 32px;
+                        border-top:1px solid #e1e1e1;
+                        text-align: center;
+
+                        a{
+                            @include float(right);
+                            width:100px;
+                            height: 31px;
+                            line-height: 31px;
+                            border-left:1px solid #e1e1e1;
+                            font-size:14px;
+                            font-family: "microsoft yahei";
+                            background-color:#eeeeee;
+                            color:#aaa;
+                            text-decoration: none;
+                            cursor: pointer;
+                        }
+                        .active{
+                            background-color:#f80;
+                            color:#fef9f0;
+                            &:hover{
+                                background-color:darken(#f80,3%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .part-col2{
+        @include float();
+        width:230px;
+        margin-left: 20px;
+
+
+        .cart-item{
+            @include clearfix();
+            position: relative;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #e1e1e1;
+
+            &:hover{
+                background: #fefaee
+            }
+            .pic{
+                @include float();
+            }
+            .title,.des{
+                margin-left: 80px;
+                color: #666;
+            }
+            .title{
+                padding-top:5px;
+            }
+            .del{
+                position: absolute;
+                top:10px;
+                right:10px;
+            }
+        }
+
+        .clearing{
+            padding:10px;
+            background-color: #f2f2f2;
+            height:30px;
+            line-height: 30px;
+            .clearing-link{
+                color: #0082cc;
+                &:hover{
+                    color:#f80;
+                }
+            }
+        }
+
+
+    }
+    .filter{
+        background-color: #f2f2f2;
+        height:25px;
+        overflow: hidden;
+
+        .ts-button-group{
+            width:150px;
+        }
+
+        .input-price{
+            width:40px;
+            background:#fff url("../../../images/fronts/market/clearance/irmb.png") no-repeat 5px center;
+        }
+        .input-search{
+            width:160px;
+            padding-left:5px;
+            //background:#fff url(/images/market/clearance/isearch.png) no-repeat 95% center;
+        }
+        .ts-button-group{
+            .ts-button:hover{
+                color:#d8261d;
+                text-decoration: none;
+            }
+        }
+        .clearance-iupdown{
+            @include inline-block();
+            width: 7px;
+            height: 10px;
+            vertical-align: -1px;
+        }
+        .clearance-idown{
+            @include inline-block();
+            width: 7px;
+            height: 8px;
+        }
+
+    }
+}
+
+
+.part-d{
+
+    .brand-info{
+        border:1px solid #e1e1e1;
+        border-top:0;
+        height:63px;
+        overflow: hidden;
+    }
+
+    .brand-pic{
+
+    }
+
+    .brand-intro{
+        padding:10px;
+        border-right:1px solid #e1e1e1;
+        width:929px;
+        line-height: 24px;
+    }
+
+    .brand-total{
+        @include float(right);
+        width:210px;
+        padding:10px;
+        margin-left:20px;
+
+        .ts-progress {
+            @include inline-block();
+            width:120px;
+            height:12px;
+            background-color: #eaeaea;
+            vertical-align: middle;
+        }
+        .ts-progress-bar {
+            @include inline-block();
+            height:12px;
+            background-color:#fcaa29;
+            vertical-align: top;
+        }
+    }
+
+}
+
+.explosion-col{
+    .explosion-col-head{
+        height: 25px;
+        line-height: 24px;
+        padding-left: 8px;
+        border-left: 5px solid #666;
+        background: #f2f2f2;
+        h3{
+            font-size: 16px;
+            font-family: "Microsoft yahei";
+        }
+    }
+}
+
+
+.ts-input-filter{
+    @include clearfix();
+    /*@include inline-block();*/
+
+    input{
+        @include float();
+        border:1px solid #e1e1e1;
+        height:23px;
+        padding-top:0;
+        padding-bottom: 0;
+        line-height: 23px;
+        &:focus{
+            border-color:#bbb;
+        }
+    }
+
+
+
+    b{
+        @include float();
+        width:10px;
+        height:25px;
+        line-height: 25px;
+        text-align: center;
+    }
+
+}
+
+.input-price{
+    padding-left:20px;
+    //content:"￥";
+}
+
+.input-search{
+    padding-right:20px;
+}
+
+
+.ts-pagination{
+    @include clearfix();
+    text-align: center;
+
+    .ts-pagination-number{
+        @include inline-block();
+        height:25px;
+        line-height: 25px;
+        margin-right:10px;
+        color:#888;
+    }
+    .ts-pagination-list{
+        @include inline-block();
+        @include inline-float();
+        margin-left: -5px;
+
+        li{
+            margin-left:5px;
+        }
+
+        a{
+            display: block;
+            border:1px solid #e1e1e1;
+            background-color: #fff;
+            text-align:center;
+            height:23px;
+            width:23px;
+            line-height: 23px;
+
+            &.active,&:hover{
+                color:#d8261d;
+                text-decoration: none;
+            }
+        }
+
+    }
+}
+
+.ts-pagination-sm{
+    .ts-pagination-number{
+        height:28px;
+        line-height: 28px;
+    }
+    .ts-pagination-list{
+        a{
+            height:28px;
+            width:28px;
+            line-height: 28px;
+
+            &.active,&:hover{
+                color:#fff;
+                background-color: #d7291c;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.ts-button-group{
+    @include clearfix();
+    .ts-button{
+        @include float();
+    }
+}
+.ts-button-xs{
+
+    .ts-button{
+        height:25px;
+        padding:0 5px;
+    }
+    a.ts-button{
+        height:23px;
+        line-height: 23px;
+    }
+}
+
+button.ts-button-xs{
+    height:25px;
+    padding:0 5px;
+}
+
+a.ts-button-xs{
+    height:23px;
+    line-height: 23px;
+}
+
+.ts-button{
+    height:30px;
+    padding:0 10px;
+}
+
+a.ts-button{
+    @include inline-block();
+    line-height: 30px;
+    text-align: center;
+}
+
+.ts-button-white{
+    background: #fff;
+    border:1px solid #e1e1e1;
+}
+
+.ts-button-orange{
+    border: 1px solid #ff8800;
+    background: #fff;
+    color: #333;
+    @include border-radius(3px);
+
+    &:hover{
+      background: #ff8800;
+      color: #fff;
+    }
+
+}
+
+//清仓分类
+.clear-brand{
+    width: 950px;
+    position: relative;
+    .c-b-title{
+        width: 80px;
+        font-size: 14px;
+        font-family: "Microsoft yahei";
+    }
+    .c-b-content{
+        width: 770px;
+        height: 40px;
+        overflow: hidden;
+        .c-b-ul{
+            width: 9999px !important;
+            li{
+                width: 110px;
+                text-align: center;
+            }
+        }
+    }
+    .c-b-name{
+        font-size: 14px;
+        font-family: "Microsoft yahei";
+    }
+    .c-b-product{
+        color: #999;
+        em{
+            color:#d5291b;
+        }
+    }
+    .ui-switchable-nav{
+        position: absolute;
+        top:14px;
+        right: 12px;
+        .ui-switchable-trigger{
+            float: left;
+            display: inline;
+            width: 10px;
+            height: 10px;
+            margin-right: 8px;
+            line-height: 10px;
+            border-radius: 5px;
+            background: #ccc;
+            text-align: center;
+            color: #ccc;
+        }
+        .ui-switchable-active{
+            background: #999;
+            color: #999;
+        }
+    }
+    #prev,#next{
+        position: absolute;
+        top: 7px;
+        text-decoration: none;
+        color: #ccc;
+        font-size: 16px;
+        font-weight: bold;
+        &:hover{
+            color: #fe8a00;
+        }
+    }
+    #prev{
+        right: 81px;
+    }
+    #next{
+        right: 0;
+    }
+}
+
+.btn-search{
+  background-image: url("../../../images/fronts/market/clearance/isearch.png");
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding-left:20px;
+
+  &:hover{
+    background-image: url("../../../images/fronts/market/clearance/isearch-on.png");
+    background-color: #f80;
+    color:#fff;
+  }
+}
+

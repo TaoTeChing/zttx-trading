@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.brand.mapper.BrandRecruitMapper">
+    <!-- 基础列 -->
+    <sql id="brandRecruitColumns">
+        a.refrenceId as refrenceId ,
+        a.brandId as brandId ,
+        a.recruitTitle as recruitTitle ,
+        a.dealBrand as dealBrand ,
+        a.dealExper as dealExper ,
+        a.dealShop as dealShop ,
+        a.dealYear as dealYear ,
+        a.recruitState as recruitState ,
+        a.recruitText as recruitText ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.userId as userId ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.brand.entity.BrandRecruit">
+        insert into BrandRecruit(
+         refrenceId ,
+         brandId ,
+         recruitTitle ,
+         dealBrand ,
+         dealExper ,
+         dealShop ,
+         dealYear ,
+         recruitState ,
+         recruitText ,
+         createTime ,
+         updateTime ,
+         userId ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{brandId}  ,
+        #{recruitTitle}  ,
+        #{dealBrand}  ,
+        #{dealExper}  ,
+        #{dealShop}  ,
+        #{dealYear}  ,
+        #{recruitState}  ,
+        #{recruitText}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{userId}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from BrandRecruit where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update BrandRecruit set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.brand.entity.BrandRecruit">
+        insert into BrandRecruit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="brandsId != null">
+            brandsId ,
+        </if>
+        <if test="brandId != null">
+            brandId ,
+        </if>
+        <if test="recruitTitle != null">
+            recruitTitle ,
+        </if>
+        <if test="dealBrand != null">
+            dealBrand ,
+        </if>
+        <if test="dealExper != null">
+            dealExper ,
+        </if>
+        <if test="dealShop != null">
+            dealShop ,
+        </if>
+        <if test="dealYear != null">
+            dealYear ,
+        </if>
+        <if test="recruitState != null">
+            recruitState ,
+        </if>
+        <if test="recruitText != null">
+            recruitText ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="brandsId != null">
+            #{brandsId} ,
+        </if>
+        <if test="brandId != null">
+            #{brandId} ,
+        </if>
+        <if test="recruitTitle != null">
+            #{recruitTitle} ,
+        </if>
+        <if test="dealBrand != null">
+            #{dealBrand} ,
+        </if>
+        <if test="dealExper != null">
+            #{dealExper} ,
+        </if>
+        <if test="dealShop != null">
+            #{dealShop} ,
+        </if>
+        <if test="dealYear != null">
+            #{dealYear} ,
+        </if>
+        <if test="recruitState != null">
+            #{recruitState} ,
+        </if>
+        <if test="recruitText != null">
+            #{recruitText} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.brand.entity.BrandRecruit">
+        update BrandRecruit
+           <set>
+            <if test="brandId != null">
+                brandId = #{brandId} ,
+            </if>
+            <if test="recruitTitle != null">
+                recruitTitle = #{recruitTitle} ,
+            </if>
+            <if test="dealBrand != null">
+                dealBrand = #{dealBrand} ,
+            </if>
+            <if test="dealExper != null">
+                dealExper = #{dealExper} ,
+            </if>
+            <if test="dealShop != null">
+                dealShop = #{dealShop} ,
+            </if>
+            <if test="dealYear != null">
+                dealYear = #{dealYear} ,
+            </if>
+            <if test="recruitState != null">
+                recruitState = #{recruitState} ,
+            </if>
+            <if test="recruitText != null">
+                recruitText = #{recruitText} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.brand.entity.BrandRecruit">
+        update BrandRecruit set
+            brandId = #{brandId} ,
+            recruitTitle = #{recruitTitle} ,
+            dealBrand = #{dealBrand} ,
+            dealExper = #{dealExper} ,
+            dealShop = #{dealShop} ,
+            dealYear = #{dealYear} ,
+            recruitState = #{recruitState} ,
+            recruitText = #{recruitText} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            userId = #{userId} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.brand.entity.BrandRecruit">
+        select <include refid="brandRecruitColumns"/> from BrandRecruit a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.brand.entity.BrandRecruit">
+        SELECT
+        <include refid="brandRecruitColumns"/>
+        FROM BrandRecruit a WHERE a.delFlag = 0
+        <if test="brandId != null and brandId != ''">
+            and a.brandId = #{brandId}
+        </if>
+        <if test="recruitTitle != null and recruitTitle != ''">
+            and a.recruitTitle like CONCAT('%',#{recruitTitle}, '%')
+        </if>
+        <if test="dealBrand != null and dealBrand != ''">
+            and a.dealBrand = #{dealBrand}
+        </if>
+        <if test="dealExper != null and dealExper != ''">
+            and a.dealExper = #{dealExper}
+        </if>
+        <if test="dealShop != null and dealShop != ''">
+            and a.dealShop = #{dealShop}
+        </if>
+        <if test="dealYear != null and dealYear != ''">
+            and a.dealYear = #{dealYear}
+        </if>
+        <if test="recruitState != null and recruitState != ''">
+            and a.recruitState = #{recruitState}
+        </if>
+        <if test="recruitText != null and recruitText != ''">
+            and a.recruitText like CONCAT('%',#{recruitText}, '%')
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId like CONCAT('%',#{userId}, '%')
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.brand.entity.BrandRecruit">
+        SELECT
+        <include refid="brandRecruitColumns"/>
+        FROM BrandRecruit a WHERE a.delFlag = 0
+    </select>
+    
+    <select id="findByBrandIdAndBrandesid" parameterType="map" resultType="com.zttx.web.module.brand.entity.BrandRecruit">
+    	SELECT
+        <include refid="brandRecruitColumns"/>
+        FROM BrandRecruit a WHERE 
+	        a.delFlag = 0
+	        and brandId=#{brandId}
+	        and refrenceId=#{brandsId}
+    </select>
+
+</mapper>
+

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.1</version>
+  <task-change-set user="Playguy" date="2015-09-01T07:11:08.022Z" timestamp="2015-09-01T07:11:08.022Z">
+    <change idref="t383" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t383" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t383" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t383" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t383" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t383" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t383" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t387" to="t383" to-position="0" resolved="yes">
+      <change idref="t387" attribute="internalAssignments" type="string" from="" to="3"/>
+      <change idref="t387" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t387" attribute="title" type="string" to="采购订单"/>
+    </change>
+    <change idref="t393" to="t383" to-position="1" resolved="yes">
+      <change idref="t393" attribute="internalAssignments" type="string" from="" to="3"/>
+      <change idref="t393" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t393" attribute="title" type="string" to="发货通知"/>
+    </change>
+    <change idref="t388" to="t383" to-position="2" resolved="yes">
+      <change idref="t388" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t388" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t388" attribute="title" type="string" to="一键补货"/>
+    </change>
+    <change idref="t389" to="t383" to-position="3" resolved="yes">
+      <change idref="t389" attribute="internalAssignments" type="string" from="" to="10"/>
+      <change idref="t389" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t389" attribute="title" type="string" to="授权产品"/>
+    </change>
+    <change idref="t390" to="t383" to-position="4" resolved="yes">
+      <change idref="t390" attribute="internalAssignments" type="string" from="" to="2"/>
+      <change idref="t390" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t390" attribute="title" type="string" to="供应商信息"/>
+    </change>
+    <change idref="t391" to="t383" to-position="5" resolved="yes">
+      <change idref="t391" attribute="internalAssignments" type="string" from="" to="2"/>
+      <change idref="t391" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t391" attribute="title" type="string" to="品牌信息"/>
+    </change>
+    <change idref="t392" to="t383" to-position="6" resolved="yes">
+      <change idref="t392" attribute="internalAssignments" type="string" from="" to="7"/>
+      <change idref="t392" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t392" attribute="title" type="string" to="产品调价"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Playguy" date="2015-09-01T07:19:26.338Z" timestamp="2015-09-01T07:19:26.338Z">
+    <change idref="t382" attribute="isGroup" type="real" from="0" to="1"/>
+    <change idref="t382" attribute="multiResourceWorkType" type="real" from="0"/>
+    <change idref="t382" attribute="isSplittableTask" type="real" from="1"/>
+    <change idref="t382" attribute="taskType" type="real" from="0" to="2"/>
+    <change idref="t382" attribute="resourceAssignmentType" type="real" from="0"/>
+    <change idref="t382" attribute="staticCost" type="real" from="0"/>
+    <change idref="t382" attribute="effort" type="real" from="28800"/>
+    <change idref="t382" attribute="isSplitChunk" type="real" from="0"/>
+    <change idref="t382" attribute="scheduleType" type="real" from="0"/>
+    <change idref="t382" attribute="internalAssignments" type="string" from=""/>
+    <change idref="t382" attribute="isSplitTask" type="real" from="0"/>
+    <change idref="t382" attribute="internalEffortDone" type="real" from="0"/>
+    <change idref="t410" to="t382" to-position="0">
+      <change idref="t410" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t410" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t410" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t410" attribute="title" type="string" to="品牌信息管理接口"/>
+    </change>
+    <change idref="t394" to="t382" to-position="1">
+      <change idref="t394" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t394" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t394" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t394" attribute="title" type="string" to="帮助与类别"/>
+    </change>
+    <change idref="t395" to="t382" to-position="2">
+      <change idref="t395" attribute="internalPrerequisitesString" type="string" to="394FS"/>
+      <change idref="t395" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t395" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t395" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t395" attribute="title" type="string" to="资讯与类别"/>
+    </change>
+    <change idref="t396" to="t382" to-position="3">
+      <change idref="t396" attribute="internalPrerequisitesString" type="string" to="395FS"/>
+      <change idref="t396" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t396" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t396" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t396" attribute="title" type="string" to="规则与类别"/>
+    </change>
+    <change idref="t397" to="t382" to-position="4">
+      <change idref="t397" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t397" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t397" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t397" attribute="title" type="string" to="广告与广告位"/>
+    </change>
+    <change idref="t398" to="t382" to-position="5">
+      <change idref="t398" attribute="internalPrerequisitesString" type="string" to="397FS"/>
+      <change idref="t398" attribute="isGroup" type="real" from="0" to="1"/>
+      <change idref="t398" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t398" attribute="taskType" type="real" from="0" to="2"/>
+      <change idref="t398" attribute="title" type="string" to="购买服务"/>
+    </change>
+    <change idref="t403" to="t395" to-position="0">
+      <change idref="t403" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t403" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t403" attribute="title" type="string" to="资讯信息"/>
+    </change>
+    <change idref="t404" to="t395" to-position="1">
+      <change idref="t404" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t404" attribute="internalPrerequisitesString" type="string" to="403FS"/>
+      <change idref="t404" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t404" attribute="title" type="string" to="资讯类别"/>
+    </change>
+    <change idref="t406" to="t396" to-position="0">
+      <change idref="t406" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t406" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t406" attribute="title" type="string" to="规则信息"/>
+    </change>
+    <change idref="t407" to="t396" to-position="1">
+      <change idref="t407" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t407" attribute="internalPrerequisitesString" type="string" to="406FS"/>
+      <change idref="t407" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t407" attribute="title" type="string" to="规则类别"/>
+    </change>
+    <change idref="t408" to="t397" to-position="0">
+      <change idref="t408" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t408" attribute="title" type="string" to="广告信息"/>
+    </change>
+    <change idref="t409" to="t397" to-position="1">
+      <change idref="t409" attribute="internalPrerequisitesString" type="string" to="408FS"/>
+      <change idref="t409" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t409" attribute="title" type="string" to="广告位信息"/>
+    </change>
+    <change idref="t399" to="t398" to-position="0">
+      <change idref="t399" attribute="internalAssignments" type="string" from="" to="5"/>
+      <change idref="t399" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t399" attribute="title" type="string" to="品牌商购买服务"/>
+    </change>
+    <change idref="t400" to="t398" to-position="1">
+      <change idref="t400" attribute="internalAssignments" type="string" from="" to="5"/>
+      <change idref="t400" attribute="internalPrerequisitesString" type="string" to="399FS"/>
+      <change idref="t400" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t400" attribute="title" type="string" to="终端商购买服务"/>
+    </change>
+    <change idref="t411" to="t410" to-position="0">
+      <change idref="t411" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t411" attribute="title" type="string" to="品牌信息查询"/>
+    </change>
+    <change idref="t412" to="t410" to-position="1">
+      <change idref="t412" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t412" attribute="title" type="string" to="处理申请(审核通过/审核不通过/取消/合作/终止合作)"/>
+    </change>
+    <change idref="t413" to="t410" to-position="2">
+      <change idref="t413" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t413" attribute="title" type="string" to="&gt;任务 1"/>
+    </change>
+    <change idref="t401" to="t394" to-position="0">
+      <change idref="t401" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t401" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t401" attribute="title" type="string" to="帮助信息"/>
+    </change>
+    <change idref="t402" to="t394" to-position="1">
+      <change idref="t402" attribute="internalAssignments" type="string" from="" to="8"/>
+      <change idref="t402" attribute="internalPrerequisitesString" type="string" to="401FS"/>
+      <change idref="t402" attribute="noEarlierThanConstraintDate" type="date" to="2015-09-01T00:00:00.000Z"/>
+      <change idref="t402" attribute="title" type="string" to="帮助类别"/>
+    </change>
+  </task-change-set>
+</changelog>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zttx.web.module.dealer.mapper.DealerServiceMapper">
+    <!-- 基础列 -->
+    <sql id="dealerServiceColumns">
+        a.refrenceId as refrenceId ,
+        a.dealerId as dealerId ,
+        a.serviceName as serviceName ,
+        a.userId as userId ,
+        a.serviceImage as serviceImage ,
+        a.domainName as domainName ,
+        a.serviceTel as serviceTel ,
+        a.jobNum as jobNum ,
+        a.serviceMobile as serviceMobile ,
+        a.userGender as userGender ,
+        a.serviceCate as serviceCate ,
+        a.createTime as createTime ,
+        a.updateTime as updateTime ,
+        a.delFlag as delFlag 
+    </sql>
+
+    <!-- 普通插入 -->
+    <insert id="insert" parameterType="com.zttx.web.module.dealer.entity.DealerService">
+        insert into DealerService(
+         refrenceId ,
+         dealerId ,
+         serviceName ,
+         userId ,
+         serviceImage ,
+         domainName ,
+         serviceTel ,
+         jobNum ,
+         serviceMobile ,
+         userGender ,
+         serviceCate ,
+         createTime ,
+         updateTime ,
+         delFlag 
+        ) VALUES (
+        #{refrenceId}  ,
+        #{dealerId}  ,
+        #{serviceName}  ,
+        #{userId}  ,
+        #{serviceImage}  ,
+        #{domainName}  ,
+        #{serviceTel}  ,
+        #{jobNum}  ,
+        #{serviceMobile}  ,
+        #{userGender}  ,
+        #{serviceCate}  ,
+        #{createTime}  ,
+        #{updateTime}  ,
+        #{delFlag}  
+        )
+    </insert>
+    <!-- 根据主键物理删除 -->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from DealerService where refrenceId = #{refrenceId}
+    </delete>
+
+    <!-- 根据主键逻辑删除 -->
+    <update id="delete" parameterType="java.lang.String">
+        update DealerService set delFlag = true where refrenceId = #{refrenceId}
+    </update>
+
+    <!--根据条件是否插入数据 -->
+    <insert id="insertSelective" parameterType="com.zttx.web.module.dealer.entity.DealerService">
+        insert into DealerService
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            refrenceId ,
+        </if>
+        <if test="dealerId != null">
+            dealerId ,
+        </if>
+        <if test="serviceName != null">
+            serviceName ,
+        </if>
+        <if test="userId != null">
+            userId ,
+        </if>
+        <if test="serviceImage != null">
+            serviceImage ,
+        </if>
+        <if test="domainName != null">
+            domainName ,
+        </if>
+        <if test="serviceTel != null">
+            serviceTel ,
+        </if>
+        <if test="jobNum != null">
+            jobNum ,
+        </if>
+        <if test="serviceMobile != null">
+            serviceMobile ,
+        </if>
+        <if test="userGender != null">
+            userGender ,
+        </if>
+        <if test="serviceCate != null">
+            serviceCate ,
+        </if>
+        <if test="createTime != null">
+            createTime ,
+        </if>
+        <if test="updateTime != null">
+            updateTime ,
+        </if>
+        <if test="delFlag != null">
+            delFlag 
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="refrenceId != null">
+            #{refrenceId} ,
+        </if>
+        <if test="dealerId != null">
+            #{dealerId} ,
+        </if>
+        <if test="serviceName != null">
+            #{serviceName} ,
+        </if>
+        <if test="userId != null">
+            #{userId} ,
+        </if>
+        <if test="serviceImage != null">
+            #{serviceImage} ,
+        </if>
+        <if test="domainName != null">
+            #{domainName} ,
+        </if>
+        <if test="serviceTel != null">
+            #{serviceTel} ,
+        </if>
+        <if test="jobNum != null">
+            #{jobNum} ,
+        </if>
+        <if test="serviceMobile != null">
+            #{serviceMobile} ,
+        </if>
+        <if test="userGender != null">
+            #{userGender} ,
+        </if>
+        <if test="serviceCate != null">
+            #{serviceCate} ,
+        </if>
+        <if test="createTime != null">
+            #{createTime} ,
+        </if>
+        <if test="updateTime != null">
+            #{updateTime} ,
+        </if>
+        <if test="delFlag != null">
+            #{delFlag} 
+        </if>
+        </trim>
+    </insert>
+
+    <!-- 选择性更新数据 -->
+    <update id="updateByPrimaryKeySelective" parameterType="com.zttx.web.module.dealer.entity.DealerService">
+        update DealerService
+           <set>
+            <if test="dealerId != null">
+                dealerId = #{dealerId} ,
+            </if>
+            <if test="serviceName != null">
+                serviceName = #{serviceName} ,
+            </if>
+            <if test="userId != null">
+                userId = #{userId} ,
+            </if>
+            <if test="serviceImage != null">
+                serviceImage = #{serviceImage} ,
+            </if>
+            <if test="domainName != null">
+                domainName = #{domainName} ,
+            </if>
+            <if test="serviceTel != null">
+                serviceTel = #{serviceTel} ,
+            </if>
+            <if test="jobNum != null">
+                jobNum = #{jobNum} ,
+            </if>
+            <if test="serviceMobile != null">
+                serviceMobile = #{serviceMobile} ,
+            </if>
+            <if test="userGender != null">
+                userGender = #{userGender} ,
+            </if>
+            <if test="serviceCate != null">
+                serviceCate = #{serviceCate} ,
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime} ,
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime} ,
+            </if>
+            <if test="delFlag != null">
+                delFlag = #{delFlag} 
+            </if>
+           </set>
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键更新一条信息所有数据 -->
+    <update id="updateByPrimaryKey" parameterType="com.zttx.web.module.dealer.entity.DealerService">
+        update DealerService set
+            dealerId = #{dealerId} ,
+            serviceName = #{serviceName} ,
+            userId = #{userId} ,
+            serviceImage = #{serviceImage} ,
+            domainName = #{domainName} ,
+            serviceTel = #{serviceTel} ,
+            jobNum = #{jobNum} ,
+            serviceMobile = #{serviceMobile} ,
+            userGender = #{userGender} ,
+            serviceCate = #{serviceCate} ,
+            createTime = #{createTime} ,
+            updateTime = #{updateTime} ,
+            delFlag = #{delFlag} 
+        where refrenceId = #{refrenceId}
+    </update>
+
+    <!-- 根据主键取数据 -->
+    <select id="selectByPrimaryKey"  parameterType="java.lang.String" resultType="com.zttx.web.module.dealer.entity.DealerService">
+        select <include refid="dealerServiceColumns"/> from DealerService a where a.refrenceId = #{refrenceId}
+    </select>
+
+    <!-- 可分页的对象查询 -->
+    <select id="findList" resultType="com.zttx.web.module.dealer.entity.DealerService">
+        SELECT
+        <include refid="dealerServiceColumns"/>
+        FROM DealerService a WHERE a.delFlag = 0
+        <if test="dealerId != null and dealerId != ''">
+            and a.dealerId = #{dealerId}
+        </if>
+        <if test="serviceName != null and serviceName != ''">
+            and a.serviceName like CONCAT('%',#{serviceName}, '%')
+        </if>
+        <if test="userId != null and userId != ''">
+            and a.userId = #{userId}
+        </if>
+        <if test="serviceImage != null and serviceImage != ''">
+            and a.serviceImage like CONCAT('%',#{serviceImage}, '%')
+        </if>
+        <if test="domainName != null and domainName != ''">
+            and a.domainName like CONCAT('%',#{domainName}, '%')
+        </if>
+        <if test="serviceTel != null and serviceTel != ''">
+            and a.serviceTel like CONCAT('%',#{serviceTel}, '%')
+        </if>
+        <if test="jobNum != null and jobNum != ''">
+            and a.jobNum like CONCAT('%',#{jobNum}, '%')
+        </if>
+        <if test="serviceMobile != null and serviceMobile != ''">
+            and a.serviceMobile like CONCAT('%',#{serviceMobile}, '%')
+        </if>
+        <if test="userGender != null and userGender != ''">
+            and a.userGender = #{userGender}
+        </if>
+        <if test="serviceCate != null and serviceCate != ''">
+            and a.serviceCate = #{serviceCate}
+        </if>
+        <if test="createTime != null and createTime != ''">
+            and a.createTime = #{createTime}
+        </if>
+        <if test="updateTime != null and updateTime != ''">
+            and a.updateTime = #{updateTime}
+        </if>
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="com.zttx.web.module.dealer.entity.DealerService">
+        SELECT
+        <include refid="dealerServiceColumns"/>
+        FROM DealerService a WHERE a.delFlag = 0
+    </select>
+    
+    <!-- 根据客服ID修改所有该客服信息 -->
+    <update id="updateDealerServiceByUserId" parameterType="com.zttx.web.module.dealer.entity.DealerService">
+        update DealerService set
+            serviceName = #{serviceName} ,
+            serviceImage = #{serviceImage} ,
+            domainName = #{domainName} ,
+            userGender = #{userGender} ,
+            jobNum = #{jobNum} ,
+            serviceTel = #{serviceTel} ,
+            serviceMobile = #{serviceMobile} ,
+            serviceCate = #{serviceCate} ,
+            updateTime = #{updateTime} 
+        where userId = #{userId}
+    </update>
+</mapper>
+
